@@ -21,3 +21,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Admin Sudah Login
+Route::middleware('AdminUp')->group(function () {
+
+});
+
+// Admin Belum Login
+Route::middleware('AdminDown')->group(function () {
+
+});
