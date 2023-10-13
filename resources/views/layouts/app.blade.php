@@ -12,9 +12,13 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"
+            integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
 </head>
 <body>
     <div id="app">
@@ -77,4 +81,14 @@
         </main>
     </div>
 </body>
+@if (session('message'))
+<script>
+    Swal.fire( {
+        icon: "{{ session('message')['icon'] ?? 'success' }}",
+        title: "{{ session('message')['title'] ?? 'Oops' }}",
+        text: "{{ session('message')['text'] ?? 'Success' }}",
+    })
+</script>
+
+@endif
 </html>
