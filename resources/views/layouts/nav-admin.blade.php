@@ -1,5 +1,8 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-layout="vertical" data-sidebar="light"
+  data-sidebar-size="sm-hover" data-sidebar-image="none" data-preloader="enable" data-bs-theme="light"
+  data-layout-width="fluid" data-layout-position="scrollable" data-layout-style="default" data-topbar="light"
+  data-sidebar-visibility="show">
 
 <head>
   <meta charset="utf-8">
@@ -28,487 +31,610 @@
   <link rel="stylesheet" href="{{ asset('css/auth/auth.css') }}">
   <link rel="stylesheet" href="{{ asset('css/global/global.css') }}">
 
-  <!-- Owl Carousel  -->
-  <link rel="stylesheet" href="{{ asset('dist/libs/owl.carousel/dist/assets/owl.carousel.min.css') }}">
+  <!-- jsvectormap css -->
+  <link href="{{ asset('assets/libs/jsvectormap/css/jsvectormap.min.css') }}" rel="stylesheet" type="text/css" />
 
-  <!-- Core Css -->
-  <link id="themeColors" rel="stylesheet" href="{{ asset('dist/css/style.min.css') }}" />
+  <!--Swiper slider css-->
+  <link href="{{ asset('assets/libs/swiper/swiper-bundle.min.css') }}" rel="stylesheet" type="text/css" />
 
+  <!-- Layout config Js -->
+  <script src="{{ asset('assets/js/layout.js') }}"></script>
+  <!-- Bootstrap Css -->
+  <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+  <!-- Icons Css -->
+  <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+  <!-- App Css-->
+  <link href="{{ asset('assets/css/app.min.css') }}" rel="stylesheet" type="text/css" />
+  <!-- custom Css-->
+  <link href="{{ asset('assets/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
+  <!-- Begin page -->
+  <div id="layout-wrapper">
 
-  {{-- PRELOAD --}}
-  <div class="preloader">
-    <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/logos/favicon.ico"
-      alt="loader" class="lds-ripple img-fluid" />
-  </div>
-  <div class="preloader">
-    <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/logos/favicon.ico"
-      alt="loader" class="lds-ripple img-fluid" />
-  </div>
-  {{-- END PRELOAD --}}
+    <header id="page-topbar">
+      <div class="layout-width">
+        <div class="navbar-header">
+          <div class="d-flex">
+            <!-- LOGO -->
+            <div class="navbar-brand-box horizontal-logo">
+              <a href="index.html" class="logo logo-dark">
+                <span class="logo-sm">
+                  <img src="assets/images/logo-sm.png" alt="" height="22">
+                </span>
+                <span class="logo-lg">
+                  <img src="assets/images/logo-dark.png" alt="" height="17">
+                </span>
+              </a>
 
-  {{-- HEADER AND SIDEBAR --}}
-  <div class="page-wrapper" id="main-wrapper" data-theme="blue_theme" data-layout="vertical" data-sidebartype="full"
-    data-sidebar-position="fixed" data-header-position="fixed">
-    <!-- Sidebar Start -->
-    <aside class="left-sidebar">
-      <!-- Sidebar scroll-->
-      <div>
-        <div class="brand-logo d-flex align-items-center justify-content-between">
-          <a href="{{route('home')}}" class="text-nowrap logo-img">
-            <img
-              src="{{asset('image/logo-text.png')}}"
-              class="dark-logo" width="180" alt="" />
-            <img
-              src="{{asset('image/logo-text.png')}}"
-              class="light-logo" width="180" alt="" />
-          </a>
-          <div class="close-btn d-lg-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
-            <i class="ti ti-x fs-8 text-muted"></i>
+              <a href="index.html" class="logo logo-light">
+                <span class="logo-sm">
+                  <img src="assets/images/logo-sm.png" alt="" height="22">
+                </span>
+                <span class="logo-lg">
+                  <img src="assets/images/logo-light.png" alt="" height="17">
+                </span>
+              </a>
+            </div>
+
+            <button type="button" class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger"
+              id="topnav-hamburger-icon">
+              <span class="hamburger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+            </button>
+          </div>
+
+          <div class="d-flex align-items-center">
+            <div class="dropdown ms-sm-3 header-item topbar-user">
+              <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <span class="d-flex align-items-center">
+                  <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-1.jpg"
+                    alt="Header Avatar">
+                  <span class="text-start ms-xl-2">
+                    <span class="d-none d-xl-inline-block ms-1 fw-semibold user-name-text">{{Auth::user()->name}}</span>
+                  </span>
+                </span>
+              </button>
+              <div class="dropdown-menu dropdown-menu-end">
+                <a class="dropdown-item" href="pages-profile.html"><i
+                    class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span
+                    class="align-middle">Profile</span></a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span class="align-middle" data-key="t-logout">Logout</span></a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
+                </form>
+              </div>
+            </div>
           </div>
         </div>
-        <!-- Sidebar navigation-->
-        <nav class="sidebar-nav scroll-sidebar" data-simplebar>
-          <ul id="sidebarnav">
-            <!-- ============================= -->
-            <!-- Home -->
-            <!-- ============================= -->
-            {{-- <li class="nav-small-cap">
-              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-              <span class="hide-menu">Home</span>
-            </li> --}}
-            <!-- =================== -->
-            <!-- Dashboard -->
-            <!-- =================== -->
-            <li class="sidebar-item">
-              <a class="sidebar-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}" aria-expanded="false">
-                <span>
-                  <i class="ti ti-aperture"></i>
-                </span>
-                <span class="hide-menu">Dashboard</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="index2.html" aria-expanded="false">
-                <span>
-                  <i class="ti ti-shopping-cart"></i>
-                </span>
-                <span class="hide-menu">Siswa</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="index3.html" aria-expanded="false">
-                <span>
-                  <i class="ti ti-currency-dollar"></i>
-                </span>
-                <span class="hide-menu">Kategori</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <!-- End Sidebar navigation -->
       </div>
-      <!-- End Sidebar scroll-->
-    </aside>
-    <!--  Sidebar End -->
+    </header>
+    <!-- ========== App Menu ========== -->
+    <div class="app-menu navbar-menu">
+      <!-- LOGO -->
+      <div class="navbar-brand-box">
+        <!-- Dark Logo-->
+        <a href="index.html" class="logo logo-dark">
+          <span class="logo-sm">
+            <img src="assets/images/logo-sm.png" alt="" height="22">
+          </span>
+          <span class="logo-lg">
+            <img src="assets/images/logo-dark.png" alt="" height="17">
+          </span>
+        </a>
+        <!-- Light Logo-->
+        <a href="index.html" class="logo logo-light">
+          <span class="logo-sm">
+            <img src="assets/images/logo-sm.png" alt="" height="22">
+          </span>
+          <span class="logo-lg">
+            <img src="assets/images/logo-light.png" alt="" height="17">
+          </span>
+        </a>
+        <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
+          id="vertical-hover">
+          <i class="ri-record-circle-line"></i>
+        </button>
+      </div>
 
-    <!--  Main wrapper -->
-    <div class="body-wrapper">
-      <!--  Header Start -->
-      <header class="app-header">
-        <nav class="navbar navbar-expand-lg navbar-light">
-          <ul class="navbar-nav">
+      <div id="scrollbar">
+        <div class="container-fluid">
+
+          <div id="two-column-menu">
+          </div>
+          <ul class="navbar-nav" id="navbar-nav">
+            <li class="menu-title"><span data-key="t-menu">Menu</span></li>
             <li class="nav-item">
-              <a class="nav-link sidebartoggler nav-icon-hover ms-n3" id="headerCollapse" href="javascript:void(0)">
-                <i class="ti ti-menu-2"></i>
+              <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button"
+                aria-expanded="false" aria-controls="sidebarDashboards">
+                <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Dashboards</span>
               </a>
-            </li>
-          </ul>
-          <ul class="navbar-nav quick-links d-none d-lg-flex">
-            <li class="nav-item dropdown hover-dd d-none d-lg-block">
-              <a class="nav-link" href="javascript:void(0)" data-bs-toggle="dropdown">Apps<span class="mt-1"><i
-                    class="ti ti-chevron-down"></i></span></a>
-              <div class="dropdown-menu dropdown-menu-nav dropdown-menu-animate-up py-0">
-                <div class="row">
-                  <div class="col-8">
-                    <div class=" ps-7 pt-7">
-                      <div class="border-bottom">
-                        <div class="row">
-                          <div class="col-6">
-                            <div class="position-relative">
-                              <a href="app-chat.html"
-                                class="d-flex align-items-center pb-9 position-relative text-decoration-none text-decoration-none text-decoration-none text-decoration-none">
-                                <div
-                                  class="bg-light rounded-1 me-3 p-6 d-flex align-items-center justify-content-center">
-                                  <img
-                                    src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/svgs/icon-dd-chat.svg"
-                                    alt="" class="img-fluid" width="24" height="24">
-                                </div>
-                                <div class="d-inline-block">
-                                  <h6 class="mb-1 fw-semibold bg-hover-primary">Chat Application</h6>
-                                  <span class="fs-2 d-block text-dark">New messages arrived</span>
-                                </div>
-                              </a>
-                              <a href="app-invoice.html"
-                                class="d-flex align-items-center pb-9 position-relative text-decoration-none text-decoration-none text-decoration-none text-decoration-none">
-                                <div
-                                  class="bg-light rounded-1 me-3 p-6 d-flex align-items-center justify-content-center">
-                                  <img
-                                    src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/svgs/icon-dd-invoice.svg"
-                                    alt="" class="img-fluid" width="24" height="24">
-                                </div>
-                                <div class="d-inline-block">
-                                  <h6 class="mb-1 fw-semibold bg-hover-primary">Invoice App</h6>
-                                  <span class="fs-2 d-block text-dark">Get latest invoice</span>
-                                </div>
-                              </a>
-                              <a href="app-contact2.html"
-                                class="d-flex align-items-center pb-9 position-relative text-decoration-none text-decoration-none text-decoration-none text-decoration-none">
-                                <div
-                                  class="bg-light rounded-1 me-3 p-6 d-flex align-items-center justify-content-center">
-                                  <img
-                                    src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/svgs/icon-dd-mobile.svg"
-                                    alt="" class="img-fluid" width="24" height="24">
-                                </div>
-                                <div class="d-inline-block">
-                                  <h6 class="mb-1 fw-semibold bg-hover-primary">Contact Application</h6>
-                                  <span class="fs-2 d-block text-dark">2 Unsaved Contacts</span>
-                                </div>
-                              </a>
-                              <a href="app-email.html"
-                                class="d-flex align-items-center pb-9 position-relative text-decoration-none text-decoration-none text-decoration-none text-decoration-none">
-                                <div
-                                  class="bg-light rounded-1 me-3 p-6 d-flex align-items-center justify-content-center">
-                                  <img
-                                    src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/svgs/icon-dd-message-box.svg"
-                                    alt="" class="img-fluid" width="24" height="24">
-                                </div>
-                                <div class="d-inline-block">
-                                  <h6 class="mb-1 fw-semibold bg-hover-primary">Email App</h6>
-                                  <span class="fs-2 d-block text-dark">Get new emails</span>
-                                </div>
-                              </a>
-                            </div>
+              <div class="collapse menu-dropdown" id="sidebarDashboards">
+                <ul class="nav nav-sm flex-column">
+                  <li class="nav-item">
+                    <a href="dashboard-analytics.html" class="nav-link" data-key="t-analytics"> Analytics </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="dashboard-crm.html" class="nav-link" data-key="t-crm"> CRM </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-key="t-ecommerce"> Ecommerce </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="dashboard-crypto.html" class="nav-link" data-key="t-crypto"> Crypto </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="dashboard-projects.html" class="nav-link" data-key="t-projects"> Projects </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="dashboard-nft.html" class="nav-link" data-key="t-nft"> NFT</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="dashboard-job.html" class="nav-link" data-key="t-job">Job</a>
+                  </li>
+                </ul>
+              </div>
+            </li> <!-- end Dashboard Menu -->
+            <li class="nav-item">
+              <a class="nav-link menu-link" href="#sidebarApps" data-bs-toggle="collapse" role="button"
+                aria-expanded="false" aria-controls="sidebarApps">
+                <i class="ri-apps-2-line"></i> <span data-key="t-apps">Apps</span>
+              </a>
+              <div class="collapse menu-dropdown" id="sidebarApps">
+                <ul class="nav nav-sm flex-column">
+                  <li class="nav-item">
+                    <a href="apps-calendar.html" class="nav-link" data-key="t-calendar"> Calendar </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="apps-chat.html" class="nav-link" data-key="t-chat"> Chat </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#sidebarEmail" class="nav-link" data-bs-toggle="collapse" role="button"
+                      aria-expanded="false" aria-controls="sidebarEmail" data-key="t-email">
+                      Email
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarEmail">
+                      <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                          <a href="apps-mailbox.html" class="nav-link" data-key="t-mailbox"> Mailbox </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="#sidebaremailTemplates" class="nav-link" data-bs-toggle="collapse" role="button"
+                            aria-expanded="false" aria-controls="sidebaremailTemplates" data-key="t-email-templates">
+                            Email Templates
+                          </a>
+                          <div class="collapse menu-dropdown" id="sidebaremailTemplates">
+                            <ul class="nav nav-sm flex-column">
+                              <li class="nav-item">
+                                <a href="apps-email-basic.html" class="nav-link" data-key="t-basic-action"> Basic
+                                  Action </a>
+                              </li>
+                              <li class="nav-item">
+                                <a href="apps-email-ecommerce.html" class="nav-link" data-key="t-ecommerce-action">
+                                  Ecommerce Action </a>
+                              </li>
+                            </ul>
                           </div>
-                          <div class="col-6">
-                            <div class="position-relative">
-                              <a href="page-user-profile.html"
-                                class="d-flex align-items-center pb-9 position-relative text-decoration-none text-decoration-none text-decoration-none text-decoration-none">
-                                <div
-                                  class="bg-light rounded-1 me-3 p-6 d-flex align-items-center justify-content-center">
-                                  <img
-                                    src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/svgs/icon-dd-cart.svg"
-                                    alt="" class="img-fluid" width="24" height="24">
-                                </div>
-                                <div class="d-inline-block">
-                                  <h6 class="mb-1 fw-semibold bg-hover-primary">User Profile</h6>
-                                  <span class="fs-2 d-block text-dark">learn more information</span>
-                                </div>
-                              </a>
-                              <a href="app-calendar.html"
-                                class="d-flex align-items-center pb-9 position-relative text-decoration-none text-decoration-none text-decoration-none text-decoration-none">
-                                <div
-                                  class="bg-light rounded-1 me-3 p-6 d-flex align-items-center justify-content-center">
-                                  <img
-                                    src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/svgs/icon-dd-date.svg"
-                                    alt="" class="img-fluid" width="24" height="24">
-                                </div>
-                                <div class="d-inline-block">
-                                  <h6 class="mb-1 fw-semibold bg-hover-primary">Calendar App</h6>
-                                  <span class="fs-2 d-block text-dark">Get dates</span>
-                                </div>
-                              </a>
-                              <a href="app-contact.html"
-                                class="d-flex align-items-center pb-9 position-relative text-decoration-none text-decoration-none text-decoration-none text-decoration-none">
-                                <div
-                                  class="bg-light rounded-1 me-3 p-6 d-flex align-items-center justify-content-center">
-                                  <img
-                                    src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/svgs/icon-dd-lifebuoy.svg"
-                                    alt="" class="img-fluid" width="24" height="24">
-                                </div>
-                                <div class="d-inline-block">
-                                  <h6 class="mb-1 fw-semibold bg-hover-primary">Contact List Table</h6>
-                                  <span class="fs-2 d-block text-dark">Add new contact</span>
-                                </div>
-                              </a>
-                              <a href="app-notes.html"
-                                class="d-flex align-items-center pb-9 position-relative text-decoration-none text-decoration-none text-decoration-none text-decoration-none">
-                                <div
-                                  class="bg-light rounded-1 me-3 p-6 d-flex align-items-center justify-content-center">
-                                  <img
-                                    src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/svgs/icon-dd-application.svg"
-                                    alt="" class="img-fluid" width="24" height="24">
-                                </div>
-                                <div class="d-inline-block">
-                                  <h6 class="mb-1 fw-semibold bg-hover-primary">Notes Application</h6>
-                                  <span class="fs-2 d-block text-dark">To-do and Daily tasks</span>
-                                </div>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row align-items-center py-3">
-                        <div class="col-8">
-                          <a class="fw-semibold text-dark d-flex align-items-center lh-1 text-decoration-none"
-                            href="#"><i class="ti ti-help fs-6 me-2"></i>Frequently Asked Questions</a>
-                        </div>
-                        <div class="col-4">
-                          <div class="d-flex justify-content-end pe-4">
-                            <button class="btn btn-primary">Check</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-4 ms-n4">
-                    <div class="position-relative p-7 border-start h-100">
-                      <h5 class="fs-5 mb-9 fw-semibold">Quick Links</h5>
-                      <ul class="">
-                        <li class="mb-3">
-                          <a class="fw-semibold text-dark bg-hover-primary text-decoration-none text-decoration-none text-decoration-none text-decoration-none"
-                            href="page-pricing.html">Pricing Page</a>
-                        </li>
-                        <li class="mb-3">
-                          <a class="fw-semibold text-dark bg-hover-primary text-decoration-none text-decoration-none text-decoration-none text-decoration-none"
-                            href="authentication-login.html">Authentication Design</a>
-                        </li>
-                        <li class="mb-3">
-                          <a class="fw-semibold text-dark bg-hover-primary text-decoration-none text-decoration-none text-decoration-none text-decoration-none"
-                            href="authentication-register.html">Register Now</a>
-                        </li>
-                        <li class="mb-3">
-                          <a class="fw-semibold text-dark bg-hover-primary text-decoration-none text-decoration-none text-decoration-none text-decoration-none"
-                            href="authentication-error.html">404 Error Page</a>
-                        </li>
-                        <li class="mb-3">
-                          <a class="fw-semibold text-dark bg-hover-primary text-decoration-none text-decoration-none text-decoration-none text-decoration-none"
-                            href="app-notes.html">Notes App</a>
-                        </li>
-                        <li class="mb-3">
-                          <a class="fw-semibold text-dark bg-hover-primary text-decoration-none text-decoration-none text-decoration-none text-decoration-none"
-                            href="page-user-profile.html">User Application</a>
-                        </li>
-                        <li class="mb-3">
-                          <a class="fw-semibold text-dark bg-hover-primary text-decoration-none text-decoration-none text-decoration-none text-decoration-none"
-                            href="page-account-settings.html">Account Settings</a>
                         </li>
                       </ul>
                     </div>
-                  </div>
-                </div>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#sidebarEcommerce" class="nav-link" data-bs-toggle="collapse" role="button"
+                      aria-expanded="false" aria-controls="sidebarEcommerce" data-key="t-ecommerce"> Ecommerce
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarEcommerce">
+                      <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                          <a href="apps-ecommerce-products.html" class="nav-link" data-key="t-products"> Products
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="apps-ecommerce-product-details.html" class="nav-link"
+                            data-key="t-product-Details"> Product Details </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="apps-ecommerce-add-product.html" class="nav-link" data-key="t-create-product">
+                            Create Product </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="apps-ecommerce-orders.html" class="nav-link" data-key="t-orders"> Orders </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="apps-ecommerce-order-details.html" class="nav-link" data-key="t-order-details">
+                            Order Details </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="apps-ecommerce-customers.html" class="nav-link" data-key="t-customers"> Customers
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="apps-ecommerce-cart.html" class="nav-link" data-key="t-shopping-cart"> Shopping
+                            Cart </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="apps-ecommerce-checkout.html" class="nav-link" data-key="t-checkout"> Checkout
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="apps-ecommerce-sellers.html" class="nav-link" data-key="t-sellers"> Sellers </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="apps-ecommerce-seller-details.html" class="nav-link" data-key="t-sellers-details">
+                            Seller Details </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#sidebarProjects" class="nav-link" data-bs-toggle="collapse" role="button"
+                      aria-expanded="false" aria-controls="sidebarProjects" data-key="t-projects"> Projects
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarProjects">
+                      <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                          <a href="apps-projects-list.html" class="nav-link" data-key="t-list"> List </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="apps-projects-overview.html" class="nav-link" data-key="t-overview"> Overview </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="apps-projects-create.html" class="nav-link" data-key="t-create-project"> Create
+                            Project </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#sidebarTasks" class="nav-link" data-bs-toggle="collapse" role="button"
+                      aria-expanded="false" aria-controls="sidebarTasks" data-key="t-tasks"> Tasks
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarTasks">
+                      <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                          <a href="apps-tasks-kanban.html" class="nav-link" data-key="t-kanbanboard"> Kanban Board
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="apps-tasks-list-view.html" class="nav-link" data-key="t-list-view"> List View </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="apps-tasks-details.html" class="nav-link" data-key="t-task-details"> Task Details
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#sidebarCRM" class="nav-link" data-bs-toggle="collapse" role="button"
+                      aria-expanded="false" aria-controls="sidebarCRM" data-key="t-crm"> CRM
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarCRM">
+                      <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                          <a href="apps-crm-contacts.html" class="nav-link" data-key="t-contacts"> Contacts </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="apps-crm-companies.html" class="nav-link" data-key="t-companies"> Companies </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="apps-crm-deals.html" class="nav-link" data-key="t-deals"> Deals </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="apps-crm-leads.html" class="nav-link" data-key="t-leads"> Leads </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#sidebarCrypto" class="nav-link" data-bs-toggle="collapse" role="button"
+                      aria-expanded="false" aria-controls="sidebarCrypto" data-key="t-crypto"> Crypto
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarCrypto">
+                      <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                          <a href="apps-crypto-transactions.html" class="nav-link" data-key="t-transactions">
+                            Transactions </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="apps-crypto-buy-sell.html" class="nav-link" data-key="t-buy-sell"> Buy & Sell
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="apps-crypto-orders.html" class="nav-link" data-key="t-orders"> Orders </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="apps-crypto-wallet.html" class="nav-link" data-key="t-my-wallet"> My Wallet
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="apps-crypto-ico.html" class="nav-link" data-key="t-ico-list"> ICO List </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="apps-crypto-kyc.html" class="nav-link" data-key="t-kyc-application"> KYC
+                            Application </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#sidebarInvoices" class="nav-link" data-bs-toggle="collapse" role="button"
+                      aria-expanded="false" aria-controls="sidebarInvoices" data-key="t-invoices"> Invoices
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarInvoices">
+                      <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                          <a href="apps-invoices-list.html" class="nav-link" data-key="t-list-view"> List View
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="apps-invoices-details.html" class="nav-link" data-key="t-details"> Details </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="apps-invoices-create.html" class="nav-link" data-key="t-create-invoice"> Create
+                            Invoice </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#sidebarTickets" class="nav-link" data-bs-toggle="collapse" role="button"
+                      aria-expanded="false" aria-controls="sidebarTickets" data-key="t-supprt-tickets"> Support
+                      Tickets
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarTickets">
+                      <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                          <a href="apps-tickets-list.html" class="nav-link" data-key="t-list-view"> List View </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="apps-tickets-details.html" class="nav-link" data-key="t-ticket-details"> Ticket
+                            Details </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#sidebarnft" class="nav-link" data-bs-toggle="collapse" role="button"
+                      aria-expanded="false" aria-controls="sidebarnft" data-key="t-nft-marketplace">
+                      NFT Marketplace
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarnft">
+                      <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                          <a href="apps-nft-marketplace.html" class="nav-link" data-key="t-marketplace">
+                            Marketplace </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="apps-nft-explore.html" class="nav-link" data-key="t-explore-now"> Explore Now
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="apps-nft-auction.html" class="nav-link" data-key="t-live-auction"> Live Auction
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="apps-nft-item-details.html" class="nav-link" data-key="t-item-details"> Item
+                            Details </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="apps-nft-collections.html" class="nav-link" data-key="t-collections">
+                            Collections </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="apps-nft-creators.html" class="nav-link" data-key="t-creators"> Creators </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="apps-nft-ranking.html" class="nav-link" data-key="t-ranking"> Ranking </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="apps-nft-wallet.html" class="nav-link" data-key="t-wallet-connect"> Wallet
+                            Connect </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="apps-nft-create.html" class="nav-link" data-key="t-create-nft"> Create NFT </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                    <a href="apps-file-manager.html" class="nav-link"> <span data-key="t-file-manager">File
+                        Manager</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="apps-todo.html" class="nav-link"> <span data-key="t-to-do">To Do</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#sidebarjobs" class="nav-link" data-bs-toggle="collapse" role="button"
+                      aria-expanded="false" aria-controls="sidebarjobs" data-key="t-jobs"> Jobs</a>
+                    <div class="collapse menu-dropdown" id="sidebarjobs">
+                      <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                          <a href="apps-job-statistics.html" class="nav-link" data-key="t-statistics"> Statistics
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="#sidebarJoblists" class="nav-link" data-bs-toggle="collapse" role="button"
+                            aria-expanded="false" aria-controls="sidebarJoblists" data-key="t-job-lists">
+                            Job Lists
+                          </a>
+                          <div class="collapse menu-dropdown" id="sidebarJoblists">
+                            <ul class="nav nav-sm flex-column">
+                              <li class="nav-item">
+                                <a href="apps-job-lists.html" class="nav-link" data-key="t-list"> List
+                                </a>
+                              </li>
+                              <li class="nav-item">
+                                <a href="apps-job-grid-lists.html" class="nav-link" data-key="t-grid"> Grid </a>
+                              </li>
+                              <li class="nav-item">
+                                <a href="apps-job-details.html" class="nav-link" data-key="t-overview">
+                                  Overview</a>
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                        <li class="nav-item">
+                          <a href="#sidebarCandidatelists" class="nav-link" data-bs-toggle="collapse" role="button"
+                            aria-expanded="false" aria-controls="sidebarCandidatelists" data-key="t-candidate-lists">
+                            Candidate Lists
+                          </a>
+                          <div class="collapse menu-dropdown" id="sidebarCandidatelists">
+                            <ul class="nav nav-sm flex-column">
+                              <li class="nav-item">
+                                <a href="apps-job-candidate-lists.html" class="nav-link" data-key="t-list-view">
+                                  List View
+                                </a>
+                              </li>
+                              <li class="nav-item">
+                                <a href="apps-job-candidate-grid.html" class="nav-link" data-key="t-grid-view">
+                                  Grid View</a>
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                        <li class="nav-item">
+                          <a href="apps-job-application.html" class="nav-link" data-key="t-application">
+                            Application </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="apps-job-new.html" class="nav-link" data-key="t-new-job"> New Job </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="apps-job-companies-lists.html" class="nav-link" data-key="t-companies-list">
+                            Companies List </a>
+                        </li>
+                        <li class="nav-item">
+                          <a href="apps-job-categories.html" class="nav-link" data-key="t-job-categories"> Job
+                            Categories</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                    <a href="apps-api-key.html" class="nav-link" data-key="t-api-key">API Key</a>
+                  </li>
+                </ul>
               </div>
             </li>
-            <li class="nav-item dropdown-hover d-none d-lg-block">
-              <a class="nav-link" href="">Chat</a>
-            </li>
-            <li class="nav-item dropdown-hover d-none d-lg-block">
-              <a class="nav-link" href="">Calendar</a>
-            </li>
-            <li class="nav-item dropdown-hover d-none d-lg-block">
-              <a class="nav-link" href="">Email</a>
-            </li>
+
+            <li class="nav-item">
+              <a class="nav-link menu-link" href="#sidebarLayouts" data-bs-toggle="collapse" role="button"
+                aria-expanded="false" aria-controls="sidebarLayouts">
+                <i class="ri-layout-3-line"></i> <span data-key="t-layouts">Layouts</span> <span
+                  class="badge badge-pill bg-danger" data-key="t-hot">Hot</span>
+              </a>
+              <div class="collapse menu-dropdown" id="sidebarLayouts">
+                <ul class="nav nav-sm flex-column">
+                  <li class="nav-item">
+                    <a href="layouts-horizontal.html" target="_blank" class="nav-link"
+                      data-key="t-horizontal">Horizontal</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="layouts-detached.html" target="_blank" class="nav-link"
+                      data-key="t-detached">Detached</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="layouts-two-column.html" target="_blank" class="nav-link" data-key="t-two-column">Two
+                      Column</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="layouts-vertical-hovered.html" target="_blank" class="nav-link"
+                      data-key="t-hovered">Hovered</a>
+                  </li>
+                </ul>
+              </div>
+            </li> <!-- end Dashboard Menu -->
+
           </ul>
-          <div class="d-block d-lg-none">
-            <img
-              src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/logos/dark-logo.svg"
-              class="dark-logo" width="180" alt="" />
-            <img
-              src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/logos/light-logo.svg"
-              class="light-logo" width="180" alt="" />
-          </div>
-          <button class="navbar-toggler p-0 border-0" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="p-2">
-              <i class="ti ti-dots fs-7"></i>
-            </span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <div class="d-flex align-items-center justify-content-between">
-              <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-center">
-                <li class="nav-item dropdown">
-                  <a class="nav-link pe-0" href="javascript:void(0)" id="drop1" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    <div class="d-flex align-items-center">
-                      <div class="user-profile-img">
-                        <img src="../../dist/images/profile/user-1.jpg" class="rounded-circle" width="35"
-                          height="35" alt="" />
-                      </div>
-                    </div>
-                  </a>
-                  <div class="dropdown-menu content-dd dropdown-menu-end dropdown-menu-animate-up"
-                    aria-labelledby="drop1">
-                    <div class="profile-dropdown position-relative" data-simplebar>
-                      <div class="py-3 px-7 pb-0">
-                        <h5 class="mb-0 fs-5 fw-semibold">HummaCertify</h5>
-                      </div>
-                      <div class="d-flex align-items-center py-9 mx-7 border-bottom">
-                        <img src="../../dist/images/profile/user-1.jpg" class="rounded-circle" width="80"
-                          height="80" alt="" />
-                        <div class="ms-3">
-                          <h5 class="mb-1 fs-3">{{ Auth::guard('admin')->user()->name }}</h5>
-                          <p class="mb-0 d-flex text-dark align-items-center gap-2">
-                            <i class="ti ti-mail fs-4"></i> {{ Auth::guard('admin')->user()->email }}
-                          </p>
-                        </div>
-                      </div>
-                      {{-- <div class="message-body">
-                        <a href="page-user-profile.html" class="py-8 px-7 mt-8 d-flex align-items-center">
-                          <span class="d-flex align-items-center justify-content-center bg-light rounded-1 p-6">
-                            <img
-                              src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/svgs/icon-account.svg"
-                              alt="" width="24" height="24">
-                          </span>
-                          <div class="w-75 d-inline-block v-middle ps-3">
-                            <h6 class="mb-1 bg-hover-primary fw-semibold"> My Profile </h6>
-                            <span class="d-block text-dark">Account Settings</span>
-                          </div>
-                        </a>
-                        <a href="app-email.html" class="py-8 px-7 d-flex align-items-center">
-                          <span class="d-flex align-items-center justify-content-center bg-light rounded-1 p-6">
-                            <img
-                              src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/svgs/icon-inbox.svg"
-                              alt="" width="24" height="24">
-                          </span>
-                          <div class="w-75 d-inline-block v-middle ps-3">
-                            <h6 class="mb-1 bg-hover-primary fw-semibold">My Inbox</h6>
-                            <span class="d-block text-dark">Messages & Emails</span>
-                          </div>
-                        </a>
-                        <a href="app-notes.html" class="py-8 px-7 d-flex align-items-center">
-                          <span class="d-flex align-items-center justify-content-center bg-light rounded-1 p-6">
-                            <img
-                              src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/svgs/icon-tasks.svg"
-                              alt="" width="24" height="24">
-                          </span>
-                          <div class="w-75 d-inline-block v-middle ps-3">
-                            <h6 class="mb-1 bg-hover-primary fw-semibold">My Task</h6>
-                            <span class="d-block text-dark">To-do and Daily Tasks</span>
-                          </div>
-                        </a>
-                      </div> --}}
-                      <div class="d-grid py-4 px-7 pt-8">
-                        <a href="{{ route('logout-admin') }}" class="btn btn-outline-primary"
-                          onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log
-                          Out</a>
-                      </div>
-                      <form id="logout-form" action="{{ route('logout-admin') }}" method="POST" class="d-none">
-                        @csrf
-                      </form>
-                    </div>
-                  </div>
-                </li>
-              </ul>
+        </div>
+        <!-- Sidebar -->
+      </div>
+
+      <div class="sidebar-background"></div>
+    </div>
+    <!-- Left Sidebar End -->
+    <!-- Vertical Overlay-->
+    <div class="vertical-overlay"></div>
+
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="main-content">
+
+      <div class="page-content">
+        @yield('content')
+      </div>
+      <!-- End Page-content -->
+
+      <footer class="footer">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-6">
+              <script>
+                document.write(new Date().getFullYear())
+              </script> © HummaCertify.
             </div>
-          </div>
-        </nav>
-      </header>
-      <!--  Header End -->
-      <div class="container-fluid">
-        <!--  Owl carousel -->
-        <div class="owl-carousel counter-carousel owl-theme">
-          <div class="item">
-            <div class="card border-0 zoom-in bg-light-primary shadow-none">
-              <div class="card-body">
-                <div class="text-center">
-                  <img
-                    src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/svgs/icon-user-male.svg"
-                    width="50" height="50" class="mb-3" alt="" />
-                  <p class="fw-semibold fs-3 text-primary mb-1"> Employees </p>
-                  <h5 class="fw-semibold text-primary mb-0">96</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="card border-0 zoom-in bg-light-warning shadow-none">
-              <div class="card-body">
-                <div class="text-center">
-                  <img
-                    src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/svgs/icon-briefcase.svg"
-                    width="50" height="50" class="mb-3" alt="" />
-                  <p class="fw-semibold fs-3 text-warning mb-1">Clients</p>
-                  <h5 class="fw-semibold text-warning mb-0">3,650</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="card border-0 zoom-in bg-light-info shadow-none">
-              <div class="card-body">
-                <div class="text-center">
-                  <img
-                    src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/svgs/icon-mailbox.svg"
-                    width="50" height="50" class="mb-3" alt="" />
-                  <p class="fw-semibold fs-3 text-info mb-1">Projects</p>
-                  <h5 class="fw-semibold text-info mb-0">356</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="card border-0 zoom-in bg-light-danger shadow-none">
-              <div class="card-body">
-                <div class="text-center">
-                  <img
-                    src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/svgs/icon-favorites.svg"
-                    width="50" height="50" class="mb-3" alt="" />
-                  <p class="fw-semibold fs-3 text-danger mb-1">Events</p>
-                  <h5 class="fw-semibold text-danger mb-0">696</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="card border-0 zoom-in bg-light-success shadow-none">
-              <div class="card-body">
-                <div class="text-center">
-                  <img
-                    src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/svgs/icon-speech-bubble.svg"
-                    width="50" height="50" class="mb-3" alt="" />
-                  <p class="fw-semibold fs-3 text-success mb-1">Payroll</p>
-                  <h5 class="fw-semibold text-success mb-0">$96k</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="card border-0 zoom-in bg-light-info shadow-none">
-              <div class="card-body">
-                <div class="text-center">
-                  <img
-                    src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/svgs/icon-connect.svg"
-                    width="50" height="50" class="mb-3" alt="" />
-                  <p class="fw-semibold fs-3 text-info mb-1">Reports</p>
-                  <h5 class="fw-semibold text-info mb-0">59</h5>
-                </div>
+            <div class="col-sm-6">
+              <div class="text-sm-end d-none d-sm-block">
+                Design & Develop by HummaTech
               </div>
             </div>
           </div>
         </div>
-
-        <section id="content">
-          @yield('content')
-        </section>
-      </div>
+      </footer>
     </div>
+    <!-- end main content-->
+
+  </div>
+  <!-- END layout-wrapper -->
+
+  <!--start back-to-top-->
+  <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+    <i class="ri-arrow-up-line"></i>
+  </button>
+  <!--end back-to-top-->
+
   </div>
 
-  <script src="{{ asset('dist/libs/jquery/dist/jquery.min.js') }}"></script>
-  <script src="{{ asset('dist/libs/simplebar/dist/simplebar.min.js') }}"></script>
-  <!--  core files -->
-  <script src="{{ asset('dist/js/app.min.js') }}"></script>
-  <script src="{{ asset('dist/js/app.init.js') }}"></script>
-  <script src="{{ asset('dist/js/app-style-switcher.js') }}"></script>
-  <script src="{{ asset('dist/js/sidebarmenu.js') }}"></script>
-  <script src="{{ asset('dist/js/custom.js') }}"></script>
-  <!--  current page js files -->
-  <script src="{{ asset('dist/libs/owl.carousel/dist/owl.carousel.min.js') }}"></script>
-  <script src="{{ asset('../../dist/libs/apexcharts/dist/apexcharts.min.js') }}"></script>
-  <script src="{{ asset('dist/js/dashboard.js') }}"></script>
+  <!-- JAVASCRIPT -->
+  <script src="{{ asset('assets/libs/simplebar/simplebar.min.js') }}"></script>
+  <script src="{{ asset('assets/libs/node-waves/waves.min.js') }}"></script>
+  <script src="{{ asset('assets/libs/feather-icons/feather.min.js') }}"></script>
+  <script src="{{ asset('assets/js/pages/plugins/lord-icon-2.1.0.js') }}"></script>
+  <script src="{{ asset('assets/js/plugins.js') }}"></script>
+
+  <!-- apexcharts -->
+  <script src="{{ asset('assets/libs/apexcharts/apexcharts.min.js') }}"></script>
+
+  <!-- Vector map-->
+  <script src="{{ asset('assets/libs/jsvectormap/js/jsvectormap.min.js') }}"></script>
+  <script src="{{ asset('assets/libs/jsvectormap/maps/world-merc.js') }}"></script>
+
+  <!--Swiper slider js-->
+  <script src="{{ asset('assets/libs/swiper/swiper-bundle.min.js') }}"></script>
+
+  <!-- Dashboard init -->
+  <script src="{{ asset('assets/js/pages/dashboard-ecommerce.init.js') }}"></script>
+
+  <!-- App js -->
+  <script src="{{ asset('assets/js/app.js') }}"></script>
 </body>
+@if (session('message'))
+  <script>
+    Swal.fire({
+      icon: "{{ session('message')['icon'] ?? 'success' }}",
+      title: "{{ session('message')['title'] ?? 'Oops' }}",
+      text: "{{ session('message')['text'] ?? 'Success' }}",
+    })
+  </script>
+@endif
 
 </html>

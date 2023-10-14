@@ -1,68 +1,124 @@
-@extends('layouts.app')
+@extends('layouts.nav-auth')
 
 @section('content')
-  <!--  Body Wrapper -->
-  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-sidebartype="full" data-sidebar-position="fixed"
-    data-header-position="fixed">
-    <div class="position-relative overflow-hidden radial-gradient min-vh-100">
-      <div class="position-relative z-index-5">
-        <div class="row">
-          <div class="col-xl-7 col-xxl-8">
-            {{-- <a href="index-2.html" class="text-nowrap logo-img d-block px-4 py-9 w-100">
-              <img
-                src="{{asset('image/logo-text.png')}}"
-                width="180" alt="">
-            </a> --}}
-            <div class="d-none d-xl-flex align-items-center justify-content-center" style="height: calc(100vh - 80px);">
-              <img
-                src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/backgrounds/login-security.svg"
-                alt="" class="img-fluid" width="500">
+  <div class="auth-page-wrapper pt-5">
+    <!-- auth page bg -->
+    <div class="auth-one-bg-position auth-one-bg" id="auth-particles">
+      <div class="bg-overlay"></div>
+
+      <div class="shape">
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewBox="0 0 1440 120">
+          <path d="M 0,36 C 144,53.6 432,123.2 720,124 C 1008,124.8 1296,56.8 1440,40L1440 140L0 140z"></path>
+        </svg>
+      </div>
+    </div>
+
+    <!-- auth page content -->
+    <div class="auth-page-content">
+      <div class="container">
+        {{-- <div class="row">
+          <div class="col-lg-12">
+            <div class="text-center mt-sm-5 mb-4 text-white-50">
+              <div>
+                <a href="index.html" class="d-inline-block auth-logo">
+                  <img src="assets/images/logo-light.png" alt="" height="20">
+                </a>
+              </div>
+              <p class="mt-3 fs-15 fw-semibold">Premium Admin & Dashboard Template</p>
             </div>
           </div>
-          <div class="col-xl-5 col-xxl-4">
-            <div class="authentication-login min-vh-100 bg-body row justify-content-center align-items-center p-4">
-              <div class="col-sm-8 col-md-6 col-xl-9">
-                <h2 class="mb-3 fs-7 fw-bolder">HummaCertify - Sign In</h2>
-                <form method="POST" action="{{ route('login') }}">
-                  @csrf
-                  <div class="mb-3">
-                    <label for="email" class="form-label @error('email') is-invalid @enderror">Email</label>
-                    <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp">
-                    @error('email')
-                      <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                      </span>
-                    @enderror
-                  </div>
-                  <div class="mb-4">
-                    <label for="password" class="form-label @error('email') is-invalid @enderror">Password</label>
-                    <input type="password" name="password" class="form-control" id="password">
-                    @error('password')
-                      <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                      </span>
-                    @enderror
-                  </div>
-                  <div class="d-flex align-items-center justify-content-between mb-4">
-                    <div class="form-check">
-                      <input class="form-check-input primary" type="checkbox" name="remember" id="flexCheckChecked" {{ old('remember') ? 'checked' : '' }}>
-                      <label class="form-check-label text-dark" for="flexCheckChecked">
-                        Remeber this Device
-                      </label>
+        </div> --}}
+        <!-- end row -->
+
+        <div class="row justify-content-center mt-5">
+          <div class="col-md-8 col-lg-6 col-xl-5">
+            <div class="card mt-4">
+
+              <div class="card-body p-4">
+                <div class="text-center mt-2">
+                  <h5 class="text-primary">Selamat Datang</h5>
+                  <p class="text-muted">Silahkan Sign In Terlebih Dahulu</p>
+                </div>
+                <div class="p-2 mt-4">
+                  <form action="/login" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                      <label for="email" class="form-label @error('email') is-invalid @enderror">Email</label>
+                      <input type="text" name="email" class="form-control" id="email" placeholder="Email">
+                      @error('email')
+                        <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror
                     </div>
-                    <a class="text-primary fw-medium" href="{{route('password.request')}}">Forgot Password ?</a>
-                  </div>
-                  <button type="submit" class="btn btn-primary w-100 py-8 mb-4 rounded-2">Sign In</button>
-                  <div class="d-flex align-items-center justify-content-center">
-                    <p class="fs-4 mb-0 fw-medium">Don't have any account?</p>
-                    <a class="text-primary fw-medium ms-2" href="{{ route('register') }}">Create an account</a>
-                  </div>
-                </form>
+
+                    <div class="mb-3">
+                      <label class="form-label" for="password-input">Password</label>
+                      <div class="position-relative auth-pass-inputgroup mb-3">
+                        <input type="password" name="password"
+                          class="form-control pe-5 password-input @error('password') is-invalid @enderror"
+                          placeholder="Password" id="password-input">
+                        <button
+                          class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon"
+                          type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
+                        @error('password')
+                          <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                          </span>
+                        @enderror
+                      </div>
+                    </div>
+
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="auth-remember-check" name="remember" {{ old('remember') ? 'checked' : '' }}>
+                      <label class="form-check-label" for="auth-remember-check">Remember me</label>
+
+                      <div class="float-end">
+                        <a href="{{ route('password.request') }}" class="text-muted">Lupa Password?</a>
+                      </div>
+                    </div>
+
+                    <div class="mt-4">
+                      <button type="submit" class="btn btn-primary w-100">Masuk</button>
+                    </div>
+                  </form>
+                </div>
               </div>
+              <!-- end card body -->
+            </div>
+            <!-- end card -->
+
+            <div class="mt-4 text-center">
+              <p class="mb-0">Belum punya akun? <a href="{{ route('register') }}"
+                  class="fw-bold text-primary text-decoration-none"> Daftar </a> </p>
+            </div>
+
+          </div>
+        </div>
+        <!-- end row -->
+      </div>
+      <!-- end container -->
+    </div>
+    <!-- end auth page content -->
+
+    <!-- footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="text-center">
+              <p class="mb-0 text-muted">&copy;
+                <script>
+                  document.write(new Date().getFullYear())
+                </script> HummaCertify. Crafted with <i class="mdi mdi-heart text-danger"></i> by
+                HummaTech
+              </p>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </footer>
+    <!-- end Footer -->
   </div>
 @endsection
