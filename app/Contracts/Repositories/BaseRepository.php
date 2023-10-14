@@ -13,7 +13,6 @@ abstract class BaseRepository
      */
 
     public Model $model;
-
     public function swal($icon = 'success', $title, $text)
     {
         session()->flash('message', [
