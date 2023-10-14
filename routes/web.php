@@ -18,7 +18,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Auth::routes();
-Route::post('/logout-admin', [LoginAdminController::class, 'logout'])->name('logout-admin');
 
 Route::middleware('AdminDown')->group(function () {
 Route::get('/login-admin', [LoginAdminController::class, 'showLoginForm']);
@@ -33,4 +32,5 @@ Route::post('/login-admin', [LoginAdminController::class, 'login'])->name('login
 // Admin Sudah Login
 Route::middleware('AdminUp')->group(function () {
     Route::get('/home-admin', [HomeController::class, 'adminIndex'])->name('homeAdmin');
+    Route::post('/logout-admin', [LoginAdminController::class, 'logout'])->name('logout-admin');
 });
