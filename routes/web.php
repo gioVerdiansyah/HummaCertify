@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\LoginAdminController;
+use App\Http\Controllers\DemoTestController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -20,9 +20,6 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::middleware('AdminDown')->group(function () {
-Route::get('/login-admin', [LoginAdminController::class, 'showLoginForm']);
-Route::post('/login-admin', [LoginAdminController::class, 'login'])->name('login-admin');
-
     Route::get('/', function () {
         return view('welcome');
     });
@@ -32,5 +29,8 @@ Route::post('/login-admin', [LoginAdminController::class, 'login'])->name('login
 // Admin Sudah Login
 Route::middleware('AdminUp')->group(function () {
     Route::get('/home-admin', [HomeController::class, 'adminIndex'])->name('homeAdmin');
-    Route::post('/logout-admin', [LoginAdminController::class, 'logout'])->name('logout-admin');
+    Route::post('/logout-admin', [LoginController::class, 'logout'])->name('logout-admin');
 });
+
+// testing
+Route::get('/send-mail', [DemoTestController::class, 'sendMail']);

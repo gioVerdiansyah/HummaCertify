@@ -15,10 +15,16 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         User::create([
-            'name' => 'user',
+            'name' => 'User',
             'email' => 'user@gmail.com',
             'password' => Hash::make('HummaCertify')
-        ]);
-        $this->call(DataAdmin::class);
+        ]
+    );
+        User::create([
+            'name' => "Admin",
+            'email' => "hummacertify@gmail.com",
+            "password" => Hash::make('admin-hummacertify')
+        ]
+    );
     }
 }

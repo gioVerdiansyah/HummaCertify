@@ -37,12 +37,24 @@
 
               <div class="card-body p-4">
                 <div class="text-center mt-2">
+                    @foreach ($errors->all() as $error)
+                        <p>{{ $error }}</p>
+                    @endforeach
                   <h3 class="text-primary fw-bold">Daftar</h3>
                   <p class="text-muted">Silahkan mengisi form untuk melakukan register</p>
                 </div>
                 <div class="p-2 mt-4">
                   <form action="{{ route('register') }}" method="POST">
                     @csrf
+                    <div class="mb-3">
+                      <label for="name" class="form-label @error('name') is-invalid @enderror">Username</label>
+                      <input type="text" name="name" class="form-control" id="name" placeholder="Username">
+                      @error('name')
+                        <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror
+                    </div>
                     <div class="mb-3">
                       <label for="email" class="form-label @error('email') is-invalid @enderror">Email</label>
                       <input type="text" name="email" class="form-control" id="email" placeholder="Email">
@@ -84,15 +96,6 @@
                             <strong>{{ $message }}</strong>
                           </span>
                         @enderror
-                      </div>
-                    </div>
-
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="auth-remember-check">
-                      <label class="form-check-label" for="auth-remember-check">Remember me</label>
-
-                      <div class="float-end">
-                        <a href="{{ route('password.request') }}" class="text-muted">Lupa Password?</a>
                       </div>
                     </div>
 
