@@ -1,0 +1,30 @@
+Konsep HummaCertify
+
+# CORE
+1. Generate otomatis Sertifikat
+2. Generate otomatis kode Sertifikat
+3. Template Sertifikat(sesuai kategori sertifikat)
+4. Cek Nomor Sertifikat pada Halaman public (landing page)
+5. Masukkan data peserta entah dari inputan apa API pkl.hummatech
+6. Saat ada siswa magang yang lulus maka akan otomatis mengirim e-certificate ke email siswa tersebut (berlaku untuk seminar dan event yang lain juga)
+
+# DETAIL
+1. Web Admin bisa list kategori sertifikat apa saja
+2. Saat Generate PDF sertifikat sesuai kategori cukup ganti nama peserta (menggunakan looping atau where)
+3. Metode saat pembuatan kode sertifikat dan pengecekan sertifikat (BackEnd)
+4. Saat hasil pencarian sertifikat muncul munculin saja priview, dan saat di clik akan mengarah ke halaman detail sertifikat tersebut (Pake Animasi)
+5. Footer ada fitur untuk kirim pesan feedback ke email tim yang sudah di diskusikan, untuk kirim pesan feedback hanya limit sampai 3 kali saja
+
+# COMMENT
+1. Konsep satu role Admin masih bersifat SEMENTARA
+2. Design sertifikat dari tim designer
+3. Ambil data Siswa Magang masih menunggu API pkl.hummatech jadi
+
+# CONTOH STANDARDISASI SERTIFIKAT PELATIHAN:
+Contoh No: Ser/09/Lantas/SPN/0001 Keterangan:
+- 09: tahun pelaksanaan pelatihan;
+- Lantas nama fungsi teknis kepolisian dan fungsi pembinaan; SPN:
+- tempat pelaksanaan pelatihan;
+- 0001 : nomor peserta pelatihan (sesuai jumlah peserta); b. contoh penulisan nomor register
+- Reg. Nomor: Ser/0001/V/2009 Keterangan :
+- 0001 nomor sesuai dengan urutan register yang ada pada Satker penyelenggara pelatihan;

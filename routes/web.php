@@ -19,10 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Auth::routes();
+Auth::routes();
 Route::get('/login-admin', [LoginController::class, 'showLoginForm']);
-Route::post('/login-admin', [LoginController::class, 'login'])->name('login');
-Route::post('/logout-admin', [LoginController::class, 'login'])->name('logout');
+Route::post('/login-admin', [LoginController::class, 'login'])->name('login-admin');
+Route::post('/logout-admin', [LoginController::class, 'logout'])->name('logout-admin');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
