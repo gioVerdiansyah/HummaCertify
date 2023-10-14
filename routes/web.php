@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LoginAdminController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -15,23 +17,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
-Route::get('/login-admin', [LoginController::class, 'showLoginForm']);
-Route::post('/login-admin', [LoginController::class, 'login'])->name('login-admin');
-Route::post('/logout-admin', [LoginController::class, 'logout'])->name('logout-admin');
+Route::post('/logout-admin', [LoginAdminController::class, 'logout'])->name('logout-admin');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware('AdminDown')->group(function () {
+Route::get('/login-admin', [LoginAdminController::class, 'showLoginForm']);
+Route::post('/login-admin', [LoginAdminController::class, 'login'])->name('login-admin');
+
+    Route::get('/', function () {
+        return view('welcome');
+    });
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+});
 
 // Admin Sudah Login
 Route::middleware('AdminUp')->group(function () {
-
-});
-
-// Admin Belum Login
-Route::middleware('AdminDown')->group(function () {
-
+    Route::get('/home-admin', [HomeController::class, 'adminIndex'])->name('homeAdmin');
 });

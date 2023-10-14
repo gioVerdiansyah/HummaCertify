@@ -349,9 +349,9 @@
                         <img src="../../dist/images/profile/user-1.jpg" class="rounded-circle" width="80"
                           height="80" alt="" />
                         <div class="ms-3">
-                          <h5 class="mb-1 fs-3">{{ Auth::user()->name }}</h5>
+                          <h5 class="mb-1 fs-3">{{ Auth::guard('admin')->user()->name }}</h5>
                           <p class="mb-0 d-flex text-dark align-items-center gap-2">
-                            <i class="ti ti-mail fs-4"></i> {{ Auth::user()->email }}
+                            <i class="ti ti-mail fs-4"></i> {{ Auth::guard('admin')->user()->email }}
                           </p>
                         </div>
                       </div>
@@ -391,11 +391,11 @@
                         </a>
                       </div> --}}
                       <div class="d-grid py-4 px-7 pt-8">
-                        <a href="{{ route('logout') }}" class="btn btn-outline-primary"
+                        <a href="{{ route('logout-admin') }}" class="btn btn-outline-primary"
                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log
                           Out</a>
                       </div>
-                      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                      <form id="logout-form" action="{{ route('logout-admin') }}" method="POST" class="d-none">
                         @csrf
                       </form>
                     </div>

@@ -16,10 +16,10 @@ class AdminUp
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check()) {
+        if (Auth::guard('admin')->check()) {
             return $next($request);
         }
 
-        return redirect()->back()->with('error', "Sign up to access this page");
+        return abort(403, 'Anda tidak bisa mengakses halaman ini!');
     }
 }

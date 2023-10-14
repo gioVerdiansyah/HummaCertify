@@ -1,10 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+@foreach ($errors->all() as $error)
+    <p>{{ $error }}</p>
+@endforeach
   <div class="container login-register">
     <div class="row justify-content-center">
       <div class="col-md-8">
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('login-admin') }}">
           @csrf
           <div class="wrapper">
             <div class="logo">
