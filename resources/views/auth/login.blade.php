@@ -1,43 +1,68 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="container login-register">
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <form method="POST" action="{{ route('login') }}">
-          @csrf
-          <div class="wrapper">
-            <div class="logo">
-              <img src="{{ asset('image/icon-bg-removed.png') }}" alt="">
+  <!--  Body Wrapper -->
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-sidebartype="full" data-sidebar-position="fixed"
+    data-header-position="fixed">
+    <div class="position-relative overflow-hidden radial-gradient min-vh-100">
+      <div class="position-relative z-index-5">
+        <div class="row">
+          <div class="col-xl-7 col-xxl-8">
+            {{-- <a href="index-2.html" class="text-nowrap logo-img d-block px-4 py-9 w-100">
+              <img
+                src="{{asset('image/logo-text.png')}}"
+                width="180" alt="">
+            </a> --}}
+            <div class="d-none d-xl-flex align-items-center justify-content-center" style="height: calc(100vh - 80px);">
+              <img
+                src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/backgrounds/login-security.svg"
+                alt="" class="img-fluid" width="500">
             </div>
-            <div class="text-center mt-4 name mb-3">
-              HummaCertify
-            </div>
-            <form class="p-3 mt-3">
-              <div class="form-field d-flex align-items-center">
-                <span class="far fa-user"></span>
-                <input type="email" name="email" class="@error('email') is-invalid @enderror" id="userEmail" placeholder="Email" value="{{ old('email') }}"  required autocomplete="email" autofocus>
-                @error('email')
-                  <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                  </span>
-                @enderror
-              </div>
-              <div class="form-field d-flex align-items-center">
-                <span class="fas fa-key"></span>
-                <input type="password" name="password" class="@error('password') is-invalid @enderror" id="userPassword" placeholder="Password">
-                @error('password')
-                  <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                  </span>
-                @enderror
-              </div>
-              <button type="submit" class="btn mt-3 mb-3">{{ __('Login') }}</button>
-            </form>
           </div>
-        </form>
+          <div class="col-xl-5 col-xxl-4">
+            <div class="authentication-login min-vh-100 bg-body row justify-content-center align-items-center p-4">
+              <div class="col-sm-8 col-md-6 col-xl-9">
+                <h2 class="mb-3 fs-7 fw-bolder">HummaCertify - Sign In</h2>
+                <form method="POST" action="{{ route('login') }}">
+                  @csrf
+                  <div class="mb-3">
+                    <label for="email" class="form-label @error('email') is-invalid @enderror">Email</label>
+                    <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp">
+                    @error('email')
+                      <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                      </span>
+                    @enderror
+                  </div>
+                  <div class="mb-4">
+                    <label for="password" class="form-label @error('email') is-invalid @enderror">Password</label>
+                    <input type="password" name="password" class="form-control" id="password">
+                    @error('password')
+                      <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                      </span>
+                    @enderror
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between mb-4">
+                    <div class="form-check">
+                      <input class="form-check-input primary" type="checkbox" value="" id="flexCheckChecked">
+                      <label class="form-check-label text-dark" for="flexCheckChecked">
+                        Remeber this Device
+                      </label>
+                    </div>
+                    <a class="text-primary fw-medium" href="{{route('password.request')}}">Forgot Password ?</a>
+                  </div>
+                  <button type="submit" class="btn btn-primary w-100 py-8 mb-4 rounded-2">Sign In</button>
+                  <div class="d-flex align-items-center justify-content-center">
+                    <p class="fs-4 mb-0 fw-medium">Don't have any account?</p>
+                    <a class="text-primary fw-medium ms-2" href="{{ route('register') }}">Create an account</a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
   </div>
 @endsection
