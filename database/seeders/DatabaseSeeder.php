@@ -21,18 +21,18 @@ class DatabaseSeeder extends Seeder
             'name' => 'User',
             'email' => 'user@gmail.com',
             'password' => Hash::make('HummaCertify')
-        ]
-    );
+        ]);
+
         User::create([
             'id' => Str::uuid(),
             'name' => "HummaCertify",
             'email' => "hummacertify@gmail.com",
             "password" => Hash::make('admin-hummacertify')
-        ]
-    );
-    CertificateCategori::create([
-        'id' => Str::uuid(),
-        'name' => "Certificate",
-    ]);
+        ]);
+
+        CertificateCategori::create([
+            'id' => Str::uuid(),
+            'name' => "Certificate",
+        ]);
     }
 }
