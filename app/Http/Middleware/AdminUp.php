@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
+use App\Http\Controllers\DaftarPesertaController;
 
 class AdminUp
 {
@@ -16,6 +17,7 @@ class AdminUp
      */
     public function handle(Request $request, Closure $next): Response
     {
+
         if (Auth::user()->email == "hummacertify@gmail.com") {
             return $next($request);
         }

@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\DemoTestController;
-use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DemoTestController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\DaftarPesertaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,7 @@ Route::middleware('AdminDown')->group(function () {
 Route::middleware('AdminUp')->group(function () {
     Route::get('/home-admin', [HomeController::class, 'adminIndex'])->name('homeAdmin');
     Route::post('/logout-admin', [LoginController::class, 'logout'])->name('logout-admin');
+    Route::post('DaftarPesertaCreate', [DaftarPesertaController::class, 'store'])->name('DaftarPesertaCreate');
 });
 
 // testing
