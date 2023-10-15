@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
     );
         User::create([
             'id' => Str::uuid(),
-            'name' => "Admin",
+            'name' => "HummaCertify",
             'email' => "hummacertify@gmail.com",
             "password" => Hash::make('admin-hummacertify')
         ]
