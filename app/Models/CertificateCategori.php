@@ -8,8 +8,7 @@ class CertificateCategori extends Model
 {
     use HasFactory;
 
-    public $incrementing = false;
-    protected $keyType = 'string';
+    public $incrementing = false, $keyType = "string";
     protected $fillable = [
         'name',
     ];
