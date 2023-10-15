@@ -18,7 +18,7 @@ class AdminUp
     public function handle(Request $request, Closure $next): Response
     {
 
-        if (Auth::user()->email == "hummacertify@gmail.com") {
+        if (Auth::check() && Auth::user()->email == "hummacertify@gmail.com") {
             return $next($request);
         }
 

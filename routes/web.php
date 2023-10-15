@@ -36,3 +36,4 @@ Route::middleware('AdminUp')->group(function () {
 
 // testing
 Route::get('/send-mail', [DemoTestController::class, 'sendMail']);
+Route::get('/show-certificate', [DemoTestController::class, 'showCertificate']);
