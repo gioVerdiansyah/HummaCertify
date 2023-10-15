@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
         ]
     );
     CertificateCategori::create([
+        'id' => Str::uuid(),
         'name' => "Certificate",
     ]);
     }

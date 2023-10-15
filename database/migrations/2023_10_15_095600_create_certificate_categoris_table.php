@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('certificate_categoris', function (Blueprint $table) {
-            $table->uuid('id')->primary()->default(DB::raw('UUID()'));
+            $table->uuid('id')->primary();
             $table->string('name');
             $table->timestamps();
         });
