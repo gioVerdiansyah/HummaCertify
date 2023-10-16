@@ -31,8 +31,16 @@ class DatabaseSeeder extends Seeder
         ]);
 
         CertificateCategori::create([
-            'id' => Str::uuid(),
-            'name' => "Certificate",
+            // 'id' => Str::uuid(),
+            'name' => "Certificate1",
+        ]);
+        CertificateCategori::create([
+            // 'id' => Str::uuid(),
+            'name' => "Certificate2",
+        ]);
+        CertificateCategori::create([
+            // 'id' => Str::uuid(),
+            'name' => "Certificate3",
         ]);
     }
 }

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\CertificateCategori;
 
 class HomeController extends Controller
 {
@@ -27,6 +29,9 @@ class HomeController extends Controller
     }
 
     public function adminIndex(){
-        return view('admin.dashboard');
+
+        $user = User::whereNot('email', 'hummacertify@gmail.com')->get();
+        $category = CertificateCategori::all();
+        return view('admin.dashboard', compact('user','category'));
     }
 }

@@ -18,6 +18,9 @@ class UserRequest extends FormRequest
             'name' => 'required',
             'email' => 'required',
             'password' => 'required',
+            'certificate_categori_id'=>'required',
+            'tanggal' => 'required',
+            'divisions' => 'required',
         ];
     }
 

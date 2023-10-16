@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('certificate_categoris', function (Blueprint $table) {
+        Schema::create('certificates', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->foreignUuid('user_id')->constrained('users');
+            $table->foreignId('certificate_categori_id')->constrained('certificate_categoris');
+            $table->date('tanggal');
+            $table->string('divisions')->nullable();
             $table->timestamps();
         });
     }
@@ -23,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('certificate_categoris');
+        Schema::dropIfExists('certificates');
     }
 };
