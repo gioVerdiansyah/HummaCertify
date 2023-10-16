@@ -1,7 +1,7 @@
 @extends('layouts.nav-admin')
 
 @section('content')
-  <link rel="stylesheet" href="{{ asset('css/admin/admin-exist.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/admin/AdminExist.css') }}">
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <div class="tambah-container">
@@ -17,15 +17,17 @@
             <div class="col-12">
               <div class="mb-4">
                 <label for="firstNameinput" class="form-label">Nama Peserta</label>
-                <input type="text" class="form-control" placeholder="Masukkan nama" name="nama">
+                <select class="js-example-basic-single" name="nama" id="search">
+                  <option value="Alabama">Alabama</option>
+                </select>
               </div>
             </div>
             <div class="col-6">
               <div class="mb-4">
                 <label for="lastNameinput" class="form-label">Kategori Sertifikat</label><br>
-                <select class="js-example-basic-single" name="state" id="search">
-                  <option value="AL">Alabama</option>
-                  <option value="WY">Wyoming</option>
+                <select name="category" class="form-select">
+                    <option disabled selected>Pilih Kategori...</option>
+                    <option value="H1">H1</option>
                 </select>
               </div>
             </div>

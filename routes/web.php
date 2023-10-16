@@ -30,10 +30,10 @@ Route::middleware('AdminDown')->group(function () {
 // Admin Sudah Login
 Route::middleware('AdminUp')->group(function () {
     Route::get('/home-tambah', function () {
-       return view('admin.tambah');
+       return view('admin.TambahAdd');
     });
     Route::get('/home-tambah-sudahada', function () {
-        return view('admin.tambah-sudahada');
+        return view('admin.TambahExist');
     });
     Route::get('/home-admin', [HomeController::class, 'adminIndex'])->name('homeAdmin');
     Route::post('/logout-admin', [LoginController::class, 'logout'])->name('logout-admin');
