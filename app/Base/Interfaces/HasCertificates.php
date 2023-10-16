@@ -12,5 +12,5 @@ interface HasCertificates
      * @return HasMany
      */
 
-    public function Certificates(): HasMany;
+    public function certificates(): HasMany;
 }

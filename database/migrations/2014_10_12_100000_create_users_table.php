@@ -21,10 +21,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
         });
 
-        // Callback closure untuk mengisi kolom 'id' dengan UUID secara otomatis
-        Schema::table('users', function (Blueprint $table) {
-            $table->uuid('id')->default(Str::uuid())->change();
-        });
+    
     }
 
     /**

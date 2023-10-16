@@ -11,5 +11,5 @@ interface HasCategories
      *
      * @return BelongsTo
      */
-    public function categories(): BelongsTo;
+    public function categori(): BelongsTo;
 }

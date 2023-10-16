@@ -14,5 +14,5 @@ interface HasUsers
      * @return BelongsTo
      */
 
-     public function Users(): BelongsTo;
+     public function user(): BelongsTo;
 }

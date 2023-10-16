@@ -19,4 +19,12 @@ class CertificateRepository extends BaseRepository implements CertificateInterfa
         return $this->model->query()
         ->create($certificate);
     }
+
+    public function update($id, $certificate): mixed
+    {
+        $certificate = $this->model->findOrFail($id);
+        return $certificate->update($certificatet);
+    }
+
+
 }

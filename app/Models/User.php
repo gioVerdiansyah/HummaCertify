@@ -53,7 +53,7 @@ class User extends Authenticatable
      *
      * @return HasMany
      */
-    public function Certificates():HasMany
+    public function certificates():HasMany
     {
         return $this->hasMany(Certificate::class);
     }
