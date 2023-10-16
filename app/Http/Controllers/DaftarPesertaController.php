@@ -52,8 +52,7 @@ class DaftarPesertaController extends Controller
        $data = $request->all();
        $this->User->store($data);
        $certificate = $this->certificateService->create($data);
-       $this->certificate->store($certificate);
-        return redirect()->back();
+       return redirect()->back();
     }
 
     /**

@@ -11,12 +11,11 @@ class DaftarPesertaRepository extends BaseRepository implements DaftarPesertaInt
     {
         $this->model = $User;
     }
+ 
     public function update($id, $user): mixed
     {
-
         $User = $this->model->findOrFail($id);
-        $User->update($user);
-        return $User;
+        return $User->update($user);
     }
 
     public function delete(mixed $id): mixed

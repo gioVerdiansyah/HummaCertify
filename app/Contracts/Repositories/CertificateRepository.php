@@ -16,6 +16,7 @@ class CertificateRepository extends BaseRepository implements CertificateInterfa
 
     public function store(array $certificate): mixed
     {
+        
         return $this->model->query()
         ->create($certificate);
     }
@@ -23,7 +24,7 @@ class CertificateRepository extends BaseRepository implements CertificateInterfa
     public function update($id, $certificate): mixed
     {
         $certificate = $this->model->findOrFail($id);
-        return $certificate->update($certificatet);
+        return $certificate->update($certificate);
     }
 
 

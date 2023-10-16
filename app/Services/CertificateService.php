@@ -6,27 +6,28 @@ use App\Models\User;
 use App\Http\Requests\UserRequest;
 use App\Contracts\Interfaces\CertificateInterface;
 use App\Contracts\Repositories\CertificateRepository;
-
+use App\Contracts\Repositories\DaftarPesertaRepository;
 
 class CertificateService
 {
-    private CertificateRepository $Certificate;
-
-    public function __construct(CertificateRepository $Certificate)
+    private CertificateRepository $certificate;
+    public function __construct(CertificateRepository $certificate)
     {
-        $this->certificate = $Certificate;
+        $this->certificate = $certificate;
     }
 
     public function create(array $data): mixed
     {
-       
         $user = User::where('name', $data['name'])->first();
-        return $certificate = [
+         $certificate = [
            'user_id' => $user->id,
            'certificate_categori_id' => $data['certificate_categori_id'],
            'tanggal' => $data['tanggal'],
            'divisions' => $data['divisions'],
          ];
+
+        return $this->certificate->store($certificate);
+
 
     }
 
@@ -39,6 +40,7 @@ class CertificateService
             'tanggal' => $request['tanggal'],
             'divisions' => $request['divisions'],
         ];
-        return $this->certificate->update($id, $certificate);
+
+
     }
 }
