@@ -35,6 +35,9 @@ Route::middleware('AdminUp')->group(function () {
     Route::get('/home-tambah-sudahada', function () {
         return view('admin.TambahExist');
     });
+    Route::get('/datatable', function () {
+        return view('admin.ListSertifikat');
+    });
     Route::get('/home-admin', [HomeController::class, 'adminIndex'])->name('homeAdmin');
     Route::post('/logout-admin', [LoginController::class, 'logout'])->name('logout-admin');
     Route::post('DaftarPesertaCreate', [DaftarPesertaController::class, 'store'])->name('DaftarPesertaCreate');
