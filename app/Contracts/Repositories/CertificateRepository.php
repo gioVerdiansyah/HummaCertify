@@ -2,10 +2,8 @@
 namespace App\Contracts\Repositories;
 
 use App\Models\Certificate;
-use App\Models\UserCategoriCertificate;
 use App\Contracts\Repositories\BaseRepository;
 use App\Contracts\Interfaces\CertificateInterface;
-use App\Contracts\Interfaces\userCategoriInterface;
 
 class CertificateRepository extends BaseRepository implements CertificateInterface
 {
@@ -14,17 +12,23 @@ class CertificateRepository extends BaseRepository implements CertificateInterfa
         $this->model = $Certificate;
     }
 
-    public function store(array $certificate): mixed
-    {
-        
-        return $this->model->query()
-        ->create($certificate);
+    public function get():mixed{
+        return $this->model->get();
     }
 
-    public function update($id, $certificate): mixed
+    public function getRelationship($relationship):mixed{
+        return $this->model->query()->with($relationship)->get();
+    }
+    public function store(array $data): mixed
     {
-        $certificate = $this->model->findOrFail($id);
-        return $certificate->update($certificate);
+        $this->swal("Berhasil!", "Berhasil menambah peserta!");
+        return $this->model->query()->create($data);
+    }
+
+    public function update($id, $data): mixed
+    {
+        $data = $this->model->findOrFail($id);
+        return $data->update($data);
     }
 
 

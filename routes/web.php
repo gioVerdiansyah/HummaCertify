@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DemoTestController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\DaftarPesertaController;
+use App\Http\Controllers\PesertaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,26 +26,21 @@ Route::middleware('AdminDown')->group(function () {
     });
     Route::get('/login', [LoginController::class, 'showLoginForm']);
     Route::post('/login', [LoginController::class, 'login'])->name('login');
-    Route::post('/loguot', [LoginController::class, 'logout'])->name('logout');
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 });
 
 // Admin Sudah Login
 Route::middleware('AdminUp')->group(function () {
-    Route::get('/home-tambah', function () {
-       return view('admin.TambahAdd');
+    Route::prefix('admin')->group(function () {
+        Route::get('/', [HomeController::class, 'adminIndex'])->name('admin.home');
+        Route::post('/logoutAdmin', [LoginController::class, 'logout'])->name('admin.logout');
+        Route::get('/datatable', function () {
+            return view('admin.ListSertifikat');
+        });
+
+        Route::resource('/certificate', PesertaController::class)->except('index');
     });
-    Route::get('/home-tambah-sudahada', function () {
-        return view('admin.TambahExist');
-    });
-    Route::get('/datatable', function () {
-        return view('admin.ListSertifikat');
-    });
-    Route::get('/home-admin', [HomeController::class, 'adminIndex'])->name('homeAdmin');
-    Route::post('/logout-admin', [LoginController::class, 'logout'])->name('logout-admin');
-    Route::post('DaftarPesertaCreate', [DaftarPesertaController::class, 'store'])->name('DaftarPesertaCreate');
-    Route::put('DaftarPesertaUpdate/{id}', [DaftarPesertaController::class, 'update'])->name('DaftarPesertaUpdate');
-    Route::delete('DaftarPesertaDelete/{id}', [DaftarPesertaController::class, 'destroy'])->name('DaftarPesertaDelete');
 });
 
 // testing
