@@ -1,0 +1,20 @@
+.tambah-container {
+    padding: 20px
+}
+
+.tambah-container-body {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.header-label {
+    font-weight: 600;
+    font-size: large;
+}
+
+.header-label-2 {
+    margin-left: 11px;
+    font-weight: 600;
+    font-size: large;
+}

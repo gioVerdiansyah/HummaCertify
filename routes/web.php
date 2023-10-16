@@ -29,6 +29,12 @@ Route::middleware('AdminDown')->group(function () {
 
 // Admin Sudah Login
 Route::middleware('AdminUp')->group(function () {
+    Route::get('/home-tambah', function () {
+       return view('admin.tambah');
+    });
+    Route::get('/home-tambah-sudahada', function () {
+        return view('admin.tambah-sudahada');
+    });
     Route::get('/home-admin', [HomeController::class, 'adminIndex'])->name('homeAdmin');
     Route::post('/logout-admin', [LoginController::class, 'logout'])->name('logout-admin');
     Route::post('DaftarPesertaCreate', [DaftarPesertaController::class, 'store'])->name('DaftarPesertaCreate');
