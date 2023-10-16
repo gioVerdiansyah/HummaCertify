@@ -1,7 +1,7 @@
 @extends('layouts.nav-admin')
 
 @section('content')
-  <link rel="stylesheet" href="{{ asset('css/admin/admin-add.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/admin/AdminAdd.css') }}">
   <div class="tambah-container">
     <div class="tambah-container-body">
       <div class="card-body">
