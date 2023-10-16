@@ -38,6 +38,8 @@ Route::middleware('AdminUp')->group(function () {
     Route::get('/home-admin', [HomeController::class, 'adminIndex'])->name('homeAdmin');
     Route::post('/logout-admin', [LoginController::class, 'logout'])->name('logout-admin');
     Route::post('DaftarPesertaCreate', [DaftarPesertaController::class, 'store'])->name('DaftarPesertaCreate');
+    Route::put('DaftarPesertaUpdate/{id}', [DaftarPesertaController::class, 'update'])->name('DaftarPesertaUpdate');
+    Route::delete('DaftarPesertaDelete/{id}', [DaftarPesertaController::class, 'destroy'])->name('DaftarPesertaDelete');
 });
 
 // testing
