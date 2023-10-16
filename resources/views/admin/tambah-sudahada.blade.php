@@ -17,15 +17,17 @@
             <div class="col-12">
               <div class="mb-4">
                 <label for="firstNameinput" class="form-label">Nama Peserta</label>
-                <input type="text" class="form-control" placeholder="Masukkan nama" name="nama">
+                <select class="js-example-basic-single" name="nama" id="search">
+                  <option value="Alabama">Alabama</option>
+                </select>
               </div>
             </div>
             <div class="col-6">
               <div class="mb-4">
                 <label for="lastNameinput" class="form-label">Kategori Sertifikat</label><br>
-                <select class="js-example-basic-single" name="state" id="search">
-                  <option value="AL">Alabama</option>
-                  <option value="WY">Wyoming</option>
+                <select name="category" class="form-select">
+                    <option disabled selected>Pilih Kategori...</option>
+                    <option value="H1">H1</option>
                 </select>
               </div>
             </div>
