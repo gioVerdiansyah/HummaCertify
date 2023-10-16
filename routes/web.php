@@ -18,12 +18,15 @@ use App\Http\Controllers\DaftarPesertaController;
 |
 */
 
-Auth::routes();
+// Auth::routes();
 
 Route::middleware('AdminDown')->group(function () {
     Route::get('/', function () {
         return view('welcome');
     });
+    Route::get('/login', [LoginController::class, 'showLoginForm']);
+    Route::post('/login', [LoginController::class, 'login'])->name('login');
+    Route::post('/loguot', [LoginController::class, 'logout'])->name('logout');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 });
 

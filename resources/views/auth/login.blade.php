@@ -74,11 +74,6 @@
                       <input class="form-check-input" type="checkbox" id="auth-remember-check" name="remember" {{ old('remember') ? 'checked' : '' }}>
                       <label class="form-check-label" for="auth-remember-check">Remember me</label>
 
-                      <div class="float-end">
-                        <a href="{{ route('password.request') }}" class="text-muted">Lupa Password?</a>
-                      </div>
-                    </div>
-
                     <div class="mt-4">
                       <button type="submit" class="btn btn-primary w-100">Masuk</button>
                     </div>
@@ -88,12 +83,6 @@
               <!-- end card body -->
             </div>
             <!-- end card -->
-
-            <div class="mt-4 text-center">
-              <p class="mb-0">Belum punya akun? <a href="{{ route('register') }}"
-                  class="fw-bold text-primary text-decoration-none"> Daftar </a> </p>
-            </div>
-
           </div>
         </div>
         <!-- end row -->
