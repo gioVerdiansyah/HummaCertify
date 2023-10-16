@@ -197,7 +197,7 @@
 
         <div class="page-content">
             <div class="container-fluid">
-                {{-- @yield('content') --}}
+                @yield('content')
             </div>
             <!-- container-fluid -->
         </div>
