@@ -11,22 +11,34 @@
                 <form action="{{ route('certificate.store') }}" method="POST">
                     @csrf
                     <div class="row">
-                        <div class="col-12 d-flex">
-                            <div class="col-6 header-label">
+                        <div class="col-md-6">
+                            <div class="col-12 header-label">
                                 <p>Identitas Peserta</p>
                             </div>
-                            <div class="col-6 header-label-2">
-                                Data Sertifikat
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="mb-4">
+                            <div class="col-12 mb-4">
                                 <label for="name" class="form-label">Nama Peserta</label>
                                 <input type="text" class="form-control" placeholder="Masukkan nama" name="name" value="{{ old('name') }}">
                             </div>
+                            <div class="col-12 mb-4">
+                                <label for="password" class="form-label">NIS/NIM/NIP Peserta</label>
+                                <input type="text" class="form-control" placeholder="Masukkan NIS/NIM/NIP"
+                                    name="password" value="{{ old('password') }}">
+                            </div>
+                            <div class="col-12 mb-4">
+                                <label for="email" class="form-label">Email peserta (opsional)</label>
+                                <input type="text" class="form-control" placeholder="Enter your firstname"
+                                    name="email" value="{{ old('email') }}">
+                            </div>
+                            <div class="col-12 mb-4">
+                                <label for="" class="form-label">Tempat tanggal lahir</label>
+                                <input type="text" class="form-control" placeholder="Tempat dan tanggal lahir peserta" name="" value="{{ old('') }}">
+                            </div>
                         </div>
-                        <div class="col-6">
-                            <div class="mb-4">
+                        <div class="col-md-6">
+                            <div style="margin-left: -1px" class="col-12 header-label-2">
+                                Data Sertifikat
+                            </div>
+                            <div class="col-12 mb-4 mt-3">
                                 <label for="certificate_categori_id" class="form-label">Kategori Sertifikat</label>
                                 <select name="certificate_categori_id" class="form-select">
                                     <option disabled selected>--Pilih Kategori--</option>
@@ -35,41 +47,15 @@
                                     @endforeach
                                 </select>
                             </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="mb-4">
-                                <label for="password" class="form-label">NIS/NIM/NIP Peserta</label>
-                                <input type="text" class="form-control" placeholder="Masukkan NIS/NIM/NIP"
-                                    name="password" value="{{ old('password') }}">
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="mb-4">
+                            <div class="col-12 mb-4">
                                 <label for="bidang" class="form-label">Bidang/Division</label>
                                 <input type="text" class="form-control" placeholder="Bidang yang diikuti peserta" name="bidang" value="{{ old('bidang') }}">
                             </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email peserta (opsional)</label>
-                                <input type="text" class="form-control" placeholder="Enter your firstname"
-                                    name="email" value="{{ old('email') }}">
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="mb-4">
+                            <div class="col-12 mb-4">
                                 <label for="" class="form-label">Sub Bidang</label>
                                 <input type="date" class="form-control" placeholder="Sub bidang peserta" name="" value="{{ old('') }}">
                             </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="mb-4">
-                                <label for="" class="form-label">Tempat tanggal lahir</label>
-                                <input type="text" class="form-control" placeholder="Tempat dan tanggal lahir peserta" name="" value="{{ old('') }}">
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="mb-4">
+                            <div class="col-12 mb-4">
                                 <label for="" class="form-label">Tanggal Acara</label>
                                 <input type="date" class="form-control" placeholder="dd/mm/yy" name="tanggal" value="{{ old('tanggal') }}">
                             </div>
@@ -78,7 +64,7 @@
                             <div class="mb-4">
                                 <label for="" class="form-label">Predikat</label>
                                 <select name="" class="form-select">
-                                    <option disabled selected>Pilih Predikat...</option>
+                                    <option disabled selected>--Pilih Predikat--</option>
                                     <option value="Predikat1">Predikat1</option>
                                     <option value="Predikat2">Predikat2</option>
                                     <option value="Predikat3">Predikat3</option>
@@ -91,7 +77,7 @@
                         </div>
                         <div class="col-8">
                             <div class="mt-2 d-flex href-link-gap">
-                                <p>Peserta sudah ada?</p><a href=""> Tambah sertifikat dengan peserta yang ada</a>
+                                <p>Peserta sudah ada?<a href=""> Tambah sertifikat dengan peserta yang ada</a></p>
                             </div>
                         </div>
                         <div class="col-4">
