@@ -5,7 +5,7 @@
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
     tambah peserta
   </button>
-<form action="{{ route('DaftarPesertaCreate') }}" method="post">
+<form action="{{ route('certificate.store') }}" method="post">
     @csrf
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -43,7 +43,7 @@
   </div>
 </form>
 @foreach ($users as $User )
-<form action="{{ route('DaftarPesertaUpdate', ['id'=>$User->id]) }}" method="post">
+<form action="{{ route('certificate.update', ['certificate'=>$User->id]) }}" method="post">
 @csrf
 @method('put')
 <div class="modal fade" id="exampleModal--{{ $User->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -93,16 +93,16 @@
         <td>{{ $User->email }}</td>
             <td>
             @foreach ($User->certificates as $certificate)
-            @if ($certificate->categori === null)
+            @if ($certificate->category === null)
             <p>tidak ada kategori</p>
             @else
-            {{ $certificate->categori->name }}
+            {{ $certificate->category->name }}
             @endif
            @endforeach
            {{-- {{$User->categori->name }} --}}
             </td>
         <td>
-            <form action="{{ route('DaftarPesertaDelete', ['id'=>$User->id]) }}" method="post">
+            <form action="{{ route('certificate.destroy', ['certificate'=>$User->id]) }}" method="post">
                 @csrf
                 @method('delete')
                 <button type="submit"  class="btn btn-danger">hapus</button>
