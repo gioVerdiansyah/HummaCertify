@@ -227,13 +227,3 @@ img {
     font-weight: 700;
     font-size: 14.5px;
 }
-
-.table {
-
-}
-
-th,
-td {
-    background-color: transparent;
-    color: inherit;
-}
