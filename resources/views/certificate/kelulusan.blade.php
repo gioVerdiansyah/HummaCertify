@@ -26,10 +26,6 @@
     <body>
         <main id="certificate-1">
         <style>
-            @page {
-                width: 210mm;
-                height: 297mm;
-            }
 
             .image-certificate {
                 position: absolute;

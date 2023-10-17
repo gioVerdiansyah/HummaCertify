@@ -17,4 +17,8 @@ class CertificateController extends Controller
         $certificate = $this->certificate->getId($id);
         return view('certificate.kelulusan');
     }
+
+    public function siswaMagang(){
+        
+    }
 }

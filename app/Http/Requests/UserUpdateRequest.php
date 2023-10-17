@@ -29,7 +29,8 @@ class UserUpdateRequest extends FormRequest
             'password' => 'required|integer|gt:0',
             'certificate_categori_id'=>'required|exists:certificate_categoris,id',
             'tanggal' => 'required|date',
-            'divisions' => 'required',
+            'bidang' => 'required',
+            'sub_bidang' => 'nullable',
         ];
     }
 

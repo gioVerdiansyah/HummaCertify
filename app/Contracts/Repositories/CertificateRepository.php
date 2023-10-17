@@ -25,10 +25,11 @@ class CertificateRepository extends BaseRepository implements CertificateInterfa
     public function getRelationship($relationship):mixed{
         return $this->model->query()->with($relationship)->get();
     }
-    public function store(array $Certificate): mixed
+    public function store(array $certificate): mixed
     {
+
         $this->swal("Berhasil!", "Berhasil menambah peserta!");
-        return $this->model->query()->create($Certificate);
+        return $this->model->query()->create($certificate);
 
     }
 

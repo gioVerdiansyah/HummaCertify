@@ -32,9 +32,9 @@ class CertificateService
         $certificate = [
             'user_id' => $userId->id,
             'certificate_categori_id' => $data['certificate_categori_id'],
+            'nomor' => $nomorSertifikat,
             'tanggal' => $data['tanggal'],
-            'divisions' => $data['divisions'],
-            'nomer' => $nomorSertifikat,
+            'bidang' => $data['bidang'],
         ];
 
         return $this->certificate->store($certificate);
