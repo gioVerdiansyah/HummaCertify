@@ -154,31 +154,31 @@
 
 /* Keyframe animations */
 @keyframes anim-rotate {
-    0% {
-        transform: rotate(-30deg);
-    }
+  0% {
+    transform: rotate(-30deg);
+  }
 
-    50% {
-        transform: rotate(-45deg);
-    }
+  50% {
+    transform: rotate(-45deg);
+  }
 
-    100% {
-        transform: rotate(-30deg);
-    }
+  100% {
+    transform: rotate(-30deg);
+  }
 }
 
 @keyframes anim-updown {
-    0% {
-        transform: translateY(0);
-    }
+  0% {
+    transform: translateY(0);
+  }
 
-    50% {
-        transform: translateY(30px);
-    }
+  50% {
+    transform: translateY(30px);
+  }
 
-    100% {
-        transform: translateY(0);
-    }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .elem-updown {
@@ -186,17 +186,17 @@
 }
 
 @keyframes anim-move {
-    0% {
-        transform: translateX(0);
-    }
+  0% {
+    transform: translateX(0);
+  }
 
-    50% {
-        transform: translateX(30px);
-    }
+  50% {
+    transform: translateX(30px);
+  }
 
-    100% {
-        transform: translateX(0);
-    }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 .elem-move {
@@ -204,17 +204,17 @@
 }
 
 @keyframes anim-rotate-full {
-    0% {
-        transform: rotate(0deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
 
-    50% {
-        transform: rotate(360deg);
-    }
+  50% {
+    transform: rotate(360deg);
+  }
 
-    100% {
-        transform: rotate(0deg);
-    }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 .elem-rotate-full {
@@ -222,17 +222,17 @@
 }
 
 @keyframes anim-zoom {
-    0% {
-        transform: scale(0.8);
-    }
+  0% {
+    transform: scale(0.8);
+  }
 
-    50% {
-        transform: scale(1);
-    }
+  50% {
+    transform: scale(1);
+  }
 
-    100% {
-        transform: scale(0.8);
-    }
+  100% {
+    transform: scale(0.8);
+  }
 }
 
 .elem-zoom {
@@ -280,7 +280,7 @@ li {
 }
 
 .section-block .row>div {
-    margin-bottom: 60px;
+  margin-bottom: 60px;
 }
 
 /* Typography */
@@ -385,11 +385,11 @@ h6 {
   5. Hero Area
 ************************************************************/
 .hero-area {
-    background-color: #303c46;
-    /* background: url(../../../image-template-2/) center center; */
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
+  /* background-color: #303c46; */
+  background: url(../../../image-template-2/bgdot.png) repeat, #002f70;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
 }
 
 .hero-area:after {
@@ -669,7 +669,7 @@ h6 {
 }
 
 .about-section .personal-details>div {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .about-section .personal-info li {
@@ -789,7 +789,7 @@ h6 {
 }
 
 .portfolio-section .row>div {
-    margin-bottom: 24px;
+  margin-bottom: 24px;
 }
 
 .portfolio-section .filter-button-group {
@@ -964,7 +964,7 @@ h6 {
 }
 
 .portfolio-section .item-content>div {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .portfolio-section .content-wrapper {
@@ -1037,7 +1037,7 @@ h6 {
 }
 
 .service-section .row>div {
-    margin-bottom: 24px;
+  margin-bottom: 24px;
 }
 
 .service-section p {
@@ -1397,7 +1397,7 @@ h6 {
 }
 
 .blog-section .post-group .row>div {
-    margin-bottom: 24px;
+  margin-bottom: 24px;
 }
 
 .blog-section .post-group .post-content {
@@ -1504,7 +1504,7 @@ h6 {
 }
 
 .blog-section .blog-content>div {
-    margin-bottom: 48px;
+  margin-bottom: 48px;
 }
 
 .blog-section .modal .content-wrapper {
@@ -1559,7 +1559,7 @@ h6 {
 }
 
 .blog-section .post-footer>div {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .blog-section .post-footer h4 {
@@ -1697,8 +1697,8 @@ h6 {
 }
 
 .contact-section form>div {
-    margin-bottom: 0 !important;
-    margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
 }
 
 .contact-section input,
@@ -1946,19 +1946,19 @@ h6 {
 
 @keyframes dot-dot-dot {
 
-    0%,
-    60%,
-    100% {
-        -webkit-transform: initial;
-        -ms-transform: initial;
-        transform: initial;
-    }
+  0%,
+  60%,
+  100% {
+    -webkit-transform: initial;
+    -ms-transform: initial;
+    transform: initial;
+  }
 
-    30% {
-        -webkit-transform: translateY(-25px);
-        -ms-transform: translateY(-25px);
-        transform: translateY(-25px);
-    }
+  30% {
+    -webkit-transform: translateY(-25px);
+    -ms-transform: translateY(-25px);
+    transform: translateY(-25px);
+  }
 }
 
 /* swiper */
@@ -1989,11 +1989,11 @@ h6 {
 ************************************************************/
 /* min-width: 1921px // for 4k devices */
 @media (min-width: 1921px) {
-    .hero-area .hero-parallax>div {
-        width: 1920px;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-    }
+  .hero-area .hero-parallax>div {
+    width: 1920px;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
 }
 
 /* max-width: 1599px and min-width:992px */
@@ -2005,41 +2005,41 @@ h6 {
 
 /* max-width: 1599px and min-width:1200px */
 @media (max-width: 1599px) and (min-width: 1200px) {
-    .about-section .img-wrapper:before {
-        left: 24px;
-    }
+  .about-section .img-wrapper:before {
+    left: 24px;
+  }
 
-    .service-section .content-wrapper {
-        padding: 48px 36px;
-    }
+  .service-section .content-wrapper {
+    padding: 48px 36px;
+  }
 
-    .testimonial-section .swiper {
-        height: 480px;
-    }
+  .testimonial-section .swiper {
+    height: 480px;
+  }
 }
 
 /* Max-width: 1399px */
 @media (max-width: 1599px) {
 
-    .service-section .de-service-1,
-    .service-section .de-service-2 {
-        display: none;
-    }
+  .service-section .de-service-1,
+  .service-section .de-service-2 {
+    display: none;
+  }
 
-    .blog-section .de-blog-2 {
-        bottom: 5%;
-    }
+  .blog-section .de-blog-2 {
+    bottom: 5%;
+  }
 
-    .contact-section .de-contact-1 {
-        top: 12%;
-    }
+  .contact-section .de-contact-1 {
+    top: 12%;
+  }
 }
 
 /* Max-width: 1399px and Min-width: 1200px */
 @media (max-width: 1399px) and (min-width: 1200px) {
-    .hero-area .hero-content>.row {
-        margin-top: 72px;
-    }
+  .hero-area .hero-content>.row {
+    margin-top: 72px;
+  }
 }
 
 /* max-width: 1199px */
@@ -2765,4 +2765,45 @@ h6 {
     .blog-section .row .large-post .post-content h3 {
         font-size: 18px;
     }
+}
+
+
+.tengah {
+  text-align: center;
+}
+
+.kiri {
+  text-align: left;
+}
+
+.result-container {
+  padding: 1rem 1.5rem
+}
+
+.profile {
+  align-items: center;
+  display: flex;
+}
+
+.profile-style {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 25px;
+}
+
+.detail {
+  font-size: 10px;
+  width: -webkit-fill-available;
+  line-height: 1.3rem;
+}
+
+.serti-style {
+  width: 160px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.result {
+  border-radius: 30px;
 }
