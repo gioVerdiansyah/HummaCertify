@@ -14,9 +14,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com/">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&amp;family=Poppins:wght@700;900&amp;display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&amp;family=Poppins:wght@700;900&amp;display=swap" rel="stylesheet">
 
   <!-- CSS -->
   <link href="{{ asset('assets/template-2/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -24,6 +22,7 @@
   <link rel="stylesheet" href="{{ asset('assets/template-2/css/leaflet.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/template-2/css/aos.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/template-2/css/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/page/LandingPage.css') }}">
 
   <title>Laravel</title>
 
@@ -44,10 +43,8 @@
   <header class="site-header" id="site-header">
     <nav class="navbar navbar-expand-xl" id="site-navbar">
       <div class="container">
-        <a class="navbar-brand" href="index.html"><img class="img-fluid"
-            src="{{ asset('image-template-2/fungi_logo.png') }}" alt="fungi logo"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="index.html"><img class="img-fluid" src="{{ asset('image-template-2/fungi_logo.png') }}" alt="fungi logo"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"><i class="bi bi-list"></i></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -103,22 +100,36 @@
     <div class="container">
       <div class="hero-content d-flex justify-content-center">
         <div class="row d-flex align-items-center justify-content-center">
-
-
-          <div class="col-xl-8 text-center">
-            <img class="img-fluid hero-main-image" src="{{ asset('image-template-2/hero_main_image.png') }}"
-              alt="hero main image">
-            <h1 class="hero-head"><small>Hello, My name is</small>Steve <strong>Rogers</strong></h1>
-            <p>
+          <div class="col-xl-8 text-center mb-5">
+            <img class="img-fluid hero-main-image" width="150px" src="{{ asset('image/LOGO Hummasoft PP Circle.png') }}" alt="hero main image">
+            <section class="stars">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </section>
+            <h1 class="hero-head"><small class="input-header">Cek Keaslian sertifikat Anda</small></h1>
+            <form action="" method="post">
+              @csrf
+              <input type="text" class="input-search" name="search" placeholder="Ketik kode sertifikat Anda">
+              <button type="submit" class="search-button">Cari</button>
+            </form>
+            <p style="display: none">
               A passionate <strong>freelancer</strong> who works on
             </p>
-            <div id="work-brands" class="work-brands">
+            <div style="display: none" id="work-brands" class="work-brands">
               <span>Envato</span>
               <span>UpWork</span>
               <span>Freelancer</span>
               <span>Fiverr</span>
             </div>
-            <div class="link-group">
+            <div style="display: none" class="link-group">
               <a class="btn-main" href="#">Hire Me</a>
               <a class="btn-ghost" href="#">About Me</a>
             </div> <!-- .link-group -->
@@ -126,40 +137,23 @@
 
         </div> <!-- .row -->
       </div> <!-- .hero-content -->
-    </div> <!-- .container -->
-    <div class="hero-contact">
-      <ul class="hero-social list-inline">
-        <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-        <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
-        <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin"></i></a></li>
-        <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
-      </ul> <!-- .hero-social -->
-      <a class="hero-email" href="#">hello@fungiweb.com</a>
-    </div> <!-- .hero-contact -->
+    </div> <!-- .container --> <!-- .hero-contact -->
     <div id="scene" class="hero-parallax">
-      <div data-depth="0.2"><img class="img-fluid"
-          src="{{ asset('image-template-2/hero-bg/hero-parallax-envato.png') }}" alt="hero parallax adobe envato">
+      <div data-depth="0.2"><img class="img-fluid" src="{{ asset('image-template-2/hero-bg/hero-parallax-envato.png') }}" alt="hero parallax adobe envato">
       </div>
-      <div data-depth="0.1"><img class="img-fluid"
-          src="{{ asset('image-template-2/hero-bg/hero-parallax-ai.png') }}" alt="hero parallax adobe illustrator">
+      <div data-depth="0.1"><img class="img-fluid" src="{{ asset('image-template-2/hero-bg/hero-parallax-ai.png') }}" alt="hero parallax adobe illustrator">
       </div>
-      <div data-depth="0.3"><img class="img-fluid"
-          src="{{ asset('image-template-2/hero-bg/hero-parallax-figma.png') }}" alt="hero parallax adobe figma">
+      <div data-depth="0.3"><img class="img-fluid" src="{{ asset('image-template-2/hero-bg/hero-parallax-figma.png') }}" alt="hero parallax adobe figma">
       </div>
-      <div data-depth="0.2"><img class="img-fluid"
-          src="{{ asset('image-template-2/hero-bg/hero-parallax-fiverr.png') }}" alt="hero parallax adobe fiverr">
+      <div data-depth="0.2"><img class="img-fluid" src="{{ asset('image-template-2/hero-bg/hero-parallax-fiverr.png') }}" alt="hero parallax adobe fiverr">
       </div>
-      <div data-depth="0.3"><img class="img-fluid"
-          src="{{ asset('image-template-2/hero-bg/hero-parallax-joomla.png') }}" alt="hero parallax adobe joomla">
+      <div data-depth="0.3"><img class="img-fluid" src="{{ asset('image-template-2/hero-bg/hero-parallax-joomla.png') }}" alt="hero parallax adobe joomla">
       </div>
-      <div data-depth="0.2"><img class="img-fluid"
-          src="{{ asset('image-template-2/hero-bg/hero-parallax-ps.png') }}" alt="hero parallax adobe photoshop">
+      <div data-depth="0.2"><img clcass="img-fluid" src="{{ asset('image-template-2/hero-bg/hero-parallax-ps.png') }}" alt="hero parallax adobe photoshop">
       </div>
-      <div data-depth="0.3"><img class="img-fluid"
-          src="{{ asset('image-template-2/hero-bg/hero-parallax-upwork.png') }}" alt="hero parallax adobe upwork">
+      <div data-depth="0.3"><img class="img-fluid" src="{{ asset('image-template-2/hero-bg/hero-parallax-upwork.png') }}" alt="hero parallax adobe upwork">
       </div>
-      <div data-depth="0.1"><img class="img-fluid"
-          src="{{ asset('image-template-2/hero-bg/hero-parallax-wp.png') }}" alt="hero parallax adobe WordPress">
+      <div data-depth="0.1"><img width="60px" style="margin-left: 100px; margin-top: 150px" class="img-fluid" src="{{ asset('image/20231017_090752.png') }}" alt="hero parallax adobe WordPress">
       </div>
     </div> <!-- .hero-parallax -->
   </section> <!-- .hero-area -->
@@ -214,8 +208,7 @@
     </div> <!-- .container -->
 
     <div class="design-elements">
-      <img class="de-intro-1 elem-updown" src="{{ asset('image-template-2/design-elements/intro-element-1.png') }}"
-        alt="intro element 1">
+      <img class="de-intro-1 elem-updown" src="{{ asset('image-template-2/design-elements/intro-element-1.png') }}" alt="intro element 1">
     </div> <!-- .design-elements -->
 
   </section> <!-- .intro-section -->
@@ -226,10 +219,8 @@
       <div class="row">
         <div class="col-xl-6 image-block" data-aos="fade-right" data-aos-delay="200" data-aos-duration="2000">
           <div class="img-wrapper about-img-wrap" data-tilt data-tilt-max="10">
-            <img class="about-img-1 img-fluid" src="{{ asset('image-template-2/about-image-1.png') }}"
-              alt="about image">
-            <img class="about-img-2 img-fluid" src="{{ asset('image-template-2/about-image-2.png') }}"
-              alt="about image 2">
+            <img class="about-img-1 img-fluid" src="{{ asset('image-template-2/about-image-1.png') }}" alt="about image">
+            <img class="about-img-2 img-fluid" src="{{ asset('image-template-2/about-image-2.png') }}" alt="about image 2">
           </div>
         </div>
         <div class="col-xl-6 content-block" data-aos="fade-right" data-aos-delay="400" data-aos-duration="2000">
@@ -283,10 +274,8 @@
       </div> <!-- .row -->
     </div> <!-- .container -->
     <div class="design-elements">
-      <img class="de-about-1 elem-updown" src="{{ asset('image-template-2/design-elements/about-element-1.png') }}"
-        alt="about element 1">
-      <img class="de-about-2 elem-updown" src="{{ asset('image-template-2/design-elements/about-element-2.png') }}"
-        alt="about element 2">
+      <img class="de-about-1 elem-updown" src="{{ asset('image-template-2/design-elements/about-element-1.png') }}" alt="about element 1">
+      <img class="de-about-2 elem-updown" src="{{ asset('image-template-2/design-elements/about-element-2.png') }}" alt="about element 2">
     </div> <!-- .design-elements -->
   </section> <!-- .about-section -->
 
@@ -307,32 +296,28 @@
             <h4>Competitive Programming</h4>
             <p class="progress-value">84%</p>
             <div class="progress">
-              <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="84" aria-valuemin="0"
-                aria-valuemax="100"></div>
+              <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="84" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
           </div>
           <div class="progress-wrapper">
             <h4>Algorithm &amp; Data Structure</h4>
             <p class="progress-value">50%</p>
             <div class="progress">
-              <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="50" aria-valuemin="0"
-                aria-valuemax="100"></div>
+              <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
           </div>
           <div class="progress-wrapper">
             <h4>Game Development</h4>
             <p class="progress-value">75%</p>
             <div class="progress">
-              <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="75" aria-valuemin="0"
-                aria-valuemax="100"></div>
+              <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
           </div>
           <div class="progress-wrapper">
             <h4>Web Application</h4>
             <p class="progress-value">96%</p>
             <div class="progress">
-              <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="96" aria-valuemin="0"
-                aria-valuemax="100"></div>
+              <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="96" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
           </div>
         </div>
@@ -365,22 +350,18 @@
               <span class="category">Programming</span>
               <h3 class="title">Website design for Rainy Design</h3>
             </div>
-            <div class="icon-box"><a href="#" data-bs-toggle="modal" data-bs-target="#portfolioModal6"><i
-                  class="bi bi-plus-lg"></i></a></div>
+            <div class="icon-box"><a href="#" data-bs-toggle="modal" data-bs-target="#portfolioModal6"><i class="bi bi-plus-lg"></i></a></div>
 
             <!-- Modal -->
-            <div class="modal fade" id="portfolioModal6" tabindex="-1" aria-labelledby="portfolioModal6"
-              aria-hidden="true">
+            <div class="modal fade" id="portfolioModal6" tabindex="-1" aria-labelledby="portfolioModal6" aria-hidden="true">
               <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
                 <div class="modal-content">
 
                   <div class="modal-body">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
-                        class="bi bi-x"></i></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
                     <div class="row item-content">
                       <div class="col-xl-12">
-                        <img src="{{ asset('image-template-2/portfolio/portfolio_large_1.jpg') }}"
-                          alt="portfolio image">
+                        <img src="{{ asset('image-template-2/portfolio/portfolio_large_1.jpg') }}" alt="portfolio image">
                       </div>
                       <div class="col-xl-8">
                         <div class="content-wrapper">
@@ -427,23 +408,18 @@
               <h3 class="title">Come on babe light my fire</h3>
             </div>
 
-
-            <div class="icon-box"><a href="#" data-bs-toggle="modal" data-bs-target="#portfolioModal5"><i
-                  class="bi bi-plus-lg"></i></a></div>
+            <div class="icon-box"><a href="#" data-bs-toggle="modal" data-bs-target="#portfolioModal5"><i class="bi bi-plus-lg"></i></a></div>
 
             <!-- Modal -->
-            <div class="modal fade" id="portfolioModal5" tabindex="-1" aria-labelledby="portfolioModal5"
-              aria-hidden="true">
+            <div class="modal fade" id="portfolioModal5" tabindex="-1" aria-labelledby="portfolioModal5" aria-hidden="true">
               <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
                 <div class="modal-content">
 
                   <div class="modal-body">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
-                        class="bi bi-x"></i></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
                     <div class="row item-content">
                       <div class="col-xl-12">
-                        <img src="{{ asset('image-template-2/portfolio/portfolio_large_2.jpg') }}"
-                          alt="portfolio image">
+                        <img src="{{ asset('image-template-2/portfolio/portfolio_large_2.jpg') }}" alt="portfolio image">
                       </div>
                       <div class="col-xl-8">
                         <div class="content-wrapper">
@@ -489,22 +465,18 @@
               <span class="category">Design</span>
               <h3 class="title">When the musics over turn off the light</h3>
             </div>
-            <div class="icon-box"><a href="#" data-bs-toggle="modal" data-bs-target="#portfolioModal4"><i
-                  class="bi bi-plus-lg"></i></a></div>
+            <div class="icon-box"><a href="#" data-bs-toggle="modal" data-bs-target="#portfolioModal4"><i class="bi bi-plus-lg"></i></a></div>
 
             <!-- Modal -->
-            <div class="modal fade" id="portfolioModal4" tabindex="-1" aria-labelledby="portfolioModal4"
-              aria-hidden="true">
+            <div class="modal fade" id="portfolioModal4" tabindex="-1" aria-labelledby="portfolioModal4" aria-hidden="true">
               <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
                 <div class="modal-content">
 
                   <div class="modal-body">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
-                        class="bi bi-x"></i></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
                     <div class="row item-content">
                       <div class="col-xl-12">
-                        <img src="{{ asset('image-template-2/portfolio/portfolio_large_3.jpg') }}"
-                          alt="portfolio image">
+                        <img src="{{ asset('image-template-2/portfolio/portfolio_large_3.jpg') }}" alt="portfolio image">
                       </div>
                       <div class="col-xl-8">
                         <div class="content-wrapper">
@@ -550,22 +522,18 @@
               <span class="category">Application</span>
               <h3 class="title">She's got a smile that seems to me</h3>
             </div>
-            <div class="icon-box"><a href="#" data-bs-toggle="modal" data-bs-target="#portfolioModal3"><i
-                  class="bi bi-plus-lg"></i></a></div>
+            <div class="icon-box"><a href="#" data-bs-toggle="modal" data-bs-target="#portfolioModal3"><i class="bi bi-plus-lg"></i></a></div>
 
             <!-- Modal -->
-            <div class="modal fade" id="portfolioModal3" tabindex="-1" aria-labelledby="portfolioModal3"
-              aria-hidden="true">
+            <div class="modal fade" id="portfolioModal3" tabindex="-1" aria-labelledby="portfolioModal3" aria-hidden="true">
               <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
                 <div class="modal-content">
 
                   <div class="modal-body">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
-                        class="bi bi-x"></i></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
                     <div class="row item-content">
                       <div class="col-xl-12">
-                        <img src="{{ asset('image-template-2/portfolio/portfolio_large_4.jpg') }}"
-                          alt="portfolio image">
+                        <img src="{{ asset('image-template-2/portfolio/portfolio_large_4.jpg') }}" alt="portfolio image">
                       </div>
                       <div class="col-xl-8">
                         <div class="content-wrapper">
@@ -611,22 +579,18 @@
               <span class="category">Programming</span>
               <h3 class="title">So close no matter how far</h3>
             </div>
-            <div class="icon-box"><a href="#" data-bs-toggle="modal" data-bs-target="#portfolioModal2"><i
-                  class="bi bi-plus-lg"></i></a></div>
+            <div class="icon-box"><a href="#" data-bs-toggle="modal" data-bs-target="#portfolioModal2"><i class="bi bi-plus-lg"></i></a></div>
 
             <!-- Modal -->
-            <div class="modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2"
-              aria-hidden="true">
+            <div class="modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2" aria-hidden="true">
               <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
                 <div class="modal-content">
 
                   <div class="modal-body">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
-                        class="bi bi-x"></i></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
                     <div class="row item-content">
                       <div class="col-xl-12">
-                        <img src="{{ asset('image-template-2/portfolio/portfolio_large_5.jpg') }}"
-                          alt="portfolio image">
+                        <img src="{{ asset('image-template-2/portfolio/portfolio_large_5.jpg') }}" alt="portfolio image">
                       </div>
                       <div class="col-xl-8">
                         <div class="content-wrapper">
@@ -672,22 +636,18 @@
               <span class="category">Development</span>
               <h3 class="title">When you are stranger faces looks ugly</h3>
             </div>
-            <div class="icon-box"><a href="#" data-bs-toggle="modal" data-bs-target="#portfolioModal1"><i
-                  class="bi bi-plus-lg"></i></a></div>
+            <div class="icon-box"><a href="#" data-bs-toggle="modal" data-bs-target="#portfolioModal1"><i class="bi bi-plus-lg"></i></a></div>
 
             <!-- Modal -->
-            <div class="modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal1"
-              aria-hidden="true">
+            <div class="modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal1" aria-hidden="true">
               <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
                 <div class="modal-content">
 
                   <div class="modal-body">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
-                        class="bi bi-x"></i></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
                     <div class="row item-content">
                       <div class="col-xl-12">
-                        <img src="{{ asset('image-template-2/portfolio/portfolio_large_6.jpg') }}"
-                          alt="portfolio image">
+                        <img src="{{ asset('image-template-2/portfolio/portfolio_large_6.jpg') }}" alt="portfolio image">
                       </div>
                       <div class="col-xl-8">
                         <div class="content-wrapper">
@@ -729,10 +689,8 @@
       </div> <!-- .row -->
     </div> <!-- .container -->
     <div class="design-elements">
-      <img class="de-portfolio-1 elem-updown"
-        src="{{ asset('image-template-2/design-elements/portfolio-element-1.png') }}" alt="portfolio element 1">
-      <img class="de-portfolio-2 elem-updown"
-        src="{{ asset('image-template-2/design-elements/portfolio-element-2.png') }}" alt="portfolio element 2">
+      <img class="de-portfolio-1 elem-updown" src="{{ asset('image-template-2/design-elements/portfolio-element-1.png') }}" alt="portfolio element 1">
+      <img class="de-portfolio-2 elem-updown" src="{{ asset('image-template-2/design-elements/portfolio-element-2.png') }}" alt="portfolio element 2">
     </div> <!-- .design-elements -->
   </section> <!-- .portfolio-section -->
 
@@ -811,12 +769,9 @@
       </div><!-- .row -->
     </div> <!-- .container -->
     <div class="design-elements">
-      <img class="de-service-1 elem-updown"
-        src="{{ asset('image-template-2/design-elements/service-element-1.png') }}" alt="service element 1">
-      <img class="de-service-2 elem-updown"
-        src="{{ asset('image-template-2/design-elements/service-element-2.png') }}" alt="service element 2">
-      <img class="de-service-3 elem-updown"
-        src="{{ asset('image-template-2/design-elements/service-element-3.png') }}" alt="service element 3">
+      <img class="de-service-1 elem-updown" src="{{ asset('image-template-2/design-elements/service-element-1.png') }}" alt="service element 1">
+      <img class="de-service-2 elem-updown" src="{{ asset('image-template-2/design-elements/service-element-2.png') }}" alt="service element 2">
+      <img class="de-service-3 elem-updown" src="{{ asset('image-template-2/design-elements/service-element-3.png') }}" alt="service element 3">
     </div> <!-- .design-elements -->
   </section> <!-- .service-section -->
 
@@ -826,8 +781,7 @@
       <div class="row">
         <div class="col-xl-6 image-block" data-aos="fade-right" data-aos-duration="1500">
           <div class="image-wrapper">
-            <img class="img-fluid feature-photo" src="{{ asset('image-template-2/feature-photo.png') }}"
-              alt="features photo" data-tilt data-tilt-max="10">
+            <img class="img-fluid feature-photo" src="{{ asset('image-template-2/feature-photo.png') }}" alt="features photo" data-tilt data-tilt-max="10">
           </div> <!-- .image-wrapper -->
         </div> <!-- .image-block -->
         <div class="col-xl-6 content-block" data-aos="fade-right" data-aos-duration="1500" data-aos-delay="400">
@@ -908,8 +862,7 @@
               </p>
               <div class="quote-author d-flex align-items-center justify-content-center">
                 <div class="image-block">
-                  <img class="img-fluid" src="{{ asset('image-template-2/testimonial/testimonial-author-1.jpg') }}"
-                    alt="testimonial author">
+                  <img class="img-fluid" src="{{ asset('image-template-2/testimonial/testimonial-author-1.jpg') }}" alt="testimonial author">
                 </div>
                 <h4>James Anderson<span>Web Developer</span></h4>
               </div>
@@ -927,8 +880,7 @@
               </p>
               <div class="quote-author d-flex align-items-center justify-content-center">
                 <div class="image-block">
-                  <img class="img-fluid" src="{{ asset('image-template-2/testimonial/testimonial-author-3.jpg') }}"
-                    alt="testimonial author">
+                  <img class="img-fluid" src="{{ asset('image-template-2/testimonial/testimonial-author-3.jpg') }}" alt="testimonial author">
                 </div>
                 <h4>Dona Josefine<span>Web Developer</span></h4>
               </div>
@@ -946,8 +898,7 @@
               </p>
               <div class="quote-author d-flex align-items-center justify-content-center">
                 <div class="image-block">
-                  <img class="img-fluid" src="{{ asset('image-template-2/testimonial/testimonial-author-4.jpg') }}"
-                    alt="testimonial author">
+                  <img class="img-fluid" src="{{ asset('image-template-2/testimonial/testimonial-author-4.jpg') }}" alt="testimonial author">
                 </div>
                 <h4>Mark Anthony <span>Web Developer</span></h4>
               </div>
@@ -965,8 +916,7 @@
               </p>
               <div class="quote-author d-flex align-items-center justify-content-center">
                 <div class="image-block">
-                  <img class="img-fluid" src="{{ asset('image-template-2/testimonial/testimonial-author-2.jpg') }}"
-                    alt="testimonial author">
+                  <img class="img-fluid" src="{{ asset('image-template-2/testimonial/testimonial-author-2.jpg') }}" alt="testimonial author">
                 </div>
                 <h4>Sanjida Ema<span>Web Developer</span></h4>
               </div>
@@ -998,12 +948,10 @@
               <div class="modal-content">
 
                 <div class="modal-body">
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
-                      class="bi bi-x"></i></button>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
                   <div class="row blog-content">
                     <div class="col-xl-12">
-                      <img class="img-fluid" src="{{ asset('image-template-2/blog/blog_full_01.jpg') }}"
-                        alt="blog post image 01">
+                      <img class="img-fluid" src="{{ asset('image-template-2/blog/blog_full_01.jpg') }}" alt="blog post image 01">
                     </div>
                     <div class="col-xl-8 offset-xl-2">
                       <div class="content-wrapper">
@@ -1088,12 +1036,9 @@
               <h3><a href="#" data-bs-toggle="modal" data-bs-target="#blogModal1">Javascript algorythm and data
                   structure for beginners</a></h3>
 
-
-
             </div>
             <div class="image-wrapper">
-              <img class="img-fluid" src="{{ asset('image-template-2/blog/post-thumbnail-01.jpg') }}"
-                alt="post thumnail">
+              <img class="img-fluid" src="{{ asset('image-template-2/blog/post-thumbnail-01.jpg') }}" alt="post thumnail">
             </div>
           </div>
 
@@ -1102,18 +1047,15 @@
           <div class="row">
             <div class="col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
               <!-- Modal -->
-              <div class="modal fade" id="blogModal2" tabindex="-1" aria-labelledby="blogModal2"
-                aria-hidden="true">
+              <div class="modal fade" id="blogModal2" tabindex="-1" aria-labelledby="blogModal2" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
                   <div class="modal-content">
 
                     <div class="modal-body">
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
-                          class="bi bi-x"></i></button>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
                       <div class="row blog-content">
                         <div class="col-xl-12">
-                          <img class="img-fluid" src="{{ asset('image-template-2/blog/blog_full_03.jpg') }}"
-                            alt="blog post image 02">
+                          <img class="img-fluid" src="{{ asset('image-template-2/blog/blog_full_03.jpg') }}" alt="blog post image 02">
                         </div>
                         <div class="col-xl-8 offset-xl-2">
                           <div class="content-wrapper">
@@ -1200,25 +1142,21 @@
                       Figma easily</a></h3>
                 </div>
                 <div class="image-wrapper">
-                  <img class="img-fluid" src="{{ asset('image-template-2/blog/post-thumbnail-03.jpg') }}"
-                    alt="post thumnail">
+                  <img class="img-fluid" src="{{ asset('image-template-2/blog/post-thumbnail-03.jpg') }}" alt="post thumnail">
                 </div>
               </div>
             </div>
             <div class="col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600">
               <!-- Modal -->
-              <div class="modal fade" id="blogModal3" tabindex="-1" aria-labelledby="blogModal3"
-                aria-hidden="true">
+              <div class="modal fade" id="blogModal3" tabindex="-1" aria-labelledby="blogModal3" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
                   <div class="modal-content">
 
                     <div class="modal-body">
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
-                          class="bi bi-x"></i></button>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
                       <div class="row blog-content">
                         <div class="col-xl-12">
-                          <img class="img-fluid" src="{{ asset('image-template-2/blog/blog_full_04.jpg') }}"
-                            alt="blog post image 03">
+                          <img class="img-fluid" src="{{ asset('image-template-2/blog/blog_full_04.jpg') }}" alt="blog post image 03">
                         </div>
                         <div class="col-xl-8 offset-xl-2">
                           <div class="content-wrapper">
@@ -1304,25 +1242,21 @@
                       other side</a></h3>
                 </div>
                 <div class="image-wrapper">
-                  <img class="img-fluid" src="{{ asset('image-template-2/blog/post-thumbnail-04.jpg') }}"
-                    alt="post thumnail">
+                  <img class="img-fluid" src="{{ asset('image-template-2/blog/post-thumbnail-04.jpg') }}" alt="post thumnail">
                 </div>
               </div>
             </div>
             <div class="col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="800">
               <!-- Modal -->
-              <div class="modal fade" id="blogModal4" tabindex="-1" aria-labelledby="blogModal4"
-                aria-hidden="true">
+              <div class="modal fade" id="blogModal4" tabindex="-1" aria-labelledby="blogModal4" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
                   <div class="modal-content">
 
                     <div class="modal-body">
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
-                          class="bi bi-x"></i></button>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
                       <div class="row blog-content">
                         <div class="col-xl-12">
-                          <img class="img-fluid" src="{{ asset('image-template-2/blog/blog_full_05.jpg') }}"
-                            alt="blog post image 04">
+                          <img class="img-fluid" src="{{ asset('image-template-2/blog/blog_full_05.jpg') }}" alt="blog post image 04">
                         </div>
                         <div class="col-xl-8 offset-xl-2">
                           <div class="content-wrapper">
@@ -1408,25 +1342,21 @@
                       heaven</a></h3>
                 </div>
                 <div class="image-wrapper">
-                  <img class="img-fluid" src="{{ asset('image-template-2/blog/post-thumbnail-05.jpg') }}"
-                    alt="post thumnail">
+                  <img class="img-fluid" src="{{ asset('image-template-2/blog/post-thumbnail-05.jpg') }}" alt="post thumnail">
                 </div>
               </div>
             </div>
             <div class="col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="1000">
               <!-- Modal -->
-              <div class="modal fade" id="blogModal5" tabindex="-1" aria-labelledby="blogModal5"
-                aria-hidden="true">
+              <div class="modal fade" id="blogModal5" tabindex="-1" aria-labelledby="blogModal5" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
                   <div class="modal-content">
 
                     <div class="modal-body">
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
-                          class="bi bi-x"></i></button>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
                       <div class="row blog-content">
                         <div class="col-xl-12">
-                          <img class="img-fluid" src="{{ asset('image-template-2/blog/blog_full_06.jpg') }}"
-                            alt="blog post image 05">
+                          <img class="img-fluid" src="{{ asset('image-template-2/blog/blog_full_06.jpg') }}" alt="blog post image 05">
                         </div>
                         <div class="col-xl-8 offset-xl-2">
                           <div class="content-wrapper">
@@ -1512,8 +1442,7 @@
                       turn off the light</a></h3>
                 </div>
                 <div class="image-wrapper">
-                  <img class="img-fluid" src="{{ asset('image-template-2/blog/post-thumbnail-06.jpg') }}"
-                    alt="post thumnail">
+                  <img class="img-fluid" src="{{ asset('image-template-2/blog/post-thumbnail-06.jpg') }}" alt="post thumnail">
                 </div>
               </div>
             </div>
@@ -1522,10 +1451,8 @@
       </div> <!-- .row -->
     </div> <!-- .container -->
     <div class="design-elements">
-      <img class="de-blog-1 elem-updown" src="{{ asset('image-template-2/design-elements/blog-element-1.png') }}"
-        alt="blog element 1">
-      <img class="de-blog-2 elem-updown" src="{{ asset('image-template-2/design-elements/blog-element-2.png') }}"
-        alt="blog element 2">
+      <img class="de-blog-1 elem-updown" src="{{ asset('image-template-2/design-elements/blog-element-1.png') }}" alt="blog element 1">
+      <img class="de-blog-2 elem-updown" src="{{ asset('image-template-2/design-elements/blog-element-2.png') }}" alt="blog element 2">
     </div> <!-- .design-elements -->
   </section> <!-- .blog-section -->
 
@@ -1601,24 +1528,21 @@
       </div><!-- .section-title -->
 
       <div class="row contact-options">
-        <div class="col-lg-4 d-flex justify-content-xxl-center align-items-xl-center" data-aos="fade-down"
-          data-aos-duration="1000">
+        <div class="col-lg-4 d-flex justify-content-xxl-center align-items-xl-center" data-aos="fade-down" data-aos-duration="1000">
           <div class="icon-box"><i class="pe-7s-map-marker"></i></div>
           <div class="content-wrapper">
             <h4>Address</h4>
             <address>Bardeshi, Amin Bazar, New York</address>
           </div>
         </div>
-        <div class="col-lg-4 d-flex justify-content-xxl-center align-items-xl-center" data-aos="fade-down"
-          data-aos-duration="1000" data-aos-delay="200">
+        <div class="col-lg-4 d-flex justify-content-xxl-center align-items-xl-center" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="200">
           <div class="icon-box"><i class="pe-7s-call"></i></div>
           <div class="content-wrapper">
             <h4>Phone</h4>
             <a href="#">+01234 567 890</a>
           </div>
         </div>
-        <div class="col-lg-4 d-flex justify-content-xxl-center align-items-xl-center" data-aos="fade-down"
-          data-aos-duration="1000" data-aos-delay="400">
+        <div class="col-lg-4 d-flex justify-content-xxl-center align-items-xl-center" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="400">
           <div class="icon-box"><i class="pe-7s-mail"></i></div>
           <div class="content-wrapper">
             <h4>Email</h4>
@@ -1638,28 +1562,24 @@
           <div class="form-message">
             <p></p>
           </div>
-          <form class="row g-3" id="fungi-contact" method="POST"
-            action="https://ethemestudio.com/demo/fungi/7_freelancer/php/form-handler.php">
+          <form class="row g-3" id="fungi-contact" method="POST" action="https://ethemestudio.com/demo/fungi/7_freelancer/php/form-handler.php">
             <div class="col-md-6">
               <div class="input-group mb-3">
                 <label for="inputName" class="form-label visually-hidden">Name</label>
-                <input type="text" class="form-control" id="inputName" placeholder="Name*" name="inputName"
-                  required>
+                <input type="text" class="form-control" id="inputName" placeholder="Name*" name="inputName" required>
               </div>
             </div>
             <div class="col-md-6">
 
               <div class="input-group mb-3">
                 <label for="inputEmail" class="form-label visually-hidden">Email</label>
-                <input type="email" class="form-control" id="inputEmail" name="inputEmail"
-                  placeholder="Email*" required>
+                <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Email*" required>
               </div>
 
             </div>
             <div class="col-md-12">
               <label for="inputMessage" class="form-label visually-hidden">Message</label>
-              <textarea class="form-control mb-3" id="inputMessage" name="inputMessage" placeholder="Your message here*"
-                required></textarea>
+              <textarea class="form-control mb-3" id="inputMessage" name="inputMessage" placeholder="Your message here*" required></textarea>
               <button type="submit" class="btn btn-main" name="submit">Send Message</button>
             </div>
           </form> <!-- .row -->
@@ -1667,10 +1587,8 @@
       </div> <!-- .row -->
     </div> <!-- .container -->
     <div class="design-elements">
-      <img class="de-contact-1 elem-updown"
-        src="{{ asset('image-template-2/design-elements/contact-element-1.png') }}" alt="contact element 1">
-      <img class="de-contact-2 elem-updown"
-        src="{{ asset('image-template-2/design-elements/contact-element-2.png') }}" alt="contact element 2">
+      <img class="de-contact-1 elem-updown" src="{{ asset('image-template-2/design-elements/contact-element-1.png') }}" alt="contact element 1">
+      <img class="de-contact-2 elem-updown" src="{{ asset('image-template-2/design-elements/contact-element-2.png') }}" alt="contact element 2">
     </div> <!-- .design-elements -->
   </section> <!-- .contact-section -->
 
@@ -1679,8 +1597,7 @@
     <div class="container">
       <div class="row align-items-center justify-content-center">
         <div class="col-lg-6 text-center branding-block">
-          <a class="footer-brand" href="#"><img src="{{ asset('image-template-2/fungi_logo_light.png') }}"
-              alt="Pori logo"></a>
+          <a class="footer-brand" href="#"><img src="{{ asset('image-template-2/fungi_logo_light.png') }}" alt="Pori logo"></a>
           <p>
             Kilaboris nisi ut aliquip ex ea commodo consequat uis aute cupidatat non proident sunt in culd est laborum.
           </p>
