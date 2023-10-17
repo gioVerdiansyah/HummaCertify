@@ -56,10 +56,10 @@
               <a class="nav-link" href="#about-section">Tentang</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#portfolio-section">Portfolio</a>
+              <a class="nav-link" href="#portfolio-section">Contoh</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#service-section">Service</a>
+              <a class="nav-link" href="#service-section">Layanan</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#testimonial-section">Testimonials</a>
@@ -314,360 +314,40 @@
   <section class="portfolio-section section-block" id="portfolio-section">
     <div class="container">
       <div class="section-title">
-        <h2>Portfolio</h2>
+        <h2>Contoh Sertifikat</h2>
         <p class="lead">
-          Duis aute irure dolor in reprehen pteur sint occaecat cupidatat non
-          proident, sunt in culim id est.
+          Berikut adalah beberapa contoh sertifikat yang telah kami buat di bawah naungan perusahaan kami.
         </p>
-      </div><!-- .section-title -->
-      <div class="button-group filter-button-group">
-        <button class="active" data-filter="*">All</button>
-        <button class="" data-filter=".programming">Programming</button>
-        <button class="" data-filter=".development">Development</button>
-        <button class="" data-filter=".design">Design</button>
-        <button class="" data-filter=".application">Application</button>
       </div>
       <div class="row grid" data-aos="fade-up" data-aos-duration="2000">
         <div class="col-lg-4 col-md-6 grid-item programming">
           <div class="box">
-            <img src="{{ asset('image-template-2/portfolio/portfolio-item-01.jpgsets') }}" alt="portfolio image">
-            <div class="box-content">
-              <span class="category">Programming</span>
-              <h3 class="title">Website design for Rainy Design</h3>
-            </div>
-            <div class="icon-box"><a href="#" data-bs-toggle="modal" data-bs-target="#portfolioModal6"><i class="bi bi-plus-lg"></i></a></div>
-
-            <!-- Modal -->
-            <div class="modal fade" id="portfolioModal6" tabindex="-1" aria-labelledby="portfolioModal6" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
-                <div class="modal-content">
-
-                  <div class="modal-body">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
-                    <div class="row item-content">
-                      <div class="col-xl-12">
-                        <img src="{{ asset('image-template-2/portfolio/portfolio_large_1.jpg') }}" alt="portfolio image">
-                      </div>
-                      <div class="col-xl-8">
-                        <div class="content-wrapper">
-                          <h2 class="item-title">Branding for ABC Corporation</h2>
-                          <p>
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                            anim id est laborum.
-                          </p>
-                          <p>
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-                            in culpa qui officia deserunt mollit anim id est laborum.
-                          </p>
-                        </div>
-                      </div>
-                      <div class="col-xl-4">
-                        <div class="meta-wrapper">
-                          <ul class="item-meta">
-                            <li>Project Type: <span class="meta-value">Graphic Design</span></li>
-                            <li>Client: <span class="meta-value">Juwel Khan</span></li>
-                            <li>Duration: <span class="meta-value">2 Weeks</span></li>
-                            <li>Task: <span class="meta-value">UI/UX, Frontend</span></li>
-                            <li>Budget: <span class="meta-value">$2000</span></li>
-                          </ul>
-                        </div> <!-- .meta-wrapper -->
-                      </div>
-                    </div> <!-- .row -->
-                  </div>
-                </div>
-              </div>
-            </div>
+            <img src="{{ asset('image/certificate-bg.png') }}" alt="portfolio image">
           </div>
         </div>
         <div class="col-lg-4 col-md-6 grid-item development application">
           <div class="box">
-            <img src="{{ asset('image-template-2/portfolio/portfolio-item-02.jpg') }}" alt="portfolio image">
-            <div class="box-content">
-              <span class="category">Development</span>
-              <h3 class="title">Come on babe light my fire</h3>
-            </div>
-
-            <div class="icon-box"><a href="#" data-bs-toggle="modal" data-bs-target="#portfolioModal5"><i class="bi bi-plus-lg"></i></a></div>
-
-            <!-- Modal -->
-            <div class="modal fade" id="portfolioModal5" tabindex="-1" aria-labelledby="portfolioModal5" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
-                <div class="modal-content">
-
-                  <div class="modal-body">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
-                    <div class="row item-content">
-                      <div class="col-xl-12">
-                        <img src="{{ asset('image-template-2/portfolio/portfolio_large_2.jpg') }}" alt="portfolio image">
-                      </div>
-                      <div class="col-xl-8">
-                        <div class="content-wrapper">
-                          <h2 class="item-title">Branding for ABC Corporation</h2>
-                          <p>
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                            anim id est laborum.
-                          </p>
-                          <p>
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-                            in culpa qui officia deserunt mollit anim id est laborum.
-                          </p>
-                        </div>
-                      </div>
-                      <div class="col-xl-4">
-                        <div class="meta-wrapper">
-                          <ul class="item-meta">
-                            <li>Project Type: <span class="meta-value">Graphic Design</span></li>
-                            <li>Client: <span class="meta-value">Juwel Khan</span></li>
-                            <li>Duration: <span class="meta-value">2 Weeks</span></li>
-                            <li>Task: <span class="meta-value">UI/UX, Frontend</span></li>
-                            <li>Budget: <span class="meta-value">$2000</span></li>
-                          </ul>
-                        </div> <!-- .meta-wrapper -->
-                      </div>
-                    </div> <!-- .row -->
-                  </div>
-
-                </div>
-              </div>
-            </div>
+            <img src="{{ asset('image/certificate-bg.png') }}" alt="portfolio image">
           </div>
         </div>
         <div class="col-lg-4 col-md-6 grid-item application programming design">
           <div class="box">
-            <img src="{{ asset('image-template-2/portfolio/portfolio-item-03.jpg') }}" alt="portfolio image">
-            <div class="box-content">
-              <span class="category">Design</span>
-              <h3 class="title">When the musics over turn off the light</h3>
-            </div>
-            <div class="icon-box"><a href="#" data-bs-toggle="modal" data-bs-target="#portfolioModal4"><i class="bi bi-plus-lg"></i></a></div>
-
-            <!-- Modal -->
-            <div class="modal fade" id="portfolioModal4" tabindex="-1" aria-labelledby="portfolioModal4" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
-                <div class="modal-content">
-
-                  <div class="modal-body">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
-                    <div class="row item-content">
-                      <div class="col-xl-12">
-                        <img src="{{ asset('image-template-2/portfolio/portfolio_large_3.jpg') }}" alt="portfolio image">
-                      </div>
-                      <div class="col-xl-8">
-                        <div class="content-wrapper">
-                          <h2 class="item-title">Branding for ABC Corporation</h2>
-                          <p>
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                            anim id est laborum.
-                          </p>
-                          <p>
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-                            in culpa qui officia deserunt mollit anim id est laborum.
-                          </p>
-                        </div>
-                      </div>
-                      <div class="col-xl-4">
-                        <div class="meta-wrapper">
-                          <ul class="item-meta">
-                            <li>Project Type: <span class="meta-value">Graphic Design</span></li>
-                            <li>Client: <span class="meta-value">Juwel Khan</span></li>
-                            <li>Duration: <span class="meta-value">2 Weeks</span></li>
-                            <li>Task: <span class="meta-value">UI/UX, Frontend</span></li>
-                            <li>Budget: <span class="meta-value">$2000</span></li>
-                          </ul>
-                        </div> <!-- .meta-wrapper -->
-                      </div>
-                    </div> <!-- .row -->
-                  </div>
-
-                </div>
-              </div>
-            </div>
+            <img src="{{ asset('image/certificate-bg.png') }}" alt="portfolio image">
           </div>
         </div>
         <div class="col-lg-4 col-md-6 grid-item design application">
           <div class="box">
-            <img src="{{ asset('image-template-2/portfolio/portfolio-item-04.jpg') }}" alt="portfolio image">
-            <div class="box-content">
-              <span class="category">Application</span>
-              <h3 class="title">She's got a smile that seems to me</h3>
-            </div>
-            <div class="icon-box"><a href="#" data-bs-toggle="modal" data-bs-target="#portfolioModal3"><i class="bi bi-plus-lg"></i></a></div>
-
-            <!-- Modal -->
-            <div class="modal fade" id="portfolioModal3" tabindex="-1" aria-labelledby="portfolioModal3" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
-                <div class="modal-content">
-
-                  <div class="modal-body">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
-                    <div class="row item-content">
-                      <div class="col-xl-12">
-                        <img src="{{ asset('image-template-2/portfolio/portfolio_large_4.jpg') }}" alt="portfolio image">
-                      </div>
-                      <div class="col-xl-8">
-                        <div class="content-wrapper">
-                          <h2 class="item-title">Branding for ABC Corporation</h2>
-                          <p>
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                            anim id est laborum.
-                          </p>
-                          <p>
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-                            in culpa qui officia deserunt mollit anim id est laborum.
-                          </p>
-                        </div>
-                      </div>
-                      <div class="col-xl-4">
-                        <div class="meta-wrapper">
-                          <ul class="item-meta">
-                            <li>Project Type: <span class="meta-value">Graphic Design</span></li>
-                            <li>Client: <span class="meta-value">Juwel Khan</span></li>
-                            <li>Duration: <span class="meta-value">2 Weeks</span></li>
-                            <li>Task: <span class="meta-value">UI/UX, Frontend</span></li>
-                            <li>Budget: <span class="meta-value">$2000</span></li>
-                          </ul>
-                        </div> <!-- .meta-wrapper -->
-                      </div>
-                    </div> <!-- .row -->
-                  </div>
-
-                </div>
-              </div>
-            </div>
+            <img src="{{ asset('image/certificate-bg.png') }}" alt="portfolio image">
           </div>
         </div>
         <div class="col-lg-4 col-md-6 grid-item programming design">
           <div class="box">
-            <img src="{{ asset('image-template-2/portfolio/portfolio-item-05.jpg') }}" alt="portfolio image">
-            <div class="box-content">
-              <span class="category">Programming</span>
-              <h3 class="title">So close no matter how far</h3>
-            </div>
-            <div class="icon-box"><a href="#" data-bs-toggle="modal" data-bs-target="#portfolioModal2"><i class="bi bi-plus-lg"></i></a></div>
-
-            <!-- Modal -->
-            <div class="modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
-                <div class="modal-content">
-
-                  <div class="modal-body">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
-                    <div class="row item-content">
-                      <div class="col-xl-12">
-                        <img src="{{ asset('image-template-2/portfolio/portfolio_large_5.jpg') }}" alt="portfolio image">
-                      </div>
-                      <div class="col-xl-8">
-                        <div class="content-wrapper">
-                          <h2 class="item-title">Branding for ABC Corporation</h2>
-                          <p>
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                            anim id est laborum.
-                          </p>
-                          <p>
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-                            in culpa qui officia deserunt mollit anim id est laborum.
-                          </p>
-                        </div>
-                      </div>
-                      <div class="col-xl-4">
-                        <div class="meta-wrapper">
-                          <ul class="item-meta">
-                            <li>Project Type: <span class="meta-value">Graphic Design</span></li>
-                            <li>Client: <span class="meta-value">Juwel Khan</span></li>
-                            <li>Duration: <span class="meta-value">2 Weeks</span></li>
-                            <li>Task: <span class="meta-value">UI/UX, Frontend</span></li>
-                            <li>Budget: <span class="meta-value">$2000</span></li>
-                          </ul>
-                        </div> <!-- .meta-wrapper -->
-                      </div>
-                    </div> <!-- .row -->
-                  </div>
-
-                </div>
-              </div>
-            </div>
+            <img src="{{ asset('image/certificate-bg.png') }}" alt="portfolio image">
           </div>
         </div>
         <div class="col-lg-4 col-md-6 grid-item development design">
           <div class="box">
-            <img src="{{ asset('image-template-2/portfolio/portfolio-item-06.jpg') }}" alt="portfolio image">
-            <div class="box-content">
-              <span class="category">Development</span>
-              <h3 class="title">When you are stranger faces looks ugly</h3>
-            </div>
-            <div class="icon-box"><a href="#" data-bs-toggle="modal" data-bs-target="#portfolioModal1"><i class="bi bi-plus-lg"></i></a></div>
-
-            <!-- Modal -->
-            <div class="modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal1" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
-                <div class="modal-content">
-
-                  <div class="modal-body">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
-                    <div class="row item-content">
-                      <div class="col-xl-12">
-                        <img src="{{ asset('image-template-2/portfolio/portfolio_large_6.jpg') }}" alt="portfolio image">
-                      </div>
-                      <div class="col-xl-8">
-                        <div class="content-wrapper">
-                          <h2 class="item-title">Branding for ABC Corporation</h2>
-                          <p>
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                            anim id est laborum.
-                          </p>
-                          <p>
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-                            in culpa qui officia deserunt mollit anim id est laborum.
-                          </p>
-                        </div>
-                      </div>
-                      <div class="col-xl-4">
-                        <div class="meta-wrapper">
-                          <ul class="item-meta">
-                            <li>Project Type: <span class="meta-value">Graphic Design</span></li>
-                            <li>Client: <span class="meta-value">Juwel Khan</span></li>
-                            <li>Duration: <span class="meta-value">2 Weeks</span></li>
-                            <li>Task: <span class="meta-value">UI/UX, Frontend</span></li>
-                            <li>Budget: <span class="meta-value">$2000</span></li>
-                          </ul>
-                        </div> <!-- .meta-wrapper -->
-                      </div>
-                    </div> <!-- .row -->
-                  </div>
-
-                </div>
-              </div>
-            </div>
+            <img src="{{ asset('image/certificate-bg.png') }}" alt="portfolio image">
           </div>
         </div>
       </div> <!-- .row -->
@@ -682,71 +362,63 @@
   <section class="service-section section-block" id="service-section">
     <div class="container">
       <div class="section-title dark">
-        <h2>Service</h2>
+        <h2>Layanan</h2>
         <p class="lead">
-          Duis aute irure dolor in reprehen pteur sint occaecat cupidatat non
-          proident, sunt in culim id est.
+          Kami menyediakan beragam layanan yang memenuhi kebutuhan Anda:
         </p>
       </div><!-- .section-title -->
       <div class="row">
         <div class="col-xl-4 col-lg-6" data-aos="fade-up">
           <div class="content-wrapper service-tilt" data-tilt data-tilt-max="15">
             <div class="icon-box"><i class="pe-7s-monitor"></i></div>
-            <h3>Desktop Apps</h3>
+            <h3>Aplikasi Desktop</h3>
             <p>
-              Yeprehe nderit in voluptate velit esse prehen pteur sint occaecat cupidat
-              cillum dolore eu fugiat nulla pan
-              proide ulpa rum.
+              Menawarkan pengalaman berharga dengan fitur-fitur canggih untuk meningkatkan produktivitas Anda.
             </p>
           </div>
         </div>
         <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="200">
           <div class="content-wrapper service-tilt" data-tilt data-tilt-max="15">
             <div class="icon-box"><i class="pe-7s-joy"></i></div>
-            <h3>Mobile Apps</h3>
+            <h3>Aplikasi Mobile</h3>
             <p>
-              Nulla sit amet maximus mass abitur et pharetra metus nec hendrerit enim iam condime justo at luctus ore
-              pag torem comodo.
+              Memungkinkan mobilitas dan kenyamanan dalam mengakses informasi dan layanan di mana saja.
             </p>
           </div>
         </div>
         <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="400">
           <div class="content-wrapper service-tilt" data-tilt data-tilt-max="15">
             <div class="icon-box"><i class="pe-7s-display2"></i></div>
-            <h3>Web Development</h3>
+            <h3>Pengembangan Web</h3>
             <p>
-              Donec sed magna uspen disse ac males uasuda lacus orekom nipsume dolor sit amet ectetur adip iscing elit
-              eget ullamc dana.
+              Tim ahli kami mendesain dan mengembangkan situs web dengan tampilan dan kinerja yang memukau.
             </p>
           </div>
         </div>
         <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="600">
           <div class="content-wrapper service-tilt" data-tilt data-tilt-max="15">
             <div class="icon-box"><i class="pe-7s-lock"></i></div>
-            <h3>Security System</h3>
+            <h3>Sistem Keamanan</h3>
             <p>
-              Det esse prehen pteur sint occaecat cupidat cillum dolore eu fugiat nulla kopa samsu kopa kidye je tare
-              pan ontor ja ulpa rum.
+              Mengutamakan keamanan informasi dan data Anda dengan teknologi mutakhir dan solusi terpercaya.
             </p>
           </div>
         </div>
         <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="800">
           <div class="content-wrapper service-tilt" data-tilt data-tilt-max="15">
             <div class="icon-box"><i class="pe-7s-edit"></i></div>
-            <h3>Custom Algorithm</h3>
+            <h3>Algoritma Kustom</h3>
             <p>
-              Quisque ultricies nibh eu sapien convallis, at sollicitudin lacus mattis. Ut fringilla, eros vitae
-              consequa proide nesha.
+              Solusi cerdas yang dirancang khusus sesuai kebutuhan Anda, untuk peningkatan efisiensi.
             </p>
           </div>
         </div>
         <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="1000">
           <div class="content-wrapper service-tilt" data-tilt data-tilt-max="15">
             <div class="icon-box"><i class="pe-7s-coffee"></i></div>
-            <h3>Web Consulting</h3>
+            <h3>WKonsultasi Web</h3>
             <p>
-              Aliquam aliquam mi nisl, quis condim entum felis auctor vita sellus egestas eros scelerisque suscipit impe
-              rdiet eque nulla.
+              Berikan panduan untuk strategi online Anda, meningkatkan eksistensi dan pengaruh online Anda.
             </p>
           </div>
         </div>

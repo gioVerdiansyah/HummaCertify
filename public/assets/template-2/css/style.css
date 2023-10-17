@@ -824,7 +824,7 @@ h6 {
     border-radius: 10px;
 }
 
-.portfolio-section .box:before,
+/* .portfolio-section .box:before,
 .portfolio-section .box:after {
     content: '';
     background: #7371f9;
@@ -836,12 +836,12 @@ h6 {
     left: 0;
     z-index: 1;
     transition: all 0.3s ease-in 0s;
-}
+} */
 
-.portfolio-section .box:after {
+/* .portfolio-section .box:after {
     top: auto;
     bottom: -50%;
-}
+} */
 
 .portfolio-section .box img {
     width: 100%;
