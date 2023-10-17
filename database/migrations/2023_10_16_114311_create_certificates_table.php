@@ -19,6 +19,7 @@ return new class extends Migration
             $table->date('tanggal');
             $table->string('bidang');
             $table->string('sub_bidang')->nullable();
+            $table->string('predikat')->nullable();
             $table->timestamps();
         });
     }

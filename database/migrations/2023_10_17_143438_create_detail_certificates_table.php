@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::create('detail_certificates', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('certificate')->constrained()->cascadeOnDelete();
+            $table->foreignId('certificate_id')->constrained()->cascadeOnDelete();
             $table->string('materi');
             $table->integer('jp');
-            $table->string('predikat');
             $table->timestamps();
         });
     }
