@@ -35,11 +35,11 @@ class DaftarPesertaRepository extends BaseRepository implements DaftarPesertaInt
 
     }
 
-    public function store(array $data): string
+    public function store(array $dataUser): string
     {
-        $user = $this->model->query()
-        ->create($data);
 
+        $user = $this->model->query()
+        ->create($dataUser);
         return $user->id;
     }
 

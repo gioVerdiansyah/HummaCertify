@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\User;
+use Illuminate\Http\Request;
+use App\Services\PesertaService;
+use App\Models\CertificateCategori;
+use App\Services\CertificateService;
 use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UserUpdateRequest;
-use App\Models\CertificateCategori;
-use Illuminate\Http\Request;
-use App\Services\CertificateService;
 use App\Contracts\Repositories\CertificateRepository;
 use App\Contracts\Repositories\DaftarPesertaRepository;
+use App\Contracts\Repositories\CertificateCategoriRepositori;
 
 class PesertaController extends Controller
 {
@@ -17,13 +20,15 @@ class PesertaController extends Controller
     private $certificate;
     private $serviceCertificate;
     private CertificateCategoriRepositori $categori;
+    private PesertaService $peserta;
 
-    public function __construct(DaftarPesertaRepository $user,CertificateRepository $certificate, CertificateService $serviceCertificate,CertificateCategoriRepositori $categori)
+    public function __construct(DaftarPesertaRepository $user,CertificateRepository $certificate, CertificateService $serviceCertificate,CertificateCategoriRepositori $categori, PesertaService $peserta)
     {
         $this->user = $user;
         $this->certificate = $certificate;
         $this->certificateService = $serviceCertificate;
         $this->categories = $categori;
+        $this->peserta = $peserta;
     }
 
     public function index(){
@@ -35,7 +40,7 @@ class PesertaController extends Controller
      */
     public function create()
     {
-        dd( $this->categories->get());
+
         $categories = $this->categories->get();
         return view('admin.certificate.create', compact('categories'));
     }
@@ -45,8 +50,9 @@ class PesertaController extends Controller
      */
     public function store(UserStoreRequest $request)
     {
-       $data = $request->validated();
-       $id = $this->user->store($data);
+       $uniq = User::count() +1;
+       $data = $request->all();
+       $id = $this->peserta->store($data);
        $this->certificateService->create($data, $id);
        return redirect()->back();
     }

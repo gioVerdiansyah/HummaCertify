@@ -9,6 +9,7 @@ use App\Contracts\Interfaces\DaftarPesertaInterface;
 use App\Contracts\Repositories\CertificateRepository;
 use App\Contracts\Repositories\userCategoriRepositori;
 use App\Contracts\Repositories\DaftarPesertaRepository;
+use App\Contracts\Repositories\CertificateCategoriRepositori;
 
 class AppServiceProvider extends ServiceProvider
 {

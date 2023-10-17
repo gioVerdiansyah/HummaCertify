@@ -27,6 +27,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'nomerUniq',
     ];
 
     /**
@@ -34,7 +35,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-  
+
 
     /**
      * The attributes that should be cast.
