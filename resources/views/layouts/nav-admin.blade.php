@@ -16,7 +16,7 @@
   <!-- Fonts -->
   <link rel="dns-prefetch" href="//fonts.bunny.net">
   <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> --}}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"
     integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -94,7 +94,7 @@
                     <div class="dropdown ms-sm-3 header-item topbar-user">
                         <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="d-flex align-items-center">
-                                <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-1.jpg" alt="Header Avatar">
+                                <img class="rounded-circle header-profile-user" src="{{ asset('assets/images/users/avatar-1.jpg') }}" alt="Header Avatar">
                                 <span class="text-start ms-xl-2">
                                     <span class="d-none d-xl-inline-block ms-1 fw-semibold user-name-text">{{Auth::user()->name}}</span>
                                     <span class="d-none d-xl-block ms-1 fs-12 user-name-sub-text">Certificate App</span>
@@ -104,9 +104,9 @@
                         <div class="dropdown-menu dropdown-menu-end">
                             <a class="dropdown-item" href=""><i class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Profile</span></a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{route('logout')}}"><i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span class="align-middle" data-key="t-logout"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</span></a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            <form id="logout-form" action="{{ route('admin.logout') }}" method="POST">
                               @csrf
+                              <button type="submit" class="dropdown-item" ><i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> Logout </button>
                             </form>
                         </div>
                     </div>
@@ -153,32 +153,17 @@
                         <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
                             <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Dashboards</span>
                         </a>
-                        <div class="collapse menu-dropdown" id="sidebarDashboards">
-                            <ul class="nav nav-sm flex-column">
-                                <li class="nav-item">
-                                    <a href="dashboard-analytics.html" class="nav-link" data-key="t-analytics"> Analytics </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="dashboard-crm.html" class="nav-link" data-key="t-crm"> CRM </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="index.html" class="nav-link" data-key="t-ecommerce"> Ecommerce </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="dashboard-crypto.html" class="nav-link" data-key="t-crypto"> Crypto </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="dashboard-projects.html" class="nav-link" data-key="t-projects"> Projects </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="dashboard-nft.html" class="nav-link" data-key="t-nft"> NFT</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="dashboard-job.html" class="nav-link" data-key="t-job">Job</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li> <!-- end Dashboard Menu -->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="{{ route('certificate.index') }}" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
+                            <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">List Sertifikat</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="{{ route('certificate.create') }}" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
+                            <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Tambah Sertifikat</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
             <!-- Sidebar -->
@@ -197,7 +182,7 @@
 
         <div class="page-content">
             <div class="container-fluid">
-                {{-- @yield('content') --}}
+                @yield('content')
             </div>
             <!-- container-fluid -->
         </div>

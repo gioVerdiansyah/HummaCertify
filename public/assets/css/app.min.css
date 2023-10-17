@@ -609,21 +609,6 @@
     fill: rgba(61, 120, 227, .16)
 }
 
-.navbar-menu .navbar-nav .nav-link[data-bs-toggle=collapse]:after {
-    display: block;
-    content: "\f0142";
-    font-family: "Material Design Icons";
-    margin-left: auto;
-    -webkit-transition: -webkit-transform .2s;
-    transition: -webkit-transform .2s;
-    transition: transform .2s;
-    transition: transform .2s, -webkit-transform .2s;
-    font-size: 1.05rem;
-    position: absolute;
-    right: 18px;
-    color: inherit
-}
-
 .navbar-menu .navbar-nav .nav-link[data-bs-toggle=collapse][aria-expanded=true] {
     color: var(--vz-vertical-menu-item-active-color)
 }

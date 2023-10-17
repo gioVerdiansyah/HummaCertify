@@ -3,11 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Certificate;
 use Illuminate\Http\Request;
 use App\Models\CertificateCategori;
+use App\Contracts\Repositories\DaftarPesertaRepository;
 
 class HomeController extends Controller
 {
+    private DaftarPesertaRepository $userRepository;
+    public function __construct(DaftarPesertaRepository $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
     /**
      * Create a new controller instance.
      *
@@ -30,8 +37,8 @@ class HomeController extends Controller
 
     public function adminIndex(){
 
-        $user = User::whereNot('email', 'hummacertify@gmail.com')->get();
+        $users = $this->userRepository->get();
         $category = CertificateCategori::all();
-        return view('admin.dashboard', compact('user','category'));
+        return view('admin.dashboard', compact('users','category'));
     }
 }

@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id();
             $table->foreignUuid('user_id')->constrained('users');
             $table->foreignId('certificate_categori_id')->constrained('certificate_categoris');
+            $table->string('nomor');
             $table->date('tanggal');
-            $table->string('divisions')->nullable();
+            $table->string('bidang');
+            $table->string('sub_bidang')->nullable();
             $table->timestamps();
         });
     }

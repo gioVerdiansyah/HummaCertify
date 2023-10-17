@@ -17,14 +17,12 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->nullable();
             $table->string('password');
+            $table->string('nomerUniq')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
 
-        // Callback closure untuk mengisi kolom 'id' dengan UUID secara otomatis
-        Schema::table('users', function (Blueprint $table) {
-            $table->uuid('id')->default(Str::uuid())->change();
-        });
+
     }
 
     /**

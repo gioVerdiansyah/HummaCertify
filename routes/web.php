@@ -1,11 +1,12 @@
 <?php
 
+use App\Http\Controllers\CertificateController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DemoTestController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\DaftarPesertaController;
+use App\Http\Controllers\PesertaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,28 +19,30 @@ use App\Http\Controllers\DaftarPesertaController;
 |
 */
 
-Auth::routes();
+// Auth::routes();
 
 Route::middleware('AdminDown')->group(function () {
     Route::get('/', function () {
         return view('welcome');
     });
+    Route::get('/login', [LoginController::class, 'showLoginForm']);
+    Route::post('/login', [LoginController::class, 'login'])->name('login');
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 });
 
 // Admin Sudah Login
 Route::middleware('AdminUp')->group(function () {
-    Route::get('/home-tambah', function () {
-       return view('admin.TambahAdd');
+    Route::prefix('admin')->group(function () {
+        Route::get('/', [HomeController::class, 'adminIndex'])->name('admin.home');
+        Route::post('/logoutAdmin', [LoginController::class, 'logout'])->name('admin.logout');
+        Route::get('/datatable', function () {
+            return view('admin.ListSertifikat');
+        });
+
+        Route::resource('/certificate', PesertaController::class);
+        Route::get('/get_certificate/{id}', [CertificateController::class, 'getCertificate'])->name('getCertificate');
     });
-    Route::get('/home-tambah-sudahada', function () {
-        return view('admin.TambahExist');
-    });
-    Route::get('/home-admin', [HomeController::class, 'adminIndex'])->name('homeAdmin');
-    Route::post('/logout-admin', [LoginController::class, 'logout'])->name('logout-admin');
-    Route::post('DaftarPesertaCreate', [DaftarPesertaController::class, 'store'])->name('DaftarPesertaCreate');
-    Route::put('DaftarPesertaUpdate/{id}', [DaftarPesertaController::class, 'update'])->name('DaftarPesertaUpdate');
-    Route::delete('DaftarPesertaDelete/{id}', [DaftarPesertaController::class, 'destroy'])->name('DaftarPesertaDelete');
 });
 
 // testing

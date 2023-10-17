@@ -18,7 +18,8 @@ class Certificate extends Model implements HasCategories, HasUsers
         'user_id',
         'certificate_categori_id',
         'tanggal',
-        'divisions',
+        'bidang',
+        'nomor',
     ];
 
 
@@ -27,12 +28,12 @@ class Certificate extends Model implements HasCategories, HasUsers
      *
      * @return BelongsTo
      */
-    public function categories(): BelongsTo
+    public function category(): BelongsTo
     {
-        return $this->belongsTo(CertificateCategori::class);
+        return $this->belongsTo(CertificateCategori::class, 'certificate_categori_id');
     }
-    public function Users(): BelongsTo
+    public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

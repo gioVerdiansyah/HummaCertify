@@ -1,0 +1,229 @@
+@page {
+    width: 210mm;
+    height: 297mm;
+}
+
+.certificate-guru .content hr {
+    border: 2px solid;
+    background-color: black;
+    opacity: 1;
+    border-radius: 20px;
+}
+
+.image-certificate {
+    position: absolute;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+}
+
+.certificate-guru {
+    position: absolute;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    top: 20px;
+}
+
+.certificate-guru .content {
+    width: 730px;
+}
+
+.certificate-guru .content .top-text .logo {
+    height: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.certificate-guru .content .top-text .logo img {
+    width: 120px;
+    height: 120px;
+}
+
+.certificate-guru .content .top-text .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.certificate-guru .content .top-text .pt-humma {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    letter-spacing: 3px;
+    font-size: 26px;
+    margin-bottom: 0;
+}
+
+.certificate-guru .content .top-text .alamat {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+.certificate-guru .content .top-text {
+    text-align: center;
+}
+
+.certificate-guru .content .text-kopetensi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 15px;
+}
+
+.certificate-guru .content .text-kopetensi .sertifikat-kopetensi {
+    font-size: 25px;
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+.certificate-guru .content .text-kopetensi .number-certification {
+    display: flex;
+    font-family: "Merriweather", serif;
+    font-size: 16px;
+}
+
+.certificate-guru
+    .content
+    .text-kopetensi
+    .number-certification
+    .no-sertifikat {
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    letter-spacing: 5px;
+}
+
+.certificate-guru .content hr {
+    margin-top: 0;
+}
+
+.certificate-guru .content .desc {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.certificate-guru .content .desc span {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+}
+
+.certificate-guru .content .identitas {
+    display: flex;
+    align-items: center;
+    height: 100px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.certificate-guru .content .identitas span {
+    font-weight: 700;
+}
+
+.certificate-guru .content .text-telah {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.certificate-guru .content .bidang {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.certificate-guru .content .bottom-finish .kiri p {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+}
+
+.certificate-guru .content .bottom-finish .kanan {
+    height: 210px;
+    margin-top: -40px;
+}
+
+.certificate-guru .content .bottom-finish .kanan p {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    margin-bottom: 0;
+}
+
+.certificate-guru .content .bottom-finish .kanan .atas {
+    height: 70%;
+}
+
+.certificate-guru .content .bottom-finish .kanan .bawah .nama-direktur {
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0;
+}
+
+.certificate-guru .content .bottom-finish .kanan .bawah {
+    letter-spacing: 1px;
+}
+
+.certificate-guru .content .text-penilaian p {
+    margin-bottom: 0;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.image-certificate-belakang {
+    position: absolute;
+}
+
+.certificate-guru-belakang {
+    position: absolute;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    top: 17%;
+}
+
+.certificate-guru-belakang .content-belakang {
+    width: 730px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.certificate-guru-belakang .content-belakang .text-penilaian {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 10px;
+    margin-bottom: 30px;
+}
+
+.certificate-guru-belakang .content-belakang .instruktur {
+    height: 200px;
+}
+
+.certificate-guru-belakang .content-belakang .instruktur p {
+    margin-bottom: 0;
+}
+
+.certificate-guru-belakang .content-belakang .instruktur .atas {
+    height: 50%;
+}
+
+.certificate-guru-belakang .content-belakang .instruktur .bawah hr {
+    margin: 0;
+}
+
+.certificate-guru-belakang
+    .content-belakang
+    .instruktur
+    .bawah
+    .nama-instruktur {
+    font-weight: 700;
+    font-size: 14.5px;
+}

@@ -11,12 +11,21 @@ class DaftarPesertaRepository extends BaseRepository implements DaftarPesertaInt
     {
         $this->model = $User;
     }
+
+    public function get(): mixed
+    {
+        return $this->model->whereNot('email', 'hummacertify@gmail.com')->get();
+    }
+
+    public function getId($id): mixed
+    {
+      return $this->model->findOrFail($id);
+    }
+
     public function update($id, $user): mixed
     {
-
         $User = $this->model->findOrFail($id);
-        $User->update($user);
-        return $User;
+        return $User->update($user);
     }
 
     public function delete(mixed $id): mixed
@@ -26,11 +35,12 @@ class DaftarPesertaRepository extends BaseRepository implements DaftarPesertaInt
 
     }
 
-    public function store(array $User): mixed
+    public function store(array $dataUser): string
     {
 
-        return $this->model->query()
-        ->create($User);
+        $user = $this->model->query()
+        ->create($dataUser);
+        return $user->id;
     }
 
 

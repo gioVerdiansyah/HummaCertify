@@ -12,19 +12,18 @@
     <link rel="stylesheet" href="{{ asset('assets/template-2/css/all.min.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com/">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&amp;family=Poppins:wght@700;900&amp;display=swap"
-        rel="stylesheet">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&amp;family=Poppins:wght@700;900&amp;display=swap" rel="stylesheet">
 
-    <!-- CSS -->
-    <link href="{{ asset('assets/template-2/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('assets/template-2/css/swiper-bundle.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/template-2/css/leaflet.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/template-2/css/aos.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/template-2/css/style.css') }}">
+  <!-- CSS -->
+  <link href="{{ asset('assets/template-2/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('assets/template-2/css/swiper-bundle.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/template-2/css/leaflet.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/template-2/css/aos.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/template-2/css/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/page/LandingPage.css') }}">
 
     <title>Laravel</title>
 
@@ -41,32 +40,31 @@
     </div> --}}
     </div>
 
-    <!-- SITE HEADER -->
-    <header class="site-header" id="site-header">
-        <nav class="navbar navbar-expand-xl" id="site-navbar">
-            <div class="container">
-                <a class="navbar-brand" href="index.html"><img class="img-fluid"
-                        src="{{ asset('image-template-2/logo_certify.png') }}" alt="fungi logo"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"><i class="bi bi-list"></i></span>
-                </button>
-                <div class="navbar-collapse collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#site-header">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#about-section">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#portfolio-section">Portfolio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#service-section">Service</a>
-                        </li>
-                        {{-- <li class="nav-item">
+  <!-- SITE HEADER -->
+  <header class="site-header" id="site-header">
+    <nav class="navbar navbar-expand-xl" id="site-navbar">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"><img width="250px" src="{{ asset('image/HummaCertify.png') }}" alt="fungi logo"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"><i class="bi bi-list"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#site-header">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about-section">Tentang</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#portfolio-section">Contoh</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#service-section">Layanan</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="#testimonial-section">Testimonials</a>
-            </li> --}}
+            </li>
                         {{-- <li class="nav-item">
               <a class="nav-link" href="#blog-section">Blog</a>
             </li> --}}
@@ -98,115 +96,385 @@
 
     </header> <!-- .site-header -->
 
-    <!-- HERO AREA -->
-    <section class="hero-area" id="hero-area">
-        <div class="container">
-            <div class="hero-content d-flex justify-content-center">
-                <div class="row d-flex align-items-center justify-content-center">
+  <script>
+    const navLinks = document.querySelectorAll('.nav-link');
 
-                    <div class="col-xl-8 tengah">
-                        <img class="img-fluid hero-main-image text-center"
-                            src="{{ asset('image-template-2/logo_hummasoft.png') }}" alt="hero main image">
-                        <h1 class="hero-head  text-center">Cek Keaslian sertifikat Anda</h1>
-                        <form method="get" class="custom-form mt-4 pt-2 mb-lg-0 mb-5 text-center" role="search">
-                            <div class="input-group input-group-lg">
-                                <span class="input-group-text bi-search" id="basic-addon1">
+    function updateLinkColors() {
+      const scrollPosition = window.scrollY;
 
-                                </span>
+      if (scrollPosition > 265) {
+        document.documentElement.style.setProperty('--nav-link-color', 'black');
+      } else {
+        document.documentElement.style.setProperty('--nav-link-color', 'white');
+      }
+    }
 
-                                <input name="keyword" type="search" class="form-control" id="keyword"
-                                    placeholder="Ketik kode sertifikat Anda" aria-label="Search">
+    window.addEventListener('scroll', updateLinkColors);
+    updateLinkColors();
+  </script>
 
-                                <button type="submit" class="form-control">Cari</button>
-                            </div>
-                        </form>
-                        <div class="card mt-3 result">
-                            <div class="result-container">
-                                <div class="d-flex gap-3">
-                                    <div class="profile">
-                                        <img src="{{ asset('image-template-2/about-image-1.png') }}" alt="foto" class="profile-style">
-                                    </div>
-                                    <div class="kiri detail">
-                                        <p>Kode Sertifikat : 111/22/AA/BB/3333</p>
-                                        <p>Pemilik Sertifikat : Ayu Bagus</p>
-                                        <p class="fw-bold">Lulus Magang di HummaTech</p>
-                                    </div>
-                                    <div>
-                                        <img src="{{ asset('image-template-2/about-image-1.png') }}" alt="sertifikat" class="serti-style">
-                                    </div>
-                                </div>
-                            </div>
+  <!-- HERO AREA -->
+  <section class="hero-area" id="hero-area">
+    <div class="container">
+      <div class="hero-content d-flex justify-content-center">
+        <div class="row d-flex align-items-center justify-content-center">
+          <div class="col-xl-8 text-center mb-5">
+            <img class="img-fluid hero-main-image" width="150px" src="{{ asset('image/LOGO Hummasoft PP Circle.png') }}" alt="hero main image">
+            <section class="stars">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </section>
+            <h1 class="hero-head"><small class="input-header">Cek Keaslian sertifikat Anda</small></h1>
+            <form action="" method="post">
+              @csrf
+              <input type="text" class="input-search" name="search" placeholder="Ketik kode sertifikat Anda">
+              <button type="submit" class="search-button">Cari</button>
+            </form>
+            <div class="card mt-3 result">
+                <div class="result-container">
+                    <div class="d-flex gap-3">
+                        <div class="profile">
+                            <img src="{{ asset('image-template-2/about-image-1.png') }}" alt="foto" class="profile-style">
                         </div>
-
-                        <div id="work-brands" class="work-brands">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
+                        <div class="kiri detail">
+                            <p>Kode Sertifikat : 111/22/AA/BB/3333</p>
+                            <p>Pemilik Sertifikat : Ayu Bagus</p>
+                            <p class="fw-bold">Lulus Magang di HummaTech</p>
                         </div>
-                        {{-- <div class="link-group">
+                        <div>
+                            <img src="{{ asset('image-template-2/about-image-1.png') }}" alt="sertifikat" class="serti-style">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p style="display: none">
+              A passionate <strong>freelancer</strong> who works on
+            </p>
+            <div style="display: none" id="work-brands" class="work-brands">
+              <span>Envato</span>
+              <span>UpWork</span>
+              <span>Freelancer</span>
+              <span>Fiverr</span>
+            </div>
+            <div style="display: none" class="link-group">
               <a class="btn-main" href="#">Hire Me</a>
               <a class="btn-ghost" href="#">About Me</a>
-            </div> <!-- .link-group --> --}}
+            </div> <!-- .link-group --> 
                     </div> <!-- .content-block -->
 
-                </div> <!-- .row -->
-            </div> <!-- .hero-content -->
-        </div> <!-- .container -->
-        {{-- <div class="hero-contact">
-      <ul class="hero-social list-inline">
-        <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-        <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
-        <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin"></i></a></li>
-        <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
-      </ul> <!-- .hero-social -->
-      <a class="hero-email" href="#">hello@fungiweb.com</a>
-    </div> <!-- .hero-contact --> --}}
-        <div id="scene" class="hero-parallax">
-            <div data-depth="0.2"><img class="img-fluid"
-                    src="{{ asset('image-template-2/hero-bg/hero-parallax-envato.png') }}"
-                    alt="hero parallax adobe envato">
-            </div>
-            <div data-depth="0.1"><img class="img-fluid"
-                    src="{{ asset('image-template-2/hero-bg/hero-parallax-ai.png') }}"
-                    alt="hero parallax adobe illustrator">
-            </div>
-            <div data-depth="0.3"><img class="img-fluid"
-                    src="{{ asset('image-template-2/hero-bg/hero-parallax-figma.png') }}"
-                    alt="hero parallax adobe figma">
-            </div>
-            <div data-depth="0.2"><img class="img-fluid"
-                    src="{{ asset('image-template-2/hero-bg/hero-parallax-fiverr.png') }}"
-                    alt="hero parallax adobe fiverr">
-            </div>
-            <div data-depth="0.3"><img class="img-fluid"
-                    src="{{ asset('image-template-2/hero-bg/hero-parallax-joomla.png') }}"
-                    alt="hero parallax adobe joomla">
-            </div>
-            <div data-depth="0.2"><img class="img-fluid"
-                    src="{{ asset('image-template-2/hero-bg/hero-parallax-ps.png') }}"
-                    alt="hero parallax adobe photoshop">
-            </div>
-            <div data-depth="0.3"><img class="img-fluid"
-                    src="{{ asset('image-template-2/hero-bg/hero-parallax-upwork.png') }}"
-                    alt="hero parallax adobe upwork">
-            </div>
-            <div data-depth="0.1"><img class="img-fluid"
-                    src="{{ asset('image-template-2/hero-bg/hero-parallax-wp.png') }}"
-                    alt="hero parallax adobe WordPress">
-            </div>
-        </div> <!-- .hero-parallax -->
-    </section> <!-- .hero-area -->
+        </div> <!-- .row -->
+      </div> <!-- .hero-content -->
+    </div> <!-- .container --> <!-- .hero-contact -->
+    <div id="scene" class="hero-parallax">
+      <div data-depth="0.2"><img width="55px" style="margin-left: 88vw; margin-top: 89vh" class="img-fluid" src="{{ asset('image/Js.png') }}" alt="hero parallax adobe envato">
+      </div>
+      <div data-depth="0.1"><img width="50px" style="margin-left: 70px; margin-top: 62vh" class="img-fluid" src="{{ asset('image/Bootstrap.png') }}" alt="hero parallax adobe illustrator">
+      </div>
+      <div data-depth="0.3"><img class="img-fluid" src="{{ asset('image-template-2/hero-bg/hero-parallax-figma.png') }}" alt="hero parallax adobe figma">
+      </div>
+      <div data-depth="0.2"><img width="64px" style="margin-left: 200px; margin-top: 85vh" class="img-fluid" src="{{ asset('image/Css.png') }}" alt="hero parallax adobe fiverr">
+      </div>
+      <div data-depth="0.3"><img width="50px" style="margin-left: 72vw; margin-top: 68vh" class="img-fluid" src="{{ asset('image/Html.png') }}" alt="hero parallax adobe joomla">
+      </div>
+      <div data-depth="0.2"><img width="50px" style="margin-left: 260px; margin-top: 298px" class="img-fluid" src="{{ asset('image/Tail Wind.png') }}" alt="hero parallax adobe photoshop">
+      </div>
+      <div data-depth="0.3"><img width="65px" style="margin-left: 87vw; margin-top: 280px" class="img-fluid" src="{{ asset('image/Php.png') }}" alt="hero parallax adobe upwork">
+      </div>
+      <div data-depth="0.1"><img width="60px" style="margin-left: 100px; margin-top: 150px" class="img-fluid" src="{{ asset('image/20231017_090752.png') }}" alt="hero parallax adobe WordPress">
+      </div>
+    </div> <!-- .hero-parallax -->
+  </section> <!-- .hero-area -->
 
-    <!-- INTRO SECTION -->
-    <section class="intro-section section-block">
-        <div class="container">
-            <div class="section-title">
-                <h2>Welcome to my World</h2>
-                <p class="lead">
-                    I'm a young tech enthasist and entrepreneur who love to take risk. I grew up in a tech family in New
-                    York
-                    City.
+  <!-- INTRO SECTION -->
+  <section class="intro-section section-block">
+    <div class="container">
+      <div class="section-title">
+        <h2>Selamat datang di HummaCertify</h2>
+        <p class="lead">
+          Selamat datang di platform kami yang membantu Anda menemukan. sertifikat Hummatech Anda dan memastikan keasliannya dengan cepat dan mudah.
+        </p>
+      </div><!-- .section-title -->
+      <div class="row">
+        <div class="col-xl-4 col-lg-6" data-aos="fade-up">
+          <div class="item-wrapper">
+            <div class="icon-box"><i class="pe-7s-science"></i></div>
+            <div class="content-wrapper">
+              <h3>Fungsi</h3>
+              <p>
+                Pencarian sertifikat adalah langkah kunci dalam memastikan keabsahan dokumen penting yang Anda miliki.
+              </p>
+            </div> <!-- .content-wrapper -->
+          </div> <!-- .item-wrapper -->
+        </div>
+        <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1200">
+          <div class="item-wrapper">
+            <div class="icon-box"><i class="pe-7s-diamond"></i></div>
+            <div class="content-wrapper">
+              <h3>Kegunaan</h3>
+              <p>
+                Sertifikat adalah bukti konkrit pencapaian dan digunakan dalam berbagai konteks, mulai dari pekerjaan hingga pendidikan
+              </p>
+            </div> <!-- .content-wrapper -->
+          </div> <!-- .item-wrapper -->
+        </div>
+        <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1200">
+          <div class="item-wrapper">
+            <div class="icon-box"><i class="pe-7s-rocket"></i></div>
+            <div class="content-wrapper">
+              <h3>Bukti</h3>
+              <p>
+                Sertifikat mewakili pengetahuan, keterampilan, atau status tertentu yang Anda peroleh selama perjalanan hidup atau karier Anda.
+              </p>
+            </div> <!-- .content-wrapper -->
+          </div> <!-- .item-wrapper -->
+        </div>
+      </div> <!-- .row -->
+    </div> <!-- .container -->
+
+    <div class="design-elements">
+      <img class="de-intro-1 elem-updown" src="{{ asset('image-template-2/design-elements/intro-element-1.png') }}" alt="intro element 1">
+    </div> <!-- .design-elements -->
+
+  </section> <!-- .intro-section -->
+
+  <!-- ABOUT SECTION -->
+  <section class="about-section section-block" id="about-section" data-aos="fade-up">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-6 image-block" data-aos="fade-right" data-aos-delay="200" data-aos-duration="2000">
+          <div class="img-wrapper about-img-wrap">
+            <img class="about-img-1 img-fluid" width="100%" src="{{ asset('image/quality-work-flat-modern-design-illustration_566886-369-removebg-preview.png') }}" alt="about image">
+          </div>
+        </div>
+        <div class="col-xl-6 content-block mt-5" data-aos="fade-right" data-aos-delay="400" data-aos-duration="2000">
+          <h2>Pengecekan Keaslian Sertifikat</h2>
+          <p>
+            Sertifikat kelulusan magang adalah wujud pengakuan atas upaya dan dedikasi siswa magang yang telah menyelesaikan program mereka. Sertifikat khusus acara, di sisi lain, adalah bukti kehadiran atau kontribusi dalam acara-acara tertentu yang
+            mungkin relevan dengan pengalaman magang.
+          </p>
+          <p>
+            Kami menghargai pentingnya sertifikat-sertifikat ini dalam perjalanan pendidikan dan karier siswa magang dan guru magang. Oleh karena itu, kami dengan sepenuh hati berkomitmen untuk membantu Anda memeriksa keaslian sertifikat-sertifikat ini
+            melalui platform kami.
+          </p>
+          <p>
+            Dengan penggunaan platform kami, Anda dapat dengan mudah memastikan bahwa sertifikat kelulusan magang dan sertifikat khusus acara yang Anda miliki adalah resmi dan sah sesuai dengan ketentuan perusahaan kami.
+          </p>
+          <p>
+            Jadi, jika Anda adalah seorang siswa magang atau guru magang yang ingin memverifikasi sertifikat Anda, silakan manfaatkan platform kami dengan percaya diri. Kami siap membantu Anda dalam proses ini dan memastikan keaslian sertifikat-sertifikat
+            tersebut. Terima kasih atas kepercayaan Anda kepada layanan kami.
+          </p>
+        </div>
+      </div> <!-- .row -->
+    </div> <!-- .container -->
+    <div class="design-elements">
+      <img class="de-about-1 elem-updown" src="{{ asset('image-template-2/design-elements/about-element-1.png') }}" alt="about element 1">
+      <img class="de-about-2 elem-updown" src="{{ asset('image-template-2/design-elements/about-element-2.png') }}" alt="about element 2">
+    </div> <!-- .design-elements -->
+  </section> <!-- .about-section -->
+
+  <!-- SKILL SECTION -->
+  <section class="skill-section section-block" id="skill-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-6 content-block" data-aos="fade-down" data-aos-duration="2000">
+          <h2>
+            <p class="paragraph-header">My Skills</p>I'm great in what I do and I'm loving it
+          </h2>
+          <p class="lead">
+            Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+        <div class="col-xl-6 progress-block">
+          <div class="progress-wrapper">
+            <h4>Competitive Programming</h4>
+            <p class="progress-value">84%</p>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="84" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+          <div class="progress-wrapper">
+            <h4>Algorithm &amp; Data Structure</h4>
+            <p class="progress-value">50%</p>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+          <div class="progress-wrapper">
+            <h4>Game Development</h4>
+            <p class="progress-value">75%</p>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+          <div class="progress-wrapper">
+            <h4>Web Application</h4>
+            <p class="progress-value">96%</p>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="96" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+        </div>
+      </div><!-- .row -->
+    </div><!-- .container -->
+  </section> <!-- .skill-section -->
+
+  <!-- PORTFOLIO SECTION -->
+  <section class="portfolio-section section-block" id="portfolio-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contoh Sertifikat</h2>
+        <p class="lead">
+          Berikut adalah beberapa contoh sertifikat yang telah kami buat di bawah naungan perusahaan kami.
+        </p>
+      </div>
+      <div class="row grid" data-aos="fade-up" data-aos-duration="2000">
+        <div class="col-lg-4 col-md-6 grid-item programming">
+          <div class="box">
+            <img src="{{ asset('image/certificate-bg.png') }}" alt="portfolio image">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 grid-item development application">
+          <div class="box">
+            <img src="{{ asset('image/certificate-bg.png') }}" alt="portfolio image">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 grid-item application programming design">
+          <div class="box">
+            <img src="{{ asset('image/certificate-bg.png') }}" alt="portfolio image">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 grid-item design application">
+          <div class="box">
+            <img src="{{ asset('image/certificate-bg.png') }}" alt="portfolio image">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 grid-item programming design">
+          <div class="box">
+            <img src="{{ asset('image/certificate-bg.png') }}" alt="portfolio image">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 grid-item development design">
+          <div class="box">
+            <img src="{{ asset('image/certificate-bg.png') }}" alt="portfolio image">
+          </div>
+        </div>
+      </div> <!-- .row -->
+    </div> <!-- .container -->
+    <div class="design-elements">
+      <img class="de-portfolio-1 elem-updown" src="{{ asset('image-template-2/design-elements/portfolio-element-1.png') }}" alt="portfolio element 1">
+      <img class="de-portfolio-2 elem-updown" src="{{ asset('image-template-2/design-elements/portfolio-element-2.png') }}" alt="portfolio element 2">
+    </div> <!-- .design-elements -->
+  </section> <!-- .portfolio-section -->
+
+  <!-- SERVICE SECTION -->
+  <section class="service-section section-block" id="service-section">
+    <div class="container">
+      <div class="section-title dark">
+        <h2>Layanan</h2>
+        <p class="lead">
+          Kami menyediakan beragam layanan yang memenuhi kebutuhan Anda:
+        </p>
+      </div><!-- .section-title -->
+      <div class="row">
+        <div class="col-xl-4 col-lg-6" data-aos="fade-up">
+          <div class="content-wrapper service-tilt" data-tilt data-tilt-max="15">
+            <div class="icon-box"><i class="pe-7s-monitor"></i></div>
+            <h3>Aplikasi Desktop</h3>
+            <p>
+              Menawarkan pengalaman berharga dengan fitur-fitur canggih untuk meningkatkan produktivitas Anda.
+            </p>
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="content-wrapper service-tilt" data-tilt data-tilt-max="15">
+            <div class="icon-box"><i class="pe-7s-joy"></i></div>
+            <h3>Aplikasi Mobile</h3>
+            <p>
+              Memungkinkan mobilitas dan kenyamanan dalam mengakses informasi dan layanan di mana saja.
+            </p>
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="content-wrapper service-tilt" data-tilt data-tilt-max="15">
+            <div class="icon-box"><i class="pe-7s-display2"></i></div>
+            <h3>Pengembangan Web</h3>
+            <p>
+              Tim ahli kami mendesain dan mengembangkan situs web dengan tampilan dan kinerja yang memukau.
+            </p>
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="600">
+          <div class="content-wrapper service-tilt" data-tilt data-tilt-max="15">
+            <div class="icon-box"><i class="pe-7s-lock"></i></div>
+            <h3>Sistem Keamanan</h3>
+            <p>
+              Mengutamakan keamanan informasi dan data Anda dengan teknologi mutakhir dan solusi terpercaya.
+            </p>
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="800">
+          <div class="content-wrapper service-tilt" data-tilt data-tilt-max="15">
+            <div class="icon-box"><i class="pe-7s-edit"></i></div>
+            <h3>Algoritma Kustom</h3>
+            <p>
+              Solusi cerdas yang dirancang khusus sesuai kebutuhan Anda, untuk peningkatan efisiensi.
+            </p>
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="1000">
+          <div class="content-wrapper service-tilt" data-tilt data-tilt-max="15">
+            <div class="icon-box"><i class="pe-7s-coffee"></i></div>
+            <h3>WKonsultasi Web</h3>
+            <p>
+              Berikan panduan untuk strategi online Anda, meningkatkan eksistensi dan pengaruh online Anda.
+            </p>
+          </div>
+        </div>
+      </div><!-- .row -->
+    </div> <!-- .container -->
+    <div class="design-elements">
+      <img class="de-service-1 elem-updown" src="{{ asset('image-template-2/design-elements/service-element-1.png') }}" alt="service element 1">
+      <img class="de-service-2 elem-updown" src="{{ asset('image-template-2/design-elements/service-element-2.png') }}" alt="service element 2">
+      <img class="de-service-3 elem-updown" src="{{ asset('image-template-2/design-elements/service-element-3.png') }}" alt="service element 3">
+    </div> <!-- .design-elements -->
+  </section> <!-- .service-section -->
+
+  <!-- FEATURES SECTION -->
+  <section class="features-section section-block" id="features-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-6 image-block" data-aos="fade-right" data-aos-duration="1500">
+          <div class="image-wrapper">
+            <img class="img-fluid feature-photo" src="{{ asset('image-template-2/feature-photo.png') }}" alt="features photo" data-tilt data-tilt-max="10">
+          </div> <!-- .image-wrapper -->
+        </div> <!-- .image-block -->
+        <div class="col-xl-6 content-block" data-aos="fade-right" data-aos-duration="1500" data-aos-delay="400">
+          <h2 class="block-title"><span>Why work with me</span>Best result with top user experience</h2>
+          <p>
+            Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eureh lit anim id est laborum.
+          </p>
+          <ul class="features-list">
+            <li class="d-flex align-items-start">
+              <div class="icon-block">
+                <div class="icon-box"><i class="pe-7s-umbrella"></i></div>
+              </div>
+              <div class="content-wrapper">
+                <h4>Lifetime Support</h4>
+
+                <p>
+                  Excepteur sint occaecat cupidatat non
+                  proident, sunt in culpa qui officia mollit anim id est laborum.
                 </p>
             </div><!-- .section-title -->
             <div class="row">
@@ -827,12 +1095,137 @@
                     Duis aute irure dolor in reprehen pteur sint occaecat cupidatat non
                     proident, sunt in culim id est.
                 </p>
-            </div><!-- .section-title -->
-            <div class="row">
-                <div class="col-xl-4 col-lg-6" data-aos="fade-up">
-                    <div class="content-wrapper service-tilt" data-tilt data-tilt-max="15">
-                        <div class="icon-box"><i class="pe-7s-monitor"></i></div>
-                        <h3>Desktop Apps</h3>
+              </div>
+
+            </li>
+          </ul>
+        </div>
+      </div> <!-- .row -->
+    </div> <!-- .container -->
+  </section> <!-- .features-section -->
+
+  <!-- TESTIMONIAL SECTION -->
+  <section class="testimonial-section section-block" id="testimonial-section">
+    <div class="container">
+      <div class="section-title dark">
+        <h2>Testimonials</h2>
+        <p class="lead">
+          Duis aute irure dolor in reprehen pteur sint occaecat cupidatat non
+          proident, sunt in culim id est.
+        </p>
+      </div><!-- .section-title -->
+      <div class="testimonial-carousel swiper">
+        <div class="swiper-wrapper">
+          <div class="testimonial-item swiper-slide">
+            <div class="item-wrapper">
+              <div class="quote-icon">
+                <img src="{{ asset('image-template-2/quote-icon.png') }}" alt="quote icon">
+              </div>
+              <p>
+                Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute ir cm id est laborum.
+              </p>
+              <div class="quote-author d-flex align-items-center justify-content-center">
+                <div class="image-block">
+                  <img class="img-fluid" src="{{ asset('image-template-2/testimonial/testimonial-author-1.jpg') }}" alt="testimonial author">
+                </div>
+                <h4>James Anderson<span>Web Developer</span></h4>
+              </div>
+
+            </div> <!-- .item wrapper -->
+          </div> <!-- .testimonial-item -->
+          <div class="testimonial-item swiper-slide">
+            <div class="item-wrapper">
+              <div class="quote-icon">
+                <img src="{{ asset('image-template-2/quote-icon.png') }}" alt="quote icon">
+              </div>
+              <p>
+                Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute ir cm id est laborum.
+              </p>
+              <div class="quote-author d-flex align-items-center justify-content-center">
+                <div class="image-block">
+                  <img class="img-fluid" src="{{ asset('image-template-2/testimonial/testimonial-author-3.jpg') }}" alt="testimonial author">
+                </div>
+                <h4>Dona Josefine<span>Web Developer</span></h4>
+              </div>
+
+            </div> <!-- .item wrapper -->
+          </div> <!-- .testimonial-item -->
+          <div class="testimonial-item swiper-slide">
+            <div class="item-wrapper">
+              <div class="quote-icon">
+                <img src="{{ asset('image-template-2/quote-icon.png') }}" alt="quote icon">
+              </div>
+              <p>
+                Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute ir cm id est laborum.
+              </p>
+              <div class="quote-author d-flex align-items-center justify-content-center">
+                <div class="image-block">
+                  <img class="img-fluid" src="{{ asset('image-template-2/testimonial/testimonial-author-4.jpg') }}" alt="testimonial author">
+                </div>
+                <h4>Mark Anthony <span>Web Developer</span></h4>
+              </div>
+
+            </div> <!-- .item wrapper -->
+          </div> <!-- .testimonial-item -->
+          <div class="testimonial-item swiper-slide">
+            <div class="item-wrapper">
+              <div class="quote-icon">
+                <img src="{{ asset('image-template-2/quote-icon.png') }}" alt="quote icon">
+              </div>
+              <p>
+                Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute ir cm id est laborum.
+              </p>
+              <div class="quote-author d-flex align-items-center justify-content-center">
+                <div class="image-block">
+                  <img class="img-fluid" src="{{ asset('image-template-2/testimonial/testimonial-author-2.jpg') }}" alt="testimonial author">
+                </div>
+                <h4>Sanjida Ema<span>Web Developer</span></h4>
+              </div>
+
+            </div> <!-- .item wrapper -->
+          </div> <!-- .testimonial-item -->
+        </div> <!-- .swiper-wrapper -->
+        <div class="swiper-pagination"></div>
+      </div> <!-- .testimonial-carousel -->
+    </div> <!-- .container -->
+  </section> <!-- .testimonial-section -->
+
+  <!-- BLOG SECTION -->
+  <section class="blog-section section-block" id="blog-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>From My Blog</h2>
+        <p class="lead">
+          Duis aute irure dolor in reprehen pteur sint occaecat cupidatat non
+          proident, sunt in culim id est.
+        </p>
+      </div><!-- .section-title -->
+      <div class="row">
+        <div class="col-lg-6 large-post" data-aos="fade-right" data-aos-duration="1200">
+
+          <!-- Modal -->
+          <div class="modal fade" id="blogModal1" tabindex="-1" aria-labelledby="blogModal1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
+              <div class="modal-content">
+
+                <div class="modal-body">
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
+                  <div class="row blog-content">
+                    <div class="col-xl-12">
+                      <img class="img-fluid" src="{{ asset('image-template-2/blog/blog_full_01.jpg') }}" alt="blog post image 01">
+                    </div>
+                    <div class="col-xl-8 offset-xl-2">
+                      <div class="content-wrapper">
+                        <h2 class="blog-title">Javascript algorythm and data structure for beginner</h2>
+                        <ul class="blog-meta d-md-flex align-items-center justify-content-md-center">
+                          <li><a href="#"><i class="bi bi-folder-fill"></i> Javascript</a></li>
+                          <li><i class="bi bi-calendar3"></i> October 21, 2021</li>
+                          <li><i class="bi bi-clock"></i> 10 min</li>
+                        </ul>
                         <p>
                             Yeprehe nderit in voluptate velit esse prehen pteur sint occaecat cupidat
                             cillum dolore eu fugiat nulla pan
@@ -907,49 +1300,403 @@
         </div> <!-- .design-elements -->
     </section> <!-- .service-section -->
 
-    <!-- FEATURES SECTION -->
-    <section class="features-section section-block" id="features-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-6 image-block" data-aos="fade-right" data-aos-duration="1500">
-                    <div class="image-wrapper">
-                        <img class="img-fluid feature-photo" src="{{ asset('image-template-2/feature-photo.png') }}"
-                            alt="features photo" data-tilt data-tilt-max="10">
-                    </div> <!-- .image-wrapper -->
-                </div> <!-- .image-block -->
-                <div class="col-xl-6 content-block" data-aos="fade-right" data-aos-duration="1500"
-                    data-aos-delay="400">
-                    <h2 class="block-title"><span>Why work with me</span>Best result with top user experience</h2>
-                    <p>
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eureh lit anim id est laborum.
-                    </p>
-                    <ul class="features-list">
-                        <li class="d-flex align-items-start">
-                            <div class="icon-block">
-                                <div class="icon-box"><i class="pe-7s-umbrella"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="content-wrapper">
+            <div class="post-content">
+              <ul class="post-meta">
+                <li class="post-date">
+                  <i class="pe-7s-clock"></i>
+                  October 23, 2021
+                </li>
+                <li class="post-cat">
+                  <a href="#"><i class="pe-7s-folder"></i> Web Design</a>
+                </li>
+              </ul>
+              <h3><a href="#" data-bs-toggle="modal" data-bs-target="#blogModal1">Javascript algorythm and data
+                  structure for beginners</a></h3>
+
+            </div>
+            <div class="image-wrapper">
+              <img class="img-fluid" src="{{ asset('image-template-2/blog/post-thumbnail-01.jpg') }}" alt="post thumnail">
+            </div>
+          </div>
+
+        </div>
+        <div class="col-lg-6 post-group">
+          <div class="row">
+            <div class="col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
+              <!-- Modal -->
+              <div class="modal fade" id="blogModal2" tabindex="-1" aria-labelledby="blogModal2" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
+                  <div class="modal-content">
+
+                    <div class="modal-body">
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
+                      <div class="row blog-content">
+                        <div class="col-xl-12">
+                          <img class="img-fluid" src="{{ asset('image-template-2/blog/blog_full_03.jpg') }}" alt="blog post image 02">
+                        </div>
+                        <div class="col-xl-8 offset-xl-2">
+                          <div class="content-wrapper">
+                            <h2 class="blog-title">Typescript algorythm and data structure for beginner</h2>
+                            <ul class="blog-meta d-md-flex align-items-center justify-content-md-center">
+                              <li><a href="#"><i class="bi bi-folder-fill"></i> Javascript</a></li>
+                              <li><i class="bi bi-calendar3"></i> October 21, 2021</li>
+                              <li><i class="bi bi-clock"></i> 10 min</li>
+                            </ul>
+                            <p>
+                              Sed vitae nulla eu velit fringilla hendrerit. Fusce luctus rhoncus blandit. Nulla vel
+                              varius felis. Integer felis urna, auctor hendrerit ante vitae, scelerisque bibendum quam.
+                              Proin libero leo, pulvinar nec iaculis ac, sodales nec tellus. Sed ut suscipit erat.
+                              Integer aliquam erat eget hendrerit ultricies. In pharetra eu ante consequat tincidunt.
+                              Curabitur vulputate ligula risus, ac auctor magna vulputate sit amet. Sed finibus neque
+                              neque, euismod porta felis vehicula at. Donec a sem id augue sagittis tincidunt non sit
+                              amet risus.
+                            </p>
+                            <p>
+                              Duis aute irure dolor in reprehenderit in voluptate velit esse
+                              cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur
+                              adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                              enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                              commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                              officia deserunt mollit anim id est laborum.
+                            </p>
+                            <p>
+                              Duis aute irure dolor in reprehenderit in voluptate velit esse
+                              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                              sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </p>
+                            <p>
+                              Vestibulum aliquet pulvinar neque sed ullamcorper. Ut vitae fringilla ex. Nam id dui
+                              dignissim, maximus ligula id, tempus metus. Sed commodo dui vitae dui pulvinar, eu
+                              dignissim turpis luctus. Mauris consectetur leo est, non finibus tellus posuere quis.
+                              Integer mollis felis a tristique facilisis. Nam convallis est id iaculis mattis.
+                            </p>
+                            <div class="post-footer row">
+                              <div class="blog-tags col-lg-8 d-md-flex align-items-md-center">
+                                <h4>Tags:</h4>
+                                <ul class="tag-list list-inline">
+                                  <li class="list-inline-item"><a href="#">Web Design</a></li>
+                                  <li class="list-inline-item"><a href="#">Social Media</a></li>
+                                  <li class="list-inline-item"><a href="#">Application</a></li>
+                                </ul>
+                              </div>
+                              <div class="blog-share col-lg-4 d-flex align-items-center justify-content-xxl-end">
+                                <h4>Share:</h4>
+                                <ul class="tag-list list-inline">
+                                  <li class="list-inline-item">
+                                    <a class="facebook-share" href="#"><i class="bi bi-facebook"></i></a>
+                                  </li>
+                                  <li class="list-inline-item">
+                                    <a class="twitter-share" href="#"><i class="bi bi-twitter"></i></a>
+                                  </li>
+                                  <li class="list-inline-item">
+                                    <a class="linkedin-share" href="#"><i class="bi bi-linkedin"></i></a>
+                                  </li>
+                                </ul>
+                              </div>
                             </div>
                             <div class="content-wrapper">
                                 <h4>Lifetime Support</h4>
 
-                                <p>
-                                    Excepteur sint occaecat cupidatat non
-                                    proident, sunt in culpa qui officia mollit anim id est laborum.
-                                </p>
+                      </div> <!-- .row -->
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="content-wrapper">
+                <div class="post-content">
+                  <ul class="post-meta">
+                    <li class="post-date">
+                      <i class="pe-7s-clock"></i>
+                      October 23, 2021
+                    </li>
+                    <li class="post-cat">
+                      <a href="#"><i class="pe-7s-folder"></i> Web Design</a>
+                    </li>
+                  </ul>
+                  <h3><a href="#" data-bs-toggle="modal" data-bs-target="#blogModal2">Design a wesite using
+                      Figma easily</a></h3>
+                </div>
+                <div class="image-wrapper">
+                  <img class="img-fluid" src="{{ asset('image-template-2/blog/post-thumbnail-03.jpg') }}" alt="post thumnail">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600">
+              <!-- Modal -->
+              <div class="modal fade" id="blogModal3" tabindex="-1" aria-labelledby="blogModal3" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
+                  <div class="modal-content">
+
+                    <div class="modal-body">
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
+                      <div class="row blog-content">
+                        <div class="col-xl-12">
+                          <img class="img-fluid" src="{{ asset('image-template-2/blog/blog_full_04.jpg') }}" alt="blog post image 03">
+                        </div>
+                        <div class="col-xl-8 offset-xl-2">
+                          <div class="content-wrapper">
+                            <h2 class="blog-title">Javascript algorythm and data structure for beginner</h2>
+                            <ul class="blog-meta d-md-flex align-items-center justify-content-md-center">
+                              <li><a href="#"><i class="bi bi-folder-fill"></i> Javascript</a></li>
+                              <li><i class="bi bi-calendar3"></i> October 21, 2021</li>
+                              <li><i class="bi bi-clock"></i> 10 min</li>
+                            </ul>
+                            <p>
+                              Sed vitae nulla eu velit fringilla hendrerit. Fusce luctus rhoncus blandit. Nulla vel
+                              varius felis. Integer felis urna, auctor hendrerit ante vitae, scelerisque bibendum quam.
+                              Proin libero leo, pulvinar nec iaculis ac, sodales nec tellus. Sed ut suscipit erat.
+                              Integer aliquam erat eget hendrerit ultricies. In pharetra eu ante consequat tincidunt.
+                              Curabitur vulputate ligula risus, ac auctor magna vulputate sit amet. Sed finibus neque
+                              neque, euismod porta felis vehicula at. Donec a sem id augue sagittis tincidunt non sit
+                              amet risus.
+                            </p>
+                            <p>
+                              Duis aute irure dolor in reprehenderit in voluptate velit esse
+                              cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur
+                              adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                              enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                              commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                              officia deserunt mollit anim id est laborum.
+                            </p>
+                            <p>
+                              Duis aute irure dolor in reprehenderit in voluptate velit esse
+                              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                              sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </p>
+                            <p>
+                              Vestibulum aliquet pulvinar neque sed ullamcorper. Ut vitae fringilla ex. Nam id dui
+                              dignissim, maximus ligula id, tempus metus. Sed commodo dui vitae dui pulvinar, eu
+                              dignissim turpis luctus. Mauris consectetur leo est, non finibus tellus posuere quis.
+                              Integer mollis felis a tristique facilisis. Nam convallis est id iaculis mattis.
+                            </p>
+                            <div class="post-footer row">
+                              <div class="blog-tags col-lg-8 d-md-flex align-items-md-center">
+                                <h4>Tags:</h4>
+                                <ul class="tag-list list-inline">
+                                  <li class="list-inline-item"><a href="#">Web Design</a></li>
+                                  <li class="list-inline-item"><a href="#">Social Media</a></li>
+                                  <li class="list-inline-item"><a href="#">Application</a></li>
+                                </ul>
+                              </div>
+                              <div class="blog-share col-lg-4 d-flex align-items-center justify-content-xxl-end">
+                                <h4>Share:</h4>
+                                <ul class="tag-list list-inline">
+                                  <li class="list-inline-item">
+                                    <a class="facebook-share" href="#"><i class="bi bi-facebook"></i></a>
+                                  </li>
+                                  <li class="list-inline-item">
+                                    <a class="twitter-share" href="#"><i class="bi bi-twitter"></i></a>
+                                  </li>
+                                  <li class="list-inline-item">
+                                    <a class="linkedin-share" href="#"><i class="bi bi-linkedin"></i></a>
+                                  </li>
+                                </ul>
+                              </div>
                             </div>
 
-                        </li>
-                        <li class="d-flex align-items-start">
-                            <div class="icon-block">
-                                <div class="icon-box"><i class="pe-7s-box2"></i></div>
+                      </div> <!-- .row -->
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div class="content-wrapper">
+                <div class="post-content">
+                  <ul class="post-meta">
+                    <li class="post-date">
+                      <i class="pe-7s-clock"></i>
+                      October 23, 2021
+                    </li>
+                    <li class="post-cat">
+                      <a href="#"><i class="pe-7s-folder"></i> Web Design</a>
+                    </li>
+                  </ul>
+                  <h3><a href="#" data-bs-toggle="modal" data-bs-target="#blogModal3">Break on through to the
+                      other side</a></h3>
+                </div>
+                <div class="image-wrapper">
+                  <img class="img-fluid" src="{{ asset('image-template-2/blog/post-thumbnail-04.jpg') }}" alt="post thumnail">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="800">
+              <!-- Modal -->
+              <div class="modal fade" id="blogModal4" tabindex="-1" aria-labelledby="blogModal4" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
+                  <div class="modal-content">
+
+                    <div class="modal-body">
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
+                      <div class="row blog-content">
+                        <div class="col-xl-12">
+                          <img class="img-fluid" src="{{ asset('image-template-2/blog/blog_full_05.jpg') }}" alt="blog post image 04">
+                        </div>
+                        <div class="col-xl-8 offset-xl-2">
+                          <div class="content-wrapper">
+                            <h2 class="blog-title">Javascript algorythm and data structure for beginner</h2>
+                            <ul class="blog-meta d-md-flex align-items-center justify-content-md-center">
+                              <li><a href="#"><i class="bi bi-folder-fill"></i> Javascript</a></li>
+                              <li><i class="bi bi-calendar3"></i> October 21, 2021</li>
+                              <li><i class="bi bi-clock"></i> 10 min</li>
+                            </ul>
+                            <p>
+                              Sed vitae nulla eu velit fringilla hendrerit. Fusce luctus rhoncus blandit. Nulla vel
+                              varius felis. Integer felis urna, auctor hendrerit ante vitae, scelerisque bibendum quam.
+                              Proin libero leo, pulvinar nec iaculis ac, sodales nec tellus. Sed ut suscipit erat.
+                              Integer aliquam erat eget hendrerit ultricies. In pharetra eu ante consequat tincidunt.
+                              Curabitur vulputate ligula risus, ac auctor magna vulputate sit amet. Sed finibus neque
+                              neque, euismod porta felis vehicula at. Donec a sem id augue sagittis tincidunt non sit
+                              amet risus.
+                            </p>
+                            <p>
+                              Duis aute irure dolor in reprehenderit in voluptate velit esse
+                              cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur
+                              adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                              enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                              commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                              officia deserunt mollit anim id est laborum.
+                            </p>
+                            <p>
+                              Duis aute irure dolor in reprehenderit in voluptate velit esse
+                              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                              sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </p>
+                            <p>
+                              Vestibulum aliquet pulvinar neque sed ullamcorper. Ut vitae fringilla ex. Nam id dui
+                              dignissim, maximus ligula id, tempus metus. Sed commodo dui vitae dui pulvinar, eu
+                              dignissim turpis luctus. Mauris consectetur leo est, non finibus tellus posuere quis.
+                              Integer mollis felis a tristique facilisis. Nam convallis est id iaculis mattis.
+                            </p>
+                            <div class="post-footer row">
+                              <div class="blog-tags col-lg-8 d-md-flex align-items-md-center">
+                                <h4>Tags:</h4>
+                                <ul class="tag-list list-inline">
+                                  <li class="list-inline-item"><a href="#">Web Design</a></li>
+                                  <li class="list-inline-item"><a href="#">Social Media</a></li>
+                                  <li class="list-inline-item"><a href="#">Application</a></li>
+                                </ul>
+                              </div>
+                              <div class="blog-share col-lg-4 d-flex align-items-center justify-content-xxl-end">
+                                <h4>Share:</h4>
+                                <ul class="tag-list list-inline">
+                                  <li class="list-inline-item">
+                                    <a class="facebook-share" href="#"><i class="bi bi-facebook"></i></a>
+                                  </li>
+                                  <li class="list-inline-item">
+                                    <a class="twitter-share" href="#"><i class="bi bi-twitter"></i></a>
+                                  </li>
+                                  <li class="list-inline-item">
+                                    <a class="linkedin-share" href="#"><i class="bi bi-linkedin"></i></a>
+                                  </li>
+                                </ul>
+                              </div>
                             </div>
                             <div class="content-wrapper">
                                 <h4>No Coding Required</h4>
 
-                                <p>
-                                    Excepteur sint occaecat cupidatat non
-                                    proident, sunt in culpa qui officia mollit anim id est laborum.
-                                </p>
+                      </div> <!-- .row -->
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div class="content-wrapper">
+                <div class="post-content">
+                  <ul class="post-meta">
+                    <li class="post-date">
+                      <i class="pe-7s-clock"></i>
+                      October 23, 2021
+                    </li>
+                    <li class="post-cat">
+                      <a href="#"><i class="pe-7s-folder"></i> Web Design</a>
+                    </li>
+                  </ul>
+                  <h3><a href="#" data-bs-toggle="modal" data-bs-target="#blogModal4">Imagine there is no
+                      heaven</a></h3>
+                </div>
+                <div class="image-wrapper">
+                  <img class="img-fluid" src="{{ asset('image-template-2/blog/post-thumbnail-05.jpg') }}" alt="post thumnail">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="1000">
+              <!-- Modal -->
+              <div class="modal fade" id="blogModal5" tabindex="-1" aria-labelledby="blogModal5" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
+                  <div class="modal-content">
+
+                    <div class="modal-body">
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
+                      <div class="row blog-content">
+                        <div class="col-xl-12">
+                          <img class="img-fluid" src="{{ asset('image-template-2/blog/blog_full_06.jpg') }}" alt="blog post image 05">
+                        </div>
+                        <div class="col-xl-8 offset-xl-2">
+                          <div class="content-wrapper">
+                            <h2 class="blog-title">Javascript algorythm and data structure for beginner</h2>
+                            <ul class="blog-meta d-md-flex align-items-center justify-content-md-center">
+                              <li><a href="#"><i class="bi bi-folder-fill"></i> Javascript</a></li>
+                              <li><i class="bi bi-calendar3"></i> October 21, 2021</li>
+                              <li><i class="bi bi-clock"></i> 10 min</li>
+                            </ul>
+                            <p>
+                              Sed vitae nulla eu velit fringilla hendrerit. Fusce luctus rhoncus blandit. Nulla vel
+                              varius felis. Integer felis urna, auctor hendrerit ante vitae, scelerisque bibendum quam.
+                              Proin libero leo, pulvinar nec iaculis ac, sodales nec tellus. Sed ut suscipit erat.
+                              Integer aliquam erat eget hendrerit ultricies. In pharetra eu ante consequat tincidunt.
+                              Curabitur vulputate ligula risus, ac auctor magna vulputate sit amet. Sed finibus neque
+                              neque, euismod porta felis vehicula at. Donec a sem id augue sagittis tincidunt non sit
+                              amet risus.
+                            </p>
+                            <p>
+                              Duis aute irure dolor in reprehenderit in voluptate velit esse
+                              cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur
+                              adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                              enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                              commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                              officia deserunt mollit anim id est laborum.
+                            </p>
+                            <p>
+                              Duis aute irure dolor in reprehenderit in voluptate velit esse
+                              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                              sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </p>
+                            <p>
+                              Vestibulum aliquet pulvinar neque sed ullamcorper. Ut vitae fringilla ex. Nam id dui
+                              dignissim, maximus ligula id, tempus metus. Sed commodo dui vitae dui pulvinar, eu
+                              dignissim turpis luctus. Mauris consectetur leo est, non finibus tellus posuere quis.
+                              Integer mollis felis a tristique facilisis. Nam convallis est id iaculis mattis.
+                            </p>
+                            <div class="post-footer row">
+                              <div class="blog-tags col-lg-8 d-md-flex align-items-md-center">
+                                <h4>Tags:</h4>
+                                <ul class="tag-list list-inline">
+                                  <li class="list-inline-item"><a href="#">Web Design</a></li>
+                                  <li class="list-inline-item"><a href="#">Social Media</a></li>
+                                  <li class="list-inline-item"><a href="#">Application</a></li>
+                                </ul>
+                              </div>
+                              <div class="blog-share col-lg-4 d-flex align-items-center justify-content-xxl-end">
+                                <h4>Share:</h4>
+                                <ul class="tag-list list-inline">
+                                  <li class="list-inline-item">
+                                    <a class="facebook-share" href="#"><i class="bi bi-facebook"></i></a>
+                                  </li>
+                                  <li class="list-inline-item">
+                                    <a class="twitter-share" href="#"><i class="bi bi-twitter"></i></a>
+                                  </li>
+                                  <li class="list-inline-item">
+                                    <a class="linkedin-share" href="#"><i class="bi bi-linkedin"></i></a>
+                                  </li>
+                                </ul>
+                              </div>
                             </div>
 
                         </li>
@@ -1770,122 +2517,20 @@
                         </div>
                     </div>
                 </div>
-            </div> <!-- .row -->
-        </div> <!-- .container -->
-        <div class="design-elements">
-            <img class="de-blog-1 elem-updown"
-                src="{{ asset('image-template-2/design-elements/blog-element-1.png') }}" alt="blog element 1">
-            <img class="de-blog-2 elem-updown"
-                src="{{ asset('image-template-2/design-elements/blog-element-2.png') }}" alt="blog element 2">
-        </div> <!-- .design-elements -->
-    </section> <!-- .blog-section -->
-
-    <!-- PARTNER SECTION -->
-    <section class="partner-section" id="partner-section">
-        <div class="container">
-
-            <div class="section-title dark visually-hidden">
-                <h2>Partners</h2>
-            </div><!-- .section-title -->
-
-            <div class="partnerCarousel">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="image-wrapper">
-                            <img src="{{ asset('image-template-2/partner/partner_logo_1.png') }}"
-                                alt="partner logo 01">
-                        </div> <!-- .image-wrapper -->
-                    </div><!-- .swiper-slide -->
-                    <div class="swiper-slide">
-                        <div class="image-wrapper">
-                            <img src="{{ asset('image-template-2/partner/partner_logo_2.png') }}"
-                                alt="partner logo 02">
-                        </div> <!-- .image-wrapper -->
-                    </div><!-- .swiper-slide -->
-                    <div class="swiper-slide">
-                        <div class="image-wrapper">
-                            <img src="{{ asset('image-template-2/partner/partner_logo_3.png') }}"
-                                alt="partner logo 03">
-                        </div> <!-- .image-wrapper -->
-                    </div><!-- .swiper-slide -->
-                    <div class="swiper-slide">
-                        <div class="image-wrapper">
-                            <img src="{{ asset('image-template-2/partner/partner_logo_4.png') }}"
-                                alt="partner logo 04">
-                        </div> <!-- .image-wrapper -->
-                    </div><!-- .swiper-slide -->
-                    <div class="swiper-slide">
-                        <div class="image-wrapper">
-                            <img src="{{ asset('image-template-2/partner/partner_logo_5.png') }}"
-                                alt="partner logo 05">
-                        </div> <!-- .image-wrapper -->
-                    </div><!-- .swiper-slide -->
-                    <div class="swiper-slide">
-                        <div class="image-wrapper">
-                            <img src="{{ asset('image-template-2/partner/partner_logo_6.png') }}"
-                                alt="partner logo 06">
-                        </div> <!-- .image-wrapper -->
-                    </div><!-- .swiper-slide -->
-                    <div class="swiper-slide">
-                        <div class="image-wrapper">
-                            <img src="{{ asset('image-template-2/partner/partner_logo_7.png') }}"
-                                alt="partner logo 07">
-                        </div> <!-- .image-wrapper -->
-                    </div><!-- .swiper-slide -->
-                    <div class="swiper-slide">
-                        <div class="image-wrapper">
-                            <img src="{{ asset('image-template-2/partner/partner_logo_8.png') }}"
-                                alt="partner logo 08">
-                        </div> <!-- .image-wrapper -->
-                    </div><!-- .swiper-slide -->
-                    <div class="swiper-slide">
-                        <div class="image-wrapper">
-                            <img src="{{ asset('image-template-2/partner/partner_logo_9.png') }}"
-                                alt="partner logo 09">
-                        </div> <!-- .image-wrapper -->
-                    </div><!-- .swiper-slide -->
-                </div> <!-- .swiper-wrapper -->
-            </div> <!-- .partnerCarousel -->
-        </div> <!-- .container -->
-    </section> <!-- .partner section -->
-
-    <!-- CONTACT SECTION -->
-    <section class="contact-section section-block" id="contact-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Get in Touch</h2>
-                <p class="lead">
-                    Duis aute irure dolor in reprehen pteur sint occaecat cupidatat non
-                    proident, sunt in culim id est.
-                </p>
-            </div><!-- .section-title -->
-
-            <div class="row contact-options">
-                <div class="col-lg-4 d-flex justify-content-xxl-center align-items-xl-center" data-aos="fade-down"
-                    data-aos-duration="1000">
-                    <div class="icon-box"><i class="pe-7s-map-marker"></i></div>
-                    <div class="content-wrapper">
-                        <h4>Address</h4>
-                        <address>Bardeshi, Amin Bazar, New York</address>
-                    </div>
+                <div class="image-wrapper">
+                  <img class="img-fluid" src="{{ asset('image-template-2/blog/post-thumbnail-06.jpg') }}" alt="post thumnail">
                 </div>
-                <div class="col-lg-4 d-flex justify-content-xxl-center align-items-xl-center" data-aos="fade-down"
-                    data-aos-duration="1000" data-aos-delay="200">
-                    <div class="icon-box"><i class="pe-7s-call"></i></div>
-                    <div class="content-wrapper">
-                        <h4>Phone</h4>
-                        <a href="#">+01234 567 890</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 d-flex justify-content-xxl-center align-items-xl-center" data-aos="fade-down"
-                    data-aos-duration="1000" data-aos-delay="400">
-                    <div class="icon-box"><i class="pe-7s-mail"></i></div>
-                    <div class="content-wrapper">
-                        <h4>Email</h4>
-                        <a href="#">hello@poriweb.com</a>
-                    </div>
-                </div>
-            </div> <!-- .row -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- .row -->
+    </div> <!-- .container -->
+    <div class="design-elements">
+      <img class="de-blog-1 elem-updown" src="{{ asset('image-template-2/design-elements/blog-element-1.png') }}" alt="blog element 1">
+      <img class="de-blog-2 elem-updown" src="{{ asset('image-template-2/design-elements/blog-element-2.png') }}" alt="blog element 2">
+    </div> <!-- .design-elements -->
+  </section> <!-- .blog-section -->
 
             <div class="row">
                 <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="600">
@@ -1937,25 +2582,29 @@
         </div> <!-- .design-elements -->
     </section> <!-- .contact-section -->
 
-    <!-- SITE FOOTER -->
-    <footer class="site-footer" id="site-footer">
-        <div class="container">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-lg-6 text-center branding-block">
-                    <a class="footer-brand" href="#"><img
-                            src="{{ asset('image-template-2/fungi_logo_light.png') }}" alt="Pori logo"></a>
-                    <p>
-                        Kilaboris nisi ut aliquip ex ea commodo consequat uis aute cupidatat non proident sunt in culd
-                        est laborum.
-                    </p>
-                    <ul class="list-inline footer-social">
-                        <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fab fa-youtube"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
-                    </ul>
-                </div>
+      <div class="row contact-options">
+        <div class="col-lg-4 d-flex justify-content-xxl-center align-items-xl-center" data-aos="fade-down" data-aos-duration="1000">
+          <div class="icon-box"><i class="pe-7s-map-marker"></i></div>
+          <div class="content-wrapper">
+            <h4>Address</h4>
+            <address>Bardeshi, Amin Bazar, New York</address>
+          </div>
+        </div>
+        <div class="col-lg-4 d-flex justify-content-xxl-center align-items-xl-center" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="200">
+          <div class="icon-box"><i class="pe-7s-call"></i></div>
+          <div class="content-wrapper">
+            <h4>Phone</h4>
+            <a href="#">+01234 567 890</a>
+          </div>
+        </div>
+        <div class="col-lg-4 d-flex justify-content-xxl-center align-items-xl-center" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="400">
+          <div class="icon-box"><i class="pe-7s-mail"></i></div>
+          <div class="content-wrapper">
+            <h4>Email</h4>
+            <a href="#">hello@poriweb.com</a>
+          </div>
+        </div>
+      </div> <!-- .row -->
 
             </div> <!-- .row -->
             <div class="back-to-top"><a href="#site-header"><i class="bi bi-box-arrow-up"></i></a></div>
@@ -1973,21 +2622,92 @@
         </div> <!-- .container -->
     </footer> <!-- .site-footer -->
 
-    <script src="{{ asset('assets/template-2/js/jquery.js') }}"></script>
-    <script src="{{ asset('assets/template-2/js/popper.min.js') }}"></script>
-    <script src="{{ asset('assets/template-2/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('assets/template-2/js/imagesloaded.pkgd.min.js') }}"></script>
-    <script src="{{ asset('assets/template-2/js/isotope.pkgd.min.js') }}"></script>
-    <script src="{{ asset('assets/template-2/js/swiper-bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/template-2/js/leaflet.js') }}"></script>
-    <script src="{{ asset('assets/template-2/js/jquery.waypoints.min.js') }}"></script>
-    <script src="{{ asset('assets/template-2/js/jquery.counterup.min.js') }}"></script>
-    <script src="{{ asset('assets/template-2/js/aos.js') }}"></script>
-    <script src="{{ asset('assets/template-2/js/jquery.preloadinator.min.js') }}"></script>
-    <script src="{{ asset('assets/template-2/js/vanilla-tilt.min.js') }}"></script>
-    <script src="{{ asset('assets/template-2/js/textition.js') }}"></script>
-    <script src="{{ asset('assets/template-2/ajax/libs/parallax/3.1.0/parallax.min.js') }}"></script>
-    <script src="{{ asset('assets/template-2/js/script.js') }}"></script>
+          </div>
+        </div>
+        <div class="col-lg-6 form-block" data-aos="fade-right" data-aos-duration="1500" data-aos-delay="1100">
+          <h3>Write me a message</h3>
+          <div class="form-message">
+            <p></p>
+          </div>
+          <form class="row g-3" id="fungi-contact" method="POST" action="https://ethemestudio.com/demo/fungi/7_freelancer/php/form-handler.php">
+            <div class="col-md-6">
+              <div class="input-group mb-3">
+                <label for="inputName" class="form-label visually-hidden">Name</label>
+                <input type="text" class="form-control" id="inputName" placeholder="Name*" name="inputName" required>
+              </div>
+            </div>
+            <div class="col-md-6">
+
+              <div class="input-group mb-3">
+                <label for="inputEmail" class="form-label visually-hidden">Email</label>
+                <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Email*" required>
+              </div>
+
+            </div>
+            <div class="col-md-12">
+              <label for="inputMessage" class="form-label visually-hidden">Message</label>
+              <textarea class="form-control mb-3" id="inputMessage" name="inputMessage" placeholder="Your message here*" required></textarea>
+              <button type="submit" class="btn btn-main" name="submit">Send Message</button>
+            </div>
+          </form> <!-- .row -->
+        </div>
+      </div> <!-- .row -->
+    </div> <!-- .container -->
+    <div class="design-elements">
+      <img class="de-contact-1 elem-updown" src="{{ asset('image-template-2/design-elements/contact-element-1.png') }}" alt="contact element 1">
+      <img class="de-contact-2 elem-updown" src="{{ asset('image-template-2/design-elements/contact-element-2.png') }}" alt="contact element 2">
+    </div> <!-- .design-elements -->
+  </section> <!-- .contact-section -->
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer" id="site-footer">
+    <div class="container">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-lg-6 text-center branding-block">
+          <a class="footer-brand" href="#"><img src="{{ asset('image-template-2/fungi_logo_light.png') }}" alt="Pori logo"></a>
+          <p>
+            Kilaboris nisi ut aliquip ex ea commodo consequat uis aute cupidatat non proident sunt in culd est laborum.
+          </p>
+          <ul class="list-inline footer-social">
+            <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+            <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+            <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin"></i></a></li>
+            <li class="list-inline-item"><a href="#"><i class="fab fa-youtube"></i></a></li>
+            <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+          </ul>
+        </div>
+
+      </div> <!-- .row -->
+      <div class="back-to-top"><a href="#site-header"><i class="bi bi-box-arrow-up"></i></a></div>
+      <div class="row footer-bottom">
+        <div class="col-md-6">
+          <p>All rights reserved &copy; 2023 <strong>eThemeStudio</strong></p>
+        </div>
+        <div class="col-md-6">
+          <ul class="list-inline text-md-end">
+            <li class="list-inline-item"><a href="#">Terms &amp; Condition</a></li>
+            <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div> <!-- .footer-bottom -->
+    </div> <!-- .container -->
+  </footer> <!-- .site-footer -->
+
+  <script src="{{ asset('assets/template-2/js/jquery.js') }}"></script>
+  <script src="{{ asset('assets/template-2/js/popper.min.js') }}"></script>
+  <script src="{{ asset('assets/template-2/js/bootstrap.min.js') }}"></script>
+  <script src="{{ asset('assets/template-2/js/imagesloaded.pkgd.min.js') }}"></script>
+  <script src="{{ asset('assets/template-2/js/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ asset('assets/template-2/js/swiper-bundle.min.js') }}"></script>
+  <script src="{{ asset('assets/template-2/js/leaflet.js') }}"></script>
+  <script src="{{ asset('assets/template-2/js/jquery.waypoints.min.js') }}"></script>
+  <script src="{{ asset('assets/template-2/js/jquery.counterup.min.js') }}"></script>
+  <script src="{{ asset('assets/template-2/js/aos.js') }}"></script>
+  <script src="{{ asset('assets/template-2/js/jquery.preloadinator.min.js') }}"></script>
+  <script src="{{ asset('assets/template-2/js/vanilla-tilt.min.js') }}"></script>
+  <script src="{{ asset('assets/template-2/js/textition.js') }}"></script>
+  <script src="{{ asset('assets/template-2/ajax/libs/parallax/3.1.0/parallax.min.js') }}"></script>
+  <script src="{{ asset('assets/template-2/js/script.js') }}"></script>
 </body>
 
 </html>

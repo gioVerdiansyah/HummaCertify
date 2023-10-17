@@ -27,6 +27,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'nomerUniq',
     ];
 
     /**
@@ -34,26 +35,21 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $hidden = [
-        'password',
 
-    ];
 
     /**
      * The attributes that should be cast.
      *
      * @var array<string, string>
      */
-    protected $casts = [
-        'password' => 'hashed',
-    ];
+
 
      /**
      * Definisikan relasi Many-to-Many dengan model CertificateCategori.
      *
      * @return HasMany
      */
-    public function Certificates():HasMany
+    public function certificates():HasMany
     {
         return $this->hasMany(Certificate::class);
     }
