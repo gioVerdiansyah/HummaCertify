@@ -18,8 +18,8 @@ class Certificate extends Model implements HasCategories, HasUsers
         'user_id',
         'certificate_categori_id',
         'tanggal',
-        'divisions',
-        'nomer',
+        'bidang',
+        'nomor',
     ];
 
 

@@ -22,7 +22,7 @@
                         <div class="col-6">
                             <div class="mb-4">
                                 <label for="firstNameinput" class="form-label">Nama Peserta</label>
-                                <input type="text" class="form-control" placeholder="Masukkan nama" name="name">
+                                <input type="text" class="form-control" placeholder="Masukkan nama" name="name" value="{{ old('name') }}">
                             </div>
                         </div>
                         <div class="col-6">
@@ -31,7 +31,7 @@
                                 <select name="certificate_categori_id" class="form-select">
                                     <option disabled selected>--Pilih Kategori--</option>
                                     @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        <option value="{{ $category->id }}" {{ old('certificate_categori_id') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -40,26 +40,26 @@
                             <div class="mb-4">
                                 <label for="firstNameinput" class="form-label">NIS/NIM/NIP Peserta</label>
                                 <input type="text" class="form-control" placeholder="Masukkan NIS/NIM/NIP"
-                                    name="password">
+                                    name="password" value="{{ old('password') }}">
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="mb-4">
-                                <label for="firstNameinput" class="form-label">Division</label>
-                                <input type="text" class="form-control" placeholder="Jurusan Peserta" name="divisions">
+                                <label for="firstNameinput" class="form-label">Bidang/Division</label>
+                                <input type="text" class="form-control" placeholder="Bidang yang diikuti peserta" name="bidang" value="{{ old('bidang') }}">
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="mb-3">
                                 <label for="firstNameinput" class="form-label">Email peserta (opsional)</label>
                                 <input type="text" class="form-control" placeholder="Enter your firstname"
-                                    name="email">
+                                    name="email" value="{{ old('email') }}">
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="mb-4">
                                 <label for="lastNameinput" class="form-label">Tanggal Acara</label>
-                                <input type="date" class="form-control" placeholder="dd/mm/yy" name="tanggal">
+                                <input type="date" class="form-control" placeholder="dd/mm/yy" name="tanggal" value="{{ old('tanggal') }}">
                             </div>
                         </div>
                         <div class="col-6">

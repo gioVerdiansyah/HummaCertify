@@ -21,7 +21,6 @@ class PesertaService
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => $data['password'],
-            'nomerUniq' => $uniq,
         ];
         return $this->peserta->store($dataUser);
     }
