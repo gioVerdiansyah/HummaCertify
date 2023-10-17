@@ -40,8 +40,8 @@
                 <td>Seminar</td>
                 <td>15 Oktober 2023</td>
                 <td class="d-flex gap-2 justify-content-center align-items-center">
-                  <a href="" class="btn btn-primary">Kirim</a>
-                  <a href="" class="btn btn-info">Show</a>
+                  <button class="btn btn-primary">Kirim</button>
+                  <button class="btn btn-info" onclick="generatePDF(1)">Show</button>
                 </td>
               </tr>
             </tbody>
@@ -60,4 +60,29 @@
       </div>
     </div>
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/printThis/1.15.0/printThis.js" integrity="sha512-Fd3EQng6gZYBGzHbKd52pV76dXZZravPY7lxfg01nPx5mdekqS8kX4o1NfTtWiHqQyKhEGaReSf4BrtfKc+D5w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+        function generatePDF(id) {
+            var certificateId = 'certificate-' + id;
+
+            $.ajax({
+                url: `{{ route('getCertificate', 2) }}`,
+                method: 'GET',
+                data: {
+                    certificateId: certificateId
+                },
+                success: function(response) {
+                    var certificateElement = $(response).filter('#certificate-' + id);
+                    console.log(certificateElement);
+
+                    certificateElement.printThis({
+                        base: true
+                    });
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                }
+            });
+        };
+  </script>
 @endsection

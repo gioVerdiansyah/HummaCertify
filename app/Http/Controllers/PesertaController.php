@@ -24,6 +24,10 @@ class PesertaController extends Controller
         $this->certificateService = $serviceCertificate;
     }
 
+    public function index(){
+        return view('admin.certificate.index');
+    }
+
     /**
      * Show the form for creating a new resource.
      */

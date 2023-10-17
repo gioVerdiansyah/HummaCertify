@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CertificateController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -39,7 +40,8 @@ Route::middleware('AdminUp')->group(function () {
             return view('admin.ListSertifikat');
         });
 
-        Route::resource('/certificate', PesertaController::class)->except('index');
+        Route::resource('/certificate', PesertaController::class);
+        Route::get('/get_certificate/{id}', [CertificateController::class, 'getCertificate'])->name('getCertificate');
     });
 });
 
