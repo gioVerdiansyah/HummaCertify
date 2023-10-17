@@ -19,7 +19,7 @@ class Certificate extends Model implements HasCategories, HasUsers
         'certificate_categori_id',
         'tanggal',
         'divisions',
-        'nomerCertificate',
+        'nomer',
     ];
 
 

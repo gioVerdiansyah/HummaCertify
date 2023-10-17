@@ -50,7 +50,6 @@ class PesertaController extends Controller
      */
     public function store(UserStoreRequest $request)
     {
-       $uniq = User::count() +1;
        $data = $request->all();
        $id = $this->peserta->store($data);
        $this->certificateService->create($data, $id);
