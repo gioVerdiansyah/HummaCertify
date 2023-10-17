@@ -23,12 +23,12 @@ class CertificateService
     public function create(array $data, string $id): mixed
     {
         $userId = $this->user->getId($id);
-        $namaUnik =  'malang';
+        $namaUnik = substr(str_shuffle('abcdefghijklmnopqrstuvwxyz'), 0, 3);
         $nomorUnik = str_pad($userId->nomerUniq, 4, '0', STR_PAD_LEFT);
         $nomorKategori = str_pad($data['certificate_categori_id'], 2, '0', STR_PAD_LEFT);
         $tahun = date('Y', strtotime($data['tanggal']));
         $nomorSertifikat = 'Ser'. '/'. $nomorUnik . '/' . $nomorKategori. '/'. $namaUnik. '/'. $tahun;
-    
+
         $certificate = [
             'user_id' => $userId->id,
             'certificate_categori_id' => $data['certificate_categori_id'],
