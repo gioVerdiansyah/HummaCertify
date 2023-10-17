@@ -16,12 +16,14 @@ class PesertaController extends Controller
     private $user;
     private $certificate;
     private $serviceCertificate;
+    private CertificateCategoriRepositori $categori;
 
-    public function __construct(DaftarPesertaRepository $user,CertificateRepository $certificate, CertificateService $serviceCertificate)
+    public function __construct(DaftarPesertaRepository $user,CertificateRepository $certificate, CertificateService $serviceCertificate,CertificateCategoriRepositori $categori)
     {
         $this->user = $user;
         $this->certificate = $certificate;
         $this->certificateService = $serviceCertificate;
+        $this->categories = $categori;
     }
 
     public function index(){
@@ -33,7 +35,8 @@ class PesertaController extends Controller
      */
     public function create()
     {
-        $categories = CertificateCategori::all();
+        dd( $this->categories->get());
+        $categories = $this->categories->get();
         return view('admin.certificate.create', compact('categories'));
     }
 

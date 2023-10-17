@@ -7,7 +7,7 @@ use App\Contracts\Interfaces\Eloquent\StoreInterface;
 use App\Contracts\Interfaces\Eloquent\UpdateInterface;
 use App\Contracts\Interfaces\Eloquent\GetRelationshipInterface;
 
-interface CertificateInterface extends StoreInterface, UpdateInterface,GetInterface,GetRelationshipInterface
+interface CertificateInterface extends StoreInterface, UpdateInterface,GetInterface,GetRelationshipInterface,GetInterfaceId
 {
 
 }
