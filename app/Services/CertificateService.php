@@ -11,36 +11,23 @@ use App\Contracts\Repositories\DaftarPesertaRepository;
 class CertificateService
 {
     private CertificateRepository $certificate;
-    public function __construct(CertificateRepository $certificate)
+    private DaftarPesertaRepository $user;
+    public function __construct(CertificateRepository $certificate, DaftarPesertaRepository $user)
     {
         $this->certificate = $certificate;
+        $this->user = $user;
     }
 
-    public function create(array $data): mixed
+    public function create(array $data, string $id): mixed
     {
-        $user = User::where('name', $data['name'])->first();
-         $certificate = [
-           'user_id' => $user->id,
-           'certificate_categori_id' => $data['certificate_categori_id'],
-           'tanggal' => $data['tanggal'],
-           'divisions' => $data['divisions'],
-         ];
-
-        return $this->certificate->store($certificate);
-
-
-    }
-
-    public function update(array $request, $id)
-    {
-        $user = User::where('name', $request['name'])->first();
+        $userId = $this->user->getId($id);
         $certificate = [
-            'user_id' => $user->id,
-            'certificate_categori_id' => $request['certificate_categori_id'],
-            'tanggal' => $request['tanggal'],
-            'divisions' => $request['divisions'],
+            'user_id' => $userId->id,
+            'certificate_categori_id' => $data['certificate_categori_id'],
+            'tanggal' => $data['tanggal'],
+            'divisions' => $data['divisions'],
         ];
-
-
+        return $this->certificate->store($certificate);
     }
+
 }

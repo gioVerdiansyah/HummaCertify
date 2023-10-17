@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('certificate_categori_id')->constrained('certificate_categoris');
             $table->date('tanggal');
             $table->string('divisions')->nullable();
+            $table->string('nomerCertificate');
             $table->timestamps();
         });
     }

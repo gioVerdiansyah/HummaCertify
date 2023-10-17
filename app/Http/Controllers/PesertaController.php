@@ -24,6 +24,10 @@ class PesertaController extends Controller
         $this->certificateService = $serviceCertificate;
     }
 
+    public function index(){
+        return view('admin.certificate.index');
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -39,8 +43,8 @@ class PesertaController extends Controller
     public function store(UserStoreRequest $request)
     {
        $data = $request->validated();
-       $this->user->store($data);
-       $certificate = $this->certificateService->create($data);
+       $id = $this->user->store($data);
+       $this->certificateService->create($data, $id);
        return redirect()->back();
     }
 
