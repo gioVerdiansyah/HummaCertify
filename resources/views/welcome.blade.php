@@ -43,7 +43,7 @@
   <header class="site-header" id="site-header">
     <nav class="navbar navbar-expand-xl" id="site-navbar">
       <div class="container">
-        <a class="navbar-brand" href="index.html"><img class="img-fluid" src="{{ asset('image-template-2/fungi_logo.png') }}" alt="fungi logo"></a>
+        <a class="navbar-brand" href="index.html"><img width="250px" src="{{ asset('image/HummaCertify.png') }}" alt="fungi logo"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"><i class="bi bi-list"></i></span>
         </button>
@@ -53,7 +53,7 @@
               <a class="nav-link active" aria-current="page" href="#site-header">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#about-section">About</a>
+              <a class="nav-link" href="#about-section">Tentang</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#portfolio-section">Portfolio</a>
@@ -95,6 +95,23 @@
 
   </header> <!-- .site-header -->
 
+  <script>
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    function updateLinkColors() {
+      const scrollPosition = window.scrollY;
+
+      if (scrollPosition > 265) {
+        document.documentElement.style.setProperty('--nav-link-color', 'black');
+      } else {
+        document.documentElement.style.setProperty('--nav-link-color', 'white');
+      }
+    }
+
+    window.addEventListener('scroll', updateLinkColors);
+    updateLinkColors();
+  </script>
+
   <!-- HERO AREA -->
   <section class="hero-area" id="hero-area">
     <div class="container">
@@ -103,17 +120,17 @@
           <div class="col-xl-8 text-center mb-5">
             <img class="img-fluid hero-main-image" width="150px" src="{{ asset('image/LOGO Hummasoft PP Circle.png') }}" alt="hero main image">
             <section class="stars">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-              </section>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </section>
             <h1 class="hero-head"><small class="input-header">Cek Keaslian sertifikat Anda</small></h1>
             <form action="" method="post">
               @csrf
@@ -139,19 +156,19 @@
       </div> <!-- .hero-content -->
     </div> <!-- .container --> <!-- .hero-contact -->
     <div id="scene" class="hero-parallax">
-      <div data-depth="0.2"><img class="img-fluid" src="{{ asset('image-template-2/hero-bg/hero-parallax-envato.png') }}" alt="hero parallax adobe envato">
+      <div data-depth="0.2"><img width="55px" style="margin-left: 88vw; margin-top: 89vh" class="img-fluid" src="{{ asset('image/Js.png') }}" alt="hero parallax adobe envato">
       </div>
-      <div data-depth="0.1"><img class="img-fluid" src="{{ asset('image-template-2/hero-bg/hero-parallax-ai.png') }}" alt="hero parallax adobe illustrator">
+      <div data-depth="0.1"><img width="50px" style="margin-left: 70px; margin-top: 62vh" class="img-fluid" src="{{ asset('image/Bootstrap.png') }}" alt="hero parallax adobe illustrator">
       </div>
       <div data-depth="0.3"><img class="img-fluid" src="{{ asset('image-template-2/hero-bg/hero-parallax-figma.png') }}" alt="hero parallax adobe figma">
       </div>
-      <div data-depth="0.2"><img class="img-fluid" src="{{ asset('image-template-2/hero-bg/hero-parallax-fiverr.png') }}" alt="hero parallax adobe fiverr">
+      <div data-depth="0.2"><img width="64px" style="margin-left: 200px; margin-top: 85vh" class="img-fluid" src="{{ asset('image/Css.png') }}" alt="hero parallax adobe fiverr">
       </div>
-      <div data-depth="0.3"><img class="img-fluid" src="{{ asset('image-template-2/hero-bg/hero-parallax-joomla.png') }}" alt="hero parallax adobe joomla">
+      <div data-depth="0.3"><img width="50px" style="margin-left: 72vw; margin-top: 68vh" class="img-fluid" src="{{ asset('image/Html.png') }}" alt="hero parallax adobe joomla">
       </div>
-      <div data-depth="0.2"><img clcass="img-fluid" src="{{ asset('image-template-2/hero-bg/hero-parallax-ps.png') }}" alt="hero parallax adobe photoshop">
+      <div data-depth="0.2"><img width="50px" style="margin-left: 260px; margin-top: 298px" class="img-fluid" src="{{ asset('image/Tail Wind.png') }}" alt="hero parallax adobe photoshop">
       </div>
-      <div data-depth="0.3"><img class="img-fluid" src="{{ asset('image-template-2/hero-bg/hero-parallax-upwork.png') }}" alt="hero parallax adobe upwork">
+      <div data-depth="0.3"><img width="65px" style="margin-left: 87vw; margin-top: 280px" class="img-fluid" src="{{ asset('image/Php.png') }}" alt="hero parallax adobe upwork">
       </div>
       <div data-depth="0.1"><img width="60px" style="margin-left: 100px; margin-top: 150px" class="img-fluid" src="{{ asset('image/20231017_090752.png') }}" alt="hero parallax adobe WordPress">
       </div>
@@ -162,10 +179,9 @@
   <section class="intro-section section-block">
     <div class="container">
       <div class="section-title">
-        <h2>Welcome to my World</h2>
+        <h2>Selamat datang di HummaCertify</h2>
         <p class="lead">
-          I'm a young tech enthasist and entrepreneur who love to take risk. I grew up in a tech family in New York
-          City.
+          Selamat datang di platform kami yang membantu Anda menemukan. sertifikat Hummatech Anda dan memastikan keasliannya dengan cepat dan mudah.
         </p>
       </div><!-- .section-title -->
       <div class="row">
@@ -173,9 +189,9 @@
           <div class="item-wrapper">
             <div class="icon-box"><i class="pe-7s-science"></i></div>
             <div class="content-wrapper">
-              <h3>Creativity</h3>
+              <h3>Fungsi</h3>
               <p>
-                Duis aute irure dolor in it esse cillum dolore eu fugiat nulla pari erunt mollit anim id est laborum.
+                Pencarian sertifikat adalah langkah kunci dalam memastikan keabsahan dokumen penting yang Anda miliki.
               </p>
             </div> <!-- .content-wrapper -->
           </div> <!-- .item-wrapper -->
@@ -184,10 +200,9 @@
           <div class="item-wrapper">
             <div class="icon-box"><i class="pe-7s-diamond"></i></div>
             <div class="content-wrapper">
-              <h3>Dedication</h3>
+              <h3>Kegunaan</h3>
               <p>
-                Beaboris nisi ut aliquip ex ea commodo
-                consen cillum dolore eu fugiat nulla pariatur.
+                Sertifikat adalah bukti konkrit pencapaian dan digunakan dalam berbagai konteks, mulai dari pekerjaan hingga pendidikan
               </p>
             </div> <!-- .content-wrapper -->
           </div> <!-- .item-wrapper -->
@@ -196,10 +211,9 @@
           <div class="item-wrapper">
             <div class="icon-box"><i class="pe-7s-rocket"></i></div>
             <div class="content-wrapper">
-              <h3>Hard Work</h3>
+              <h3>Bukti</h3>
               <p>
-                Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui offi llit anim id est laborum.
+                Sertifikat mewakili pengetahuan, keterampilan, atau status tertentu yang Anda peroleh selama perjalanan hidup atau karier Anda.
               </p>
             </div> <!-- .content-wrapper -->
           </div> <!-- .item-wrapper -->
@@ -218,58 +232,27 @@
     <div class="container">
       <div class="row">
         <div class="col-xl-6 image-block" data-aos="fade-right" data-aos-delay="200" data-aos-duration="2000">
-          <div class="img-wrapper about-img-wrap" data-tilt data-tilt-max="10">
-            <img class="about-img-1 img-fluid" src="{{ asset('image-template-2/about-image-1.png') }}" alt="about image">
-            <img class="about-img-2 img-fluid" src="{{ asset('image-template-2/about-image-2.png') }}" alt="about image 2">
+          <div class="img-wrapper about-img-wrap">
+            <img class="about-img-1 img-fluid" width="100%" src="{{ asset('image/quality-work-flat-modern-design-illustration_566886-369-removebg-preview.png') }}" alt="about image">
           </div>
         </div>
-        <div class="col-xl-6 content-block" data-aos="fade-right" data-aos-delay="400" data-aos-duration="2000">
-          <h2><span>About Me</span>I'm a Freelancer, I work from Anywhere</h2>
+        <div class="col-xl-6 content-block mt-5" data-aos="fade-right" data-aos-delay="400" data-aos-duration="2000">
+          <h2>Pengecekan Keaslian Sertifikat</h2>
           <p>
-            Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Sertifikat kelulusan magang adalah wujud pengakuan atas upaya dan dedikasi siswa magang yang telah menyelesaikan program mereka. Sertifikat khusus acara, di sisi lain, adalah bukti kehadiran atau kontribusi dalam acara-acara tertentu yang
+            mungkin relevan dengan pengalaman magang.
           </p>
           <p>
-            Tabore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.
+            Kami menghargai pentingnya sertifikat-sertifikat ini dalam perjalanan pendidikan dan karier siswa magang dan guru magang. Oleh karena itu, kami dengan sepenuh hati berkomitmen untuk membantu Anda memeriksa keaslian sertifikat-sertifikat ini
+            melalui platform kami.
           </p>
-          <div class="personal-details row">
-            <div class="col-md-6">
-              <ul class="personal-info">
-                <li>
-                  <h4>Name</h4>
-                  <p>James Smith</p>
-                </li>
-                <li>
-                  <h4>Email</h4>
-                  <p>hello@jamesanderson.com</p>
-                </li>
-                <li>
-                  <h4>Phone</h4>
-                  <p>+123 456 7890</p>
-                </li>
-              </ul> <!-- .personal-info -->
-            </div> <!-- .col-md-6 -->
-            <div class="col-md-6">
-              <ul class="personal-info">
-                <li>
-                  <h4>Age</h4>
-                  <p>27 Years</p>
-                </li>
-                <li>
-                  <h4>Education</h4>
-                  <p>Bachelors in Physics</p>
-                </li>
-                <li>
-                  <h4>Freelance</h4>
-                  <p>Available</p>
-                </li>
-              </ul> <!-- .personal-info -->
-            </div> <!-- .col-md-6 -->
-          </div> <!-- .personal-details -->
-          <a class="btn-main" href="#">Download CV</a>
+          <p>
+            Dengan penggunaan platform kami, Anda dapat dengan mudah memastikan bahwa sertifikat kelulusan magang dan sertifikat khusus acara yang Anda miliki adalah resmi dan sah sesuai dengan ketentuan perusahaan kami.
+          </p>
+          <p>
+            Jadi, jika Anda adalah seorang siswa magang atau guru magang yang ingin memverifikasi sertifikat Anda, silakan manfaatkan platform kami dengan percaya diri. Kami siap membantu Anda dalam proses ini dan memastikan keaslian sertifikat-sertifikat
+            tersebut. Terima kasih atas kepercayaan Anda kepada layanan kami.
+          </p>
         </div>
       </div> <!-- .row -->
     </div> <!-- .container -->
@@ -284,7 +267,9 @@
     <div class="container">
       <div class="row">
         <div class="col-xl-6 content-block" data-aos="fade-down" data-aos-duration="2000">
-          <h2><span>My Skills</span>I'm great in what I do and I'm loving it</h2>
+          <h2>
+            <p class="paragraph-header">My Skills</p>I'm great in what I do and I'm loving it
+          </h2>
           <p class="lead">
             Duis aute irure dolor in reprehenderit in voluptate velit esse
             cillum dolore eu fugiat nulla pariat non
@@ -394,7 +379,6 @@
                       </div>
                     </div> <!-- .row -->
                   </div>
-
                 </div>
               </div>
             </div>
