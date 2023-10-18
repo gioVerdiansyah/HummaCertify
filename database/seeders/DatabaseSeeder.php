@@ -20,14 +20,16 @@ class DatabaseSeeder extends Seeder
             'id' => Str::uuid(),
             'name' => 'User',
             'email' => 'user@gmail.com',
-            'password' => Hash::make('HummaCertify')
+            'password' => Hash::make('HummaCertify'),
+            'institusi' => "Perusahaan Hummatech"
         ]);
 
         User::create([
             'id' => Str::uuid(),
             'name' => "HummaCertify",
             'email' => "hummacertify@gmail.com",
-            "password" => Hash::make('admin-hummacertify')
+            "password" => Hash::make('admin-hummacertify'),
+            'institusi' => "Perusahaan Hummatech"
         ]);
 
         CertificateCategori::create([

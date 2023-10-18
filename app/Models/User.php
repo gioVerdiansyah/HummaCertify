@@ -24,13 +24,7 @@ class User extends Authenticatable implements HasCertificates
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'nomerUniq',
-        'ttl',
-    ];
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for serialization.

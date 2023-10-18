@@ -2,23 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Contracts\Repositories\DetailCertificateRepository;
 use Illuminate\Http\Request;
-use Illuminate\Database\QueryException;
-use App\Services\DetailCertificateService;
 use App\Http\Requests\DetailCertificateStoreRequest;
 
 class detailCertificateController extends Controller
 {
-    private DetailCertificateService $detailCertificate;
-    public function __construct(DetailCertificateService $detailCertificate)
+    private DetailCertificateRepository $certificate;
+    public function __construct(DetailCertificateRepository $certificate)
     {
-        $this->detailCertificate = $detailCertificate;
+        $this->detailCertificate = $certificate;
     }
 
     public function store(DetailCertificateStoreRequest $request, $id)
     {
        $data = $request->all();
-       $this->detailCertificate->store($data, $id);
+       $this->certificate->store($data, $id);
         return redirect()->back();
     }
 }

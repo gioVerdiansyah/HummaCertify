@@ -228,7 +228,7 @@
           <div class="number-certification">
             {{-- Bisa diganti --}}
             <p class="me-3">No.</p>
-            <p class="no-sertifikat">93626000153</p>
+            <p class="no-sertifikat">{{ $certificate->nomor }}</p>
           </div>
         </div>
         <div class="text-humma">
@@ -241,16 +241,16 @@
         </div>
         <div class="nama-peserta">
           {{-- Bisa diganti --}}
-          <p>Joe Boeden</p>
+          <p>{{ $certificate->user->name }}</p>
         </div>
         <div class="identitas-murid-pendidikan">
           <div class="nisn-nis">
             {{-- Bisa diganti --}}
-            <p>2141764060</p>
+            <p>{{ $certificate->user->password }}</p>
           </div>
           <div class="asal-sekolah">
             {{-- Bisa diganti --}}
-            <p>Politeknik Negri Malang</p>
+            <p>{{ $certificate->user->institusi }}</p>
           </div>
         </div>
         <div class="gabungan">
@@ -259,7 +259,7 @@
           </div>
           <div class="text-devinisi">
             {{-- Bisa diganti --}}
-            <p>Apprenticeship in Degisner Division</p>
+            <p>Apprenticeship in {{ $certificate->bidang }} Division</p>
           </div>
         </div>
         <div class="guru">
@@ -274,7 +274,7 @@
             </div>
           </div>
           <div class="qr-code">
-            {!! QrCode::size(100)->generate(route('login')) !!}
+            {!! QrCode::size(100)->generate($certificate->nomor) !!}
           </div>
           <div>
             <div class="guru-identitas">

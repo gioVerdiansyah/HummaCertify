@@ -24,12 +24,13 @@ class UserStoreRequest extends FormRequest
         return [
             'name' => 'required|string',
             'email' => 'required',
-            'password' => 'required|integer|gt:0',
+            'nomor_induk' => 'required|gt:0',
             'certificate_categori_id'=>'required|exists:certificate_categoris,id',
             'tanggal' => 'required|date',
             'bidang' => 'required',
             'sub_bidang' => 'nullable',
             'ttl' => 'nullable',
+            'institusi' => 'required',
             'predikat' => 'required'
         ];
     }

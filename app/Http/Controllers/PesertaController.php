@@ -18,17 +18,13 @@ class PesertaController extends Controller
 {
     private $user;
     private $certificate;
-    private $serviceCertificate;
-    private CertificateCategoriRepositori $categori;
-    private PesertaService $peserta;
+    private $categories;
 
-    public function __construct(DaftarPesertaRepository $user,CertificateRepository $certificate, CertificateService $serviceCertificate,CertificateCategoriRepositori $categori, PesertaService $peserta)
+    public function __construct(DaftarPesertaRepository $user,CertificateRepository $certificate,CertificateCategoriRepositori $category)
     {
         $this->user = $user;
         $this->certificate = $certificate;
-        $this->certificateService = $serviceCertificate;
-        $this->categories = $categori;
-        $this->peserta = $peserta;
+        $this->categories = $category;
     }
 
     public function index(){
@@ -51,9 +47,9 @@ class PesertaController extends Controller
      */
     public function store(UserStoreRequest $request)
     {
-       $data = $request->all();
-       $id = $this->peserta->store($data);
-       $this->certificateService->create($data, $id);
+       $data = $request->validated();
+       $id = $this->user->store($data);
+       $this->certificate->store($data, $id);
        return redirect()->back();
     }
 

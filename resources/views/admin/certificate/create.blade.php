@@ -20,18 +20,22 @@
                                 <input type="text" class="form-control" placeholder="Masukkan nama" name="name" value="{{ old('name') }}">
                             </div>
                             <div class="col-12 mb-4">
-                                <label for="password" class="form-label">NIS/NIM/NIP Peserta</label>
+                                <label for="nomor_induk" class="form-label">NIS/NIM/NIP Peserta</label>
                                 <input type="text" class="form-control" placeholder="Masukkan NIS/NIM/NIP"
-                                    name="password" value="{{ old('password') }}">
+                                    name="nomor_induk" value="{{ old('nomor_induk') }}">
                             </div>
                             <div class="col-12 mb-4">
                                 <label for="email" class="form-label">Email peserta (opsional)</label>
-                                <input type="text" class="form-control" placeholder="Enter your firstname"
+                                <input type="text" class="form-control" placeholder="Email peserta"
                                     name="email" value="{{ old('email') }}">
                             </div>
                             <div class="col-12 mb-4">
                                 <label for="" class="form-label">Tempat tanggal lahir</label>
-                                <input type="text" class="form-control" placeholder="Tempat dan tanggal lahir peserta" name="ttl" value="{{ old('') }}">
+                                <input type="text" class="form-control" placeholder="Tempat dan tanggal lahir peserta" name="ttl" value="{{ old('ttl') }}">
+                            </div>
+                            <div class="col-12 mb-4">
+                                <label for="" class="form-label">institusi</label>
+                                <input type="text" class="form-control" placeholder="Asal institusi" name="institusi" value="{{ old('institusi') }}">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -59,17 +63,14 @@
                                 <label for="" class="form-label">Tanggal Acara</label>
                                 <input type="date" class="form-control" placeholder="dd/mm/yy" name="tanggal" value="{{ old('tanggal') }}">
                             </div>
-                        </div>
-                        <div class="col-12">
                             <div class="mb-4">
                                 <label for="" class="form-label">Predikat</label>
                                 <select name="predikat" class="form-select">
                                     <option disabled selected>--Pilih Predikat--</option>
-                                    <option value="Predikat1">Predikat1</option>
-                                    <option value="Predikat2">Predikat2</option>
-                                    <option value="Predikat3">Predikat3</option>
-                                    <option value="Predikat4">Predikat4</option>
-                                    <option value="Predikat5">Predikat5</option>
+                                    <option value="Sangat Baik" {{ old('predikat') == "Sangat Baik" ? "selected" : '' }}>Sangat Baik</option>
+                                    <option value="Baik" {{ old('predikat') == "Baik" ? "selected" : '' }}>Baik</option>
+                                    <option value="Cukup" {{ old('predikat') == "Cukup" ? "selected" : '' }}>Cukup</option>
+                                    <option value="Kurang" {{ old('predikat') == "Kurang" ? "selected" : '' }}>Kurang</option>
                                 </select>
                             </div>
                         </div>

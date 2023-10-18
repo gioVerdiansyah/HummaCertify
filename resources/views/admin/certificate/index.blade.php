@@ -40,7 +40,7 @@
                                     <td>{{ $certificate->category->name }}</td>
                                     <td class="d-flex gap-2 justify-content-center align-items-center">
                                         <button class="btn btn-primary">Kirim</button>
-                                        <a href="{{ route('getCertificate', 2) }}" target="_blank"
+                                        <a href="{{ route('getCertificate', $certificate->id) }}" target="_blank"
                                             class="btn btn-info">Show</a>
                                         <a href="{{ route('certificate.create_detail', $certificate->id) }}" class="btn btn-success">+Detail</a>
                                     </td>
