@@ -28,6 +28,11 @@
         position: absolute;
       }
 
+      .image-certificate img {
+        max-width: 100%;
+        -webkit-print-color-adjust: exact;
+      }
+
       img {
         height: 100%;
         width: 100%;
@@ -189,6 +194,11 @@
 
       .image-certificate-belakang {
         position: absolute;
+      }
+
+      .image-certificate-belakang img {
+        max-width: 100%;
+        -webkit-print-color-adjust: exact;
       }
 
       .certificate-guru-belakang {
