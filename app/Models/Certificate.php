@@ -4,13 +4,16 @@ namespace App\Models;
 
 use App\Models\User;
 use App\Base\Interfaces\HasUsers;
+use App\Models\DetailCertificate;
 use App\Models\CertificateCategori;
 use App\Base\Interfaces\HasCategories;
 use Illuminate\Database\Eloquent\Model;
+use App\Base\Interfaces\HasDetailCertificates;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Certificate extends Model implements HasCategories, HasUsers
+class Certificate extends Model implements HasCategories, HasUsers, HasDetailCertificates
 {
     use HasFactory;
 
@@ -20,11 +23,13 @@ class Certificate extends Model implements HasCategories, HasUsers
         'tanggal',
         'bidang',
         'nomor',
+        'predikat',
+        'status'
     ];
 
 
       /**
-     * Definisikan relasi Many-to-Many dengan model CertificateCategori.
+     * Definisikan relasi BelongsTo dengan model CertificateCategori.
      *
      * @return BelongsTo
      */
@@ -35,5 +40,14 @@ class Certificate extends Model implements HasCategories, HasUsers
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+      /**
+     * Definisikan relasi Many-to-Many dengan model CertificateCategori.
+     *
+     * @return HasMany
+     */
+    public function detailCertificates(): HasMany
+    {
+        return $this->hasMany(DetailCertificate::class);
     }
 }

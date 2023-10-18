@@ -26,4 +26,8 @@ class DetailCertificateStoreRequest extends FormRequest
             'jam_pelajaran' => "required|integer|min:1|max:999"
         ];
     }
+    public function message(): array
+    {
+        return [];
+    }
 }

@@ -16,11 +16,13 @@ class PesertaService
 
     public function store(array $data): mixed
     {
-        $uniq = User::count() +1;
+        $uniq = $this->peserta->count();
         $dataUser = [
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => $data['password'],
+            'nomerUniq' => $uniq,
+            'ttl' => $data['ttl'],
         ];
         return $this->peserta->store($dataUser);
     }
