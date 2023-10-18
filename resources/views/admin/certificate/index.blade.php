@@ -9,16 +9,24 @@
                     <div class="mb-3 col-12 d-flex">
                         <div class="col-9">
                             <div class="col-3">
-                                <select name="category" class="form-select">
-                                    <option disabled selected>Kategori Sertifikat</option>
-                                    <option value="SiswaMagangLulus">Kelulusan</option>
+                                <select name="category" class="form-select" id="categorySelect">
+                                    <option selected>Semua</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}"
+                                            {{ request('ct') == $category->id ? 'selected' : '' }}>{{ $category->name }}
+                                        </option>
+                                    @endforeach
                                 </select>
                             </div>
+                            <button class="btn btn-primary">Kirim</button>
                         </div>
                         <div class="col-3">
-                            <div class="text-end">
-                                <input type="text" class="form-control" name="search" placeholder="Cari Data...">
-                            </div>
+                            <form action="" method="GET">
+                                <div class="text-end">
+                                    <input type="search" class="form-control" name="q" placeholder="Cari Data...">
+                                    <button type="submit">Cari</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <table class="table table-striped table-bordered">
@@ -42,7 +50,8 @@
                                         <button class="btn btn-primary">Kirim</button>
                                         <a href="{{ route('getCertificate', $certificate->id) }}" target="_blank"
                                             class="btn btn-info">Show</a>
-                                        <a href="{{ route('certificate.create_detail', $certificate->id) }}" class="btn btn-success">+Detail</a>
+                                        <a href="{{ route('certificate.create_detail', $certificate->id) }}"
+                                            class="btn btn-success">+Detail</a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -63,10 +72,24 @@
         </div>
     </div>
     <script>
-        function limitToThreeDigits(input) {
-            if (input.value.length > 3) {
-                input.value = input.value.slice(0, 3);
+        document.getElementById('categorySelect').addEventListener('change', function() {
+            var selectedCategoryId = this.value; // Mendapatkan nilai yang dipilih
+            var currentUrl = window.location.href; // Mendapatkan URL saat ini
+            var newUrl;
+            if (selectedCategoryId === "Semua") {
+                // Menghapus parameter ct dari URL
+                newUrl = currentUrl.replace(/[\?&]ct=[^&]*/, '');
+            } else {
+                var ctParam = 'ct=' + selectedCategoryId;
+                if (currentUrl.includes('ct=')) {
+                    newUrl = currentUrl.replace(/ct=[^&]*/, ctParam);
+                } else {
+                    newUrl = currentUrl + (currentUrl.includes('?') ? '&' : '?') + ctParam;
+                }
             }
-        }
+
+            // Pindahkan halaman ke URL yang baru
+            window.location.href = newUrl;
+        });
     </script>
 @endsection

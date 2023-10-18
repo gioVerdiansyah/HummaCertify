@@ -2,7 +2,7 @@
 
 namespace App\Contracts\Interfaces\Eloquent;
 
-interface GetRelationshipInterface{
+interface GetAllDataSpecificInterface{
     /**
      * Mendapatkan data relationship dengan nama method yang sudah terdaftar di modelnya
      *
@@ -10,5 +10,5 @@ interface GetRelationshipInterface{
      *
      * @return mixed
      */
-    public function getRelationship(string $relationship):mixed;
+    public function getAllDataSpecific($dataRequest):mixed;
 }

@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\DetailCertificateStoreRequest;
 use App\Models\Certificate;
-use App\Models\DetailCertificate;
-use App\Services\DetailCertificateService;
-use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use App\Contracts\Repositories\CertificateRepository;
 

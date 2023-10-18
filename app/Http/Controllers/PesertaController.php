@@ -27,9 +27,15 @@ class PesertaController extends Controller
         $this->categories = $category;
     }
 
-    public function index(){
+    public function index(Request $request){
         $certificates = $this->certificate->get();
-        return view('admin.certificate.index', compact('certificates'));
+        $categories = $this->categories->get();
+
+        if($request->all()){
+            $certificates = $this->certificate->getAllDataSpecific($request->all());
+        }
+
+        return view('admin.certificate.index', compact('certificates', 'categories'));
     }
 
     /**
@@ -37,7 +43,6 @@ class PesertaController extends Controller
      */
     public function create()
     {
-
         $categories = $this->categories->get();
         return view('admin.certificate.create', compact('categories'));
     }
