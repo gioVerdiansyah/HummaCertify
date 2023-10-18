@@ -29,7 +29,6 @@
 
             .image-certificate {
                 position: absolute;
-                z-index: 10;
             }
 
             .image-certificate img {
