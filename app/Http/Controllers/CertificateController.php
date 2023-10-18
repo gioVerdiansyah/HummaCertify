@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\DetailCertificateStoreRequest;
 use App\Models\Certificate;
 use App\Models\DetailCertificate;
+use App\Services\DetailCertificateService;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use App\Contracts\Repositories\CertificateRepository;
@@ -12,33 +13,27 @@ use App\Contracts\Repositories\CertificateRepository;
 class CertificateController extends Controller
 {
     private CertificateRepository $certificate;
-    public function __construct(CertificateRepository $certificate)
+    private DetailCertificateService $detailCertificate;
+    public function __construct(CertificateRepository $certificate, DetailCertificateService $detailCertificate)
     {
         $this->certificate = $certificate;
+        $this->detailCertificate = $detailCertificate;
     }
     public function getCertificate(int $id){
         $certificate = $this->certificate->getId($id);
         return view('certificate.kelulusan');
     }
 
-
-
-    public function storeDetailSertifikat(DetailCertificateStoreRequest $request, $id) {
-        try {
-            $certificate = Certificate::with('user')->where('id', $id)->firstOrFail();
-
-            $detailCert = new DetailCertificate;
-            $detailCert->certificate_id = $certificate->id; // Ubah ke $certificate->id
-            $detailCert->materi = $request->materi;
-            $detailCert->jp = $request->jam_pelajaran;
-            $detailCert->save();
-
-            return response()->json(['message' => "Berhasil menambahkan detail sertifikat pada sertifikat {$certificate->user->name}"]);
-        } catch (QueryException $e) {
-            return response()->json(['error' => 'Gagal menyimpan detail sertifikat. Terjadi kesalahan database.']);
-        } catch (\Exception $e) {
-            return response()->json(['error' => 'Terjadi kesalahan: ' . $e->getMessage()]);
-        }
+    public function showDetail($id){
+        $certificate = Certificate::with('detailCertificates')->where('id', $id)->first();
+        return view('admin.certificate.detail', compact('certificate'));
+        // dd($detailCertificate);
     }
-
+    public function storeDetail(DetailCertificateStoreRequest $request, $id)
+    {
+        dd($request->all());
+       $data = $request->all();
+       $this->detailCertificate->store($data, $id);
+        return redirect()->back();
+    }
 }

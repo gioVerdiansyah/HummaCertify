@@ -48,6 +48,6 @@ class Certificate extends Model implements HasCategories, HasUsers, HasDetailCer
      */
     public function detailCertificates(): HasMany
     {
-        return $this->hasMany(DetailCertificate::class);
+        return $this->hasMany(DetailCertificate::class, 'certificate_id');
     }
 }

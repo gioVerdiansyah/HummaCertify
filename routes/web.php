@@ -45,12 +45,14 @@ Route::middleware('AdminUp')->group(function () {
             return view('admin.certificate.listSertifikat');
         });
         Route::resource('/certificate', PesertaController::class);
+        Route::get('/certificate/{id}/create/detail', [CertificateController::class, 'showDetail'])->name('certificate.create_detail');
         Route::get('/get_certificate/{id}', [CertificateController::class, 'getCertificate'])->name('getCertificate');
-        Route::post('/send_detail/{id}', [CertificateController::class, 'storeDetailSertifikat'])->name('storeDetailCertificate');
-        Route::post('/detailCertificate/{id}', [detailCertificateController::class, 'store'])->name('detailCertificate');
+        Route::post('/certificate/{id}/store/detail', [CertificateController::class, 'storeDetail'])->name('certificate.store_detail');
+        // Route::post('/detailCertificate/{id}', [detailCertificateController::class, 'storeDetail'])->name('detailCertificate');
     });
 });
 
 // testing
 Route::get('/send-mail', [DemoTestController::class, 'sendMail']);
 Route::get('/show-certificate', [DemoTestController::class, 'showCertificate']);
+Route::get('/form-repeater', [DemoTestController::class, 'repeater']);

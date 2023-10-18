@@ -19,7 +19,6 @@ class detailCertificateController extends Controller
     {
        $data = $request->all();
        $this->detailCertificate->store($data, $id);
-      return redirect()->back();
-
+        return redirect()->back();
     }
 }

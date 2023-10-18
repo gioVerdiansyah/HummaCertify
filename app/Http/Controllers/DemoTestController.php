@@ -30,4 +30,8 @@ class DemoTestController extends Controller
 
         return view('certificate.demo', compact('qrCodeDataUrl', 'url'));
     }
+
+    public function repeater(){
+        return view('form-repeater');
+    }
 }
