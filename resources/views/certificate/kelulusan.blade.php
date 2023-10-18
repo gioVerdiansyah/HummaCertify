@@ -29,13 +29,11 @@
       .image-certificate {
         position: absolute;
         width: 100%;
-        -webkit-print-color-adjust: exact;
       }
 
       .image-certificate img {
         height: 100%;
         max-width: 100%;
-        -webkit-print-color-adjust: exact;
       }
 
       .content {
@@ -45,6 +43,7 @@
         width: 100%;
         height: 690px;
         position: absolute;
+        z-index: 2;
         display: flex;
         justify-content: center;
       }
@@ -282,5 +281,13 @@
     </div>
   </main>
 </body>
-
+<script>
+window.addEventListener('load', function () {
+    window.print();
+    window.onafterprint = function () {
+        window.close();
+        window.history.back();
+    };
+});
+</script>
 </html>

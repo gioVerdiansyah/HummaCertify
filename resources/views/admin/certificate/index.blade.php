@@ -55,7 +55,7 @@
                                 </td>
                                 <td class="d-flex gap-2 justify-content-center align-items-center">
                                     <button class="btn btn-primary">Kirim</button>
-                                    <button class="btn btn-info" onclick="generatePDF(1)">Show</button>
+                                    <a href="{{ route('getCertificate', 2) }}" target="_blank" class="btn btn-info">Show</a>
                                     <button class="btn btn-success" data-bs-toggle="modal"
                                         data-bs-target="#detail{{ $certificate->id }}">Detail</button>
                                 </td>
