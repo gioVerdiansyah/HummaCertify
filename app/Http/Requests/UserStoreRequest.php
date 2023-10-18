@@ -29,6 +29,8 @@ class UserStoreRequest extends FormRequest
             'tanggal' => 'required|date',
             'bidang' => 'required',
             'sub_bidang' => 'nullable',
+            'ttl' => 'nullable',
+            'predikat' => 'required'
         ];
     }
     public function message(): array

@@ -9,6 +9,8 @@ use App\Contracts\Interfaces\DaftarPesertaInterface;
 use App\Contracts\Repositories\CertificateRepository;
 use App\Contracts\Repositories\userCategoriRepositori;
 use App\Contracts\Repositories\DaftarPesertaRepository;
+use App\Contracts\Interfaces\DetailCertificateInterface;
+use App\Contracts\Interfaces\CertificateCategoriInterface;
 use App\Contracts\Repositories\CertificateCategoriRepositori;
 
 class AppServiceProvider extends ServiceProvider
@@ -17,6 +19,7 @@ class AppServiceProvider extends ServiceProvider
         DaftarPesertaInterface::class => DaftarPesertaRepository::class,
         CertificateCategoriInterface::class => CertificateCategoriRepositori::class,
         CertificateInterface::class => CertificateRepository::class,
+        DetailCertificateInterface::class => DetailCertificateRepository::class,
     ];
     /**
      * Register any application services.

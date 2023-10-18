@@ -14,7 +14,7 @@ class CertificateRepository extends BaseRepository implements CertificateInterfa
 
     public function getId($id): mixed
     {
-        return $this->model->where('id', $id)->first();
+        return $this->model->with('user')->where('id', $id)->first();
     }
 
     public function get():mixed

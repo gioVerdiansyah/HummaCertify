@@ -31,7 +31,7 @@
                             </div>
                             <div class="col-12 mb-4">
                                 <label for="" class="form-label">Tempat tanggal lahir</label>
-                                <input type="text" class="form-control" placeholder="Tempat dan tanggal lahir peserta" name="" value="{{ old('') }}">
+                                <input type="text" class="form-control" placeholder="Tempat dan tanggal lahir peserta" name="ttl" value="{{ old('') }}">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -63,7 +63,7 @@
                         <div class="col-12">
                             <div class="mb-4">
                                 <label for="" class="form-label">Predikat</label>
-                                <select name="" class="form-select">
+                                <select name="predikat" class="form-select">
                                     <option disabled selected>--Pilih Predikat--</option>
                                     <option value="Predikat1">Predikat1</option>
                                     <option value="Predikat2">Predikat2</option>

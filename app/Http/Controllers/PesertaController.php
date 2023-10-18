@@ -32,7 +32,8 @@ class PesertaController extends Controller
     }
 
     public function index(){
-        return view('admin.certificate.index');
+        $certificates = $this->certificate->get();
+        return view('admin.certificate.index', compact('certificates'));
     }
 
     /**
