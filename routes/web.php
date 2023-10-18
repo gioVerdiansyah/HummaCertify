@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\CertificateController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PesertaController;
 use App\Http\Controllers\DemoTestController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\PesertaController;
+use App\Http\Controllers\CertificateController;
+use App\Http\Controllers\detailCertificateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,7 @@ Route::middleware('AdminUp')->group(function () {
         Route::resource('/certificate', PesertaController::class);
         Route::get('/get_certificate/{id}', [CertificateController::class, 'getCertificate'])->name('getCertificate');
         Route::post('/send_detail/{id}', [CertificateController::class, 'storeDetailSertifikat'])->name('storeDetailCertificate');
+        Route::post('/detailCertificate/{id}', [detailCertificateController::class, 'store'])->name('detailCertificate');
     });
 });
 

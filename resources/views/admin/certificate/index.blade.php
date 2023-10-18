@@ -28,24 +28,39 @@
                                 <th>Nomor Sertifikat </th>
                                 <th>Nama Peserta</th>
                                 <th>Kategori Sertifikat</th>
-                                <th>Tanggal mulai</th>
+                                <th>materi</th>
+                                <th>nilai</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @php
+                                $no = 1;
+                            @endphp
+                            @foreach ($certificates as $certificate )
                             <tr>
-                                <td><span class="fw-bold">1</span></td>
-                                <td>111/22/AA/BB/3333</td>
-                                <td>Ayu Bagus</td>
-                                <td>Seminar</td>
-                                <td>15 Oktober 2023</td>
+                                <td><span class="fw-bold">{{ $no ++ }}</span></td>
+                                <td>{{ $certificate->nomor }}</td>
+                                <td>{{ $certificate->user->name }}</td>
+                                <td>{{ $certificate->category->name }}</td>
+                                <td>
+                                    @foreach ($certificate->detailCertificates as $detailCertificate)
+                                       <p>{{ $detailCertificate->materi }}</p>
+                                      @endforeach
+                                </td>
+                                <td>
+                                    @foreach ($certificate->detailCertificates as $detailCertificate)
+                                    <p>{{ $detailCertificate->jp }}</p>
+                                   @endforeach
+                                </td>
                                 <td class="d-flex gap-2 justify-content-center align-items-center">
                                     <button class="btn btn-primary">Kirim</button>
                                     <button class="btn btn-info" onclick="generatePDF(1)">Show</button>
                                     <button class="btn btn-success" data-bs-toggle="modal"
-                                        data-bs-target="#detail">Detail</button>
+                                        data-bs-target="#detail{{ $certificate->id }}">Detail</button>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -63,47 +78,46 @@
         </div>
     </div>
 
-    {{-- Modal --}}
-    <!-- Grids in modals -->
-    <div class="modal fade" id="detail" tabindex="-1" aria-labelledby="detailLabel" aria-modal="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="detailLabel">Detail Sertifikat</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form
-                        onsubmit="
-                        event.preventDefault();
-                        send(this, 1);
-                    ">
-                    @csrf
-                        <div class="row g-3">
-                            <div class="col-xxl-12 mb-2">
-                                <div>
-                                    <label for="unknown" class="form-label">Materi</label>
-                                    <input type="text" class="form-control" placeholder="Materi" name="materi">
-                                </div>
-                            </div><!--end col-->
-                            <div class="col-xxl-12 mb-2">
-                                <div>
-                                    <label for="unknown" class="form-label">Jam Pelajaran</label>
-                                    <input type="number" class="form-control" name="jam_pelajaran" id="jamPelajaran"
-                                        placeholder="Jam Pelajaran" oninput="limitToThreeDigits(this)">
-                                </div>
+
+@foreach ($certificates as $certificate )
+<form action="{{ route('detailCertificate', ['id' =>$certificate->id]) }}" method="post">
+    @csrf
+<div class="modal fade" id="detail{{ $certificate->id }}" tabindex="-1" aria-labelledby="detailLabel" aria-modal="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="detailLabel">Detail Sertifikat</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                    <div class="row g-3">
+                        <div class="col-xxl-12 mb-2">
+                            <div>
+                                <label for="unknown" class="form-label">Materi</label>
+                                <input type="text" class="form-control" placeholder="Materi" name="materi" value="">
                             </div>
-                            <div class="col-lg-12">
-                                <div class="hstack gap-2 justify-content-end">
-                                    <button type="submit" class="btn btn-primary">Kirim</button>
-                                </div>
-                            </div><!--end col-->
-                        </div><!--end row-->
-                    </form>
-                </div>
+                        </div><!--end col-->
+                        <div class="col-xxl-12 mb-2">
+                            <div>
+                                <label for="unknown" class="form-label">Jam Pelajaran</label>
+                                <input type="number" class="form-control" name="jam_pelajaran" id="jamPelajaran"
+                                    placeholder="Jam Pelajaran">
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="hstack gap-2 justify-content-end">
+                                <button type="submit" class="btn btn-primary">Kirim</button>
+                            </div>
+                        </div><!--end col-->
+                    </div><!--end row-->
+                </form>
             </div>
         </div>
     </div>
+</div>
+@endforeach
+
+
     <script>
         function send(form, id) {
     const formData = new FormData(form);
