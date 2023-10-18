@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nomor');
             $table->date('tanggal');
             $table->string('bidang');
+            $table->string('status')->default('nonPrint');
             $table->string('sub_bidang')->nullable();
             $table->string('predikat')->nullable();
             $table->timestamps();

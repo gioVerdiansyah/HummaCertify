@@ -24,6 +24,7 @@ class Certificate extends Model implements HasCategories, HasUsers, HasDetailCer
         'bidang',
         'nomor',
         'predikat',
+        'status'
     ];
 
 
