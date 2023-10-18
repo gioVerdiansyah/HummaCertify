@@ -26,9 +26,15 @@
 <body>
   <main id="certificate-1">
     <style>
+      @page {
+        width: 210mm;
+        height: 297mm;
+      }
+
       .image-certificate {
         position: absolute;
         width: 100%;
+        height: 785px;
       }
 
       .image-certificate img {
@@ -41,7 +47,8 @@
         padding: 0;
         top: 8%;
         width: 100%;
-        height: 690px;
+        height: 730px;
+        overflow: hidden;
         position: absolute;
         z-index: 2;
         display: flex;
@@ -217,12 +224,12 @@
       }
     </style>
     <div class="image-certificate">
-      <img src="{{ asset('image/certificate-bg.png') }}" alt="Background Certificate" />
+      <img src="{{ asset('image/certificate-bg.png') }}" width="1115" alt="Background Certificate" />
     </div>
     <div class="content">
       <div class="content-text">
         <div class="top-text">
-          <div class="certificate-text">
+          <div class="certificate-text" style="margin-bottom: 8px">
             <p>CERTIFICATE</p>
           </div>
           <div class="number-certification">
@@ -292,12 +299,13 @@
   </main>
 </body>
 <script>
-window.addEventListener('load', function () {
+  window.addEventListener('load', function() {
     window.print();
-    window.onafterprint = function () {
-        window.close();
-        window.history.back();
+    window.onafterprint = function() {
+      window.close();
+      window.history.back();
     };
-});
+  });
 </script>
+
 </html>
