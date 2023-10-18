@@ -73,7 +73,8 @@
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" id="auth-remember-check" name="remember" {{ old('remember') ? 'checked' : '' }}>
                       <label class="form-check-label" for="auth-remember-check">Remember me</label>
-
+                    </div>
+                    
                     <div class="mt-4">
                       <button type="submit" class="btn btn-primary w-100">Masuk</button>
                     </div>
