@@ -19,33 +19,19 @@
     background: #a5aaad;
 }
 
-.container {
-    padding: 20px;
-}
-
 .card {
+    margin-left: -30px;
+    width: 100%;
     background-color: white;
     border-radius: 10px;
     padding: 10px;
 }
 
-.accordion-item {
-    margin: 5px;
-    border-radius: 5px;
-    background-color: #00B1F0;
-}
-
-.accordion-button {
-    background-color: #f2f2f2;
-    border: none;
-    text-align: left;
-    padding: 10px;
+.width-and-height {
     width: 100%;
-    cursor: pointer;
+    height: 100%;
 }
 
-.accordion-content {
-    background-color: white;
-    display: none;
-    padding: 10px;
+.image-container-list {
+    border-radius: 10px;
 }
