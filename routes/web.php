@@ -40,6 +40,9 @@ Route::middleware('AdminUp')->group(function () {
             return view('admin.ListSertifikat');
         });
 
+        Route::get('/list', function (){
+            return view('admin.certificate.listSertifikat');
+        });
         Route::resource('/certificate', PesertaController::class);
         Route::get('/get_certificate/{id}', [CertificateController::class, 'getCertificate'])->name('getCertificate');
         Route::post('/send_detail/{id}', [CertificateController::class, 'storeDetailSertifikat'])->name('storeDetailCertificate');
