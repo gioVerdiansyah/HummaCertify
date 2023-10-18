@@ -13,13 +13,11 @@ use App\Contracts\Repositories\CertificateRepository;
 class CertificateController extends Controller
 {
     private CertificateRepository $certificate;
-    private DetailCertificateService $detailCertificate;
-    public function __construct(CertificateRepository $certificate, DetailCertificateService $detailCertificate)
+    public function __construct(CertificateRepository $certificate)
     {
         $this->certificate = $certificate;
-        $this->detailCertificate = $detailCertificate;
     }
-    public function getCertificate(int $id){
+    public function getCertificate(string $id){
         $certificate = $this->certificate->getId($id);
         return view('certificate.kelulusan', compact('certificate'));
     }
@@ -33,7 +31,7 @@ class CertificateController extends Controller
     {
         dd($request->all());
        $data = $request->all();
-       $this->detailCertificate->store($data, $id);
+       $this->certificate->store($data, $id);
         return redirect()->back();
     }
 }

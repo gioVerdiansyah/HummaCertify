@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('detail_certificates', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('certificate_id')->constrained()->cascadeOnDelete();
+            $table->foreignUuid('certificate_id')->constrained()->cascadeOnDelete();
             $table->string('materi');
             $table->integer('jp');
             $table->timestamps();

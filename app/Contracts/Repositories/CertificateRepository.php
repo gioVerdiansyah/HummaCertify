@@ -23,7 +23,7 @@ class CertificateRepository extends BaseRepository implements CertificateInterfa
 
     public function get():mixed
     {
-        return $this->model->get();
+        return $this->model->with('user')->get();
     }
 
     public function getRelationship($relationship):mixed{

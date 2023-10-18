@@ -12,23 +12,25 @@ use App\Base\Interfaces\HasDetailCertificates;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Str;
 
 class Certificate extends Model implements HasCategories, HasUsers, HasDetailCertificates
 {
     use HasFactory;
+    public $incrementing = false, $keyType = "string";
+    protected $guarded = [];
 
-    protected $fillable = [
-        'user_id',
-        'certificate_categori_id',
-        'tanggal',
-        'bidang',
-        'nomor',
-        'predikat',
-        'status'
-    ];
+    protected static function boot()
+    {
+        parent::boot();
+        static::creating(function ($model) {
+            if (empty($model->{$model->getKeyName()})) {
+                $model->{$model->getKeyName()} = Str::uuid()->toString();
+            }
+        });
+    }
 
-
-      /**
+    /**
      * Definisikan relasi BelongsTo dengan model CertificateCategori.
      *
      * @return BelongsTo
