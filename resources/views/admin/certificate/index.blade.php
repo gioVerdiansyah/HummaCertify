@@ -134,9 +134,7 @@
 }
 
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/printThis/1.15.0/printThis.js"
-        integrity="sha512-Fd3EQng6gZYBGzHbKd52pV76dXZZravPY7lxfg01nPx5mdekqS8kX4o1NfTtWiHqQyKhEGaReSf4BrtfKc+D5w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/printThis/1.15.0/printThis.js" integrity="sha512-Fd3EQng6gZYBGzHbKd52pV76dXZZravPY7lxfg01nPx5mdekqS8kX4o1NfTtWiHqQyKhEGaReSf4BrtfKc+D5w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         function generatePDF(id) {
             var certificateId = 'certificate-' + id;
@@ -151,9 +149,7 @@
                     var certificateElement = $(response).filter('#certificate-' + id);
                     console.log(certificateElement);
 
-                    certificateElement.printThis({
-                        base: true
-                    });
+                    certificateElement.printThis();
                 },
                 error: function(error) {
                     console.error('Error:', error);
