@@ -7,7 +7,7 @@
             <div class="card-body">
                 <div class="table-responsive">
                     <div class="mb-3 col-12 d-flex">
-                        <div class="col-9">
+                        <div class="col-9 d-flex gap-3">
                             <div class="col-3">
                                 <select name="category" class="form-select" id="categorySelect">
                                     <option selected>Semua</option>
@@ -18,13 +18,15 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <button class="btn btn-primary">Kirim</button>
+                            <div class="col-2">
+                                <button class="btn btn-primary">Print Semua</button>
+                            </div>
                         </div>
                         <div class="col-3">
                             <form action="" method="GET">
                                 <div class="text-end">
-                                    <input type="search" class="form-control" name="q" placeholder="Cari Data...">
-                                    <button type="submit">Cari</button>
+                                    <input type="search" style="padding-left: 40px" class="form-control" name="q" placeholder="Cari Data..."><i style="position: absolute; margin-left: -310px; margin-top: -30px" class="bi bi-search"></i>
+                                    <button class="d-none" type="submit">Cari</button>
                                 </div>
                             </form>
                         </div>
@@ -73,11 +75,10 @@
     </div>
     <script>
         document.getElementById('categorySelect').addEventListener('change', function() {
-            var selectedCategoryId = this.value; // Mendapatkan nilai yang dipilih
-            var currentUrl = window.location.href; // Mendapatkan URL saat ini
+            var selectedCategoryId = this.value;
+            var currentUrl = window.location.href;
             var newUrl;
             if (selectedCategoryId === "Semua") {
-                // Menghapus parameter ct dari URL
                 newUrl = currentUrl.replace(/[\?&]ct=[^&]*/, '');
             } else {
                 var ctParam = 'ct=' + selectedCategoryId;
@@ -87,8 +88,6 @@
                     newUrl = currentUrl + (currentUrl.includes('?') ? '&' : '?') + ctParam;
                 }
             }
-
-            // Pindahkan halaman ke URL yang baru
             window.location.href = newUrl;
         });
     </script>
