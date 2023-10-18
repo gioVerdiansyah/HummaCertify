@@ -39,7 +39,7 @@
       .content {
         margin: 0;
         padding: 0;
-        top: 12%;
+        top: 8%;
         width: 100%;
         height: 690px;
         position: absolute;
@@ -49,7 +49,7 @@
       }
 
       .content-text .top-text {
-        line-height: 50px;
+        line-height: 30px;
       }
 
       .content-text .top-text .certificate-text {
@@ -93,10 +93,11 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        line-height: 33px;
+        line-height: 20px;
       }
 
       .content-text .text-humma .hummatech {
+        margin-top: -10px;
         font-family: "Merriweather", serif;
         font-weight: 400;
         font-size: 25px;
@@ -119,6 +120,10 @@
         margin-bottom: 0;
       }
 
+      .content-text .nama-peserta {
+        margin-top: -50px
+      }
+
       .content-text .nama-peserta p {
         font-size: 72px;
         font-family: "Great Vibes", cursive;
@@ -139,7 +144,7 @@
       }
 
       .content-text .identitas-murid-pendidikan .nisn-nis p {
-        margin-bottom: 0;
+        margin-bottom: 5px;
         font-family: 'Open Sans', sans-serif;
         font-weight: 700;
         font-size: 18px;
@@ -147,6 +152,7 @@
       }
 
       .content-text .identitas-murid-pendidikan .asal-sekolah p {
+        margin-top: 0px;
         margin-bottom: 0;
         font-family: 'Open Sans', sans-serif;
         font-weight: 700;
@@ -163,6 +169,7 @@
       }
 
       .content-text .gabungan .text-pujian p {
+        margin-top: 0px;
         margin-bottom: 0;
         font-size: 17px;
         font-family: "Poppins", sans-serif;
@@ -171,6 +178,7 @@
       }
 
       .content-text .gabungan .text-devinisi p {
+        margin-top: 0px;
         margin-bottom: 0;
         font-size: 17px;
         letter-spacing: 2px;
@@ -179,10 +187,12 @@
       }
 
       .guru {
-        height: 180px;
+        height: 160px;
         width: 650px;
         align-items: end;
         text-align: center;
+        display: flex;
+        justify-content: space-between;
       }
 
       .guru .guru-identitas {
@@ -203,7 +213,7 @@
       }
 
       .guru .qr-code {
-        transform: translate(-8px, 53px);
+        transform: translate(0, 53px);
       }
     </style>
     <div class="image-certificate">
@@ -252,8 +262,8 @@
             <p>Apprenticeship in Degisner Division</p>
           </div>
         </div>
-        <div class="guru row">
-          <div class="col-md-5">
+        <div class="guru">
+          <div>
             <div class="guru-identitas">
               <p class="nama-guru">
                 Afrizal Himawan, S.Kom
@@ -263,10 +273,10 @@
               </p>
             </div>
           </div>
-          <div class="qr-code col-md-2">
+          <div class="qr-code">
             {!! QrCode::size(100)->generate(route('login')) !!}
           </div>
-          <div class="col-md-5">
+          <div>
             <div class="guru-identitas">
               <p class="nama-guru">
                 Andika Wahyu P, S.Kom
