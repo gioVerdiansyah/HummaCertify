@@ -85,7 +85,7 @@
         font-family: "Poppins", sans-serif;
         font-weight: 400;
         font-size: 18px;
-        letter-spacing: 15px;
+        letter-spacing: 8px;
       }
 
       .text-humma {
@@ -227,7 +227,7 @@
           </div>
           <div class="number-certification">
             {{-- Bisa diganti --}}
-            <p class="me-3">No.</p>
+            <p class="me-3" style="margin-right: 20px">No.</p>
             <p class="no-sertifikat">{{ $certificate->nomor }}</p>
           </div>
         </div>
