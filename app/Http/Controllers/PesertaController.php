@@ -35,7 +35,7 @@ class PesertaController extends Controller
         $categories = $this->categories->get();
 
         if($request->all()){
-            $certificates = $this->certificate->getAllDataSpecific($request->all());
+            $certificates = $this->certificateService->searchCertificates($request->all());
         }
 
         return view('admin.certificate.index', compact('certificates', 'categories'));
@@ -49,6 +49,14 @@ class PesertaController extends Controller
         $categories = $this->categories->get();
         return view('admin.certificate.create', compact('categories'));
     }
+    public function createExist()
+    {
+        $categories = $this->categories->get();
+        $peserta = $this->user->get();
+        return view('admin.certificate.createExist', compact('categories', 'peserta'));
+    }
+
+
 
     /**
      * Store a newly created resource in storage.

@@ -18,31 +18,23 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="col-2">
-                                <button class="btn btn-primary">Print Semua</button>
-                            </div>
+                            @if (request('ct'))
+                                <div class="col-2">
+                                    <a href="{{ route('printAllCertificate', request('ct')) }}" class="btn btn-primary"><i class="bi bi-printer"></i> Print Semua</a>
+                                </div>
+                            @endif
                         </div>
                         <div class="col-3">
-                            <form action="" method="GET" class="d-flex">
-                                <div class="text-end">
-                                    <div class="d-flex row">
-                                        <input type="search" style="padding-left: 40px" class="form-control" name="q" placeholder="Cari Data...">
-                                    </div>
-                                    <button type="submit">
-                                        <i class="bi bi-search"></i>
-                                    </button>
+                            <form action="" method="GET" class="d-flex align-items-center"
+                                onsubmit="event.preventDefault();var currentUrl = window.location.href;if (currentUrl.includes('ct=')) {window.location.href = currentUrl + '&q=' + document.getElementsByName('q')[0].value;}else{this.submit();}">
+                                <div class="input-group">
+                                    <input type="search" name="q" class="form-control rounded-start py-2"
+                                        placeholder="Cari Sertifikat..." value="{{ request('q') }}" />
                                 </div>
+                                <button type="submit" class="btn btn-outline-secondary">
+                                    <i class="bi bi-search"></i>
+                                </button>
                             </form>
-                            {{-- <form method="GET" class="flex items-center">
-                                <div class="relative flex items-center">
-                                    <input type="search" name="query" class="border rounded-l-lg w-64 py-2 px-4 pl-10" placeholder="Search {{ ucfirst($where) }}...">
-                                    <button type="submit" class="absolute left-0 top-0 h-full px-3 py-2 text-gray-600 dark:text-gray-400">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M14.293 13.293a6 6 0 111.414-1.414l5 5a1 1 0 01-1.414 1.414l-5-5zM10 16a6 6 0 100-12 6 6 0 000 12z" clip-rule="evenodd" />
-                                        </svg>
-                                    </button>
-                                </div>
-                            </form> --}}
                         </div>
                     </div>
                     <table class="table table-striped table-bordered">
@@ -59,15 +51,19 @@
                             @foreach ($certificates as $i => $certificate)
                                 <tr>
                                     <td><span class="fw-bold">{{ ++$i }}</span></td>
-                                    <td>{{ $certificate->nomor }}</td>
+                                    <td>
+                                        <a href="" class="nomor-link">
+                                            {{ $certificate->nomor }}
+                                        </a>
+                                    </td>
                                     <td>{{ $certificate->user->name }}</td>
                                     <td>{{ $certificate->category->name }}</td>
                                     <td class="d-flex gap-2 justify-content-center align-items-center">
-                                        <button class="btn btn-primary">Kirim</button>
+                                        <button class="btn btn-primary"><i class="bi bi-send"></i> Kirim</button>
                                         <a href="{{ route('getCertificate', $certificate->id) }}" target="_blank"
-                                            class="btn btn-info">Show</a>
+                                            class="btn btn-info"><i class="bi bi-printer"></i> Print</a>
                                         <a href="{{ route('certificate.create_detail', $certificate->id) }}"
-                                            class="btn btn-success">+Detail</a>
+                                            class="btn btn-success"><i class="bi bi-plus"></i> Detail</a>
                                     </td>
                                 </tr>
                             @endforeach

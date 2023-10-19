@@ -10,5 +10,5 @@ interface GetAllDataSpecificInterface{
      *
      * @return mixed
      */
-    public function getAllDataSpecific($dataRequest):mixed;
+    public function getAllDataSpecific():mixed;
 }

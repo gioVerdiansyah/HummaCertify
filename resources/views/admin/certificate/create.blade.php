@@ -57,7 +57,7 @@
                             </div>
                             <div class="col-12 mb-4">
                                 <label for="" class="form-label">Sub Bidang</label>
-                                <input type="text" class="form-control" placeholder="Sub bidang peserta" name="sub_bidang" value="{{ old('') }}">
+                                <input type="text" class="form-control" placeholder="Sub bidang peserta" name="sub_bidang" value="{{ old('sub_bidang') }}">
                             </div>
                             <div class="col-12 mb-4">
                                 <label for="" class="form-label">Tanggal Acara</label>
@@ -78,7 +78,7 @@
                         </div>
                         <div class="col-8">
                             <div class="mt-2 d-flex href-link-gap">
-                                <p>Peserta sudah ada?<a href=""> Tambah sertifikat dengan peserta yang ada</a></p>
+                                <p>Peserta sudah ada?<a href="{{ route('certificate.create_exist') }}"> Tambah sertifikat dengan peserta yang ada</a></p>
                             </div>
                         </div>
                         <div class="col-4">

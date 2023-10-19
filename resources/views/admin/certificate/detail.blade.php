@@ -17,7 +17,7 @@
                   <div class="col-xxl-6 mb-2">
                     <div>
                       <label for="unknown" class="form-label">Materi</label>
-                      <input type="text" class="form-control" placeholder="Materi" name="materi" value="">
+                      <input type="text" class="form-control" placeholder="materi" name="materi" value="">
                     </div>
                   </div>
                   <div class="col-xxl-5 mb-2">

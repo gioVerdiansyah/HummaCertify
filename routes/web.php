@@ -40,17 +40,17 @@ Route::middleware('AdminUp')->group(function () {
         Route::get('/datatable', function () {
             return view('admin.ListSertifikat');
         });
-        Route::get('/create2', function () {
-            return view('admin.certificate.createExist');
-        });
         Route::get('/list', function (){
             return view('admin.certificate.listSertifikat');
         });
         Route::resource('/certificate', PesertaController::class);
+        Route::get('/certificate/create/exist', [PesertaController::class, 'createExist'])->name('certificate.create_exist');
         Route::get('/certificate/{id}/create/detail', [CertificateController::class, 'showDetail'])->name('certificate.create_detail');
-        Route::get('/get_certificate/{id}', [CertificateController::class, 'getCertificate'])->name('getCertificate');
         Route::post('/certificate/{id}/store/detail', [CertificateController::class, 'storeDetail'])->name('certificate.store_detail');
-        // Route::post('/detailCertificate/{id}', [detailCertificateController::class, 'storeDetail'])->name('detailCertificate');
+
+        // print
+        Route::get('/get_certificate/{id}', [CertificateController::class, 'getCertificate'])->name('getCertificate');
+        Route::get('/print_certificate/{ct}', [CertificateController::class, 'printAllCertificate'])->name('printAllCertificate');
     });
 });
 
