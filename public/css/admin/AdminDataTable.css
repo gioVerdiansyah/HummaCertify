@@ -20,9 +20,8 @@
 }
 .nomor-link{
     transition: all .3s;
-    color: black;
+    color: #3D78E3;
 }
 .nomor-link:hover{
-    color: #3D78E3;
     text-decoration: underline;
 }

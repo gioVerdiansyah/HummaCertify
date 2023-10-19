@@ -57,7 +57,12 @@
                   <td>{{ $certificate->user->name }}</td>
                   <td>{{ $certificate->category->name }}</td>
                   <td class="d-flex gap-2 justify-content-center align-items-center">
-                    <button class="btn btn-primary"><i class="bi bi-send"></i> Kirim</button>
+                    <form action="{{ route('sendCertificate', $certificate->id) }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-send"></i> Kirim
+                        </button>
+                    </form>
                     <a href="{{ route('getCertificate', $certificate->id) }}" target="_blank" class="btn btn-info"><i class="bi bi-printer"></i> Print</a>
                     <a href="{{ route('certificate.create_detail', $certificate->id) }}" class="btn btn-success"><i class="bi bi-plus"></i> Detail</a>
                   </td>

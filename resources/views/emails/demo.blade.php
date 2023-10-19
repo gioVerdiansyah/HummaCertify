@@ -7,7 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>{{ $data['title'] }}</h2>
-    <p>{{ $data['body'] }}</p>
+    {{-- <h2>{{ $data['title'] }}</h2>
+    <p>{{ $data['body'] }}</p> --}}
+    <h2>{{ $certificate->user->name }}</h2>
 </body>
 </html>

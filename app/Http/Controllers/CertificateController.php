@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendCertificate;
 use App\Models\Certificate;
 use App\Services\CertificateService;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use App\Services\DetailCertificateService;
 use App\Http\Requests\DetailCertificateStoreRequest;
 use App\Contracts\Repositories\CertificateRepository;
@@ -16,25 +19,36 @@ class CertificateController extends Controller
     private DetailCertificateService $detailCertificate;
     private CertificateService $certificateService;
     private DetailCertificateRepository $detail;
-
-
-    public function __construct(CertificateRepository $certificate, DetailCertificateService $detailCertificate,DetailCertificateRepository $detail, CertificateService $certificateService)
+    public function __construct(CertificateRepository $certificate, DetailCertificateService $detailCertificate, DetailCertificateRepository $detail, CertificateService $certificateService)
     {
         $this->certificate = $certificate;
         $this->certificateService = $certificateService;
         $this->detail = $detail;
         $this->detailCertificate = $detailCertificate;
     }
-    public function getCertificate(string $id){
+    public function getCertificate(string $id)
+    {
         $certificate = $this->certificate->getId($id);
         return view('certificate.kelulusan', compact('certificate'));
     }
 
-    public function printAllCertificate(int $ct){
+    public function printAllCertificate(int $ct)
+    {
         $dataRequest['ct'] = $ct;
         return $this->certificateService->printAllCertificate($dataRequest);
     }
-    public function showDetail($id){
+
+    public function sendCertificate(string $id)
+    {
+        $certificate = $this->certificate->getId($id);
+        $email = $certificate->user->email;
+        $pdf = Pdf::loadView('certificate.kelulusan', ['certificate' => $certificate]);
+        $message = new SendCertificate($certificate);
+        $message->attachData($pdf->output(), "sertifikat-kelulusan.pdf");
+        Mail::to($email)->send($message);
+    }
+    public function showDetail($id)
+    {
         $certificate = Certificate::with('detailCertificates')->where('id', $id)->first();
         return view('admin.certificate.detail', compact('certificate'));
         // dd($detailCertificate);
@@ -42,12 +56,16 @@ class CertificateController extends Controller
     public function storeDetail(DetailCertificateStoreRequest $request, $id)
     {
 
-      $dataRequest = $request->all();
-      $datas = $this->detailCertificate->store($dataRequest, $id);
-      foreach ($datas as $data) {
-          $this->detail->store($data);
-      }
-      return redirect()->route('certificate.index');
+        $dataRequest = $request->all();
+        $datas = $this->detailCertificate->store($dataRequest, $id);
+        foreach ($datas as $data) {
+            $this->detail->store($data);
+        }
+        $username = $this->certificate->getId($id)->user->name;
+        return redirect()->route('certificate.index')->with('message', [
+            'title' => "Berhasil!",
+            'text' => "Berhasil menambah detail pada sertifikat {$username}"
+        ]);
     }
     public function createCertificateExists(Request $request)
     {

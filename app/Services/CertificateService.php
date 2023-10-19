@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use Barryvdh\DomPDF\Facade\Pdf;
 use to;
 use App\Models\User;
 use Illuminate\Support\Str;
@@ -44,10 +45,21 @@ class CertificateService
             'predikat' => $data['predikat'],
         ];
         return $this->certificate->store($certificate);
+        // return $this->generateCertificate($certificate);
     }
 
 
+    // public function generateCertificate(string $id)
+    // {
+    //     $certificate = $this->certificate->getId($id);
+    //     $certificateFileName = $certificate->id . '.pdf';
 
+    //     // Simpan sertifikat dalam direktori storage
+    //     $pdf = Pdf::loadView('certificate.kelulusan', ['certificate' => $certificate]);
+    //     $pdf->save(storage_path('app/certificates/' . $certificateFileName));
+
+    //     return $certificate;
+    // }
 
     public function createExists(array $dataRequest): mixed
    {

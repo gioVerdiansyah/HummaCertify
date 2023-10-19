@@ -104,6 +104,15 @@
       <div style="page-break-after: always;"></div>
     @endif
   @endforeach
+  <script>
+    window.addEventListener('load', function() {
+      window.print();
+      window.onafterprint = function() {
+        window.close();
+        window.history.back();
+      };
+    });
+  </script>
 </body>
 
 </html>
