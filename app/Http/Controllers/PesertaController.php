@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 
 use App\Models\User;
-use App\Services\CertificateService;
 use Illuminate\Http\Request;
 use App\Services\PesertaService;
+use App\Services\CertificateService;
 use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UserUpdateRequest;
+use App\Http\Requests\DetailCertificateStoreRequest;
 use App\Contracts\Repositories\CertificateRepository;
 use App\Contracts\Repositories\DaftarPesertaRepository;
 use App\Contracts\Repositories\CertificateCategoriRepositori;
@@ -64,10 +65,13 @@ class PesertaController extends Controller
     public function store(UserStoreRequest $request)
     {
         $data = $request->all();
+        dd($data);
        $id = $this->peserta->store($data);
        $this->certificateService->create($data, $id);
        return redirect()->back();
     }
+
+
 
     /**
      * Display the specified resource.
@@ -102,6 +106,15 @@ class PesertaController extends Controller
     {
 
         $User = $this->user->delete($id);
+        return redirect()->back();
+    }
+
+
+    public function CreateExists(DetailCertificateStoreRequest $request)
+    {
+        $data = $request->all();
+        dd($data);
+        $this->certificateService->create($data);
         return redirect()->back();
     }
 }

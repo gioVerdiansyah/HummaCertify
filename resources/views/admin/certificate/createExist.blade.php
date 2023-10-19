@@ -7,7 +7,8 @@
     <div class="tambah-container">
         <div class="tambah-container-body">
             <div class="card-body">
-                <form action="javascript:void(0);">
+                <form action="{{ route('existCertificate') }}" method="post">
+                    @csrf
                     <div class="row">
                         <div class="col-12 d-flex">
                             <div class="col-6 header-label">
@@ -17,7 +18,7 @@
                         <div class="col-md-6 mb-3">
                             <div class="col-12 mb-4">
                                 <label for="nama" class="form-label">Nama Peserta</label>
-                                <select class="js-example-basic-single" name="name" id="search">
+                                <select class="js-example-basic-single" name="user_id" id="search">
                                     <option disabled selected>--Pilih Peserta--</option>
                                     @foreach ($peserta as $row)
                                     <option value="{{ $row->id }}"
@@ -41,12 +42,12 @@
                         <div class="col-md-6 mb-3">
                             <div class="col-12 mb-4">
                                 <label for="division" class="form-label">Bidang/Division</label>
-                                <input type="text" name="division" class="form-control"
+                                <input type="text" name="bidang" class="form-control"
                                     placeholder="Bidang yang diikuti peserta">
                             </div>
                             <div class="col-12">
                                 <label for="division" class="form-label">Sub Bidang</label>
-                                <input type="text" name="division" class="form-control" placeholder="Sub bidang peserta">
+                                <input type="text" name="sub_bidang" class="form-control" placeholder="Sub bidang peserta">
                             </div>
                         </div>
                         <div class="col-12 mb-4">
@@ -68,6 +69,7 @@
                 </form>
             </div>
         </div>
+
     </div>
     <script>
         $(document).ready(function() {

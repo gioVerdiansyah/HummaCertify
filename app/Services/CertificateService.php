@@ -48,6 +48,35 @@ class CertificateService
         return $this->certificate->store($certificate);
     }
 
+
+
+
+    public function createExists(array $dataRequest): mixed
+{
+
+    $uniq = $this->peserta->count();
+    $userId = $this->user->getId($dataRequest['user_id']);
+    $nomorUnik = str_pad($uniq, 4, '0', STR_PAD_LEFT);
+    $nomorKategori = str_pad($dataRequest['certificate_categori_id'], 2, '0', STR_PAD_LEFT);
+    $bulan = date('m', strtotime($dataRequest['tanggal']));
+    $hari = date('d', strtotime($dataRequest['tanggal']));
+    $tahun = date('Y', strtotime($dataRequest['tanggal']));
+    $nomorSertifikat = 'Ser'. '/'. $nomorUnik . '/' . $nomorKategori. '/'. $hari . $bulan. '/'. $tahun;
+    $certificate = [
+        'user_id' => $userId->id,
+        'certificate_categori_id' => $dataRequest['certificate_categori_id'],
+        'nomor' => $nomorSertifikat,
+        'tanggal' => $dataRequest['tanggal'],
+        'bidang' => $dataRequest['bidang'],
+        'sub_bidang' => $dataRequest['sub_bidang'],
+
+    ];
+
+
+    return $certificate;
+}
+
+
     public function searchCertificates(array $dataRequest)
     {
 

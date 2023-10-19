@@ -16,12 +16,14 @@ class CertificateController extends Controller
     private DetailCertificateService $detailCertificate;
     private CertificateService $certificateService;
     private DetailCertificateRepository $detail;
+
+
     public function __construct(CertificateRepository $certificate, DetailCertificateService $detailCertificate,DetailCertificateRepository $detail, CertificateService $certificateService)
     {
         $this->certificate = $certificate;
+        $this->certificateService = $certificateService;
         $this->detail = $detail;
         $this->detailCertificate = $detailCertificate;
-        $this->certificateService = $certificateService;
     }
     public function getCertificate(string $id){
         $certificate = $this->certificate->getId($id);
@@ -47,4 +49,12 @@ class CertificateController extends Controller
       }
       return redirect()->route('certificate.index');
     }
+    public function createCertificateExists(Request $request)
+    {
+        $dataRequest = $request->all();
+        $data =  $this->certificateService->createExists($dataRequest);
+        $this->certificate->store($data);
+        return redirect()->back();
+    }
+
 }
