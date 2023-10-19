@@ -22,8 +22,8 @@ class DetailCertificateStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'materi' => "required",
-            'jam_pelajaran' => "required|integer|min:1|max:999"
+            // 'materi' => "required",
+            // 'jam_pelajaran' => "required|integer|min:1|max:999"
         ];
     }
     public function message(): array

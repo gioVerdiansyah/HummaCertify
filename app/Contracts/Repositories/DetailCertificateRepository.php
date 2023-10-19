@@ -12,8 +12,8 @@ class DetailCertificateRepository extends BaseRepository implements DetailCertif
         $this->model = $detailModel;
     }
 
-    public function store(array $detailCertificate): mixed
+    public function store(array $data): mixed
     {
-        return $this->model->create($detailCertificate);
+        return $this->model->create($data);
     }
 }

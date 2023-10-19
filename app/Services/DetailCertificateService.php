@@ -18,13 +18,17 @@ class DetailCertificateService
     public function store(array $data, string $id): mixed
     {
         $certificateId = $this->certificate->getId($id);
+        $detailCertificates = [];
 
-        $detailCertificate = [
-            'certificate_id' => $certificateId,
-            'materi' => $data['materi'],
-            'jp' => $data['jam_pelajaran'],
-        ];
-
-        return $this->detailCertificate->store($detailCertificate);
+        foreach ($data['category-group'] as $category) {
+            $detailCertificate = [
+                'certificate_id' => $certificateId->id,
+                'materi' => $category['materi'],
+                'jp' => $category['jam_pelajaran'],
+            ];
+            $detailCertificates[] = $detailCertificate;
+        }
+        return $detailCertificates;
     }
+
 }

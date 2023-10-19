@@ -2,17 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\DetailCertificateStoreRequest;
 use App\Models\Certificate;
 use Illuminate\Http\Request;
+use App\Services\DetailCertificateService;
+use App\Http\Requests\DetailCertificateStoreRequest;
 use App\Contracts\Repositories\CertificateRepository;
+use App\Contracts\Repositories\DetailCertificateRepository;
 
 class CertificateController extends Controller
 {
     private CertificateRepository $certificate;
-    public function __construct(CertificateRepository $certificate)
+    private DetailCertificateService $detailCertificate;
+    private DetailCertificateRepository $detail;
+    public function __construct(CertificateRepository $certificate, DetailCertificateService $detailCertificate,DetailCertificateRepository $detail)
     {
         $this->certificate = $certificate;
+        $this->detail = $detail;
+        $this->detailCertificate = $detailCertificate;
     }
     public function getCertificate(string $id){
         $certificate = $this->certificate->getId($id);
@@ -26,9 +32,12 @@ class CertificateController extends Controller
     }
     public function storeDetail(DetailCertificateStoreRequest $request, $id)
     {
-        dd($request->all());
-       $data = $request->all();
-       $this->certificate->store($data);
-        return redirect()->back();
+
+      $dataRequest = $request->all();
+      $datas = $this->detailCertificate->store($dataRequest, $id);
+      foreach ($datas as $data) {
+          $this->detail->store($data);
+      }
+      return redirect()->route('certificate.index');
     }
 }

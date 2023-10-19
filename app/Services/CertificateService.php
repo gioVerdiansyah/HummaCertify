@@ -9,6 +9,7 @@ use App\Http\Requests\UserRequest;
 use App\Contracts\Interfaces\CertificateInterface;
 use App\Contracts\Repositories\CertificateRepository;
 use App\Contracts\Repositories\DaftarPesertaRepository;
+use Illuminate\Database\Eloquent\Builder;
 
 class CertificateService
 {
@@ -24,7 +25,7 @@ class CertificateService
 
     public function create(array $data, string $id): mixed
     {
-        $uniq = $this->peserta->count() + 1;
+        $uniq = $this->peserta->count();
         $userId = $this->user->getId($id);
         $nomorUnik = str_pad($uniq, 4, '0', STR_PAD_LEFT);
         $nomorKategori = str_pad($data['certificate_categori_id'], 2, '0', STR_PAD_LEFT);
@@ -45,6 +46,40 @@ class CertificateService
         ];
 
         return $this->certificate->store($certificate);
+    }
+
+    public function searchCertificates(array $dataRequest)
+    {
+
+        $query = $this->certificate->getAllDataSpecific();
+
+
+        if (isset($dataRequest['q'])) {
+            $search = $dataRequest['q'];
+
+            $query->where(function ($query) use ($search) {
+                $query->where('nomor', 'LIKE', '%' . $search . '%')
+                    ->orWhereHas('user', function (Builder $userQuery) use ($search) {
+                        $userQuery->where('name', 'LIKE', '%' . $search . '%');
+
+                    });
+            });
+
+        }
+        if (isset($dataRequest['ct'])) {
+            $kategori = $dataRequest['ct'];
+            $query->where('certificate_categori_id', $kategori);
+        }
+
+        if (isset($dataRequest['page'])) {
+            $page = $dataRequest['page'];
+            $perPage = 15;
+            $offset = ($page - 1) * $perPage;
+            $query->skip($offset)->take($perPage);
+        }
+        $data = $query->get();
+        
+        return $data;
     }
 
 

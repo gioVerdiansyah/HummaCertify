@@ -35,7 +35,7 @@ class PesertaController extends Controller
         $categories = $this->categories->get();
 
         if($request->all()){
-            $certificates = $this->certificate->getAllDataSpecific($request->all());
+            $certificates = $this->certificateService->searchCertificates($request->all());
         }
 
         return view('admin.certificate.index', compact('certificates', 'categories'));

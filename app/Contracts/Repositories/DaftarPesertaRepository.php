@@ -14,7 +14,7 @@ class DaftarPesertaRepository extends BaseRepository implements DaftarPesertaInt
 
     public function count(): int
     {
-        return $this->model->count() + 1;
+        return $this->model->count();
     }
 
     public function get(): mixed

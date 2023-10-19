@@ -22,39 +22,9 @@ class CertificateRepository extends BaseRepository implements CertificateInterfa
         return $this->model->with('user')->get();
     }
 
-    public function getAllDataSpecific($dataRequest): mixed
+    public function getAllDataSpecific(): mixed
     {
-        $query = $this->model->with('user');
-
-        if (isset($dataRequest['q'])) {
-            $search = $dataRequest['q'];
-
-            $query->where('nomor','LIKE', '%' . $search . '%')
-              ->orWhere(function ($subquery) use ($search) {
-                  $subquery->whereHas('user', function ($userQuery) use ($search) {
-                      $userQuery->where('name', 'LIKE', '%' . $search . '%');
-                  });
-              });
-        }
-        // Cek apakah ada kategori yang diberikan
-        if (isset($dataRequest['ct'])) {
-            $kategori = $dataRequest['ct'];
-
-            $query->where('certificate_categori_id', $kategori);
-        }
-
-        // Cek apakah ada halaman yang diberikan
-        if (isset($dataRequest['page'])) {
-            $page = $dataRequest['page'];
-
-            $perPage = 15;
-
-            $offset = ($page - 1) * $perPage;
-            $query->skip($offset)->take($perPage);
-        }
-        $data = $query->get();
-
-        return $data;
+       return $query = $this->model->with('user');
     }
 
     public function store(array $data): mixed
