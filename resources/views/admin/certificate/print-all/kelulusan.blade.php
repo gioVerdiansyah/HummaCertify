@@ -24,82 +24,86 @@
 </head>
 
 <body>
-    @foreach ($certificates as $i => $certificate)
-  <main id="certificate-{{ ++$i }}">
-    <div class="image-certificate">
-      <img src="{{ asset('image/certificate-bg.png') }}" alt="Background Certificate" />
-    </div>
-    <div class="content">
-      <div class="content-text">
-        <div class="top-text">
-          <div class="certificate-text">
-            <p>CERTIFICATE</p>
-          </div>
-          <div class="number-certification">
-            {{-- Bisa diganti --}}
-            <p class="me-3" style="margin-right: 20px">No.</p>
-            <p class="no-sertifikat">{{ $certificate->nomor }}</p>
-          </div>
-        </div>
-        <div class="text-humma">
-          <div class="hummatech">
-            <p>Hummatech Apprentice program</p>
-          </div>
-          <div class="official">
-            <p>OFFICIAL CERTIFICATION</p>
-          </div>
-        </div>
-        <div class="nama-peserta">
-          {{-- Bisa diganti --}}
-          <p>{{ $certificate->user->name }}</p>
-        </div>
-        <div class="identitas-murid-pendidikan">
-          <div class="nisn-nis">
-            {{-- Bisa diganti --}}
-            <p>{{ $certificate->user->password }}</p>
-          </div>
-          <div class="asal-sekolah">
-            {{-- Bisa diganti --}}
-            <p>{{ $certificate->user->institusi }}</p>
-          </div>
-        </div>
-        <div class="gabungan">
-          <div class="text-pujian">
-            <p>Who Has Successfully completed the</p>
-          </div>
-          <div class="text-devinisi">
-            {{-- Bisa diganti --}}
-            <p>Apprenticeship in {{ $certificate->bidang }} Division</p>
-          </div>
-        </div>
-        <div class="guru">
-          <div>
-            <div class="guru-identitas">
-              <p class="nama-guru">
-                Afrizal Himawan, S.Kom
-              </p>
-              <p class="title-guru">
-                DIREKTUR
-              </p>
+  @foreach ($certificates as $i => $certificate)
+    <main id="certificate-{{ ++$i }}" style="height: 785px;">
+      <div class="image-certificate">
+        <img src="{{ asset('image/certificate-bg.png') }}" alt="Background Certificate" />
+      </div>
+      <div class="content">
+        <div class="content-text">
+          <div class="top-text">
+            <div class="certificate-text">
+              <p>CERTIFICATE</p>
+            </div>
+            <div class="number-certification">
+              {{-- Bisa diganti --}}
+              <p class="me-3" style="margin-right: 20px">No.</p>
+              <p class="no-sertifikat">{{ $certificate->nomor }}</p>
             </div>
           </div>
-          <div class="qr-code">
-            {!! QrCode::size(100)->generate($certificate->nomor) !!}
+          <div class="text-humma">
+            <div class="hummatech">
+              <p>Hummatech Apprentice program</p>
+            </div>
+            <div class="official">
+              <p>OFFICIAL CERTIFICATION</p>
+            </div>
           </div>
-          <div>
-            <div class="guru-identitas">
-              <p class="nama-guru">
-                Andika Wahyu P, S.Kom
-              </p>
-              <p class="title-guru">
-                PEMBIMBING
-              </p>
+          <div class="nama-peserta">
+            {{-- Bisa diganti --}}
+            <p>{{ $certificate->user->name }}</p>
+          </div>
+          <div class="identitas-murid-pendidikan">
+            <div class="nisn-nis">
+              {{-- Bisa diganti --}}
+              <p>{{ $certificate->user->password }}</p>
+            </div>
+            <div class="asal-sekolah">
+              {{-- Bisa diganti --}}
+              <p>{{ $certificate->user->institusi }}</p>
+            </div>
+          </div>
+          <div class="gabungan">
+            <div class="text-pujian">
+              <p>Who Has Successfully completed the</p>
+            </div>
+            <div class="text-devinisi">
+              {{-- Bisa diganti --}}
+              <p>Apprenticeship in {{ $certificate->bidang }} Division</p>
+            </div>
+          </div>
+          <div class="guru">
+            <div>
+              <div class="guru-identitas">
+                <p class="nama-guru">
+                  Afrizal Himawan, S.Kom
+                </p>
+                <p class="title-guru">
+                  DIREKTUR
+                </p>
+              </div>
+            </div>
+            <div class="qr-code">
+              {!! QrCode::size(100)->generate($certificate->nomor) !!}
+            </div>
+            <div>
+              <div class="guru-identitas">
+                <p class="nama-guru">
+                  Andika Wahyu P, S.Kom
+                </p>
+                <p class="title-guru">
+                  PEMBIMBING
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </main>
+    </main>
+    @if ($i < count($certificates) - 1)
+      <div style="page-break-after: always;"></div>
+    @endif
   @endforeach
 </body>
+
 </html>
