@@ -16,7 +16,6 @@ class PesertaService
 
     public function store(array $data): mixed
     {
-        $uniq = $this->peserta->count();
         $dataUser = [
             'name' => $data['name'],
             'email' => $data['email'],
