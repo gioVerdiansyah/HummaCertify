@@ -8,7 +8,7 @@ use App\Contracts\Interfaces\Eloquent\StoreInterface;
 use App\Contracts\Interfaces\Eloquent\DeleteInterface;
 use App\Contracts\Interfaces\Eloquent\UpdateInterface;
 
-interface DaftarPesertaInterface extends  StoreInterface, UpdateInterface, DeleteInterface, GetInterfaceId, GetInterface,CountInterface
+interface DaftarPesertaInterface extends StoreInterface, UpdateInterface, DeleteInterface, GetInterfaceId, GetInterface,CountInterface
 {
 
 }

@@ -28,7 +28,7 @@ class CertificateController extends Controller
     {
         dd($request->all());
        $data = $request->all();
-       $this->certificate->store($data, $id);
+       $this->certificate->store($data);
         return redirect()->back();
     }
 }

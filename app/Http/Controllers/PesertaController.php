@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 
 use App\Models\User;
+use App\Services\CertificateService;
 use Illuminate\Http\Request;
 use App\Services\PesertaService;
-use App\Models\CertificateCategori;
-use App\Services\CertificateService;
 use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UserUpdateRequest;
 use App\Contracts\Repositories\CertificateRepository;
@@ -18,13 +17,17 @@ class PesertaController extends Controller
 {
     private $user;
     private $certificate;
-    private $categories;
+    private CertificateService $serviceCertificate;
+    private CertificateCategoriRepositori $categories;
+    private PesertaService $peserta;
 
-    public function __construct(DaftarPesertaRepository $user,CertificateRepository $certificate,CertificateCategoriRepositori $category)
+    public function __construct(DaftarPesertaRepository $user,CertificateRepository $certificate, CertificateService $serviceCertificate,CertificateCategoriRepositori $category, PesertaService $peserta)
     {
         $this->user = $user;
         $this->certificate = $certificate;
         $this->categories = $category;
+        $this->certificateService = $serviceCertificate;
+        $this->peserta = $peserta;
     }
 
     public function index(Request $request){
@@ -52,9 +55,9 @@ class PesertaController extends Controller
      */
     public function store(UserStoreRequest $request)
     {
-       $data = $request->validated();
-       $id = $this->user->store($data);
-       $this->certificate->store($data, $id);
+        $data = $request->all();
+       $id = $this->peserta->store($data);
+       $this->certificateService->create($data, $id);
        return redirect()->back();
     }
 
