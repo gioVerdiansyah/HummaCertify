@@ -25,16 +25,15 @@ class CertificateService
 
     public function create(array $data, string $id): mixed
     {
-        $uniq = $this->peserta->count();
         $userId = $this->user->getId($id);
-        $nomorUnik = str_pad($uniq, 4, '0', STR_PAD_LEFT);
-        $nomorKategori = str_pad($data['certificate_categori_id'], 2, '0', STR_PAD_LEFT);
+        $userUniq = $this->user->count();
+        $nouniq = $this->certificate->countById($data['certificate_categori_id']) + 1;
+        $nomorUnik = str_pad($nouniq, 4, '0', STR_PAD_LEFT);
+        $nomorKategori = str_pad($userUniq, 4, '0', STR_PAD_LEFT);
         $bulan = date('m', strtotime($data['tanggal']));
         $hari = date('d', strtotime($data['tanggal']));
         $tahun = date('Y', strtotime($data['tanggal']));
         $nomorSertifikat = 'Ser' . '/' . $nomorUnik . '/' . $nomorKategori . '/' . $hari . $bulan . '/' . $tahun;
-
-
         $certificate = [
             'user_id' => $userId->id,
             'certificate_categori_id' => $data['certificate_categori_id'],
@@ -44,7 +43,6 @@ class CertificateService
             'sub_bidang' => $data['sub_bidang'],
             'predikat' => $data['predikat'],
         ];
-
         return $this->certificate->store($certificate);
     }
 
@@ -52,9 +50,9 @@ class CertificateService
 
 
     public function createExists(array $dataRequest): mixed
-{
+   {
 
-    $uniq = $this->peserta->count();
+    $uniq = $this->peserta->count() +1;
     $userId = $this->user->getId($dataRequest['user_id']);
     $nomorUnik = str_pad($uniq, 4, '0', STR_PAD_LEFT);
     $nomorKategori = str_pad($dataRequest['certificate_categori_id'], 2, '0', STR_PAD_LEFT);
@@ -71,10 +69,8 @@ class CertificateService
         'sub_bidang' => $dataRequest['sub_bidang'],
 
     ];
-
-
     return $certificate;
-}
+   }
 
 
     public function searchCertificates(array $dataRequest)

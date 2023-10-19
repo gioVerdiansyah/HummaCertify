@@ -12,6 +12,12 @@ class CertificateRepository extends BaseRepository implements CertificateInterfa
         $this->model = $Certificate;
     }
 
+    public function countById(int $id): mixed
+    {
+      return $this->model->where('certificate_categori_id', $id)
+        ->count();
+    }
+
     public function getId($id): mixed
     {
         return $this->model->with('user')->where('id', $id)->first();
