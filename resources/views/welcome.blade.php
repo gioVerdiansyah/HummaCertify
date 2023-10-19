@@ -152,7 +152,7 @@
                 </div>
               </div>
               <div class="hover-thing text-center">
-                <a href="#">Click untuk melihat lebih lanjut</a>
+                <a class="hover-href" href="#">Click untuk melihat lebih lanjut</a>
               </div>
             </div>
             <p style="display: none">

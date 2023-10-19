@@ -30,6 +30,14 @@
     color: white;
 }
 
+.hover-href:hover {
+    color: rgb(163, 163, 163);
+}
+
+.hover-href {
+    color: white;
+}
+
 .input-search {
     background-color: #F1F1F1;
     padding: 20px;
