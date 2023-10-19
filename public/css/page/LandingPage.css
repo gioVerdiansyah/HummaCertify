@@ -53,6 +53,49 @@
     background-color: rgb(45, 129, 255);
 }
 
+.hover-thing {
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-weight: 700;
+    font-size: 18px;
+    color: white;
+    margin-top: -20px;
+    margin-left: -20px;
+    border-radius: 35px;
+    opacity: 0;
+    background-color: black;
+    position: absolute;
+    height: 144.50px;
+    width: 48.65%;
+    transition: 100ms;
+}
+
+.hover-thing:hover {
+    opacity: 0.7;
+}
+
+.form-search-result {
+    margin-top: 20px;
+    margin-left: 105px;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 35px;
+    background-color: #F1F1F1;
+    width: 75%;
+    border: 100px;
+    height: auto;
+    color: rgb(36, 36, 36);
+    display: flex;
+    border: none;
+    padding: 20px;
+}
+
+.image-sertificate {
+    border-radius: 10px;
+}
+
 .about-img-1 {
     margin-top: 30px;
 }

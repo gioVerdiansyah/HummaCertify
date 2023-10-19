@@ -14,34 +14,40 @@
                 <p>Data Sertifikat</p>
               </div>
             </div>
-            <div class="col-12">
-              <div class="mb-4">
-                <label for="firstNameinput" class="form-label">Nama Peserta</label>
+            <div class="col-md-6 mb-3">
+              <div class="col-12 mb-4">
+                <label for="nama" class="form-label">Nama Peserta</label>
                 <select class="js-example-basic-single" name="nama" id="search">
                   <option value="Alabama">Alabama</option>
                 </select>
               </div>
-            </div>
-            <div class="col-6">
-              <div class="mb-4">
-                <label for="lastNameinput" class="form-label">Kategori Sertifikat</label><br>
+              <div class="col-12">
+                <label for="category" class="form-label">Kategori Sertifikat</label>
                 <select name="category" class="form-select">
-                    <option disabled selected>Pilih Kategori...</option>
-                    <option value="H1">H1</option>
+                    <option disabled selected>Pilih kategori..</option>
+                    <option value="kategori1">kategori1</option>
+                    <option value="kategori2">kategori2</option>
+                    <option value="kategori3">kategori3</option>
                 </select>
               </div>
             </div>
-            <div class="col-6">
-              <div class="mb-4">
-                <label for="lastNameinput" class="form-label">Tanggal Acara</label>
-                <input type="date" class="form-control" placeholder="dd/mm/yy" name="tanggal">
+            <div class="col-md-6 mb-3">
+              <div class="col-12 mb-4">
+                <label for="division" class="form-label">Bidang/Division</label>
+                <input type="text" name="division" class="form-control" placeholder="Bidang yang diikuti peserta">
+              </div>
+              <div class="col-12">
+                <label for="division" class="form-label">Sub Bidang</label>
+                <input type="text" name="division" class="form-control" placeholder="Sub bidang peserta">
               </div>
             </div>
-            <div class="col-6">
-            </div>
+            <div class="col-12 mb-4">
+                <label for="tanggal" class="form-label">Tanggal Acara</label>
+                <input type="date" name="tanggal" class="form-control">
+              </div>
             <div class="col-8">
               <div class="mt-2 d-flex href-link-gap">
-                <p>Peserta sudah ada?</p><a href=""> Tambah sertifikat dengan peserta yang ada</a>
+                <p>Peserta sudah ada? <a href=""> Tambah sertifikat dengan peserta yang ada</a></p>
               </div>
             </div>
             <div class="col-4">

@@ -40,7 +40,9 @@ Route::middleware('AdminUp')->group(function () {
         Route::get('/datatable', function () {
             return view('admin.ListSertifikat');
         });
-
+        Route::get('/create2', function () {
+            return view('admin.certificate.createExist');
+        });
         Route::get('/list', function (){
             return view('admin.certificate.listSertifikat');
         });
