@@ -57,7 +57,7 @@
                             </div>
                             <div class="col-12 mb-4">
                                 <label for="" class="form-label">Sub Bidang</label>
-                                <input type="text" class="form-control" placeholder="Sub bidang peserta" name="" value="{{ old('') }}">
+                                <input type="text" class="form-control" placeholder="Sub bidang peserta" name="sub_bidang" value="{{ old('') }}">
                             </div>
                             <div class="col-12 mb-4">
                                 <label for="" class="form-label">Tanggal Acara</label>
