@@ -65,7 +65,7 @@ class PesertaController extends Controller
     public function store(UserStoreRequest $request)
     {
         $data = $request->all();
-        dd($data);
+        
        $id = $this->peserta->store($data);
        $this->certificateService->create($data, $id);
        return redirect()->back();
