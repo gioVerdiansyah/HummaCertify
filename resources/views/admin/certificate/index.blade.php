@@ -18,12 +18,15 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="col-2">
-                                <button class="btn btn-primary"><i class="bi bi-printer"></i> Print Semua</button>
-                            </div>
+                            @if (request('ct'))
+                                <div class="col-2">
+                                    <a href="{{ route('printAllCertificate', request('ct')) }}" class="btn btn-primary"><i class="bi bi-printer"></i> Print Semua</a>
+                                </div>
+                            @endif
                         </div>
                         <div class="col-3">
-                            <form action="" method="GET" class="d-flex align-items-center" onsubmit="event.preventDefault();var currentUrl = window.location.href;if (currentUrl.includes('ct=')) {window.location.href = currentUrl + '&q=' + document.getElementsByName('q')[0].value;}else{this.submit();}">
+                            <form action="" method="GET" class="d-flex align-items-center"
+                                onsubmit="event.preventDefault();var currentUrl = window.location.href;if (currentUrl.includes('ct=')) {window.location.href = currentUrl + '&q=' + document.getElementsByName('q')[0].value;}else{this.submit();}">
                                 <div class="input-group">
                                     <input type="search" name="q" class="form-control rounded-start py-2"
                                         placeholder="Cari Sertifikat..." value="{{ request('q') }}" />

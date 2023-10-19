@@ -32,7 +32,7 @@ class CertificateService
         $bulan = date('m', strtotime($data['tanggal']));
         $hari = date('d', strtotime($data['tanggal']));
         $tahun = date('Y', strtotime($data['tanggal']));
-        $nomorSertifikat = 'Ser'. '/'. $nomorUnik . '/' . $nomorKategori. '/'. $hari . $bulan. '/'. $tahun;
+        $nomorSertifikat = 'Ser' . '/' . $nomorUnik . '/' . $nomorKategori . '/' . $hari . $bulan . '/' . $tahun;
 
 
         $certificate = [
@@ -78,9 +78,29 @@ class CertificateService
             $query->skip($offset)->take($perPage);
         }
         $data = $query->get();
-        
+
         return $data;
     }
 
+    public function printAllCertificate(array $dataRequest)
+    {
+        $query = $this->certificate->getAllDataSpecific();
+        if (isset($dataRequest['ct'])) {
+            $kategori = $dataRequest['ct'];
+            $query->where('certificate_categori_id', $kategori);
+        }
 
+        if (isset($dataRequest['page'])) {
+            $page = $dataRequest['page'];
+            $perPage = 15;
+            $offset = ($page - 1) * $perPage;
+            $query->skip($offset)->take($perPage);
+        }
+        $certificates = $query->get();
+
+        switch ($dataRequest['ct']) {
+            case 1:
+                return view('admin.certificate.print-all.kelulusan', compact('certificates'));
+        }
+    }
 }
