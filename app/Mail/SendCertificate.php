@@ -6,9 +6,11 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Attachment;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Storage;
 
 class SendCertificate extends Mailable
 {
@@ -22,6 +24,18 @@ class SendCertificate extends Mailable
     public function __construct($certificate)
     {
         $this->certificate = $certificate;
+    }
+
+    public function build()
+    {
+        $certificate = $this->certificate;
+        $certificateId = $certificate->id;
+        $pdfPath = storage_path('app/public/sertifikat/' . $certificateId . '.pdf');
+        return $this->view('emails.kelulusan')
+            ->attach($pdfPath, [
+                'as' => "Sertifikat-{$certificate->category->name}",
+                'mime' => 'application/pdf',
+            ]);
     }
 
     /**
@@ -44,7 +58,7 @@ class SendCertificate extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.demo',
+            view: 'emails.kelulusan',
         );
     }
 

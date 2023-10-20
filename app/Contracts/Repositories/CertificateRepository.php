@@ -20,7 +20,7 @@ class CertificateRepository extends BaseRepository implements CertificateInterfa
 
     public function getId($id): mixed
     {
-        return $this->model->with('user')->where('id', $id)->first();
+        return $this->model->with(['user', 'category'])->where('id', $id)->first();
     }
 
     public function get():mixed
@@ -36,8 +36,8 @@ class CertificateRepository extends BaseRepository implements CertificateInterfa
     public function store(array $data): mixed
     {
         $this->swal("Berhasil!", "Berhasil menambah peserta!");
-        return $this->model->query()->create($data);
-
+        $certificate = $this->model->query()->create($data);
+        return $certificate->id;
     }
 
     public function update($id, $certificate): mixed

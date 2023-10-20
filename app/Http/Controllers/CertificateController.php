@@ -42,10 +42,7 @@ class CertificateController extends Controller
     {
         $certificate = $this->certificate->getId($id);
         $email = $certificate->user->email;
-        $pdf = Pdf::loadView('certificate.kelulusan', ['certificate' => $certificate]);
-        $message = new SendCertificate($certificate);
-        $message->attachData($pdf->output(), "sertifikat-kelulusan.pdf");
-        Mail::to($email)->send($message);
+        Mail::to($email)->send(new SendCertificate($certificate));
     }
     public function showDetail($id)
     {
@@ -72,7 +69,7 @@ class CertificateController extends Controller
     public function createCertificateExists(Request $request)
     {
         $dataRequest = $request->all();
-        $data =  $this->certificateService->createExists($dataRequest);
+        $data = $this->certificateService->createExists($dataRequest);
         $this->certificate->store($data);
         return redirect()->back();
     }

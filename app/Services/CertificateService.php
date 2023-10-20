@@ -42,10 +42,10 @@ class CertificateService
             'tanggal' => $data['tanggal'],
             'bidang' => $data['bidang'],
             'sub_bidang' => $data['sub_bidang'],
-
         ];
+        $certificateId = $this->certificate->store($certificate);
+        $this->generateCertificate($certificateId);
         return $certificate;
-        // return $this->generateCertificate($certificate);
     }
 
     public function update(array $dataRequest): mixed
@@ -57,17 +57,15 @@ class CertificateService
     }
 
 
-    // public function generateCertificate(string $id)
-    // {
-    //     $certificate = $this->certificate->getId($id);
-    //     $certificateFileName = $certificate->id . '.pdf';
+    public function generateCertificate(string $id)
+    {
+        $certificate = $this->certificate->getId($id);
+        $certificateFileName = $certificate->id . '.pdf';
 
-    //     // Simpan sertifikat dalam direktori storage
-    //     $pdf = Pdf::loadView('certificate.kelulusan', ['certificate' => $certificate]);
-    //     $pdf->save(storage_path('app/certificates/' . $certificateFileName));
-
-    //     return $certificate;
-    // }
+        // Simpan sertifikat dalam direktori storage
+        $pdf = Pdf::loadView('certificate.kelulusan', ['certificate' => $certificate]);
+        $pdf->save(storage_path('app/public/sertifikat/' . $certificateFileName));
+    }
 
     public function createExists(array $dataRequest): mixed
    {

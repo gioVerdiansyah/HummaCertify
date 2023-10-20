@@ -68,7 +68,6 @@ class PesertaController extends Controller
        $data = $request->all();
        $id = $this->peserta->store($data);
        $data =  $this->certificateService->create($data, $id);
-       $this->certificate->store($data);
        return redirect()->back();
     }
 
