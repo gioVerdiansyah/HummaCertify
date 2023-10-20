@@ -17,13 +17,13 @@
                   <div class="col-xxl-6 mb-2">
                     <div>
                       <label for="unknown" class="form-label">Materi</label>
-                      <input type="text" class="form-control" placeholder="materi" name="materi" value="">
+                      <input type="text" class="form-control" placeholder="materi" name="materi" value="" required>
                     </div>
                   </div>
                   <div class="col-xxl-5 mb-2">
                     <div>
                       <label for="unknown" class="form-label">Jam Pelajaran</label>
-                      <input type="number" class="form-control" name="jam_pelajaran" id="jamPelajaran" placeholder="Jam Pelajaran">
+                      <input type="number" class="form-control" name="jam_pelajaran" id="jamPelajaran" placeholder="Jam Pelajaran" required>
                     </div>
                   </div>
                   <div class="col-xxl-1 mb-3" style="margin-top: 28px">
@@ -31,6 +31,16 @@
                   </div>
                 </div>
               </div>
+            </div>
+            <div class="mb-4">
+                <label for="" class="form-label">Predikat</label>
+                <select name="predikat" class="form-select" required>
+                    <option disabled selected>--Pilih Predikat--</option>
+                    <option value="Sangat Baik" {{ old('predikat') == "Sangat Baik" ? "selected" : '' }}>Sangat Baik</option>
+                    <option value="Baik" {{ old('predikat') == "Baik" ? "selected" : '' }}>Baik</option>
+                    <option value="Cukup" {{ old('predikat') == "Cukup" ? "selected" : '' }}>Cukup</option>
+                    <option value="Kurang" {{ old('predikat') == "Kurang" ? "selected" : '' }}>Kurang</option>
+                </select>
             </div>
             <div class="hstack gap-2 justify-content-end">
               <input class="btn btn-success" data-repeater-create type="button" value="+ Add" />

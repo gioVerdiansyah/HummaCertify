@@ -63,16 +63,7 @@
                                 <label for="" class="form-label">Tanggal Acara</label>
                                 <input type="date" class="form-control" placeholder="dd/mm/yy" name="tanggal" value="{{ old('tanggal') }}">
                             </div>
-                            <div class="mb-4">
-                                <label for="" class="form-label">Predikat</label>
-                                <select name="predikat" class="form-select">
-                                    <option disabled selected>--Pilih Predikat--</option>
-                                    <option value="Sangat Baik" {{ old('predikat') == "Sangat Baik" ? "selected" : '' }}>Sangat Baik</option>
-                                    <option value="Baik" {{ old('predikat') == "Baik" ? "selected" : '' }}>Baik</option>
-                                    <option value="Cukup" {{ old('predikat') == "Cukup" ? "selected" : '' }}>Cukup</option>
-                                    <option value="Kurang" {{ old('predikat') == "Kurang" ? "selected" : '' }}>Kurang</option>
-                                </select>
-                            </div>
+                          
                         </div>
                         <div class="col-6">
                         </div>

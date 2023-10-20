@@ -31,7 +31,7 @@ class UserStoreRequest extends FormRequest
             'sub_bidang' => 'nullable',
             'ttl' => 'nullable',
             'institusi' => 'required',
-            'predikat' => 'required'
+          
         ];
     }
     public function message(): array

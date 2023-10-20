@@ -22,6 +22,7 @@ class PesertaController extends Controller
     private CertificateCategoriRepositori $categories;
     private PesertaService $peserta;
 
+
     public function __construct(DaftarPesertaRepository $user,CertificateRepository $certificate, CertificateService $serviceCertificate,CertificateCategoriRepositori $category, PesertaService $peserta)
     {
         $this->user = $user;
@@ -64,10 +65,10 @@ class PesertaController extends Controller
      */
     public function store(UserStoreRequest $request)
     {
-        $data = $request->all();
-        
+       $data = $request->all();
        $id = $this->peserta->store($data);
-       $this->certificateService->create($data, $id);
+       $data =  $this->certificateService->create($data, $id);
+       $this->certificate->store($data);
        return redirect()->back();
     }
 
@@ -113,7 +114,6 @@ class PesertaController extends Controller
     public function CreateExists(DetailCertificateStoreRequest $request)
     {
         $data = $request->all();
-        dd($data);
         $this->certificateService->create($data);
         return redirect()->back();
     }

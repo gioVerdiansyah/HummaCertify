@@ -42,10 +42,18 @@ class CertificateService
             'tanggal' => $data['tanggal'],
             'bidang' => $data['bidang'],
             'sub_bidang' => $data['sub_bidang'],
-            'predikat' => $data['predikat'],
+
         ];
-        return $this->certificate->store($certificate);
+        return $certificate;
         // return $this->generateCertificate($certificate);
+    }
+
+    public function update(array $dataRequest): mixed
+    {
+        $data = [
+            'predikat' => $dataRequest['predikat'],
+        ];
+        return $data;
     }
 
 

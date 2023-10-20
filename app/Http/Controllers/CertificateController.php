@@ -61,6 +61,8 @@ class CertificateController extends Controller
         foreach ($datas as $data) {
             $this->detail->store($data);
         }
+        $certificate = $this->certificateService->update($dataRequest);
+        $this->certificate->update($id, $certificate);
         $username = $this->certificate->getId($id)->user->name;
         return redirect()->route('certificate.index')->with('message', [
             'title' => "Berhasil!",
