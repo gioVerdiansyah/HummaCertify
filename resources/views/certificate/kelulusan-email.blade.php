@@ -31,38 +31,51 @@
         height: 297mm;
       }
 
+      main {
+        transform: rotate(90deg) translateX(70%);
+      }
+
       .image-certificate {
         position: absolute;
-        width: 100%;
-        height: 785px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 1200px;
+        width: 1700px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
       }
 
       .image-certificate img {
+        width: 100%;
         height: 100%;
-        max-width: 100%;
       }
 
       .content {
-        margin: 0;
-        padding: 0;
-        top: 8%;
+        width: 100%;
+        height: 297mm;
+      }
+
+      .content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -70%);
         width: 100%;
         height: 730px;
-        overflow: hidden;
-        position: absolute;
-        z-index: 2;
         display: flex;
         justify-content: center;
       }
 
       .content-text .top-text {
-        line-height: 30px;
+        line-height: 50px;
       }
 
       .content-text .top-text .certificate-text {
         font-family: "Merriweather", serif;
         font-weight: 700;
-        font-size: 60px;
+        font-size: 90px;
         letter-spacing: 5px;
         color: #02b1ef;
         display: flex;
@@ -78,7 +91,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 19px;
+        font-size: 30px;
         letter-spacing: 2px;
         font-family: "Merriweather", serif;
         font-weight: 400;
@@ -91,8 +104,8 @@
       .content-text .top-text .number-certification .no-sertifikat {
         font-family: "Poppins", sans-serif;
         font-weight: 400;
-        font-size: 18px;
-        letter-spacing: 8px;
+        font-size: 28px;
+        letter-spacing: 2px;
       }
 
       .text-humma {
@@ -107,7 +120,7 @@
         margin-top: -10px;
         font-family: "Merriweather", serif;
         font-weight: 400;
-        font-size: 25px;
+        font-size: 30px;
         font-weight: 400;
         letter-spacing: 2px;
       }
@@ -119,7 +132,7 @@
       .content-text .text-humma .official {
         font-family: "Poppins", sans-serif;
         font-weight: 400;
-        font-size: 20px;
+        font-size: 25px;
         letter-spacing: 10px;
       }
 
@@ -128,11 +141,11 @@
       }
 
       .content-text .nama-peserta {
-        margin-top: -50px
+        margin-top: -90px
       }
 
       .content-text .nama-peserta p {
-        font-size: 72px;
+        font-size: 122px;
         font-family: "Great Vibes", cursive;
         font-weight: 400;
         color: #1c2143;
@@ -154,7 +167,7 @@
         margin-bottom: 5px;
         font-family: 'Open Sans', sans-serif;
         font-weight: 700;
-        font-size: 18px;
+        font-size: 28px;
         letter-spacing: 2px;
       }
 
@@ -163,7 +176,7 @@
         margin-bottom: 0;
         font-family: 'Open Sans', sans-serif;
         font-weight: 700;
-        font-size: 18px;
+        font-size: 28px;
         letter-spacing: 2px;
         text-transform: uppercase;
       }
@@ -178,7 +191,7 @@
       .content-text .gabungan .text-pujian p {
         margin-top: 0px;
         margin-bottom: 0;
-        font-size: 17px;
+        font-size: 27px;
         font-family: "Poppins", sans-serif;
         font-weight: 400;
         letter-spacing: 1px;
@@ -187,15 +200,15 @@
       .content-text .gabungan .text-devinisi p {
         margin-top: 0px;
         margin-bottom: 0;
-        font-size: 17px;
+        font-size: 27px;
         letter-spacing: 2px;
         font-family: "Poppins", sans-serif;
         font-weight: 700;
       }
 
       .guru {
-        height: 160px;
-        width: 650px;
+        height: 300px;
+        width: 100%;
         align-items: end;
         text-align: center;
         display: flex;
@@ -209,13 +222,13 @@
       .guru .guru-identitas .nama-guru {
         font-weight: 500;
         font-family: 'Poppins', sans-serif;
-        font-size: 16px;
+        font-size: 19px;
       }
 
       .guru .guru-identitas .title-guru {
         font-weight: 400;
         font-family: 'Poppins', sans-serif;
-        font-size: 13px;
+        font-size: 18px;
         letter-spacing: 4px;
       }
 
@@ -224,7 +237,8 @@
       }
     </style>
     <div class="image-certificate">
-      <img src="https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/certificate-bg.png" alt="Background Certificate" />
+      <img src="https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/certificate-bg.png"
+        alt="Background Certificate" />
     </div>
     <div class="content">
       <div class="content-text">
@@ -235,7 +249,8 @@
           <div class="number-certification">
             {{-- Bisa diganti --}}
             <p class="me-3" style="margin-right: 20px">No.</p>
-            <p class="no-sertifikat">{{ $certificate->nomor }}</p>
+            {{-- <p class="no-sertifikat">{{ $certificate->nomor }}</p> --}}
+            <p class="no-sertifikat">S e r / 0 0 0 1 / 0 0 0 3 / 2 0 1 0 / 2 0 2 3</p>
           </div>
         </div>
         <div class="text-humma">
@@ -248,17 +263,20 @@
         </div>
         <div class="nama-peserta">
           {{-- Bisa diganti --}}
-          <p>{{ $certificate->user->name }}</p>
+          <p>HummaCertify</p>
+          {{-- <p>{{ $certificate->user->name }}</p> --}}
           {{-- <img src="data:image/png;base64,{{ base64_encode(QrCode::format('png')->size(100)->generate($certificate->nomor)) }}" alt="QR Code"> --}}
         </div>
         <div class="identitas-murid-pendidikan">
           <div class="nisn-nis">
             {{-- Bisa diganti --}}
-            <p>{{ $certificate->user->password }}</p>
+            <p>1380282082038</p>
+            {{-- <p>{{ $certificate->user->password }}</p> --}}
           </div>
           <div class="asal-sekolah">
             {{-- Bisa diganti --}}
-            <p>{{ $certificate->user->institusi }}</p>
+            <p>HummaTech</p>
+            {{-- <p>{{ $certificate->user->institusi }}</p> --}}
           </div>
         </div>
         <div class="gabungan">
@@ -267,7 +285,8 @@
           </div>
           <div class="text-devinisi">
             {{-- Bisa diganti --}}
-            <p>Apprenticeship in {{ $certificate->bidang }} Division</p>
+            <p>Apprenticeship in Website Developer Division</p>
+            {{-- <p>Apprenticeship in {{ $certificate->bidang }} Division</p> --}}
           </div>
         </div>
         <div class="guru">
@@ -284,7 +303,7 @@
           <div class="qr-code">
             {{-- <img src="{{ QrCode::format('png')->size(100)->generate('https://contoh-link-sertifikat.com') }}" alt="QR Code"> --}}
             {{-- <img src="data:image/png;base64,{{ base64_encode(QrCode::format('png')->size(100)->generate('https://poe.com/')) }}" alt="QR Code"> --}}
-            {!! QrCode::size(100)->generate($certificate->nomor) !!}
+            {{-- {!! QrCode::size(100)->generate($certificate->nomor) !!} --}}
           </div>
           <div>
             <div class="guru-identitas">
