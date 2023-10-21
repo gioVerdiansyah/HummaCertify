@@ -17,4 +17,8 @@ class CertificateCategoriRepositori extends BaseRepository implements Certificat
     {
         return $this->model->get();
     }
+    public function getCategoryCertificate(int $id): mixed
+    {
+        return $this->model->query()->where("id", $id)->first();
+    }
 }

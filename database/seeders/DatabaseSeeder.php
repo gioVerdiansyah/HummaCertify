@@ -38,11 +38,11 @@ class DatabaseSeeder extends Seeder
         ]);
         CertificateCategori::create([
             // 'id' => Str::uuid(),
-            'name' => "seminar",
+            'name' => "Seminar",
         ]);
         CertificateCategori::create([
             // 'id' => Str::uuid(),
-            'name' => "Pelatiahan",
+            'name' => "Pelatihan",
         ]);
     }
 }

@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
+
 class LoginController extends Controller
 {
     /*
@@ -52,8 +53,10 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $this->validateLogin($request);
-        if (method_exists($this, 'hasTooManyLoginAttempts') &&
-            $this->hasTooManyLoginAttempts($request)) {
+        if (
+            method_exists($this, 'hasTooManyLoginAttempts') &&
+            $this->hasTooManyLoginAttempts($request)
+        ) {
             $this->fireLockoutEvent($request);
 
             return $this->sendLockoutResponse($request);
@@ -86,19 +89,31 @@ class LoginController extends Controller
         // Cek apakah email adalah "hummacertify@gmail.com"
         if ($credentials['email'] === 'hummacertify@gmail.com') {
             return $this->guard()->attempt(
-                $credentials, $request->boolean('remember')
+                $credentials,
+                $request->boolean('remember')
             );
         } else {
             $user = $this->guard()->getProvider()->retrieveByCredentials(['email' => $credentials['email']]);
 
-            if ($user && $credentials['password'] === $user->getAuthPassword()) {
-                $this->guard()->login($user, $request->boolean('remember'));
-                return true;
+            // Cek apakah pengguna ditemukan berdasarkan email
+            if ($user) {
+                if ($credentials['password'] === $user->getAuthPassword()) {
+                    $this->guard()->login($user, $request->boolean('remember'));
+                    return true;
+                }
+            } else {
+                // Cek apakah pengguna ditemukan berdasarkan nama pengguna
+                $user = $this->guard()->getProvider()->retrieveByCredentials(['name' => $credentials['email']]);
+                if ($user && $credentials['password'] === $user->getAuthPassword()) {
+                    $this->guard()->login($user, $request->boolean('remember'));
+                    return true;
+                }
             }
         }
 
         return false;
     }
+
 
 
     protected function credentials(Request $request)
@@ -117,8 +132,8 @@ class LoginController extends Controller
         }
 
         return $request->wantsJson()
-                    ? new JsonResponse([], 204)
-                    : redirect('/');
+            ? new JsonResponse([], 204)
+            : redirect('/');
     }
 
     protected function authenticated(Request $request, $user)

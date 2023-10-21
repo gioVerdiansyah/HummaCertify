@@ -11,6 +11,16 @@
     },
     "poppins": {
         "normal": "C:\\xampp\\htdocs\\HummaCertify\\storage\\fonts\/poppins_normal_442dffd12abdf0df26c14405d3f49bfa",
-        "500": "poppins_500_6a6f5e017da7e062546fd806ab3b249c"
+        "500": "C:\\xampp\\htdocs\\HummaCertify\\storage\\fonts\/poppins_500_6a6f5e017da7e062546fd806ab3b249c",
+        "bold": "poppins_bold_2d1c4b360c3ac297e98fc2cfd808a2cc"
+    },
+    "montserrat": {
+        "normal": "C:\\xampp\\htdocs\\HummaCertify\\storage\\fonts\/montserrat_normal_00833106404dc8458cdfb436c759f23d",
+        "500": "C:\\xampp\\htdocs\\HummaCertify\\storage\\fonts\/montserrat_500_1236ec90acb329158f494b3fcb44327e",
+        "bold": "montserrat_bold_5da7810bf4e960efe50d20e94a894069"
+    },
+    "playfair display": {
+        "normal": "C:\\xampp\\htdocs\\HummaCertify\\storage\\fonts\/playfair_display_normal_cadfef89c29522c6ef943454dc425843",
+        "bold": "playfair_display_bold_937de43669ffc4bc5a11df63c9a6eb77"
     }
 }

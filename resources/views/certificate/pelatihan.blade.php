@@ -32,18 +32,13 @@
         border-radius: 20px;
       }
 
-      .image-certificate {
+      .image-certificate, .image-certificate-belakang{
         position: absolute;
       }
 
-      .image-certificate img {
+      .image-certificate img, .image-certificate-belakang img {
         max-width: 100%;
         -webkit-print-color-adjust: exact;
-      }
-
-      img {
-        height: 100%;
-        max-width: 100%;
       }
 
       .certificate-guru {
@@ -199,16 +194,6 @@
         font-weight: 700;
         font-size: 18px;
       }
-
-      .image-certificate-belakang {
-        position: absolute;
-      }
-
-      .image-certificate-belakang img {
-        max-width: 100%;
-        -webkit-print-color-adjust: exact;
-      }
-
       .certificate-guru-belakang {
         position: absolute;
         width: 100%;
@@ -267,13 +252,13 @@
       <div class="depan">
         <section id="depan">
           <div class="image-certificate">
-            <img src="{{ asset('image/certificate-guru.png') }}" alt="">
+            <img src="https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/certificate-guru.png" alt="">
           </div>
           <div class="certificate-guru">
             <div class="content" style="top: 20%;">
               <div class="top-text d-flex" style="display: flex">
                 <div class="logo me-3">
-                  <img src="{{ asset('image/logo-circle-humma.png') }}" alt="">
+                  <img src="https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/logo-circle-humma.png" alt="">
                 </div>
                 <div class="text" style="margin-top: -35px">
                   <p class="pt-humma" style=" font-family: 'Poppins', sans-serif;">
@@ -302,7 +287,7 @@
                   style="display: flex; align-content: center; justify-content: center">
                   <p class="me-4">No.</p>
                   {{-- Bisa diganti (Nomer Sertifikat) --}}
-                  <p class="no-sertifikat">Ser/0003/03/omb/2023</p>
+                  <p class="no-sertifikat">{{ $certificate->nomor }}</p>
                 </div>
               </div>
               <div class="desc mt-1" style="font-size: 14px; line-height: 20px">
@@ -322,11 +307,11 @@
                 <div class="col-md-4">
                   <ul class="list-unstyled"style="list-style: none">
                     {{-- Nama --}}
-                    <li>: &nbsp;&nbsp; <span>Afri Mubarok, S.Kom</span></li>
+                    <li>: &nbsp;&nbsp; <span>{{ $certificate->user->name }}</span></li>
                     {{-- NIK --}}
-                    <li>: &nbsp;&nbsp; 3513050204920004</li>
+                    <li>: &nbsp;&nbsp; {{ $certificate->user->password }}</li>
                     {{-- Tempat, Tanggal Lahir --}}
-                    <li>: &nbsp;&nbsp; Probolinggo, 02 April 1992</li>
+                    <li>: &nbsp;&nbsp; {{ $certificate->user->ttl }}</li>
                   </ul>
                 </div>
               </div>
@@ -337,15 +322,17 @@
                 <div class="col-md-3 ms-3">
                   <ul class="list-unstyled" style="list-style: none">
                     <li class="fw-bold" style="font-weight: 700">Bidang</li>
+                    @isset($caertificate->sub_bidang)
                     <li class="fw-bold" style="font-weight: 700">Sub Bidang</li>
+                    @endisset
                   </ul>
                 </div>
                 <div class="col-md-4">
                   <ul class="list-unstyled" style="list-style: none">
-                    {{-- Bidang --}}
-                    <li>: &nbsp;&nbsp; Pemrograman Mobile App</li>
-                    {{-- Sub Bidang --}}
-                    <li>: &nbsp;&nbsp; Pemrograman Flutter</li>
+                    <li>: &nbsp;&nbsp; {{ $certificate->bidang }}</li>
+                    @isset($caertificate->sub_bidang)
+                    <li>: &nbsp;&nbsp; {{ $caertificate->sub_bidang }}</li>
+                    @endisset
                   </ul>
                 </div>
               </div>
@@ -358,7 +345,7 @@
                   <div class="atas">
                     <p>Ditetapkan di Malang</p>
                     {{-- Tanggal bisa dirubah --}}
-                    <p>Pada tanggal 23 Agustus 2023</p>
+                    <p>Pada tanggal {{ \Carbon\Carbon::createFromFormat('Y-m-d', $certificate->tanggal)->locale('id')->isoFormat('DD MMMM YYYY') }}</p>
                     <p>Oleh PT Hummatech Digital Indonesia</p>
                   </div>
                   <div class="bawah">
@@ -377,14 +364,14 @@
       <div class="belakang">
         <section id="belakang">
           <div class="image-certificate-belakang">
-            <img src="{{ asset('image/certificate-guru.png') }}" alt="">
+            <img src="https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/certificate-guru.png" alt="">
           </div>
           <div class="certificate-guru-belakang"
             style="position: absolute; width: 100%; justify-content: center; display: flex; top: 120%;">
             <div class="content-belakang">
               <div class="text-penilaian text-center" style="text-align: center">
                 <p>PENILAIAN UJI KOMPETENSI</p>
-                <p>UPSKILLING & RESKILLING PEMROGRAMAN MOBILE APP</p>
+                <p>UPSKILLING & RESKILLING {{ strtoupper($certificate->bidang) }}</p>
               </div>
               <div class="table-penilayan mb-4">
                 <table style="border-collapse: collapse; width: 100%">
@@ -396,46 +383,13 @@
                     </tr>
                   </thead>
                   <tbody>
+                    @foreach ($certificate->detailCertificates as $i => $cert)
                     <tr>
-                      <th style="text-align: center">1.</th>
-                      <td>Pengenalan dan Instalasi Flutter</td>
-                      <td style="text-align: center">8 JP</td>
+                      <th style="text-align: center">{{ ++$i }}.</th>
+                      <td>{{ $cert->materi }}</td>
+                      <td style="text-align: center">{{ $cert->jp }} JP</td>
                     </tr>
-                    <tr>
-                      <th style="text-align: center">2.</th>
-                      <td>Struktur Project Stateless dan Statefull Widget Flutter</td>
-                      <td style="text-align: center">8 JP</td>
-                    </tr>
-                    <tr>
-                      <th style="text-align: center">3.</th>
-                      <td>Navigator dan Route di Flutter</td>
-                      <td style="text-align: center">8 JP</td>
-                    </tr>
-                    <tr>
-                      <th style="text-align: center">4.</th>
-                      <td>Design UI/UX dengan Figma</td>
-                      <td style="text-align: center">8 JP</td>
-                    </tr>
-                    <tr>
-                      <th style="text-align: center">5.</th>
-                      <td>Pengenalan GetX di Flutter</td>
-                      <td style="text-align: center">8 JP</td>
-                    </tr>
-                    <tr>
-                      <th style="text-align: center">6.</th>
-                      <td>CRUD (Create, Read, Update, Delete) GetX dengan Firebase di Flutter</td>
-                      <td style="text-align: center">10 JP</td>
-                    </tr>
-                    <tr>
-                      <th style="text-align: center">7.</th>
-                      <td>Uji Kompetensi Pemrograman Mobile App dengan Flutter</td>
-                      <td style="text-align: center">10 JP</td>
-                    </tr>
-                    <tr style="font-weight: 700">
-                      <th style="text-align: center"></th>
-                      <td style="text-align: center">Total</td>
-                      <td style="text-align: center">60 JP</td>
-                    </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>
@@ -461,5 +415,13 @@
     </main>
   </div>
 </body>
-
+<script>
+    window.addEventListener('load', function() {
+      window.print();
+      window.onafterprint = function() {
+        window.close();
+        window.history.back();
+      };
+    });
+  </script>
 </html>

@@ -29,7 +29,7 @@ class CertificateController extends Controller
     public function getCertificate(string $id)
     {
         $certificate = $this->certificate->getId($id);
-        return view('certificate.kelulusan', compact('certificate'));
+        return $this->certificateService->printCertificate($certificate);
     }
 
     public function printAllCertificate(int $ct)
@@ -70,7 +70,6 @@ class CertificateController extends Controller
     {
         $dataRequest = $request->all();
         $data = $this->certificateService->createExists($dataRequest);
-        $this->certificate->store($data);
         return redirect()->back();
     }
 
