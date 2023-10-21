@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Mail\DemoMail;
+use App\Models\Certificate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class DemoTestController extends Controller
 {
+
     public function sendMail()
     {
         $data = [
@@ -27,8 +29,9 @@ class DemoTestController extends Controller
         // Encode QR code sebagai data URL
         $qrCodeDataUrl = 'data:image/png;base64,' . base64_encode($qrCode);
 
+        $certificate = Certificate::orderBy('created_at', 'desc')->first();
 
-        return view('certificate.demo', compact('qrCodeDataUrl', 'url'));
+        return view('certificate.generate.kelulusan', compact('certificate'));
     }
 
     public function repeater(){
