@@ -31,10 +31,14 @@
         height: 297mm;
       }
 
+      body {
+        margin: 0;
+      }
+
       .image-certificate {
         position: absolute;
         width: 100%;
-        height: 785px;
+        height: 795px;
       }
 
       .image-certificate img {
@@ -128,18 +132,20 @@
       }
 
       .content-text .nama-peserta {
-        margin-top: -50px
+        margin-top: -40px;
       }
 
       .content-text .nama-peserta p {
-        font-size: 72px;
+        font-size: 62px;
         font-family: "Great Vibes", cursive;
         font-weight: 400;
+        width: 900px;
         color: #1c2143;
         display: flex;
         justify-content: center;
         align-items: center;
         margin-bottom: 0;
+        text-align: center;
       }
 
       .content-text .identitas-murid-pendidikan {
@@ -195,11 +201,12 @@
 
       .guru {
         height: 160px;
-        width: 650px;
+        width: 100%;
         align-items: end;
         text-align: center;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
+        margin-top: 30px;
       }
 
       .guru .guru-identitas {
@@ -224,7 +231,8 @@
       }
     </style>
     <div class="image-certificate">
-      <img src="https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/certificate-bg.png" alt="Background Certificate" />
+      <img src="https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/certificate-bg.png" width="1115"
+        alt="Background Certificate" />
     </div>
     <div class="content">
       <div class="content-text">
@@ -249,7 +257,6 @@
         <div class="nama-peserta">
           {{-- Bisa diganti --}}
           <p>{{ $certificate->user->name }}</p>
-          {{-- <img src="data:image/png;base64,{{ base64_encode(QrCode::format('png')->size(100)->generate($certificate->nomor)) }}" alt="QR Code"> --}}
         </div>
         <div class="identitas-murid-pendidikan">
           <div class="nisn-nis">
@@ -282,8 +289,6 @@
             </div>
           </div>
           <div class="qr-code">
-            {{-- <img src="{{ QrCode::format('png')->size(100)->generate('https://contoh-link-sertifikat.com') }}" alt="QR Code"> --}}
-            {{-- <img src="data:image/png;base64,{{ base64_encode(QrCode::format('png')->size(100)->generate('https://poe.com/')) }}" alt="QR Code"> --}}
             {!! QrCode::size(100)->generate($certificate->nomor) !!}
           </div>
           <div>

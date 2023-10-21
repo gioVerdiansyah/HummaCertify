@@ -1,201 +1,208 @@
 @page {
-  width: 210mm;
-  height: 297mm;
+    width: 210mm;
+    height: 297mm;
 }
 
 main {
-  position: relative;
-  height: 785px;
+    position: relative;
+    height: 785px;
+}
+
+body {
+    margin: 0;
 }
 
 .image-certificate {
-  position: absolute;
-  width: 100%;
-  height: 785px;
+    position: absolute;
+    width: 100%;
+    height: 795px;
 }
 
 .image-certificate img {
-  height: 100%;
-  max-width: 100%;
+    height: 100%;
+    max-width: 100%;
 }
 
 .content {
-  margin: 0;
-  padding: 0;
-  top: 8%;
-  width: 100%;
-  height: 730px;
-  overflow: hidden;
-  position: absolute;
-  z-index: 2;
-  display: flex;
-  justify-content: center;
+    margin: 0;
+    padding: 0;
+    margin-top: 50px;
+    width: 100%;
+    height: 730px;
+    overflow: hidden;
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
 }
 
 .content-text .top-text {
-  line-height: 30px;
+    line-height: 30px;
 }
 
 .content-text .top-text .certificate-text {
-  font-family: "Merriweather", serif;
-  font-weight: 700;
-  font-size: 60px;
-  letter-spacing: 5px;
-  color: #02b1ef;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    font-size: 60px;
+    letter-spacing: 5px;
+    color: #02b1ef;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .content-text .top-text .certificate-text p {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .content-text .top-text .number-certification {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 19px;
-  letter-spacing: 2px;
-  font-family: "Merriweather", serif;
-  font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 19px;
+    letter-spacing: 2px;
+    font-family: "Merriweather", serif;
+    font-weight: 400;
 }
 
 .content-text .top-text .number-certification p {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .content-text .top-text .number-certification .no-sertifikat {
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  letter-spacing: 8px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: 8px;
 }
 
 .text-humma {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  line-height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 20px;
 }
 
 .content-text .text-humma .hummatech {
-  margin-top: -10px;
-  font-family: "Merriweather", serif;
-  font-weight: 400;
-  font-size: 25px;
-  font-weight: 400;
-  letter-spacing: 2px;
+    margin-top: -10px;
+    font-family: "Merriweather", serif;
+    font-weight: 400;
+    font-size: 25px;
+    font-weight: 400;
+    letter-spacing: 2px;
 }
 
 .content-text .text-humma .hummatech p {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .content-text .text-humma .official {
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-size: 20px;
-  letter-spacing: 10px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: 10px;
 }
 
 .content-text .text-humma .official p {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .content-text .nama-peserta {
-  margin-top: -50px
+    margin-top: -40px;
 }
 
 .content-text .nama-peserta p {
-  font-size: 72px;
-  font-family: "Great Vibes", cursive;
-  font-weight: 400;
-  color: #1c2143;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 0;
+    font-size: 62px;
+    font-family: "Great Vibes", cursive;
+    font-weight: 400;
+    width: 900px;
+    color: #1c2143;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0;
+    text-align: center;
 }
 
 .content-text .identitas-murid-pendidikan {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
 .content-text .identitas-murid-pendidikan .nisn-nis p {
-  margin-bottom: 5px;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 700;
-  font-size: 18px;
-  letter-spacing: 2px;
+    margin-bottom: 5px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 2px;
 }
 
 .content-text .identitas-murid-pendidikan .asal-sekolah p {
-  margin-top: 0px;
-  margin-bottom: 0;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 700;
-  font-size: 18px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+    margin-top: 0px;
+    margin-bottom: 0;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 .content-text .gabungan {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .content-text .gabungan .text-pujian p {
-  margin-top: 0px;
-  margin-bottom: 0;
-  font-size: 17px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  letter-spacing: 1px;
+    margin-top: 0px;
+    margin-bottom: 0;
+    font-size: 17px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    letter-spacing: 1px;
 }
 
 .content-text .gabungan .text-devinisi p {
-  margin-top: 0px;
-  margin-bottom: 0;
-  font-size: 17px;
-  letter-spacing: 2px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 700;
+    margin-top: 0px;
+    margin-bottom: 0;
+    font-size: 17px;
+    letter-spacing: 2px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
 }
 
 .guru {
-  height: 160px;
-  width: 650px;
-  align-items: end;
-  text-align: center;
-  display: flex;
-  justify-content: space-between;
+    height: 160px;
+    width: 100%;
+    align-items: end;
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 30px;
 }
 
 .guru .guru-identitas {
-  line-height: 5px;
+    line-height: 5px;
 }
 
 .guru .guru-identitas .nama-guru {
-  font-weight: 500;
-  font-family: 'Poppins', sans-serif;
-  font-size: 16px;
+    font-weight: 500;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
 }
 
 .guru .guru-identitas .title-guru {
-  font-weight: 400;
-  font-family: 'Poppins', sans-serif;
-  font-size: 13px;
-  letter-spacing: 4px;
+    font-weight: 400;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    letter-spacing: 4px;
 }
 
 .guru .qr-code {
-  transform: translate(0, 53px);
+    transform: translate(0, 53px);
 }
