@@ -302,7 +302,7 @@
           </div>
           <div class="qr-code">
             {{-- <img src="{{ QrCode::format('png')->size(100)->generate('https://contoh-link-sertifikat.com') }}" alt="QR Code"> --}}
-            {{-- <img src="data:image/png;base64,{{ base64_encode(QrCode::format('png')->size(100)->generate('https://poe.com/')) }}" alt="QR Code"> --}}
+            <img src="data:image/png;base64,{{ base64_encode(QrCode::format('png')->size(100)->generate('https://poe.com/')) }}" alt="QR Code">
             {{-- {!! QrCode::size(100)->generate($certificate->nomor) !!} --}}
           </div>
           <div>

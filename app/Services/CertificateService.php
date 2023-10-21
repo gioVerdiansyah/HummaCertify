@@ -62,8 +62,8 @@ class CertificateService
         $type = $this->getTypeCertificate($category);
         $certificateFileName = $certificate->id . '.pdf';
 
-        // Simpan sertifikat dalam direktori storage
-        $pdf = Pdf::loadView('certificate.' . $type, ['certificate' => $certificate]);
+        $pdf = PDF::setPaper('A4','landscape')->loadView('certificate.generate.' . $type, ['certificate' => $certificate]);
+
         $pdf->save(storage_path('app/public/sertifikat/' . $certificateFileName));
     }
 
@@ -131,7 +131,7 @@ class CertificateService
     {
         $category = $certificate->category->id;
         $type = $this->getTypeCertificate($category);
-        return view('certificate.' . $type, compact('certificate'));
+        return view('certificate.generate.' . $type, compact('certificate'));
     }
     public function printAllCertificate(array $dataRequest)
     {
