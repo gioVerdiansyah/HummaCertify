@@ -46,9 +46,9 @@ class CertificateController extends Controller
     }
     public function showDetail($id)
     {
-        $certificate = Certificate::with('detailCertificates')->where('id', $id)->first();
+        $certificate = $this->certificate->getId($id);
         return view('admin.certificate.detail', compact('certificate'));
-        // dd($detailCertificate);
+
     }
     public function storeDetail(DetailCertificateStoreRequest $request, $id)
     {

@@ -32,7 +32,12 @@
                 </div>
               </div>
             </div>
-            <div class="mb-4">
+            <div class="row">
+            <div class="mb-2 col-xxl-6">
+                <label for="">Instruktur</label>
+                <input type="text" class="form-control" name="instruktur">
+            </div>
+            <div class="mb-4 col-xxl-5">
                 <label for="" class="form-label">Predikat</label>
                 <select name="predikat" class="form-select" required>
                     <option disabled selected>--Pilih Predikat--</option>
@@ -41,6 +46,7 @@
                     <option value="Cukup" {{ old('predikat') == "Cukup" ? "selected" : '' }}>Cukup</option>
                     <option value="Kurang" {{ old('predikat') == "Kurang" ? "selected" : '' }}>Kurang</option>
                 </select>
+            </div>
             </div>
             <div class="hstack gap-2 justify-content-end">
               <input class="btn btn-success" data-repeater-create type="button" value="+ Add" />

@@ -63,7 +63,6 @@
                                 <label for="" class="form-label">Tanggal Acara</label>
                                 <input type="date" class="form-control" placeholder="dd/mm/yy" name="tanggal" value="{{ old('tanggal') }}">
                             </div>
-                          
                         </div>
                         <div class="col-6">
                         </div>

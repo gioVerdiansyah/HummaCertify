@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignUuid('certificate_id')->constrained()->cascadeOnDelete();
             $table->string('materi');
             $table->integer('jp');
+            $table->string('instruktur');
             $table->timestamps();
         });
     }

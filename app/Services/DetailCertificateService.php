@@ -25,6 +25,7 @@ class DetailCertificateService
                 'certificate_id' => $certificateId->id,
                 'materi' => $category['materi'],
                 'jp' => $category['jam_pelajaran'],
+                'instruktur' => $data['instruktur'],
             ];
             $detailCertificates[] = $detailCertificate;
         }
