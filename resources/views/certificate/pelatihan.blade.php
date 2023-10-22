@@ -102,7 +102,7 @@
 
       .certificate-guru .keterangan {
         position: absolute;
-        top: 475px;
+        top: 495px;
         right: 185px;
         line-height: 10px;
         font-family: "Montserrat", sans-serif;
