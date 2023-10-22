@@ -17,191 +17,131 @@
     </head>
 
     <body>
-        <main>
+        {{-- Depan --}}
+        <div id="certificate-1">
             <style>
                 @page {
                     size: A4 landscape;
                     margin: 0;
                 }
 
-                .certificate-guru .content hr {
-                    border: 2px solid;
-                    background-color: black;
-                    opacity: 1;
-                    border-radius: 20px;
+                body {
+                    margin: 0;
                 }
 
-                .image-certificate,
-                .image-certificate-belakang {
+                /* .image-certificate {
                     position: absolute;
-                }
+                    top: 0;
+                } */
+
+                /* .image-certificate-belakang {
+                    position: absolute;
+                    top: 1px;
+                } */
 
                 .image-certificate img,
                 .image-certificate-belakang img {
-                    width: 100%;
+                    max-width: 100%;
                     -webkit-print-color-adjust: exact;
                 }
 
+                .certificate-guru .no-sertifikat {
+                    position: absolute;
+                    display: flex;
+                    top: 173px;
+                    display: flex;
+                    font-family: "Merriweather", serif;
+                    font-size: 18px;
+                }
+
+                .certificate-guru .no-sertifikat .no {
+                    margin-right: 20px;
+                }
+
+                .certificate-guru .no-sertifikat .nomer {
+                    font-family: "Poppins", sans-serif;
+                    font-size: 17px;
+                    letter-spacing: 5px;
+                }
+
                 .certificate-guru {
-                    position: relative;
+                    position: absolute;
                     width: 100%;
                     justify-content: center;
                     display: flex;
                     top: 40px;
                 }
 
-                .certificate-guru .content {
-                    width: 730px;
-                }
-
-                .certificate-guru .content .top-text .logo {
-                    height: 110px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                }
-
-                .certificate-guru .content .top-text .logo img {
-                    width: 120px;
-                    height: 120px;
-                }
-
-                .certificate-guru .content .top-text .text {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                }
-
-                .certificate-guru .content .top-text .pt-humma {
-                    font-family: "Poppins", sans-serif;
-                    font-weight: 700;
-                    letter-spacing: 3px;
-                    font-size: 26px;
-                    margin-bottom: 0;
-                }
-
-                .certificate-guru .content .top-text .alamat {
-                    font-family: "Poppins", sans-serif;
-                    font-weight: 400;
-                    font-size: 14px;
-                    margin-bottom: 0;
-                }
-
-                .certificate-guru .content .top-text {
-                    text-align: center;
-                }
-
-                .certificate-guru .content .text-kopetensi {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    line-height: 15px;
-                }
-
-                .certificate-guru .content .text-kopetensi .sertifikat-kopetensi {
-                    font-size: 25px;
-                    font-family: "Merriweather", serif;
-                    font-weight: 700;
-                    text-transform: uppercase;
-                    letter-spacing: 5px;
-                }
-
-                .certificate-guru .content .text-kopetensi .number-certification {
-                    display: flex;
-                    font-family: "Merriweather", serif;
-                    font-size: 16px;
-                }
-
-                .certificate-guru .content .text-kopetensi .number-certification .no-sertifikat {
-                    font-family: "Poppins", sans-serif;
-                    font-size: 15px;
-                    letter-spacing: 5px;
-                }
-
-                .certificate-guru .content hr {
-                    margin-top: 0;
-                }
-
-                .certificate-guru .content .desc {
+                .certificate-guru .peserta {
+                    position: absolute;
+                    top: 307px;
+                    left: 385px;
+                    line-height: 9px;
                     font-family: "Montserrat", sans-serif;
                     font-weight: 500;
                     font-size: 14px;
-                }
-
-                .certificate-guru .content .desc span {
-                    font-family: "Montserrat", sans-serif;
-                    font-weight: 700;
-                }
-
-                .certificate-guru .content .identitas {
-                    display: flex;
-                    align-items: center;
-                    height: 100px;
-                    font-family: "Montserrat", sans-serif;
-                    font-weight: 500;
-                    font-size: 14px;
-                }
-
-                .certificate-guru .content .identitas span {
-                    font-weight: 700;
-                }
-
-                .certificate-guru .content .text-telah {
-                    font-family: "Montserrat", sans-serif;
-                    font-weight: 500;
-                    font-size: 14px;
-                }
-
-                .certificate-guru .content .bidang {
-                    font-family: "Montserrat", sans-serif;
-                    font-weight: 500;
-                    font-size: 14px;
-                }
-
-                .certificate-guru .content .bottom-finish .kiri p {
-                    font-family: "Montserrat", sans-serif;
-                    font-weight: 700;
-                }
-
-                .certificate-guru .content .bottom-finish .kanan {
-                    height: 210px;
-                    margin-top: -40px;
-                }
-
-                .certificate-guru .content .bottom-finish .kanan p {
-                    font-family: "Montserrat", sans-serif;
-                    font-weight: 500;
-                    font-size: 12px;
-                    margin-bottom: 0;
-                }
-
-                .certificate-guru .content .bottom-finish .kanan .atas {
-                    height: 70%;
-                }
-
-                .certificate-guru .content .bottom-finish .kanan .bawah .nama-direktur {
-                    font-weight: 700;
-                    font-size: 14px;
-                    letter-spacing: 0;
-                }
-
-                .certificate-guru .content .bottom-finish .kanan .bawah {
                     letter-spacing: 1px;
                 }
 
-                .certificate-guru .content .text-penilaian p {
-                    margin-bottom: 0;
-                    font-family: "Montserrat", sans-serif;
+                .certificate-guru .peserta .nama {
                     font-weight: 700;
-                    font-size: 18px;
                 }
 
+                .certificate-guru .peserta .ttl {
+                    letter-spacing: 0px;
+                }
+
+                .certificate-guru .kompeten {
+                    position: absolute;
+                    top: 438px;
+                    left: 385px;
+                    line-height: 12px;
+                    font-family: "Montserrat", sans-serif;
+                    font-weight: 700;
+                    font-size: 15px;
+                }
+
+                .certificate-guru .keterangan {
+                    position: absolute;
+                    top: 475px;
+                    right: 185px;
+                    line-height: 10px;
+                    font-family: "Montserrat", sans-serif;
+                    font-weight: 500;
+                    font-size: 13px;
+                }
+
+                .certificate-guru .text-penilaian {
+                    position: absolute;
+                    top: 575px;
+                    left: 213px;
+                    width: 80px;
+                    height: 60px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    font-family: "Montserrat", sans-serif;
+                    font-weight: 700;
+                    color: white;
+                    font-size: 16px;
+                    text-transform: uppercase
+                }
+
+                .depan{
+                    position: relative;
+                    z-index: 1;
+                }
+                .belakang,.image-certificate-belakang,#belakang{
+                    position: relative;
+                    /* transform: translateY(100%); */
+                }
                 .certificate-guru-belakang {
                     position: absolute;
                     width: 100%;
                     justify-content: center;
                     display: flex;
-                    top: 120%;
+                    top: 10%;
                 }
 
                 .certificate-guru-belakang .content-belakang {
@@ -219,6 +159,9 @@
                 }
 
                 .certificate-guru-belakang .content-belakang .instruktur {
+                    position: absolute;
+                    top: 450px;
+                    right: 100px;
                     height: 200px;
                 }
 
@@ -252,180 +195,99 @@
                     border: 1px solid black;
                 }
             </style>
-            <div class="depan">
-                <section id="depan">
-                    <div class="image-certificate">
-                        <img src="https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/certificate-guru.png"
-                            alt="">
-                    </div>
-                    <div class="certificate-guru">
-                        <div class="content" style="top: 20%;">
-                            <div class="top-text">
-                                <div class="logo me-3">
-                                    <img src="https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/logo-circle-humma.png"
-                                        alt="">
-                                </div>
-                                <div class="text">
-                                    <p class="pt-humma" style=" font-family: 'Poppins', sans-serif;">
-                                        PT. Hummatech Digital Indonesia
-                                    </p>
-                                    <p class="alamat" style="margin-bottom: 5px; margin-top: -5px">
-                                        Perum Permata Regency 1 Blok 10/28 Karangploso, Kabupaten Malang
-                                    </p>
-                                    <div class="d-flex justify-content-center mt-1"
-                                        style="gap: 0px 40px; display: flex; font-family: 'Poppins', sans-serif; font-size: 13px">
-                                        <div class="icon"><i class="bi bi-globe me-2"
-                                                style="margin-right: 10px"></i>www.hummasoft.com
-                                        </div>
-                                        <div class="icon"><i class="bi bi-envelope-fill me-2"
-                                                style="margin-right: 10px"></i>info@hummasoft.com</div>
-                                        <div class="icon"><i class="bi bi-telephone-fill me-2"
-                                                style="margin-right: 10px"></i>082132560566
-                                        </div>
-                                    </div>
-                                </div>
+            <main>
+                <div class="depan">
+                    <section id="depan">
+                        <div class="image-certificate">
+                            <img src="https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/certificate-guru-depan.png" alt="">
+                        </div>
+                        <div class="certificate-guru">
+                            {{-- No Sertifikat --}}
+                            <div class="no-sertifikat">
+                                <p class="no">No.</p>
+                                <p class="nomer">{{ $certificate->nomor }}</p>
                             </div>
-                            <hr>
-                            <div class="text-kopetensi mt-4">
-                                <p class="sertifikat-kopetensi" style="margin-bottom: 0">
-                                    Setifikat Kopetensi
-                                </p>
-                                <div class="number-certification mt-2"
-                                    style="display: flex; align-content: center; justify-content: center">
-                                    <p class="me-4">No.</p>
-                                    {{-- Bisa diganti (Nomer Sertifikat) --}}
-                                    <p class="no-sertifikat">{{ $certificate->nomor }}</p>
-                                </div>
+                            {{-- Detail Peserta --}}
+                            <div class="peserta">
+                                <p class="nama">{{ $certificate->user->name }}</p>
+                                <p class="nik">{{ $certificate->user->password }}</p>
+                                <p class="ttl">{{ $certificate->user->ttl }}</p>
                             </div>
-                            <div class="desc mt-1" style="font-size: 14px; line-height: 20px">
-                                Dengan ini menerangkan bahwa PT. Hummatech Digital Indonesia telah melaksanakan
-                                pelatihan dan uji
-                                kompetensi "<span>Upskilling & Reskilling Guru Kejuruan Berstandar Industri Pola SMK
-                                    PK-Magang
-                                    Industri</span>" kepada:
+                            {{-- Kompeten --}}
+                            <div class="kompeten">
+                                <p class="bidang">{{ $certificate->bidang }}</p>
+                                <p class="sub-bidang">{{ $certificate->sub_bidang }}</p>
                             </div>
-                            <div class="identitas mt-3 row">
-                                {{-- Bisa Diganti --}}
-                                <div class="col-md-3 ms-3">
-                                    <ul class="list-unstyled"style="list-style: none">
-                                        <li>Nama</li>
-                                        <li>NIK</li>
-                                        <li>Tempat, Tanggal Lahir</li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-4">
-                                    <ul class="list-unstyled"style="list-style: none">
-                                        <li>: &nbsp;&nbsp; <span>{{ $certificate->user->name }}</span></li>
-                                        <li>: &nbsp;&nbsp; {{ $certificate->user->password }}</li>
-                                        <li>: &nbsp;&nbsp; {{ $certificate->user->ttl }}</li>
-                                    </ul>
-                                </div>
+                            {{-- Nilai Medal --}}
+                            <div class="text-penilaian">
+                                <p>Baik</p>
                             </div>
-                            <div class="text-telah">
-                                <p>Telah dinyatakan kompeten dalam:</p>
-                            </div>
-                            <div class="bidang row" style="display: flex">
-                                <div class="col-md-3 ms-3">
-                                    <ul class="list-unstyled" style="list-style: none">
-                                        <li class="fw-bold" style="font-weight: 700">Bidang</li>
-                                        @isset($certificate->sub_bidang)
-                                            <li class="fw-bold" style="font-weight: 700">Sub Bidang</li>
-                                        @endisset
-                                    </ul>
-                                </div>
-                                <div class="col-md-4">
-                                    <ul class="list-unstyled" style="list-style: none">
-                                        <li>: &nbsp;&nbsp; {{ $certificate->bidang }}</li>
-                                        @isset($certificate->sub_bidang)
-                                            <li>: &nbsp;&nbsp; {{ $certificate->sub_bidang }}</li>
-                                        @endisset
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="bottom-finish row" style="display: flex; justify-content:space-between">
-                                <div class="col-md-6 ms-2 kiri">
-                                    <p style="margin-bottom: 0; font-size: 12px">DENGAN PREDIKAT</p>
-                                    <img style="width: auto;height: 130px"
-                                        src="https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/medal.png"
-                                        alt="">
-                                </div>
-                                <div class="col-md-5 kanan ms-5 ps-5" style="line-height: 5px">
-                                    <div class="atas">
-                                        <p>Ditetapkan di Malang</p>
-                                        {{-- Tanggal bisa dirubah --}}
-                                        <p>Pada tanggal
-                                            {{ \Carbon\Carbon::createFromFormat('Y-m-d', $certificate->tanggal)->locale('id')->isoFormat('DD MMMM YYYY') }}
-                                        </p>
-                                        <p>Oleh PT Hummatech Digital Indonesia</p>
-                                    </div>
-                                    <div class="bawah">
-                                        <p class="nama-direktur">
-                                            Afrizal Himawan, S.Kom
-                                        </p>
-                                        <p>DIREKTUR UTAMA</p>
-                                    </div>
-                                </div>
+                            <div class="keterangan">
+                                <p>Ditetapkan di Malang</p>
+                                <P>Pada Tanggal
+                                    {{ \Carbon\Carbon::createFromFormat('Y-m-d', $certificate->tanggal)->locale('id')->isoFormat('DD MMMM YYYY') }}
+                                </P>
+                                <p>Oleh PT Hummatech Digital Indonesia</p>
                             </div>
                         </div>
-                    </div>
-                </section>
-            </div>
+                    </section>
+                </div>
 
-            <div class="belakang">
-                <section id="belakang">
-                    <div class="image-certificate-belakang">
-                        <img src="https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/certificate-guru.png"
-                            alt="">
-                    </div>
-                    <div class="certificate-guru-belakang"
-                        style="position: absolute; width: 100%; justify-content: center; display: flex; top: 120%;">
-                        <div class="content-belakang">
-                            <div class="text-penilaian text-center" style="text-align: center">
-                                <p>PENILAIAN UJI KOMPETENSI</p>
-                                <p>UPSKILLING & RESKILLING {{ strtoupper($certificate->bidang) }}</p>
-                            </div>
-                            <div class="table-penilayan mb-4">
-                                <table style="border-collapse: collapse; width: 100%">
-                                    <thead>
-                                        <tr style="text-align: center">
-                                            <th colspan="1">No</th>
-                                            <th colspan="1">Materi</th>
-                                            <th colspan="1">Waktu</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($certificate->detailCertificates as $i => $cert)
-                                            <tr>
-                                                <th style="text-align: center">{{ ++$i }}.</th>
-                                                <td>{{ $cert->materi }}</td>
-                                                <td style="text-align: center">{{ $cert->jp }} JP</td>
+                <div class="belakang">
+                    <section id="belakang">
+                        <div class="image-certificate-belakang">
+                            <img src="https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/certificate-guru.png"
+                                alt="">
+                        </div>
+                        <div class="certificate-guru-belakang">
+                            <div class="content-belakang">
+                                <div class="text-penilaian text-center" style="text-align: center">
+                                    <p>PENILAIAN UJI KOMPETENSI</p>
+                                    <p>UPSKILLING & RESKILLING {{ strtoupper($certificate->bidang) }}</p>
+                                </div>
+                                <div class="table-penilayan mb-4">
+                                    <table style="border-collapse: collapse; width: 100%">
+                                        <thead>
+                                            <tr style="text-align: center">
+                                                <th width="10%">No</th>
+                                                <th width="75%">Materi</th>
+                                                <th width="40%">Waktu</th>
                                             </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="instruktur" style="display: flex; justify-content: end">
-                                <div class="col-md-8">
-
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($certificate->detailCertificates as $i => $cert)
+                                                <tr>
+                                                    <th style="text-align: center">{{ ++$i }}.</th>
+                                                    <td style="padding:0px 5px;">{{ $cert->materi }}</td>
+                                                    <td style="text-align: center">{{ $cert->jp }} JP</td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="atas" style="text-align: center">
-                                        <p>Instruktur</p>
+                                <div class="instruktur" style="display: flex; justify-content: end">
+                                    <div class="col-md-8">
+
                                     </div>
-                                    <div class="bawah text-center">
-                                        <p class="nama-instruktur" style="margin-bottom: 4px">Dito Cahya Pratama,
-                                            S.Tr.Kom</p>
-                                        <hr>
-                                        <p style="text-align: center; margin-top: 0px">Senior Developer Hummatech
-                                        </p>
+                                    <div class="col-md-4">
+                                        <div class="atas" style="text-align: center">
+                                            <p>Instruktur</p>
+                                        </div>
+                                        <div class="bawah text-center">
+                                            <p class="nama-instruktur" style="margin-bottom: 4px">Dito Cahya Pratama,
+                                                S.Tr.Kom</p>
+                                            <hr>
+                                            <p style="text-align: center; margin-top: 0px">Senior Developer Hummatech
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-            </div>
-        </main>
+                    </section>
+                </div>
+            </main>
+        </div>
     </body>
 
 </html>
