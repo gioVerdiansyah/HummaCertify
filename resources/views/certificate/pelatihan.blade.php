@@ -235,16 +235,16 @@
                 <table style="border-collapse: collapse; width: 100%">
                   <thead>
                     <tr style="text-align: center">
-                      <th colspan="1">No</th>
-                      <th colspan="1">Materi</th>
-                      <th colspan="1">Waktu</th>
+                      <th width="10%">No</th>
+                      <th width="75%">Materi</th>
+                      <th width="40%">Waktu</th>
                     </tr>
                   </thead>
                   <tbody>
                     @foreach ($certificate->detailCertificates as $i => $cert)
                     <tr>
                       <th style="text-align: center">{{ ++$i }}.</th>
-                      <td>{{ $cert->materi }}</td>
+                      <td style="padding:0px 5px;">{{ $cert->materi }}</td>
                       <td style="text-align: center">{{ $cert->jp }} JP</td>
                     </tr>
                     @endforeach
