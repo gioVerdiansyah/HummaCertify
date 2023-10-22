@@ -286,7 +286,7 @@
                             </p>
                         </div>
                         <div class="qr-code">
-                            <img src="data:image/png;base64,{{ base64_encode(QrCode::format('png')->size(100)->generate('https://poe.com/')) }}" alt="QR Code">
+                            <img src="data:image/png;base64,{{ base64_encode(QrCode::format('png')->merge('https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/logo-bg-blue.png', .3, true)->size(100)->generate('https://poe.com/')) }}" alt="QR Code">
                             <figcaption style="font-size: 10px">QR authenticity certificate</figcaption>
                         </div>
                         <div class="guru-identitas" style="position: absolute; top: 10%; right: 20%;">

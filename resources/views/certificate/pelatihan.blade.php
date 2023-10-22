@@ -322,7 +322,7 @@
                 <div class="col-md-3 ms-3">
                   <ul class="list-unstyled" style="list-style: none">
                     <li class="fw-bold" style="font-weight: 700">Bidang</li>
-                    @isset($caertificate->sub_bidang)
+                    @isset($certificate->sub_bidang)
                     <li class="fw-bold" style="font-weight: 700">Sub Bidang</li>
                     @endisset
                   </ul>
@@ -330,8 +330,8 @@
                 <div class="col-md-4">
                   <ul class="list-unstyled" style="list-style: none">
                     <li>: &nbsp;&nbsp; {{ $certificate->bidang }}</li>
-                    @isset($caertificate->sub_bidang)
-                    <li>: &nbsp;&nbsp; {{ $caertificate->sub_bidang }}</li>
+                    @isset($certificate->sub_bidang)
+                    <li>: &nbsp;&nbsp; {{ $certificate->sub_bidang }}</li>
                     @endisset
                   </ul>
                 </div>

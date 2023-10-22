@@ -31,7 +31,7 @@ class DemoTestController extends Controller
 
         $certificate = Certificate::orderBy('created_at', 'desc')->first();
 
-        return view('certificate.generate.kelulusan', compact('certificate'));
+        return view('certificate.generate.pelatihan', compact('certificate'));
     }
 
     public function repeater(){
