@@ -131,7 +131,7 @@ class CertificateService
     {
         $category = $certificate->category->id;
         $type = $this->getTypeCertificate($category);
-        return view('certificate.generate.' . $type, compact('certificate'));
+        return view('certificate.' . $type, compact('certificate'));
     }
     public function printAllCertificate(array $dataRequest)
     {

@@ -155,15 +155,18 @@
                 }
 
                 .content .content-text .identitas-murid-pendidikan .nisn-nis p {
-                    margin-bottom: 5px;
+                    margin-top: -5px;
                     font-family: 'Open Sans', sans-serif;
                     font-weight: 700;
                     font-size: 18px;
                     letter-spacing: 2px;
                 }
 
+                .content .content-text .identitas-murid-pendidikan .asal-sekolah{
+                    margin-top: -15px;
+                }
                 .content .content-text .identitas-murid-pendidikan .asal-sekolah p {
-                    margin-top: 0px;
+                    margin-top: -10px;
                     margin-bottom: 0;
                     font-family: 'Open Sans', sans-serif;
                     font-weight: 700;
@@ -189,9 +192,11 @@
                     letter-spacing: 1px;
                 }
 
+                .content .content-text .gabungan .text-devinisi{
+                    margin-top: -5px;
+                }
                 .content .content-text .gabungan .text-devinisi p {
-                    margin-top: 0px;
-                    margin-bottom: 0;
+                    margin-top: -3px;
                     font-size: 17px;
                     letter-spacing: 2px;
                     font-family: "Poppins", sans-serif;
@@ -213,8 +218,8 @@
                 }
 
                 .content .content-text .guru .guru-identitas .nama-guru {
-                    font-weight: 500;
-                    font-family: 'Poppins', sans-serif;
+                    font-family: "Poppins", sans-serif;
+                    font-weight: 700;
                     font-size: 16px;
                 }
 
@@ -225,7 +230,7 @@
                     letter-spacing: 4px;
                 }
                 .content .content-text .guru .qr-code{
-                    transform: translateY(15px);
+                    transform: translateY(45px);
                 }
             </style>
             <div class="image-certificate">
@@ -272,7 +277,7 @@
                         </div>
                     </div>
                     <div class="guru">
-                        <div class="guru-identitas" style="position: absolute; top: 10px; left: 25%">
+                        <div class="guru-identitas" style="position: absolute; top: 10%; left: 20%">
                             <p class="nama-guru">
                                 Afrizal Himawan, S.Kom
                             </p>
@@ -282,8 +287,9 @@
                         </div>
                         <div class="qr-code">
                             <img src="data:image/png;base64,{{ base64_encode(QrCode::format('png')->size(100)->generate('https://poe.com/')) }}" alt="QR Code">
+                            <figcaption style="font-size: 10px">QR authenticity certificate</figcaption>
                         </div>
-                        <div class="guru-identitas" style="position: absolute; top: 10px; right: 25%;">
+                        <div class="guru-identitas" style="position: absolute; top: 10%; right: 20%;">
                             <p class="nama-guru">
                                 Andika Wahyu P, S.Kom
                             </p>
