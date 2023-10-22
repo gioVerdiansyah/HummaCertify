@@ -234,8 +234,8 @@
               <div class="table-penilayan mb-4">
                 <table style="border-collapse: collapse; width: 100%">
                   <thead>
-                    <tr style="text-align: center">
-                      <th width="10%">No</th>
+                    <tr style="text-align: center;">
+                      <th width="10%" style="padding: 8px 0px;">No</th>
                       <th width="75%">Materi</th>
                       <th width="40%">Waktu</th>
                     </tr>
@@ -243,7 +243,7 @@
                   <tbody>
                     @foreach ($certificate->detailCertificates as $i => $cert)
                     <tr>
-                      <th style="text-align: center">{{ ++$i }}.</th>
+                      <th style="text-align: center; padding: 8px 0px;">{{ ++$i }}.</th>
                       <td style="padding:0px 5px;">{{ $cert->materi }}</td>
                       <td style="text-align: center">{{ $cert->jp }} JP</td>
                     </tr>
