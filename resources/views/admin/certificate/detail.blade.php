@@ -33,14 +33,19 @@
               </div>
             </div>
             <div class="row">
-            <div class="mb-2 col-xxl-6">
-                <label for="">Instruktur</label>
-                <input type="text" class="form-control" name="instruktur">
-            </div>
+
+                <div class="mb-2 col-xxl-6">
+                    <label for="">Instruktur</label>
+                    <input type="text" class="form-control" name="instruktur" id="" value="{{ $certificate->instruktur }}">
+                </div>
             <div class="mb-4 col-xxl-5">
                 <label for="" class="form-label">Predikat</label>
                 <select name="predikat" class="form-select" required>
-                    <option disabled selected>--Pilih Predikat--</option>
+                    @if ($certificate->predikat === null)
+                    <option disabled selected >--pilih predikat--</option>
+                    @else
+                    <option  value="{{ $certificate->predikat }}">{{ $certificate->predikat }}</option>
+                    @endif
                     <option value="Sangat Baik" {{ old('predikat') == "Sangat Baik" ? "selected" : '' }}>Sangat Baik</option>
                     <option value="Baik" {{ old('predikat') == "Baik" ? "selected" : '' }}>Baik</option>
                     <option value="Cukup" {{ old('predikat') == "Cukup" ? "selected" : '' }}>Cukup</option>

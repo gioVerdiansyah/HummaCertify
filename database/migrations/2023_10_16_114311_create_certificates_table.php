@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('status')->default('nonPrint');
             $table->string('sub_bidang')->nullable();
             $table->string('predikat')->nullable();
+            $table->string('instruktur')->nullable();
             $table->timestamps();
         });
     }

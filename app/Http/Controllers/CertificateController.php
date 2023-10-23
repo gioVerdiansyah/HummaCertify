@@ -43,17 +43,20 @@ class CertificateController extends Controller
         $certificate = $this->certificate->getId($id);
         $email = $certificate->user->email;
         Mail::to($email)->send(new SendCertificate($certificate));
+        return redirect()->back();
     }
     public function showDetail($id)
     {
         $certificate = $this->certificate->getId($id);
-        return view('admin.certificate.detail', compact('certificate'));
+        $detailCertificate = $this->detail->getId($id);
+        return view('admin.certificate.detail', compact('certificate','detailCertificate'));
 
     }
     public function storeDetail(DetailCertificateStoreRequest $request, $id)
     {
 
         $dataRequest = $request->all();
+        
         $datas = $this->detailCertificate->store($dataRequest, $id);
         foreach ($datas as $data) {
             $this->detail->store($data);

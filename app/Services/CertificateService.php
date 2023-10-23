@@ -50,6 +50,7 @@ class CertificateService
     {
         $data = [
             'predikat' => $dataRequest['predikat'],
+            'instruktur' => $dataRequest['instruktur'],
         ];
         return $data;
     }

@@ -25,7 +25,7 @@ class DetailCertificateStoreRequest extends FormRequest
             'category-group.*.materi' => 'required',
             'category-group.*.jam_pelajaran' => 'required|numeric',
             'predikat' => 'required',
-            'instruktur' => 'required',
+     
         ];
     }
     public function message(): array
