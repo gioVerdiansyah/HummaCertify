@@ -220,7 +220,7 @@
                             </div>
                             {{-- Nilai Medal --}}
                             <div class="text-penilaian">
-                                <p>Baik</p>
+                                <p>{{ $certificate->predikat }}</p>
                             </div>
                             <div class="keterangan">
                                 <p>Ditetapkan di Malang</p>

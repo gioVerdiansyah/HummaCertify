@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Certificate;
+use App\Models\DetailCertificate;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Services\PesertaService;
@@ -23,7 +25,7 @@ class PesertaController extends Controller
     private PesertaService $peserta;
 
 
-    public function __construct(DaftarPesertaRepository $user,CertificateRepository $certificate, CertificateService $serviceCertificate,CertificateCategoriRepositori $category, PesertaService $peserta)
+    public function __construct(DaftarPesertaRepository $user, CertificateRepository $certificate, CertificateService $serviceCertificate, CertificateCategoriRepositori $category, PesertaService $peserta)
     {
         $this->user = $user;
         $this->certificate = $certificate;
@@ -32,11 +34,12 @@ class PesertaController extends Controller
         $this->peserta = $peserta;
     }
 
-    public function index(Request $request){
+    public function index(Request $request)
+    {
         $certificates = $this->certificate->get();
         $categories = $this->categories->get();
 
-        if($request->all()){
+        if ($request->all()) {
             $certificates = $this->certificateService->searchCertificates($request->all());
         }
 
@@ -46,17 +49,8 @@ class PesertaController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        $categories = $this->categories->get();
-        return view('admin.certificate.create', compact('categories'));
-    }
-    public function createExist()
-    {
-        $categories = $this->categories->get();
-        $peserta = $this->user->get();
-        return view('admin.certificate.createExist', compact('categories', 'peserta'));
-    }
+
+
 
 
 
@@ -65,10 +59,57 @@ class PesertaController extends Controller
      */
     public function store(UserStoreRequest $request)
     {
-       $data = $request->all();
-       $id = $this->peserta->store($data);
-       $data =  $this->certificateService->create($data, $id);
-       return redirect()->back();
+        $data = $request->all();
+        // dd($data);
+
+        // Create peserta
+        $user = User::create(
+            [
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => $data['nomor_induk'],
+                'ttl' => $data['ttl'],
+                'institusi' => $data['institusi']
+            ]
+        );
+        $userUniq = $user->count();
+        $nomorUnik = str_pad($userUniq, 4, '0', STR_PAD_LEFT);
+        $nomorKategori = str_pad($data['certificate_categori_id'], 2, '0', STR_PAD_LEFT);
+        $bulan = date('m', strtotime($data['tanggal']));
+        $hari = date('d', strtotime($data['tanggal']));
+        $tahun = date('Y', strtotime($data['tanggal']));
+        $nomorSertifikat = 'Ser' . '/' . $nomorUnik . '/' . $nomorKategori . '/' . $hari . $bulan . '/' . $tahun;
+
+        // Create Sertifikat
+        $certificate = Certificate::create(
+            [
+                'user_id' => $user->id,
+                'certificate_categori_id' => $data['certificate_categori_id'],
+                'nomor' => $nomorSertifikat,
+                'tanggal' => $data['tanggal'],
+                'bidang' => $data['bidang'],
+                'predikat' => $data['predikat'],
+                'sub_bidang' => $data['sub_bidang'],
+                'instruktur' => $data['instruktur']
+            ]
+        );
+
+        // Create Detail jika ada
+        if (isset($data['category-group']['materi']) && isset($data['category-group']['jam_pelajaran'])) {
+            foreach ($data['category-group'] as $row) {
+                DetailCertificate::create([
+                    'certificate_id' => $certificate->id,
+                    'materi' => $row['materi'],
+                    'jp' => $row['jam_pelajaran']
+                ]);
+            }
+        }
+
+        return redirect()->back()->with('message', [
+            'icon' => "success",
+            'title' => "Berhasil!",
+            'text' => "Berhasil menambah sertifikat {$user->name}"
+        ]);
     }
 
 
@@ -95,7 +136,7 @@ class PesertaController extends Controller
     public function update(UserUpdateRequest $request, string $id)
     {
         $user = $request->validated();
-        $User = $this->user->update($id,$user);
+        $User = $this->user->update($id, $user);
         return redirect()->back();
     }
 

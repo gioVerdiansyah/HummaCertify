@@ -43,11 +43,9 @@ Route::middleware('AdminUp')->group(function () {
         Route::get('/list', function (){
             return view('admin.certificate.listSertifikat');
         });
-        Route::resource('/certificate', PesertaController::class);
-        Route::get('/certificate/create/exist', [PesertaController::class, 'createExist'])->name('certificate.create_exist');
-        Route::get('/certificate/{id}/create/detail', [CertificateController::class, 'showDetail'])->name('certificate.create_detail');
-        Route::post('/certificate/{id}/store/detail', [CertificateController::class, 'storeDetail'])->name('certificate.store_detail');
-        Route::post('/existCertificate',[CertificateController::class, 'createCertificateExists'])->name('existCertificate');
+        Route::resource('/certificate', CertificateController::class);
+        Route::get('/certificate/create/exist', [CertificateController::class, 'createExist'])->name('certificate.create_exist');
+        Route::post('/certificate/store/exist',[CertificateController::class, 'storeExists'])->name('certificate.store_exist');
 
         // print
         Route::get('/get_certificate/{id}', [CertificateController::class, 'getCertificate'])->name('getCertificate');

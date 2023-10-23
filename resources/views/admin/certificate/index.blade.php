@@ -64,7 +64,6 @@
                         </button>
                     </form>
                     <a href="{{ route('getCertificate', $certificate->id) }}" target="_blank" class="btn btn-info"><i class="bi bi-printer"></i> Print</a>
-                    <a href="{{ route('certificate.create_detail', $certificate->id) }}" class="btn btn-success"><i class="bi bi-plus"></i> Detail</a>
                   </td>
                 </tr>
               @endforeach
