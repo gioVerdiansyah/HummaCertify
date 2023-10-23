@@ -22,9 +22,9 @@ class DetailCertificateStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'category-group.*.materi' => 'required',
-            'category-group.*.jam_pelajaran' => 'required|numeric',
-            'predikat' => 'required',
+            'instruktur' => 'required|string',
+            'category-group.*.materi' => 'required|string|max:85',
+            'category-group.*.jam_pelajaran' => 'required|numeric|min:1|max:999',
         ];
     }
     public function message(): array

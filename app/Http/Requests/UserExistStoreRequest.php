@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserStoreRequest extends FormRequest
+class UserExistStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,15 +22,12 @@ class UserStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string',
-            'email' => 'nullable|email',
-            'nomor_induk' => 'required|gt:0',
-            'ttl' => 'required',
-            'institusi' => 'required|string',
+            'user_id' => 'required|exists:users,id',
+            'bidang' => 'required|string',
+            'tanggal' => 'required|date',
+            'sub_bidang' => 'nullable',
+            'certificate_categori_id'=>'required|exists:certificate_categoris,id',
+            'predikat' => 'required|in:Sangat Baik,Baik,Cukup,Kurang',
         ];
-    }
-    public function message(): array
-    {
-        return [];
     }
 }

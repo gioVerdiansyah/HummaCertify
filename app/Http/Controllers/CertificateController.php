@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CertificateStoreRequest;
+use App\Http\Requests\UserExistStoreRequest;
 use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UserUpdateRequest;
 use App\Models\User;
@@ -69,10 +71,18 @@ class CertificateController extends Controller
         $categories = CertificateCategori::select('id', 'name')->get();
         return view('admin.certificate.create', compact('categories'));
     }
-    public function store(UserStoreRequest $request)
+    public function store(Request $request)
     {
         $data = $request->all();
-        // dd($data);
+
+        // Validate User
+        $userStoreRequest = new UserStoreRequest;
+        $validator = \Validator::make($data, $userStoreRequest->rules());
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
 
         // Create peserta
         $user = User::create(
@@ -85,14 +95,18 @@ class CertificateController extends Controller
             ]
         );
 
+        // Validate User
+        $certificateStoreRequest = new CertificateStoreRequest;
+        $validator = \Validator::make($data, $certificateStoreRequest->rules());
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
         // Generate nomor sertifikat
-        $userUniq = $user->count();
-        $nomorUnik = str_pad($userUniq, 4, '0', STR_PAD_LEFT);
-        $nomorKategori = str_pad($data['certificate_categori_id'], 2, '0', STR_PAD_LEFT);
-        $bulan = date('m', strtotime($data['tanggal']));
-        $hari = date('d', strtotime($data['tanggal']));
-        $tahun = date('Y', strtotime($data['tanggal']));
-        $nomorSertifikat = 'Ser' . '/' . $nomorUnik . '/' . $nomorKategori . '/' . $hari . $bulan . '/' . $tahun;
+        $userUniq = User::count();
+        $nomorSertifikat = $this->generateCertificateNumber($userUniq, $data['certificate_categori_id'], $data['tanggal']);
 
         // Create Sertifikat
         $certificate = Certificate::create(
@@ -110,7 +124,7 @@ class CertificateController extends Controller
 
         // Create Detail jika ada
         if (isset($data['category-group'][0]['materi']) && isset($data['category-group'][0]['jam_pelajaran'])) {
-            $this->storeDetail($data, $certificate->id);
+            $this->storeDetail($request, $certificate->id);
         }
 
         // generate PDF
@@ -157,30 +171,35 @@ class CertificateController extends Controller
         return view('admin.certificate.createExist', compact('categories', 'peserta'));
 
     }
-    public function storeExists(Request $dataRequest)
+    public function storeExists(UserExistStoreRequest $request)
     {
+        $dataRequest = $request->all();
+        $user = User::findOrFail($dataRequest['user_id']);
 
         $uniq = User::count() + 1;
-        $userId = User::findOrFail($dataRequest['user_id']);
+        $nomorSertifikat = $this->generateCertificateNumber($uniq, $dataRequest['certificate_categori_id'], $dataRequest['tanggal']);
 
-        $nomorUnik = str_pad($uniq, 4, '0', STR_PAD_LEFT);
-        $nomorKategori = str_pad($dataRequest['certificate_categori_id'], 2, '0', STR_PAD_LEFT);
-        $bulan = date('m', strtotime($dataRequest['tanggal']));
-        $hari = date('d', strtotime($dataRequest['tanggal']));
-        $tahun = date('Y', strtotime($dataRequest['tanggal']));
-        $nomorSertifikat = 'Ser' . '/' . $nomorUnik . '/' . $nomorKategori . '/' . $hari . $bulan . '/' . $tahun;
-        $certificate = [
-            'user_id' => $userId->id,
+        $certificate = Certificate::create([
+            'user_id' => $user->id,
             'certificate_categori_id' => $dataRequest['certificate_categori_id'],
             'nomor' => $nomorSertifikat,
             'tanggal' => $dataRequest['tanggal'],
             'bidang' => $dataRequest['bidang'],
             'sub_bidang' => $dataRequest['sub_bidang'],
 
-        ];
-        $certificateId = Certificate::create($certificate);
-        $this->generateCertificate($certificateId);
-        return $certificate;
+        ]);
+
+        // Create Detail jika ada
+        if (isset($dataRequest['category-group'][0]['materi']) && isset($dataRequest['category-group'][0]['jam_pelajaran'])) {
+            $this->storeDetail($dataRequest, $certificate->id);
+        }
+
+        $this->generateCertificate($certificate->id);
+        return redirect()->back()->with('message', [
+            'icon' => 'success',
+            'title' => 'Berhasil!',
+            'text' => "Berhasil menambah sertifikat {$user->name}"
+        ]);
     }
 
     /**
@@ -198,6 +217,18 @@ class CertificateController extends Controller
     }
 
     // FUNCTIONAL
+    public function generateCertificateNumber($userUniq, $certificateCategoryId, $tanggal)
+    {
+        $nomorUnik = str_pad($userUniq, 4, '0', STR_PAD_LEFT);
+        $nomorKategori = str_pad($certificateCategoryId, 2, '0', STR_PAD_LEFT);
+        $bulan = date('m', strtotime($tanggal));
+        $hari = date('d', strtotime($tanggal));
+        $tahun = date('Y', strtotime($tanggal));
+
+        $nomorSertifikat = 'Ser' . '/' . $nomorUnik . '/' . $nomorKategori . '/' . $hari . $bulan . '/' . $tahun;
+
+        return $nomorSertifikat;
+    }
     public function generateCertificate(string $id)
     {
         $certificate = Certificate::with(['user', 'category', 'detailCertificates'])->where('id', $id)->first();
