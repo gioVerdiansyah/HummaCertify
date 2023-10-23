@@ -62,9 +62,7 @@ class CertificateService
         $category = $certificate->category->id;
         $type = $this->getTypeCertificate($category);
         $certificateFileName = $certificate->id . '.pdf';
-
         $pdf = PDF::setPaper('A4','landscape')->loadView('certificate.generate.' . $type, ['certificate' => $certificate]);
-
         $pdf->save(storage_path('app/public/sertifikat/' . $certificateFileName));
     }
 

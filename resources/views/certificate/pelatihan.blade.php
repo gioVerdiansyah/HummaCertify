@@ -24,7 +24,7 @@
         width: 210mm;
         height: 297mm;
       }
-      
+
       body {
         margin: 0;
       }
@@ -70,7 +70,7 @@
         display: flex;
         top: 40px;
       }
-      
+
       .certificate-guru .peserta {
         position: absolute;
         top: 307px;
