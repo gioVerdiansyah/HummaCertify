@@ -42,7 +42,7 @@ class CertificateService
             'sub_bidang' => $data['sub_bidang'],
         ];
         $certificateId = $this->certificate->store($certificate);
-        $this->generateCertificate($certificateId);
+        // $this->generateCertificate($certificateId);
         return $certificate;
     }
 
@@ -88,7 +88,7 @@ class CertificateService
 
         ];
         $certificateId = $this->certificate->store($certificate);
-        $this->generateCertificate($certificateId);
+        // $this->generateCertificate($certificateId);
         return $certificate;
     }
 

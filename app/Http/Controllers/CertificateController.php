@@ -61,6 +61,7 @@ class CertificateController extends Controller
         $certificate = $this->certificateService->update($dataRequest);
         $this->certificate->update($id, $certificate);
         $username = $this->certificate->getId($id)->user->name;
+        $this->certificateService->generateCertificate($id);
         return redirect()->route('certificate.index')->with('message', [
             'title' => "Berhasil!",
             'text' => "Berhasil menambah detail pada sertifikat {$username}"
