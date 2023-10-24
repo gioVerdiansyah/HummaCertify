@@ -14,24 +14,16 @@
 
 Is a service to search for your certificate on this landing page. On the Admin page we created an automatic certificate generation feature using just input, the Admin can also send the certificate to the recipient, and don't forget the main feature, namely printing the certificate
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 ### Built With
 * [![Laravel][Laravel.com]][Laravel-url]
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 * [![JQuery][JQuery.com]][JQuery-url]
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 <!-- CONTACT -->
 ## Contact
@@ -39,8 +31,6 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 Hummacertify - [@hummatech](https://instagram.com/hummatech) - hummacertify@gmail.com
 
 Project Link: [https://github.com/gioVerdiansyah/HummaCertify](https://github.com/your_username/repo_name)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 [product-screenshot]: https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/thumbnail-website.jpeg
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
