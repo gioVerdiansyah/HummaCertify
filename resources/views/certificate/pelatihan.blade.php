@@ -268,7 +268,7 @@
           </div>
           {{-- Nomer Sertifikat --}}
           <div class="nomer">
-            <p>S e r / 0 0 0 3 / 0 0 0 5 / 3 1 1 2 / 2 0 2 3</p>
+            <p>{{ $certificate->nomor }}</p>
           </div>
           <div class="kata-kata">
             <p>Dengan ini menerangkan bahwa PT. Hummatech Digital Indonesia telah melaksanakan pelatihan dan uji
