@@ -206,8 +206,7 @@ class CertificateController extends Controller
         $hari = date('d', strtotime($tanggal));
         $tahun = date('Y', strtotime($tanggal));
 
-        $nomorSertifikat =  $nomorUnik . $nomorKategori .  $hari . $bulan .  $tahun;
-        // $nomorSertifikat = 'Ser' . '/' . $nomorUnik . '/' . $nomorKategori . '/' . $hari . $bulan . '/' . $tahun;
+        $nomorSertifikat = 'Ser' . '/' . $nomorUnik . '/' . $nomorKategori . '/' . $hari . $bulan . '/' . $tahun;
 
 
         return $nomorSertifikat;

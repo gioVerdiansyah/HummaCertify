@@ -74,20 +74,22 @@
                                 <label for="certificate_categori_id" class="form-label">Kategori Sertifikat</label>
                                 <select name="certificate_categori_id" class="form-select @error('certificate_categori_id') is-invalid
                                 @enderror">
+
                                     <option disabled selected>--Pilih Kategori--</option>
                                     @foreach ($categories as $category)
                                         <option value="{{ $category->id }}" {{ old('certificate_categori_id') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
-                                        @error('certificate_categori_id')
-                                        <div class="invalid-feedback">
-                                            <p>{{ $message }}</p>
-                                        </div>
-                                        @enderror
+
                                     @endforeach
                                 </select>
+                                @error('certificate_categori_id')
+                                <div class="invalid-feedback">
+                                    <p>{{ $message }}</p>
+                                </div>
+                                @enderror
                             </div>
                             <div class="col-12 mb-4">
                                 <label for="bidang" class="form-label">Bidang/Division</label>
-                                <input type="text" class="form-control @error('bidang')
+                                <input type="text" class="form-control @error('bidang') is-invalid
                                 @enderror" placeholder="Bidang yang diikuti peserta"
                                     id="bidang" name="bidang"
                                     value="{{ old('bidang') }}">
@@ -111,19 +113,21 @@
                             </div>
                             <div class="col-12 mb-4">
                                 <label for="tanggal" class="form-label">Tanggal Acara</label>
-                                <input type="date" class="form-control" placeholder="dd/mm/yy" name="tanggal"
+                                <input type="date" class="form-control @error('tanggal') is-invalid
+                                @enderror" placeholder="dd/mm/yy" name="tanggal"
                                     id="tanggal" value="{{ old('tanggal') }}">
+                                    @error('tanggal')
+                                    <div class="invalid-feedback">
+                                        <p>{{ $message }}</p>
+                                    </div>
+                                    @enderror
                             </div>
                             <div class="col-12 mb-4">
                                 <label for="predikat" class="form-label">Predikat</label>
                                <select name="predikat" class="form-select @error('predikat') is-invalid
                                 @enderror" id="predikat">
-                                @error('predikat')
-                                <div class="invalid-feedback">
-                                    <p>{{ $message }}</p>
-                                </div>
-                                @enderror
-                                    <option disabled selected>--Pilih Predikat--</option>
+                                <option disabled selected>--Pilih Predikat--</option>
+
                                     <option value="Sangat Baik" {{ old('predikat') == 'Sangat Baik' ? 'selected' : '' }}>
                                         Sangat Baik</option>
                                     <option value="Baik" {{ old('predikat') == 'Baik' ? 'selected' : '' }}>
@@ -135,6 +139,11 @@
                                     <option value="Kurang" {{ old('predikat') == 'Kurang' ? 'selected' : '' }}>Kurang
                                     </option>
                                 </select>
+                                @error('predikat')
+                                <div class="invalid-feedback">
+                                    <p>{{ $message }}</p>
+                                </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-12 header-label">
@@ -162,10 +171,10 @@
                                                 <div class="d-flex flex-row">
                                                     <div class="col-6 mb-4 pe-3">
                                                         <label for="unknown" class="form-label">Materi</label>
-                                                        <input type="text" class="form-control @error('materi') is-invalid
+                                                        <input type="text" class="form-control @error('category-group.*.materi') is-invalid
                                                         @enderror" placeholder="materi"
                                                             name="materi" value="">
-                                                            @error('materi')
+                                                            @error('category-group.*.materi')
                                                             <div class="invalid-feedback">
                                                                 <p>{{ $message }}</p>
                                                             </div>

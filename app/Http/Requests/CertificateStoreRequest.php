@@ -24,8 +24,8 @@ class CertificateStoreRequest extends FormRequest
         return [
             // user
             'name' => 'required|string',
-            'email' => 'nullable|email',
-            'nomor_induk' => 'required|string',
+            'email' => 'required|email',
+            'nomor_induk' => 'required|string|min:8',
             'ttl' => 'required',
             'institusi' => 'required|string',
             // certificate
@@ -34,10 +34,40 @@ class CertificateStoreRequest extends FormRequest
             'sub_bidang' => 'nullable',
             'certificate_categori_id' => 'required|exists:certificate_categoris,id',
             'predikat' => 'required|in:Sangat Baik,Baik,Cukup,Kurang',
+            'instruktur' => 'required',
             // detail
             'category-group.*.materi' => 'nullable|string|max:85|required_with:category-group.*.jam_pelajaran',
             'category-group.*.jam_pelajaran' => 'nullable|numeric|gt:1|max:999|required_with:category-group.*.materi',
-            'instruktur' => 'nullable|string|required_with:category-group.*.materi,category-group.*.jam_pelajaran',
+
+        ];
+    }
+
+    public function message(): array
+    {
+        return [
+            //peserta
+            'name.required' => 'nama harus di isi',
+            'name.string' => 'nama harus berupa huruf tidak boleh angka',
+            'email.required' => 'email harus di isi',
+            'email.email' => 'email harus berformat email',
+            'ttl.required' => 'ttl harus di isi',
+            'institusi.required' => 'institusi harus di isi',
+            'nomor_induk.required' => 'nomor induk harus di isi',
+            'nomor_induk.min' => 'nomor induk minimal :min',
+            //certificate
+            'bidang.required' => 'bidang harus di isi',
+            'tanggal.required' => 'tanggal harus di isi',
+            'tanggal.date' => 'tanggal harus berbentuk date',
+            'certificate_categori_id.required' => 'kategori sertificate harus di isi',
+            'certificate_categori_id.exists' => 'kategori tidak di temukan',
+            'predikat.required' => 'predikat harus di isi',
+            'predikat.in' => 'data predikat tidak cocok',
+            'instruktur.required' => 'instruktur harus di isi',
+            //detail
+            'categori-group.*materi.max' => 'materi maximal :max',
+            'categori-group.*materi.required_with' => 'data harus di isi',
+            'categori-group.*jam_pelajaran.numeric' => 'jam pelajaran harus :numeric',
+            'categori-group.*jam_pelajaran.max' => 'jam pelajaran maximal :max',
         ];
     }
 }
