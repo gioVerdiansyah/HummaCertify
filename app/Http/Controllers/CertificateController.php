@@ -306,7 +306,12 @@ class CertificateController extends Controller
     {
         $certificate = Certificate::with(['user', 'category', 'detailCertificates'])->where('id', $id)->first();
         $email = $certificate->user->email;
-        Mail::to($email)->send(new SendCertificate($certificate));
-        return redirect()->back();
+        $type = $this->getTypeCertificate($certificate->category->id);
+        Mail::to($email)->send(new SendCertificate($certificate, $type));
+        return redirect()->back()->with('message', [
+            'icon' => "success",
+            'title' => 'Berhasil!',
+            'text' => "Berhasil mengirim sertifikat {$type} ke email {$email}"
+        ]);
     }
 }

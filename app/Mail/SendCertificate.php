@@ -16,14 +16,15 @@ class SendCertificate extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $certificate;
+    public $certificate, $type;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($certificate)
+    public function __construct($certificate, $type)
     {
         $this->certificate = $certificate;
+        $this->type = ucfirst($type);
     }
 
     public function build()
@@ -33,7 +34,7 @@ class SendCertificate extends Mailable
         $pdfPath = storage_path('app/public/sertifikat/' . $certificateId . '.pdf');
         return $this->view('emails.kelulusan')
             ->attach($pdfPath, [
-                'as' => "Sertifikat-{$certificate->category->name}",
+                'as' => "Sertifikat-{$this->type}-HummaTech",
                 'mime' => 'application/pdf',
             ]);
     }
@@ -44,7 +45,7 @@ class SendCertificate extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Pengiriman Sertifikat HummaTech'
+            subject: "Sertifikat {$this->type} HummaTech"
         );
     }
 
@@ -57,6 +58,7 @@ class SendCertificate extends Mailable
      */
     public function content(): Content
     {
+        $type = strtolower($this->type);
         return new Content(
             view: 'emails.kelulusan',
         );

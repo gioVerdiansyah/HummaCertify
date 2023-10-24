@@ -1,7 +1,11 @@
 @extends('layouts.nav-admin')
-
+<div class="loading-container" id="loading">
+    <div class="loading"></div>
+    <div id="loading-text">Loading...</div>
+</div>
 @section('content')
   <link rel="stylesheet" href="{{ asset('css/admin/AdminDataTable.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/admin/loading.css') }}">
   <div class="tambah-container">
     <div class="tambah-container-body">
       <div class="card-body">
@@ -25,7 +29,7 @@
             </div>
             <div class="col-3">
               <form action="" method="GET" class="d-flex align-items-center gap-3"
-                onsubmit="event.preventDefault();var currentUrl = window.location.href;if (currentUrl.includes('ct=')) {window.location.href = currentUrl + '&q=' + document.getElementsByName('q')[0].value;}else{this.submit();}">
+                onsubmit="document.getElementById('loading').style.display = 'flex';event.preventDefault();var currentUrl = window.location.href;if (currentUrl.includes('ct=')) {window.location.href = currentUrl + '&q=' + document.getElementsByName('q')[0].value;}else{this.submit();}">
                 <div class="input-group">
                   <input type="search" name="q" class="form-control rounded-start py-2" placeholder="Cari Sertifikat..." value="{{ request('q') }}" />
                 </div>
@@ -57,7 +61,7 @@
                   <td>{{ $certificate->user->name }}</td>
                   <td>{{ $certificate->category->name }}</td>
                   <td class="d-flex gap-2 justify-content-center align-items-center">
-                    <form action="{{ route('sendCertificate', $certificate->id) }}" method="POST">
+                    <form action="{{ route('sendCertificate', $certificate->id) }}" method="POST" onsubmit="document.querySelector('#loading-text').innerText = 'Sending...';document.getElementById('loading').style.display = 'flex'" class="m-0">
                         @csrf
                         <button type="submit" class="btn btn-primary">
                             <i class="bi bi-send"></i> Kirim
@@ -86,6 +90,7 @@
   </div>
   <script>
     document.getElementById('categorySelect').addEventListener('change', function() {
+      document.getElementById('loading').style.display = 'flex';
       var selectedCategoryId = this.value;
       var currentUrl = window.location.href;
       var newUrl;

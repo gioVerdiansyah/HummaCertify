@@ -66,13 +66,13 @@
     @endif
   @endforeach
   <script>
-    window.addEventListener('load', function() {
+    window.onload = function() {
       window.print();
       window.onafterprint = function() {
         window.close();
         window.history.back();
       };
-    });
+    };
   </script>
 </body>
 

@@ -1,10 +1,11 @@
 @extends('layouts.nav-admin')
-<div class="loading-container" id="loading" style="">
+<div class="loading-container" id="loading">
     <div class="loading"></div>
     <div id="loading-text">Creating...</div>
 </div>
 @section('content')
     <link rel="stylesheet" href="{{ asset('css/admin/AdminAdd.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin/loading.css') }}">
     <div class="tambah-container">
         <div class="tambah-container-body">
             <div class="card-body">

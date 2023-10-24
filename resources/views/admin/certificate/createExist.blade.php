@@ -1,5 +1,5 @@
 @extends('layouts.nav-admin')
-<div class="loading-container" id="loading" style="">
+<div class="loading-container" id="loading">
     <div class="loading"></div>
     <div id="loading-text">Creating...</div>
 </div>
@@ -8,6 +8,7 @@
         <p>{{ $error }}</p>
     @endforeach
     <link rel="stylesheet" href="{{ asset('css/admin/AdminExist.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin/loading.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <div class="tambah-container">
