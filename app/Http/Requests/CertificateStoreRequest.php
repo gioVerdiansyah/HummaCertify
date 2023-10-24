@@ -24,7 +24,7 @@ class CertificateStoreRequest extends FormRequest
         return [
             // user
             'name' => 'required|string',
-            'email' => 'required|email',
+            'email' => 'nullable|email',
             'nomor_induk' => 'required|string|min:8',
             'ttl' => 'required',
             'institusi' => 'required|string',

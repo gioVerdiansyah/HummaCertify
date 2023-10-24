@@ -1,5 +1,8 @@
 @extends('layouts.nav-admin')
-
+<div class="loading-container" id="loading" style="">
+    <div class="loading"></div>
+    <div id="loading-text">Creating...</div>
+</div>
 @section('content')
 @foreach ($errors->all() as $error)
         <p>{{ $error }}</p>
@@ -10,7 +13,7 @@
     <div class="tambah-container">
         <div class="tambah-container-body">
             <div class="card-body">
-                <form action="{{ route('certificate.store_exist') }}" method="post">
+                <form action="{{ route('certificate.store_exist') }}" method="post" onsubmit="document.getElementById('loading').style.display = 'flex'">
                     @csrf
                     <div class="row">
                         <div class="col-12 d-flex">

@@ -1,12 +1,14 @@
 @extends('layouts.nav-admin')
-
+<div class="loading-container" id="loading" style="">
+    <div class="loading"></div>
+    <div id="loading-text">Creating...</div>
+</div>
 @section('content')
-
     <link rel="stylesheet" href="{{ asset('css/admin/AdminAdd.css') }}">
     <div class="tambah-container">
         <div class="tambah-container-body">
             <div class="card-body">
-                <form action="{{ route('certificate.store') }}" method="POST">
+                <form action="{{ route('certificate.store') }}" method="POST" id="myform" onsubmit="document.getElementById('loading').style.display = 'flex'">
                     @csrf
                     <div class="row">
                         <div class="col-md-6">
@@ -33,7 +35,7 @@
                                     @enderror
                             </div>
                             <div class="col-12 mb-4">
-                                <label for="email" class="form-label">Email peserta</label>
+                                <label for="email" class="form-label">Email peserta (opsional)</label>
                                 <input type="text" class="form-control @error('email') is-invalid
                                 @enderror" placeholder="Email peserta" name="email"
                                     id="email" value="{{ old('email') }}">
@@ -100,7 +102,7 @@
                                     @enderror
                             </div>
                             <div class="col-12 mb-4">
-                                <label for="subBidang" class="form-label">Sub Bidang</label>
+                                <label for="subBidang" class="form-label">Sub Bidang (opsional)</label>
                                 <input type="text" class="form-control @error('sub_bidang') is-invalid
                                 @enderror" placeholder="Sub bidang peserta" id="subBidang"
                                     name="sub_bidang"
@@ -184,8 +186,8 @@
                                                         <label for="unknown" class="form-label">Jam
                                                             Pelajaran</label>
                                                         <div class="d-flex flex-row">
-                                                            <input type="number" class="form-control @error('jam_pelajaran') is-invalid
-                                                            @enderror"name="jam_pelajaran" id="jamPelajaran"
+                                                            <input type="number" name="jam_pelajaran" class="form-control @error('jam_pelajaran') is-invalid
+                                                            @enderror" id="jamPelajaran"
                                                                 placeholder="Jam Pelajaran">
                                                                 @error('jam_pelajaran')
                                                                 <div class="invalid-feedback">
