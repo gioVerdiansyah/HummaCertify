@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CertificateStoreRequest;
 use App\Http\Requests\UserExistStoreRequest;
-use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UserUpdateRequest;
 use App\Models\User;
 use App\Models\Certificate;
@@ -15,7 +14,6 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\DetailCertificate;
 use App\Models\CertificateCategori;
 use Illuminate\Support\Facades\Mail;
-use App\Http\Requests\DetailCertificateStoreRequest;
 
 
 class CertificateController extends Controller
@@ -71,18 +69,9 @@ class CertificateController extends Controller
         $categories = CertificateCategori::select('id', 'name')->get();
         return view('admin.certificate.create', compact('categories'));
     }
-    public function store(Request $request)
+    public function store(CertificateStoreRequest $request)
     {
-        $data = $request->all();
-
-        // Validate User
-        $userStoreRequest = new UserStoreRequest;
-        $validator = \Validator::make($data, $userStoreRequest->rules());
-        if ($validator->fails()) {
-            return redirect()->back()
-                ->withErrors($validator)
-                ->withInput();
-        }
+        $data = $request->validated();
 
         // Create peserta
         $user = User::create(
@@ -94,15 +83,6 @@ class CertificateController extends Controller
                 'institusi' => $data['institusi']
             ]
         );
-
-        // Validate User
-        $certificateStoreRequest = new CertificateStoreRequest;
-        $validator = \Validator::make($data, $certificateStoreRequest->rules());
-        if ($validator->fails()) {
-            return redirect()->back()
-                ->withErrors($validator)
-                ->withInput();
-        }
 
         // Generate nomor sertifikat
         $userUniq = User::count();
@@ -167,7 +147,7 @@ class CertificateController extends Controller
     public function createExist()
     {
         $categories = CertificateCategori::select('id', 'name')->get();
-        $peserta = User::select('id', 'name')->get();
+        $peserta = User::whereNotIn('name', ['HummaCertify', 'User'])->select('id', 'name')->get();
 
         return view('admin.certificate.createExist', compact('categories', 'peserta'));
 
