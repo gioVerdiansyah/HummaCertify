@@ -52,7 +52,7 @@
                 .depan .content .kata-kata {
                     position: relative;
                     top: 260px;
-                    left: 162px;
+                    left: 155px;
                     width: 820px;
                     font-family: "Montserrat", sans-serif;
                     font-weight: 500;
@@ -68,15 +68,15 @@
                 .depan .content .no {
                     position: absolute;
                     top: 217px;
-                    left: 375px;
+                    left: 360px;
                     font-family: "Merriweather", serif;
                     font-size: 18px;
                 }
 
                 .depan .content .nomer {
                     position: absolute;
-                    top: 212px;
-                    left: 421px;
+                    top: 214.5px;
+                    left: 407px;
                     font-family: "Poppins", sans-serif;
                     font-weight: 400;
                     font-size: 18px;
@@ -187,7 +187,7 @@
 
                 .belakang .certificate-guru-belakang .table-penilayan {
                     position: absolute;
-                    top: 24%;
+                    top: 16.5%;
                     left: 20%;
                     width: 60%;
                 }
@@ -219,7 +219,7 @@
 
                 .belakang .certificate-guru-belakang .tanda-tangan .nama-instruktur {
                     position: absolute;
-                    top: 84.4%;
+                    top: 84%;
                     right: 4.4%;
                     font-family: "Montserrat", sans-serif;
                     font-size: 18.9px;
@@ -230,7 +230,7 @@
 
                 .belakang .certificate-guru-belakang .tanda-tangan .skill {
                     position: absolute;
-                    top: 88.6%;
+                    top: 88.3%;
                     right: 8%;
                     font-family: "Montserrat", sans-serif;
                     font-size: 17.5px;
@@ -239,7 +239,7 @@
 
                 .belakang .certificate-guru-belakang .text-penilaian {
                     position: absolute;
-                    top: 12.6%;
+                    top: 5.6%;
                     left: 10.2%;
                     font-family: "Montserrat", sans-serif;
                     font-size: 24px;
