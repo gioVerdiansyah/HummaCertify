@@ -185,9 +185,12 @@ class CertificateController extends Controller
 
     public function edit(string $id)
     {
+
         $certificate = Certificate::with('user', 'category', 'detailCertificates')->where('id', $id)->firstOrFail();
         $categories = CertificateCategori::select('id', 'name')->get();
-        return view('admin.certificate.edit', compact('categories', 'certificate'));
+        $details = DetailCertificate::where('certificate_id', $id)->get();
+
+        return view('admin.certificate.edit', compact('categories', 'certificate','details'));
     }
 
     /**
@@ -195,6 +198,37 @@ class CertificateController extends Controller
      */
     public function update(UserUpdateRequest $request, string $id)
     {
+        $certificate = Certificate::findOrFail($id);
+        $user = User::findOrFail($certificate->user_id);
+
+        $dataUser = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->nomor_induk,
+            'ttl' => $request->ttl,
+            'institusi' => $request->institusi,
+        ];
+        $user->update($dataUser);
+
+        $dataCertificate = [
+            'certificate_categori_id' => $request->certificate_categori_id,
+            'tanggal' => $request->tanggal,
+            'bidang' => $request->bidang,
+            'sub_bidang' => $request->sub_bidang,
+        ];
+        $certificate->update($dataCertificate);
+
+
+        foreach ($request['category-group'] as $category) {
+            $detailCertificate = [
+                'materi' => $category['materi'],
+                'jp' => $category['jam_pelajaran'],
+            ];
+
+            $detail = DetailCertificate::findOrFail($category['detail_id']);
+            $detail->update($detailCertificate);
+        }
+        return redirect()->route('certificate.index');
     }
 
     /**

@@ -25,7 +25,7 @@ class UserUpdateRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'email' => ['required', Rule::unique('users', 'email')->ignore($this->email)],
+            'email' => 'required',
             'nomor_induk' => 'required|gt:0',
             'certificate_categori_id'=>'required|exists:certificate_categoris,id',
             'tanggal' => 'required|date',
@@ -33,7 +33,9 @@ class UserUpdateRequest extends FormRequest
             'sub_bidang' => 'nullable',
             'ttl' => 'nullable',
             'institusi' => 'required',
-            'predikat' => 'required'
+            'predikat' => 'required',
+           
+
         ];
     }
 
