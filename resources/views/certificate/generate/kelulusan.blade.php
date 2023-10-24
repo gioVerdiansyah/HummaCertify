@@ -234,7 +234,9 @@
                 }
             </style>
             <div class="image-certificate">
-                <img src="https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/certificate-bg.png"
+                {{-- <img src="https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/certificate-bg.png"
+                    alt="Background Certificate" /> --}}
+                    <img src="{{ asset('image/certificate-bg.png') }}"
                     alt="Background Certificate" />
             </div>
             <div class="content">
