@@ -220,27 +220,12 @@ class CertificateController extends Controller
     }
     public function generateCertificate(string $id)
     {
-        try {
             $certificate = Certificate::with(['user', 'category', 'detailCertificates'])->where('id', $id)->first();
             $category = $certificate->category->id;
             $type = $this->getTypeCertificate($category);
             $certificateFileName = $certificate->id . '.pdf';
             $pdf = PDF::setPaper('A4', 'landscape')->loadView('certificate.generate.' . $type, ['certificate' => $certificate]);
             $pdf->save(storage_path('app/public/sertifikat/' . $certificateFileName));
-        } catch (\Throwable $th) {
-            if (isset($certificate) && isset($certificate->user)) {
-                $userId = $certificate->user->id;
-                $certificate->delete();
-                User::where('id', $userId)->firstOrFail()->delete();
-            }
-
-            // Sekarang tampilkan pesan error dengan informasi dari pengecualian
-            return back()->with('message', [
-                'icon' => 'error',
-                'title' => 'Gagal!',
-                'text' => 'Gagal megenerate certificate karena: ' . $th->getMessage(),
-            ]);
-        }
     }
     public function getCertificate(string $id)
     {

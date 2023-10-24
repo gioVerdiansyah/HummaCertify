@@ -36,8 +36,8 @@ class CertificateStoreRequest extends FormRequest
             'predikat' => 'required|in:Sangat Baik,Baik,Cukup,Kurang',
             'instruktur' => 'required',
             // detail
-            'category-group.*.materi' => 'nullable|string|max:85|required_with:category-group.*.jam_pelajaran',
-            'category-group.*.jam_pelajaran' => 'nullable|numeric|gt:1|max:999|required_with:category-group.*.materi',
+            'category-group.*.materi' => 'required|string|max:85',
+            'category-group.*.jam_pelajaran' => 'required|numeric|gt:1|max:999',
 
         ];
     }
