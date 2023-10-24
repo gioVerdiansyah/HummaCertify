@@ -17,7 +17,17 @@ class detailCertificateController extends Controller
     public function store(DetailCertificateStoreRequest $request, $id)
     {
        $data = $request->all();
-       $this->detailCertificate->store($data, $id);
+       $certificateId = Certificate::with(['user', 'category', 'detailCertificates'])->where('id', $id)->first();
+       $detailCertificates = [];
+       dd($data);
+       foreach ($data['category-group'] as $category) {
+           $detailCertificate = [
+               'certificate_id' => $certificateId->id,
+               'materi' => $category['materi'],
+               'jp' => $category['jam_pelajaran'],
+           ];
+           $detailCertificates[] = $detailCertificate;
+       }
         return redirect()->back();
     }
 }

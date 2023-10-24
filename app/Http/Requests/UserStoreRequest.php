@@ -23,14 +23,24 @@ class UserStoreRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'email' => 'nullable|email',
-            'nomor_induk' => 'required|gt:0',
+            'email' => 'required|email',
+            'nomor_induk' => 'required|gt:0|min:10',
             'ttl' => 'required',
             'institusi' => 'required|string',
         ];
     }
     public function message(): array
     {
-        return [];
+        return [
+            'name.required' => 'nama harus di isi',
+            'name.string' => 'nama harus berupa huruf tidak boleh angka',
+            'email.required' => 'email harus di isi',
+            'email.email' => 'email harus berformat email',
+            'ttl.required' => 'ttl harus di isi',
+            'institusi.required' => 'institusi harus di isi',
+            'nomor_induk.required' => 'nomor induk harus di isi',
+            'nomor_induk.min' => 'nomor induk minimal :min',
+            'nomor_induk.required' => 'nomor induk harus di isi',
+        ];
     }
 }
