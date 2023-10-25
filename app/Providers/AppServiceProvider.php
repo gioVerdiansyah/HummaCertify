@@ -2,12 +2,11 @@
 
 namespace App\Providers;
 
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 use App\Contracts\Interfaces\CertificateInterface;
-use App\Contracts\Interfaces\userCategoriInterface;
 use App\Contracts\Interfaces\DaftarPesertaInterface;
 use App\Contracts\Repositories\CertificateRepository;
-use App\Contracts\Repositories\userCategoriRepositori;
 use App\Contracts\Repositories\DaftarPesertaRepository;
 use App\Contracts\Interfaces\DetailCertificateInterface;
 use App\Contracts\Interfaces\CertificateCategoriInterface;
@@ -34,6 +33,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Paginator::useBootstrapFive();
     }
 }

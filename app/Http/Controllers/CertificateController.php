@@ -14,6 +14,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\DetailCertificate;
 use App\Models\CertificateCategori;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 
 
 class CertificateController extends Controller
@@ -59,7 +60,7 @@ class CertificateController extends Controller
             $offset = ($page - 1) * $perPage;
             $query->skip($offset)->take($perPage);
         }
-        $data = $query->get();
+        $data = $query->paginate(15);
 
         return $data;
     }
@@ -201,6 +202,9 @@ class CertificateController extends Controller
         $certificate = Certificate::findOrFail($id);
         $user = User::findOrFail($certificate->user_id);
 
+        // Delete sertifikat
+        Storage::delete('public/sertifikat/'. $certificate->id . '.pdf');
+
         $dataUser = [
             'name' => $request->name,
             'email' => $request->email,
@@ -228,6 +232,9 @@ class CertificateController extends Controller
             $detail = DetailCertificate::findOrFail($category['detail_id']);
             $detail->update($detailCertificate);
         }
+
+        // Generate sertifikat kembali
+        $this->generateCertificate($id);
         return redirect()->route('certificate.index');
     }
 

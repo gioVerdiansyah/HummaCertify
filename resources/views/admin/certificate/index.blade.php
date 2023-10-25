@@ -68,7 +68,7 @@
                         </button>
                     </form>
                     <a href="{{ route('getCertificate', $certificate->id) }}" target="_blank" class="btn btn-info"><i class="bi bi-printer"></i> Print</a>
-                    <a href="{{ route('certificate.edit', $certificate->id) }}" class="btn btn-warning"><i class="bi bi-printer"></i> Edit</a>
+                    <a href="{{ route('certificate.edit', $certificate->id) }}" class="btn btn-warning"><i class="bi bi-pencil-square"></i> Edit</a>
                   </td>
                 </tr>
               @endforeach
@@ -76,14 +76,9 @@
           </table>
         </div>
         <div class="d-flex justify-content-between align-items-center mt-3">
-          <div class="grid-summary">
-            Showing <b>1</b> to <b>1</b> of <b>1</b> results
-          </div>
-          <div class="grid-pagination">
-            <button disabled class="btn btn-link" aria-label="Previous" title="Previous">Previous</button>
-            <button class="btn btn-link" aria-label="Page 1" title="Page 1">1</button>
-            <button class="btn btn-link" aria-label="Next" title="Next">Next</button>
-          </div>
+            <div class="grid-pagination w-100">
+                {{ $certificates->onEachSide(1)->links('layouts.pagination') }}
+            </div>
         </div>
       </div>
     </div>
