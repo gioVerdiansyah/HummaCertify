@@ -35,11 +35,14 @@
                                     </div>
                                     @enderror
                             </div>
-                            <div class="col-12 mb-4">
+                            <div class="col-12">
                                 <label for="email" class="form-label">Email peserta (opsional)</label>
                                 <input type="text" class="form-control @error('email') is-invalid
                                 @enderror" placeholder="Email peserta" name="email"
                                     id="email" value="{{ old('email') }}">
+                                    @if (!old('email') && !$errors->has('email'))
+                                        <p class="text-warning" style="margin-bottom: 3px;"><i class="bi bi-exclamation-circle"></i> Jika tidak diisi, fitur pengiriman sertifikat ke penerima tidak ada.</p>
+                                    @endif
                                     @error('email')
                                     <div class="invalid-feedback">
                                         <p>{{ $message }}</p>
@@ -225,4 +228,22 @@
             </div>
         </div>
     </div>
+    <script>
+        $('#email').on('input', function () {
+            let emailInput = $(this);
+            let warningText = emailInput.next('.text-warning');
+            handleInput(emailInput, warningText);
+        });
+
+        function handleInput(input, warningText) {
+            let parentDiv = input.parent();
+            if (input.val().trim() === '') {
+                warningText.removeClass('d-none');
+                parentDiv.removeClass('mb-4');
+            } else {
+                warningText.addClass('d-none');
+                parentDiv.addClass('mb-4');
+            }
+        }
+    </script>
 @endsection
