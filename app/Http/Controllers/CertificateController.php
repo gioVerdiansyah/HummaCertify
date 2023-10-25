@@ -170,7 +170,7 @@ class CertificateController extends Controller
 
         ]);
 
-        // Create Detail jika ada
+
         if (isset($dataRequest['category-group'][0]['materi']) && isset($dataRequest['category-group'][0]['jam_pelajaran'])) {
             $this->storeDetail($dataRequest, $certificate->id);
         }
@@ -247,9 +247,18 @@ class CertificateController extends Controller
         $hari = date('d', strtotime($tanggal));
         $tahun = date('Y', strtotime($tanggal));
 
-        $nomorSertifikat = 'Ser' . '/' . $nomorUnik . '/' . $nomorKategori . '/' . $hari . $bulan . '/' . $tahun;
-
-
+        if ($certificateCategoryId === 1)
+        {
+            $nomorSertifikat = 'Ser' . '/' . $nomorUnik . '/' . $nomorKategori . '/' . $hari . $bulan . '/' . $tahun;
+        }
+        if ($certificateCategoryId === 2)
+        {
+            $nomorSertifikat = 'Ser' . '/' . $nomorKategori . '/' . $nomorUnik . '/' . $hari . $bulan . '/' . $tahun;
+        }
+        if ($certificateCategoryId === 3)
+        {
+            $nomorSertifikat = 'Ser' . '/' . $hari . $bulan . '/' . $nomorKategori . '/' . $nomorUnik . '/' . $tahun;
+        }
         return $nomorSertifikat;
     }
     public function generateCertificate(string $id)
