@@ -19,9 +19,10 @@ use Illuminate\Support\Facades\Storage;
 
 class CertificateController extends Controller
 {
+    protected $perPage = 3;
     public function index(Request $request)
     {
-        $certificates = Certificate::paginate(15);
+        $certificates = Certificate::where('status', 'nonPrint')->paginate($this->perPage);
         $categories = CertificateCategori::select('id', 'name')->get();
 
         if ($request->all()) {
@@ -54,14 +55,20 @@ class CertificateController extends Controller
             $query->where('certificate_categori_id', $kategori);
         }
 
+        if (!isset($dataRequest['print'])) {
+            $query->where('status', 'nonPrint');
+        } elseif (isset($dataRequest['print'])) {
+            $print = $dataRequest['print'];
+            $query->where('status', $print);
+        }
+
         if (isset($dataRequest['page'])) {
             $page = $dataRequest['page'];
             $perPage = 15;
             $offset = ($page - 1) * $perPage;
             $query->skip($offset)->take($perPage);
         }
-        $data = $query->paginate(15);
-
+        $data = $query->paginate($this->perPage);
         return $data;
     }
 
@@ -269,6 +276,9 @@ class CertificateController extends Controller
     {
         $certificate = Certificate::with(['user', 'category', 'detailCertificates'])->where('id', $id)->first();
         $category = $certificate->category->id;
+        // Perbarui status
+        $certificate->status = 'hasPrint';
+        $certificate->save();
         $type = $this->getTypeCertificate($category);
         return view('certificate.' . $type, compact('certificate', 'category', 'type'));
     }
@@ -285,9 +295,9 @@ class CertificateController extends Controller
         return $categoryname;
     }
 
-    public function printAllCertificate(int $ct)
+    public function printAllCertificate(Request $request)
     {
-        $dataRequest['ct'] = $ct;
+        $dataRequest = $request->all();
 
         $query = Certificate::with('user');
         if (isset($dataRequest['ct'])) {
@@ -297,12 +307,16 @@ class CertificateController extends Controller
 
         if (isset($dataRequest['page'])) {
             $page = $dataRequest['page'];
-            $perPage = 15;
+            $perPage = $this->perPage;
             $offset = ($page - 1) * $perPage;
             $query->skip($offset)->take($perPage);
         }
         $certificates = $query->get();
         $type = $this->getTypeCertificate($dataRequest['ct']);
+        foreach ($certificates as $certificate) {
+            $certificate->status = 'hasPrint';
+            $certificate->save();
+        }
         return view('admin.certificate.print-all.' . $type, compact('certificates'));
     }
 

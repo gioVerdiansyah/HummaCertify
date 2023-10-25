@@ -39,7 +39,7 @@ Route::middleware('AdminUp')->group(function () {
 
         // print
         Route::get('/get_certificate/{id}', [CertificateController::class, 'getCertificate'])->name('getCertificate');
-        Route::get('/print_certificate/{ct}', [CertificateController::class, 'printAllCertificate'])->name('printAllCertificate');
+        Route::get('/print_certificate', [CertificateController::class, 'printAllCertificate'])->name('printAllCertificate');
         Route::post('/send_certificate/{id}', [CertificateController::class, 'sendCertificate'])->name('sendCertificate');
     });
 });

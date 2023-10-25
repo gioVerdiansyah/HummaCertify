@@ -22,12 +22,18 @@
                                     @endforeach
                                 </select>
                             </div>
-                            @if (request('ct'))
+                            @if (request('ct') && !request('print'))
                                 <div class="col-2">
-                                    <a href="{{ route('printAllCertificate', request('ct')) }}" class="btn btn-primary"><i
+                                    <a href="{{ route('printAllCertificate') }}?ct={{ request('ct') }}&page={{ $certificates->currentPage()}}" target="_blank" class="btn btn-primary"><i
                                             class="bi bi-printer"></i> Print Semua</a>
                                 </div>
                             @endif
+                            <div class="col-2">
+                                <select name="print" class="form-select" id="printSelect">
+                                    <option value="nonPrint" {{ request('print') == 'nonPrint' ? 'selected' : '' }}>non print</option>
+                                    <option value="hasPrint" {{ request('print') == 'hasPrint' ? 'selected' : '' }} >has print</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="col-3">
                             <form action="" method="GET" class="d-flex align-items-center gap-3"
@@ -53,7 +59,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($certificates as $i => $certificate)
+                            @forelse ($certificates as $i => $certificate)
                                 <tr>
                                     <td class="text-center"><span class="fw-bold">{{ ++$i }}</span></td>
                                     <td>
@@ -78,7 +84,13 @@
                                             class="btn btn-warning"><i class="bi bi-pencil-square"></i> Edit</a>
                                     </td>
                                 </tr>
-                            @endforeach
+                                @empty
+                                    <tr>
+                                        <td colspan="5" class="text-center">
+                                            Data sertifikat tidak ada...
+                                        </td>
+                                    </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
@@ -102,6 +114,23 @@
                 var ctParam = 'ct=' + selectedCategoryId;
                 if (currentUrl.includes('ct=')) {
                     newUrl = currentUrl.replace(/ct=[^&]*/, ctParam);
+                } else {
+                    newUrl = currentUrl + (currentUrl.includes('?') ? '&' : '?') + ctParam;
+                }
+            }
+            window.location.href = newUrl;
+        });
+        document.getElementById('printSelect').addEventListener('change', function() {
+            document.getElementById('loading').style.display = 'flex';
+            var printCategoryId = this.value;
+            var currentUrl = window.location.href;
+            var newUrl;
+            if (printCategoryId === "nonPrint") {
+                newUrl = currentUrl.replace(/[\?&]print=[^&]*/, '');
+            } else {
+                var ctParam = 'print=' + printCategoryId;
+                if (currentUrl.includes('print=')) {
+                    newUrl = currentUrl.replace(/print=[^&]*/, ctParam);
                 } else {
                     newUrl = currentUrl + (currentUrl.includes('?') ? '&' : '?') + ctParam;
                 }
