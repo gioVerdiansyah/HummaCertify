@@ -12,9 +12,9 @@
         <link rel="shortcut icon" href="images/favicon.ico" />
 
         <!-- css -->
-        <link href="{{ asset('login/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ asset('login/css/materialdesignicons.min.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ asset('login/css/style.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('logintemplate/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('logintemplate/css/materialdesignicons.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('logintemplate/css/style.min.css') }}" rel="stylesheet" type="text/css" />
     </head>
 
     <body>
@@ -81,9 +81,9 @@
         </div>
 
         <!-- javascript -->
-        <script src="{{ asset('login/js/bootstrap.bundle.min.js') }}"></script>
-        <script src="{{ asset('login/js/smooth-scroll.polyfills.min.js') }}"></script>
-        <script src="{{ asset('login/js/app.js') }}"></script>
+        <script src="{{ asset('logintemplate/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('logintemplate/js/smooth-scroll.polyfills.min.js') }}"></script>
+        <script src="{{ asset('logintemplate/js/app.js') }}"></script>
 
         <script src="https://unpkg.com/feather-icons"></script>
 
