@@ -18,10 +18,3 @@
     font-weight: 600;
     font-size: large;
 }
-.nomor-link{
-    transition: all .3s;
-    color: #3D78E3;
-}
-.nomor-link:hover{
-    text-decoration: underline;
-}

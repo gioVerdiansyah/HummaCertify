@@ -87,8 +87,7 @@ class CertificateController extends Controller
 
         // Generate nomor sertifikat
         $userUniq = User::count();
-        $certificateCategoryId = Certificate::where('certificate_categori_id', $data['certificate_categori_id'])->count() + 1;
-        $nomorSertifikat = $this->generateCertificateNumber($userUniq, $certificateCategoryId, $data['tanggal']);
+        $nomorSertifikat = $this->generateCertificateNumber($userUniq, $data['certificate_categori_id'], $data['tanggal']);
 
         // Create Sertifikat
         $certificate = Certificate::create(
@@ -249,23 +248,12 @@ class CertificateController extends Controller
     public function generateCertificateNumber($userUniq, $certificateCategoryId, $tanggal)
     {
         $nomorUnik = str_pad($userUniq, 4, '0', STR_PAD_LEFT);
-        $nomorKategori = str_pad($certificateCategoryId, 4, '0', STR_PAD_LEFT);
+        $nomorKategori = str_pad($certificateCategoryId, 2, '0', STR_PAD_LEFT);
         $bulan = date('m', strtotime($tanggal));
         $hari = date('d', strtotime($tanggal));
         $tahun = date('Y', strtotime($tanggal));
 
-        if ($certificateCategoryId === 1)
-        {
-            $nomorSertifikat = 'Ser' . '/' . $nomorUnik . '/' . $nomorKategori . '/' . $hari . $bulan . '/' . $tahun;
-        }
-        if ($certificateCategoryId === 2)
-        {
-            $nomorSertifikat = 'Ser' . '/' . $nomorKategori . '/' . $nomorUnik . '/' . $hari . $bulan . '/' . $tahun;
-        }
-        if ($certificateCategoryId === 3)
-        {
-            $nomorSertifikat = 'Ser' . '/' . $hari . $bulan . '/' . $nomorKategori . '/' . $nomorUnik . '/' . $tahun;
-        }
+        $nomorSertifikat = 'Ser' . '/' . $nomorUnik . '/' . $nomorKategori . '/' . $hari . $bulan . '/' . $tahun;
         return $nomorSertifikat;
     }
     public function generateCertificate(string $id)
