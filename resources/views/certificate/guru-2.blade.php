@@ -16,7 +16,7 @@
 
   {{-- FONT SIZE --}}
   <link
-    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather:wght@400;700&family=Montserrat:wght@400;500;700&family=Open+Sans:wght@700&family=Playfair+Display:wght@400;700&family=Poppins:wght@400;500;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather:wght@400;700&family=Open+Sans:wght@700&family=Poppins:wght@400;500&display=swap"
     rel="stylesheet">
 
   {{-- Import CSS --}}
@@ -27,106 +27,309 @@
   <main>
     <style>
       @page {
-        width: 210mm;
-        height: 297mm;
+        size: A4 landscape;
+        margin: 0;
       }
 
-      .bg-certificate {
-        position: absolute;
-        width: 100%;
-        height: 785px;
-      }
-
-      .bg-certificate img {
-        height: 100%;
-        max-width: 100%;
-      }
-
-      .content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+      body {
         margin: 0;
         padding: 0;
-        top: 6%;
-        width: 100%;
-        height: 730px;
+      }
+
+      /* Depan */
+      .depan {
+        width: 297mm;
+        height: 210mm;
+        background-image: url("https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/guru-tamu.png");
+        background-repeat: no-repeat;
+        background-size: cover;
         overflow: hidden;
+      }
+
+      .depan .content {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .depan .content .qr-code {
         position: absolute;
-        z-index: 2;
+        top: 30px;
+        left: 50px;
       }
 
-      .content .sertifikat {
-        line-height: 25px;
+      .depan .content .no-sertifikat .no {
+        position: absolute;
+        top: 150px;
+        left: 345px;
+        font-size: 19px;
+        letter-spacing: 2px;
+        font-family: "Merriweather", serif;
       }
 
-      .content .sertifikat .text-sertifikat {
-        font-size: 58px;
-        font-family: 'Merriweather', serif;
+      .depan .content .no-sertifikat .nomer {
+        position: absolute;
+        top: 150px;
+        left: 393px;
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        font-size: 18px;
+        letter-spacing: 7px;
+      }
+
+      .depan .content .nama {
+        position: absolute;
+        top: 200px;
+        left: 110px;
+        width: 900px;
+      }
+
+      .depan .content .nama p {
+        font-size: 63px;
+        font-family: "Great Vibes", cursive;
+        font-weight: 400;
+        color: #1c2143;
+        text-align: center;
+      }
+
+      .depan .content .sekolah {
+        position: absolute;
+        top: 340px;
+        left: 412px;
+        width: 300px;
+        text-align: center;
+        font-family: 'Open Sans', sans-serif;
         font-weight: 700;
-        margin-bottom: 0;
-        color: #1f2837;
+        font-size: 20px;
       }
 
-      .content .sertifikat .number {
-        display: flex;
+      .depan .content .text .telah {
+        position: absolute;
+        top: 370px;
+        left: 423px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 400;
+        font-size: 18px;
+        letter-spacing: 2px;
       }
 
-      .content .sertifikat .number .no {
-        margin-right: 20px;
-        margin-bottom: 0;
+      .depan .content .text .pelatihan {
+        position: absolute;
+        top: 400px;
+        left: 214px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: 18px;
+        text-align: center;
+        width: 700px;
+        letter-spacing: 2.5px;
       }
 
-      .content .sertifikat .number .nomer-sertifikat {
-        margin-bottom: 0;
+      .depan .content .text .tanggal {
+        position: absolute;
+        top: 430px;
+        left: 160px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 400;
+        font-size: 18px;
+        text-align: center;
+        width: 800px;
+        letter-spacing: 2.5px;
       }
 
-      .content .bawah {
-        display: flex;
+      .depan .content .text .pt {
+        position: absolute;
+        top: 462px;
+        left: 400px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 400;
+        font-size: 18px;
+        letter-spacing: 1px;
+      }
+
+      .depan .content .nilai {
+        position: absolute;
+        top: 580px;
+        left: 520px;
+        width: 80px;
+        text-align: center;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        color: white;
+        font-size: 16px;
+        text-transform: uppercase;
+      }
+
+      /* Belakang */
+      .belakang {
+        width: 297mm;
+        height: 210mm;
+        background-image: url("https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/guru-tamu-belakang.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        overflow: hidden;
+      }
+
+      .belakang .content {
+        position: relative;
+      }
+
+      .belakang .content .pelatihan {
+        position: absolute;
+        top: 120px;
+        left: 210px;
+        width: 700px;
+        text-align: center;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 700;
+        font-size: 20px;
+      }
+
+      .belakang .content .nama-instruktur {
+        position: absolute;
+        top: 682px;
+        right: 95px;
+        width: 250px;
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: 20px;
+        color: #77838d;
+      }
+
+      .belakang .content .table-materi {
+        position: relative;
+        top: 190px;
+        left: 200px;
+      }
+
+      .belakang .content .table-materi table {
+        border-collapse: collapse;
+        border: 1px solid;
+        width: 65%;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 400;
+      }
+
+      .belakang .content .table-materi table thead {
+        border: 1px solid;
+        background-color: #4a86e8;
+        color: #ffffff;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+      }
+
+      .belakang .content .table-materi table thead tr {
+        border: 1px solid black;
+      }
+
+      .belakang .content .table-materi table thead th {
+        border: 1px solid black;
+        padding: 8px 0px;
+      }
+
+      .belakang .content .table-materi table tbody tr {
+        border: 1px solid;
+        text-align: center;
+      }
+
+      .belakang .content .table-materi table tbody td {
+        border: 1px solid;
+        padding: 4px 0px;
       }
     </style>
-    <div class="bg-certificate">
-      <img src="{{ asset('image/certificate-guru-2.png') }}" width="1115" alt="certificate-guru">
-    </div>
-    <div class="content">
-      <div class="sertifikat">
-        <p class="text-sertifikat">SERTIFIKAT</p>
-        <div class="number">
+    {{-- Depan --}}
+    <div class="depan">
+      <div class="content">
+        <div class="qr-code">
+          <center>
+            <img width="100" height="100" src="{{ asset('image/qr.png') }}" alt="">
+          </center>
+          <figcaption style="font-size: 10px">QR authenticity certificate</figcaption>
+        </div>
+        <div class="no-sertifikat">
           <p class="no">No.</p>
-          <p class="nomer-sertifikat">Ser/0003/03/omb/2023</p>
+          <p class="nomer">Ser/0004/0001/2810/2023</p>
         </div>
-        <p class="text-kompeten">SERTIFIKAT KOMPETENSI</p>
-      </div>
-      <div class="nama-peserta">
-        <p>Daniel Halim Kurniawan</p>
-      </div>
-      <div class="detail">
-        <p class="sekolah">Di SMK PGRI 2 PONOROGO</p>
-        <p class="text-pelatihan">Telah mengikuti pelatihan</p>
-        <p class="program-belajar">Pemrograman Web dengan LARAVEL Level Berginner</p>
-        <p class="text-tanggal">yang diselegnyang diselenggarakan pada tanggal 18 s.d 23 September 2023 Oleh</p>
-        <p class="pt-humma">PT Hummatech Digital Indonesia</p>
-      </div>
-      <div class="predikat">
-        <p>DENGAN PREDIKAT</p>
-      </div>
-      <div class="bawah">
-        <div class="guru-humma">
-          <p class="nama-guru">Afrizal Himawan, S.Kom</p>
-          <p class="jabatan">DIREKTUR</p>
+        <div class="nama">
+          <p>Daniel Halim Kurniawan</p>
         </div>
-        <div class="medal">
-          <img src="{{ asset('image/medal.png') }}" alt="medal">
-          <p class="nilai">Sangat Baik</p>
+        <div class="sekolah">
+          <p>SMK PGRI 2 PONOROGO</p>
         </div>
-        <div class="guru-humma">
-          <p class="nama-guru">Andika Wahyu P, S.Kom</p>
-          <p class="jabatan">Ketua Pelaksana</p>
+        <div class="text">
+          <p class="telah">Telah mengikut Pelatihan</p>
+          {{-- Bisa Dirubah --}}
+          <p class="pelatihan">Pemrograman Web dengan Laravel Level Berginner</p>
+          {{-- Tanggal bisa dirubah --}}
+          <p class="tanggal">yang diselenggarakan pada tanggal 18 s.d 23 September 2023 Oleh</p>
+          <p class="pt">PT Hummatech Digital Indonesia</p>
+        </div>
+        <div class="nilai">
+          <p>Sangat Baik</p>
+        </div>
+      </div>
+    </div>
+    {{-- Belakang --}}
+    <div class="belakang">
+      <div class="content">
+        <div class="pelatihan">
+          <p>"Pemrograman Web dengan LARAVEL Level Berginner"</p>
+        </div>
+        <div class="table-materi">
+          <table>
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>Judul Materi</th>
+                <th>Jam Pelajaran</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>1.</th>
+                <td style="text-align: start; padding: 2px 5px;">Pengenalan & Installasi Laravel</td>
+                <td>4 JP</td>
+              </tr>
+              <tr>
+                <th>1.</th>
+                <td style="text-align: start; padding: 2px 5px;">Pengenalan & Installasi Laravel</td>
+                <td>4 JP</td>
+              </tr>
+              <tr>
+                <th>1.</th>
+                <td style="text-align: start; padding: 2px 5px;">Pengenalan & Installasi Laravel</td>
+                <td>4 JP</td>
+              </tr>
+              <tr>
+                <th>1.</th>
+                <td style="text-align: start; padding: 2px 5px;">Pengenalan & Installasi Laravel</td>
+                <td>4 JP</td>
+              </tr>
+              <tr>
+                <th></th>
+                <td style="font-weight: 700;">Total</td>
+                <td style="padding: 8px 0px; font-weight: 700;">10 JP</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="nama-instruktur">
+          <p>Bababoiii Papope</p>
         </div>
       </div>
     </div>
   </main>
 </body>
+
+<script>
+  window.addEventListener('load', function() {
+    window.print();
+    window.onafterprint = function() {
+      window.close();
+      window.history.back();
+    };
+  });
+</script>
 
 </html>
