@@ -17,7 +17,7 @@ class User
     public function handle(Request $request, Closure $next): Response
     {
         if (!Auth::check()) {
-            return to_route('home');
+            return to_route('/');
         }
 
         if (Auth::user()->email === 'hummacertify@gmail.com') {

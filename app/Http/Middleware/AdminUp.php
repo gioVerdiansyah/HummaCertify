@@ -3,11 +3,12 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
+use App\Http\Controllers\DaftarPesertaController;
 
-class Admin
+class AdminUp
 {
     /**
      * Handle an incoming request.
@@ -16,14 +17,11 @@ class Admin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!Auth::check()) {
-            return to_route('home');
+
+        if (Auth::check() && Auth::user()->email == "hummacertify@gmail.com") {
+            return $next($request);
         }
 
-        if (!Auth::user()->email === 'hummacertify@gmail.com') {
-            return abort(403, 'Anda tidak bisa mengakses halaman ini!');
-        }
-
-        return $next($request);
+        return abort(403, 'Anda tidak bisa mengakses halaman ini!');
     }
 }

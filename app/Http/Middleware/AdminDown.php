@@ -7,23 +7,20 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class Down
+class AdminDown
 {
     /**
      * Handle an incoming request.
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next)
     {
-        if (!Auth::check()) {
-            return $next($request);
+        if (Auth::check() && Auth::user()->email == "hummacertify@gmail.com") {
+            return to_route('admin.home');
         }
 
-        if (Auth::user()->email === 'hummacertify@gmail.com') {
-            return to_route('admin.home');
-        } else {
-            //Redirect to Home for user
-        }
+        return $next($request);
     }
+
 }
