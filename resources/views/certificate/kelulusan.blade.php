@@ -102,8 +102,8 @@
       .bg .content .sekolah {
         position: absolute;
         top: 435px;
-        left: 338px;
-        width: 450px;
+        left: 262px;
+        width: 600px;
         text-align: center;
         font-family: 'Open Sans', sans-serif;
         font-weight: 700;

@@ -158,8 +158,8 @@
 
                 .depan .content .qr-code {
                     position: absolute;
-                    top: 650px;
-                    left: 500px;
+                    top: 600px;
+                    left: 350px;
                 }
 
                 /* BELAKANG */

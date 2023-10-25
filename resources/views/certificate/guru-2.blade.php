@@ -54,7 +54,7 @@
 
       .depan .content .qr-code {
         position: absolute;
-        top: 30px;
+        top: 25px;
         left: 50px;
       }
 
@@ -150,13 +150,17 @@
       .depan .content .nilai {
         position: absolute;
         top: 580px;
-        left: 520px;
-        width: 80px;
+        left: 510px;
+        width: 100px;
+        height: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         text-align: center;
-        font-family: "Montserrat", sans-serif;
+        font-family: 'Open Sans', sans-serif;
         font-weight: 700;
         color: white;
-        font-size: 16px;
+        font-size: 18px;
         text-transform: uppercase;
       }
 
@@ -194,7 +198,6 @@
         font-family: 'Poppins', sans-serif;
         font-weight: 700;
         font-size: 20px;
-        color: #77838d;
       }
 
       .belakang .content .table-materi {

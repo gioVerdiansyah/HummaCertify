@@ -150,7 +150,7 @@
         justify-content: center;
         align-items: center;
         text-align: center;
-        font-family: "Montserrat", sans-serif;
+        font-family: 'Open Sans', sans-serif;
         font-weight: 700;
         color: white;
         font-size: 16px;
@@ -169,8 +169,8 @@
 
       .depan .content .qr-code {
         position: absolute;
-        top: 650px;
-        left: 500px;
+        top: 600px;
+        left: 350px;
       }
 
       /* BELAKANG */
@@ -292,7 +292,7 @@
           </div>
           {{-- QR CODE --}}
           {{-- <div class="qr-code">
-            <center><img width="80" height="80" src="{{ asset('image/qr.png') }}" alt=""></center>
+            <center><img width="100" height="100" src="{{ asset('image/qr.png') }}" alt=""></center>
             <figcaption style="font-size: 10px">QR authenticity certificate</figcaption>
           </div> --}}
           {{-- Keterangan --}}
