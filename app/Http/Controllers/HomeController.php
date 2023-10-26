@@ -35,10 +35,26 @@ class HomeController extends Controller
         return view('welcome');
     }
 
-    public function adminIndex(){
+    public function adminIndex()
+    {
 
-        $users = $this->userRepository->get();
+        $users = User::all();
         $category = CertificateCategori::all();
-        return view('admin.dashboard', compact('users','category'));
+        $certificateCategoryCount = CertificateCategori::count();
+
+        // data untuk chart line
+        $certificateCount = Certificate::count();
+
+        // mengambil count data dari table certificate untuk chart doughnut
+        $kelulusanCount = Certificate::where('certificate_categori_id', 1)->count();
+        $pelatihanCount = Certificate::where('certificate_categori_id', 2)->count();
+        $kompetensiCount = Certificate::where('certificate_categori_id', 3)->count();
+
+        // mengambil data berdasarkan tahun dan bulannya dari table certificate untuk chart line
+        $certificateData = Certificate::selectRaw('YEAR(tanggal) as year, MONTH(tanggal) as month, COUNT(*) as count')
+            ->groupBy('year', 'month')
+            ->get();
+
+        return view('admin.dashboard', compact('users', 'category', 'certificateCategoryCount', 'certificateCount', 'certificateData', 'kelulusanCount', 'pelatihanCount', 'kompetensiCount'));
     }
 }
