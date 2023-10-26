@@ -25,18 +25,25 @@
   @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
   {{-- IMPORT FONT --}}
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather:wght@400;700&family=Montserrat:wght@400;500;700&family=Open+Sans:wght@700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
 
   {{-- IMPORT CSS --}}
   <link rel="stylesheet" href="{{ asset('css/auth/auth.css') }}">
   <link rel="stylesheet" href="{{ asset('css/global/global.css') }}">
+  <link rel="stylesheet" href="{{ asset('/css/admin/Dashboard.css') }}">
 
   <!-- jsvectormap css -->
   <link href="{{ asset('assets/libs/jsvectormap/css/jsvectormap.min.css') }}" rel="stylesheet" type="text/css" />
 
   <!--Swiper slider css-->
   <link href="{{ asset('assets/libs/swiper/swiper-bundle.min.css') }}" rel="stylesheet" type="text/css" />
+
+  {{-- Flaticon Icon --}}
+  <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+  <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css'>
+  <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
 
   <!-- Layout config Js -->
   <script src="{{ asset('assets/js/layout.js') }}"></script>
@@ -54,124 +61,132 @@
 
 <body>
 
-   <!-- Begin page -->
-   <div id="layout-wrapper">
+  <!-- Begin page -->
+  <div id="layout-wrapper">
 
     <header id="page-topbar">
-        <div class="layout-width">
-            <div class="navbar-header">
-                <div class="d-flex">
-                    <!-- LOGO -->
-                    <div class="navbar-brand-box horizontal-logo">
-                        <a href="index.html" class="logo logo-dark">
-                            <span class="logo-sm">
-                                <img src="{{asset('image/icon-bg-removed.png')}}" alt="" height="30">
-                            </span>
-                            <span class="logo-lg">
-                                <img src="{{asset('image/icon-bg-removed.png')}}" alt="" height="30">
-                            </span>
-                        </a>
+      <div class="layout-width">
+        <div class="navbar-header">
+          <div class="d-flex">
+            <!-- LOGO -->
+            <div class="navbar-brand-box horizontal-logo">
+              <a href="{{ route('admin.home') }}" class="logo logo-dark">
+                <span class="logo-sm">
+                  <img src="{{ asset('image/nav-admin-logo.png') }}" alt="" height="50">
+                </span>
+                <span class="logo-lg">
+                  <img src="{{ asset('image/nav-admin-logo.png') }}" alt="" height="50">
+                </span>
+              </a>
 
-                        <a href="index.html" class="logo logo-light">
-                            <span class="logo-sm">
-                                <img src="{{asset('image/icon-bg-removed.png')}}" alt="" height="30">
-                            </span>
-                            <span class="logo-lg">
-                                <img src="{{asset('image/icon-bg-removed.png')}}" alt="" height="30">
-                            </span>
-                        </a>
-                    </div>
-
-                    <button type="button" class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger" id="topnav-hamburger-icon">
-                        <span class="hamburger-icon">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </span>
-                    </button>
-                </div>
-
-                <div class="d-flex align-items-center">
-
-                    <div class="dropdown ms-sm-3 header-item topbar-user">
-                        <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="d-flex align-items-center">
-                                <img class="rounded-circle header-profile-user" src="{{ asset('assets/images/users/avatar-1.jpg') }}" alt="Header Avatar">
-                                <span class="text-start ms-xl-2">
-                                    <span class="d-none d-xl-inline-block ms-1 fw-semibold user-name-text">{{Auth::user()->name}}</span>
-                                    <span class="d-none d-xl-block ms-1 fs-12 user-name-sub-text">Certificate App</span>
-                                </span>
-                            </span>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-end">
-                            <a class="dropdown-item" href=""><i class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Profile</span></a>
-                            <div class="dropdown-divider"></div>
-                            <form id="logout-form" action="{{ route('admin.logout') }}" method="POST">
-                              @csrf
-                              <button type="submit" class="dropdown-item" ><i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> Logout </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+              <a href="{{ route('admin.home') }}" class="logo logo-light">
+                <span class="logo-sm">
+                  <img src="{{ asset('image/nav-admin-logo.png') }}" alt="" height="50">
+                </span>
+                <span class="logo-lg">
+                  <img src="{{ asset('image/nav-admin-logo.png') }}" alt="" height="50">
+                </span>
+              </a>
             </div>
+
+            <button type="button" class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger"
+              id="topnav-hamburger-icon">
+              <span class="hamburger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+            </button>
+          </div>
+
+          <div class="d-flex align-items-center">
+
+            <div class="dropdown ms-sm-3 header-item topbar-user">
+              <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <span class="d-flex align-items-center">
+                  <img class="rounded-circle header-profile-user"
+                    src="{{ asset('image/LOGO Hummasoft PP Circle.png') }}" alt="Header Avatar">
+                  <span class="text-start ms-xl-2">
+                    <span
+                      class="d-none d-xl-inline-block ms-1 fw-semibold user-name-text">{{ Auth::user()->name }}</span>
+                    <span class="d-none d-xl-block ms-1 fs-12 user-name-sub-text">Certificate App</span>
+                  </span>
+                </span>
+              </button>
+              <div class="dropdown-menu dropdown-menu-end">
+
+                <form id="logout-form" action="{{ route('admin.logout') }}" method="POST">
+                  @csrf
+                  <button type="submit" class="dropdown-item"><i
+                      class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> Logout </button>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </header>
 
     <!-- ========== App Menu ========== -->
     <div class="app-menu navbar-menu">
-        <!-- LOGO -->
-        <div class="navbar-brand-box">
-            <!-- Dark Logo-->
-            <a href="index.html" class="logo logo-dark">
-                <span class="logo-sm">
-                    <img src="{{asset('image/icon-bg-removed.png')}}" alt="" height="35">
-                </span>
-                <span class="logo-lg">
-                    <img src="{{asset('image/icon-bg-removed.png')}}" alt="" height="35">
-                </span>
-            </a>
-            <!-- Light Logo-->
-            <a href="index.html" class="logo logo-light">
-                <span class="logo-sm">
-                    <img src="{{asset('image/icon-bg-removed.png')}}" alt="" height="35">
-                </span>
-                <span class="logo-lg">
-                    <img src="{{asset('image/icon-bg-removed.png')}}" alt="" height="35">
-                </span>
-            </a>
-            <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover" id="vertical-hover">
-                <i class="ri-record-circle-line"></i>
-            </button>
+      <!-- LOGO -->
+      <div class="navbar-brand-box">
+        <!-- Dark Logo-->
+        <a href="{{ route('admin.home') }}" class="logo logo-dark">
+          <span class="logo-sm">
+            <img src="{{ asset('image/nav-admin-logo.png') }}" alt="" height="50">
+          </span>
+          <span class="logo-lg">
+            <img src="{{ asset('image/nav-admin-logo.png') }}" alt="" class="me-2" height="50">
+          </span>
+        </a>
+        <!-- Light Logo-->
+        <a href="{{ route('admin.home') }}" class="logo logo-light">
+          <span class="logo-sm">
+            <img src="{{ asset('image/nav-admin-logo.png') }}" alt="" class="bg-primary" height="50">
+          </span>
+          <span class="logo-lg">
+            <img src="{{ asset('image/nav-admin-logo.png') }}" alt="" height="50">
+          </span>
+        </a>
+        <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
+          id="vertical-hover">
+          <i class="ri-record-circle-line"></i>
+        </button>
+      </div>
+
+      <div id="scrollbar">
+        <div class="container-fluid">
+
+          <div id="two-column-menu">
+          </div>
+          <ul class="navbar-nav" id="navbar-nav">
+            <li class="menu-title"><span data-key="t-menu">Admin</span></li>
+            <li class="nav-item">
+              <a class="nav-link menu-link {{ request()->routeIs('admin.home') ? 'active' : '' }}" href="{{ route('admin.home') }}">
+                <img width="22" class="me-3" src="{{asset('image/dashboard-icon.png')}}" alt="">
+                <span data-key="t-dashboard">Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link menu-link {{ request()->routeIs('certificate.index') ? 'active' : '' }}" href="{{ route('certificate.index') }}">
+                <img width="22" class="me-3" src="{{asset('image/sertifikat-icon.png')}}" alt="">
+                <span data-key="t-list_sertificate">List Sertifikat</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link menu-link {{ request()->routeIs('certificate.create') ? 'active' : '' }}" href="{{ route('certificate.create') }}">
+                <img width="22" class="me-3" src="{{asset('image/tambah-icon.png')}}" alt="">
+                <span data-key="t-tambah_certificate">Tambah Sertifikat</span>
+              </a>
+            </li>
+          </ul>
         </div>
+        <!-- Sidebar -->
+      </div>
 
-        <div id="scrollbar">
-            <div class="container-fluid">
-
-                <div id="two-column-menu">
-                </div>
-                <ul class="navbar-nav" id="navbar-nav">
-                    <li class="menu-title"><span data-key="t-menu">Menu</span></li>
-                    <li class="nav-item">
-                        <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
-                            <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Dashboards</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link menu-link" href="{{ route('certificate.index') }}">
-                            <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">List Sertifikat</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link menu-link" href="{{ route('certificate.create') }}">
-                            <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Tambah Sertifikat</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <!-- Sidebar -->
-        </div>
-
-        <div class="sidebar-background"></div>
+      <div class="sidebar-background"></div>
     </div>
     <!-- Left Sidebar End -->
     <!-- Vertical Overlay-->
@@ -182,39 +197,41 @@
     <!-- ============================================================== -->
     <div class="main-content">
 
-        <div class="page-content">
-            <div class="container-fluid">
-                @yield('content')
-            </div>
-            <!-- container-fluid -->
+      <div class="page-content">
+        <div class="container-fluid">
+          @yield('content')
         </div>
-        <!-- End Page-content -->
+        <!-- container-fluid -->
+      </div>
+      <!-- End Page-content -->
 
-        <footer class="footer">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <script>document.write(new Date().getFullYear())</script> © HummaCertify.
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="text-sm-end d-none d-sm-block">
-                            Design & Develop by HummaTech
-                        </div>
-                    </div>
-                </div>
+      <footer class="footer">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-6">
+              <script>
+                document.write(new Date().getFullYear())
+              </script> © HummaCertify.
             </div>
-        </footer>
+            <div class="col-sm-6">
+              <div class="text-sm-end d-none d-sm-block">
+                Design & Develop by HummaTech
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
     <!-- end main content-->
 
-</div>
-<!-- END layout-wrapper -->
+  </div>
+  <!-- END layout-wrapper -->
 
-<!--start back-to-top-->
-<button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+  <!--start back-to-top-->
+  <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
     <i class="ri-arrow-up-line"></i>
-</button>
-<!--end back-to-top-->
+  </button>
+  <!--end back-to-top-->
 
   <!-- JAVASCRIPT -->
   <script src="{{ asset('assets/libs/simplebar/simplebar.min.js') }}"></script>
@@ -222,7 +239,7 @@
   <script src="{{ asset('assets/libs/feather-icons/feather.min.js') }}"></script>
   <script src="{{ asset('assets/js/pages/plugins/lord-icon-2.1.0.js') }}"></script>
   <script src="{{ asset('assets/js/plugins.js') }}"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> --}}
 
   <!-- apexcharts -->
   <script src="{{ asset('assets/libs/apexcharts/apexcharts.min.js') }}"></script>
@@ -239,6 +256,28 @@
 
   <!-- App js -->
   <script src="{{ asset('assets/js/app.js') }}"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.logout-button').forEach(function(link) {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+
+                Swal.fire({
+                    title: 'Anda yakin ingin logout?',
+                    text: 'Anda akan diarahkan ke tampilan landing page.',
+                    icon: 'info',
+                    showCancelButton: true,
+                    confirmButtonText: 'Lanjutkan',
+                    cancelButtonText: 'Batalkan',
+                }).then((result) => {
+                    if(result.isConfirmed) {
+                        document.getElementById('logout-form').submit();
+                    }
+                });
+            });
+        });
+    });
+    </script>
 </body>
 @if (session('message'))
   <script>

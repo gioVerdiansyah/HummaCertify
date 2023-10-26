@@ -25,7 +25,7 @@
                         <div class="col-md-6 mb-3">
                             <div class="col-12 name-exist">
                                 <label for="nama" class="form-label">Nama Peserta</label>
-                                <select class="js-example-basic-single" name="user_id" id="search">
+                                <select class="js-example-basic-single" name="user_id" id="search" required>
                                     <option disabled selected>--Pilih Peserta--</option>
                                     @foreach ($peserta as $row)
                                         <option value="{{ $row->id }}" {{ old('user_id') == $row->id ? 'selected' : '' }}>
@@ -35,8 +35,8 @@
                             </div>
                             <div class="col-12 mb-4">
                                 <label for="certificate_categori_id" class="form-label">Kategori Sertifikat</label>
-                                <select name="certificate_categori_id" class="form-select">
-                                    <option disabled selected>--Pilih Kategori--</option>
+                                <select name="certificate_categori_id" class="form-select" required>
+                                    <option disabled selected>--Pilih Kategori--</option >
                                     @foreach ($categories as $category)
                                         <option value="{{ $category->id }}"
                                             {{ old('certificate_categori_id') == $category->id ? 'selected' : '' }}>
@@ -46,23 +46,23 @@
                             </div>
                             <div class="col-12 mb-4">
                                 <label for="tanggal" class="form-label">Tanggal Acara</label>
-                                <input type="date" name="tanggal" class="form-control" value="{{ old('tanggal') }}">
+                                <input type="date" name="tanggal" class="form-control" value="{{ old('tanggal') }}" required>
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="col-12 mb-4">
                                 <label for="division" class="form-label">Bidang/Division</label>
                                 <input type="text" name="bidang" class="form-control"
-                                    placeholder="Bidang yang diikuti peserta" value="{{ old('bidang') }}">
+                                    placeholder="Bidang yang diikuti peserta" value="{{ old('bidang') }}" required>
                             </div>
                             <div class="col-12 mb-4">
                                 <label for="division" class="form-label">Sub Bidang</label>
                                 <input type="text" name="sub_bidang" class="form-control"
-                                    placeholder="Sub bidang peserta" value="{{ old('sub_bidang') }}">
+                                    placeholder="Sub bidang peserta" value="{{ old('sub_bidang') }}" required>
                             </div>
                             <div class="col-12 mb-4">
                                 <label for="predikat" class="form-label">Predikat</label>
-                                <select name="predikat" class="form-select" id="predikat">
+                                <select name="predikat" class="form-select" id="predikat" required>
                                     <option disabled selected>--Pilih Predikat--</option>
                                     <option value="Sangat Baik" {{ old('predikat') == 'Sangat Baik' ? 'selected' : '' }}>
                                         Sangat Baik</option>
@@ -83,7 +83,7 @@
                         <div class="d-flex flex-row">
                             <div class="col-12 mb-4">
                                 <label for="instruktur">Instruktur Pemateri</label>
-                                <input type="text" class="form-control" name="instruktur" id="instruktur" value="{{ old('instruktur') }}">
+                                <input type="text" class="form-control" name="instruktur" id="instruktur" value="{{ old('instruktur') }}" required>
                             </div>
                         </div>
                         <div>
@@ -97,14 +97,14 @@
                                                     <div class="col-6 mb-4 pe-3">
                                                         <label for="unknown" class="form-label">Materi</label>
                                                         <input type="text" class="form-control" placeholder="materi"
-                                                            name="materi" value="">
+                                                            name="materi" value="" required>
                                                     </div>
                                                     <div class="col-6 mb-4 ps-2">
                                                         <label for="unknown" class="form-label">Jam
                                                             Pelajaran</label>
                                                         <div class="d-flex flex-row">
                                                             <input type="number" class="form-control" name="jam_pelajaran"
-                                                                id="jamPelajaran" placeholder="Jam Pelajaran">
+                                                                id="jamPelajaran" placeholder="Jam Pelajaran" required>
                                                             <input class="btn btn-danger ms-2" data-repeater-delete
                                                                 type="button" value="Hapus" />
                                                         </div>

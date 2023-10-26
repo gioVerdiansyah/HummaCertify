@@ -1,0 +1,53 @@
+.card-dashboard .card-body img {
+    width: 50px;
+    height: auto;
+}
+
+.card-dashboard .card-body .content {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-dashboard .card-body .text {
+    height: 100px;
+    justify-content: space-evenly;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-dashboard .card-body .text .text-atas {
+    font-size: 20px;
+    font-weight: 500;
+    color: #878A99;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.card-dashboard .card-body .text .angka {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.card-dashboard .card-body .text .text-bawah {
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #878A99;
+    margin-bottom: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.card .title-chart {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px 20px;
+    color: #495057;
+}

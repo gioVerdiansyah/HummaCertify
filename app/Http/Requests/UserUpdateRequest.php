@@ -25,7 +25,6 @@ class UserUpdateRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'email' => 'required',
             'nomor_induk' => 'required|gt:0',
             'certificate_categori_id'=>'required|exists:certificate_categoris,id',
             'tanggal' => 'required|date',
@@ -34,7 +33,7 @@ class UserUpdateRequest extends FormRequest
             'ttl' => 'nullable',
             'institusi' => 'required',
             'predikat' => 'required',
-           
+
 
         ];
     }

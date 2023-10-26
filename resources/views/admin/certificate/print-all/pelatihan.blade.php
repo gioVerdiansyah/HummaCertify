@@ -260,6 +260,7 @@
         width: 80%;
       }
     </style>
+    @foreach ($certificates as $certificate)
     <div class="depan">
       <section id="depan">
         <div class="content">
@@ -340,6 +341,7 @@
           </div>
         </div>
     </div>
+    @endforeach
     </section>
     </div>
   </main>

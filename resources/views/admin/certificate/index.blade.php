@@ -22,12 +22,18 @@
                                     @endforeach
                                 </select>
                             </div>
-                            @if (request('ct'))
+                            @if (request('ct') && !request('print'))
                                 <div class="col-2">
-                                    <a href="{{ route('printAllCertificate', request('ct')) }}" class="btn btn-primary"><i
-                                            class="bi bi-printer"></i> Print Semua</a>
+                                    <a href="{{ route('printAllCertificate') }}?ct={{ request('ct') }}&page={{ $certificates->currentPage()}}" target="_blank" class="btn btn-primary print-all-certificate"><i
+                                            class="bi bi-printer "></i> Print Semua</a>
                                 </div>
                             @endif
+                            <div class="col-2">
+                                <select name="print" class="form-select" id="printSelect">
+                                    <option value="nonPrint" {{ request('print') == 'nonPrint' ? 'selected' : '' }}>non print</option>
+                                    <option value="hasPrint" {{ request('print') == 'hasPrint' ? 'selected' : '' }} >has print</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="col-3">
                             <form action="" method="GET" class="d-flex align-items-center gap-3"
@@ -53,13 +59,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($certificates as $i => $certificate)
+                            @forelse ($certificates as $i => $certificate)
                                 <tr>
                                     <td class="text-center"><span class="fw-bold">{{ ++$i }}</span></td>
                                     <td>
                                         {{ $certificate->nomor }}
                                     </td>
-                                    <td>{{ $certificate->user->name }}</td>
+                                    <td data-nama-sertifikat="{{ $certificate->user->name }}">{{ $certificate->user->name }}</td>
                                     <td>{{ $certificate->category->name }}</td>
                                     <td class="d-flex gap-2 justify-content-center align-items-center">
                                         @isset($certificate->user->email)
@@ -72,13 +78,22 @@
                                                 </button>
                                             </form>
                                         @endisset
-                                        <a href="{{ route('getCertificate', $certificate->id) }}" target="_blank"
-                                            class="btn btn-info"><i class="bi bi-printer"></i> Print</a>
+                                        <a href="{{ route('getCertificate', $certificate->id) }}" class="btn btn-info print-certificate">
+                                            <i class="bi bi-printer"></i> Print
+                                        </a>
+                                        </a>
                                         <a href="{{ route('certificate.edit', $certificate->id) }}"
                                             class="btn btn-warning"><i class="bi bi-pencil-square"></i> Edit</a>
+
                                     </td>
                                 </tr>
-                            @endforeach
+                                @empty
+                                    <tr>
+                                        <td colspan="5" class="text-center">
+                                            Data sertifikat tidak ada...
+                                        </td>
+                                    </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
@@ -91,6 +106,7 @@
         </div>
     </div>
     <script>
+
         document.getElementById('categorySelect').addEventListener('change', function() {
             document.getElementById('loading').style.display = 'flex';
             var selectedCategoryId = this.value;
@@ -108,5 +124,61 @@
             }
             window.location.href = newUrl;
         });
+
+        document.getElementById('printSelect').addEventListener('change', function() {
+            document.getElementById('loading').style.display = 'flex';
+            var printCategoryId = this.value;
+            var currentUrl = window.location.href;
+            var newUrl;
+            if (printCategoryId === "nonPrint") {
+                newUrl = currentUrl.replace(/[\?&]print=[^&]*/, '');
+            } else {
+                var ctParam = 'print=' + printCategoryId;
+                if (currentUrl.includes('print=')) {
+                    newUrl = currentUrl.replace(/print=[^&]*/, ctParam);
+                } else {
+                    newUrl = currentUrl + (currentUrl.includes('?') ? '&' : '?') + ctParam;
+                }
+            }
+            window.location.href = newUrl;
+        });
+
+document.querySelectorAll('.print-certificate').forEach(function(link) {
+    link.addEventListener('click', function(event) {
+        event.preventDefault();
+        var namaSertifikat = link.closest('tr').querySelector('td[data-nama-sertifikat]').dataset.namaSertifikat;
+        Swal.fire({
+            title: `Anda yakin ingin mencetak sertifikat untuk ${namaSertifikat}?`,
+            text: 'Tindakan ini tidak dapat dibatalkan .',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Lanjutkan',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = link.href;
+            }
+        });
+    });
+});
+
+    document.querySelectorAll('.print-all-certificate').forEach(function(link){
+        link.addEventListener('click', function(event){
+            event.preventDefault();
+            Swal.fire({
+                title: 'anda yakin mau memprint semua certificate?',
+                text: 'tindakan anda tidak dapat di batalkan',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'lanjutkan',
+                cancelButtonText: 'batal',
+            }).then((result) => {
+                if(result.isConfirmed) {
+                    window.location.href = link.href;
+                }
+            });
+        });
+    });
+
     </script>
 @endsection

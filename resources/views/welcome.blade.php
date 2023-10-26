@@ -60,7 +60,7 @@
                             <a href="" class="nav-link">Contact Us</a>
                         </li> --}}
                 </ul>
-                <a href="#" class="btn btn-sm rounded-pill nav-btn ms-lg-3">Masuk</a>
+                <a href="{{ route('login') }}" class="btn btn-sm rounded-pill nav-btn ms-lg-3">Masuk</a>
             </div>
         </div>
         <!-- end container -->

@@ -19,9 +19,10 @@ use Illuminate\Support\Facades\Storage;
 
 class CertificateController extends Controller
 {
+    protected $perPage = 3;
     public function index(Request $request)
     {
-        $certificates = Certificate::paginate(15);
+        $certificates = Certificate::where('status', 'nonPrint')->paginate($this->perPage);
         $categories = CertificateCategori::select('id', 'name')->get();
 
         if ($request->all()) {
@@ -54,14 +55,20 @@ class CertificateController extends Controller
             $query->where('certificate_categori_id', $kategori);
         }
 
+        if (!isset($dataRequest['print'])) {
+            $query->where('status', 'nonPrint');
+        } elseif (isset($dataRequest['print'])) {
+            $print = $dataRequest['print'];
+            $query->where('status', $print);
+        }
+
         if (isset($dataRequest['page'])) {
             $page = $dataRequest['page'];
             $perPage = 15;
             $offset = ($page - 1) * $perPage;
             $query->skip($offset)->take($perPage);
         }
-        $data = $query->paginate(15);
-
+        $data = $query->paginate($this->perPage);
         return $data;
     }
 
@@ -200,6 +207,7 @@ class CertificateController extends Controller
     {
         $certificate = Certificate::findOrFail($id);
         $user = User::findOrFail($certificate->user_id);
+        $name = $certificate->user->name;
 
         // Delete sertifikat
         Storage::delete('public/sertifikat/'. $certificate->id . '.pdf');
@@ -217,24 +225,29 @@ class CertificateController extends Controller
             'certificate_categori_id' => $request->certificate_categori_id,
             'tanggal' => $request->tanggal,
             'bidang' => $request->bidang,
+            'predikat' => $request->predikat,
             'sub_bidang' => $request->sub_bidang,
         ];
         $certificate->update($dataCertificate);
 
 
+        DetailCertificate::where('certificate_id', $id)->delete();
         foreach ($request['category-group'] as $category) {
             $detailCertificate = [
+                'certificate_id' => $id,
                 'materi' => $category['materi'],
                 'jp' => $category['jam_pelajaran'],
             ];
-
-            $detail = DetailCertificate::findOrFail($category['detail_id']);
-            $detail->update($detailCertificate);
+            DetailCertificate::create($detailCertificate);
         }
 
         // Generate sertifikat kembali
         $this->generateCertificate($id);
-        return redirect()->route('certificate.index');
+        return to_route('certificate.index')->with('message', [
+            'icon' => "success",
+            'title' => "Berhasil!",
+            'text' => "Berhasil meupdate sertifikat {$name}"
+        ]);
     }
 
     /**
@@ -269,6 +282,9 @@ class CertificateController extends Controller
     {
         $certificate = Certificate::with(['user', 'category', 'detailCertificates'])->where('id', $id)->first();
         $category = $certificate->category->id;
+        // Perbarui status
+        $certificate->status = 'hasPrint';
+        $certificate->save();
         $type = $this->getTypeCertificate($category);
         return view('certificate.' . $type, compact('certificate', 'category', 'type'));
     }
@@ -285,11 +301,11 @@ class CertificateController extends Controller
         return $categoryname;
     }
 
-    public function printAllCertificate(int $ct)
+    public function printAllCertificate(Request $request)
     {
-        $dataRequest['ct'] = $ct;
+        $dataRequest = $request->all();
 
-        $query = Certificate::with('user');
+        $query = Certificate::with('user')->where('status', 'nonPrint');
         if (isset($dataRequest['ct'])) {
             $kategori = $dataRequest['ct'];
             $query->where('certificate_categori_id', $kategori);
@@ -297,12 +313,16 @@ class CertificateController extends Controller
 
         if (isset($dataRequest['page'])) {
             $page = $dataRequest['page'];
-            $perPage = 15;
+            $perPage = $this->perPage;
             $offset = ($page - 1) * $perPage;
             $query->skip($offset)->take($perPage);
         }
         $certificates = $query->get();
         $type = $this->getTypeCertificate($dataRequest['ct']);
+        foreach ($certificates as $certificate) {
+            $certificate->status = 'hasPrint';
+            $certificate->save();
+        }
         return view('admin.certificate.print-all.' . $type, compact('certificates'));
     }
 
