@@ -44,7 +44,7 @@
                   class="form-control @error('email') is-invalid
                                 @enderror"
                   placeholder="Email peserta" name="email" id="email"
-                  value="{{ old('email', $certificate->user->email) }}" required>
+                  value="{{ old('email', $certificate->user->email) }}">
                 @error('email')
                   <div class="invalid-feedback">
                     <p>{{ $message }}</p>

@@ -1,17 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<!-- Mirrored from themesbrand.com/qexal/layout/index-6.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Oct 2023 07:16:43 GMT -->
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-layout="horizontal" data-sidebar="light" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable" data-topbar="light" data-sidebar-visibility="show" data-layout-style="default" data-bs-theme="light" data-layout-width="fluid" data-layout-position="scrollable">
 
 <head>
     <meta charset="utf-8" />
-    <title>Qexal - Responsive Bootstrap 5 Landing Page Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Premium Bootstrap 5 Landing Page Template" />
-    <meta name="keywords" content="bootstrap 5, premium, marketing, multipurpose" />
-    <meta content="Themesbrand" name="author" />
-    <!-- favicon -->
-    <link rel="shortcut icon" href="images/favicon.ico" />
+      <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.1/feather.min.js" integrity="sha512-4lykFR6C2W55I60sYddEGjieC2fU79R7GUtaqr3DzmNbo0vSaO1MfUjMoTFYYuedjfEix6uV9jVTtRCSBU/Xiw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
@@ -20,6 +16,11 @@
     <link href="{{ asset('landingpage/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('landingpage/css/materialdesignicons.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('landingpage/css/style.min.css') }}" rel="stylesheet" type="text/css" />
+
+    {{-- script --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"
+    integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="20">
@@ -115,7 +116,7 @@
                                 <svg width="72" height="73" viewBox="0 0 72 73" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <rect y="0.390137" width="72" height="72" rx="36" fill="#FBFBFB"/>
                                     <path d="M47.1427 30.5984V26.8333C47.1427 26.3471 46.9471 25.8808 46.5988 25.537C46.2505 25.1931 45.7781 25 45.2856 25H24.8571C24.3646 25 23.8922 25.1931 23.5439 25.537C23.1957 25.8808 23 26.3471 23 26.8333V41.4995C23 41.9857 23.1957 42.452 23.5439 42.7958C23.8922 43.1396 24.3646 43.3328 24.8571 43.3328H37.8571V46.0827C37.8569 46.239 37.8973 46.3928 37.9744 46.5294C38.0514 46.6659 38.1626 46.7808 38.2973 46.863C38.432 46.9452 38.5857 46.9921 38.7439 46.9991C38.9021 47.0061 39.0595 46.9731 39.2012 46.9031L42.4999 45.2738L45.7986 46.9031C45.9402 46.9731 46.0976 47.0061 46.2558 46.9991C46.414 46.9921 46.5678 46.9452 46.7025 46.863C46.8372 46.7808 46.9483 46.6659 47.0254 46.5294C47.1024 46.3928 47.1428 46.239 47.1427 46.0827V39.5677C48.3331 38.3707 49 36.7604 49 35.083C49 33.4057 48.3331 31.7953 47.1427 30.5984ZM35.0714 36.9163H28.5714C28.3251 36.9163 28.0889 36.8197 27.9148 36.6478C27.7407 36.4759 27.6428 36.2428 27.6428 35.9997C27.6428 35.7566 27.7407 35.5234 27.9148 35.3515C28.0889 35.1796 28.3251 35.083 28.5714 35.083H35.0714C35.3176 35.083 35.5538 35.1796 35.728 35.3515C35.9021 35.5234 35.9999 35.7566 35.9999 35.9997C35.9999 36.2428 35.9021 36.4759 35.728 36.6478C35.5538 36.8197 35.3176 36.9163 35.0714 36.9163ZM35.0714 33.2498H28.5714C28.3251 33.2498 28.0889 33.1532 27.9148 32.9813C27.7407 32.8094 27.6428 32.5762 27.6428 32.3331C27.6428 32.09 27.7407 31.8569 27.9148 31.685C28.0889 31.513 28.3251 31.4165 28.5714 31.4165H35.0714C35.3176 31.4165 35.5538 31.513 35.728 31.685C35.9021 31.8569 35.9999 32.09 35.9999 32.3331C35.9999 32.5762 35.9021 32.8094 35.728 32.9813C35.5538 33.1532 35.3176 33.2498 35.0714 33.2498ZM45.2856 44.6L42.9154 43.429C42.7864 43.3653 42.6441 43.3321 42.4999 43.3321C42.3556 43.3321 42.2134 43.3653 42.0844 43.429L39.7142 44.6V40.8796C40.5847 41.2878 41.5362 41.4995 42.4999 41.4995C43.4635 41.4995 44.4151 41.2878 45.2856 40.8796V44.6ZM42.4999 39.6662C41.5816 39.6662 40.684 39.3974 39.9205 38.8938C39.157 38.3902 38.5619 37.6744 38.2105 36.8369C37.8591 35.9995 37.7671 35.0779 37.9463 34.1889C38.1254 33.2998 38.5676 32.4832 39.2169 31.8422C39.8662 31.2013 40.6935 30.7647 41.5941 30.5879C42.4947 30.4111 43.4283 30.5018 44.2766 30.8487C45.125 31.1956 45.8501 31.783 46.3603 32.5367C46.8704 33.2904 47.1427 34.1766 47.1427 35.083C47.1427 36.2986 46.6536 37.4643 45.7829 38.3238C44.9122 39.1834 43.7312 39.6662 42.4999 39.6662Z" fill="#29344A"/>
-                                </svg>                                    
+                                </svg>
                             </div>
                             <h4 class="mb-3 font-size-22">Fungsi</h4>
                             <p class="text-muted mb-0">Pencarian sertifikat adalah langkah kunci dalam memastikan keabsahan dokumen penting yang anda miliki</p>
@@ -160,7 +161,7 @@
                                 <svg width="72" height="73" viewBox="0 0 72 73" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <rect y="0.390137" width="72" height="72" rx="36" fill="#FBFBFB"/>
                                     <path d="M36 34.5C39.1562 34.5 41.7143 31.926 41.7143 28.75C41.7143 25.574 39.1562 23 36 23C32.8438 23 30.2857 25.574 30.2857 28.75C30.2857 31.926 32.8438 34.5 36 34.5ZM40.2768 35.9645L38.1429 44.5625L36.7143 38.4531L38.1429 35.9375H33.8571L35.2857 38.4531L33.8571 44.5625L31.7232 35.9645C28.5402 36.1172 26 38.7361 26 41.975V43.8438C26 45.0342 26.9598 46 28.1429 46H43.8571C45.0402 46 46 45.0342 46 43.8438V41.975C46 38.7361 43.4598 36.1172 40.2768 35.9645Z" fill="#29344A"/>
-                                </svg>                                    
+                                </svg>
                             </div>
                             <h4 class="mb-3 font-size-22">Bukti</h4>
                             <p class="text-muted mb-0">Sertifikat mewakili pengetahuan, keterampilan, atau status tertentu yang anda peroleh selama perjalanan hidup anda</p>
@@ -687,7 +688,8 @@
                     <p class="text-muted mb-5">Anda bisa hubungi kami, dengan mengirimkan pesan pada form dibawah ini. Terima Kasih!</p>
 
                     <div>
-                        <form method="post" name="myForm" onsubmit="return validateForm()">
+                        <form method="post" id="send-notif-form" name="myForm">
+                            @csrf
                             <p id="error-msg"></p>
                             <div id="simple-msg"></div>
                             <div class="row">
@@ -708,11 +710,19 @@
                                 <div class="col-md-12">
                                     <div class="mb-4 pb-2">
                                         <label for="comments" class="text-muted form-label">Pesan</label>
-                                        <textarea name="comments" id="comments" rows="10" class="form-control" placeholder="Masukkan pesan..."></textarea>
+                                        <textarea name="message" id="comments" rows="10" class="form-control" placeholder="Masukkan pesan..."></textarea>
                                     </div>
 
-                                    <button type="submit" id="submit" name="send"
-                                        class="btn bg-biru">Kirim Pesan</button>
+                                    <button type="submit" id="submit-button" name="send" class="btn bg-biru">
+                                        <span class="d-flex align-items-center">
+                                            <span class="flex-grow-1 me-2">
+                                                Kirim
+                                            </span>
+                                            <span class="spinner-border flex-shrink-0 d-none" role="status">
+                                                <span class="visually-hidden">Loading...</span>
+                                            </span>
+                                        </span>
+                                    </button>
                                 </div>
                             </div>
                         </form>
@@ -852,6 +862,76 @@
         <!-- end container -->
     </footer>
     <!-- Footer End -->
+    {{-- Coba nyalain --}}
+    {{-- <script>
+        document.addEventListener("contextmenu", e => e.preventDefault(), false);
+        document.addEventListener("keydown", e => {
+          if (e.ctrlKey || (e.keyCode>=112 && e.keyCode<=123)) {
+          if (e.ctrlKey || e.keyCode==123) {
+            e.stopPropagation();
+            e.preventDefault();
+          }
+          }
+        });
+    </script> --}}
+    <script>
+        $(document).ready(function() {
+            var sendCount = localStorage.getItem('sendCount') || 0;
+
+            $("#send-notif-form").on("submit", function(event) {
+                event.preventDefault();
+                if (sendCount < 2) {
+                    $("#submit-button").attr('type', 'button');
+                    $("#submit-button .flex-grow-1").text("Loading...");
+                    $("#submit-button .spinner-border").removeClass("d-none");
+                    $.ajax({
+                        url: "{{ route('send_notif') }}",
+                        type: "POST",
+                        data: $(this).serialize(),
+                        success: function(response) {
+                            console.log(response);
+                            if (response.error) {
+                                let errorList = '<ul>';
+                                $.each(response.error, function(field, messages) {
+                                    $.each(messages, function(key, message) {
+                                        errorList += '<li>'+ message + '</li>';
+                                    });
+                                });
+                                errorList += '</ul>';
+
+                                $("#error-msg").html("<div class='alert alert-danger'>Terjadi kesalahan:</div>" + errorList);
+
+                                $("#submit-button .flex-grow-1").text("Kirim");
+                                $("#submit-button .spinner-border").addClass("d-none");
+                            } else {
+                                $("#error-msg").empty();
+
+                                $("#simple-msg").html("<div class='alert alert-success'>"+ response.success +"</div>");
+
+                                $("form")[0].reset();
+
+                                sendCount++;
+                                localStorage.setItem('sendCount', sendCount);
+
+                                $("#submit-button .flex-grow-1").text("Kirim");
+                                $("#submit-button .spinner-border").addClass("d-none");
+                            }
+                            $("#submit-button").attr('type', 'submit');
+                        },
+                        error: function(xhr, status, error) {
+                            $("#simple-msg").empty();
+                            $("#error-msg").html("<div class='alert alert-danger'>Terjadi kesalahan: " + error + "</div>");
+
+                            $("#submit-button .flex-grow-1").text("Kirim");
+                            $("#submit-button .spinner-border").addClass("d-none");
+                        }
+                    });
+                } else {
+                    $("#error-msg").html("<div class='alert alert-danger'>Anda telah mencapai batas pengiriman pesan (3 kali).</div>");
+                }
+            });
+        });
+    </script>
 
     <!-- javascript -->
     <script src="{{ asset('landingpage/js/bootstrap.bundle.min.js') }}"></script>
@@ -859,6 +939,7 @@
     <script src="{{ asset('landingpage/js/app.js') }}"></script>
 
     <script src="https://unpkg.com/feather-icons"></script>
+        </script>
 
     <!-- App Js -->
     <script src="js/app.js"></script>

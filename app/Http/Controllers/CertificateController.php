@@ -22,7 +22,7 @@ class CertificateController extends Controller
     protected $perPage = 3;
     public function index(Request $request)
     {
-        $certificates = Certificate::where('status', 'nonPrint')->paginate($this->perPage);
+        $certificates = Certificate::latest()->where('status', 'nonPrint')->paginate($this->perPage);
         $categories = CertificateCategori::select('id', 'name')->get();
 
         if ($request->all()) {
@@ -35,7 +35,7 @@ class CertificateController extends Controller
     public function searchCertificates(array $dataRequest)
     {
 
-        $query = Certificate::with('user');
+        $query = Certificate::with('user')->latest();
 
 
         if (isset($dataRequest['q'])) {

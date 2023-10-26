@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactMeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\CertificateController;
 use App\Http\Controllers\detailCertificateController;
 
 // Auth::routes();
+Route::post('/send_notif', [ContactMeController::class, 'sending'])->name('send_notif');
 
 Route::middleware('AdminDown')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');

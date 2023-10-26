@@ -5618,8 +5618,8 @@ textarea.form-control-lg {
     }
 }
 .spinner-border {
-    --bs-spinner-width: 2rem;
-    --bs-spinner-height: 2rem;
+    --bs-spinner-width: 1rem;
+    --bs-spinner-height: 1rem;
     --bs-spinner-vertical-align: -0.125em;
     --bs-spinner-border-width: 0.25em;
     --bs-spinner-animation-speed: 0.75s;
