@@ -51,7 +51,7 @@ class HomeController extends Controller
         $kompetensiCount = Certificate::where('certificate_categori_id', 3)->count();
 
         // mengambil data berdasarkan tahun dan bulannya dari table certificate untuk chart line
-        $certificateData = Certificate::selectRaw('YEAR(tanggal) as year, MONTH(tanggal) as month, COUNT(*) as count')
+        $certificateData = Certificate::selectRaw('YEAR(created_at) as year, MONTH(created_at) as month, COUNT(*) as count')
             ->groupBy('year', 'month')
             ->get();
 
