@@ -229,14 +229,14 @@ class CertificateController extends Controller
         $certificate->update($dataCertificate);
 
 
+        DetailCertificate::where('certificate_id', $id)->delete();
         foreach ($request['category-group'] as $category) {
             $detailCertificate = [
+                'certificate_id' => $id,
                 'materi' => $category['materi'],
                 'jp' => $category['jam_pelajaran'],
             ];
-
-            $detail = DetailCertificate::findOrFail($category['detail_id']);
-            $detail->update($detailCertificate);
+            DetailCertificate::create($detailCertificate);
         }
 
         // Generate sertifikat kembali
@@ -302,7 +302,8 @@ class CertificateController extends Controller
         $query = Certificate::with('user');
         if (isset($dataRequest['ct'])) {
             $kategori = $dataRequest['ct'];
-            $query->where('certificate_categori_id', $kategori);
+            $query->where('certificate_categori_id', $kategori)
+            ->where();
         }
 
         if (isset($dataRequest['page'])) {
