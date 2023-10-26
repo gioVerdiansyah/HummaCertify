@@ -18,9 +18,6 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather:wght@400;700&family=Open+Sans:wght@700&family=Poppins:wght@400;500&display=swap"
     rel="stylesheet">
-
-  {{-- Import CSS --}}
-  {{-- <link rel="stylesheet" href="{{ asset('css/certificate/certificate.css') }}"> --}}
 </head>
 
 <body>
