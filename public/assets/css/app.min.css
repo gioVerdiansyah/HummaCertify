@@ -567,14 +567,19 @@
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    padding: .625rem 1.5rem;
+    padding: .625rem 0.8rem;
     color: var(--vz-vertical-menu-item-color);
     font-size: .9375rem;
-    font-family: Nunito, sans-serif
+    font-family: Nunito, sans-serif;
+    margin: 0px 10px;
 }
 
 .navbar-menu .navbar-nav .nav-link.active {
-    color: var(--vz-vertical-menu-item-active-color)
+    color: var(--vz-vertical-menu-item-active-color);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+    border-left: 3px solid transparent; /* Atur ketebalan dan warna dasar (dalam hal ini transparan) */
+    border-image: linear-gradient(45deg, rgba(0, 177, 240, 1), rgba(44, 94, 180, 1)); /* Isi dengan gradien Anda */
+    border-image-slice: 1; /* Potong gambar sesuai ukuran border */
 }
 
 .navbar-menu .navbar-nav .nav-link:hover {
