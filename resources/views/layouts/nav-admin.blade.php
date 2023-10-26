@@ -116,7 +116,7 @@
               </button>
               <div class="dropdown-menu dropdown-menu-end">
 
-                <form id="logout-form" action="{{ route('admin.logout') }}" method="POST">
+                <form id="logout-form" class="m-0" action="{{ route('admin.logout') }}" method="POST">
                   @csrf
                   <button type="submit" class="dropdown-item"><i
                       class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> Logout </button>

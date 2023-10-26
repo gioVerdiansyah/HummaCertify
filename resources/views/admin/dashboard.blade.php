@@ -22,8 +22,7 @@
       <div class="card card-dashboard">
         <div class="card-body">
           <div class="d-flex position-relative align-items-center">
-            <div class="content flex-shrink-0 me-3 avatar-xl rounded"
-              style="background-color: rgba(61, 120, 227, 28%);">
+            <div class="content flex-shrink-0 me-3 avatar-xl rounded" style="background-color: rgba(61, 120, 227, 28%);">
               <img src="{{ asset('image/user-vector.png') }}" alt="..." />
             </div>
             <div class="text">
@@ -56,7 +55,16 @@
     {{-- Chart Line & Pie --}}
     <div class="col-md-8">
       <div class="card">
-        <p class="title-chart">Sertifikat Tercetak Tahun Ini</p>
+        <div class="top d-flex py-2 justify-content-between align-items-center">
+          <div class="text">
+            <p class="title-chart" style="margin-bottom: 0;">Sertifikat Tercetak Tahun <span id="tahunini">ini</span></p>
+          </div>
+          <div class="button me-3" style="width: 204px">
+            <div class="btn btn-sm btn-primary" id="previus" style="width: 100px">Previous</div>
+            <div class="btn btn-sm btn-primary" id="current" style="width: 100px">current</div>
+            <div class="btn btn-sm btn-primary" id="next" style="width: 100px">Next</div>
+          </div>
+        </div>
         <canvas id="chartLine"></canvas>
       </div>
     </div>
@@ -118,8 +126,36 @@
     // mengambil data dari variable yang sudah di buat di controller
     const certificateData = {!! json_encode($certificateData) !!};
 
+    const previousButton = document.getElementById("previus");
+    const currentButton = document.getElementById("current");
+    const nextButton = document.getElementById("next");
+    const tahun = document.getElementById("tahunini");
+
     // Filter data untuk tahun saat ini
-    const currentYear = new Date().getFullYear();
+    var year = new Date().getFullYear();
+    var currentYear = year;
+
+    function updateYearDisplay(year) {
+      tahun.textContent =  year;
+    }
+    
+    previousButton.addEventListener("click", () => {
+      year -= 1;
+      updateChart(year);
+      updateYearDisplay(year);
+    })
+    nextButton.addEventListener("click", () => {
+      year += 1;
+      updateChart(year);
+      updateYearDisplay(year);
+    })
+    currentButton.addEventListener("click", () =>{
+      year =  new Date().getFullYear();
+      updateChart(year);
+      updateYearDisplay(year);
+    })
+    
+
 
     // Buat array yang berisi nama-nama bulan
     const monthNames = [
@@ -136,12 +172,12 @@
         certificateCounts[data.month - 1] = data.count; // -1 karena bulan dimulai dari 0
       }
     });
-
-    // membuat variable yang berisikan nama bulan
     const labels = monthNames;
-
-    // mengambil data yang sudah di rubah nilainya
     const datasetData = certificateCounts;
+
+         
+// Memperbarui grafik saat halaman dimuat dengan tahun 2022
+
 
     const chartLine = new Chart(ctxLine, {
       type: "line",
@@ -207,6 +243,19 @@
         },
       },
     });
+    function updateChart(year) {
+     certificateCounts.fill(0);
+
+       // Mengisi kembali array certificateCounts dengan data yang sesuai dari tabel
+       certificateData.forEach(data => {
+           if (data.year === year) {
+             certificateCounts[data.month - 1] = data.count;
+           }
+      });
+     chartLine.data.datasets[0].data = certificateCounts;
+     chartLine.update();
+    }
+   updateChart(year); 
   </script>
 
 
