@@ -72,19 +72,19 @@
             <div class="navbar-brand-box horizontal-logo">
               <a href="{{ route('admin.home') }}" class="logo logo-dark">
                 <span class="logo-sm">
-                  <img src="{{ asset('image/nav-admin-logo.png') }}" alt="" height="30">
+                  <img src="{{ asset('image/nav-admin-logo.png') }}" alt="" height="50">
                 </span>
                 <span class="logo-lg">
-                  <img src="{{ asset('image/nav-admin-logo.png') }}" alt="" height="30">
+                  <img src="{{ asset('image/nav-admin-logo.png') }}" alt="" height="50">
                 </span>
               </a>
 
               <a href="{{ route('admin.home') }}" class="logo logo-light">
                 <span class="logo-sm">
-                  <img src="{{ asset('image/nav-admin-logo.png') }}" alt="" height="30">
+                  <img src="{{ asset('image/nav-admin-logo.png') }}" alt="" height="50">
                 </span>
                 <span class="logo-lg">
-                  <img src="{{ asset('image/nav-admin-logo.png') }}" alt="" height="40">
+                  <img src="{{ asset('image/nav-admin-logo.png') }}" alt="" height="50">
                 </span>
               </a>
             </div>
@@ -117,12 +117,10 @@
               <div class="dropdown-menu dropdown-menu-end">
 
                 <form id="logout-form" action="{{ route('admin.logout') }}" method="POST">
-                    @csrf
-                    <button type="submit" class="dropdown-item logout-button">
-                        <i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> Logout
-                    </button>
+                  @csrf
+                  <button type="submit" class="dropdown-item"><i
+                      class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> Logout </button>
                 </form>
-
               </div>
             </div>
           </div>
@@ -137,19 +135,19 @@
         <!-- Dark Logo-->
         <a href="{{ route('admin.home') }}" class="logo logo-dark">
           <span class="logo-sm">
-            <img src="{{ asset('image/nav-admin-logo.png') }}" alt="" height="40">
+            <img src="{{ asset('image/nav-admin-logo.png') }}" alt="" height="50">
           </span>
           <span class="logo-lg">
-            <img src="{{ asset('image/nav-admin-logo.png') }}" alt="" class="me-2" height="40">
+            <img src="{{ asset('image/nav-admin-logo.png') }}" alt="" class="me-2" height="50">
           </span>
         </a>
         <!-- Light Logo-->
         <a href="{{ route('admin.home') }}" class="logo logo-light">
           <span class="logo-sm">
-            <img src="{{ asset('image/nav-admin-logo.png') }}" alt="" class="bg-primary" height="40">
+            <img src="{{ asset('image/nav-admin-logo.png') }}" alt="" class="bg-primary" height="50">
           </span>
           <span class="logo-lg">
-            <img src="{{ asset('image/nav-admin-logo.png') }}" alt="" height="40">
+            <img src="{{ asset('image/nav-admin-logo.png') }}" alt="" height="50">
           </span>
         </a>
         <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
@@ -164,20 +162,23 @@
           <div id="two-column-menu">
           </div>
           <ul class="navbar-nav" id="navbar-nav">
-            <li class="menu-title"><span data-key="t-menu">Menu</span></li>
+            <li class="menu-title"><span data-key="t-menu">Admin</span></li>
             <li class="nav-item">
-              <a class="nav-link menu-link" href="{{ route('admin.home') }}">
-                <i class="fi fi-rr-chart-line-up"></i> <span data-key="t-dashboard">Dashboard</span>
+              <a class="nav-link menu-link {{ request()->routeIs('admin.home') ? 'active' : '' }}" href="{{ route('admin.home') }}">
+                <img width="22" class="me-3" src="{{asset('image/dashboard-icon.png')}}" alt="">
+                <span data-key="t-dashboard">Dashboard</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link menu-link" href="{{ route('certificate.index') }}">
-                <i class="ri-dashboard-2-line"></i> <span data-key="t-list_sertificate">List Sertifikat</span>
+              <a class="nav-link menu-link {{ request()->routeIs('certificate.index') ? 'active' : '' }}" href="{{ route('certificate.index') }}">
+                <img width="22" class="me-3" src="{{asset('image/sertifikat-icon.png')}}" alt="">
+                <span data-key="t-list_sertificate">List Sertifikat</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link menu-link" href="{{ route('certificate.create') }}">
-                <i class="ri-dashboard-2-line"></i> <span data-key="t-tambah_certificate">Tambah Sertifikat</span>
+              <a class="nav-link menu-link {{ request()->routeIs('certificate.create') ? 'active' : '' }}" href="{{ route('certificate.create') }}">
+                <img width="22" class="me-3" src="{{asset('image/tambah-icon.png')}}" alt="">
+                <span data-key="t-tambah_certificate">Tambah Sertifikat</span>
               </a>
             </li>
           </ul>
@@ -238,7 +239,7 @@
   <script src="{{ asset('assets/libs/feather-icons/feather.min.js') }}"></script>
   <script src="{{ asset('assets/js/pages/plugins/lord-icon-2.1.0.js') }}"></script>
   <script src="{{ asset('assets/js/plugins.js') }}"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> --}}
 
   <!-- apexcharts -->
   <script src="{{ asset('assets/libs/apexcharts/apexcharts.min.js') }}"></script>
