@@ -225,6 +225,7 @@ class CertificateController extends Controller
             'certificate_categori_id' => $request->certificate_categori_id,
             'tanggal' => $request->tanggal,
             'bidang' => $request->bidang,
+            'predikat' => $request->predikat,
             'sub_bidang' => $request->sub_bidang,
         ];
         $certificate->update($dataCertificate);

@@ -20,7 +20,7 @@
               <div class="col-12 mb-4">
                 <label for="name" class="form-label ">Nama Peserta</label>
                 <input type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Masukkan nama"
-                  name="name" id="name" value="{{ old('name', $certificate->user->name) }}">
+                  name="name" id="name" value="{{ old('name', $certificate->user->name) }}" required>
                 @error('name')
                   <div class="invalid-feedback">
                     <p>{{ $message }}</p>
@@ -31,7 +31,7 @@
                 <label for="nomorInduk" class="form-label">NIS/NIM/NIP Peserta</label>
                 <input type="text" class="form-control @error('nomor_induk') is-invalid  @enderror"
                   placeholder="Masukkan NIS/NIM/NIP" name="nomor_induk" id="nomorInduk"
-                  value="{{ old('nomor_induk', $certificate->user->password) }}">
+                  value="{{ old('nomor_induk', $certificate->user->password) }}" required>
                 @error('nomor_induk')
                   <div class="invalid-feedback">
                     <p>{{ $message }}</p>
@@ -44,7 +44,7 @@
                   class="form-control @error('email') is-invalid
                                 @enderror"
                   placeholder="Email peserta" name="email" id="email"
-                  value="{{ old('email', $certificate->user->email) }}">
+                  value="{{ old('email', $certificate->user->email) }}" required>
                 @error('email')
                   <div class="invalid-feedback">
                     <p>{{ $message }}</p>
@@ -57,7 +57,7 @@
                   class="form-control @error('ttl') is-invalid
                                 @enderror"
                   placeholder="Tempat dan tanggal lahir peserta" name="ttl" id="ttl"
-                  value="{{ old('ttl', $certificate->user->ttl) }}">
+                  value="{{ old('ttl', $certificate->user->ttl) }}" required>
                 @error('ttl')
                   <div class="invalid-feedback">
                     <p>{{ $message }}</p>
@@ -70,7 +70,7 @@
                   class="form-control @error('institusi') is-invalid
                                 @enderror"
                   placeholder="Asal institusi" name="institusi" id="institusi"
-                  value="{{ old('institusi', $certificate->user->institusi) }}">
+                  value="{{ old('institusi', $certificate->user->institusi) }}" required>
                 @error('institusi')
                   <div class="invalid-feedback">
                     <p>{{ $message }}</p>
@@ -86,7 +86,7 @@
                 <label for="certificate_categori_id" class="form-label">Kategori Sertifikat</label>
                 <select name="certificate_categori_id"
                   class="form-select @error('certificate_categori_id') is-invalid
-                                @enderror">
+                                @enderror" required>
                   <option disabled selected>--Pilih Kategori--</option>
                   @foreach ($categories as $category)
                     <option value="{{ $category->id }}"
@@ -105,7 +105,7 @@
                 <input type="text" class="form-control @error('bidang')
                                 @enderror"
                   placeholder="Bidang yang diikuti peserta" id="bidang" name="bidang"
-                  value="{{ old('bidang', $certificate->bidang) }}">
+                  value="{{ old('bidang', $certificate->bidang) }}" required>
                 @error('bidang')
                   <div class="invalid-feedback">
                     <p>{{ $message }}</p>
@@ -118,7 +118,7 @@
                   class="form-control @error('sub_bidang') is-invalid
                                 @enderror"
                   placeholder="Sub bidang peserta" id="subBidang" name="sub_bidang"
-                  value="{{ old('sub_bidang', $certificate->sub_bidang) }}">
+                  value="{{ old('sub_bidang', $certificate->sub_bidang) }}" required>
                 @error('sub_bidang')
                   <div class="invalid-feedback">
                     <p>{{ $message }}</p>
@@ -128,14 +128,14 @@
               <div class="col-12 mb-4">
                 <label for="tanggal" class="form-label">Tanggal Acara</label>
                 <input type="date" class="form-control" placeholder="dd/mm/yy" name="tanggal" id="tanggal"
-                  value="{{ old('tanggal', $certificate->tanggal) }}">
+                  value="{{ old('tanggal', $certificate->tanggal) }}" required>
               </div>
               <div class="col-12 mb-4">
                 <label for="predikat" class="form-label">Predikat</label>
                 <select name="predikat"
                   class="form-select @error('predikat') is-invalid
                                 @enderror"
-                  id="predikat">
+                  id="predikat" required>
                   @error('predikat')
                     <div class="invalid-feedback">
                       <p>{{ $message }}</p>
@@ -166,7 +166,7 @@
                 <input type="text"
                   class="form-control @error('instruktur') is-invalid
                                 @enderror"
-                  name="instruktur" id="instruktur" value="{{ old('instruktur', $certificate->instruktur) }}">
+                  name="instruktur" id="instruktur" value="{{ old('instruktur', $certificate->instruktur) }}" required>
                 @error('instruktur', $certificate->instruktur)
                   <div class="invalid-feedback">
                     <p>{{ $message }}</p>
@@ -181,7 +181,7 @@
                   <div data-repeater-list="category-group" class="row g-3">
                     @foreach ($details as $detail)
                       <div data-repeater-item>
-                        <input type="hidden" name="detail_id" value="{{ $detail->id }}">
+                        <input type="hidden" name="detail_id" value="{{ $detail->id }}" >
                         <div class="row">
                           <div class="d-flex flex-row">
                             <div class="col-6 mb-4 pe-3">
@@ -189,7 +189,7 @@
                               <input type="text"
                                 class="form-control @error('materi') is-invalid
                                                         @enderror"
-                                placeholder="materi" name="materi" value="{{ $detail->materi }}">
+                                placeholder="materi" name="materi" value="{{ $detail->materi }}" required>
                               @error('materi')
                                 <div class="invalid-feedback">
                                   <p>{{ $message }}</p>
@@ -203,7 +203,7 @@
                                 <input type="number"
                                   class="form-control @error('jam_pelajaran') is-invalid
                                                             @enderror"name="jam_pelajaran"
-                                  id="jamPelajaran" placeholder="Jam Pelajaran" value="{{ $detail->jp }}">
+                                  id="jamPelajaran" placeholder="Jam Pelajaran" value="{{ $detail->jp }}" required>
                                 @error('jam_pelajaran')
                                   <div class="invalid-feedback">
                                     <p>{{ $message }}</p>

@@ -1,4 +1,4 @@
-@extends('layouts.      nav-admin')
+@extends('layouts.nav-admin')
 <div class="loading-container" id="loading">
     <div class="loading"></div>
     <div id="loading-text">Loading...</div>

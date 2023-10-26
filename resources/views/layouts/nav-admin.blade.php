@@ -117,10 +117,12 @@
               <div class="dropdown-menu dropdown-menu-end">
 
                 <form id="logout-form" action="{{ route('admin.logout') }}" method="POST">
-                  @csrf
-                  <button type="submit" class="dropdown-item"><i
-                      class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> Logout </button>
+                    @csrf
+                    <button type="submit" class="dropdown-item logout-button">
+                        <i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> Logout
+                    </button>
                 </form>
+
               </div>
             </div>
           </div>
@@ -236,7 +238,7 @@
   <script src="{{ asset('assets/libs/feather-icons/feather.min.js') }}"></script>
   <script src="{{ asset('assets/js/pages/plugins/lord-icon-2.1.0.js') }}"></script>
   <script src="{{ asset('assets/js/plugins.js') }}"></script>
-  {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> --}}
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
   <!-- apexcharts -->
   <script src="{{ asset('assets/libs/apexcharts/apexcharts.min.js') }}"></script>
@@ -253,6 +255,28 @@
 
   <!-- App js -->
   <script src="{{ asset('assets/js/app.js') }}"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.logout-button').forEach(function(link) {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+
+                Swal.fire({
+                    title: 'Anda yakin ingin logout?',
+                    text: 'Anda akan diarahkan ke tampilan landing page.',
+                    icon: 'info',
+                    showCancelButton: true,
+                    confirmButtonText: 'Lanjutkan',
+                    cancelButtonText: 'Batalkan',
+                }).then((result) => {
+                    if(result.isConfirmed) {
+                        document.getElementById('logout-form').submit();
+                    }
+                });
+            });
+        });
+    });
+    </script>
 </body>
 @if (session('message'))
   <script>
