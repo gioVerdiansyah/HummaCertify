@@ -54,7 +54,7 @@
                     @enderror
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="remember-Check">
+                    <input class="form-check-input" type="checkbox" id="remember-Check" name="remember" {{ old('remember') ? 'checked' : '' }}>
                     <label class="form-check-label" for="remember-Check">
                       Ingat saya
                     </label>
@@ -77,17 +77,6 @@
     <!-- end container -->
   </section>
   <!-- end section -->
-
-  <!-- Style switcher -->
-  <div id="style-switcher">
-    <div class="bottom">
-      <a href="javascript: void(0);" id="mode" class="mode-btn text-white">
-        <i class="mdi mdi-white-balance-sunny mode-light"></i>
-        <i class="mdi mdi-moon-waning-crescent mode-dark"></i>
-      </a>
-      <a href="javascript: void(0);" class="settings" onclick="toggleSwitcher()"><i class="mdi mdi-cog  mdi-spin"></i></a>
-    </div>
-  </div>
 
   <!-- javascript -->
   <script src="{{ asset('logintemplate/js/bootstrap.bundle.min.js') }}"></script>

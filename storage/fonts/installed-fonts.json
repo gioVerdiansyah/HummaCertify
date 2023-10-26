@@ -3,16 +3,16 @@
         "normal": "great_vibes_normal_1e93dc078852ebde2feecede36ac4c57"
     },
     "merriweather": {
-        "normal": "merriweather_normal_f48d8d14bf761fa27d7f4fa85936cb2b",
-        "bold": "C:\\Users\\ASUS\\Documents\\GitHub\\HummaCertify\\storage\\fonts\/merriweather_bold_4c68737e59888e80def25674c46b5dfa"
+        "normal": "C:\\xampp\\htdocs\\HummaCertify\\storage\\fonts\/merriweather_normal_f48d8d14bf761fa27d7f4fa85936cb2b",
+        "bold": "merriweather_bold_4c68737e59888e80def25674c46b5dfa"
     },
     "open sans": {
         "bold": "open_sans_bold_9f0e3c1c8c0fab5db8d6ce31e4104d18"
     },
     "poppins": {
-        "normal": "C:\\Users\\ASUS\\Documents\\GitHub\\HummaCertify\\storage\\fonts\/poppins_normal_442dffd12abdf0df26c14405d3f49bfa",
-        "500": "poppins_500_6a6f5e017da7e062546fd806ab3b249c",
-        "bold": "C:\\Users\\ASUS\\Documents\\GitHub\\HummaCertify\\storage\\fonts\/poppins_bold_2d1c4b360c3ac297e98fc2cfd808a2cc"
+        "normal": "C:\\xampp\\htdocs\\HummaCertify\\storage\\fonts\/poppins_normal_442dffd12abdf0df26c14405d3f49bfa",
+        "500": "C:\\xampp\\htdocs\\HummaCertify\\storage\\fonts\/poppins_500_6a6f5e017da7e062546fd806ab3b249c",
+        "bold": "poppins_bold_2d1c4b360c3ac297e98fc2cfd808a2cc"
     },
     "montserrat": {
         "normal": "C:\\xampp\\htdocs\\HummaCertify\\storage\\fonts\/montserrat_normal_00833106404dc8458cdfb436c759f23d",

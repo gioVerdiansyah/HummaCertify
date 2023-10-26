@@ -207,6 +207,7 @@ class CertificateController extends Controller
     {
         $certificate = Certificate::findOrFail($id);
         $user = User::findOrFail($certificate->user_id);
+        $name = $certificate->user->name;
 
         // Delete sertifikat
         Storage::delete('public/sertifikat/'. $certificate->id . '.pdf');
@@ -241,7 +242,11 @@ class CertificateController extends Controller
 
         // Generate sertifikat kembali
         $this->generateCertificate($id);
-        return redirect()->route('certificate.index');
+        return to_route('certificate.index')->with('message', [
+            'icon' => "success",
+            'title' => "Berhasil!",
+            'text' => "Berhasil meupdate sertifikat {$name}"
+        ]);
     }
 
     /**
@@ -299,11 +304,10 @@ class CertificateController extends Controller
     {
         $dataRequest = $request->all();
 
-        $query = Certificate::with('user');
+        $query = Certificate::with('user')->where('status', 'nonPrint');
         if (isset($dataRequest['ct'])) {
             $kategori = $dataRequest['ct'];
-            $query->where('certificate_categori_id', $kategori)
-            ->where();
+            $query->where('certificate_categori_id', $kategori);
         }
 
         if (isset($dataRequest['page'])) {
