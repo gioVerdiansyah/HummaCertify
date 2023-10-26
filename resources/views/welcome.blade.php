@@ -55,7 +55,7 @@
                             <a href="#contact" class="nav-link">Contact Us</a>
                         </li>
                     </ul>
-                    <a href="#" class="btn btn-sm rounded-pill nav-btn ms-lg-3">Buy Now</a>
+                    <a href="{{ route('login') }}" class="btn btn-sm rounded-pill nav-btn ms-lg-3">Sign In</a>
                 </div>
             </div>
             <!-- end container -->

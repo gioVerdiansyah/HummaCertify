@@ -37,14 +37,14 @@ Route::middleware('AdminUp')->group(function () {
         Route::get('/certificate/create/exist', [CertificateController::class, 'createExist'])->name('certificate.create_exist');
         Route::post('/certificate/store/exist',[CertificateController::class, 'storeExists'])->name('certificate.store_exist');
 
-        // print
+        // Untuk Fitur Print
         Route::get('/get_certificate/{id}', [CertificateController::class, 'getCertificate'])->name('getCertificate');
         Route::get('/print_certificate', [CertificateController::class, 'printAllCertificate'])->name('printAllCertificate');
         Route::post('/send_certificate/{id}', [CertificateController::class, 'sendCertificate'])->name('sendCertificate');
     });
 });
 
-// testing
+// Testing
 Route::get('/send-mail', [DemoTestController::class, 'sendMail']);
 Route::get('/show-certificate', [DemoTestController::class, 'showCertificate']);
 Route::get('/form-repeater', [DemoTestController::class, 'repeater']);
