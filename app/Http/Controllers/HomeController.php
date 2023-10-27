@@ -6,15 +6,9 @@ use App\Models\User;
 use App\Models\Certificate;
 use Illuminate\Http\Request;
 use App\Models\CertificateCategori;
-use App\Contracts\Repositories\DaftarPesertaRepository;
 
 class HomeController extends Controller
 {
-    private DaftarPesertaRepository $userRepository;
-    public function __construct(DaftarPesertaRepository $userRepository)
-    {
-        $this->userRepository = $userRepository;
-    }
     /**
      * Create a new controller instance.
      *
@@ -56,5 +50,16 @@ class HomeController extends Controller
             ->get();
 
         return view('admin.dashboard', compact('users', 'category', 'certificateCategoryCount', 'certificateCount', 'certificateData', 'kelulusanCount', 'pelatihanCount', 'kompetensiCount'));
+    }
+
+    public function search(Request $request){
+        $request->validate(
+            ['q' => "required"],
+            ['q.required' => "Input tidak boleh kosong!"]
+        );
+
+        $query = $request->only('q')['q'];
+        $certificate = Certificate::with(['user', 'category', 'detailCertificates'])->where('nomor', $query)->firstOrFail();
+        dump($certificate);
     }
 }

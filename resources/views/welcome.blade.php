@@ -90,18 +90,23 @@
   <section class="hero-6 bg-center position-relative overflow-hidden" style="background-image: url({{ asset('landingpage/images/hero-6-bg.png') }});" id="home">
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-lg-5">
+        <div class="col-lg-5" id="pencarian">
           <i class="mb-4 icon-lg sw-1_5 text-primary" data-feather="sunrise"></i>
           <h1 class="font-weight-semibold mb-4 hero-6-title">Selamat Datang di <b class="text-gradient">HummaCertify</b></h1>
           <p class="mb-5 text-muted">Verifikasi keaslian sertifikat Anda dengan memasukkan kode sertifikat
             yang Anda terima</p>
           {{-- <a href="#" class="btn btn-primary me-2">Get Started <i class="icon-sm ms-1" data-feather="arrow-right"></i></a> --}}
-          <div class="searchBox">
-            <input class="searchInput"type="search" name="" placeholder="Search">
-            <button class="searchButton" href="#">
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
+          <form action="{{ route('search') }}" method="GET" id="searching">
+            <div class="searchBox">
+              <input class="searchInput"type="search" name="q" placeholder="Search" required>
+              <button class="searchButton" href="#">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </form>
+          @error('q')
+            <p class="text-danger">{{ $message }}</p>
+          @enderror
         </div>
         <div class="col-lg-6 col-sm-10 mx-auto ms-lg-auto me-lg-0">
           <div class="mt-lg-0 mt-5">
@@ -303,7 +308,7 @@
                     <div class="card-body px-4 py-5">
                       <!-- <div class="icon-mono avatar-md bg-soft-primary text-primary rounded mx-auto mb-5"><i class="icon-lg" data-feather="circle"></i></div> -->
                       <div class="icon-mono avatar-md bg-soft-primary rounded mx-auto mb-5 p-3">
-                        <img src="images/pricing/1.png" alt="" class="img-fluid d-block mx-auto" />
+                        {{-- <img src="images/pricing/1.png" alt="" class="img-fluid d-block mx-auto" /> --}}
                       </div>
                       <h4 class="text-uppercase mb-4 pb-1">Basic</h4>
                       <p class="text-muted">Onlinespace: <span class="fw-bold">50MB</span></p>
@@ -324,7 +329,7 @@
                         Popular</span>
                       <!-- <div class="icon-mono avatar-md bg-soft-primary text-primary rounded mx-auto mb-5"><i class="icon-lg" data-feather="square"></i></div> -->
                       <div class="icon-mono avatar-md bg-soft-primary rounded mx-auto mb-5 p-3">
-                        <img src="images/pricing/2.png" alt="" class="img-fluid d-block mx-auto" />
+                        {{-- <img src="images/pricing/2.png" alt="" class="img-fluid d-block mx-auto" /> --}}
                       </div>
                       <h4 class="text-uppercase mb-4 pb-1">Standard</h4>
                       <p class="text-muted">Onlinespace: <span class="fw-bold">100MB</span></p>
@@ -343,7 +348,7 @@
                     <div class="card-body px-4 py-5">
                       <!-- <div class="icon-mono avatar-md bg-soft-primary text-primary rounded mx-auto mb-5"><i class="icon-lg" data-feather="triangle"></i></div> -->
                       <div class="icon-mono avatar-md bg-soft-primary rounded mx-auto mb-5 p-3">
-                        <img src="images/pricing/3.png" alt="" class="img-fluid d-block mx-auto" />
+                        {{-- <img src="images/pricing/3.png" alt="" class="img-fluid d-block mx-auto" /> --}}
                       </div>
                       <h4 class="text-uppercase mb-4 pb-1">Premium</h4>
                       <p class="text-muted">Onlinespace: <span class="fw-bold">200MB</span></p>
@@ -369,7 +374,7 @@
                     <div class="card-body px-4 py-5">
                       <!-- <div class="icon-mono avatar-md bg-soft-primary text-primary rounded mx-auto mb-5"><i class="icon-lg" data-feather="circle"></i></div> -->
                       <div class="icon-mono avatar-md bg-soft-primary rounded mx-auto mb-5 p-3">
-                        <img src="images/pricing/1.png" alt="" class="img-fluid d-block mx-auto" />
+                        {{-- <img src="images/pricing/1.png" alt="" class="img-fluid d-block mx-auto" /> --}}
                       </div>
                       <h4 class="text-uppercase mb-4 pb-1">Basic</h4>
                       <p class="text-muted">Onlinespace: <span class="fw-bold">50MB</span></p>
@@ -390,7 +395,7 @@
                     <div class="card-body px-4 py-5">
                       <!-- <div class="icon-mono avatar-md bg-soft-primary text-primary rounded mx-auto mb-5"><i class="icon-lg" data-feather="square"></i></div> -->
                       <div class="icon-mono avatar-md bg-soft-primary rounded mx-auto mb-5 p-3">
-                        <img src="images/pricing/2.png" alt="" class="img-fluid d-block mx-auto" />
+                        {{-- <img src="images/pricing/2.png" alt="" class="img-fluid d-block mx-auto" /> --}}
                       </div>
                       <h4 class="text-uppercase mb-4 pb-1">Standard</h4>
                       <p class="text-muted">Onlinespace: <span class="fw-bold">100MB</span></p>
@@ -413,7 +418,7 @@
                         Popular</span>
                       <!-- <div class="icon-mono avatar-md bg-soft-primary text-primary rounded mx-auto mb-5"><i class="icon-lg" data-feather="triangle"></i></div> -->
                       <div class="icon-mono avatar-md bg-soft-primary rounded mx-auto mb-5 p-3">
-                        <img src="images/pricing/3.png" alt="" class="img-fluid d-block mx-auto" />
+                        {{-- <img src="images/pricing/3.png" alt="" class="img-fluid d-block mx-auto" /> --}}
                       </div>
                       <h4 class="text-uppercase mb-4 pb-1">Premium</h4>
                       <p class="text-muted">Onlinespace: <span class="fw-bold">200MB</span></p>
@@ -459,7 +464,7 @@
         <div class="col-lg-3 col-sm-6">
           <div class="team-box mt-4 position-relative overflow-hidden rounded text-center shadow">
             <div class="position-relative overflow-hidden">
-              <img src="images/team/1.jpg" alt="" class="img-fluid d-block mx-auto" />
+              {{-- <img src="images/team/1.jpg" alt="" class="img-fluid d-block mx-auto" /> --}}
               <ul class="list-inline p-3 mb-0 team-social-item">
                 <li class="list-inline-item mx-3">
                   <a href="javascript: void(0);" class="team-social-icon h-primary"><i class="icon-sm" data-feather="facebook"></i></a>
@@ -483,7 +488,7 @@
         <div class="col-lg-3 col-sm-6">
           <div class="team-box mt-4 position-relative overflow-hidden rounded text-center shadow">
             <div class="position-relative overflow-hidden">
-              <img src="images/team/2.jpg" alt="" class="img-fluid d-block mx-auto" />
+              {{-- <img src="images/team/2.jpg" alt="" class="img-fluid d-block mx-auto" /> --}}
               <ul class="list-inline p-3 mb-0 team-social-item">
                 <li class="list-inline-item mx-3">
                   <a href="javascript: void(0);" class="team-social-icon h-primary"><i class="icon-sm" data-feather="facebook"></i></a>
@@ -507,7 +512,7 @@
         <div class="col-lg-3 col-sm-6">
           <div class="team-box mt-4 position-relative overflow-hidden rounded text-center shadow">
             <div class="position-relative overflow-hidden">
-              <img src="images/team/3.jpg" alt="" class="img-fluid d-block mx-auto" />
+              {{-- <img src="images/team/3.jpg" alt="" class="img-fluid d-block mx-auto" /> --}}
               <ul class="list-inline p-3 mb-0 team-social-item">
                 <li class="list-inline-item mx-3">
                   <a href="javascript: void(0);" class="team-social-icon h-primary"><i class="icon-sm" data-feather="facebook"></i></a>
@@ -531,7 +536,7 @@
         <div class="col-lg-3 col-sm-6">
           <div class="team-box mt-4 position-relative overflow-hidden rounded text-center shadow">
             <div class="position-relative overflow-hidden">
-              <img src="images/team/4.jpg" alt="" class="img-fluid d-block mx-auto" />
+              {{-- <img src="images/team/4.jpg" alt="" class="img-fluid d-block mx-auto" /> --}}
               <ul class="list-inline p-3 mb-0 team-social-item">
                 <li class="list-inline-item mx-3">
                   <a href="javascript: void(0);" class="team-social-icon h-primary"><i class="icon-sm" data-feather="facebook"></i></a>
@@ -578,7 +583,7 @@
               <p class="text-muted">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
                 fugit.</p>
               <div class="d-flex align-items-center mt-4 pt-2">
-                <img src="images/user/img-2.jpg" class="rounded-circle avatar-sm me-3" alt="..." />
+                {{-- <img src="images/user/img-2.jpg" class="rounded-circle avatar-sm me-3" alt="..." /> --}}
                 <div class="flex-body">
                   <h5 class="font-size-17 mb-0">John Yeager</h5>
                   <p class="text-muted mb-0 font-size-14">Designer, New York</p>
@@ -598,7 +603,7 @@
               <p class="text-muted">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
                 fugit.</p>
               <div class="d-flex align-items-center mt-4 pt-2">
-                <img src="images/user/img-3.jpg" class="rounded-circle avatar-sm me-3" alt="..." />
+                {{-- <img src="images/user/img-3.jpg" class="rounded-circle avatar-sm me-3" alt="..." /> --}}
                 <div class="flex-body">
                   <h5 class="font-size-17 mb-0">Berneice Harris</h5>
                   <p class="text-muted mb-0 font-size-14">Designer, New York</p>
@@ -618,7 +623,7 @@
               <p class="text-muted">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
                 fugit.</p>
               <div class="d-flex align-items-center mt-4 pt-2">
-                <img src="images/user/img-1.jpg" class="rounded-circle avatar-sm me-3" alt="..." />
+                {{-- <img src="images/user/img-1.jpg" class="rounded-circle avatar-sm me-3" alt="..." /> --}}
                 <div class="flex-body">
                   <h5 class="font-size-17 mb-0">Sarah Pettway</h5>
                   <p class="text-muted mb-0 font-size-14">Designer, New York</p>
@@ -749,7 +754,7 @@
       <div class="row">
         <div class="col-lg-4">
           <div class="mb-4">
-            <a href="index-1.html"><img src="images/logo-light.png" alt="" class="" height="30" /></a>
+            {{-- <a href="index-1.html"><img src="images/logo-light.png" alt="" class="" height="30" /></a> --}}
             <p class="text-white-50 my-4">At vero eos et accusamus et iusto odio dignissimos ducimus qui
               blanditiis praesentium voluptatum deleniti.</p>
           </div>
@@ -841,6 +846,25 @@
     </script> --}}
   <script>
     $(document).ready(function() {
+      $("#searching").submit(function(event) {
+        var searchInput = $(".searchInput");
+        var errorMessage = $("#pencarian .text-danger");
+
+        if (searchInput.val().trim() === "") {
+            event.preventDefault();
+
+            if (errorMessage.length === 0) {
+                errorMessage = $("<p></p>");
+                errorMessage.text("Input tidak boleh kosong!");
+                errorMessage.addClass("text-danger");
+
+                $("#pencarian").append(errorMessage);
+            }
+        } else {
+            errorMessage.remove();
+        }
+    });
+
       var sendCount = localStorage.getItem('sendCount') || 0;
 
       $("#send-notif-form").on("submit", function(event) {
@@ -873,7 +897,7 @@
 
                 $("#simple-msg").html("<div class='alert alert-success'>" + response.success + "</div>");
 
-                $("form")[0].reset();
+                $("#send-notif-form")[0].reset();
 
                 sendCount++;
                 localStorage.setItem('sendCount', sendCount);

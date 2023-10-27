@@ -11,13 +11,15 @@ use App\Http\Controllers\CertificateController;
 use App\Http\Controllers\detailCertificateController;
 
 // Auth::routes();
-Route::post('/send_notif', [ContactMeController::class, 'sending'])->name('send_notif');
 
 Route::middleware('AdminDown')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/login', [LoginController::class, 'showLoginForm']);
     Route::post('/login', [LoginController::class, 'login'])->name('login');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+    Route::post('/send_notif', [ContactMeController::class, 'sending'])->name('send_notif');
+    Route::get('/search', [HomeController::class, 'search'])->name('search');
 });
 
 Route::middleware('User')->group(function () {
