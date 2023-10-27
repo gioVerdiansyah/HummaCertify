@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Certificate;
 use Illuminate\Http\Request;
 use App\Models\CertificateCategori;
+use App\Models\ContactMe;
 
 class HomeController extends Controller
 {
@@ -35,6 +36,8 @@ class HomeController extends Controller
         $users = User::all();
         $category = CertificateCategori::all();
         $certificateCategoryCount = CertificateCategori::count();
+        $notification = ContactMe::all();
+        $notificationCount = ContactMe::where('read', 0)->count();
 
         // data untuk chart line
         $certificateCount = Certificate::count();
@@ -49,7 +52,7 @@ class HomeController extends Controller
             ->groupBy('year', 'month')
             ->get();
 
-        return view('admin.dashboard', compact('users', 'category', 'certificateCategoryCount', 'certificateCount', 'certificateData', 'kelulusanCount', 'pelatihanCount', 'kompetensiCount'));
+        return view('admin.dashboard', compact('users', 'category', 'certificateCategoryCount', 'certificateCount', 'certificateData', 'kelulusanCount', 'pelatihanCount', 'kompetensiCount', 'notificationCount', 'notification'));
     }
 
     public function search(Request $request){

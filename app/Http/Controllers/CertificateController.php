@@ -13,6 +13,7 @@ use App\Mail\SendCertificate;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\DetailCertificate;
 use App\Models\CertificateCategori;
+use App\Models\ContactMe;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
@@ -24,12 +25,14 @@ class CertificateController extends Controller
     {
         $certificates = Certificate::latest()->where('status', 'nonPrint')->paginate($this->perPage);
         $categories = CertificateCategori::select('id', 'name')->get();
+        $notification = ContactMe::all();
+        $notificationCount = ContactMe::where('read', 0)->count();
 
         if ($request->all()) {
             $certificates = $this->searchCertificates($request->all());
         }
 
-        return view('admin.certificate.index', compact('certificates', 'categories'));
+        return view('admin.certificate.index', compact('certificates', 'categories', 'notification', 'notificationCount'));
     }
     // Filter search
     public function searchCertificates(array $dataRequest)
@@ -75,7 +78,10 @@ class CertificateController extends Controller
     public function create()
     {
         $categories = CertificateCategori::select('id', 'name')->get();
-        return view('admin.certificate.create', compact('categories'));
+        $notification = ContactMe::all();
+        $notificationCount = ContactMe::where('read', 0)->count();
+        
+        return view('admin.certificate.create', compact('categories', 'notification', 'notificationCount'));
     }
     public function store(CertificateStoreRequest $request)
     {
@@ -155,8 +161,10 @@ class CertificateController extends Controller
     {
         $categories = CertificateCategori::select('id', 'name')->get();
         $peserta = User::whereNotIn('name', ['HummaCertify', 'User'])->select('id', 'name')->get();
+        $notification = ContactMe::all();
+        $notificationCount = ContactMe::where('read', 0)->count();
 
-        return view('admin.certificate.createExist', compact('categories', 'peserta'));
+        return view('admin.certificate.createExist', compact('categories', 'peserta', 'notification', 'notificationCount'));
 
     }
     public function storeExists(UserExistStoreRequest $request)
