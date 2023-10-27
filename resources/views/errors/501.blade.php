@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>404</title>
+    <title>Server Maintenance</title>
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <link
         href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather:wght@400;700&family=Montserrat:wght@400;500;700&family=Open+Sans:wght@700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -15,13 +15,13 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body {
-            background: #DAEAF7;
+            background: #fff;
             font-family: 'Poppins', sans-serif !important;
             overflow: hidden;
         }
 
         .bg-image {
-            background: url({{ asset('errorimage/blob.png') }});
+            background: url({{ asset('errorimage/blob2.png') }});
             background-size: contain;
             background-repeat: no-repeat;
         }
@@ -59,11 +59,10 @@
     <div class="bg-image">
         <div class="row konten">
             <div class="col-6 p-costum">
-                <p class="title">Halaman Tidak Ditemukan</p>
-                <button type="button" class="btn btn-biru"><i class="fas fa-arrow-left jangka"></i>Kembali</button>
+                <p class="title">Maaf Server sedang dalam Perbaikan</p>
             </div>
             <div class="col-6 p-costum">
-                <img src="{{ asset('errorimage/404.png') }}" alt="">
+                <img src="{{ asset('errorimage/maintenance.png') }}" alt="">
             </div>
         </div>
     </div>
