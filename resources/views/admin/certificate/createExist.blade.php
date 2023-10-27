@@ -105,8 +105,7 @@
                                                         <div class="d-flex flex-row">
                                                             <input type="number" class="form-control" name="jam_pelajaran"
                                                                 id="jamPelajaran" placeholder="Jam Pelajaran" required>
-                                                            <input class="btn btn-danger ms-2" data-repeater-delete
-                                                                type="button" value="Hapus" />
+                                                            <input class="btn btn-outline-danger waves-effect waves-light ms-3 d-flex justify-content-center align-items-center" data-repeater-delete type="button" value="Hapus" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -114,20 +113,19 @@
                                         </div>
                                     </div>
                                     <div class="hstack gap-2 justify-content-end">
-                                        <input class="btn btn-success" data-repeater-create type="button"
-                                            value="+ Tambah" />
+                                        <input class="btn btn-outline-success waves-effect waves-light" data-repeater-create type="button" value="+ Tambah" />
                                     </div>
                                 </div>
                             </div>
                             <script src="{{ asset('assets/js/formRepeater.js') }}"></script>
                             <div class="col-8">
                                 <div class="mt-2 d-flex href-link-gap">
-                                    <p>Peserta sudah ada? <a href="{{ route('certificate.create') }}"> Tambah sertifikat dengan peserta yang ada</a>
+                                    <p>Peserta belum ada? <a href="{{ route('certificate.create') }}"> Tambah sertifikat beserta peserta</a>
                                     </p>
                                 </div>
                             </div>
                             <div class="col-4">
-                                <button type="submit" class="btn btn-primary">Buat Sertifikat</button>
+                                <button type="submit" class="btn btn-primary waves-effect waves-light">Buat Sertifikat</button>
                             </div>
                         </div>
                 </form>

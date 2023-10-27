@@ -3,39 +3,39 @@
   {{-- Card --}}
   <div class="row">
     <div class="col-md-4">
-      <div class="card card-dashboard">
+      <div class="card card-dashboard card-animate">
         <div class="card-body">
           <div class="d-flex position-relative align-items-center">
             <div class="content flex-shrink-0 me-3 avatar-xl rounded" style="background-color: rgba(41, 186, 219, 23%);">
               <img src="{{ asset('image/certificate-vector.png') }}" alt="">
             </div>
             <div class="text">
-              <h5 class="text-atas">Sertifikat</h5>
-              <p class="angka">{{ $certificateCount }}</p>
-              <p class="text-bawah">Total Sertifikat</p>
+              <h5 class="text-atas" style="pointer-events: none">Sertifikat</h5>
+              <p class="angka" style="pointer-events: none">{{ $certificateCount }}</p>
+              <p class="text-bawah" style="pointer-events: none">Total Sertifikat</p>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="col-md-4">
-      <div class="card card-dashboard">
+      <div class="card card-dashboard card-animate">
         <div class="card-body">
           <div class="d-flex position-relative align-items-center">
             <div class="content flex-shrink-0 me-3 avatar-xl rounded" style="background-color: rgba(61, 120, 227, 28%);">
               <img src="{{ asset('image/user-vector.png') }}" alt="..." />
             </div>
             <div class="text">
-              <h5 class="text-atas">Sertifikat Lulus</h5>
-              <p class="angka">{{ $kelulusanCount }}</p>
-              <p class="text-bawah">Sertifikat Lulus Siswa Magang</p>
+              <h5 class="text-atas" style="pointer-events: none">Sertifikat Lulus</h5>
+              <p class="angka" style="pointer-events: none">{{ $kelulusanCount }}</p>
+              <p class="text-bawah" style="pointer-events: none">Sertifikat Lulus Siswa Magang</p>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="col-md-4">
-      <div class="card card-dashboard">
+      <div class="card card-dashboard card-animate">
         <div class="card-body">
           <div class="d-flex position-relative align-items-center">
             <div class="content flex-shrink-0 me-3 avatar-xl rounded"
@@ -43,9 +43,9 @@
               <img src="{{ asset('image/jenis-vector.png') }}" alt="..." />
             </div>
             <div class="text">
-              <h5 class="text-atas">Jenis Sertifikat</h5>
-              <p class="angka">{{ $certificateCategoryCount }}</p>
-              <p class="text-bawah">Jenis Sertifikat Yang Ada</p>
+              <h5 class="text-atas" style="pointer-events: none">Jenis Sertifikat</h5>
+              <p class="angka" style="pointer-events: none">{{ $certificateCategoryCount }}</p>
+              <p class="text-bawah" style="pointer-events: none">Jenis Sertifikat Yang Ada</p>
             </div>
           </div>
         </div>
@@ -59,10 +59,10 @@
           <div class="text">
             <p class="title-chart" style="margin-bottom: 0;">Sertifikat Tercetak Tahun <span id="tahunini">ini</span></p>
           </div>
-          <div class="button me-3" style="width: 204px">
-            <div class="btn btn-sm btn-primary" id="previus" style="width: 100px">Previous</div>
-            <div class="btn btn-sm btn-primary" id="current" style="width: 100px">current</div>
-            <div class="btn btn-sm btn-primary" id="next" style="width: 100px">Next</div>
+          <div class="button me-3 d-flex gap-1">
+            <button type="button" id="previus" class="btn btn-sm btn-outline-primary btn-icon waves-effect waves-light d-flex align-items-center justify-content-center" fdprocessedid="f8hmr"><i class="fi fi-rr-arrow-alt-circle-left"></i></button>
+            <button type="button" id="current" class="btn btn-sm btn-outline-primary" fdprocessedid="f8hmr">Tahun Ini</button>
+            <button type="button" id="next" class="btn btn-sm btn-outline-primary btn-icon waves-effect waves-light d-flex align-items-center justify-content-center" fdprocessedid="f8hmr"><i class="fi fi-rr-arrow-alt-circle-right"></i></button>
           </div>
         </div>
         <canvas id="chartLine"></canvas>

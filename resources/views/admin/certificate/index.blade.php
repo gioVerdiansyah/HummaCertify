@@ -39,12 +39,11 @@
                             <form action="" method="GET" class="d-flex align-items-center gap-3"
                                 onsubmit="document.getElementById('loading').style.display = 'flex';event.preventDefault();var currentUrl = window.location.href;if (currentUrl.includes('ct=')) {window.location.href = currentUrl + '&q=' + document.getElementsByName('q')[0].value;}else{this.submit();}">
                                 <div class="input-group">
-                                    <input type="search" name="q" class="form-control rounded-start py-2"
-                                        placeholder="Cari Sertifikat..." value="{{ request('q') }}" />
+                                    <input type="text" style="border-right: 0px;" name="q" class="form-control rounded-start py-2" placeholder="Cari Sertifikat..." value="{{ request('q') }}" />
+                                    <button type="submit" style="border-top: 1px solid #ced4da; border-right: 1px solid #ced4da; border-bottom: 1px solid #ced4da; " class="btn btn-lg">
+                                        <i class="bi bi-search"></i>
+                                    </button>
                                 </div>
-                                <button type="submit" class="btn btn-outline-info">
-                                    <i class="bi bi-search"></i>
-                                </button>
                             </form>
                         </div>
                     </div>
@@ -73,17 +72,18 @@
                                                 onsubmit="document.querySelector('#loading-text').innerText = 'Sending...';document.getElementById('loading').style.display = 'flex'"
                                                 class="m-0">
                                                 @csrf
-                                                <button type="submit" class="btn btn-primary">
-                                                    <i class="bi bi-send"></i> Kirim
+                                                <button type="submit" class="btn btn-primary" title="Kirim Email">
+                                                    <i class="fi fi-rs-paper-plane"></i>
                                                 </button>
                                             </form>
                                         @endisset
-                                        <a href="{{ route('getCertificate', $certificate->id) }}" class="btn btn-info print-certificate">
-                                            <i class="bi bi-printer"></i> Print
+                                        <a href="{{ route('getCertificate', $certificate->id) }}" class="btn btn-info print-certificate" title="Print">
+                                            <i class="fi fi-rr-print"></i>
                                         </a>
                                         </a>
-                                        <a href="{{ route('certificate.edit', $certificate->id) }}"
-                                            class="btn btn-warning"><i class="bi bi-pencil-square"></i> Edit</a>
+                                        <a href="{{ route('certificate.edit', $certificate->id) }}" class="btn btn-warning" title="Edit">
+                                            <i class="fi fi-rr-edit"></i>
+                                        </a>
 
                                     </td>
                                 </tr>

@@ -4,3 +4,72 @@
     font-family: 'Poppins', sans-serif;
 }
 
+.gallery {
+    display: flex;
+    width: 100%;
+}
+
+.gallery-container {
+    align-items: center;
+    display: flex;
+    height: 400px;
+    margin: 0 auto;
+    max-width: 1000px;
+    position: relative;
+}
+
+.gallery-item {
+    height: 250px;
+    opacity: 0;
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+    width: 330px;
+    z-index: 0;
+    border-radius: 27px;
+    background-size: contain;
+}
+
+.gallery-item-1 {
+    box-shadow: -2px 5px 33px 6px rgba(0,0,0,0.35);
+    height: 300px;
+    opacity: 1;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 430px;
+    z-index: 2;
+}
+
+.gallery-item-2 {
+    left: 40%;
+    transform: translateX(20%);
+    opacity: .4;
+}
+
+.gallery-item-3 {
+    left: 40%;
+    transform: translateX(-120%);
+    opacity: .4;
+}
+
+.gallery-controls {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 160px;
+}
+
+.gallery-controls button {
+    color: #EEEEEE;
+    border: none;
+}
+
+.gallery-controls button:hover {
+    color: #d1d1d1;
+
+}
+
+.gallery-controls button i {
+    font-size: 50px;
+}
