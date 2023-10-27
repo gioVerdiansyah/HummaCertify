@@ -16,9 +16,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous"
     referrerpolicy="no-referrer" />
   <!-- css -->
+  <link rel="stylesheet" href="{{ asset('css/page/LandingPage.css') }}">
   <link href="{{ asset('landingpage/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ asset('landingpage/css/materialdesignicons.min.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ asset('landingpage/css/style.min.css') }}" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
   {{-- script --}}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js" integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -52,15 +54,24 @@
             <a href="#contact" class="nav-link">Kontak</a>
           </li>
           @auth
-          <li>
-            <a href="#" class="nav-link">Sertifikat</a>
-          </li>
-          <li>
-            <a href="#" class="nav-link">Profile</a>
-          </li>
+            <li>
+              <a href="#" class="nav-link">Sertifikat</a>
+            </li>
+            <li>
+              <a href="#" class="nav-link">Profile</a>
+            </li>
           @endauth
         </ul>
         <a href="{{ route('login') }}" class="btn btn-sm rounded-pill nav-btn ms-lg-3">Masuk</a>
+        <div class="switcher-hover" id="style-switcher">
+          <div class="bottom">
+            <a href="javascript: void(0);" id="mode" class="mode-btn text-white">
+              <i class="bi bi-brightness-high text-dark mode-light"></i>
+              <i class="bi bi-moon mode-dark"></i>
+            </a>
+            <a href="javascript: void(0);" class="settings" onclick="toggleSwitcher()"></a>
+          </div>
+        </div>
       </div>
     </div>
     <!-- end container -->
@@ -685,7 +696,7 @@
                         Kirim
                       </span>
                       <span class="spinner-border flex-shrink-0 d-none" role="status">
-                        <span class="visually-hidden">Loading...</span>
+                        <span class="visually-hidden">Mengirim Pesan...</span>
                       </span>
                     </span>
                   </button>
@@ -803,18 +814,6 @@
         <!-- end col -->
       </div>
       <!-- end row -->
-
-      <!-- Style switcher -->
-      <div id="style-switcher">
-        <div class="bottom">
-          <a href="javascript: void(0);" id="mode" class="mode-btn text-white">
-            <i class="mdi mdi-white-balance-sunny mode-light"></i>
-            <i class="mdi mdi-moon-waning-crescent mode-dark"></i>
-          </a>
-          <a href="javascript: void(0);" class="settings" onclick="toggleSwitcher()"><i class="mdi mdi-cog  mdi-spin"></i></a>
-        </div>
-      </div>
-      <!-- javascript -->
 
     </div>
     <!-- end container -->

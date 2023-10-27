@@ -2210,12 +2210,9 @@ h6 {
 }
 
 #style-switcher {
-    background: none repeat scroll 0 0 #ffff;
-    box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.08);
-    left: -189px;
-    position: fixed;
-    top: 40%;
-    width: 189px;
+    right: -100px;
+    position: relative;
+    width: 1px;
     z-index: 9999;
     padding: 10px 5px
 }
@@ -2229,30 +2226,40 @@ h6 {
 }
 
 #style-switcher .bottom {
-    background: none repeat scroll 0 0 #FFFFFF;
-    color: #29344a;
+    margin-top: -19px;
+    background: none repeat scroll 0 0 #000000;
+    color: #ffffff;
     padding: 0;
-    position: relative
+    position: relative;
+}
+
+@media screen and (max-width: 991px) {
+    #style-switcher .bottom {
+        margin-top: -49px;
+        margin-left: 70px;
+        position:absolute;
+    }
 }
 
 #style-switcher .bottom a.mode-btn {
-    position: fixed;
-    right: -45px;
-    left: 0px;
+    position: absolute;
+    right: 40px;
     z-index: 1021;
-    color: #fff;
+    color: #ffffff;
     width: 40px;
-    height: 41px;
-    line-height: 43px;
+    height: 40px;
+    line-height: 38px;
     background-color: var(--bs-footer-alt-bg);
     font-size: 21px;
     text-align: center;
-    border-radius: 0
+    border-radius: 200px;
 }
 
 #style-switcher .bottom a {
     text-decoration: none
 }
+
+
 
 @media only screen and (max-width: 479px) {
     #style-switcher {
@@ -2261,15 +2268,14 @@ h6 {
 }
 
 [data-bs-theme=dark] #style-switcher .bottom a.mode-btn {
-    background-color: #fff
+    background-color: #2e3145
 }
 
 [data-bs-theme=dark] #style-switcher .bottom a.mode-btn i {
-    color: #29344a
+    color: #ffffff
 }
 
 [data-bs-theme=dark] #style-switcher {
-    background-color: var(--bs-icon-bg);
     border: transparent
 }
 
@@ -2294,7 +2300,7 @@ h6 {
     --bs-border-color: #eff1f5;
     --bs-icon-bg: #fff;
     --bs-footer-bg: #272a33;
-    --bs-footer-alt-bg: #2e313a;
+    --bs-footer-alt-bg: #e1e1e1;
     --bs-border-bottom-color: #ecf0f5;
     --bs-bg-light: #fbfbfb;
     --bs-navbar-bg: #0c1016
@@ -2327,6 +2333,11 @@ h6 {
 /*# sourceMappingURL=style.min.css.map */
 
 .bg-biru {
+    background-color: #1689D3;
+    color: #fff;
+}
+
+.bg-biru:hover {
     background-color: #1689D3;
     color: #fff;
 }

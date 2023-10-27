@@ -226,5 +226,5 @@
             </div>
         </div>
     </div>
-   @include('layouts.jsIndex')
+   {{-- @include('layouts.jsIndex') --}}
 @endsection
