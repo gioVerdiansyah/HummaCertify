@@ -62,7 +62,15 @@
             </li>
           @endauth
         </ul>
-        <a href="{{ route('login') }}" class="btn btn-sm rounded-pill nav-btn ms-lg-3">Masuk</a>
+        @guest
+          <a href="{{ route('login') }}" class="btn btn-sm rounded-pill nav-btn ms-lg-3">Masuk</a>
+        @endguest
+        @auth
+          <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button type="submit" class="btn btn-sm rounded-pill nav-btn ms-lg-3">Logout</button>
+          </form>
+        @endauth
         <div class="switcher-hover" id="style-switcher">
           <div class="bottom">
             <a href="javascript: void(0);" id="mode" class="mode-btn text-white">
@@ -664,7 +672,7 @@
       <div class="row">
         <div class="col-lg-6">
           <h2 class="fw-bold text-gradient mb-4">Hubungi Kami</h2>
-          <p class="text-muted mb-5">Anda bisa hubungi kami, dengan mengirimkan pesan pada form dibawah ini. Terima Kasih!</p>
+          <p class="text-muted mb-3">Anda bisa hubungi kami, dengan mengirimkan pesan pada form dibawah ini. Terima Kasih!</p>
 
           <div>
             <form method="post" id="send-notif-form" name="myForm">
@@ -675,19 +683,19 @@
                 <div class="col-lg-6">
                   <div class="mb-4">
                     <label for="name" class="text-muted form-label">Nama</label>
-                    <input name="name" id="name" type="text" class="form-control" placeholder="Masukkan nama">
+                    <input name="name" id="name" type="text" class="form-control" placeholder="Masukkan nama" @auth value="{{ Auth::user()->name }}" @endauth required>
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="mb-4">
                     <label for="email" class="text-muted form-label">Email</label>
-                    <input name="email" id="email" type="email" class="form-control" placeholder="Masukkan email">
+                    <input name="email" id="email" type="email" class="form-control" placeholder="Masukkan email" @auth value="{{ Auth::user()->email }}" @endauth required>
                   </div>
                 </div>
                 <div class="col-md-12">
                   <div class="mb-4 pb-2">
                     <label for="comments" class="text-muted form-label">Pesan</label>
-                    <textarea name="message" id="comments" rows="10" class="form-control" placeholder="Masukkan pesan..."></textarea>
+                    <textarea name="message" id="comments" rows="10" class="form-control" placeholder="Masukkan pesan..." required></textarea>
                   </div>
 
                   <button type="submit" id="submit-button" name="send" class="btn bg-biru">

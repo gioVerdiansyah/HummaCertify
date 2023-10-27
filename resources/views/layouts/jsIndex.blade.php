@@ -36,14 +36,6 @@ $("form[name='myform']").submit(function(event){
         });
         return;
     }
-    if(materi === ""){
-        Swal.fire({
-            title: 'Peringatan',
-            text: 'Nama tidak boleh kosong',
-            icon: 'warning',
-        });
-        return;
-    }
     if(instruktur === ""){
         Swal.fire({
             title: 'Peringatan',
