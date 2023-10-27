@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-layout="horizontal" data-sidebar="light" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable" data-topbar="light" data-sidebar-visibility="show" data-layout-style="default"
-  data-bs-theme="light" data-layout-width="fluid" data-layout-position="scrollable">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-layout="horizontal" data-sidebar="light"
+  data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable" data-topbar="light"
+  data-sidebar-visibility="show" data-layout-style="default" data-bs-theme="light" data-layout-width="fluid"
+  data-layout-position="scrollable">
 
 <head>
   <meta charset="utf-8" />
@@ -10,11 +12,13 @@
 
   <title>{{ config('app.name', 'Laravel') }}</title>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.1/feather.min.js" integrity="sha512-4lykFR6C2W55I60sYddEGjieC2fU79R7GUtaqr3DzmNbo0vSaO1MfUjMoTFYYuedjfEix6uV9jVTtRCSBU/Xiw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.1/feather.min.js"
+    integrity="sha512-4lykFR6C2W55I60sYddEGjieC2fU79R7GUtaqr3DzmNbo0vSaO1MfUjMoTFYYuedjfEix6uV9jVTtRCSBU/Xiw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous"
-    referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- css -->
   <link rel="stylesheet" href="{{ asset('css/page/LandingPage.css') }}">
   <link href="{{ asset('landingpage/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
@@ -23,7 +27,14 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
   {{-- script --}}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js" integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"
+    integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <link rel="stylesheet" href="{{ asset('css/global/global.css') }}">
+
+  {{-- CDN ICON --}}
+  <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="20">
@@ -36,7 +47,8 @@
         <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-dark" height="35" />
         <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-light" height="35" />
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -87,12 +99,14 @@
   <!-- Navbar End -->
 
   <!-- Hero Start -->
-  <section class="hero-6 bg-center position-relative overflow-hidden" style="background-image: url({{ asset('landingpage/images/hero-6-bg.png') }});" id="home">
+  <section class="hero-6 bg-center position-relative overflow-hidden"
+    style="background-image: url({{ asset('landingpage/images/hero-6-bg.png') }});" id="home">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-5" id="pencarian">
           <i class="mb-4 icon-lg sw-1_5 text-primary" data-feather="sunrise"></i>
-          <h1 class="font-weight-semibold mb-4 hero-6-title">Selamat Datang di <b class="text-gradient">HummaCertify</b></h1>
+          <h1 class="font-weight-semibold mb-4 hero-6-title">Selamat Datang di <b
+              class="text-gradient">HummaCertify</b></h1>
           <p class="mb-5 text-muted">Verifikasi keaslian sertifikat Anda dengan memasukkan kode sertifikat
             yang Anda terima</p>
           {{-- <a href="#" class="btn btn-primary me-2">Get Started <i class="icon-sm ms-1" data-feather="arrow-right"></i></a> --}}
@@ -134,7 +148,8 @@
           <div class="service-box text-center px-4 py-5 position-relative mb-4">
             <div class="service-box-content p-4">
               <div class="icon-mono service-icon avatar-md mx-auto mb-4">
-                <svg width="72" height="73" viewBox="0 0 72 73" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="72" height="73" viewBox="0 0 72 73" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
                   <rect y="0.390137" width="72" height="72" rx="36" fill="#FBFBFB" />
                   <path
                     d="M47.1427 30.5984V26.8333C47.1427 26.3471 46.9471 25.8808 46.5988 25.537C46.2505 25.1931 45.7781 25 45.2856 25H24.8571C24.3646 25 23.8922 25.1931 23.5439 25.537C23.1957 25.8808 23 26.3471 23 26.8333V41.4995C23 41.9857 23.1957 42.452 23.5439 42.7958C23.8922 43.1396 24.3646 43.3328 24.8571 43.3328H37.8571V46.0827C37.8569 46.239 37.8973 46.3928 37.9744 46.5294C38.0514 46.6659 38.1626 46.7808 38.2973 46.863C38.432 46.9452 38.5857 46.9921 38.7439 46.9991C38.9021 47.0061 39.0595 46.9731 39.2012 46.9031L42.4999 45.2738L45.7986 46.9031C45.9402 46.9731 46.0976 47.0061 46.2558 46.9991C46.414 46.9921 46.5678 46.9452 46.7025 46.863C46.8372 46.7808 46.9483 46.6659 47.0254 46.5294C47.1024 46.3928 47.1428 46.239 47.1427 46.0827V39.5677C48.3331 38.3707 49 36.7604 49 35.083C49 33.4057 48.3331 31.7953 47.1427 30.5984ZM35.0714 36.9163H28.5714C28.3251 36.9163 28.0889 36.8197 27.9148 36.6478C27.7407 36.4759 27.6428 36.2428 27.6428 35.9997C27.6428 35.7566 27.7407 35.5234 27.9148 35.3515C28.0889 35.1796 28.3251 35.083 28.5714 35.083H35.0714C35.3176 35.083 35.5538 35.1796 35.728 35.3515C35.9021 35.5234 35.9999 35.7566 35.9999 35.9997C35.9999 36.2428 35.9021 36.4759 35.728 36.6478C35.5538 36.8197 35.3176 36.9163 35.0714 36.9163ZM35.0714 33.2498H28.5714C28.3251 33.2498 28.0889 33.1532 27.9148 32.9813C27.7407 32.8094 27.6428 32.5762 27.6428 32.3331C27.6428 32.09 27.7407 31.8569 27.9148 31.685C28.0889 31.513 28.3251 31.4165 28.5714 31.4165H35.0714C35.3176 31.4165 35.5538 31.513 35.728 31.685C35.9021 31.8569 35.9999 32.09 35.9999 32.3331C35.9999 32.5762 35.9021 32.8094 35.728 32.9813C35.5538 33.1532 35.3176 33.2498 35.0714 33.2498ZM45.2856 44.6L42.9154 43.429C42.7864 43.3653 42.6441 43.3321 42.4999 43.3321C42.3556 43.3321 42.2134 43.3653 42.0844 43.429L39.7142 44.6V40.8796C40.5847 41.2878 41.5362 41.4995 42.4999 41.4995C43.4635 41.4995 44.4151 41.2878 45.2856 40.8796V44.6ZM42.4999 39.6662C41.5816 39.6662 40.684 39.3974 39.9205 38.8938C39.157 38.3902 38.5619 37.6744 38.2105 36.8369C37.8591 35.9995 37.7671 35.0779 37.9463 34.1889C38.1254 33.2998 38.5676 32.4832 39.2169 31.8422C39.8662 31.2013 40.6935 30.7647 41.5941 30.5879C42.4947 30.4111 43.4283 30.5018 44.2766 30.8487C45.125 31.1956 45.8501 31.783 46.3603 32.5367C46.8704 33.2904 47.1427 34.1766 47.1427 35.083C47.1427 36.2986 46.6536 37.4643 45.7829 38.3238C44.9122 39.1834 43.7312 39.6662 42.4999 39.6662Z"
@@ -142,7 +157,8 @@
                 </svg>
               </div>
               <h4 class="mb-3 font-size-22">Fungsi</h4>
-              <p class="text-muted mb-0">Pencarian sertifikat adalah langkah kunci dalam memastikan keabsahan dokumen penting yang anda miliki</p>
+              <p class="text-muted mb-0">Pencarian sertifikat adalah langkah kunci dalam memastikan keabsahan dokumen
+                penting yang anda miliki</p>
             </div>
           </div>
         </div>
@@ -152,7 +168,8 @@
           <div class="service-box text-center px-4 py-5 position-relative mb-4 active">
             <div class="service-box-content p-4">
               <div class="icon-mono service-icon avatar-md mx-auto mb-4">
-                <svg width="72" height="73" viewBox="0 0 72 73" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="72" height="73" viewBox="0 0 72 73" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
                   <rect y="0.390137" width="72" height="72" rx="36" fill="#FBFBFB" />
                   <g clip-path="url(#clip0_649_356)">
                     <path opacity="0.5"
@@ -164,13 +181,15 @@
                   </g>
                   <defs>
                     <clipPath id="clip0_649_356">
-                      <rect width="28.8489" height="28.8489" fill="white" transform="translate(19 23.0908) rotate(-12.1877)" />
+                      <rect width="28.8489" height="28.8489" fill="white"
+                        transform="translate(19 23.0908) rotate(-12.1877)" />
                     </clipPath>
                   </defs>
                 </svg>
               </div>
               <h4 class="mb-3 font-size-22">Manfaat</h4>
-              <p class="text-muted mb-0">Sertifikat adalah bukti konkrit pencapaian dan digunakan dalam berbagai konteks, mulai dari peerjaan hingga pendidikan</p>
+              <p class="text-muted mb-0">Sertifikat adalah bukti konkrit pencapaian dan digunakan dalam berbagai
+                konteks, mulai dari peerjaan hingga pendidikan</p>
             </div>
           </div>
         </div>
@@ -180,7 +199,8 @@
           <div class="service-box text-center px-4 py-5 position-relative mb-4">
             <div class="service-box-content p-4">
               <div class="icon-mono service-icon avatar-md mx-auto mb-4">
-                <svg width="72" height="73" viewBox="0 0 72 73" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="72" height="73" viewBox="0 0 72 73" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
                   <rect y="0.390137" width="72" height="72" rx="36" fill="#FBFBFB" />
                   <path
                     d="M36 34.5C39.1562 34.5 41.7143 31.926 41.7143 28.75C41.7143 25.574 39.1562 23 36 23C32.8438 23 30.2857 25.574 30.2857 28.75C30.2857 31.926 32.8438 34.5 36 34.5ZM40.2768 35.9645L38.1429 44.5625L36.7143 38.4531L38.1429 35.9375H33.8571L35.2857 38.4531L33.8571 44.5625L31.7232 35.9645C28.5402 36.1172 26 38.7361 26 41.975V43.8438C26 45.0342 26.9598 46 28.1429 46H43.8571C45.0402 46 46 45.0342 46 43.8438V41.975C46 38.7361 43.4598 36.1172 40.2768 35.9645Z"
@@ -188,7 +208,8 @@
                 </svg>
               </div>
               <h4 class="mb-3 font-size-22">Bukti</h4>
-              <p class="text-muted mb-0">Sertifikat mewakili pengetahuan, keterampilan, atau status tertentu yang anda peroleh selama perjalanan hidup anda</p>
+              <p class="text-muted mb-0">Sertifikat mewakili pengetahuan, keterampilan, atau status tertentu yang anda
+                peroleh selama perjalanan hidup anda</p>
             </div>
           </div>
         </div>
@@ -207,17 +228,22 @@
       <div class="row justify-content-center mb-5">
         <div class="col-lg-7 text-center">
           <h2 class="fw-bold text-gradient">Tentang Website Kami</h2>
-          <p class="text-muted">Apabila Anda menerima sertifikat magang dari Hummatech, Anda dapat memeriksa keaslian sertifikat tersebut dengan mengunjungi situs web resmi kami, yaitu HummaCertify</p>
+          <p class="text-muted">Apabila Anda menerima sertifikat magang dari Hummatech, Anda dapat memeriksa keaslian
+            sertifikat tersebut dengan mengunjungi situs web resmi kami, yaitu HummaCertify</p>
         </div>
         <!-- end col -->
       </div>
       <!-- end row -->
       <div class="row align-items-center mb-5">
         <div class="col-md-5 order-2 order-md-1 mt-md-0 mt-5">
-          <p class="text-muted mb-5">Sertifikat kelulusan magang adalah wujud pengakuan atas upaya dan dedikasi siswa magang yang telah menyelesaikan program mereka. Sertifikat khusus acara, di sisi lain, adalah bukti kehadiran atau kontribusi dalam
+          <p class="text-muted mb-5">Sertifikat kelulusan magang adalah wujud pengakuan atas upaya dan dedikasi siswa
+            magang yang telah menyelesaikan program mereka. Sertifikat khusus acara, di sisi lain, adalah bukti
+            kehadiran atau kontribusi dalam
             acara-acara tertentu yang mungkin relevan dengan pengalaman magang.
             <br><br>
-            Kami menghargai pentingnya sertifikat-sertifikat ini dalam perjalanan pendidikan dan karier siswa magang dan guru magang. Oleh karena itu, kami dengan sepenuh hati berkomitmen untuk membantu Anda memeriksa keaslian sertifikat-sertifikat ini
+            Kami menghargai pentingnya sertifikat-sertifikat ini dalam perjalanan pendidikan dan karier siswa magang dan
+            guru magang. Oleh karena itu, kami dengan sepenuh hati berkomitmen untuk membantu Anda memeriksa keaslian
+            sertifikat-sertifikat ini
             melalui platform kami.
           </p>
         </div>
@@ -225,7 +251,8 @@
         <div class="col-md-6 ms-md-auto order-1 order-md-2">
           <div class="position-relative">
             <div class="ms-5 features-img">
-              <img src="{{ asset('landingpage/images/image2.png') }}" alt="" class="img-fluid d-block mx-auto rounded" />
+              <img src="{{ asset('landingpage/images/image2.png') }}" alt=""
+                class="img-fluid d-block mx-auto rounded" />
             </div>
             <img src="{{ asset('landingpage/images/dot-img.png') }}" alt="" class="dot-img-left" />
           </div>
@@ -237,16 +264,21 @@
         <div class="col-md-6">
           <div class="position-relative mb-md-0 mb-5">
             <div class="me-5 features-img">
-              <img src="{{ asset('landingpage/images/image3.png') }}" alt="" class="img-fluid d-block mx-auto rounded" />
+              <img src="{{ asset('landingpage/images/image3.png') }}" alt=""
+                class="img-fluid d-block mx-auto rounded" />
             </div>
             <img src="{{ asset('landingpage/images/dot-img.png') }}" alt="" class="dot-img-right" />
           </div>
         </div>
         <!-- end col -->
         <div class="col-md-5 ms-md-auto">
-          <p class="text-muted mb-5">Dengan penggunaan platform kami, Anda dapat dengan mudah memastikan bahwa sertifikat kelulusan magang dan sertifikat khusus acara yang Anda miliki adalah resmi dan sah sesuai dengan ketentuan perusahaan kami.
+          <p class="text-muted mb-5">Dengan penggunaan platform kami, Anda dapat dengan mudah memastikan bahwa
+            sertifikat kelulusan magang dan sertifikat khusus acara yang Anda miliki adalah resmi dan sah sesuai dengan
+            ketentuan perusahaan kami.
             <br><br>
-            Jadi, jika Anda adalah seorang siswa magang atau guru magang yang ingin memverifikasi sertifikat Anda, silakan manfaatkan platform kami dengan percaya diri. Kami siap membantu Anda dalam proses ini dan memastikan keaslian sertifikat-sertifikat
+            Jadi, jika Anda adalah seorang siswa magang atau guru magang yang ingin memverifikasi sertifikat Anda,
+            silakan manfaatkan platform kami dengan percaya diri. Kami siap membantu Anda dalam proses ini dan
+            memastikan keaslian sertifikat-sertifikat
             tersebut. Terima kasih atas kepercayaan Anda kepada layanan kami.
           </p>
         </div>
@@ -265,8 +297,20 @@
         <div class="col-lg-8">
           <div class="text-center">
             <h1 class="text-white mb-4">Contoh Sertifikat</h1>
-            <p class="text-white mb-5 font-size-16">Berikut ini adalah contoh sertifikat yang di dapat saat lulus PKL atau magang di HummaTech.</p>
-            <a href="#" class="btn btn-lg btn-light">bisa dihapus</a>
+            <p class="text-white mb-5 font-size-16">Berikut ini adalah contoh sertifikat yang di dapat saat lulus PKL
+              atau magang di HummaTech.</p>
+          </div>
+        </div>
+        <div class="gallery">
+          <div class="gallery-container">
+            <img class="gallery-item gallery-item-1" src="{{ asset('image/gallery-1.png') }}" data-index="1"
+              alt="">
+            <img class="gallery-item gallery-item-2" src="{{ asset('image/gallery-2.png') }}" data-index="2"
+              alt="">
+            <img class="gallery-item gallery-item-3" src="{{ asset('image/gallery-3.png') }}" data-index="3"
+              alt="">
+          </div>
+          <div class="gallery-controls">
           </div>
         </div>
         <!-- end col -->
@@ -291,17 +335,22 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="text-center mb-4 pricing-tab">
-            <ul class="nav nav-pills rounded-pill justify-content-center d-inline-block shadow-sm" id="pricingpills-tab" role="tablist">
+            <ul class="nav nav-pills rounded-pill justify-content-center d-inline-block shadow-sm"
+              id="pricingpills-tab" role="tablist">
               <li class="nav-item d-inline-block">
-                <a class="nav-link rounded-pill active" id="pills-monthly-tab" data-bs-toggle="pill" href="#pills-monthly" role="tab" aria-controls="pills-monthly" aria-selected="true">Monthly</a>
+                <a class="nav-link rounded-pill active" id="pills-monthly-tab" data-bs-toggle="pill"
+                  href="#pills-monthly" role="tab" aria-controls="pills-monthly"
+                  aria-selected="true">Monthly</a>
               </li>
               <li class="nav-item d-inline-block">
-                <a class="nav-link rounded-pill" id="pills-yearly-tab" data-bs-toggle="pill" href="#pills-yearly" role="tab" aria-controls="pills-yearly" aria-selected="false">Yearly</a>
+                <a class="nav-link rounded-pill" id="pills-yearly-tab" data-bs-toggle="pill" href="#pills-yearly"
+                  role="tab" aria-controls="pills-yearly" aria-selected="false">Yearly</a>
               </li>
             </ul>
           </div>
           <div class="tab-content" id="pricingpills-tabContent">
-            <div class="tab-pane fade show active" id="pills-monthly" role="tabpanel" aria-labelledby="pills-monthly-tab">
+            <div class="tab-pane fade show active" id="pills-monthly" role="tabpanel"
+              aria-labelledby="pills-monthly-tab">
               <div class="row">
                 <div class="col-lg-4">
                   <div class="card plan-card mt-4 rounded text-center border-0 shadow overflow-hidden">
@@ -467,13 +516,16 @@
               {{-- <img src="images/team/1.jpg" alt="" class="img-fluid d-block mx-auto" /> --}}
               <ul class="list-inline p-3 mb-0 team-social-item">
                 <li class="list-inline-item mx-3">
-                  <a href="javascript: void(0);" class="team-social-icon h-primary"><i class="icon-sm" data-feather="facebook"></i></a>
+                  <a href="javascript: void(0);" class="team-social-icon h-primary"><i class="icon-sm"
+                      data-feather="facebook"></i></a>
                 </li>
                 <li class="list-inline-item mx-3">
-                  <a href="javascript: void(0);" class="team-social-icon h-info"><i class="icon-sm" data-feather="twitter"></i></a>
+                  <a href="javascript: void(0);" class="team-social-icon h-info"><i class="icon-sm"
+                      data-feather="twitter"></i></a>
                 </li>
                 <li class="list-inline-item mx-3">
-                  <a href="javascript: void(0);" class="team-social-icon h-danger"><i class="icon-sm" data-feather="instagram"></i></a>
+                  <a href="javascript: void(0);" class="team-social-icon h-danger"><i class="icon-sm"
+                      data-feather="instagram"></i></a>
                 </li>
               </ul>
             </div>
@@ -491,13 +543,16 @@
               {{-- <img src="images/team/2.jpg" alt="" class="img-fluid d-block mx-auto" /> --}}
               <ul class="list-inline p-3 mb-0 team-social-item">
                 <li class="list-inline-item mx-3">
-                  <a href="javascript: void(0);" class="team-social-icon h-primary"><i class="icon-sm" data-feather="facebook"></i></a>
+                  <a href="javascript: void(0);" class="team-social-icon h-primary"><i class="icon-sm"
+                      data-feather="facebook"></i></a>
                 </li>
                 <li class="list-inline-item mx-3">
-                  <a href="javascript: void(0);" class="team-social-icon h-info"><i class="icon-sm" data-feather="twitter"></i></a>
+                  <a href="javascript: void(0);" class="team-social-icon h-info"><i class="icon-sm"
+                      data-feather="twitter"></i></a>
                 </li>
                 <li class="list-inline-item mx-3">
-                  <a href="javascript: void(0);" class="team-social-icon h-danger"><i class="icon-sm" data-feather="instagram"></i></a>
+                  <a href="javascript: void(0);" class="team-social-icon h-danger"><i class="icon-sm"
+                      data-feather="instagram"></i></a>
                 </li>
               </ul>
             </div>
@@ -515,13 +570,16 @@
               {{-- <img src="images/team/3.jpg" alt="" class="img-fluid d-block mx-auto" /> --}}
               <ul class="list-inline p-3 mb-0 team-social-item">
                 <li class="list-inline-item mx-3">
-                  <a href="javascript: void(0);" class="team-social-icon h-primary"><i class="icon-sm" data-feather="facebook"></i></a>
+                  <a href="javascript: void(0);" class="team-social-icon h-primary"><i class="icon-sm"
+                      data-feather="facebook"></i></a>
                 </li>
                 <li class="list-inline-item mx-3">
-                  <a href="javascript: void(0);" class="team-social-icon h-info"><i class="icon-sm" data-feather="twitter"></i></a>
+                  <a href="javascript: void(0);" class="team-social-icon h-info"><i class="icon-sm"
+                      data-feather="twitter"></i></a>
                 </li>
                 <li class="list-inline-item mx-3">
-                  <a href="javascript: void(0);" class="team-social-icon h-danger"><i class="icon-sm" data-feather="instagram"></i></a>
+                  <a href="javascript: void(0);" class="team-social-icon h-danger"><i class="icon-sm"
+                      data-feather="instagram"></i></a>
                 </li>
               </ul>
             </div>
@@ -539,13 +597,16 @@
               {{-- <img src="images/team/4.jpg" alt="" class="img-fluid d-block mx-auto" /> --}}
               <ul class="list-inline p-3 mb-0 team-social-item">
                 <li class="list-inline-item mx-3">
-                  <a href="javascript: void(0);" class="team-social-icon h-primary"><i class="icon-sm" data-feather="facebook"></i></a>
+                  <a href="javascript: void(0);" class="team-social-icon h-primary"><i class="icon-sm"
+                      data-feather="facebook"></i></a>
                 </li>
                 <li class="list-inline-item mx-3">
-                  <a href="javascript: void(0);" class="team-social-icon h-info"><i class="icon-sm" data-feather="twitter"></i></a>
+                  <a href="javascript: void(0);" class="team-social-icon h-info"><i class="icon-sm"
+                      data-feather="twitter"></i></a>
                 </li>
                 <li class="list-inline-item mx-3">
-                  <a href="javascript: void(0);" class="team-social-icon h-danger"><i class="icon-sm" data-feather="instagram"></i></a>
+                  <a href="javascript: void(0);" class="team-social-icon h-danger"><i class="icon-sm"
+                      data-feather="instagram"></i></a>
                 </li>
               </ul>
             </div>
@@ -677,7 +738,8 @@
       <div class="row">
         <div class="col-lg-6">
           <h2 class="fw-bold text-gradient mb-4">Hubungi Kami</h2>
-          <p class="text-muted mb-3">Anda bisa hubungi kami, dengan mengirimkan pesan pada form dibawah ini. Terima Kasih!</p>
+          <p class="text-muted mb-3">Anda bisa hubungi kami, dengan mengirimkan pesan pada form dibawah ini. Terima
+            Kasih!</p>
 
           <div>
             <form method="post" id="send-notif-form" name="myForm">
@@ -688,19 +750,22 @@
                 <div class="col-lg-6">
                   <div class="mb-4">
                     <label for="name" class="text-muted form-label">Nama</label>
-                    <input name="name" id="name" type="text" class="form-control" placeholder="Masukkan nama" @auth value="{{ Auth::user()->name }}" @endauth required>
+                    <input name="name" id="name" type="text" class="form-control"
+                      placeholder="Masukkan nama" @auth value="{{ Auth::user()->name }}" @endauth required>
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="mb-4">
                     <label for="email" class="text-muted form-label">Email</label>
-                    <input name="email" id="email" type="email" class="form-control" placeholder="Masukkan email" @auth value="{{ Auth::user()->email }}" @endauth required>
+                    <input name="email" id="email" type="email" class="form-control"
+                      placeholder="Masukkan email" @auth value="{{ Auth::user()->email }}" @endauth required>
                   </div>
                 </div>
                 <div class="col-md-12">
                   <div class="mb-4 pb-2">
                     <label for="comments" class="text-muted form-label">Pesan</label>
-                    <textarea name="message" id="comments" rows="10" class="form-control" placeholder="Masukkan pesan..." required></textarea>
+                    <textarea name="message" id="comments" rows="10" class="form-control" placeholder="Masukkan pesan..."
+                      required></textarea>
                   </div>
 
                   <button type="submit" id="submit-button" name="send" class="btn bg-biru">
@@ -724,18 +789,24 @@
         <div class="col-lg-5 ms-lg-auto">
           <div class="mt-5 mt-lg-0">
             <img src="{{ asset('landingpage/images/kontak.png') }}" alt="" class="img-fluid d-block" />
-            <p class="text-muted mt-5 mb-3"><i class="me-2 far fa-envelope text-muted icon icon-xs"></i> hummacertify@gmail.com</p>
-            <p class="text-muted mb-3"><i class="me-2 text-muted icon icon-xs" data-feather="phone"></i>+91 123 4556 789</p>
-            <p class="text-muted mb-3"><i class="me-2 text-muted icon icon-xs" data-feather="map-pin"></i> Malang, Karangploso, Perum Permata</p>
+            <p class="text-muted mt-5 mb-3"><i class="me-2 far fa-envelope text-muted icon icon-xs"></i>
+              hummacertify@gmail.com</p>
+            <p class="text-muted mb-3"><i class="me-2 text-muted icon icon-xs" data-feather="phone"></i>+91 123 4556
+              789</p>
+            <p class="text-muted mb-3"><i class="me-2 text-muted icon icon-xs" data-feather="map-pin"></i> Malang,
+              Karangploso, Perum Permata</p>
             <ul class="list-inline pt-4">
               <li class="list-inline-item me-3">
-                <a href="javascript: void(0);" class="social-icon icon-mono avatar-xs rounded-circle"><i class="icon-xs" data-feather="facebook"></i></a>
+                <a href="javascript: void(0);" class="social-icon icon-mono avatar-xs rounded-circle"><i
+                    class="icon-xs" data-feather="facebook"></i></a>
               </li>
               <li class="list-inline-item me-3">
-                <a href="javascript: void(0);" class="social-icon icon-mono avatar-xs rounded-circle"><i class="icon-xs" data-feather="youtube"></i></a>
+                <a href="javascript: void(0);" class="social-icon icon-mono avatar-xs rounded-circle"><i
+                    class="icon-xs" data-feather="youtube"></i></a>
               </li>
               <li class="list-inline-item">
-                <a href="javascript: void(0);" class="social-icon icon-mono avatar-xs rounded-circle"><i class="icon-xs" data-feather="instagram"></i></a>
+                <a href="javascript: void(0);" class="social-icon icon-mono avatar-xs rounded-circle"><i
+                    class="icon-xs" data-feather="instagram"></i></a>
               </li>
             </ul>
           </div>
@@ -851,19 +922,19 @@
         var errorMessage = $("#pencarian .text-danger");
 
         if (searchInput.val().trim() === "") {
-            event.preventDefault();
+          event.preventDefault();
 
-            if (errorMessage.length === 0) {
-                errorMessage = $("<p></p>");
-                errorMessage.text("Input tidak boleh kosong!");
-                errorMessage.addClass("text-danger");
+          if (errorMessage.length === 0) {
+            errorMessage = $("<p></p>");
+            errorMessage.text("Input tidak boleh kosong!");
+            errorMessage.addClass("text-danger");
 
-                $("#pencarian").append(errorMessage);
-            }
+            $("#pencarian").append(errorMessage);
+          }
         } else {
-            errorMessage.remove();
+          errorMessage.remove();
         }
-    });
+      });
 
       var sendCount = localStorage.getItem('sendCount') || 0;
 
@@ -888,7 +959,8 @@
                 });
                 errorList += '</ul>';
 
-                $("#error-msg").html("<div class='alert alert-danger'>Terjadi kesalahan:</div>" + errorList);
+                $("#error-msg").html("<div class='alert alert-danger'>Terjadi kesalahan:</div>" +
+                  errorList);
 
                 $("#submit-button .flex-grow-1").text("Kirim");
                 $("#submit-button .spinner-border").addClass("d-none");
@@ -909,17 +981,78 @@
             },
             error: function(xhr, status, error) {
               $("#simple-msg").empty();
-              $("#error-msg").html("<div class='alert alert-danger'>Terjadi kesalahan: " + error + "</div>");
+              $("#error-msg").html("<div class='alert alert-danger'>Terjadi kesalahan: " + error +
+                "</div>");
 
               $("#submit-button .flex-grow-1").text("Kirim");
               $("#submit-button .spinner-border").addClass("d-none");
             }
           });
         } else {
-          $("#error-msg").html("<div class='alert alert-danger'>Anda telah mencapai batas pengiriman pesan (3 kali).</div>");
+          $("#error-msg").html(
+            "<div class='alert alert-danger'>Anda telah mencapai batas pengiriman pesan (3 kali).</div>");
         }
       });
     });
+  </script>
+
+  <script>
+    const galleryContainer = document.querySelector('.gallery-container');
+    const galleryControlsContainer = document.querySelector('.gallery-controls');
+    const galleryControls = ['p', 'n'];
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    class Carousel {
+      constructor(container, items, controls) {
+        this.carouselContainer = container;
+        this.carouselControls = controls;
+        this.carouselArray = [...items];
+      }
+
+      updateGallery() {
+        this.carouselArray.forEach(el => {
+          el.classList.remove("gallery-item-1");
+          el.classList.remove("gallery-item-2");
+          el.classList.remove("gallery-item-3");
+        });
+
+        this.carouselArray.slice(0, 5).forEach((el, i) => {
+          el.classList.add(`gallery-item-${i + 1}`);
+        });
+      }
+
+      setCurrentState(direction) {
+        if (direction.className == "gallery-controls-previous") {
+          this.carouselArray.unshift(this.carouselArray.pop());
+        } else {
+          this.carouselArray.push(this.carouselArray.shift());
+        }
+        this.updateGallery();
+      }
+
+      setControls() {
+        this.carouselControls.forEach((control) => {
+          galleryControlsContainer.appendChild(document.createElement("button")).className =
+            `gallery-controls-${control}`;
+          document.querySelector(`.gallery-controls-${control}`).innerText = control;
+        });
+      }
+
+      useControls() {
+        const triggers = [...galleryControlsContainer.childNodes];
+        triggers.forEach(control => {
+          control.addEventListener('click', (e) => {
+            e.preventDefault();
+            this.setCurrentState(control);
+          });
+        });
+      }
+    }
+
+    const exampleCarousel = new Carousel(galleryContainer, galleryItems, galleryControls);
+
+    exampleCarousel.setControls();
+    exampleCarousel.useControls();
   </script>
 
   <!-- javascript -->
