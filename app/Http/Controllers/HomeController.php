@@ -36,7 +36,7 @@ class HomeController extends Controller
         $users = User::all();
         $category = CertificateCategori::all();
         $certificateCategoryCount = CertificateCategori::count();
-        $notification = ContactMe::all();
+        $notification = ContactMe::orderBy('created_at', 'desc')->get();
         $notificationCount = ContactMe::where('read', 0)->count();
 
         // data untuk chart line

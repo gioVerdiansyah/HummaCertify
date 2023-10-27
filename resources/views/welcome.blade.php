@@ -989,6 +989,7 @@
             }
           });
         } else {
+            $("#simple-msg").empty();
           $("#error-msg").html(
             "<div class='alert alert-danger'>Anda telah mencapai batas pengiriman pesan (3 kali).</div>");
         }

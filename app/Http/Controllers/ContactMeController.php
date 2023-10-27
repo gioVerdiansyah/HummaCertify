@@ -22,4 +22,14 @@ class ContactMeController extends Controller
         ContactMe::create($request->only('name','email','message'));
         return response()->json(['success' => "Berhasil mengirim pesan"]);
     }
+
+    public function delete(Request $request){
+        $id = $request->id;
+        $notif = ContactMe::where('id', $id)->first();
+        if(!$notif){
+            return response()->json(['error' => "Id yang dituju tidak ada!"]);
+        }
+        $notif->delete();
+        return response()->json(['message' => "Notifikasi telah di hapus"]);
+    }
 }

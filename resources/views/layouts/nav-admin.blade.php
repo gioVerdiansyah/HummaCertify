@@ -107,9 +107,11 @@
                 id="page-header-notifications-dropdown" data-bs-toggle="dropdown" data-bs-auto-close="outside"
                 aria-haspopup="true" aria-expanded="false">
                 <i class='bx bx-bell fs-22'></i>
-                <span
-                  class="position-absolute topbar-badge fs-10 translate-middle badge rounded-pill bg-danger">{{ $notificationCount }}<span
-                    class="visually-hidden">unread messages</span></span>
+                @if ($notificationCount > 0)
+                <span id="unread" class="position-absolute topbar-badge fs-10 translate-middle badge rounded-pill bg-danger">
+                    {{ $notificationCount > 9 ? '9+' : $notificationCount }}
+                </span>
+                @endif
               </button>
               <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
                 aria-labelledby="page-header-notifications-dropdown">
@@ -121,7 +123,6 @@
                         <h6 class="m-0 fs-16 fw-semibold text-white"> Notifications </h6>
                       </div>
                       <div class="col-auto dropdown-tabs">
-                        <span class="badge bg-light-subtle text-body fs-13"> {{ $notificationCount }} New</span>
                       </div>
                     </div>
                   </div>
@@ -132,7 +133,7 @@
                       <li class="nav-item waves-effect waves-light">
                         <a class="nav-link active" data-bs-toggle="tab" href="#all-noti-tab" role="tab"
                           aria-selected="true">
-                          All ({{ $notificationCount }})
+                          All
                         </a>
                       </li>
                     </ul>
@@ -141,19 +142,16 @@
                 </div>
 
                 <div class="tab-content position-relative" id="notificationItemsTabContent">
-                 @if (count($notification) > 0)
-                 @foreach ($notification as $data)
+                 @forelse ($notification as $i => $data)
                  {{-- Foreach notif mulai dari sini --}}
-                 <div class="tab-pane fade show active py-2 ps-2" id="all-noti-tab" role="tabpanel">
+                 <div class="tab-pane fade show active py-2 ps-2" id="row-notif-{{ ++$i }}" role="tabpanel">
                    <div data-simplebar style="max-height: 300px;" class="pe-2">
                      <div class="text-reset notification-item d-block dropdown-item position-relative">
                        <div class="d-flex">
                          <div class="flex-grow-1">
-                           <a href="#!" class="stretched-link">
-                             <h6 class="mt-0 mb-1 fs-13 fw-semibold">{{$data->name}}</h6>
-                           </a>
+                            <h6 class="mt-0 mb-1 fs-13 fw-semibold">{{$data->name}}</h6>
                            <div class="fs-13 text-muted">
-                             <p class="mb-1">{{$data->message}}</p>
+                             <p class="mb-1">{{$data->email}} telah mengirm pesan ke anda</p>
                            </div>
                            <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
                              <span><i class="mdi mdi-clock-outline"></i>{{ $data->created_at->diffForHumans() }}</span>
@@ -161,24 +159,20 @@
                          </div>
                          <div class="px-2 fs-15">
                            <div class="form-check notification-check">
-                              {{-- Button Delete --}}
-                              <form action="">
-                                <button class="btn btn-sm" style="font-size: 25px; position: absolute; top: 1px; right: 1px;"><i class="fi fi-sr-cross-small"></i></button>
-                              </form>
+                                <button class="btn btn-sm" onclick="deleteNotif({{ $i }}, {{ $data->id }});" style="font-size: 25px; position: absolute; top: 1px; right: 1px;"><i class="fi fi-sr-cross-small"></i></button>
                            </div>
                          </div>
                        </div>
                      </div>
                    </div>
                  </div>
-               @endforeach
-               @else
-                  {{-- Ini jika tidak ada chatnya --}}
-                  <div class="tab-pane fade show active p-4" id="all-noti-tab" role="tabpanel"
-                    aria-labelledby="alerts-tab">
-                  </div>
+                 @empty
+                 {{-- Ini jika tidak ada chatnya --}}
+                 <div class="tab-pane fade show active p-4" id="all-noti-tab" role="tabpanel"
+                   aria-labelledby="alerts-tab">
+                 </div>
+               @endforelse
                 </div>
-                @endif
               </div>
             </div>
             <div class="dropdown ms-sm-3 header-item topbar-user">
@@ -317,6 +311,30 @@
   <!--end back-to-top-->
 
   <!-- JAVASCRIPT -->
+  <script>
+    function deleteNotif(idElement, idNotif){
+        $.ajax({
+            type: "DELETE",
+            url: "{{ route('delete_notif') }}",
+            data: {
+                id: idNotif
+            },
+            headers: {
+                'X-CSRF-TOKEN': "{{ csrf_token() }}"
+            },
+            success: function (response) {
+                console.log(response);
+                $('#unread')[0].innerText--;
+                $(`#row-notif-${idElement}`).remove();
+                if($('#unread')[0].innerText < 1){
+                    $('#unread').remove();
+                    $('#notificationItemsTabContent').html(`<div class="tab-pane fade show active p-4" id="all-noti-tab" role="tabpanel" aria-labelledby="alerts-tab">
+                 <div class="empty-notification-elem">							<div class="w-25 w-sm-50 pt-3 mx-auto">								<img src="assets/images/svg/bell.svg" class="img-fluid" alt="user-pic">							</div>							<div class="text-center pb-5 mt-2">								<h6 class="fs-18 fw-semibold lh-base">Hey! You have no any notifications </h6>							</div>						</div></div>`);
+                }
+            }
+        });
+    }
+  </script>
   <script src="{{ asset('assets/libs/simplebar/simplebar.min.js') }}"></script>
   <script src="{{ asset('assets/libs/node-waves/waves.min.js') }}"></script>
   <script src="{{ asset('assets/libs/feather-icons/feather.min.js') }}"></script>
