@@ -14,7 +14,7 @@
     <div class="tambah-container">
         <div class="tambah-container-body">
             <div class="card-body">
-                <form action="{{ route('certificate.store_exist') }}" method="post" onsubmit="document.getElementById('loading').style.display = 'flex'">
+                <form action="{{ route('certificate.store_exist') }}" method="post" name="Exist">
                     @csrf
                     <div class="row">
                         <div class="col-12 d-flex">
@@ -46,23 +46,23 @@
                             </div>
                             <div class="col-12 mb-4">
                                 <label for="tanggal" class="form-label">Tanggal Acara</label>
-                                <input type="date" name="tanggal" class="form-control" value="{{ old('tanggal') }}" required>
+                                <input type="date" name="tanggal" class="form-control" value="{{ old('tanggal') }}" >
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="col-12 mb-4">
                                 <label for="division" class="form-label">Bidang/Division</label>
                                 <input type="text" name="bidang" class="form-control"
-                                    placeholder="Bidang yang diikuti peserta" value="{{ old('bidang') }}" required>
+                                    placeholder="Bidang yang diikuti peserta" value="{{ old('bidang') }}" >
                             </div>
                             <div class="col-12 mb-4">
                                 <label for="division" class="form-label">Sub Bidang</label>
                                 <input type="text" name="sub_bidang" class="form-control"
-                                    placeholder="Sub bidang peserta" value="{{ old('sub_bidang') }}" required>
+                                    placeholder="Sub bidang peserta" value="{{ old('sub_bidang') }}" >
                             </div>
                             <div class="col-12 mb-4">
                                 <label for="predikat" class="form-label">Predikat</label>
-                                <select name="predikat" class="form-select" id="predikat" required>
+                                <select name="predikat" class="form-select" id="predikat" >
                                     <option disabled selected>--Pilih Predikat--</option>
                                     <option value="Sangat Baik" {{ old('predikat') == 'Sangat Baik' ? 'selected' : '' }}>
                                         Sangat Baik</option>
@@ -83,7 +83,7 @@
                         <div class="d-flex flex-row">
                             <div class="col-12 mb-4">
                                 <label for="instruktur">Instruktur Pemateri</label>
-                                <input type="text" class="form-control" name="instruktur" id="instruktur" value="{{ old('instruktur') }}" required>
+                                <input type="text" class="form-control" name="instruktur" id="instruktur" value="{{ old('instruktur') }}">
                             </div>
                         </div>
                         <div>
@@ -137,5 +137,44 @@
         $(document).ready(function() {
             $('#search').select2();
         });
+    </script>
+    <script>
+        $(document).ready(function() {
+     $("form[name='Exist']").submit(function(event){
+             event.preventDefault();
+             var tanggal = $(this).find("input[name='tanggal']").val();
+             var bidang = $(this).find("input[name='bidang']").val();
+             var instruktur = $(this).find("input[name='instruktur']").val();
+
+             if(tanggal === ""){
+                Swal.fire({
+                    title: "peringatan",
+                    text: "tanggal tidak boleh kosong",
+                    icon: "info",
+                });
+                return;
+             }
+             if(bidang === ""){
+                Swal.fire({
+                    title: "peringatan",
+                    text: "bidang tidak boleh kosong",
+                    icon: "info",
+                });
+                return;
+             }
+             if(instruktur === ""){
+                Swal.fire({
+                    title: "peringatan",
+                    text: "instruktur tidak boleh kosong",
+                    icon: "info",
+                });
+                return;
+             }
+             else {
+              document.getElementById('loading').style.display = 'flex';
+              this.submit();
+              }
+            });
+    });
     </script>
 @endsection

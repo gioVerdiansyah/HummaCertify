@@ -1,4 +1,4 @@
-@extends('layouts.nav-admin')
+ @extends('layouts.nav-admin')
 @section('content')
   {{-- Card --}}
   <div class="row">
@@ -133,18 +133,30 @@
 
     // Filter data untuk tahun saat ini
     var year = new Date().getFullYear();
+    const cekYear = new Date().getFullYear();
     var currentYear = year;
+    tahun.textContent =  new Date().getFullYear();
 
     function updateYearDisplay(year) {
       tahun.textContent =  year;
     }
-    
+
     previousButton.addEventListener("click", () => {
       year -= 1;
       updateChart(year);
       updateYearDisplay(year);
     })
     nextButton.addEventListener("click", () => {
+      if(year === cekYear){
+       Swal.fire({
+        title: "peringatan",
+        text: "tahun sekarang adalah tahun terbaru",
+        icon: "info",
+        showCancelButton: false,
+        confirmButtonText: "kembali",
+       });
+        return;
+      }
       year += 1;
       updateChart(year);
       updateYearDisplay(year);
@@ -154,7 +166,7 @@
       updateChart(year);
       updateYearDisplay(year);
     })
-    
+
 
 
     // Buat array yang berisi nama-nama bulan
@@ -175,7 +187,7 @@
     const labels = monthNames;
     const datasetData = certificateCounts;
 
-         
+
 // Memperbarui grafik saat halaman dimuat dengan tahun 2022
 
 
@@ -255,7 +267,7 @@
      chartLine.data.datasets[0].data = certificateCounts;
      chartLine.update();
     }
-   updateChart(year); 
+   updateChart(year);
   </script>
 
 
