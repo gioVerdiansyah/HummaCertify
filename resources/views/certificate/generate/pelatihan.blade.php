@@ -275,7 +275,7 @@
                         {{-- Kompeten --}}
                         <div class="kompeten">
                             <p class="bidang">{{ $certificate->bidang }}</p>
-                            <p class="sub-bidang">{{ $certificate->sub_bidang }}</p>
+                            <p class="sub-bidang">{{ $certificate->sub_bidang ?? '-' }}</p>
                         </div>
                         {{-- Nilai Medal --}}
                         @if ($certificate->predikat === 'Sangat Baik')

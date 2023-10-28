@@ -1,104 +1,6 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-layout="horizontal" data-sidebar="light"
-  data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable" data-topbar="light"
-  data-sidebar-visibility="show" data-layout-style="default" data-bs-theme="light" data-layout-width="fluid"
-  data-layout-position="scrollable">
+@extends('layouts.nav-user')
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- CSRF Token -->
-  <meta name="csrf-token" content="{{ csrf_token() }}">
-
-  <title>{{ config('app.name', 'Laravel') }}</title>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.1/feather.min.js"
-    integrity="sha512-4lykFR6C2W55I60sYddEGjieC2fU79R7GUtaqr3DzmNbo0vSaO1MfUjMoTFYYuedjfEix6uV9jVTtRCSBU/Xiw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- css -->
-  <link rel="stylesheet" href="{{ asset('css/page/LandingPage.css') }}">
-  <link href="{{ asset('landingpage/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
-  <link href="{{ asset('landingpage/css/materialdesignicons.min.css') }}" rel="stylesheet" type="text/css" />
-  <link href="{{ asset('landingpage/css/style.min.css') }}" rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-
-  {{-- script --}}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"
-    integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-  <link rel="stylesheet" href="{{ asset('css/global/global.css') }}">
-
-  {{-- CDN ICON --}}
-  <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
-</head>
-
-<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="20">
-
-  <!--Navbar Start-->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top navdar-custom" id="navbar">
-    <div class="container">
-      <!-- LOGO -->
-      <a class="navbar-brand logo" href="#">
-        <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-dark" height="35" />
-        <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-light" height="35" />
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav ms-auto navbar-center" id="navbar-navlist">
-          <li class="nav-item">
-            <a href="#home" class="nav-link">Beranda</a>
-          </li>
-          <li class="nav-item">
-            <a href="#tentang" class="nav-link">Tentang</a>
-          </li>
-          <li class="nav-item">
-            <a href="#contoh" class="nav-link">Contoh</a>
-          </li>
-          <li class="nav-item">
-            <a href="#contact" class="nav-link">Kontak</a>
-          </li>
-          @auth
-            <li>
-              <a href="#" class="nav-link">Sertifikat</a>
-            </li>
-            <li>
-              <a href="#" class="nav-link">Profile</a>
-            </li>
-          @endauth
-        </ul>
-        @guest
-          <a href="{{ route('login') }}" class="btn btn-sm rounded-pill nav-btn ms-lg-3">Masuk</a>
-        @endguest
-        @auth
-          <form action="{{ route('logout') }}" method="POST">
-            @csrf
-            <button type="submit" class="btn btn-sm rounded-pill nav-btn ms-lg-3">Logout</button>
-          </form>
-        @endauth
-        <div class="switcher-hover" id="style-switcher">
-          <div class="bottom">
-            <a href="javascript: void(0);" id="mode" class="mode-btn text-white">
-              <i class="bi bi-brightness-high-fill mode-light"></i>
-              <i class="bi bi-moon mode-dark"></i>
-            </a>
-            <a href="javascript: void(0);" class="settings" onclick="toggleSwitcher()"></a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- end container -->
-  </nav>
-  <!-- Navbar End -->
-
-  <!-- Hero Start -->
+@section('content')
   <section class="hero-6 bg-center position-relative overflow-hidden"
     style="background-image: url({{ asset('landingpage/images/hero-6-bg.png') }});" id="home">
     <div class="container">
@@ -130,9 +32,7 @@
       </div>
     </div>
   </section>
-  <!-- Hero End -->
-
-  <!-- Services start -->
+  
   <section class="section" id="">
     <div class="container">
       <div class="row justify-content-center mb-5">
@@ -142,7 +42,6 @@
             sertifikat Hummatech Anda dengan cepat dan mudah, menegaskan keaslian setiap pencapaian</p>
         </div>
       </div>
-      <!-- end row -->
       <div class="row">
         <div class="col-lg-4">
           <div class="service-box text-center px-4 py-5 position-relative mb-4">
@@ -162,7 +61,6 @@
             </div>
           </div>
         </div>
-        <!-- end col -->
 
         <div class="col-lg-4">
           <div class="service-box text-center px-4 py-5 position-relative mb-4 active">
@@ -193,7 +91,6 @@
             </div>
           </div>
         </div>
-        <!-- end col -->
 
         <div class="col-lg-4">
           <div class="service-box text-center px-4 py-5 position-relative mb-4">
@@ -213,16 +110,11 @@
             </div>
           </div>
         </div>
-        <!-- end col -->
       </div>
-      <!-- end row -->
     </div>
-    <!-- end container -->
 
   </section>
-  <!-- Services end -->
 
-  <!-- Features start -->
   <section class="section bg-light" id="tentang">
     <div class="container">
       <div class="row justify-content-center mb-5">
@@ -231,9 +123,7 @@
           <p class="text-muted">Apabila Anda menerima sertifikat magang dari Hummatech, Anda dapat memeriksa keaslian
             sertifikat tersebut dengan mengunjungi situs web resmi kami, yaitu HummaCertify</p>
         </div>
-        <!-- end col -->
       </div>
-      <!-- end row -->
       <div class="row align-items-center mb-5">
         <div class="col-md-5 order-2 order-md-1 mt-md-0 mt-5">
           <p class="text-muted mb-5">Sertifikat kelulusan magang adalah wujud pengakuan atas upaya dan dedikasi siswa
@@ -247,7 +137,6 @@
             melalui platform kami.
           </p>
         </div>
-        <!-- end col -->
         <div class="col-md-6 ms-md-auto order-1 order-md-2">
           <div class="position-relative">
             <div class="ms-5 features-img">
@@ -257,9 +146,7 @@
             <img src="{{ asset('landingpage/images/dot-img.png') }}" alt="" class="dot-img-left" />
           </div>
         </div>
-        <!-- end col -->
       </div>
-      <!-- end row -->
       <div class="row align-items-center section pb-0">
         <div class="col-md-6">
           <div class="position-relative mb-md-0 mb-5">
@@ -282,13 +169,9 @@
             tersebut. Terima kasih atas kepercayaan Anda kepada layanan kami.
           </p>
         </div>
-        <!-- end col -->
       </div>
-      <!-- end row -->
     </div>
-    <!-- end container -->
   </section>
-  <!-- Features end -->
 
   <section class="section bg-gradient-costum" id="contoh">
     <div class="bg-overlay-img"></div>
@@ -313,15 +196,10 @@
           <div class="gallery-controls">
           </div>
         </div>
-        <!-- end col -->
       </div>
-      <!-- end row -->
     </div>
-    <!-- end container -->
   </section>
-  <!-- Cta end -->
 
-  <!-- Pricing start -->
   <section class="section" style="display: none;" id="pricing">
     <div class="container">
       <div class="row justify-content-center mb-5">
@@ -331,7 +209,6 @@
             doloremque laudantium totam rem ab illo inventore.</p>
         </div>
       </div>
-      <!-- end row -->
       <div class="row">
         <div class="col-lg-12">
           <div class="text-center mb-4 pricing-tab">
@@ -370,7 +247,6 @@
                     </div>
                   </div>
                 </div>
-                <!-- end col -->
                 <div class="col-lg-4">
                   <div class="card plan-card mt-4 rounded text-center border-0 shadow overflow-hidden">
                     <div class="card-body px-4 py-5">
@@ -391,7 +267,6 @@
                     </div>
                   </div>
                 </div>
-                <!-- end col -->
                 <div class="col-lg-4">
                   <div class="card plan-card mt-4 rounded text-center border-0 shadow overflow-hidden">
                     <div class="card-body px-4 py-5">
@@ -410,11 +285,8 @@
                     </div>
                   </div>
                 </div>
-                <!-- end col -->
               </div>
-              <!-- end row -->
             </div>
-            <!-- end monthly tab pane -->
 
             <div class="tab-pane fade" id="pills-yearly" role="tabpanel" aria-labelledby="pills-yearly-tab">
               <div class="row">
@@ -434,11 +306,8 @@
                       </p>
                       <a href="javascript: void(0);" class="btn btn-soft-primary">Buy Now</a>
                     </div>
-                    <!-- end cardbody -->
                   </div>
-                  <!-- end card -->
                 </div>
-                <!-- end col -->
                 <div class="col-lg-4">
                   <div class="card plan-card mt-4 rounded text-center border-0 shadow overflow-hidden">
                     <div class="card-body px-4 py-5">
@@ -455,11 +324,8 @@
                       </p>
                       <a href="javascript: void(0);" class="btn btn-soft-primary">Buy Now</a>
                     </div>
-                    <!-- end cardbody -->
                   </div>
-                  <!-- end card -->
                 </div>
-                <!-- end col -->
                 <div class="col-lg-4">
                   <div class="card plan-card mt-4 rounded text-center border-0 shadow overflow-hidden">
                     <div class="card-body px-4 py-5">
@@ -478,26 +344,16 @@
                       </p>
                       <a href="javascript: void(0);" class="btn btn-soft-primary">Buy Now</a>
                     </div>
-                    <!-- end cardbody -->
                   </div>
-                  <!-- end card -->
                 </div>
-                <!-- end col -->
               </div>
             </div>
-            <!-- end yearly tab pane -->
           </div>
-          <!-- end tab content -->
         </div>
-        <!-- end col -->
       </div>
-      <!-- end row -->
     </div>
-    <!-- end container -->
   </section>
-  <!-- Pricing end -->
 
-  <!-- Team start -->
   <section class="section bg-light" style="display: none;" id="team">
     <div class="container">
       <div class="row justify-content-center mb-4">
@@ -506,9 +362,7 @@
           <p class="text-muted">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
             doloremque laudantium totam rem ab illo inventore.</p>
         </div>
-        <!-- end col -->
       </div>
-      <!-- end row -->
       <div class="row">
         <div class="col-lg-3 col-sm-6">
           <div class="team-box mt-4 position-relative overflow-hidden rounded text-center shadow">
@@ -535,7 +389,6 @@
             </div>
           </div>
         </div>
-        <!-- end col -->
 
         <div class="col-lg-3 col-sm-6">
           <div class="team-box mt-4 position-relative overflow-hidden rounded text-center shadow">
@@ -562,7 +415,6 @@
             </div>
           </div>
         </div>
-        <!-- end col -->
 
         <div class="col-lg-3 col-sm-6">
           <div class="team-box mt-4 position-relative overflow-hidden rounded text-center shadow">
@@ -589,7 +441,6 @@
             </div>
           </div>
         </div>
-        <!-- end col -->
 
         <div class="col-lg-3 col-sm-6">
           <div class="team-box mt-4 position-relative overflow-hidden rounded text-center shadow">
@@ -616,15 +467,10 @@
             </div>
           </div>
         </div>
-        <!-- end col -->
       </div>
-      <!-- end row -->
     </div>
-    <!-- end container -->
   </section>
-  <!-- Team end -->
 
-  <!-- Blog start -->
   <section class="section" id="blog">
     <div class="container">
       <div class="row justify-content-center mb-4">
@@ -656,7 +502,6 @@
             </div>
           </div>
         </div>
-        <!-- end col -->
 
         <div class="col-lg-4">
           <div class="card mt-4 border-0 shadow">
@@ -680,7 +525,6 @@
             </div>
           </div>
         </div>
-        <!-- end col -->
 
         <div class="col-lg-4">
           <div class="card mt-4 border-0 shadow">
@@ -704,15 +548,10 @@
             </div>
           </div>
         </div>
-        <!-- end col -->
       </div>
-      <!-- end row -->
     </div>
-    <!-- end container -->
   </section>
-  <!-- Blog end -->
 
-  <!-- CTA start -->
   <section class="section bg-center w-100 bg-light" style="background-image: url(images/cta-bg.png); display: none;">
     <div class="container">
       <div class="row">
@@ -735,15 +574,10 @@
             </div>
           </div>
         </div>
-        <!-- end col -->
       </div>
-      <!-- end row -->
     </div>
-    <!-- end container -->
   </section>
-  <!-- CTA end -->
 
-  <!-- Contact us start -->
   <section class="section" id="contact">
     <div class="container">
       <div class="row">
@@ -795,7 +629,6 @@
           </div>
 
         </div>
-        <!-- end col -->
 
         <div class="col-lg-5 ms-lg-auto">
           <div class="mt-5 mt-lg-0">
@@ -822,15 +655,10 @@
             </ul>
           </div>
         </div>
-        <!-- end col -->
       </div>
-      <!-- end row -->
     </div>
-    <!-- end container -->
   </section>
-  <!-- Contact us end -->
 
-  <!-- Footer Start -->
   <footer class="footer">
     <div class="container">
       <div class="row">
@@ -846,7 +674,6 @@
               blanditiis praesentium voluptatum deleniti.</p>
           </div>
         </div>
-        <!-- end col -->
 
         <div class="col-lg-7 ms-lg-auto" style="display: none;">
           <div class="row">
@@ -897,9 +724,7 @@
             </div>
           </div>
         </div>
-        <!-- end col -->
       </div>
-      <!-- end row -->
 
       <div class="row">
         <div class="d-flex justify-content-between text-light">
@@ -915,179 +740,7 @@
             </p>
           </div>
         </div>
-        <!-- end col -->
       </div>
-      <!-- end row -->
-
     </div>
-    <!-- end container -->
   </footer>
-  <!-- Footer End -->
-  {{-- Coba nyalain --}}
-  {{-- <script>
-        document.addEventListener("contextmenu", e => e.preventDefault(), false);
-        document.addEventListener("keydown", e => {
-          if (e.ctrlKey || (e.keyCode>=112 && e.keyCode<=123)) {
-          if (e.ctrlKey || e.keyCode==123) {
-            e.stopPropagation();
-            e.preventDefault();
-          }
-          }
-        });
-    </script> --}}
-  <script>
-    $(document).ready(function() {
-      $("#searching").submit(function(event) {
-        var searchInput = $(".searchInput");
-        var errorMessage = $("#pencarian .text-danger");
-
-        if (searchInput.val().trim() === "") {
-          event.preventDefault();
-
-          if (errorMessage.length === 0) {
-            errorMessage = $("<p></p>");
-            errorMessage.text("Input tidak boleh kosong!");
-            errorMessage.addClass("text-danger");
-
-            $("#pencarian").append(errorMessage);
-          }
-        } else {
-          errorMessage.remove();
-        }
-      });
-
-      var sendCount = localStorage.getItem('sendCount') || 0;
-
-      $("#send-notif-form").on("submit", function(event) {
-        event.preventDefault();
-        if (sendCount < 2) {
-          $("#submit-button").attr('type', 'button');
-          $("#submit-button .flex-grow-1").text("Loading...");
-          $("#submit-button .spinner-border").removeClass("d-none");
-          $.ajax({
-            url: "{{ route('send_notif') }}",
-            type: "POST",
-            data: $(this).serialize(),
-            success: function(response) {
-              console.log(response);
-              if (response.error) {
-                let errorList = '<ul>';
-                $.each(response.error, function(field, messages) {
-                  $.each(messages, function(key, message) {
-                    errorList += '<li>' + message + '</li>';
-                  });
-                });
-                errorList += '</ul>';
-
-                $("#error-msg").html("<div class='alert alert-danger'>Terjadi kesalahan:</div>" +
-                  errorList);
-
-                $("#submit-button .flex-grow-1").text("Kirim");
-                $("#submit-button .spinner-border").addClass("d-none");
-              } else {
-                $("#error-msg").empty();
-
-                $("#simple-msg").html("<div class='alert alert-success'>" + response.success + "</div>");
-
-                $("#send-notif-form")[0].reset();
-
-                sendCount++;
-                localStorage.setItem('sendCount', sendCount);
-
-                $("#submit-button .flex-grow-1").text("Kirim");
-                $("#submit-button .spinner-border").addClass("d-none");
-              }
-              $("#submit-button").attr('type', 'submit');
-            },
-            error: function(xhr, status, error) {
-              $("#simple-msg").empty();
-              $("#error-msg").html("<div class='alert alert-danger'>Terjadi kesalahan: " + error +
-                "</div>");
-
-              $("#submit-button .flex-grow-1").text("Kirim");
-              $("#submit-button .spinner-border").addClass("d-none");
-            }
-          });
-        } else {
-            $("#simple-msg").empty();
-          $("#error-msg").html(
-            "<div class='alert alert-danger'>Anda telah mencapai batas pengiriman pesan (3 kali).</div>");
-        }
-      });
-    });
-  </script>
-
-  <script>
-    const galleryContainer = document.querySelector('.gallery-container');
-    const galleryControlsContainer = document.querySelector('.gallery-controls');
-    const galleryControls = ['p', 'n'];
-    const galleryItems = document.querySelectorAll('.gallery-item');
-
-    class Carousel {
-      constructor(container, items, controls) {
-        this.carouselContainer = container;
-        this.carouselControls = controls;
-        this.carouselArray = [...items];
-      }
-
-      updateGallery() {
-        this.carouselArray.forEach(el => {
-          el.classList.remove("gallery-item-1");
-          el.classList.remove("gallery-item-2");
-          el.classList.remove("gallery-item-3");
-        });
-
-        this.carouselArray.slice(0, 5).forEach((el, i) => {
-          el.classList.add(`gallery-item-${i + 1}`);
-        });
-      }
-
-      setCurrentState(direction) {
-        if (direction.className == "gallery-controls-previous") {
-          this.carouselArray.unshift(this.carouselArray.pop());
-        } else {
-          this.carouselArray.push(this.carouselArray.shift());
-        }
-        this.updateGallery();
-      }
-
-      setControls() {
-        this.carouselControls.forEach((control) => {
-          galleryControlsContainer.appendChild(document.createElement("button")).className =
-            `gallery-controls-${control}`;
-          document.querySelector(`.gallery-controls-${control}`).innerText = control;
-        });
-      }
-
-      useControls() {
-        const triggers = [...galleryControlsContainer.childNodes];
-        triggers.forEach(control => {
-          control.addEventListener('click', (e) => {
-            e.preventDefault();
-            this.setCurrentState(control);
-          });
-        });
-      }
-    }
-
-    const exampleCarousel = new Carousel(galleryContainer, galleryItems, galleryControls);
-
-    exampleCarousel.setControls();
-    exampleCarousel.useControls();
-  </script>
-
-  <!-- javascript -->
-  <script src="{{ asset('landingpage/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ asset('landingpage/js/smooth-scroll.polyfills.min.js') }}"></script>
-  <script src="{{ asset('landingpage/js/app.js') }}"></script>
-
-  <script src="https://unpkg.com/feather-icons"></script>
-  </script>
-
-  <!-- App Js -->
-  {{-- <script src="js/app.js"></script> --}}
-</body>
-
-<!-- Mirrored from themesbrand.com/qexal/layout/index-6.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Oct 2023 07:16:52 GMT -->
-
-</html>
+  @endsection

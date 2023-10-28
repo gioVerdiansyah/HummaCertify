@@ -62,7 +62,7 @@
           <div class="button me-3 d-flex gap-1">
             <button type="button" id="previus" class="btn btn-sm btn-outline-primary btn-icon waves-effect waves-light d-flex align-items-center justify-content-center" fdprocessedid="f8hmr"><i class="fi fi-rr-arrow-alt-circle-left"></i></button>
             <button type="button" id="current" class="btn btn-sm btn-outline-primary" fdprocessedid="f8hmr">Tahun Ini</button>
-            <button type="button" id="next" class="btn btn-sm btn-outline-primary btn-icon waves-effect waves-light d-flex align-items-center justify-content-center" fdprocessedid="f8hmr"><i class="fi fi-rr-arrow-alt-circle-right"></i></button>
+            <button type="button" id="next" class="btn btn-sm btn-outline-primary btn-icon waves-effect waves-light d-none align-items-center justify-content-center" fdprocessedid="f8hmr"><i class="fi fi-rr-arrow-alt-circle-right"></i></button>
           </div>
         </div>
         <canvas id="chartLine"></canvas>
@@ -142,29 +142,29 @@
     }
 
     previousButton.addEventListener("click", () => {
-      year -= 1;
-      updateChart(year);
-      updateYearDisplay(year);
-    })
+			year -= 1;
+			updateChart(year);
+			updateYearDisplay(year);
+			nextButton.classList.remove("d-none");
+			nextButton.classList.add("d-flex");
+    });
+
     nextButton.addEventListener("click", () => {
-      if(year === cekYear){
-       Swal.fire({
-        title: "peringatan",
-        text: "tahun sekarang adalah tahun terbaru",
-        icon: "info",
-        showCancelButton: false,
-        confirmButtonText: "kembali",
-       });
-        return;
-      }
-      year += 1;
-      updateChart(year);
-      updateYearDisplay(year);
-    })
+        year += 1;
+        updateChart(year);
+        updateYearDisplay(year);
+        if (year === cekYear) {
+            nextButton.classList.remove("d-flex");
+            nextButton.classList.add("d-none");
+        }
+    });
+
     currentButton.addEventListener("click", () =>{
       year =  new Date().getFullYear();
       updateChart(year);
       updateYearDisplay(year);
+      nextButton.classList.remove("d-flex");
+      nextButton.classList.add("d-none");
     })
 
 
