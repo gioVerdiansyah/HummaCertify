@@ -46,7 +46,6 @@
 }
 
 .image-hover {
-    cursor: default;
     visibility: hidden;
     opacity: 0;
     display: flex;
