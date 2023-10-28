@@ -15,8 +15,13 @@ class ContactMeController extends Controller
             'message' => 'required|max:2000'
         ]);
 
+
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()]);
+        }
+
+        if(!\EmailValidator::verify($request->email)->isValid()[0]){
+            return response()->json(['error' => ['email' => ['Email tidak valid!']]]);
         }
 
         ContactMe::create($request->only('name','email','message'));

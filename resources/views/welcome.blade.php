@@ -14,7 +14,7 @@
           {{-- <a href="#" class="btn btn-primary me-2">Get Started <i class="icon-sm ms-1" data-feather="arrow-right"></i></a> --}}
           <form action="{{ route('search') }}" method="GET" id="searching">
             <div class="searchBox">
-              <input class="searchInput"type="search" name="q" placeholder="Search" required>
+              <input class="searchInput"type="search" name="q" placeholder="Search" autocomplete="off" required>
               <button class="searchButton" href="#">
                 <i class="fas fa-search"></i>
               </button>

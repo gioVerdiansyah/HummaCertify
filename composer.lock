@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d7df830dfc8d4b848f065943d5042dac",
+    "content-hash": "6b36cdea54059e682a749beff0298592",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -3343,6 +3343,66 @@
             "time": "2023-09-17T21:15:54+00:00"
         },
         {
+            "name": "quickemailverification/quickemailverification",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/quickemailverification/quickemailverification-php.git",
+                "reference": "c22a6fecee195d5c10c1c292b351630e2743e7b5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/quickemailverification/quickemailverification-php/zipball/c22a6fecee195d5c10c1c292b351630e2743e7b5",
+                "reference": "c22a6fecee195d5c10c1c292b351630e2743e7b5",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "^7.0.1"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.3",
+                "phpunit/phpunit": "^4.8 || ^5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "QuickEmailVerification\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "quickemailverification",
+                    "email": "support@quickemailverification.com",
+                    "homepage": "https://quickemailverification.com"
+                }
+            ],
+            "description": "Official QuickEmailVerification API library client for PHP",
+            "homepage": "https://quickemailverification.com",
+            "keywords": [
+                "api",
+                "client",
+                "email",
+                "email verification api",
+                "free",
+                "library",
+                "quickemailverification",
+                "sandbox api",
+                "validation",
+                "verification",
+                "verify"
+            ],
+            "support": {
+                "issues": "https://github.com/quickemailverification/quickemailverification-php/issues",
+                "source": "https://github.com/quickemailverification/quickemailverification-php/tree/v1.0.3"
+            },
+            "time": "2022-06-14T10:07:08+00:00"
+        },
+        {
             "name": "ralouphie/getallheaders",
             "version": "3.0.3",
             "source": {
@@ -5991,6 +6051,72 @@
                 "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/2.2.6"
             },
             "time": "2023-01-03T09:29:04+00:00"
+        },
+        {
+            "name": "unicodeveloper/laravel-email-validator",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/unicodeveloper/laravel-email-validator.git",
+                "reference": "74de039c0c1e631e24d4cd38df5f5e29291b0cb2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/unicodeveloper/laravel-email-validator/zipball/74de039c0c1e631e24d4cd38df5f5e29291b0cb2",
+                "reference": "74de039c0c1e631e24d4cd38df5f5e29291b0cb2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9",
+                "quickemailverification/quickemailverification": "*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*",
+                "scrutinizer/ocular": "~1.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Unicodeveloper\\EmailValidator\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "unicodeveloper",
+                    "email": "prosperotemuyiwa@gmail.com",
+                    "homepage": "http://goodheads.io",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Provides a Facade to help validate and verify email addresses",
+            "homepage": "https://github.com/busayo/laravel-email-validator",
+            "keywords": [
+                "Year",
+                "busayo",
+                "email-validator",
+                "email-verifier",
+                "laravel",
+                "laravel-email-validator",
+                "validate",
+                "verify"
+            ],
+            "support": {
+                "issues": "https://github.com/unicodeveloper/laravel-email-validator/issues",
+                "source": "https://github.com/unicodeveloper/laravel-email-validator/tree/master"
+            },
+            "time": "2015-11-01T20:23:52+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
