@@ -1506,14 +1506,13 @@ h6 {
 .modal .modal-dialog .btn-close {
     width: 26px;
     height: 26px;
-    background-color: #fff;
+    border: none;
+    background-color: rgb(255, 255, 255);
     border-radius: 5px;
     position: absolute;
     top: 10px;
     right: 10px;
     z-index: 3;
-    opacity: 0;
-    transition: all 0.3s ease-in-out
 }
 
 .modal .modal-dialog:hover .btn-close {

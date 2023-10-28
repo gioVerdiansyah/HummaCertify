@@ -56,6 +56,4 @@ Route::middleware('AdminUp')->group(function () {
 Route::get('/send-mail', [DemoTestController::class, 'sendMail']);
 Route::get('/show-certificate', [DemoTestController::class, 'showCertificate']);
 Route::get('/form-repeater', [DemoTestController::class, 'repeater']);
-Route::get('/detail', function (){
-    return view('user.detail');
-});
+

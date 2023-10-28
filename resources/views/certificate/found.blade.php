@@ -2,49 +2,50 @@
 
 @section('content')
   <link rel="stylesheet" href="{{ asset('css/user/detail.css') }}">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js"
-    integrity="sha512-Z8CqofpIcnJN80feS2uccz+pXWgZzeKxDsDNMD/dJ6997/LSRY+W4NmEt9acwR+Gt9OHN0kkI1CTianCwoqcjQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js" integrity="sha512-Z8CqofpIcnJN80feS2uccz+pXWgZzeKxDsDNMD/dJ6997/LSRY+W4NmEt9acwR+Gt9OHN0kkI1CTianCwoqcjQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <div class="content-container">
     <div class="content-top">
       <div class="left-side">
-        <div class="image-container">
+        <a href="#" data-bs-toggle="modal" data-bs-target="#detail" class="image-container">
           <div id="load" class="image-item"></div>
           <canvas id="pdfCanvas" class="image-item"></canvas>
-        </div>
+          <div class="image-hover">
+            <h1 class="hover-animate">Klik untuk melihat ukuran penuh</h1>
+          </div>
+        </a>
       </div>
       <div class="right-side">
         <div class="right-content">
           <div>
-            <p class="header">Detail Sertifikat</p>
+            <h4 class="header">Detail Sertifikat</h4>
           </div>
           <div class="main-detail">
             <div class="left-detail">
               <div class="mt-3">
                 <h4 class="label-header">Nama :</h4>
-                <p class="label-item">{{ $certificate->user->name }}</p>
+                <h4 class="label-item">{{ $certificate->user->name }}</h4>
               </div>
               <div class="mt-3">
                 <h4 class="label-header">Asal Sekolah :</h4>
-                <p class="label-item">{{ $certificate->user->institusi }}</p>
+                <h4 class="label-item">{{ $certificate->user->institusi }}</h4>
               </div>
               <div class="mt-3">
                 <h4 class="label-header">Nomor Srtifikat :</h4>
-                <p class="label-item">{{ $certificate->nomor }}</p>
+                <h4 class="label-item">{{ $certificate->nomor }}</h4>
               </div>
             </div>
             <div class="right-detail">
               <div class="mt-3">
                 <h4 class="label-header">Di buat oleh :</h4>
-                <p class="label-item">Hummatech</p>
+                <h4 class="label-item">Hummatech</h4>
               </div>
               <div class="mt-3">
                 <h4 class="label-header">Jenis Sertifikat :</h4>
-                <p class="label-item">Sertifikat {{ $certificate->category->name }}</p>
+                <h4 class="label-item">Sertifikat {{ $certificate->category->name }}</h4>
               </div>
               <div class="mt-3">
                 <h4 class="label-header">Di cetak pada :</h4>
-                <p class="label-item">{{ \Carbon\Carbon::parse($certificate->created_at)->format('d-m-Y') }}</p>
+                <h4 class="label-item">{{ \Carbon\Carbon::parse($certificate->created_at)->format('d-m-Y') }}</h4>
               </div>
             </div>
           </div>
@@ -84,9 +85,11 @@
             @isset($certificate->detailCertificates)
               @if (count($certificate->detailCertificates) > 1)
                 <tr>
-                  <td></td>
-                  <td class="text-center">Total</td>
+                  <td colspan="2" class="text-center">Total</td>
                   <td class="text-center">{{ $totalJP }} JP</td>
+                </tr>
+                <tr>
+                  <td colspan="3" class="text-left">Nama Instruktur : {{ $certificate->instruktur }}</td>
                 </tr>
               @endif
             @endisset
@@ -95,19 +98,34 @@
       </div>
     </div>
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js"
-    integrity="sha512-Z8CqofpIcnJN80feS2uccz+pXWgZzeKxDsDNMD/dJ6997/LSRY+W4NmEt9acwR+Gt9OHN0kkI1CTianCwoqcjQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  {{-- Modal --}}
+  <div class="modal fade" id="detail" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close x-button" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ....
+        </div>
+      </div>
+    </div>
+  </div>
+  {{-- End Modal --}}
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js" integrity="sha512-Z8CqofpIcnJN80feS2uccz+pXWgZzeKxDsDNMD/dJ6997/LSRY+W4NmEt9acwR+Gt9OHN0kkI1CTianCwoqcjQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
     var canvas = document.getElementById('pdfCanvas');
     var context = canvas.getContext('2d');
+    var imageHover = document.querySelector('.image-hover');
 
     var pdfUrl = "{{ asset('../storage/sertifikat/' . $certificate->id . '.pdf') }}";
 
     pdfjsLib.getDocument(pdfUrl).promise.then(function(pdfDoc) {
       return pdfDoc.getPage(1);
     }).then(function(page) {
-      var scale = 1.5; // Ukuran tampilan gambar
+      var scale = 1.5;
       var viewport = page.getViewport({
         scale: scale
       });
@@ -125,6 +143,8 @@
         if (loadingElement) {
           loadingElement.remove();
         }
+
+        imageHover.style.visibility = 'visible';
       });
     }).catch(function(error) {
       console.error('Gagal memproses PDF: ' + error);

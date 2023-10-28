@@ -32,7 +32,7 @@
       </div>
     </div>
   </section>
-  
+
   <section class="section" id="">
     <div class="container">
       <div class="row justify-content-center mb-5">
@@ -743,4 +743,145 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    $(document).ready(function() {
+      $("#searching").submit(function(event) {
+        var searchInput = $(".searchInput");
+        var errorMessage = $("#pencarian .text-danger");
+
+        if (searchInput.val().trim() === "") {
+          event.preventDefault();
+
+          if (errorMessage.length === 0) {
+            errorMessage = $("<p></p>");
+            errorMessage.text("Input tidak boleh kosong!");
+            errorMessage.addClass("text-danger");
+
+            $("#pencarian").append(errorMessage);
+          }
+        } else {
+          errorMessage.remove();
+        }
+      });
+
+      var sendCount = localStorage.getItem('sendCount') || 0;
+
+      $("#send-notif-form").on("submit", function(event) {
+        event.preventDefault();
+        if (sendCount < 2) {
+          $("#submit-button").attr('type', 'button');
+          $("#submit-button .flex-grow-1").text("Loading...");
+          $("#submit-button .spinner-border").removeClass("d-none");
+          $.ajax({
+            url: "{{ route('send_notif') }}",
+            type: "POST",
+            data: $(this).serialize(),
+            success: function(response) {
+              console.log(response);
+              if (response.error) {
+                let errorList = '<ul>';
+                $.each(response.error, function(field, messages) {
+                  $.each(messages, function(key, message) {
+                    errorList += '<li>' + message + '</li>';
+                  });
+                });
+                errorList += '</ul>';
+
+                $("#error-msg").html("<div class='alert alert-danger'>Terjadi kesalahan:</div>" +
+                  errorList);
+
+                $("#submit-button .flex-grow-1").text("Kirim");
+                $("#submit-button .spinner-border").addClass("d-none");
+              } else {
+                $("#error-msg").empty();
+
+                $("#simple-msg").html("<div class='alert alert-success'>" + response.success + "</div>");
+
+                $("#send-notif-form")[0].reset();
+
+                sendCount++;
+                localStorage.setItem('sendCount', sendCount);
+
+                $("#submit-button .flex-grow-1").text("Kirim");
+                $("#submit-button .spinner-border").addClass("d-none");
+              }
+              $("#submit-button").attr('type', 'submit');
+            },
+            error: function(xhr, status, error) {
+              $("#simple-msg").empty();
+              $("#error-msg").html("<div class='alert alert-danger'>Terjadi kesalahan: " + error +
+                "</div>");
+
+              $("#submit-button .flex-grow-1").text("Kirim");
+              $("#submit-button .spinner-border").addClass("d-none");
+            }
+          });
+        } else {
+          $("#simple-msg").empty();
+          $("#error-msg").html(
+            "<div class='alert alert-danger'>Anda telah mencapai batas pengiriman pesan (3 kali).</div>");
+        }
+      });
+    });
+  </script>
+
+  <script>
+    const galleryContainer = document.querySelector('.gallery-container');
+    const galleryControlsContainer = document.querySelector('.gallery-controls');
+    const galleryControls = ['p', 'n'];
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    class Carousel {
+      constructor(container, items, controls) {
+        this.carouselContainer = container;
+        this.carouselControls = controls;
+        this.carouselArray = [...items];
+      }
+
+      updateGallery() {
+        this.carouselArray.forEach(el => {
+          el.classList.remove("gallery-item-1");
+          el.classList.remove("gallery-item-2");
+          el.classList.remove("gallery-item-3");
+        });
+
+        this.carouselArray.slice(0, 5).forEach((el, i) => {
+          el.classList.add(`gallery-item-${i + 1}`);
+        });
+      }
+
+      setCurrentState(direction) {
+        if (direction.className == "gallery-controls-previous") {
+          this.carouselArray.unshift(this.carouselArray.pop());
+        } else {
+          this.carouselArray.push(this.carouselArray.shift());
+        }
+        this.updateGallery();
+      }
+
+      setControls() {
+        this.carouselControls.forEach((control) => {
+          galleryControlsContainer.appendChild(document.createElement("button")).className =
+            `gallery-controls-${control}`;
+          document.querySelector(`.gallery-controls-${control}`).innerText = control;
+        });
+      }
+
+      useControls() {
+        const triggers = [...galleryControlsContainer.childNodes];
+        triggers.forEach(control => {
+          control.addEventListener('click', (e) => {
+            e.preventDefault();
+            this.setCurrentState(control);
+          });
+        });
+      }
+    }
+
+    const exampleCarousel = new Carousel(galleryContainer, galleryItems, galleryControls);
+
+    exampleCarousel.setControls();
+    exampleCarousel.useControls();
+  </script>
   @endsection

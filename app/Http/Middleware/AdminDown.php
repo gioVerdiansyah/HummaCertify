@@ -16,15 +16,11 @@ class AdminDown
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!Auth::check()) {
-            return $next($request);
-        }
-
-        if (Auth::user()->email === 'hummacertify@gmail.com') {
+        if (Auth::check() && Auth::user()->email == "hummacertify@gmail.com") {
             return to_route('admin.home');
         }
 
-        return to_route('home');
+        return $next($request);
     }
 
 }

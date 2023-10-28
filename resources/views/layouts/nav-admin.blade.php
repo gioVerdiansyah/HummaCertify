@@ -31,7 +31,7 @@
   {{-- IMPORT CSS --}}
   <link rel="stylesheet" href="{{ asset('css/auth/auth.css') }}">
   <link rel="stylesheet" href="{{ asset('css/global/global.css') }}">
-  <link rel="stylesheet" href="{{ asset('/css/admin/Dashboard.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/admin/Dashboard.css') }}">
 
   <!-- jsvectormap css -->
   <link href="{{ asset('assets/libs/jsvectormap/css/jsvectormap.min.css') }}" rel="stylesheet" type="text/css" />

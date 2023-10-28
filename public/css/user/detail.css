@@ -14,6 +14,7 @@
 }
 
 .left-side {
+    margin-bottom: 2px;
     margin-top: 2px;
     border-radius: 0 4px 4px 0;
     background-color: var(--bs-body-bg);
@@ -25,6 +26,7 @@
 }
 
 .right-side {
+    margin-bottom: 2px;
     margin-top: 2px;
     border-radius: 4px 0 0 4px;
     background-color: var(--bs-body-bg);
@@ -43,7 +45,44 @@
     justify-content: center;
 }
 
+.image-hover {
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    transition: opacity 1s, letter-spacing 1s;
+    border-radius: 20px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 0;
+}
+
+.x-button {
+    transform: translateX(60px);
+    background-color: transparent;
+    border: none;
+    color: white;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+}
+
+.image-hover:hover {
+    letter-spacing: 2px;
+    opacity: 0.6;
+}
+
+#pdfCanvas {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
 .image-item {
+    border-radius: 20px;
     width: 100%;
 }
 
@@ -114,6 +153,12 @@ h4:hover {
 @media screen and (max-width: 400px) {
     .main-detail {
         display: block;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .hover-animate {
+        font-size: 20px;
     }
 }
 
