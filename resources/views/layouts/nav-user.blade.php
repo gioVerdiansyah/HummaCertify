@@ -36,7 +36,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"
     integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <link rel="stylesheet" href="{{ asset('css/global/global.css') }}">
 
   {{-- CDN ICON --}}
@@ -120,6 +120,15 @@
           }
         });
     </script> --}}
+    @if (session('message'))
+  <script>
+    Swal.fire({
+      icon: "{{ session('message')['icon'] ?? 'success' }}",
+      title: "{{ session('message')['title'] ?? 'Oops' }}",
+      text: "{{ session('message')['text'] ?? 'Success' }}",
+    })
+  </script>
+@endif
 
   <!-- javascript -->
   <script src="{{ asset('landingpage/js/bootstrap.bundle.min.js') }}"></script>

@@ -103,11 +103,11 @@
   <div class="modal fade" id="detail" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header p-0">
           <button type="button" class="btn-close x-button" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          ....
+        <div class="modal-body p-0">
+          <iframe id="ifram" src="{{ route('downloadCertificate', $certificate->id) }}" frameborder="0"></iframe>
         </div>
       </div>
     </div>
@@ -120,7 +120,7 @@
     var context = canvas.getContext('2d');
     var imageHover = document.querySelector('.image-hover');
 
-    var pdfUrl = "{{ asset('../storage/sertifikat/' . $certificate->id . '.pdf') }}";
+    var pdfUrl = "/storage/sertifikat/{{ $certificate->id . '.pdf'}}";
 
     pdfjsLib.getDocument(pdfUrl).promise.then(function(pdfDoc) {
       return pdfDoc.getPage(1);

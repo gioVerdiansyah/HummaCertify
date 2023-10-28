@@ -791,7 +791,7 @@
                 $("#error-msg").html("<div class='alert alert-danger'>Terjadi kesalahan:</div>" +
                   errorList);
 
-                $("#submit-button .flex-grow-1").text("Kirim");
+                $("#submit-button .flex-grow-1").text("Kirim Pesan");
                 $("#submit-button .spinner-border").addClass("d-none");
               } else {
                 $("#error-msg").empty();
@@ -803,7 +803,7 @@
                 sendCount++;
                 localStorage.setItem('sendCount', sendCount);
 
-                $("#submit-button .flex-grow-1").text("Kirim");
+                $("#submit-button .flex-grow-1").text("Kirim Pesan");
                 $("#submit-button .spinner-border").addClass("d-none");
               }
               $("#submit-button").attr('type', 'submit');
@@ -813,7 +813,7 @@
               $("#error-msg").html("<div class='alert alert-danger'>Terjadi kesalahan: " + error +
                 "</div>");
 
-              $("#submit-button .flex-grow-1").text("Kirim");
+              $("#submit-button .flex-grow-1").text("Kirim Pesan");
               $("#submit-button .spinner-border").addClass("d-none");
             }
           });

@@ -20,6 +20,7 @@ Route::middleware('AdminDown')->group(function () {
 
     Route::post('/send_notif', [ContactMeController::class, 'sending'])->name('send_notif');
     Route::get('/search', [HomeController::class, 'search'])->name('search');
+    Route::get('/certificate/{id}/view', [CertificateController::class, 'downloadCertificate'])->name('downloadCertificate');
 });
 
 Route::middleware('User')->group(function () {

@@ -80,7 +80,7 @@ class CertificateController extends Controller
         $categories = CertificateCategori::select('id', 'name')->get();
         $notification = ContactMe::all();
         $notificationCount = ContactMe::where('read', 0)->count();
-        
+
         return view('admin.certificate.create', compact('categories', 'notification', 'notificationCount'));
     }
     public function store(CertificateStoreRequest $request)
@@ -347,5 +347,32 @@ class CertificateController extends Controller
             'title' => 'Berhasil!',
             'text' => "Berhasil mengirim sertifikat {$type} ke email {$email}"
         ]);
+    }
+
+    public function downloadCertificate(string $id){
+        $certificate = Certificate::find($id);
+
+        if (!$certificate) {
+            return redirect()->route('home')
+                ->with('message', [
+                    'icon' => 'error',
+                    'title' => 'Tidak ditemukan!',
+                    'text' => 'Sertifikat tidak ditemukan, hubungi developer untuk informasi lebih lanjut.'
+                ]);
+        }
+
+        $pdfFileName = $certificate->id . '.pdf';
+        $pdfPath = 'public/sertifikat/' . $pdfFileName;
+
+        if (Storage::exists($pdfPath)) {
+            return view('certificate.embed', ['pdfPath' => Storage::url($pdfPath)]);
+        } else {
+            return redirect()->route('search', ['q' => $certificate->nomor])
+                ->with('message', [
+                    'icon' => 'error',
+                    'title' => 'Tidak ditemukan!',
+                    'text' => 'File Sertifikat tidak ditemukan, hubungi developer untuk informasi lebih lanjut.'
+                ]);
+        }
     }
 }
