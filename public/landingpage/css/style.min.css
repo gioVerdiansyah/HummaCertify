@@ -1769,7 +1769,7 @@ h6 {
 }
 
 .hero-6 {
-    padding: 160px 0 120px
+    padding: 75px 0 120px
 }
 
 .hero-6 .hero-6-title {
@@ -2332,12 +2332,13 @@ h6 {
 
 /*# sourceMappingURL=style.min.css.map */
 
-.bg-biru {
-    background-color: #1689D3;
+.btn-biru {
+    background: linear-gradient(to right, #2C5EB4 0%, #3DCCFF 100%);
     color: #fff;
+    border: none;
 }
 
-.bg-biru:hover {
+.btn-biru:hover {
     background-color: #1689D3;
     color: #fff;
 }
@@ -2358,7 +2359,7 @@ h6 {
     border-radius: 40px;
     padding: 7px;
     height: 3.5rem;
-    border: 1.5px solid grey;
+    border: 1.5px solid #b8b8b8;
 }
 
 .searchBox > .searchInput {
@@ -2394,7 +2395,7 @@ h6 {
     transition: 0.4s;
     line-height: 40px;
     width: 0px;
-
+    color: #434d60;
 }
 
 @media screen and (max-width: 620px) {
@@ -2406,4 +2407,12 @@ h6 {
 
 .bi-brightness-high-fill {
     color: #1a2432;
+}
+
+textarea.form-control {
+    min-height: calc(4.5em + 3.75rem + calc(var(--bs-border-width) * 2));
+}
+
+.gb {
+    width: 200px;
 }

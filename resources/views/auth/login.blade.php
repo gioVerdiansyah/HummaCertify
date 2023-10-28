@@ -27,8 +27,8 @@
             <div class="p-4">
               <div class="text-center mt-3 brand-logo">
                 <a href="index-1.html">
-                  <img src="{{ asset('logintemplate/images/logo-dark.png') }}" alt="" class="logo-dark" height="30" />
-                  <img src="{{ asset('logintemplate/images/logo-light.png') }}" alt="" class="logo-light" height="30" />
+                  <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-dark" height="35" />
+                  <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-light" height="35" />
                 </a>
                 <p class="text-muted mt-2">Masuk untuk meng-akses ke akun anda</p>
               </div>
@@ -59,7 +59,7 @@
                       Ingat saya
                     </label>
                   </div>
-                  <div class="d-grid mt-3"><button type="submit" class="btn btn-primary btn-none">Masuk</button></div>
+                  <div class="d-grid mt-3"><button type="submit" class="btn btn-biru btn-none">Masuk</button></div>
                   <div class="mt-5"></div>
                 </form>
                 <!-- end form -->
@@ -67,7 +67,7 @@
             </div>
           </div>
           <div class="text-center mt-4 bottom-text">
-            <p>Berubah Pikiran? <a href="/" class="font-weight-semibold text-primary"> Kembali ke beranda </a> </p>
+            <p>Berubah Pikiran? <a href="/" class="font-weight-semibold text-biru"> Kembali ke beranda </a> </p>
           </div>
         </div>
         <!-- end col -->

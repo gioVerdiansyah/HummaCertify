@@ -41,6 +41,10 @@
             padding: 0.6rem 1.5rem;
             border-radius: 15px;
         }
+        .btn-biru:hover {
+            background: #daeaf7;
+            color: #2c475d;
+        }
 
         .jangka {
             padding-right: 10px;
