@@ -45,6 +45,10 @@ Route::middleware('AdminUp')->group(function () {
         Route::get('/get_certificate/{id}', [CertificateController::class, 'getCertificate'])->name('getCertificate');
         Route::get('/print_certificate', [CertificateController::class, 'printAllCertificate'])->name('printAllCertificate');
         Route::post('/send_certificate/{id}', [CertificateController::class, 'sendCertificate'])->name('sendCertificate');
+
+        // notifikasi
+        // Route::put('/read', [ContactMeController::class, 'read'])->name('read_notif');
+        Route::delete('/delete_notif', [ContactMeController::class, 'delete'])->name('delete_notif');
     });
 });
 

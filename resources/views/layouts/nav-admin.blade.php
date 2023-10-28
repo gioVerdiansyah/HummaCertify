@@ -43,6 +43,7 @@
   <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
   <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css'>
   <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
+  <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
 
   <!-- Layout config Js -->
   <script src="{{ asset('assets/js/layout.js') }}"></script>
@@ -100,6 +101,79 @@
 
           <div class="d-flex align-items-center">
 
+            <div class="dropdown topbar-head-dropdown ms-1 header-item" id="notificationDropdown">
+              <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle"
+                id="page-header-notifications-dropdown" data-bs-toggle="dropdown" data-bs-auto-close="outside"
+                aria-haspopup="true" aria-expanded="false">
+                <i class='bx bx-bell fs-22'></i>
+                @if ($notificationCount > 0)
+                <span id="unread" class="position-absolute topbar-badge fs-10 translate-middle badge rounded-pill bg-danger">
+                    {{ $notificationCount > 9 ? '9+' : $notificationCount }}
+                </span>
+                @endif
+              </button>
+              <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                aria-labelledby="page-header-notifications-dropdown">
+
+                <div class="dropdown-head bg-secondary bg-pattern rounded-top">
+                  <div class="p-3">
+                    <div class="row align-items-center">
+                      <div class="col">
+                        <h6 class="m-0 fs-16 fw-semibold text-white"> Notifications </h6>
+                      </div>
+                      <div class="col-auto dropdown-tabs">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="px-2 pt-2">
+                    <ul class="nav nav-tabs dropdown-tabs nav-tabs-custom" data-dropdown-tabs="true"
+                      id="notificationItemsTab" role="tablist">
+                      <li class="nav-item waves-effect waves-light">
+                        <a class="nav-link active" data-bs-toggle="tab" href="#all-noti-tab" role="tab"
+                          aria-selected="true">
+                          All
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                </div>
+
+                <div class="tab-content position-relative" id="notificationItemsTabContent">
+                 @forelse ($notification as $i => $data)
+                 {{-- Foreach notif mulai dari sini --}}
+                 <div class="tab-pane fade show active py-2 ps-2" id="row-notif-{{ ++$i }}" role="tabpanel">
+                   <div data-simplebar style="max-height: 300px;" class="pe-2">
+                     <div class="text-reset notification-item d-block dropdown-item position-relative">
+                       <div class="d-flex">
+                         <div class="flex-grow-1">
+                            <h6 class="mt-0 mb-1 fs-13 fw-semibold">{{$data->name}}</h6>
+                           <div class="fs-13 text-muted">
+                             <p class="mb-1">{{$data->email}} telah mengirm pesan ke anda</p>
+                           </div>
+                           <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
+                             <span><i class="mdi mdi-clock-outline"></i>{{ $data->created_at->diffForHumans() }}</span>
+                           </p>
+                         </div>
+                         <div class="px-2 fs-15">
+                           <div class="form-check notification-check">
+                                <button class="btn btn-sm" onclick="deleteNotif({{ $i }}, {{ $data->id }});" style="font-size: 25px; position: absolute; top: 1px; right: 1px;"><i class="fi fi-sr-cross-small"></i></button>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+                 @empty
+                 {{-- Ini jika tidak ada chatnya --}}
+                 <div class="tab-pane fade show active p-4" id="all-noti-tab" role="tabpanel"
+                   aria-labelledby="alerts-tab">
+                 </div>
+               @endforelse
+                </div>
+              </div>
+            </div>
             <div class="dropdown ms-sm-3 header-item topbar-user">
               <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
@@ -163,20 +237,23 @@
           <ul class="navbar-nav" id="navbar-nav">
             <li class="menu-title"><span data-key="t-menu">Admin</span></li>
             <li class="nav-item">
-              <a class="nav-link menu-link {{ request()->routeIs('admin.home') ? 'active' : '' }}" href="{{ route('admin.home') }}">
-                <img width="22" class="me-3" src="{{asset('image/dashboard-icon.png')}}" alt="">
+              <a class="nav-link menu-link {{ request()->routeIs('admin.home') ? 'active' : '' }}"
+                href="{{ route('admin.home') }}">
+                <img width="22" class="me-3" src="{{ asset('image/dashboard-icon.png') }}" alt="">
                 <span data-key="t-dashboard">Dashboard</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link menu-link {{ request()->routeIs('certificate.index') ? 'active' : '' }}" href="{{ route('certificate.index') }}">
-                <img width="22" class="me-3" src="{{asset('image/sertifikat-icon.png')}}" alt="">
+              <a class="nav-link menu-link {{ request()->routeIs('certificate.index') ? 'active' : '' }}"
+                href="{{ route('certificate.index') }}">
+                <img width="22" class="me-3" src="{{ asset('image/sertifikat-icon.png') }}" alt="">
                 <span data-key="t-list_sertificate">List Sertifikat</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link menu-link {{ request()->routeIs('certificate.create') ? 'active' : '' }}" href="{{ route('certificate.create') }}">
-                <img width="22" class="me-3" src="{{asset('image/tambah-icon.png')}}" alt="">
+              <a class="nav-link menu-link {{ request()->routeIs('certificate.create') ? 'active' : '' }}"
+                href="{{ route('certificate.create') }}">
+                <img width="22" class="me-3" src="{{ asset('image/tambah-icon.png') }}" alt="">
                 <span data-key="t-tambah_certificate">Tambah Sertifikat</span>
               </a>
             </li>
@@ -233,6 +310,30 @@
   <!--end back-to-top-->
 
   <!-- JAVASCRIPT -->
+  <script>
+    function deleteNotif(idElement, idNotif){
+        $.ajax({
+            type: "DELETE",
+            url: "{{ route('delete_notif') }}",
+            data: {
+                id: idNotif
+            },
+            headers: {
+                'X-CSRF-TOKEN': "{{ csrf_token() }}"
+            },
+            success: function (response) {
+                console.log(response);
+                $('#unread')[0].innerText--;
+                $(`#row-notif-${idElement}`).remove();
+                if($('#unread')[0].innerText < 1){
+                    $('#unread').remove();
+                    $('#notificationItemsTabContent').html(`<div class="tab-pane fade show active p-4" id="all-noti-tab" role="tabpanel" aria-labelledby="alerts-tab">
+                 <div class="empty-notification-elem">							<div class="w-25 w-sm-50 pt-3 mx-auto">								<img src="assets/images/svg/bell.svg" class="img-fluid" alt="user-pic">							</div>							<div class="text-center pb-5 mt-2">								<h6 class="fs-18 fw-semibold lh-base">Hey! You have no any notifications </h6>							</div>						</div></div>`);
+                }
+            }
+        });
+    }
+  </script>
   <script src="{{ asset('assets/libs/simplebar/simplebar.min.js') }}"></script>
   <script src="{{ asset('assets/libs/node-waves/waves.min.js') }}"></script>
   <script src="{{ asset('assets/libs/feather-icons/feather.min.js') }}"></script>
@@ -257,26 +358,26 @@
   <script src="{{ asset('assets/js/app.js') }}"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-        document.querySelectorAll('.logout-button').forEach(function(link) {
-            link.addEventListener('click', function(event) {
-                event.preventDefault();
+      document.querySelectorAll('.logout-button').forEach(function(link) {
+        link.addEventListener('click', function(event) {
+          event.preventDefault();
 
-                Swal.fire({
-                    title: 'Anda yakin ingin logout?',
-                    text: 'Anda akan diarahkan ke tampilan landing page.',
-                    icon: 'info',
-                    showCancelButton: true,
-                    confirmButtonText: 'Lanjutkan',
-                    cancelButtonText: 'Batalkan',
-                }).then((result) => {
-                    if(result.isConfirmed) {
-                        document.getElementById('logout-form').submit();
-                    }
-                });
-            });
+          Swal.fire({
+            title: 'Anda yakin ingin logout?',
+            text: 'Anda akan diarahkan ke tampilan landing page.',
+            icon: 'info',
+            showCancelButton: true,
+            confirmButtonText: 'Lanjutkan',
+            cancelButtonText: 'Batalkan',
+          }).then((result) => {
+            if (result.isConfirmed) {
+              document.getElementById('logout-form').submit();
+            }
+          });
         });
+      });
     });
-    </script>
+  </script>
 </body>
 @if (session('message'))
   <script>

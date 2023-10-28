@@ -113,7 +113,7 @@
             var currentUrl = window.location.href;
             var newUrl;
             if (selectedCategoryId === "Semua") {
-                newUrl = currentUrl.replace(/[\?&]ct=[^&]*/, '');
+                newUrl = currentUrl.replace(/ct=[^&]*/, '');
             } else {
                 var ctParam = 'ct=' + selectedCategoryId;
                 if (currentUrl.includes('ct=')) {
