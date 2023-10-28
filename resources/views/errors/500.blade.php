@@ -60,7 +60,7 @@
         <div class="row konten">
             <div class="col-6 p-costum">
                 <p class="title">Internal Server Error</p>
-                <button type="button" class="btn btn-biru"><i class="fas fa-arrow-left jangka"></i>Kembali</button>
+                <button type="button" class="btn btn-biru" onclick="window.location.href = '{{ route('home') }}'"><i class="fas fa-arrow-left jangka"></i>Kembali</button>
             </div>
             <div class="col-6 p-costum">
                 <img src="{{ asset('errorimage/500.png') }}" alt="">
