@@ -104,7 +104,7 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-5" id="pencarian">
-          <i class="mb-4 icon-lg sw-1_5 text-primary" data-feather="sunrise"></i>
+          <i class="mb-4 icon-lg sw-1_5 text-primary" style="display: none;" data-feather="sunrise"></i>
           <h1 class="font-weight-semibold mb-4 hero-6-title">Selamat Datang di <b
               class="text-gradient">HummaCertify</b></h1>
           <p class="mb-5 text-muted">Verifikasi keaslian sertifikat Anda dengan memasukkan kode sertifikat
@@ -629,21 +629,24 @@
     <div class="container">
       <div class="row justify-content-center mb-4">
         <div class="col-lg-7 text-center">
-          <h2 class="fw-bold">Our Blog</h2>
-          <p class="text-muted">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-            doloremque laudantium totam rem ab illo inventore.</p>
+          <h2 class="fw-bold text-gradient">Lulusan Magang Hummatech</h2>
+          <p class="text-muted">Berikut contoh lulusan siswa magang kami yang telah meraih sertifikat sebagai pengakuan atas dedikasi dan prestasi luar biasa mereka</p>
         </div>
       </div>
       <div class="row">
         <div class="col-lg-4">
           <div class="card mt-4 border-0 shadow">
-            <div class="card-body p-4">
-              <span class="badge badge-soft-primary">UI & UX Design</span>
-              <h4 class="font-size-22 my-4"><a href="javascript: void(0);">Step bt step to conduct
-                  usability testing</a></h4>
-              <p class="text-muted">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
-                fugit.</p>
-              <div class="d-flex align-items-center mt-4 pt-2">
+            <div class="card-body text-center p-4">
+              <span class="badge badge-soft-primary">Lulusan Magang Terbaru</span>
+              <div class="my-4">
+                <h4 class="font-size-22"><a href="javascript: void(0);">Shofie Cahyani</a></h4>
+                <div class="text-muted d-flex justify-content-evenly">
+                  <p>Universitas blabla</p>
+                  <p>Website Designer</p>
+                </div>
+              </div>
+              <img src="{{ asset('landingpage/images/features-1.jpg') }}" class="gb" alt="">
+              <div class="d-flex align-items-center mt-4 pt-2" style="display: none !important;">
                 {{-- <img src="images/user/img-2.jpg" class="rounded-circle avatar-sm me-3" alt="..." /> --}}
                 <div class="flex-body">
                   <h5 class="font-size-17 mb-0">John Yeager</h5>
@@ -657,13 +660,17 @@
 
         <div class="col-lg-4">
           <div class="card mt-4 border-0 shadow">
-            <div class="card-body p-4">
-              <span class="badge badge-soft-primary">CEO</span>
-              <h4 class="font-size-22 my-4"><a href="javascript: void(0);">Increase conversion rate from
-                  ad to landing page</a></h4>
-              <p class="text-muted">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
-                fugit.</p>
-              <div class="d-flex align-items-center mt-4 pt-2">
+            <div class="card-body text-center p-4">
+              <span class="badge badge-soft-primary">Lulusan Magang Terbaru</span>
+              <div class="my-4">
+                <h4 class="font-size-22"><a href="javascript: void(0);">Shofie Cahyani</a></h4>
+                <div class="text-muted d-flex justify-content-evenly">
+                  <p>Universitas blabla</p>
+                  <p>Website Designer</p>
+                </div>
+              </div>
+              <img src="{{ asset('landingpage/images/features-1.jpg') }}" class="gb" alt="">
+              <div class="d-flex align-items-center mt-4 pt-2" style="display: none !important;">
                 {{-- <img src="images/user/img-3.jpg" class="rounded-circle avatar-sm me-3" alt="..." /> --}}
                 <div class="flex-body">
                   <h5 class="font-size-17 mb-0">Berneice Harris</h5>
@@ -677,13 +684,17 @@
 
         <div class="col-lg-4">
           <div class="card mt-4 border-0 shadow">
-            <div class="card-body p-4">
-              <span class="badge badge-soft-primary">Developer</span>
-              <h4 class="font-size-22 my-4"><a href="javascript: void(0);">Why small business should
-                  start marketing</a></h4>
-              <p class="text-muted">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
-                fugit.</p>
-              <div class="d-flex align-items-center mt-4 pt-2">
+            <div class="card-body text-center p-4">
+              <span class="badge badge-soft-primary">Lulusan Magang Terbaru</span>
+              <div class="my-4">
+                <h4 class="font-size-22"><a href="javascript: void(0);">Shofie Cahyani</a></h4>
+                <div class="text-muted d-flex justify-content-evenly">
+                  <p>Universitas blabla</p>
+                  <p>Website Designer</p>
+                </div>
+              </div>
+              <img src="{{ asset('landingpage/images/features-1.jpg') }}" class="gb" alt="">
+              <div class="d-flex align-items-center mt-4 pt-2" style="display: none !important;">
                 {{-- <img src="images/user/img-1.jpg" class="rounded-circle avatar-sm me-3" alt="..." /> --}}
                 <div class="flex-body">
                   <h5 class="font-size-17 mb-0">Sarah Pettway</h5>
@@ -768,10 +779,10 @@
                       required></textarea>
                   </div>
 
-                  <button type="submit" id="submit-button" name="send" class="btn bg-biru">
+                  <button type="submit" id="submit-button" name="send" class="btn btn-biru">
                     <span class="d-flex align-items-center">
                       <span class="flex-grow-1 me-2">
-                        Kirim
+                        Kirim Pesan
                       </span>
                       <span class="spinner-border flex-shrink-0 d-none" role="status">
                         <span class="visually-hidden">Mengirim Pesan...</span>
@@ -823,7 +834,12 @@
   <footer class="footer">
     <div class="container">
       <div class="row">
-        <div class="col-lg-4">
+        <div class="text-center text-light">
+          <img src="{{ asset('landingpage/images/logo-footer.png') }}" alt="">
+          <h3>HummaCertify</h3>
+          <p>HummaCertify bukti pengalaman anda</p>
+        </div>
+        <div class="col-lg-4" style="display: none;">
           <div class="mb-4">
             {{-- <a href="index-1.html"><img src="images/logo-light.png" alt="" class="" height="30" /></a> --}}
             <p class="text-white-50 my-4">At vero eos et accusamus et iusto odio dignissimos ducimus qui
@@ -832,7 +848,7 @@
         </div>
         <!-- end col -->
 
-        <div class="col-lg-7 ms-lg-auto">
+        <div class="col-lg-7 ms-lg-auto" style="display: none;">
           <div class="row">
             <div class="col-lg-3 col-6">
               <div class="mt-4 mt-lg-0">
@@ -886,7 +902,11 @@
       <!-- end row -->
 
       <div class="row">
-        <div class="col-lg-12">
+        <div class="d-flex justify-content-between text-light">
+          <p><small>All rights reserved © 2023</small></p>
+          <p><small>Dibuat Oleh Siswa HummaTech</small></p>
+        </div>
+        <div class="col-lg-12" style="display: none;">
           <div class="text-center mt-5">
             <p class="text-white-50 f-15 mb-0">
               <script>
