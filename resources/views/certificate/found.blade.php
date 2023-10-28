@@ -57,9 +57,9 @@
         <table class="table table-bordered">
           <thead>
             <tr>
-              <th class="left-th text-center">No.</th>
-              <th class="center-th">Materi </th>
-              <th class="right-th text-center">Waktu</th>
+              <th class="table-header-color left-th text-center">No.</th>
+              <th class="table-header-color text-center">Materi </th>
+              <th class="table-header-color right-th text-center">Waktu</th>
             </tr>
           </thead>
           @php
@@ -85,8 +85,8 @@
             @isset($certificate->detailCertificates)
               @if (count($certificate->detailCertificates) > 1)
                 <tr>
-                  <td colspan="2" class="text-center">Total</td>
-                  <td class="text-center">{{ $totalJP }} JP</td>
+                  <td colspan="2" class="table-header-color text-center">Total</td>
+                  <td class="table-header-color text-center">{{ $totalJP }} JP</td>
                 </tr>
                 <tr>
                   <td colspan="3" class="text-left">Nama Instruktur : {{ $certificate->instruktur }}</td>
