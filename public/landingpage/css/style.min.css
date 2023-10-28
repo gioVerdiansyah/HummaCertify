@@ -2300,7 +2300,7 @@ h6 {
     --bs-border-color: #eff1f5;
     --bs-icon-bg: #fff;
     --bs-footer-bg: #272a33;
-    --bs-footer-alt-bg: #e1e1e1;
+    --bs-footer-alt-bg: #f9fafc;
     --bs-border-bottom-color: #ecf0f5;
     --bs-bg-light: #fbfbfb;
     --bs-navbar-bg: #0c1016
@@ -2402,4 +2402,8 @@ h6 {
     width: 85%;
     padding: 0 6px;
 }
+}
+
+.bi-brightness-high-fill {
+    color: #1a2432;
 }

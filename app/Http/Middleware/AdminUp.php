@@ -17,11 +17,14 @@ class AdminUp
      */
     public function handle(Request $request, Closure $next): Response
     {
-
-        if (Auth::check() && Auth::user()->email == "hummacertify@gmail.com") {
-            return $next($request);
+        if (!Auth::check()) {
+            return to_route('home');
         }
 
-        return abort(403, 'Anda tidak bisa mengakses halaman ini!');
+        if (Auth::user()->email != "hummacertify@gmail.com") {
+            return abort(403, 'Anda tidak bisa mengakses halaman ini!');
+        }
+
+        return $next($request);
     }
 }

@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('HummaCertify'),
             'institusi' => "Perusahaan Hummatech"
         ]);
-
+        
         User::create([
             'id' => Str::uuid(),
             'name' => "HummaCertify",

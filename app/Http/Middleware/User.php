@@ -17,11 +17,11 @@ class User
     public function handle(Request $request, Closure $next): Response
     {
         if (!Auth::check()) {
-            return to_route('/');
+            return to_route('login');
         }
 
         if (Auth::user()->email === 'hummacertify@gmail.com') {
-            return redirect()->back();
+            return to_route('admin.home');
         }
 
         return $next($request);

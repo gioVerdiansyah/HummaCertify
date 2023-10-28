@@ -32,7 +32,7 @@
   <nav class="navbar navbar-expand-lg navbar-light fixed-top navdar-custom" id="navbar">
     <div class="container">
       <!-- LOGO -->
-      <a class="navbar-brand logo" href="index-1.html">
+      <a class="navbar-brand logo" href="#">
         <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-dark" height="35" />
         <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-light" height="35" />
       </a>
@@ -74,7 +74,7 @@
         <div class="switcher-hover" id="style-switcher">
           <div class="bottom">
             <a href="javascript: void(0);" id="mode" class="mode-btn text-white">
-              <i class="bi bi-brightness-high text-dark mode-light"></i>
+              <i class="bi bi-brightness-high-fill mode-light"></i>
               <i class="bi bi-moon mode-dark"></i>
             </a>
             <a href="javascript: void(0);" class="settings" onclick="toggleSwitcher()"></a>
@@ -931,7 +931,7 @@
   </script>
 
   <!-- App Js -->
-  <script src="js/app.js"></script>
+  {{-- <script src="js/app.js"></script> --}}
 </body>
 
 <!-- Mirrored from themesbrand.com/qexal/layout/index-6.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Oct 2023 07:16:52 GMT -->

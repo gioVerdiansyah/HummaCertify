@@ -23,7 +23,6 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <!-- Scripts -->
   @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-
   {{-- IMPORT FONT --}}
   <link
     href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather:wght@400;700&family=Montserrat:wght@400;500;700&family=Open+Sans:wght@700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -72,19 +71,19 @@
             <div class="navbar-brand-box horizontal-logo">
               <a href="{{ route('admin.home') }}" class="logo logo-dark">
                 <span class="logo-sm">
-                  <img src="{{ asset('image/nav-admin-logo.png') }}" alt="" height="50">
+                  <img src="{{ asset('image/Hummatech logo.png') }}" alt="" height="50">
                 </span>
                 <span class="logo-lg">
-                  <img src="{{ asset('image/nav-admin-logo.png') }}" alt="" height="50">
+                  <img src="{{ asset('image/Hummatech logo.png') }}" alt="" height="50">
                 </span>
               </a>
 
               <a href="{{ route('admin.home') }}" class="logo logo-light">
                 <span class="logo-sm">
-                  <img src="{{ asset('image/nav-admin-logo.png') }}" alt="" height="50">
+                  <img src="{{ asset('image/Hummatech logo.png') }}" alt="" height="50">
                 </span>
                 <span class="logo-lg">
-                  <img src="{{ asset('image/nav-admin-logo.png') }}" alt="" height="50">
+                  <img src="{{ asset('image/Hummatech logo.png') }}" alt="" height="50">
                 </span>
               </a>
             </div>
@@ -135,19 +134,19 @@
         <!-- Dark Logo-->
         <a href="{{ route('admin.home') }}" class="logo logo-dark">
           <span class="logo-sm">
-            <img src="{{ asset('image/nav-admin-logo.png') }}" alt="" height="50">
+            <img src="{{ asset('image/Hummatech logo.png') }}" alt="" height="40" style="margin-left: -6px">
           </span>
           <span class="logo-lg">
-            <img src="{{ asset('image/nav-admin-logo.png') }}" alt="" class="me-2" height="50">
+            <img src="{{ asset('image/Hummacertify text.png') }}" alt="" class="me-2" height="25">
           </span>
         </a>
         <!-- Light Logo-->
         <a href="{{ route('admin.home') }}" class="logo logo-light">
           <span class="logo-sm">
-            <img src="{{ asset('image/nav-admin-logo.png') }}" alt="" class="bg-primary" height="50">
+            <img src="{{ asset('image/Hummatech logo.png') }}" alt="" class="bg-primary" height="30">
           </span>
           <span class="logo-lg">
-            <img src="{{ asset('image/nav-admin-logo.png') }}" alt="" height="50">
+            <img src="{{ asset('image/Hummatech logo.png') }}" alt="" height="30">
           </span>
         </a>
         <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
