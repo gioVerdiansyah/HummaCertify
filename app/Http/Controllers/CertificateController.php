@@ -362,9 +362,8 @@ class CertificateController extends Controller
         }
 
         $pdfFileName = $certificate->id . '.pdf';
-        $pdfPath = 'public/sertifikat/' . $pdfFileName;
-
-        if (Storage::exists($pdfPath)) {
+        $pdfPath = 'sertifikat/' . $pdfFileName;
+        if (Storage::disk('public')->exists($pdfPath)) {
             return view('certificate.embed', ['pdfPath' => Storage::url($pdfPath)]);
         } else {
             return redirect()->route('search', ['q' => $certificate->nomor])
