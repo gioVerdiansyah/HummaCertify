@@ -46,6 +46,7 @@
 }
 
 .image-hover {
+    cursor: default;
     visibility: hidden;
     opacity: 0;
     display: flex;
@@ -60,6 +61,11 @@
     font-weight: 700;
     color: white;
     letter-spacing: 0;
+}
+
+.x-button-icon {
+    margin-top: -11px;
+    margin-left: -11px;
 }
 
 .x-button {
@@ -208,6 +214,7 @@ h4:hover {
     }
 }
 #ifram{
+    margin-top: -15px;
     width: 100%;
     height: 90vh;
 }

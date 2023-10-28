@@ -6,10 +6,10 @@
   <div class="content-container">
     <div class="content-top">
       <div class="left-side">
-        <a href="#" data-bs-toggle="modal" data-bs-target="#detail" class="image-container">
+        <a href="#" class="image-container">
           <div id="load" class="image-item"></div>
           <canvas id="pdfCanvas" class="image-item"></canvas>
-          <div class="image-hover">
+          <div class="image-hover" data-bs-toggle="modal" data-bs-target="#detail">
             <h1 class="hover-animate">Klik untuk melihat ukuran penuh</h1>
           </div>
         </a>
@@ -103,10 +103,10 @@
   <div class="modal fade" id="detail" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
-        <div class="modal-header p-0">
-          <button type="button" class="btn-close x-button" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body p-0">
+        <button type="button" class="btn-close x-button" data-bs-dismiss="modal" aria-label="Close">
+            <box-icon name='x' class="x-button-icon" color='#ffffff' size="lg"></box-icon>
+          </button>
+        <div class="modal-body">
           <iframe id="ifram" src="{{ route('downloadCertificate', $certificate->id) }}" frameborder="0"></iframe>
         </div>
       </div>
@@ -120,7 +120,7 @@
     var context = canvas.getContext('2d');
     var imageHover = document.querySelector('.image-hover');
 
-    var pdfUrl = "/storage/sertifikat/{{ $certificate->id . '.pdf'}}";
+    var pdfUrl = "/storage/sertifikat/{{ $certificate->id . '.pdf' }}";
 
     pdfjsLib.getDocument(pdfUrl).promise.then(function(pdfDoc) {
       return pdfDoc.getPage(1);
