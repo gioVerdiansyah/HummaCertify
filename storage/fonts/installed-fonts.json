@@ -15,12 +15,12 @@
         "bold": "C:\\xampp\\htdocs\\HummaCertify\\storage\\fonts\/poppins_bold_2d1c4b360c3ac297e98fc2cfd808a2cc"
     },
     "montserrat": {
-        "normal": "C:\\Users\\ASUS\\Documents\\HummaCertify\\storage\\fonts\/montserrat_normal_00833106404dc8458cdfb436c759f23d",
-        "500": "C:\\Users\\ASUS\\Documents\\HummaCertify\\storage\\fonts\/montserrat_500_1236ec90acb329158f494b3fcb44327e",
-        "bold": "montserrat_bold_5da7810bf4e960efe50d20e94a894069"
+        "normal": "C:\\xampp\\htdocs\\HummaCertify\\storage\\fonts\/montserrat_normal_00833106404dc8458cdfb436c759f23d",
+        "500": "montserrat_500_1236ec90acb329158f494b3fcb44327e",
+        "bold": "C:\\xampp\\htdocs\\HummaCertify\\storage\\fonts\/montserrat_bold_5da7810bf4e960efe50d20e94a894069"
     },
     "playfair display": {
-        "normal": "C:\\Users\\ASUS\\Documents\\HummaCertify\\storage\\fonts\/playfair_display_normal_cadfef89c29522c6ef943454dc425843",
-        "bold": "playfair_display_bold_937de43669ffc4bc5a11df63c9a6eb77"
+        "normal": "playfair_display_normal_cadfef89c29522c6ef943454dc425843",
+        "bold": "C:\\xampp\\htdocs\\HummaCertify\\storage\\fonts\/playfair_display_bold_937de43669ffc4bc5a11df63c9a6eb77"
     }
 }
