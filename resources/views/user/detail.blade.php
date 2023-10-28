@@ -6,41 +6,41 @@
     <div class="content-top">
       <div class="left-side">
         <div class="image-container">
-          <img class="image-item" src="{{ asset('image/certificate-no-border-radius.png') }}" alt="">
+          <img class="image-item" src="{{ asset('image/certificate-bg.png') }}" alt="">
         </div>
       </div>
       <div class="right-side">
         <div class="right-content">
           <div>
-            <p class="header">Detail Sertifikat</p>
+            <h4 class="header">Detail Sertifikat</h4>
           </div>
           <div class="main-detail">
             <div class="left-detail">
               <div class="mt-3">
                 <h4 class="label-header">Nama :</h4>
-                <p class="label-item">Ilyas</p>
+                <h4 class="label-item">Ilyas</h4>
               </div>
               <div class="mt-3">
                 <h4 class="label-header">Asal Sekolah :</h4>
-                <p class="label-item">Smkn 1 Gending</p>
+                <h4 class="label-item">Smkn 1 Gending</h4>
               </div>
               <div class="mt-3">
                 <h4 class="label-header">Nomor Srtifikat :</h4>
-                <p class="label-item">Ser/0011/01/2510/2023</p>
+                <h4 class="label-item">Ser/0011/01/2510/2023</h4>
               </div>
             </div>
             <div class="right-detail">
               <div class="mt-3">
                 <h4 class="label-header">Di buat oleh :</h4>
-                <p class="label-item">Hummatech</p>
+                <h4 class="label-item">Hummatech</h4>
               </div>
               <div class="mt-3">
                 <h4 class="label-header">Jenis Sertifikat :</h4>
-                <p class="label-item">Sertifikat Kelulusan</p>
+                <h4 class="label-item">Sertifikat Kelulusan</h4>
               </div>
               <div class="mt-3">
                 <h4 class="label-header">Di berikan pada :</h4>
-                <p class="label-item">24 - 10 - 2023</p>
+                <h4 class="label-item">24 - 10 - 2023</h4>
               </div>
             </div>
           </div>
@@ -52,16 +52,16 @@
         <table class="table table-bordered">
           <thead>
             <tr>
-              <th>No.</th>
-              <th>Materi </th>
-              <th>Waktu</th>
+              <th class="left-th text-center">No.</th>
+              <th class="center-th">Materi </th>
+              <th class="right-th text-center">Waktu</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>1</td>
+              <td class="text-center">1</td>
               <td>Php Native</td>
-              <td>168 J</td>
+              <td class="text-center">168 J</td>
             </tr>
           </tbody>
         </table>
