@@ -159,7 +159,7 @@ return [
         /*
          * Package Service Providers...
          */
-        Unicodeveloper\EmailValidator\EmailValidatorServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -183,7 +183,6 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
-        'EmailValidator' => Unicodeveloper\EmailValidator\EmailValidatorFacade::class,
     ])->toArray(),
 
 ];
