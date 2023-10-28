@@ -240,85 +240,78 @@
     </style>
     {{-- Depan --}}
     <div class="depan">
-      <div class="content">
-        <div class="qr-code">
-          <center>
-            <img width="100" height="100" src="{{ asset('image/qr.png') }}" alt="">
-          </center>
-          <figcaption style="font-size: 10px">QR authenticity certificate</figcaption>
-        </div>
-        <div class="no-sertifikat">
-          <p class="no">No.</p>
-          <p class="nomer">Ser/0004/0001/2810/2023</p>
-        </div>
-        <div class="nama">
-          <p>Daniel Halim Kurniawan</p>
-        </div>
-        <div class="sekolah">
-          <p>SMK PGRI 2 PONOROGO</p>
-        </div>
-        <div class="text">
-          <p class="telah">Telah mengikut Pelatihan</p>
-          {{-- Bisa Dirubah --}}
-          <p class="pelatihan">Pemrograman Web dengan Laravel Level Berginner</p>
-          {{-- Tanggal bisa dirubah --}}
-          <p class="tanggal">yang diselenggarakan pada tanggal 18 s.d 23 September 2023 Oleh</p>
-          <p class="pt">PT Hummatech Digital Indonesia</p>
-        </div>
-        <div class="nilai">
-          <p>Sangat Baik</p>
-        </div>
-      </div>
-    </div>
-    {{-- Belakang --}}
-    <div class="belakang">
-      <div class="content">
-        <div class="pelatihan">
-          <p>"Pemrograman Web dengan LARAVEL Level Berginner"</p>
-        </div>
-        <div class="table-materi">
-          <table>
-            <thead>
-              <tr>
-                <th>No.</th>
-                <th>Judul Materi</th>
-                <th>Jam Pelajaran</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th>1.</th>
-                <td style="text-align: start; padding: 2px 5px;">Pengenalan & Installasi Laravel</td>
-                <td>4 JP</td>
-              </tr>
-              <tr>
-                <th>1.</th>
-                <td style="text-align: start; padding: 2px 5px;">Pengenalan & Installasi Laravel</td>
-                <td>4 JP</td>
-              </tr>
-              <tr>
-                <th>1.</th>
-                <td style="text-align: start; padding: 2px 5px;">Pengenalan & Installasi Laravel</td>
-                <td>4 JP</td>
-              </tr>
-              <tr>
-                <th>1.</th>
-                <td style="text-align: start; padding: 2px 5px;">Pengenalan & Installasi Laravel</td>
-                <td>4 JP</td>
-              </tr>
-              <tr>
-                <th></th>
-                <td style="font-weight: 700;">Total</td>
-                <td style="padding: 8px 0px; font-weight: 700;">10 JP</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="nama-instruktur">
-          <p>Bababoiii Papope</p>
+        <div class="content">
+          <div class="qr-code">
+            <center>
+              <img
+                    src="data:image/png;base64,{{ base64_encode(QrCode::format('png')->merge('https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/logo-bg-blue.png', 0.3, true)->size(100)->generate('https://poe.com/')) }}"
+                    alt="QR Code">
+            </center>
+            <figcaption style="font-size: 10px">QR authenticity certificate</figcaption>
+          </div>
+          <div class="no-sertifikat">
+            <p class="no">No.</p>
+            <p class="nomer">{{ $certificate->nomor }}</p>
+          </div>
+          <div class="nama">
+            <p>{{ $certificate->user->name }}</p>
+          </div>
+          <div class="sekolah">
+            <p>{{ $certificate->user->institusi }}</p>
+          </div>
+          <div class="text">
+            <p class="telah">Telah mengikut Pelatihan</p>
+            <p class="pelatihan">{{ $certificate->bidang }}</p>
+            <p class="tanggal">yang diselenggarakan pada tanggal {{ \Carbon\Carbon::createFromFormat('Y-m-d', $certificate->tanggal)->locale('id')->isoFormat('D') }} s.d {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $certificate->created_at)->locale('id')->isoFormat('D MMMM YYYY') }} Oleh</p>
+            <p class="pt">PT Hummatech Digital Indonesia</p>
+          </div>
+          <div class="nilai">
+            <p>{{ $certificate->predikat }}</p>
+          </div>
         </div>
       </div>
-    </div>
+      {{-- Belakang --}}
+      <div class="belakang">
+        <div class="content">
+          <div class="pelatihan">
+            <p>"{{ $certificate->bidang }}"</p>
+          </div>
+          <div class="table-materi">
+            <table>
+              <thead>
+                <tr>
+                  <th width="10%">No</th>
+                    <th width="70%">Materi</th>
+                    <th width="20%">Waktu</th>
+                </tr>
+              </thead>
+              @php
+                  $totalJP = 0;
+              @endphp
+              <tbody>
+                  @foreach ($certificate->detailCertificates as $i => $detailCertificate)
+                      <tr>
+                        <th>{{ ++$i }}.</th>
+                        <td style="text-align: start; padding: 2px 5px;">{{ $detailCertificate->materi }}</td>
+                        <td>{{ $detailCertificate->jp }} JP</td>
+                      </tr>
+                        @php
+                            $totalJP += $detailCertificate->jp;
+                        @endphp
+                @endforeach
+                <tr>
+                    <td></td>
+                    <td>Total</td>
+                    <td>{{ $totalJP }} JP</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="nama-instruktur">
+            <p>{{ $certificate->instruktur }}</p>
+          </div>
+        </div>
+      </div>
   </main>
 </body>
 

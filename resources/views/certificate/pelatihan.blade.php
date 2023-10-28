@@ -223,7 +223,10 @@
         text-align: center;
         padding: 8px 0px;
       }
-
+      .belakang .certificate-guru-belakang .table-penilayan td.ts{
+        text-align: start;
+        padding: 0px 5px;
+      }
       .belakang .certificate-guru-belakang .tanda-tangan {
         font-family: "Montserrat", sans-serif;
       }
@@ -284,7 +287,7 @@
           {{-- Kompeten --}}
           <div class="kompeten">
             <p class="bidang">{{ $certificate->bidang }}</p>
-            <p class="sub-bidang">{{ $certificate->sub_bidang }}</p>
+            <p class="sub-bidang">{{ $certificate->sub_bidang ?? '-' }}</p>
           </div>
           {{-- Nilai Medal --}}
           <div class="text-penilaian">
@@ -323,14 +326,25 @@
                   <th width="20%">Waktu</th>
                 </tr>
               </thead>
+              @php
+                  $totalJP = 0;
+              @endphp
               <tbody>
                 @foreach ($certificate->detailCertificates as $i => $cert)
                   <tr>
                     <th>{{ ++$i }}.</th>
-                    <td style="padding: 0px 5px;">{{ $cert->materi }}</td>
+                    <td class="ts">{{ $cert->materi }}</td>
                     <td>{{ $cert->jp }} JP</td>
                   </tr>
+                  @php
+                    $totalJP += $cert->jp;
+                  @endphp
                 @endforeach
+                <tr>
+                    <td></td>
+                    <td>Total</td>
+                    <td>{{ $totalJP }} JP</td>
+                </tr>
               </tbody>
             </table>
           </div>

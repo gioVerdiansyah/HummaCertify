@@ -77,7 +77,7 @@
                                                 </button>
                                             </form>
                                         @endisset
-                                        <a href="{{ route('getCertificate', $certificate->id) }}" class="btn btn-info print-certificate" title="Print">
+                                        <a href="{{ route('getCertificate', $certificate->id) }}" target="_blank" class="btn btn-info print-certificate" title="Print">
                                             <i class="fi fi-rr-print"></i>
                                         </a>
                                         </a>
@@ -142,25 +142,26 @@
             }
             window.location.href = newUrl;
         });
-
-document.querySelectorAll('.print-certificate').forEach(function(link) {
-    link.addEventListener('click', function(event) {
-        event.preventDefault();
-        var namaSertifikat = link.closest('tr').querySelector('td[data-nama-sertifikat]').dataset.namaSertifikat;
-        Swal.fire({
-            title: `Anda yakin ingin mencetak sertifikat untuk ${namaSertifikat}?`,
-            text: 'Tindakan ini tidak dapat dibatalkan .',
-            icon: 'question',
-            showCancelButton: true,
-            confirmButtonText: 'Lanjutkan',
-            cancelButtonText: 'Batal'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = link.href;
-            }
+        @if (!request('print'))
+        document.querySelectorAll('.print-certificate').forEach(function(link) {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                var namaSertifikat = link.closest('tr').querySelector('td[data-nama-sertifikat]').dataset.namaSertifikat;
+                Swal.fire({
+                    title: `Anda yakin ingin mencetak sertifikat untuk ${namaSertifikat}?`,
+                    text: 'Tindakan ini tidak dapat dibatalkan .',
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonText: 'Lanjutkan',
+                    cancelButtonText: 'Batal'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = link.href;
+                    }
+                });
+            });
         });
-    });
-});
+        @endif
 
     document.querySelectorAll('.print-all-certificate').forEach(function(link){
         link.addEventListener('click', function(event){

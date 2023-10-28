@@ -289,6 +289,9 @@
                   <th width="20%">Waktu</th>
               </tr>
             </thead>
+            @php
+             $totalJP = 0;
+            @endphp
             <tbody>
                 @foreach ($certificate->detailCertificates as $i => $detailCertificate)
                     <tr>
@@ -296,7 +299,15 @@
                       <td style="text-align: start; padding: 2px 5px;">{{ $detailCertificate->materi }}</td>
                       <td>{{ $detailCertificate->jp }} JP</td>
                     </tr>
+                    @php
+                        $totalJP += $detailCertificate->jp;
+                    @endphp
               @endforeach
+              <tr>
+                <td></td>
+                <td>Total</td>
+                <td>{{ $totalJP }} JP</td>
+            </tr>
             </tbody>
           </table>
         </div>
