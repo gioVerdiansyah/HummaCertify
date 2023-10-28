@@ -1,0 +1,153 @@
+.pembungkus-profile {
+    position: absolute;
+    top: 75px;
+    height: 92vh;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    background-color: #e2ebfb;
+}
+
+.pembungkus-profile .bababoi {
+    width: 100%;
+}
+
+.pembungkus-profile .bababoi .profile-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.pembungkus-profile .bababoi .form-detail label {
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+
+.pembungkus-profile .bababoi .form-detail input {
+    background: transparent;
+}
+
+.pembungkus-profile .bababoi .form-detail button {
+    position: absolute;
+    top: 36px;
+    right: 10px;
+    width: 10px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pembungkus-profile .bababoi .form-detail button i{
+    margin-top: 2px;
+}
+
+.pembungkus-profile .card-sertifikat-user {
+    height: 20%;
+}
+
+.pembungkus-profile .card-sertifikat-show {
+    height: 80%;
+}
+
+.pembungkus-profile .card-sertifikat-show .certificate {
+    height: auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(0, 1fr);
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.pembungkus-profile .card-sertifikat-show .certificate img {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+}
+
+.pembungkus-profile .card-sertifikat-show .certificate .dark {
+    background-color: black;
+    color: white;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    transition: ease-in-out 0.2s;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pembungkus-profile .card-sertifikat-show .certificate .dark p {
+    font-size: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.pembungkus-profile .card-sertifikat-show .certificate .dark:hover {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0.6;
+    color: white;
+}
+
+.card-sertifikat-user .card-body img {
+    width: 50px;
+    height: auto;
+}
+
+.card-sertifikat-user .card-body .text {
+    height: 100px;
+    justify-content: space-evenly;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-sertifikat-user .card-body .text .text-atas {
+    font-size: 20px;
+    font-weight: 500;
+    color: #878A99;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.card-sertifikat-user .card-body .text .angka {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.card-sertifikat-user .card-body .text .text-bawah {
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #878A99;
+    margin-bottom: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.card .title-chart {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px 20px;
+    color: #495057;
+}
+
+@media only screen and (max-width: 768px) {
+    .pembungkus-profile .card-sertifikat-user {
+        height: 30%;
+    }
+}

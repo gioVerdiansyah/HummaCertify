@@ -204,8 +204,10 @@ class CertificateController extends Controller
         $certificate = Certificate::with('user', 'category', 'detailCertificates')->where('id', $id)->firstOrFail();
         $categories = CertificateCategori::select('id', 'name')->get();
         $details = DetailCertificate::where('certificate_id', $id)->get();
+        $notification = ContactMe::all();
+        $notificationCount = ContactMe::where('read', 0)->count();
 
-        return view('admin.certificate.edit', compact('categories', 'certificate','details'));
+        return view('admin.certificate.edit', compact('categories', 'certificate','details', 'notificationCount', 'notification'));
     }
 
     /**
