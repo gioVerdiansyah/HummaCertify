@@ -37,7 +37,10 @@
 }
 
 .image-container {
+    position: relative;
     width: 80%;
+    display: flex;
+    justify-content: center;
 }
 
 .image-item {
@@ -111,5 +114,47 @@ h4:hover {
 @media screen and (max-width: 400px) {
     .main-detail {
         display: block;
+    }
+}
+
+#load {
+    position: absolute;
+    top: 40%;
+    width: 100px;
+    height: 100px;
+    background-image: url('/image/Loading-logo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: loading 2s infinite ease-in-out, flipAndGrayScale 2s infinite;
+}
+
+@keyframes loading {
+    0% {
+        transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    }
+
+    50% {
+        transform: perspective(120px) rotateX(180deg) rotateY(0deg);
+    }
+
+    100% {
+        transform: perspective(120px) rotateX(180deg) rotateY(-180deg);
+    }
+}
+
+@keyframes flipAndGrayScale {
+    0% {
+        transform: scaleX(1) translateY(0);
+        filter: grayscale(0%);
+    }
+
+    50% {
+        transform: scaleX(-1) translateY(-5px);
+        filter: grayscale(100%);
+    }
+
+    100% {
+        transform: scaleX(1) translateY(0);
+        filter: grayscale(0%);
     }
 }

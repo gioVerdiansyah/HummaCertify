@@ -335,11 +335,13 @@
                                                 $totalJP += $cert->jp;
                                             @endphp
                                         @endforeach
+                                        @if (count($certificate->detailCertificates) > 1)
                                         <tr>
                                             <td></td>
                                             <th>Total</th>
                                             <th>{{ $totalJP }} JP</th>
                                         </tr>
+                                        @endif
                                     </tbody>
                                 </table>
                             </div>

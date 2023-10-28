@@ -55,14 +55,17 @@ class HomeController extends Controller
         return view('admin.dashboard', compact('users', 'category', 'certificateCategoryCount', 'certificateCount', 'certificateData', 'kelulusanCount', 'pelatihanCount', 'kompetensiCount', 'notificationCount', 'notification'));
     }
 
-    public function search(Request $request){
-        $request->validate(
-            ['q' => "required"],
-            ['q.required' => "Input tidak boleh kosong!"]
-        );
+    public function search(Request $request)
+    {
+        $request->validate([
+            'q' => 'required',
+        ], [
+            'q.required' => 'Input tidak boleh kosong!',
+        ]);
 
-        $query = $request->only('q')['q'];
+        $query = $request->input('q');
         $certificate = Certificate::with(['user', 'category', 'detailCertificates'])->where('nomor', $query)->firstOrFail();
-        dump($certificate);
+
+        return view('certificate.found', compact('certificate'));
     }
 }
