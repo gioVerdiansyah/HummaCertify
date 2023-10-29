@@ -62,21 +62,6 @@
     letter-spacing: 0;
 }
 
-.x-button-icon {
-    margin-top: -11px;
-    margin-left: -11px;
-}
-
-.x-button {
-    transform: translateX(60px);
-    background-color: transparent;
-    border: none;
-    color: white;
-    background-color: transparent;
-    border: none;
-    font-size: 20px;
-}
-
 .image-hover:hover {
     letter-spacing: 2px;
     opacity: 0.6;
