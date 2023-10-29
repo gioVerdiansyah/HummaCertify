@@ -780,6 +780,7 @@
             success: function(response) {
               console.log(response);
               if (response.error) {
+                $("#simple-msg").empty();
                 let errorList = '<ul>';
                 $.each(response.error, function(field, messages) {
                   $.each(messages, function(key, message) {
@@ -788,15 +789,14 @@
                 });
                 errorList += '</ul>';
 
-                $("#error-msg").html("<div class='alert alert-danger'>Terjadi kesalahan:</div>" +
-                  errorList);
+                $("#error-msg").html("<div class='alert alert-danger alert-dismissible fade show' role='alert'>" + "Terjadi  kesalahan:" + errorList + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
 
                 $("#submit-button .flex-grow-1").text("Kirim Pesan");
                 $("#submit-button .spinner-border").addClass("d-none");
               } else {
                 $("#error-msg").empty();
 
-                $("#simple-msg").html("<div class='alert alert-success'>" + response.success + "</div>");
+                $("#simple-msg").html("<div class='alert alert-success alert-dismissible fade show' role='alert'>" + response.success + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
 
                 $("#send-notif-form")[0].reset();
 
@@ -810,8 +810,7 @@
             },
             error: function(xhr, status, error) {
               $("#simple-msg").empty();
-              $("#error-msg").html("<div class='alert alert-danger'>Terjadi kesalahan: " + error +
-                "</div>");
+              $("#error-msg").html("<div class='alert alert-danger alert-dismissible fade show' role='alert'>" + "Terjadi  kesalahan: " + error + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
 
               $("#submit-button .flex-grow-1").text("Kirim Pesan");
               $("#submit-button .spinner-border").addClass("d-none");
@@ -819,8 +818,7 @@
           });
         } else {
           $("#simple-msg").empty();
-          $("#error-msg").html(
-            "<div class='alert alert-danger'>Anda telah mencapai batas pengiriman pesan (3 kali).</div>");
+          $("#error-msg").html("<div class='alert alert-danger alert-dismissible fade show' role='alert'>" + "Anda telah mencapai batas pengiriman pesan (3 kali)." + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
         }
       });
     });

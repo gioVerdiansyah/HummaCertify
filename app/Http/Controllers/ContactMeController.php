@@ -16,6 +16,14 @@ class ContactMeController extends Controller
         ]);
 
 
+        if(strtolower(trim($request->name)) === "hummacertify"){
+            return response()->json(['error' => ['name' => ['Jangan menggunakan nama kami!']]]);
+        }
+
+        if(strtolower(trim($request->email)) === "hummacertify@gmail.com"){
+            return response()->json(['error' => ['email' => ['Jangan menggunakan email kami!']]]);
+        }
+
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()]);
         }
