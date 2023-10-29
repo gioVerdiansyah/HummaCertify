@@ -71,22 +71,11 @@ class HomeController extends Controller
 
     public function sertifikatKu()
     {
-        $user = User::with(['certificates', 'certificates.category', 'certificates.detailCertificates'])->where('id', auth()->user()->id)->get();
-        $certificate = $user[0]->certificates;
-        $kelulusan = null;
-        $kompetensi = null;
-        $pelatihan = null;
+        $user = User::with(['certificates', 'certificates.category', 'certificates.detailCertificates'])
+                    ->where('id', auth()->user()->id)
+                    ->get();
 
-        foreach ($certificate as $certificate) {
-            if ($certificate->certificate_categori_id === 1) {
-                $kelulusan = $certificate;
-            } elseif ($certificate->certificate_categori_id === 2) {
-                $pelatihan = $certificate;
-            } elseif ($certificate->certificate_categori_id === 3) {
-                $kompetensi = $certificate;
-            }
-        }
-
-        return view('user.sertifikat', compact('certificate', 'kelulusan', 'kompetensi', 'pelatihan'));
+        $certificates = $user[0]->certificates->keyBy('certificate_categori_id');
+        return view('user.sertifikat', compact('certificates'));
     }
 }

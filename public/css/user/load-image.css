@@ -24,7 +24,7 @@
     animation: loading 2s infinite ease-in-out, flipAndGrayScale 2s infinite;
 }
 
-#load {
+[id^="load-"] {
     position: absolute;
     width: 100px;
     height: 100px;
@@ -36,7 +36,7 @@
 }
 
 @media screen and (max-width: 900px) {
-    #load {
+    [id^="load-"] {
         width: 75px;
         height: 75px;
         top: 30%;
