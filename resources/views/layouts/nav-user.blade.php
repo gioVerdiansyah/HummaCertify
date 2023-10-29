@@ -44,7 +44,7 @@
   <nav class="navbar navbar-expand-lg navbar-light fixed-top navdar-custom" id="navbar">
     <div class="container">
       <!-- LOGO -->
-      <a class="navbar-brand logo" href="#">
+      <a class="navbar-brand logo" href="{{ route('home') }}">
         <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-dark" height="35" />
         <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-light" height="35" />
       </a>
@@ -54,23 +54,23 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav ms-auto navbar-center" id="navbar-navlist">
           <li class="nav-item">
-            <a href="#home" class="nav-link">Beranda</a>
+            <a href="{{ route('home') }}#home" class="nav-link">Beranda</a>
           </li>
           <li class="nav-item">
-            <a href="#tentang" class="nav-link">Tentang</a>
+            <a href="{{ route('home') }}#tentang" class="nav-link">Tentang</a>
           </li>
           <li class="nav-item">
-            <a href="#contoh" class="nav-link">Contoh</a>
+            <a href="{{ route('home') }}#contoh" class="nav-link">Contoh</a>
           </li>
           <li class="nav-item">
-            <a href="#contact" class="nav-link">Kontak</a>
+            <a href="{{ route('home') }}#contact" class="nav-link">Kontak</a>
           </li>
           @auth
             <li>
               <a href="#" class="nav-link">Sertifikat</a>
             </li>
             <li>
-              <a href="#" class="nav-link">Profile</a>
+              <a href="{{ route('profile') }}" class="nav-link">Profile</a>
             </li>
           @endauth
         </ul>

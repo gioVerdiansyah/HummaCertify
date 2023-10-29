@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactMeController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -24,7 +25,7 @@ Route::middleware('AdminDown')->group(function () {
 });
 
 Route::middleware('User')->group(function () {
-
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 });
 
 // Admin Sudah Login
