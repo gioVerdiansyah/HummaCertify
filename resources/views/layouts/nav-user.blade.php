@@ -67,7 +67,7 @@
           </li>
           @auth
             <li>
-              <a href="#" class="nav-link">Sertifikat</a>
+              <a href="{{ route('sertifikat.user') }}" class="nav-link">Sertifikat</a>
             </li>
             <li>
               <a href="{{ route('profile') }}" class="nav-link">Profile</a>

@@ -146,6 +146,10 @@
     color: #495057;
 }
 
+.input-height {
+    height: 50px;
+}
+
 @media only screen and (max-width: 768px) {
     .pembungkus-profile .card-sertifikat-user {
         height: 30%;

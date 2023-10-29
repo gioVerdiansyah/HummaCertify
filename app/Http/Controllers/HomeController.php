@@ -68,4 +68,16 @@ class HomeController extends Controller
 
         return view('certificate.found', compact('certificate'));
     }
+
+    public function sertifikatKu()
+    {
+        $user = User::with('certificates')->find(auth()->user()->id);
+        $certificates = $user->certificates;
+
+        foreach ($certificates as $certificate) {
+
+        }
+
+        return view('user.sertifikat', compact('certificate'));
+    }
 }

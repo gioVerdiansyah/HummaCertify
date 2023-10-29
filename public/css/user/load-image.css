@@ -1,12 +1,31 @@
-#load {
+#load-detail {
     position: absolute;
-    top: 40%;
     width: 100px;
     height: 100px;
+    top: 40%;
     background-image: url('/image/Loading-logo.png');
     background-repeat: no-repeat;
     background-size: cover;
     animation: loading 2s infinite ease-in-out, flipAndGrayScale 2s infinite;
+}
+
+#load {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 30%;
+    background-image: url('/image/Loading-logo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: loading 2s infinite ease-in-out, flipAndGrayScale 2s infinite;
+}
+
+@media screen and (max-width: 900px) {
+    #load {
+        width: 75px;
+        height: 75px;
+        top: 30%;
+    }
 }
 
 @keyframes loading {
@@ -39,8 +58,11 @@
         filter: grayscale(0%);
     }
 }
+
 #ifram{
     margin-top: -15px;
     width: 100%;
-    height: 90vh;
+    height: auto;
 }
+
+

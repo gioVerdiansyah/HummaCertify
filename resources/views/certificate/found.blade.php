@@ -1,6 +1,7 @@
 @extends('layouts.nav-user')
 
 @section('content')
+  <title>Detail Sertifikat</title>
   <link rel="stylesheet" href="{{ asset('css/user/detail.css') }}">
   <link rel="stylesheet" href="{{ asset('css/user/load-image.css') }}">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js" integrity="sha512-Z8CqofpIcnJN80feS2uccz+pXWgZzeKxDsDNMD/dJ6997/LSRY+W4NmEt9acwR+Gt9OHN0kkI1CTianCwoqcjQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -8,7 +9,7 @@
     <div class="content-top">
       <div class="left-side">
         <a href="#" class="image-container">
-          <div id="load" class="image-item"></div>
+          <div id="load-detail" class="image-item"></div>
           <canvas id="pdfCanvas" class="image-item"></canvas>
           <div class="image-hover" data-bs-toggle="modal" data-bs-target="#detail">
             <h1 class="hover-animate">Klik untuk melihat ukuran penuh</h1>
@@ -105,8 +106,8 @@
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
         <button type="button" class="btn-close x-button" data-bs-dismiss="modal" aria-label="Close">
-            <box-icon name='x' class="x-button-icon" color='#ffffff' size="lg"></box-icon>
-          </button>
+          <box-icon name='x' class="x-button-icon" color='#ffffff' size="lg"></box-icon>
+        </button>
         <div class="modal-body">
           <iframe id="ifram" src="{{ route('downloadCertificate', $certificate->id) }}" frameborder="0"></iframe>
         </div>
@@ -140,7 +141,7 @@
       };
 
       return page.render(renderContext).promise.then(function() {
-        var loadingElement = document.getElementById('load');
+        var loadingElement = document.getElementById('load-detail');
         if (loadingElement) {
           loadingElement.remove();
         }

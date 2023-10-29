@@ -22,7 +22,7 @@
     justify-content: center;
     align-items: center;
     width: 65%;
-    height: 892px;
+    height: auto;
 }
 
 .right-side {
@@ -43,10 +43,6 @@
     width: 80%;
     display: flex;
     justify-content: center;
-}
-
-.b-color{
-    background-color: rgb(255, 0, 0);
 }
 
 .image-hover {
@@ -111,6 +107,7 @@ h4:hover {
 }
 
 .hover-animate {
+    color: white;
     text-align: center;
 }
 
@@ -147,6 +144,7 @@ h4:hover {
 @media screen and (max-width: 924px) {
     .content-top {
         display: block;
+        padding-bottom: 0.5px;
     }
 
     .main-detail {
@@ -156,6 +154,8 @@ h4:hover {
 
     .left-side {
         width: 100%;
+        margin-bottom: 3px;
+        padding-bottom: 20px;
     }
 
     .right-side {

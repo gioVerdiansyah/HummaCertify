@@ -26,6 +26,8 @@ Route::middleware('AdminDown')->group(function () {
 
 Route::middleware('User')->group(function () {
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    Route::get('/sertifikatku', [HomeController::class, 'sertifikatKu'])->name('sertifikat.user');
+    Route::patch('/updateEmail', [ProfileController::class, 'updateEmail'])->name('update.email');
 });
 
 // Admin Sudah Login
