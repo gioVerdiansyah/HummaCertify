@@ -44,7 +44,7 @@
               <section>
                 <h2 class="mb-5">Semua</h2>
                 <div class="row">
-                  <div class="col-md-4">
+                  <div class="col-md-4 mb-4">
                     <a href="#" class="image-container">
                       <div id="load" class="image-load"></div>
                       <canvas id="pdfCanvas" class="image-item"></canvas>
@@ -58,7 +58,7 @@
               <section>
                 <h2 class="mb-5">Kelulusan</h2>
                 <div class="row">
-                  <div class="col-md-4">
+                  <div class="col-md-4 mb-4">
                     <a href="#" class="image-container">
                       <div id="load" class="image-item"></div>
                       <canvas id="pdfCanvas" class="image-item"></canvas>
@@ -72,7 +72,7 @@
               <section>
                 <h2 class="mb-5">Kompetensi</h2>
                 <div class="row">
-                  <div class="col-md-4">
+                  <div class="col-md-4 mb-4">
                     <a href="#" class="image-container">
                       <div id="load" class="image-item"></div>
                       <canvas id="pdfCanvas" class="image-item"></canvas>
@@ -86,7 +86,7 @@
               <section>
                 <h2 class="mb-5">Pelatihan</h2>
                 <div class="row">
-                  <div class="col-md-4">
+                  <div class="col-md-4 mb-4">
                     <a href="#" class="image-container">
                       <div id="load" class="image-item"></div>
                       <canvas id="pdfCanvas" class="image-item"></canvas>
