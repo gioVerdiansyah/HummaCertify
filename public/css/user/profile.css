@@ -5,11 +5,20 @@
     width: 100%;
     margin: 0px;
     padding: 0px;
-    background-color: #e2ebfb;
+    background-color: var(--bs-bg-light);
 }
 
 .pembungkus-profile .bababoi {
     width: 100%;
+}
+
+.pembungkus-profile .bababoi .papope {
+    padding: 2px 0px;
+}
+
+.pembungkus-profile .bababoi .card-profile {
+    background-color: var(--bs-body-bg);
+    border-style: none;
 }
 
 .pembungkus-profile .bababoi .profile-title {
@@ -42,16 +51,21 @@
 }
 
 .pembungkus-profile .card-sertifikat-user {
-    height: 20%;
+    height: 30%;
+    background-color: var(--bs-body-bg);
+    border-style: none;
+    margin: 0px 2px;
 }
 
 .pembungkus-profile .card-sertifikat-show {
-    height: 80%;
+    height: 70%;
+    background-color: var(--bs-body-bg);
+    border-style: none;
 }
 
 .pembungkus-profile .card-sertifikat-show .certificate {
-    height: auto;
     width: 100%;
+    height: auto;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: minmax(0, 1fr);
@@ -63,10 +77,10 @@
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
-.pembungkus-profile .card-sertifikat-show .certificate img {
+.pembungkus-profile .card-sertifikat-show .certificate canvas {
     width: 100%;
     height: auto;
-    max-height: 100%;
+    object-fit: cover;
 }
 
 .pembungkus-profile .card-sertifikat-show .certificate .dark {
@@ -76,7 +90,7 @@
     height: 100%;
     position: absolute;
     opacity: 0;
-    transition: ease-in-out 0.2s;
+    transition: ease-in 0.2s;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -85,6 +99,7 @@
 
 .pembungkus-profile .card-sertifikat-show .certificate .dark p {
     font-size: 25px;
+    width: 80%;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     text-align: center;
@@ -153,5 +168,15 @@
 @media only screen and (max-width: 768px) {
     .pembungkus-profile .card-sertifikat-user {
         height: 30%;
+        border-radius: 0px;
+        margin: 0px 0px;
+    }
+
+    .pembungkus-profile .bababoi .card-profile {
+        border-radius: 0px;
+    }
+
+    .pembungkus-profile .bababoi .papope {
+        padding: 0px 0px;
     }
 }
