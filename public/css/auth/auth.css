@@ -1,5 +1,22 @@
+.eye {
+    border-radius: 15px;
+    background-color: #fbfbfb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 60px;
+    margin-top: -35px;
+    width: 30px;
+    height: 30px;
+}
 
-/* LOGIN & REGISTER */
+.icon {
+    margin-top: 9.2px;
+    margin-left: 6px;
+}
+
+/*
 .login-register .wrapper {
     max-width: 350px;
     min-height: 500px;
@@ -43,7 +60,6 @@
     font-size: 1.2rem;
     color: #666;
     padding: 10px 15px 10px 10px;
-    /* border: 1px solid red; */
 }
 
 .login-register .wrapper .form-field {
@@ -88,4 +104,4 @@
         margin: 30px 20px;
         padding: 40px 15px 15px 15px;
     }
-}
+} */

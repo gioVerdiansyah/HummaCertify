@@ -641,15 +641,15 @@
               Karangploso, Perum Permata</p>
             <ul class="list-inline pt-4">
               <li class="list-inline-item me-3">
-                <a href="javascript: void(0);" class="social-icon icon-mono avatar-xs rounded-circle"><i
+                <a href="http://www.facebook.com/hummatech" class="social-icon icon-mono avatar-xs rounded-circle"><i
                     class="icon-xs" data-feather="facebook"></i></a>
               </li>
               <li class="list-inline-item me-3">
-                <a href="javascript: void(0);" class="social-icon icon-mono avatar-xs rounded-circle"><i
+                <a href="http://www.youtube.com/@hummatech" class="social-icon icon-mono avatar-xs rounded-circle"><i
                     class="icon-xs" data-feather="youtube"></i></a>
               </li>
               <li class="list-inline-item">
-                <a href="javascript: void(0);" class="social-icon icon-mono avatar-xs rounded-circle"><i
+                <a href="http://www.instagram.com/hummatech" class="social-icon icon-mono avatar-xs rounded-circle"><i
                     class="icon-xs" data-feather="instagram"></i></a>
               </li>
             </ul>
@@ -844,13 +844,13 @@
           el.classList.remove("gallery-item-3");
         });
 
-        this.carouselArray.slice(0, 5).forEach((el, i) => {
+        this.carouselArray.slice(0, 3).forEach((el, i) => {
           el.classList.add(`gallery-item-${i + 1}`);
         });
       }
 
       setCurrentState(direction) {
-        if (direction.className == "gallery-controls-previous") {
+        if (direction.className == "gallery-controls-p") {
           this.carouselArray.unshift(this.carouselArray.pop());
         } else {
           this.carouselArray.push(this.carouselArray.shift());

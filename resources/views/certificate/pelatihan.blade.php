@@ -122,22 +122,13 @@
       }
 
       .depan .content .kompeten {
-        line-height: 12px;
+        position: absolute;
+        top: 478px;
+        left: 385px;
+        line-height: 11.5px;
         font-family: "Montserrat", sans-serif;
         font-weight: 700;
         font-size: 15px;
-      }
-
-      .depan .content .kompeten .bidang {
-        position: absolute;
-        top: 477px;
-        left: 385px;
-      }
-
-      .depan .content .kompeten .sub-bidang {
-        position: absolute;
-        top: 505px;
-        left: 385px;
       }
 
       .depan .content .text-penilaian {

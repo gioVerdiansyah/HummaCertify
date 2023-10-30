@@ -265,9 +265,15 @@
             <p class="tanggal">yang diselenggarakan pada tanggal {{ \Carbon\Carbon::createFromFormat('Y-m-d', $certificate->tanggal)->locale('id')->isoFormat('D') }} s.d {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $certificate->created_at)->locale('id')->isoFormat('D MMMM YYYY') }} Oleh</p>
             <p class="pt">PT Hummatech Digital Indonesia</p>
           </div>
+          @if ($certificate->predikat === 'Sangat Baik')
+          <div class="nilai" style="top: 575px; line-height: 15px">
+            <p>{{ $certificate->predikat }}</p>
+          </div>
+        @else
           <div class="nilai">
             <p>{{ $certificate->predikat }}</p>
           </div>
+        @endif
         </div>
       </div>
       {{-- Belakang --}}
