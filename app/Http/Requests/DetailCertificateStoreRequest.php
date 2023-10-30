@@ -24,7 +24,7 @@ class DetailCertificateStoreRequest extends FormRequest
         return [
             'instruktur' => 'required|string',
             'category-group.*.materi' => 'required|string|max:85',
-            'category-group.*.jam_pelajaran' => 'required|numeric|min:1|max:999',
+            'category-group.*.jam_pelajaran' => 'required|numeric|min:1|max:999|regex:/^[0-9]+$/',
         ];
     }
     public function message(): array

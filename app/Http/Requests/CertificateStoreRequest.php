@@ -25,7 +25,7 @@ class CertificateStoreRequest extends FormRequest
             // user
             'name' => 'required|string',
             'email' => 'nullable|email',
-            'nomor_induk' => 'required|string|min:8',
+            'nomor_induk' => 'required|string|min:8|regex:/^[0-9]+$/',
             'ttl' => 'required',
             'institusi' => 'required|string',
             // certificate
@@ -37,7 +37,7 @@ class CertificateStoreRequest extends FormRequest
             'instruktur' => 'required',
             // detail
             'category-group.*.materi' => 'required|string|max:85',
-            'category-group.*.jam_pelajaran' => 'required|numeric|gt:1|max:999',
+            'category-group.*.jam_pelajaran' => 'required|numeric|gt:1|max:999|regex:/^[0-9]+$/',
 
         ];
     }
@@ -54,6 +54,7 @@ class CertificateStoreRequest extends FormRequest
             'institusi.required' => 'institusi harus di isi',
             'nomor_induk.required' => 'nomor induk harus di isi',
             'nomor_induk.min' => 'nomor induk minimal :min',
+            'nomor_induk.regex' => 'format nomor induk harus benar',
             //certificate
             'bidang.required' => 'bidang harus di isi',
             'tanggal.required' => 'tanggal harus di isi',
@@ -68,6 +69,7 @@ class CertificateStoreRequest extends FormRequest
             'categori-group.*materi.required_with' => 'data harus di isi',
             'categori-group.*jam_pelajaran.numeric' => 'jam pelajaran harus :numeric',
             'categori-group.*jam_pelajaran.max' => 'jam pelajaran maximal :max',
+            'categori-group.*jam_pelajaran.regex' => 'formar jam pelajaran harus benar (regex)',
         ];
     }
 }
