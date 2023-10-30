@@ -11,10 +11,16 @@
   <!-- favicon -->
   <link rel="shortcut icon" href="images/favicon.ico" />
 
+  <!-- icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous"
+    referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
   <!-- css -->
   <link href="{{ asset('logintemplate/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ asset('logintemplate/css/materialdesignicons.min.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ asset('logintemplate/css/style.min.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ asset('css/auth/auth.css') }}" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -46,7 +52,50 @@
                   </div>
                   <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input name="password" required placeholder="Password" id="userpassword" type="password" class="form-control @error('password') is-invalid @enderror" />
+                    <input name="password" onkeyup="show()" required placeholder="Password" id="userpassword" type="password" class="form-control backG @error('password') is-invalid @enderror" />
+                    <script>
+                      var count = 0;
+
+                      function show() {
+                        var input = document.getElementById('userpassword');
+                        var eye = document.getElementById('eyeShow');
+
+                        if (!input.value) {
+                          console.log('hide')
+                          eye.style.display = 'none';
+                        } else {
+                          console.log('show')
+                          eye.style.display = 'block';
+                        }
+                      }
+
+                      function changeEye() {
+                        var input = document.getElementById('userpassword');
+                        var hide = document.getElementById('hide');
+                        var show = document.getElementById('show');
+
+                        if (count === 0) {
+                          count = 1;
+                          show.style.display = 'none';
+                          hide.style.display = 'block';
+                          input.setAttribute('type', 'text');
+                        } else if (count === 1) {
+                          count = 0;
+                          show.style.display = 'block';
+                          hide.style.display = 'none';
+                          input.setAttribute('type', 'password');
+                        }
+
+                        console.log(count);
+                      }
+                    </script>
+
+                    <div onclick="changeEye()" style="display: none" id="eyeShow" class="eye">
+                      <div class="icon">
+                        <i class="fa-regular fa-eye" id="show" style="display: block"></i>
+                        <i class="fa-regular fa-eye-slash" id="hide" style="display: none"></i>
+                      </div>
+                    </div>
                     @error('password')
                       <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -86,7 +135,7 @@
   <script src="https://unpkg.com/feather-icons"></script>
 
   <!-- App Js -->
-  <script src="js/app.js"></script>
+  <script src="{{ asset('logintemplate/js/app.js') }}"></script>
 </body>
 
 <!-- Mirrored from themesbrand.com/qexal/layout/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Oct 2023 03:12:52 GMT -->
