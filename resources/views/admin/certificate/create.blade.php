@@ -215,7 +215,7 @@
                                 </div>
                               @enderror
                               <input required
-                                class="btn btn-outline-danger waves-effect waves-light ms-3 d-flex justify-content-center align-items-center"
+                                class="btn btn-danger waves-effect waves-light ms-3 d-flex justify-content-center align-items-center"
                                 data-repeater-delete type="button" value="Hapus" />
                             </div>
                           </div>
@@ -224,7 +224,7 @@
                     </div>
                   </div>
                   <div class="hstack gap-2 justify-content-end">
-                    <input required class="btn btn-outline-success waves-effect waves-light" data-repeater-create
+                    <input required class="btn btn-success waves-effect waves-light" data-repeater-create
                       type="button" value="+ Tambah" />
                   </div>
                 </div>
