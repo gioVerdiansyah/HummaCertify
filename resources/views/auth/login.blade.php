@@ -53,43 +53,6 @@
                   <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
                     <input name="password" onkeyup="show()" required placeholder="Password" id="userpassword" type="password" class="form-control backG @error('password') is-invalid @enderror" />
-                    <script>
-                      var count = 0;
-
-                      function show() {
-                        var input = document.getElementById('userpassword');
-                        var eye = document.getElementById('eyeShow');
-
-                        if (!input.value) {
-                          console.log('hide')
-                          eye.style.display = 'none';
-                        } else {
-                          console.log('show')
-                          eye.style.display = 'block';
-                        }
-                      }
-
-                      function changeEye() {
-                        var input = document.getElementById('userpassword');
-                        var hide = document.getElementById('hide');
-                        var show = document.getElementById('show');
-
-                        if (count === 0) {
-                          count = 1;
-                          show.style.display = 'none';
-                          hide.style.display = 'block';
-                          input.setAttribute('type', 'text');
-                        } else if (count === 1) {
-                          count = 0;
-                          show.style.display = 'block';
-                          hide.style.display = 'none';
-                          input.setAttribute('type', 'password');
-                        }
-
-                        console.log(count);
-                      }
-                    </script>
-
                     <div onclick="changeEye()" style="display: none" id="eyeShow" class="eye">
                       <div class="icon">
                         <i class="fa-regular fa-eye" id="show" style="display: block"></i>
@@ -133,6 +96,42 @@
   <script src="{{ asset('logintemplate/js/app.js') }}"></script>
 
   <script src="https://unpkg.com/feather-icons"></script>
+  <script>
+    var count = 0;
+
+    function show() {
+      var input = document.getElementById('userpassword');
+      var eye = document.getElementById('eyeShow');
+
+      if (!input.value) {
+        console.log('hide')
+        eye.style.display = 'none';
+      } else {
+        console.log('show')
+        eye.style.display = 'block';
+      }
+    }
+
+    function changeEye() {
+      var input = document.getElementById('userpassword');
+      var hide = document.getElementById('hide');
+      var show = document.getElementById('show');
+
+      if (count === 0) {
+        count = 1;
+        show.style.display = 'none';
+        hide.style.display = 'block';
+        input.setAttribute('type', 'text');
+      } else if (count === 1) {
+        count = 0;
+        show.style.display = 'block';
+        hide.style.display = 'none';
+        input.setAttribute('type', 'password');
+      }
+
+      console.log(count);
+    }
+  </script>
 
   <!-- App Js -->
   <script src="{{ asset('logintemplate/js/app.js') }}"></script>

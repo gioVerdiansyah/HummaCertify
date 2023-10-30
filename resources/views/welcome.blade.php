@@ -641,15 +641,15 @@
               Karangploso, Perum Permata</p>
             <ul class="list-inline pt-4">
               <li class="list-inline-item me-3">
-                <a href="javascript: void(0);" class="social-icon icon-mono avatar-xs rounded-circle"><i
+                <a href="http://www.facebook.com/hummatech" class="social-icon icon-mono avatar-xs rounded-circle"><i
                     class="icon-xs" data-feather="facebook"></i></a>
               </li>
               <li class="list-inline-item me-3">
-                <a href="javascript: void(0);" class="social-icon icon-mono avatar-xs rounded-circle"><i
+                <a href="http://www.youtube.com/@hummatech" class="social-icon icon-mono avatar-xs rounded-circle"><i
                     class="icon-xs" data-feather="youtube"></i></a>
               </li>
               <li class="list-inline-item">
-                <a href="javascript: void(0);" class="social-icon icon-mono avatar-xs rounded-circle"><i
+                <a href="http://www.instagram.com/hummatech" class="social-icon icon-mono avatar-xs rounded-circle"><i
                     class="icon-xs" data-feather="instagram"></i></a>
               </li>
             </ul>
