@@ -8,7 +8,7 @@
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>{{ config('app.name', 'Laravel') }}</title>
+  <title>{{ config('app.name', 'Laravel') }} </title>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.1/feather.min.js" integrity="sha512-4lykFR6C2W55I60sYddEGjieC2fU79R7GUtaqr3DzmNbo0vSaO1MfUjMoTFYYuedjfEix6uV9jVTtRCSBU/Xiw==" crossorigin="anonymous" referrerpolicy="no-referrer">
   </script>
@@ -25,7 +25,7 @@
   <link href="{{ asset('landingpage/css/materialdesignicons.min.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ asset('landingpage/css/style.min.css') }}" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="{{ asset('css/user/profile.css') }}">
+  {{-- <link rel="stylesheet" href="{{ asset('css/user/profile.css') }}"> --}}
 
   {{-- script --}}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js" integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -86,7 +86,7 @@
         <div class="switcher-hover" id="style-switcher">
           <div class="bottom">
             <a href="javascript: void(0);" id="mode" class="mode-btn text-white">
-                <i class="bi bi-brightness-high mode-light" style="color: black"></i>
+              <i class="bi bi-brightness-high mode-light" style="color: black"></i>
               <i class="bi bi-moon mode-dark"></i>
             </a>
             <a href="javascript: void(0);" class="settings" onclick="toggleSwitcher()"></a>
@@ -128,8 +128,9 @@
   <script src="{{ asset('landingpage/js/app.js') }}"></script>
 
   <script src="https://unpkg.com/feather-icons"></script>
+  <script src="{{ asset('js/themeLoader.js') }}"></script>
   </script>
- 
+
 
   <!-- App Js -->
   {{-- <script src="js/app.js"></script> --}}

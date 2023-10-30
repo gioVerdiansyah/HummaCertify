@@ -9,7 +9,7 @@
   <meta name="keywords" content="bootstrap 5, premium, marketing, multipurpose" />
   <meta content="Themesbrand" name="author" />
   <!-- favicon -->
-  <link rel="shortcut icon" href="images/favicon.ico" />
+  <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
 
   <!-- icon -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous"
@@ -32,7 +32,7 @@
           <div class="form-bg shadow bg-white">
             <div class="p-4">
               <div class="text-center mt-3 brand-logo">
-                <a href="index-1.html">
+                <a href="#">
                   <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-dark" height="35" />
                   <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-light" height="35" />
                 </a>
