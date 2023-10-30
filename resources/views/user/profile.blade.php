@@ -4,7 +4,7 @@
   <link rel="stylesheet" href="{{ asset('css/user/load-image.css') }}">
   <div class="pembungkus-profile">
     <div class="bababoi">
-      <div class="row" style="width: 100%; height: 92vh; padding: 0; margin: 0">
+      <div class="row papope" style="width: 100%; height: 92vh; margin: 0">
         <div class="col-md-8 p-0">
           <div class="card card-profile p-4" style="height: 100%; border-top-left-radius: 0px; border-bottom-left-radius: 0px;">
             <h3 class="profile-title mb-4">Profile</h3>
@@ -48,16 +48,16 @@
               </div>
             </div>
           </div>
-          <div class="card card-sertifikat-show p-4" style="border-top-right-radius: 0px; border-bottom-right-radius: 0px;">
+          <div class="card card-sertifikat-show p-4" style="border-top-right-radius: 0px; border-bottom-right-radius: 0px; margin: 2px 2px">
             <div class="mb-3">
               <h3 class="profile-title">Terbaru</h3>
             </div>
-            <div class="certificate" data-bs-toggle="modal" data-bs-target="#fullscreenModal" style="height: 286px">
+            <div class="certificate" data-bs-toggle="modal" data-bs-target="#fullscreenModal">
               <div class="dark">
                 <p>Klik untuk melihat ukuran penuh</p>
               </div>
-              <div id="load" style="top: 35%;left: 35%;"></div>
-              <canvas id="pdfCanvas"></canvas>
+              <div style="left: 35%; top: 30%;" id="load-detail" class="image-item"></div>
+              <canvas id="pdfCanvas" class="image-item"></canvas>
             </div>
           </div>
         </div>
@@ -68,12 +68,9 @@
   <div class="modal fade" id="fullscreenModal" tabindex="-1" aria-labelledby="fullscreeexampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-fullscreen">
       <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title fw-bold" id="fullscreeexampleModalLabel">Setifikat</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
         <div class="modal-body">
-          <iframe id="ifram" src="{{ route('downloadCertificate', $certificate->id) }}" frameborder="0"></iframe>
+          <iframe id="ifram" style="width: 98%;" src="{{ route('downloadCertificate', $certificate->id) }}" frameborder="0"></iframe>
+          <button type="button" class="btn-close" style="background-color: white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
       </div>
     </div>
@@ -107,7 +104,7 @@
       };
 
       return page.render(renderContext).promise.then(function() {
-        var loadingElement = document.getElementById('load');
+        var loadingElement = document.getElementById('load-detail');
         if (loadingElement) {
           loadingElement.remove();
         }
