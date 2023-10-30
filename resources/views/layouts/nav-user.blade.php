@@ -54,7 +54,7 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav ms-auto navbar-center" id="navbar-navlist">
           <li class="nav-item">
-            <a href="{{ route('home') }}#home" class="nav-link">Beranda</a>
+            <a href="{{ route('home') }}#home" id="beranda" class="nav-link">Beranda</a>
           </li>
           <li class="nav-item">
             <a href="{{ route('home') }}#tentang" class="nav-link">Tentang</a>
@@ -129,6 +129,7 @@
 
   <script src="https://unpkg.com/feather-icons"></script>
   </script>
+ 
 
   <!-- App Js -->
   {{-- <script src="js/app.js"></script> --}}

@@ -14,7 +14,7 @@
     <div class="tambah-container">
         <div class="tambah-container-body">
             <div class="card-body">
-                <form action="{{ route('certificate.store_exist') }}" method="post" name="Exist" id="exist">
+                <form action="{{ route('certificate.store_exist') }}" method="post" name="Exist" id="myform" onsubmit="document.getElementById('loading').style.display = 'flex'">
                     @csrf
                     <div class="row">
                         <div class="col-12 d-flex">
