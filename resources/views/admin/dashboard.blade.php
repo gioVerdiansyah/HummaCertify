@@ -68,8 +68,8 @@
         <canvas id="chartLine"></canvas>
       </div>
     </div>
-    <div class="col-md-4">
-      <div class="card">
+    <div class="col-md-4" >
+      <div class="card" style="height: 94.8%">
         <p class="title-chart">Data Sertifikat</p>
         <canvas id="chartDoughnut"></canvas>
       </div>

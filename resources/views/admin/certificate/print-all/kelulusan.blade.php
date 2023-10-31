@@ -121,7 +121,7 @@
   .bg .content .qr-code {
     position: absolute;
     top: 650px;
-    left: 505px;
+    left: 511px;
   }
     </style>
 </head>
