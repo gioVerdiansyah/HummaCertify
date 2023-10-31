@@ -1,8 +1,4 @@
 @extends('layouts.nav-admin')
-<div class="loading-container" id="loading">
-    <div class="loading"></div>
-    <div id="loading-text">Loading...</div>
-</div>
 @section('content')
     <link rel="stylesheet" href="{{ asset('css/admin/AdminDataTable.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin/loading.css') }}">
@@ -11,7 +7,7 @@
             <div class="card-body">
                 <div class="table-responsive">
                     <div class="mb-3 col-12 d-flex">
-                        <div class="col-9 d-flex gap-3">
+                        <div class="col-9 d-flex gap-3 py-2 px-1">
                             <div class="col-3">
                                 <select name="category" class="form-select" id="categorySelect">
                                     <option selected>Semua</option>
@@ -22,18 +18,18 @@
                                     @endforeach
                                 </select>
                             </div>
-                            @if (request('ct') && !request('print'))
-                                <div class="col-2">
-                                    <a href="{{ route('printAllCertificate') }}?ct={{ request('ct') }}&page={{ $certificates->currentPage()}}" target="_blank" class="btn btn-primary print-all-certificate"><i
-                                            class="bi bi-printer "></i> Print Semua</a>
-                                </div>
-                            @endif
                             <div class="col-2">
                                 <select name="print" class="form-select" id="printSelect">
                                     <option value="nonPrint" {{ request('print') == 'nonPrint' ? 'selected' : '' }}>non print</option>
                                     <option value="hasPrint" {{ request('print') == 'hasPrint' ? 'selected' : '' }} >has print</option>
                                 </select>
                             </div>
+                            @if (request('ct') && !request('print'))
+                                <div class="col-3">
+                                    <a href="{{ route('printAllCertificate') }}?ct={{ request('ct') }}&page={{ $certificates->currentPage()}}" target="_blank" class="btn btn-primary print-all-certificate"><i
+                                            class="bi bi-printer "></i> Print Semua</a>
+                                </div>
+                            @endif
                         </div>
                         <div class="col-3">
                             <form action="" method="GET" class="d-flex align-items-center gap-3"

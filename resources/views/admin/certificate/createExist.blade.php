@@ -1,8 +1,5 @@
 @extends('layouts.nav-admin')
-<div class="loading-container" id="loading">
-    <div class="loading"></div>
-    <div id="loading-text">Creating...</div>
-</div>
+
 @section('content')
 @foreach ($errors->all() as $error)
         <p>{{ $error }}</p>

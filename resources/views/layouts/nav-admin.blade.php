@@ -60,6 +60,10 @@
 </head>
 
 <body>
+  <div class="loading-container" id="loading">
+    <div class="loading"></div>
+    <div id="loading-text">Loading...</div>
+  </div>
 
   <!-- Begin page -->
   <div id="layout-wrapper">
@@ -167,8 +171,7 @@
                  </div>
                  @empty
                  {{-- Ini jika tidak ada chatnya --}}
-                 <div class="tab-pane fade show active p-4" id="all-noti-tab" role="tabpanel"
-                   aria-labelledby="alerts-tab">
+                 <div class="tab-pane fade show active p-4" id="all-noti-tab" role="tabpanel" aria-labelledby="alerts-tab">
                  </div>
                @endforelse
                 </div>
