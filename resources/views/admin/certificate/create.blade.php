@@ -191,10 +191,7 @@
                         <div class="d-flex flex-row">
                           <div class="col-6 mb-4 pe-3">
                             <label for="unknown" class="form-label">Materi</label>
-                            <input required type="text"
-                              class="form-control @error('category-group.*.materi') is-invalid
-                                                        @enderror"
-                              placeholder="materi" name="materi" value="" required>
+                            <input required type="text" class="form-control @error('category-group.*.materi') is-invalid @enderror"  placeholder="materi" name="materi" value="" required>
                             @error('category-group.*.materi')
                               <div class="invalid-feedback">
                                 <p>{{ $message }}</p>
@@ -209,7 +206,7 @@
                                 class="form-control @error('jam_pelajaran') is-invalid
                                                             @enderror"
                                 id="jamPelajaran" placeholder="Jam Pelajaran" required>
-                              @error('jam_pelajaran')
+                              @error('category-group.*.jam_pelajaran')
                                 <div class="invalid-feedback">
                                   <p>{{ $message }}</p>
                                 </div>
@@ -248,6 +245,7 @@
   {{-- @include('layouts.jsIndex') --}}
   <script>
     document.getElementById('myform').addEventListener('submit', function() {
+        document.getElementById('loading').style.display = 'flex';
       if (document.getElementById('certificate_categori_id').value == "--Pilih Kategori--") {
         Swal.fire({
           icon: "warning",

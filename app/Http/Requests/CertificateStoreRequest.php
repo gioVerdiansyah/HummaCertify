@@ -37,7 +37,7 @@ class CertificateStoreRequest extends FormRequest
             'instruktur' => 'required',
             // detail
             'category-group.*.materi' => 'required|string|max:85',
-            'category-group.*.jam_pelajaran' => 'required|numeric|gt:1|max:999|regex:/^[0-9]+$/',
+            'category-group.*.jam_pelajaran' => 'required|numeric|gt:1|max:4000|regex:/^[0-9]+$/',
 
         ];
     }
