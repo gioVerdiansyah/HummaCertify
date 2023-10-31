@@ -238,7 +238,7 @@ body h1 {
   > li:nth-child(1)
   > label
   svg {
-  fill: #428bff;
+  fill: #428bff !important;
 }
 @media (max-width: 600px) {
   .tabs
@@ -272,7 +272,7 @@ body h1 {
   > li:nth-child(2)
   > label
   svg {
-  fill: #428bff;
+  fill: #428bff !important;
 }
 @media (max-width: 600px) {
   .tabs
@@ -306,7 +306,7 @@ body h1 {
   > li:nth-child(3)
   > label
   svg {
-  fill: #428bff;
+  fill: #428bff !important;
 }
 @media (max-width: 600px) {
   .tabs
@@ -340,7 +340,7 @@ body h1 {
   > li:nth-child(4)
   > label
   svg {
-  fill: #428bff;
+  fill: #428bff !important;
 }
 @media (max-width: 600px) {
   .tabs
