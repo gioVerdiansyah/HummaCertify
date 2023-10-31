@@ -405,7 +405,7 @@ h6 {
 [data-bs-theme="dark"] .nav-sticky.navbar .navbar-nav li .nav-link.active,
 [data-bs-theme="dark"] .nav-sticky.navbar .navbar-nav li .nav-link:hover,
 [data-bs-theme="dark"] .nav-sticky.navbar .navbar-nav li .nav-link:focus {
-    color: #2753ff !important
+    color: #1689D3 !important
 }
 
 [data-bs-theme="dark"] .nav-sticky .navbar-brand .logo-dark {
@@ -2183,7 +2183,7 @@ h6 {
 }
 
 .social-icon:hover {
-    background: #2753ff;
+    background: #1689D3;
     color: #fff;
     box-shadow: 0 0 0px 5px rgba(39, 83, 255, 0.12)
 }
@@ -2307,7 +2307,7 @@ h6 {
     --bs-footer-alt-bg: #f9fafc;
     --bs-border-bottom-color: #ecf0f5;
     --bs-bg-light: #fbfbfb;
-    --bs-navbar-bg: #0c1016
+    --bs-navbar-bg: #18202a
 }
 
 [data-bs-theme=dark] {
@@ -2419,4 +2419,11 @@ textarea.form-control {
 
 .gb {
     width: 200px;
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 992px)  {
+    .searchBox > .searchInput {
+        width: 88%;
+        padding: 0 6px;
+    }
 }

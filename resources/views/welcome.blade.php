@@ -14,7 +14,7 @@
           {{-- <a href="#" class="btn btn-primary me-2">Get Started <i class="icon-sm ms-1" data-feather="arrow-right"></i></a> --}}
           <form action="{{ route('search') }}" method="GET" id="searching">
             <div class="searchBox">
-              <input class="searchInput"type="search" name="q" placeholder="Search" autocomplete="off" required>
+              <input class="searchInput"type="search" name="q" placeholder="Cari Sertifikat" autocomplete="off" required>
               <button class="searchButton" href="#">
                 <i class="fas fa-search"></i>
               </button>
@@ -180,7 +180,7 @@
         <div class="col-lg-8">
           <div class="text-center">
             <h1 class="text-white mb-4">Contoh Sertifikat</h1>
-            <p class="text-white mb-5 font-size-16">Berikut ini adalah contoh sertifikat yang di dapat saat lulus PKL
+            <p class="text-white font-size-16">Berikut ini adalah contoh sertifikat yang di dapat saat lulus PKL
               atau magang di HummaTech.</p>
           </div>
         </div>

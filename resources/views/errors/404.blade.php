@@ -31,7 +31,7 @@
             align-items: center;
         }
 
-        .p-costum {
+        .costum {
             padding: 5rem;
         }
 
@@ -57,18 +57,93 @@
             font-size: calc(1.7rem + 1.125vw);
             font-weight: 600;
         }
+
+        @media only screen and (max-width: 600px) {
+            body {
+                background: #DAEAF7;
+                overflow: hidden;
+            }
+
+            .bg-image {
+                background: none;
+            }
+
+            .konten {
+                flex-flow: column-reverse;
+                height: 70vh !important;
+            }
+
+            .illst {
+                width: 100%;
+            }
+
+            .col-6 {
+                width: 100%;
+            }
+
+            .costum {
+                text-align: center;
+                padding: 1rem 5rem;
+            }
+
+            .title {
+                font-size: calc(0.9rem + 1.125vw) !important;
+            }
+
+            .btn-biru:hover {
+                background: #edf7ff;
+            }
+        }
+
+        @media only screen and (max-width: 900px) {
+            body {
+                background: #DAEAF7;
+                overflow: hidden;
+            }
+
+            .bg-image {
+                background: none;
+            }
+
+            .konten {
+                flex-flow: column-reverse;
+                height: 76vh;
+            }
+
+            .illst {
+                width: 70%;
+            }
+
+            .col-6 {
+                width: 100%;
+            }
+
+            .costum {
+                text-align: center;
+                padding: 1rem 5rem;
+            }
+
+            .title {
+                font-size: calc(1.9rem + 1.125vw);
+            }
+
+            .btn-biru:hover {
+                background: #edf7ff;
+            }
+        }
     </style>
 </head>
 
 <body>
     <div class="bg-image">
         <div class="row konten">
-            <div class="col-6 p-costum">
+            <div class="col-6 costum">
                 <p class="title">Halaman Tidak Ditemukan</p>
-                <button type="button" class="btn btn-biru" onclick="window.location.href = '{{ route('home') }}'"><i class="fas fa-arrow-left jangka"></i>Kembali</button>
+                <button type="button" class="btn btn-biru" onclick="window.location.href = '{{ route('home') }}'"><i
+                        class="fas fa-arrow-left jangka"></i>Kembali</button>
             </div>
-            <div class="col-6 p-costum">
-                <img src="{{ asset('errorimage/404.png') }}" alt="">
+            <div class="col-6 costum">
+                <img src="{{ asset('errorimage/404.png') }}" class="illst" alt="">
             </div>
         </div>
     </div>
