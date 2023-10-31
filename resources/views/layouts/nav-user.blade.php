@@ -128,7 +128,6 @@
 
   <script src="https://unpkg.com/feather-icons"></script>
   <script src="{{ asset('js/themeLoader.js') }}"></script>
-  </script>
 
 
   <!-- App Js -->

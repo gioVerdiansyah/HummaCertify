@@ -8,7 +8,7 @@
   <div class="content-container">
     <div class="content-top">
       <div class="left-side">
-        <a href="#" class="image-container">
+        <a href="javascript: void(0);" class="image-container">
           <div id="load-detail" class="image-item"></div>
           <canvas id="pdfCanvas" class="image-item"></canvas>
           <div class="image-hover" data-bs-toggle="modal" data-bs-target="#detail">
@@ -90,10 +90,10 @@
                   <td colspan="2" class="table-header-color text-center">Total</td>
                   <td class="table-header-color text-center">{{ $totalJP }} JP</td>
                 </tr>
+                @endif
                 <tr>
                   <td colspan="3" class="text-left">Nama Instruktur : {{ $certificate->instruktur }}</td>
                 </tr>
-              @endif
             @endisset
           </tbody>
         </table>

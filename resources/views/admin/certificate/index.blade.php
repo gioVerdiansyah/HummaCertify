@@ -127,7 +127,7 @@
             var currentUrl = window.location.href;
             var newUrl;
             if (printCategoryId === "nonPrint") {
-                newUrl = currentUrl.replace(/[\?&]print=[^&]*/, '');
+                newUrl = currentUrl.replace(/print=[^&]*/, '');
             } else {
                 var ctParam = 'print=' + printCategoryId;
                 if (currentUrl.includes('print=')) {
