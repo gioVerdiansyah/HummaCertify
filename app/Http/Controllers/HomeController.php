@@ -39,20 +39,32 @@ class HomeController extends Controller
         $notification = ContactMe::orderBy('created_at', 'desc')->get();
         $notificationCount = ContactMe::where('read', 0)->count();
 
+        $kelulusanCount = Certificate::where('certificate_categori_id', 1)->count();
+        
         // data untuk chart line
         $certificateCount = Certificate::count();
 
-        // mengambil count data dari table certificate untuk chart doughnut
-        $kelulusanCount = Certificate::where('certificate_categori_id', 1)->count();
-        $pelatihanCount = Certificate::where('certificate_categori_id', 2)->count();
-        $kompetensiCount = Certificate::where('certificate_categori_id', 3)->count();
+        // data untuk chart doughnut
+        $categories = CertificateCategori::all();
+        $categoryData = [];
 
-        // mengambil data berdasarkan tahun dan bulannya dari table certificate untuk chart line
+        foreach ($categories as $category) {
+            $categoryId = $category->id;
+            $categoryName = $category->name;
+            $categoryCount = Certificate::where('certificate_categori_id', $categoryId)->count();
+
+            $categoryData[] = [
+                'id' => $categoryId,
+                'name' => $categoryName,
+                'count' => $categoryCount,
+            ];
+        }
+
         $certificateData = Certificate::selectRaw('YEAR(created_at) as year, MONTH(created_at) as month, COUNT(*) as count')
             ->groupBy('year', 'month')
             ->get();
 
-        return view('admin.dashboard', compact('users', 'category', 'certificateCategoryCount', 'certificateCount', 'certificateData', 'kelulusanCount', 'pelatihanCount', 'kompetensiCount', 'notificationCount', 'notification'));
+        return view('admin.dashboard', compact('users', 'category', 'certificateCategoryCount', 'certificateCount', 'certificateData', 'kelulusanCount', 'categoryData', 'notificationCount', 'notification'));
     }
 
     public function search(Request $request)
@@ -72,8 +84,8 @@ class HomeController extends Controller
     public function sertifikatKu()
     {
         $user = User::with(['certificates', 'certificates.category', 'certificates.detailCertificates'])
-                    ->where('id', auth()->user()->id)
-                    ->get();
+            ->where('id', auth()->user()->id)
+            ->get();
 
         $certificates = $user[0]->certificates->keyBy('certificate_categori_id');
         return view('user.sertifikat', compact('certificates'));
