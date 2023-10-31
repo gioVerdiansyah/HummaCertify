@@ -52,8 +52,8 @@
                   </div>
                   <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input name="password" onkeyup="show()" required placeholder="Password" id="userpassword" type="password" class="form-control backG @error('password') is-invalid @enderror" />
-                    <div onclick="changeEye()" style="display: none" id="eyeShow" class="eye">
+                    <input name="password" required placeholder="Password" id="userpassword" type="password" class="form-control backG @error('password') is-invalid @enderror" />
+                    <div style="display: none" id="eyeShow" class="eye">
                       <div class="icon">
                         <i class="fa-regular fa-eye" id="show" style="display: block"></i>
                         <i class="fa-regular fa-eye-slash" id="hide" style="display: none"></i>
@@ -97,22 +97,11 @@
 
   <script src="https://unpkg.com/feather-icons"></script>
   <script>
+    const eye = document.getElementById('eyeShow');
+    const input = document.getElementById('userpassword');
     var count = 0;
 
-    function show() {
-      var input = document.getElementById('userpassword');
-      var eye = document.getElementById('eyeShow');
-
-      if (!input.value) {
-        console.log('hide')
-        eye.style.display = 'none';
-      } else {
-        console.log('show')
-        eye.style.display = 'block';
-      }
-    }
-
-    function changeEye() {
+    eye.addEventListener('click', function() {
       var input = document.getElementById('userpassword');
       var hide = document.getElementById('hide');
       var show = document.getElementById('show');
@@ -128,9 +117,18 @@
         hide.style.display = 'none';
         input.setAttribute('type', 'password');
       }
+    });
 
-      console.log(count);
-    }
+    input.addEventListener('keyup', function() {
+      var input = document.getElementById('userpassword');
+      var eye = document.getElementById('eyeShow');
+
+      if (!input.value) {
+        eye.style.display = 'none';
+      } else {
+        eye.style.display = 'block';
+      }
+    });
   </script>
 
   <!-- App Js -->
