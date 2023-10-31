@@ -1,8 +1,5 @@
 @extends('layouts.nav-admin')
-<div class="loading-container" id="loading">
-    <div class="loading"></div>
-    <div id="loading-text">Creating...</div>
-</div>
+
 @section('content')
 @foreach ($errors->all() as $error)
         <p>{{ $error }}</p>
@@ -105,7 +102,7 @@
                                                         <div class="d-flex flex-row">
                                                             <input type="number" class="form-control" name="jam_pelajaran"
                                                                 id="jamPelajaran" placeholder="Jam Pelajaran" required>
-                                                            <input class="btn btn-outline-danger waves-effect waves-light ms-3 d-flex justify-content-center align-items-center" data-repeater-delete type="button" value="Hapus" />
+                                                            <input class="btn btn-danger waves-effect waves-light ms-3 d-flex justify-content-center align-items-center" data-repeater-delete type="button" value="Hapus" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -113,7 +110,7 @@
                                         </div>
                                     </div>
                                     <div class="hstack gap-2 justify-content-end">
-                                        <input class="btn btn-outline-success waves-effect waves-light" data-repeater-create type="button" value="+ Tambah" />
+                                        <input class="btn btn-success waves-effect waves-light" data-repeater-create type="button" value="+ Tambah" />
                                     </div>
                                 </div>
                             </div>

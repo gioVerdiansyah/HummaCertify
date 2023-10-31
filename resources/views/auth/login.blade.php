@@ -9,7 +9,7 @@
   <meta name="keywords" content="bootstrap 5, premium, marketing, multipurpose" />
   <meta content="Themesbrand" name="author" />
   <!-- favicon -->
-  <link rel="shortcut icon" href="images/favicon.ico" />
+  <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
 
   <!-- icon -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous"
@@ -32,7 +32,7 @@
           <div class="form-bg shadow bg-white">
             <div class="p-4">
               <div class="text-center mt-3 brand-logo">
-                <a href="index-1.html">
+                <a href="#">
                   <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-dark" height="35" />
                   <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-light" height="35" />
                 </a>
@@ -52,8 +52,8 @@
                   </div>
                   <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input name="password" onkeyup="show()" required placeholder="Password" id="userpassword" type="password" class="form-control backG @error('password') is-invalid @enderror" />
-                    <div onclick="changeEye()" style="display: none" id="eyeShow" class="eye">
+                    <input name="password" required placeholder="Password" id="userpassword" type="password" class="form-control backG @error('password') is-invalid @enderror" />
+                    <div style="display: none" id="eyeShow" class="eye">
                       <div class="icon">
                         <i class="fa-regular fa-eye" id="show" style="display: block"></i>
                         <i class="fa-regular fa-eye-slash" id="hide" style="display: none"></i>
@@ -97,22 +97,11 @@
 
   <script src="https://unpkg.com/feather-icons"></script>
   <script>
+    const eye = document.getElementById('eyeShow');
+    const input = document.getElementById('userpassword');
     var count = 0;
 
-    function show() {
-      var input = document.getElementById('userpassword');
-      var eye = document.getElementById('eyeShow');
-
-      if (!input.value) {
-        console.log('hide')
-        eye.style.display = 'none';
-      } else {
-        console.log('show')
-        eye.style.display = 'block';
-      }
-    }
-
-    function changeEye() {
+    eye.addEventListener('click', function() {
       var input = document.getElementById('userpassword');
       var hide = document.getElementById('hide');
       var show = document.getElementById('show');
@@ -128,9 +117,18 @@
         hide.style.display = 'none';
         input.setAttribute('type', 'password');
       }
+    });
 
-      console.log(count);
-    }
+    input.addEventListener('keyup', function() {
+      var input = document.getElementById('userpassword');
+      var eye = document.getElementById('eyeShow');
+
+      if (!input.value) {
+        eye.style.display = 'none';
+      } else {
+        eye.style.display = 'block';
+      }
+    });
   </script>
 
   <!-- App Js -->

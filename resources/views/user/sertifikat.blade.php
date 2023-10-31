@@ -110,7 +110,7 @@
                 <div class="row">
                   @forelse ($certificates as $certificate)
                     <div class="col-md-4 mb-4">
-                      <a href="#" class="image-container">
+                      <a href="javascript: void(0);" class="image-container">
                         <div id="load-{{ $certificate->id }}" class="image-load"></div>
                         <canvas id="{{ $certificate->id }}" class="image-item"></canvas>
                         <div class="image-hover-{{ $certificate->id }}" onclick="openModal('{{ $certificate->id }}')">
@@ -132,7 +132,7 @@
                   @foreach ($certificates as $certificate)
                     @if ($certificate->certificate_categori_id === 1)
                       <div class="col-md-4 mb-4">
-                        <a href="#" class="image-container">
+                        <a href="javascript: void(0);" class="image-container">
                           <div id="load-kelulusan-{{ $certificate->id }}" class="image-item"></div>
                           <canvas id="kelulusan-{{ $certificate->id }}" class="image-item"></canvas>
                           <div class="image-hover-kelulusan-{{ $certificate->id }}" onclick="openModal('{{ $certificate->id }}')">
@@ -157,7 +157,7 @@
                   @foreach ($certificates as $certificate)
                     @if ($certificate->certificate_categori_id === 2)
                       <div class="col-md-4 mb-4">
-                        <a href="#" class="image-container">
+                        <a href="javascript: void(0);" class="image-container">
                           <div id="load-kompetensi-{{ $certificate->id }}" class="image-item"></div>
                           <canvas id="kompetensi-{{ $certificate->id }}" class="image-item"></canvas>
                           <div class="image-hover-kompetensi-{{ $certificate->id }}" onclick="openModal('{{ $certificate->id }}')">
@@ -182,7 +182,7 @@
                   @foreach ($certificates as $certificate)
                     @if ($certificate->certificate_categori_id === 3)
                       <div class="col-md-4 mb-4">
-                        <a href="#" class="image-container">
+                        <a href="javascript: void(0);" class="image-container">
                           <div id="load-pelatihan-{{ $certificate->id }}" class="image-item load"></div>
                           <canvas id="pelatihan-{{ $certificate->id }}" class="image-item"></canvas>
                           <div class="image-hover-pelatihan-{{ $certificate->id }}" onclick="openModal('{{ $certificate->id }}')">

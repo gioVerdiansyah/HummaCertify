@@ -2,6 +2,7 @@
 
 @section('content')
   <link rel="stylesheet" href="{{ asset('css/user/load-image.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/user/profile.css') }}">
   <div class="pembungkus-profile">
     <div class="bababoi">
       <div class="row papope" style="width: 100%; height: 92vh; margin: 0">
