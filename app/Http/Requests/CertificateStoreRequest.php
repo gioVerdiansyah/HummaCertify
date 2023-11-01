@@ -23,8 +23,8 @@ class CertificateStoreRequest extends FormRequest
     {
         return [
             // user
-            'name' => 'required|string',
-            'email' => 'nullable|email',
+            'name' => 'required|string|unique:users,name',
+            'email' => 'nullable|email|unique:users,email',
             'nomor_induk' => 'required|string|min:8|regex:/^[0-9]+$/',
             'ttl' => 'required',
             'institusi' => 'required|string',
@@ -47,9 +47,11 @@ class CertificateStoreRequest extends FormRequest
         return [
             //peserta
             'name.required' => 'nama harus di isi',
+            'name.unique' => 'nama sudah di gunakan',
             'name.string' => 'nama harus berupa huruf tidak boleh angka',
             'email.required' => 'email harus di isi',
             'email.email' => 'email harus berformat email',
+            'email.unique' => 'email sudah di gunakan',
             'ttl.required' => 'ttl harus di isi',
             'institusi.required' => 'institusi harus di isi',
             'nomor_induk.required' => 'nomor induk harus di isi',

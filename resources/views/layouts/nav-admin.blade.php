@@ -111,9 +111,16 @@
                 aria-haspopup="true" aria-expanded="false">
                 <i class='bx bx-bell fs-22'></i>
                 @if ($notificationCount > 0)
+                @if ($notificationCount > 9)
                 <span id="unread" class="position-absolute topbar-badge fs-10 translate-middle badge rounded-pill bg-danger">
                     {{ $notificationCount > 9 ? '9+' : $notificationCount }}
                 </span>
+                @else
+                <span id="unread" class="position-absolute topbar-badge fs-10 translate-middle badge rounded-pill bg-danger">
+                    {{ $notificationCount }}
+                </span>
+                @endif
+
                 @endif
               </button>
               <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"

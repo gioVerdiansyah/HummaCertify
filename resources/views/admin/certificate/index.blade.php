@@ -63,15 +63,14 @@
                                     <td data-nama-sertifikat="{{ $certificate->user->name }}">{{ $certificate->user->name }}</td>
                                     <td>{{ $certificate->category->name }}</td>
                                     <td class="d-flex gap-2 justify-content-center align-items-center">
+                                        <input type="hidden" name="email" value="{{ $certificate->user->email }}">
                                         @isset($certificate->user->email)
-                                            <form action="{{ route('sendCertificate', $certificate->id) }}" method="POST"
-                                                onsubmit="document.querySelector('#loading-text').innerText = 'Sending...';document.getElementById('loading').style.display = 'flex'"
-                                                class="m-0">
-                                                @csrf
-                                                <button type="submit" class="btn btn-primary" title="Kirim Email">
-                                                    <i class="fi fi-rs-paper-plane"></i>
-                                                </button>
-                                            </form>
+                                        <form data-email="{{ $certificate->user->email }}" action="{{ route('sendCertificate', $certificate->id) }}" method="POST" class="emailForm m-0">
+                                            @csrf
+                                            <button type="submit" class="btn btn-primary send-email" title="Kirim Email">
+                                                <i class="fi fi-rs-paper-plane"></i>
+                                            </button>
+                                        </form>
                                         @endisset
                                         <a href="{{ route('getCertificate', $certificate->id) }}" target="_blank" class="btn btn-info print-certificate" title="Print">
                                             <i class="fi fi-rr-print"></i>
@@ -158,6 +157,29 @@
             });
         });
         @endif
+        var emailForm = document.getElementById('emailForm');
+        document.querySelectorAll('.emailForm').forEach(function(form) {
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        var emailname = form.getAttribute('data-email');
+
+        Swal.fire({
+            title: `anda yakin mengirim certificate ke email ${emailname}?`,
+            text: 'tindakan ini tidak dapat di batalkan',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'lanjutkan',
+            cancelButtonText: 'batal'
+        }).then((result) => {
+            if(result.isConfirmed) {
+                form.submit();
+                document.querySelector('#loading-text').innerText = 'Sending...';
+                document.getElementById('loading').style.display = 'flex';
+            }
+        });
+    });
+});
+
 
     document.querySelectorAll('.print-all-certificate').forEach(function(link){
         link.addEventListener('click', function(event){
