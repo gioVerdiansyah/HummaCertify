@@ -10,14 +10,4 @@ class ContactMe extends Model
 {
     use HasFactory;
     protected $fillable = ['name', 'email', 'message'];
-
-    /**
-     * The "booted" method of the model.
-     */
-    protected static function booted(): void
-    {
-        static::created(function (ContactMe $data) {
-            Mail::to('hummacertify@gmail.com')->send(new \App\Mail\ContactMe($data));
-        });
-    }
 }

@@ -110,18 +110,11 @@
                 id="page-header-notifications-dropdown" data-bs-toggle="dropdown" data-bs-auto-close="outside"
                 aria-haspopup="true" aria-expanded="false">
                 <i class='bx bx-bell fs-22'></i>
-                @if ($notificationCount > 0)
-                @if ($notificationCount > 9)
+                @isset ($notificationCount)
                 <span id="unread" class="position-absolute topbar-badge fs-10 translate-middle badge rounded-pill bg-danger">
                     {{ $notificationCount > 9 ? '9+' : $notificationCount }}
                 </span>
-                @else
-                <span id="unread" class="position-absolute topbar-badge fs-10 translate-middle badge rounded-pill bg-danger">
-                    {{ $notificationCount }}
-                </span>
-                @endif
-
-                @endif
+                @endisset
               </button>
               <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
                 aria-labelledby="page-header-notifications-dropdown">
@@ -159,9 +152,9 @@
                      <div class="text-reset notification-item d-block dropdown-item position-relative">
                        <div class="d-flex">
                          <div class="flex-grow-1">
-                            <h6 class="mt-0 mb-1 fs-13 fw-semibold">{{$data->name}}</h6>
+                            <h6 class="mt-0 mb-1 fs-13 fw-semibold">{{$data->name}} | {{$data->email}}</h6>
                            <div class="fs-13 text-muted">
-                             <p class="mb-1">{{$data->email}} telah mengirm pesan ke anda</p>
+                             <p class="mb-1">{{ $data->message }}</p>
                            </div>
                            <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
                              <span><i class="mdi mdi-clock-outline"></i>{{ $data->created_at->diffForHumans() }}</span>
@@ -334,7 +327,12 @@
             },
             success: function (response) {
                 console.log(response);
-                $('#unread')[0].innerText--;
+                if (response.count === 9) {
+                    $('#unread')[0].innerText = 9;
+                } else if(response.count < 9) {
+                    $('#unread')[0].innerText--;
+                }
+
                 $(`#row-notif-${idElement}`).remove();
                 if($('#unread')[0].innerText < 1){
                     $('#unread').remove();
