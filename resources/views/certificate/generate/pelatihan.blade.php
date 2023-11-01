@@ -33,11 +33,9 @@
       .depan {
         width: 297mm;
         height: 210mm;
-        background-image: url("https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/certificate-guru-depan.png");
         background-repeat: no-repeat;
         background-size: cover;
         position: relative;
-        page-break-inside: avoid;
       }
 
       .depan .image-certificate img {
@@ -68,22 +66,34 @@
       .depan .content .no {
         position: absolute;
         top: 217px;
-        left: 360px;
+        left: 390px;
         font-family: "Merriweather", serif;
         font-size: 18px;
       }
 
       .depan .content .nomer {
         position: absolute;
-        top: 214.5px;
-        left: 407px;
+        top: 213px;
+        left: 440px;
         font-family: "Poppins", sans-serif;
         font-weight: 400;
         font-size: 18px;
-        letter-spacing: 8px;
+        letter-spacing: 4px;
       }
 
-      .depan .content .peserta {
+      .certificate-guru {
+        position: relative;
+        width: 100%;
+        justify-content: center;
+        display: flex;
+        top: 40px;
+      }
+
+      .certificate-guru .peserta {
+        position: absolute;
+        top: 307px;
+        left: 385px;
+        line-height: 9px;
         font-family: "Montserrat", sans-serif;
         font-weight: 500;
         font-size: 14px;
@@ -95,26 +105,31 @@
         top: 341px;
         left: 385px;
         font-weight: 700;
+        font-family: "Montserrat", sans-serif;
       }
 
       .depan .content .nik {
         position: absolute;
-        top: 364px;
+        top: 365px;
         left: 385px;
+        font-weight: 500;
+        font-family: "Montserrat", sans-serif;
       }
 
       .depan .content .ttl {
         position: absolute;
-        top: 385px;
+        top: 386.4px;
         left: 385px;
         letter-spacing: 0px;
+        font-weight: 500;
+        font-family: "Montserrat", sans-serif;
       }
 
       .depan .content .kompeten {
         position: absolute;
-        top: 479.2px;
+        top: 478px;
         left: 385px;
-        line-height: 9.4px;
+        line-height: 11.5px;
         font-family: "Montserrat", sans-serif;
         font-weight: 700;
         font-size: 15px;
@@ -122,7 +137,7 @@
 
       .depan .content .text-penilaian {
         position: absolute;
-        top: 618px;
+        top: 615px;
         left: 213px;
         width: 80px;
         height: 60px;
@@ -130,7 +145,7 @@
         justify-content: center;
         align-items: center;
         text-align: center;
-        font-family: "Montserrat", sans-serif;
+        font-family: 'Open Sans', sans-serif;
         font-weight: 700;
         color: white;
         font-size: 16px;
@@ -157,7 +172,6 @@
       .belakang {
         width: 297mm;
         height: 210mm;
-        background-image: url("https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/certificate-guru-belakang.png");
         background-repeat: no-repeat;
         background-size: cover;
         position: relative;
@@ -195,14 +209,19 @@
       .belakang .certificate-guru-belakang .table-penilayan th {
         border: 1px solid black;
         text-align: center;
-        padding: 8px 4px;
+        padding: 8px 0px;
       }
 
       .belakang .certificate-guru-belakang .table-penilayan td {
         border: 1px solid black;
-        padding: 8px 4px;
+        text-align: center;
+        padding: 8px 0px;
       }
 
+      .belakang .certificate-guru-belakang .table-penilayan td.ts {
+        text-align: start;
+        padding: 0px 5px;
+      }
 
       .belakang .certificate-guru-belakang .tanda-tangan {
         font-family: "Montserrat", sans-serif;
@@ -240,7 +259,7 @@
         width: 80%;
       }
     </style>
-    <div class="depan">
+    <div class="depan" style='background-image: url("https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/certificate-guru-depan.png");'>
       <section id="depan">
         <div class="content">
           <div class="no">
@@ -300,7 +319,7 @@
     </div>
 
     @if (isset($certificate->detailCertificates[0]->materi) && isset($certificate->detailCertificates[0]->jp))
-      <div class="belakang">
+      <div class="belakang" style='background-image: url("https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/certificate-guru-belakang.png");'>
         <section id="belakang">
           <div class="certificate-guru-belakang">
             <div class="text-penilaian text-center" style="text-align: center">

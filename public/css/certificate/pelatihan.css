@@ -1,0 +1,237 @@
+@page {
+    size: A4 landscape;
+    margin: 0;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* DEPAN */
+  .depan {
+    width: 297mm;
+    height: 210mm;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+
+  .depan .image-certificate img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .depan .content {
+    position: absolute;
+  }
+
+  .depan .content .kata-kata {
+    position: relative;
+    top: 260px;
+    left: 155px;
+    width: 820px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  .depan .content .kata-kata span {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  .depan .content .no {
+    position: absolute;
+    top: 217px;
+    left: 390px;
+    font-family: "Merriweather", serif;
+    font-size: 18px;
+  }
+
+  .depan .content .nomer {
+    position: absolute;
+    top: 214px;
+    left: 440px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: 4px;
+  }
+
+  .certificate-guru {
+    position: relative;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    top: 40px;
+  }
+
+  .certificate-guru .peserta {
+    position: absolute;
+    top: 307px;
+    left: 385px;
+    line-height: 9px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+
+  .depan .content .nama {
+    position: absolute;
+    top: 341px;
+    left: 385px;
+    font-weight: 700;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .depan .content .nik {
+    position: absolute;
+    top: 365px;
+    left: 385px;
+    font-weight: 500;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .depan .content .ttl {
+    position: absolute;
+    top: 386.4px;
+    left: 385px;
+    letter-spacing: 0px;
+    font-weight: 500;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .depan .content .kompeten {
+    position: absolute;
+    top: 478px;
+    left: 385px;
+    line-height: 11.5px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+  }
+
+  .depan .content .text-penilaian {
+    position: absolute;
+    top: 615px;
+    left: 213px;
+    width: 80px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    color: white;
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+
+  .depan .content .keterangan {
+    position: absolute;
+    top: 530px;
+    right: -135px;
+    line-height: 10px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+  }
+
+  .depan .content .qr-code {
+    position: absolute;
+    top: 600px;
+    left: 350px;
+  }
+
+  /* BELAKANG */
+  .belakang {
+    width: 297mm;
+    height: 210mm;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+
+  .belakang .image-certificate-belakang {
+    position: absolute;
+    width: 297mm;
+    height: 210mm;
+    z-index: 1;
+  }
+
+  /* Remove the background image from this element */
+  .belakang .image-certificate-belakang img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .belakang .certificate-guru-belakang .table-penilayan {
+    position: absolute;
+    top: 16.5%;
+    left: 20%;
+    width: 60%;
+  }
+
+  .belakang .certificate-guru-belakang .table-penilayan table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .belakang .certificate-guru-belakang .table-penilayan th {
+    border: 1px solid black;
+    text-align: center;
+    padding: 8px 0px;
+  }
+
+  .belakang .certificate-guru-belakang .table-penilayan td {
+    border: 1px solid black;
+    text-align: center;
+    padding: 8px 0px;
+  }
+  .belakang .certificate-guru-belakang .table-penilayan td.ts{
+    text-align: start;
+    padding: 0px 5px;
+  }
+  .belakang .certificate-guru-belakang .tanda-tangan {
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .belakang .certificate-guru-belakang .tanda-tangan .nama-instruktur {
+    position: absolute;
+    top: 672px;
+    right: 4.4%;
+    font-family: "Montserrat", sans-serif;
+    font-size: 18.9px;
+    font-weight: 700;
+    width: 350px;
+    text-align: center;
+  }
+
+  .belakang .certificate-guru-belakang .tanda-tangan .skill {
+    position: absolute;
+    top: 705px;
+    right: 8%;
+    font-family: "Montserrat", sans-serif;
+    font-size: 17.5px;
+    font-weight: 400;
+  }
+
+  .belakang .certificate-guru-belakang .text-penilaian {
+    position: absolute;
+    top: 5.6%;
+    left: 10.2%;
+    font-family: "Montserrat", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 10px;
+    margin-bottom: 30px;
+    width: 80%;
+  }

@@ -37,10 +37,10 @@
       .depan {
         width: 297mm;
         height: 210mm;
-        background-image: url("https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/guru-tamu.png");
         background-repeat: no-repeat;
         background-size: cover;
         overflow: hidden;
+        position: relative;
       }
 
       .depan .content {
@@ -57,8 +57,8 @@
 
       .depan .content .no-sertifikat .no {
         position: absolute;
-        top: 150px;
-        left: 345px;
+        top: 140px;
+        left: 365px;
         font-size: 19px;
         letter-spacing: 2px;
         font-family: "Merriweather", serif;
@@ -66,8 +66,8 @@
 
       .depan .content .no-sertifikat .nomer {
         position: absolute;
-        top: 150px;
-        left: 393px;
+        top: 137.5px;
+        left: 415px;
         font-family: "Poppins", sans-serif;
         font-weight: 400;
         font-size: 18px;
@@ -76,7 +76,7 @@
 
       .depan .content .nama {
         position: absolute;
-        top: 200px;
+        top: 180px;
         left: 110px;
         width: 900px;
       }
@@ -165,20 +165,16 @@
       .belakang {
         width: 297mm;
         height: 210mm;
-        background-image: url("https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/guru-tamu-belakang.png");
         background-repeat: no-repeat;
         background-size: cover;
         overflow: hidden;
-      }
-
-      .belakang .content {
         position: relative;
       }
 
       .belakang .content .pelatihan {
-        position: absolute;
-        top: 120px;
-        left: 210px;
+        position: relative;
+        top: 110px;
+        left: 215px;
         width: 700px;
         text-align: center;
         font-family: 'Open Sans', sans-serif;
@@ -188,7 +184,7 @@
 
       .belakang .content .nama-instruktur {
         position: absolute;
-        top: 682px;
+        top: 672px;
         right: 95px;
         width: 250px;
         text-align: center;
@@ -199,8 +195,9 @@
 
       .belakang .content .table-materi {
         position: relative;
-        top: 190px;
+        top: 106px;
         left: 200px;
+        width: 100%;
       }
 
       .belakang .content .table-materi table {
@@ -239,33 +236,37 @@
       }
     </style>
     {{-- Depan --}}
-    <div class="depan">
-        <div class="content">
-          <div class="qr-code">
-            <center>
-              <img
-                    src="data:image/png;base64,{{ base64_encode(QrCode::format('png')->merge('https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/logo-bg-blue.png', 0.3, true)->size(100)->generate(route('search') . '?q=' . $certificate->nomor)) }}"
-                    alt="QR Code">
-            </center>
-            <figcaption style="font-size: 10px">QR authenticity certificate</figcaption>
-          </div>
-          <div class="no-sertifikat">
-            <p class="no">No.</p>
-            <p class="nomer">{{ $certificate->nomor }}</p>
-          </div>
-          <div class="nama">
-            <p>{{ $certificate->user->name }}</p>
-          </div>
-          <div class="sekolah">
-            <p>{{ $certificate->user->institusi }}</p>
-          </div>
-          <div class="text">
-            <p class="telah">Telah mengikut Pelatihan</p>
-            <p class="pelatihan">{{ $certificate->bidang }}</p>
-            <p class="tanggal">yang diselenggarakan pada tanggal {{ \Carbon\Carbon::createFromFormat('Y-m-d', $certificate->tanggal)->locale('id')->isoFormat('D') }} s.d {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $certificate->created_at)->locale('id')->isoFormat('D MMMM YYYY') }} Oleh</p>
-            <p class="pt">PT Hummatech Digital Indonesia</p>
-          </div>
-          @if ($certificate->predikat === 'Sangat Baik')
+    <div class="depan"
+      style='background-image: url("https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/guru-tamu.png");'2>
+      <div class="content">
+        <div class="qr-code">
+          <center>
+            <img
+              src="data:image/png;base64,{{ base64_encode(QrCode::format('png')->merge('https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/logo-bg-blue.png', 0.3, true)->size(100)->generate(route('search') . '?q=' . $certificate->nomor)) }}"
+              alt="QR Code">
+          </center>
+          <figcaption style="font-size: 10px">QR authenticity certificate</figcaption>
+        </div>
+        <div class="no-sertifikat">
+          <p class="no">No.</p>
+          <p class="nomer">{{ $certificate->nomor }}</p>
+        </div>
+        <div class="nama">
+          <p>{{ $certificate->user->name }}</p>
+        </div>
+        <div class="sekolah">
+          <p>{{ $certificate->user->institusi }}</p>
+        </div>
+        <div class="text">
+          <p class="telah">Telah mengikut Pelatihan</p>
+          <p class="pelatihan">{{ $certificate->bidang }}</p>
+          <p class="tanggal">yang diselenggarakan pada tanggal
+            {{ \Carbon\Carbon::createFromFormat('Y-m-d', $certificate->tanggal)->locale('id')->isoFormat('D') }} s.d
+            {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $certificate->created_at)->locale('id')->isoFormat('D MMMM YYYY') }}
+            Oleh</p>
+          <p class="pt">PT Hummatech Digital Indonesia</p>
+        </div>
+        @if ($certificate->predikat === 'Sangat Baik')
           <div class="nilai" style="top: 575px; line-height: 15px">
             <p>{{ $certificate->predikat }}</p>
           </div>
@@ -274,57 +275,48 @@
             <p>{{ $certificate->predikat }}</p>
           </div>
         @endif
-        </div>
       </div>
-      {{-- Belakang --}}
-      <div class="belakang">
-        <div class="content">
-          <div class="pelatihan">
-            <p>"{{ $certificate->bidang }}"</p>
-          </div>
-          <div class="table-materi">
-            <table>
-              <thead>
+    </div>
+    {{-- Belakang --}}
+    <div class="belakang"
+      style='background-image: url("https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/guru-tamu-belakang.png");'>
+      <div class="content">
+        <div>
+          <p class="pelatihan">"{{ $certificate->bidang }}"</p>
+        </div>
+        <div class="table-materi">
+          <table>
+            <thead>
+              <tr>
+                <th width="10%">No</th>
+                <th width="70%">Materi</th>
+                <th width="20%">Waktu</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($certificate->detailCertificates as $i => $detailCertificate)
                 <tr>
-                  <th width="10%">No</th>
-                    <th width="70%">Materi</th>
-                    <th width="20%">Waktu</th>
+                  <th>{{ ++$i }}.</th>
+                  <td style="text-align: start; padding: 2px 5px;">{{ $detailCertificate->materi }}</td>
+                  <td>{{ $detailCertificate->jp }} JP</td>
                 </tr>
-              </thead>
-              <tbody>
-                  @foreach ($certificate->detailCertificates as $i => $detailCertificate)
-                      <tr>
-                        <th>{{ ++$i }}.</th>
-                        <td style="text-align: start; padding: 2px 5px;">{{ $detailCertificate->materi }}</td>
-                        <td>{{ $detailCertificate->jp }} JP</td>
-                      </tr>
-                @endforeach
-                @if (count($certificate->detailCertificates) > 1)
-                    <tr>
-                        <td></td>
-                        <th>Total</th>
-                        <th>{{ $totalJP }} JP</th>
-                    </tr>
-                @endif
-              </tbody>
-            </table>
-          </div>
-          <div class="nama-instruktur">
-            <p>{{ $certificate->instruktur }}</p>
-          </div>
+              @endforeach
+              @if (count($certificate->detailCertificates) > 1)
+                <tr>
+                  <td></td>
+                  <th>Total</th>
+                  <th>{{ $totalJP }} JP</th>
+                </tr>
+              @endif
+            </tbody>
+          </table>
+        </div>
+        <div class="nama-instruktur">
+          <p>{{ $certificate->instruktur }}</p>
         </div>
       </div>
+    </div>
   </main>
 </body>
-
-<script>
-  window.addEventListener('load', function() {
-    window.print();
-    window.onafterprint = function() {
-      window.close();
-      window.history.back();
-    };
-  });
-</script>
 
 </html>

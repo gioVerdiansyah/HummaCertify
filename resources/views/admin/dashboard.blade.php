@@ -179,8 +179,8 @@
 
      // Buat array yang berisi nama-nama bulan
      const monthNames = [
-       "Januari", "Februari", "Maret", "April", "Mei", "Juni",
-       "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+       "Jan", "Feb", "Mar", "Apr", "Mei", "Jun",
+       "Jul", "Agu", "Sep", "Okt", "Nov", "Des"
      ];
 
      // Inisialisasi array yang akan berisi jumlah sertifikat untuk setiap bulan

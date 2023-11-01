@@ -53,8 +53,8 @@
 
           .bg .content .no-sertifikat .no {
             position: absolute;
-            top: 175px;
-            left: 350px;
+            top: 180px;
+            left: 365px;
             font-size: 19px;
             letter-spacing: 2px;
             font-family: "Merriweather", serif;
@@ -62,8 +62,8 @@
 
           .bg .content .no-sertifikat .nomer {
             position: absolute;
-            top: 153px;
-            left: 400px;
+            top: 156.5px;
+            left: 415px;
             font-family: "Poppins", sans-serif;
             font-weight: 400;
             font-size: 18px;
@@ -128,6 +128,80 @@
             top: 650px;
             left: 511px;
           }
+
+          /* Belakang */
+          .belakang {
+            width: 297mm;
+            height: 210mm;
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow: hidden;
+            position: relative;
+          }
+
+          .belakang .content .pelatihan {
+            position: relative;
+            top: 110px;
+            left: 215px;
+            width: 700px;
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+          }
+
+          .belakang .content .nama-instruktur {
+            position: absolute;
+            top: 672px;
+            right: 95px;
+            width: 250px;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+          }
+
+          .belakang .content .table-materi {
+            position: relative;
+            top: 106px;
+            left: 200px;
+            width: 100%;
+          }
+
+          .belakang .content .table-materi table {
+            border-collapse: collapse;
+            border: 1px solid;
+            width: 65%;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 400;
+          }
+
+          .belakang .content .table-materi table thead {
+            border: 1px solid;
+            background-color: #4a86e8;
+            color: #ffffff;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 700;
+          }
+
+          .belakang .content .table-materi table thead tr {
+            border: 1px solid black;
+          }
+
+          .belakang .content .table-materi table thead th {
+            border: 1px solid black;
+            padding: 8px 0px;
+          }
+
+          .belakang .content .table-materi table tbody tr {
+            border: 1px solid;
+            text-align: center;
+          }
+
+          .belakang .content .table-materi table tbody td {
+            border: 1px solid;
+            padding: 4px 0px;
+          }
         </style>
         <div class="bg">
           <div class="content">
@@ -160,6 +234,37 @@
                   alt="QR Code">
               </center>
               <figcaption style="font-size: 10px">QR authenticity certificate</figcaption>
+            </div>
+          </div>
+        </div>
+        <div class="belakang" style='background-image: url("https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/certificate-bg-test.png");'>
+          <div class="content">
+            <div class="table-materi">
+              <table>
+                <thead>
+                  <tr>
+                    <th width="10%">No</th>
+                    <th width="70%">Materi</th>
+                    <th width="20%">Waktu</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach ($certificate->detailCertificates as $i => $detailCertificate)
+                    <tr>
+                      <th>{{ ++$i }}.</th>
+                      <td style="text-align: start; padding: 2px 5px;">{{ $detailCertificate->materi }}</td>
+                      <td>{{ $detailCertificate->jp }} JP</td>
+                    </tr>
+                  @endforeach
+                  @if (count($certificate->detailCertificates) > 1)
+                    <tr>
+                      <td></td>
+                      <th>Total</th>
+                      <th>{{ $totalJP }} JP</th>
+                    </tr>
+                  @endif
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
