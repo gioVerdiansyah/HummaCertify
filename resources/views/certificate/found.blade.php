@@ -4,11 +4,13 @@
   <title>Detail Sertifikat</title>
   <link rel="stylesheet" href="{{ asset('css/user/detail.css') }}">
   <link rel="stylesheet" href="{{ asset('css/user/load-image.css') }}">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js" integrity="sha512-Z8CqofpIcnJN80feS2uccz+pXWgZzeKxDsDNMD/dJ6997/LSRY+W4NmEt9acwR+Gt9OHN0kkI1CTianCwoqcjQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js"
+    integrity="sha512-Z8CqofpIcnJN80feS2uccz+pXWgZzeKxDsDNMD/dJ6997/LSRY+W4NmEt9acwR+Gt9OHN0kkI1CTianCwoqcjQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <div class="content-container">
     <div class="content-top">
       <div class="left-side">
-        <a href="javascript: void(0);" class="image-container">
+        <a href="javascript: void(0);" class="image-container" id="certificate-container">
           <div id="load-detail" class="image-item"></div>
           <canvas id="pdfCanvas" class="image-item"></canvas>
           <div class="image-hover" data-bs-toggle="modal" data-bs-target="#detail">
@@ -90,10 +92,10 @@
                   <td colspan="2" class="table-header-color text-center">Total</td>
                   <td class="table-header-color text-center">{{ $totalJP }} JP</td>
                 </tr>
-                @endif
-                <tr>
-                  <td colspan="3" class="text-left">Nama Instruktur : {{ $certificate->instruktur }}</td>
-                </tr>
+              @endif
+              <tr>
+                <td colspan="3" class="text-left">Nama Instruktur : {{ $certificate->instruktur }}</td>
+              </tr>
             @endisset
           </tbody>
         </table>
@@ -115,8 +117,18 @@
     </div>
   </div>
   {{-- End Modal --}}
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js" integrity="sha512-Z8CqofpIcnJN80feS2uccz+pXWgZzeKxDsDNMD/dJ6997/LSRY+W4NmEt9acwR+Gt9OHN0kkI1CTianCwoqcjQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  @if (session('message'))
+    <script>
+      Swal.fire({
+        icon: "{{ session('message')['icon'] ?? 'success' }}",
+        title: "{{ session('message')['title'] ?? 'Oops' }}",
+        text: "{{ session('message')['text'] ?? 'Success' }}",
+      })
+    </script>
+  @endif
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js"
+    integrity="sha512-Z8CqofpIcnJN80feS2uccz+pXWgZzeKxDsDNMD/dJ6997/LSRY+W4NmEt9acwR+Gt9OHN0kkI1CTianCwoqcjQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
     var canvas = document.getElementById('pdfCanvas');
     var context = canvas.getContext('2d');
@@ -149,6 +161,18 @@
         imageHover.style.visibility = 'visible';
       });
     }).catch(function(error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Tidak ditemukan!',
+        text: 'File Sertifikat tidak ditemukan, hubungi developer untuk informasi lebih lanjut.'
+      });
+      var certificateContainer = document.getElementById('certificate-container');
+
+      var newParagraph = document.createElement('p');
+      newParagraph.textContent = 'File PDF tidak ditemukan.';
+
+      certificateContainer.innerHTML = '';
+      certificateContainer.appendChild(newParagraph);
       console.error('Gagal memproses PDF: ' + error);
     });
   </script>

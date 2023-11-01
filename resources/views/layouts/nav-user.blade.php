@@ -111,15 +111,6 @@
           }
         });
     </script> --}}
-  @if (session('message'))
-    <script>
-      Swal.fire({
-        icon: "{{ session('message')['icon'] ?? 'success' }}",
-        title: "{{ session('message')['title'] ?? 'Oops' }}",
-        text: "{{ session('message')['text'] ?? 'Success' }}",
-      })
-    </script>
-  @endif
 
   <!-- javascript -->
   <script src="{{ asset('landingpage/js/bootstrap.bundle.min.js') }}"></script>

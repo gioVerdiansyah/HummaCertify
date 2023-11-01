@@ -24,7 +24,7 @@
                                     <option value="hasPrint" {{ request('print') == 'hasPrint' ? 'selected' : '' }} >has print</option>
                                 </select>
                             </div>
-                            @if (request('ct') && !request('print'))
+                            @if (request('ct') && !request('print') && isset($certificates[0]))
                                 <div class="col-3">
                                     <a href="{{ route('printAllCertificate') }}?ct={{ request('ct') }}&page={{ $certificates->currentPage()}}" target="_blank" class="btn btn-primary print-all-certificate"><i
                                             class="bi bi-printer "></i> Print Semua</a>

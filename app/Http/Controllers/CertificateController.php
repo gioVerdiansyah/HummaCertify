@@ -366,12 +366,7 @@ class CertificateController extends Controller
         if (Storage::disk('public')->exists($pdfPath)) {
             return view('certificate.embed', ['pdfPath' => Storage::url($pdfPath)]);
         } else {
-            return redirect()->route('search', ['q' => $certificate->nomor])
-                ->with('message', [
-                    'icon' => 'error',
-                    'title' => 'Tidak ditemukan!',
-                    'text' => 'File Sertifikat tidak ditemukan, hubungi developer untuk informasi lebih lanjut.'
-                ]);
+            return back();
         }
     }
 }
