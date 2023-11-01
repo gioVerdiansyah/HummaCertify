@@ -40,7 +40,7 @@ class HomeController extends Controller
         $notificationCount = ContactMe::where('read', 0)->count();
 
         $kelulusanCount = Certificate::where('certificate_categori_id', 1)->count();
-        
+
         // data untuk chart line
         $certificateCount = Certificate::count();
 
@@ -76,7 +76,11 @@ class HomeController extends Controller
         ]);
 
         $query = $request->input('q');
-        $certificate = Certificate::with(['user', 'category', 'detailCertificates'])->where('nomor', $query)->firstOrFail();
+        $certificate = Certificate::with(['user', 'category', 'detailCertificates'])->where('nomor', $query)->first();
+
+        if($certificate === null){
+            return view('certificate.notFound');
+        }
 
         return view('certificate.found', compact('certificate'));
     }

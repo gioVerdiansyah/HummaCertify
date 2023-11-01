@@ -14,7 +14,7 @@
           {{-- <a href="#" class="btn btn-primary me-2">Get Started <i class="icon-sm ms-1" data-feather="arrow-right"></i></a> --}}
           <form action="{{ route('search') }}" method="GET" id="searching">
             <div class="searchBox">
-              <input class="searchInput"type="search" name="q" placeholder="Cari Sertifikat" autocomplete="off" required>
+              <input class="searchInput"type="search" name="q" placeholder="Contoh: Ser/0001/02/3112/2023" autocomplete="off" required>
               <button class="searchButton" href="#">
                 <i class="fas fa-search"></i>
               </button>
@@ -814,7 +814,7 @@
           return;
         }
 
-        if (sendCount < 2) {
+        if (sendCount < 5) {
           $("#submit-button").attr('type', 'button');
           $("#submit-button .flex-grow-1").text("Loading...");
           $("#submit-button .spinner-border").removeClass("d-none");
@@ -876,7 +876,7 @@
         } else {
           $("#simple-msg").empty();
           $("#error-msg").html("<div class='alert alert-danger alert-dismissible fade show' role='alert'>" +
-            "Anda telah mencapai batas pengiriman pesan (3 kali)." +
+            "Anda telah mencapai batas pengiriman pesan (5 kali)." +
             '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
           );
         }

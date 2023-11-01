@@ -49,7 +49,7 @@
               </div>
               <div class="mt-3">
                 <h4 class="label-header">Di cetak pada :</h4>
-                <h4 class="label-item">{{ \Carbon\Carbon::parse($certificate->created_at)->format('d-m-Y') }}</h4>
+                <h4 class="label-item">{{ \Carbon\Carbon::parse($certificate->created_at)->locale('id')->isoFormat('D MMMM Y') }}</h4>
               </div>
             </div>
           </div>
