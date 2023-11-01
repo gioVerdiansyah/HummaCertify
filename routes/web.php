@@ -64,3 +64,7 @@ Route::get('/copy', [DemoTestController::class, 'copy']);
 Route::get('/p', function () {
     return view('user.profile');
 });
+
+Route::get('/tes', function () {
+    return view('errors.certificatenotfound');
+});
