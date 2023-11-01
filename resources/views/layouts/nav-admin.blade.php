@@ -260,6 +260,13 @@
                 <span data-key="t-tambah_certificate">Tambah Sertifikat</span>
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link menu-link {{ request()->routeIs('certificate.tambahKategori') ? 'active' : '' }}"
+                href="{{ route('tambahKategori') }}">
+                <img width="22" class="me-3" src="{{ asset('image/tambah-icon.png') }}" alt="">
+                <span data-key="t-tambah_certificate">Tambah Kategori Sertifikat</span>
+              </a>
+            </li>
           </ul>
         </div>
         <!-- Sidebar -->

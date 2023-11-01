@@ -2,17 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\DetailCertificateService;
+use App\Models\ContactMe;
+use App\Models\Certificate;
 use Illuminate\Http\Request;
+use App\Services\DetailCertificateService;
 use App\Http\Requests\DetailCertificateStoreRequest;
 
 class detailCertificateController extends Controller
 {
-    private DetailCertificateService $detailCertificate;
-    public function __construct(DetailCertificateService $detailCertificate)
-    {
-        $this->detailCertificate = $detailCertificate;
-    }
+  
 
     public function store(DetailCertificateStoreRequest $request, $id)
     {
@@ -29,5 +27,11 @@ class detailCertificateController extends Controller
            $detailCertificates[] = $detailCertificate;
        }
         return redirect()->back();
+    }
+
+    public function tambahKategori() {
+        $notification = ContactMe::all();
+        $notificationCount = ContactMe::where('read', 0)->count();
+        return view('admin.certificate.tambahKategori',compact('notification' , 'notificationCount'));
     }
 }

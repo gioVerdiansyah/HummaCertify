@@ -42,6 +42,7 @@ Route::middleware('AdminUp')->group(function () {
             return view('admin.certificate.listSertifikat');
         });
         Route::resource('/certificate', CertificateController::class);
+        Route::get('/tambahKategori', [detailCertificateController::class, 'tambahKategori'])->name('tambahKategori');
         Route::get('/certificate/create/exist', [CertificateController::class, 'createExist'])->name('certificate.create_exist');
         Route::post('/certificate/store/exist',[CertificateController::class, 'storeExists'])->name('certificate.store_exist');
 
@@ -66,5 +67,7 @@ Route::get('/p', function () {
 });
 
 Route::get('/tes', function () {
-    return view('errors.certificatenotfound');
+    return view('errors.certificatenotfound')->name(
+
+    );
 });
