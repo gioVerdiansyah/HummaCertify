@@ -124,7 +124,7 @@ class CertificateController extends Controller
         // generate PDF
         $this->generateCertificate($certificate->id);
 
-        return redirect()->back()->with('message', [
+        return redirect()->route('certificate.index')->with('message', [
             'icon' => "success",
             'title' => "Berhasil!",
             'text' => "Berhasil menambah sertifikat {$user->name}"
