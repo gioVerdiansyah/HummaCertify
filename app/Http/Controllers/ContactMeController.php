@@ -39,6 +39,6 @@ class ContactMeController extends Controller
             return response()->json(['error' => "Id yang dituju tidak ada!"]);
         }
         $notif->delete();
-        return response()->json(['message' => "Notifikasi telah di hapus"]);
+        return response()->json(['message' => "Notifikasi telah di hapus", 'count' => $notif->count()]);
     }
 }
