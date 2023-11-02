@@ -1,0 +1,264 @@
+.container-css {
+    margin-top: -20px;
+    padding: 5px;
+    width: 100%;
+    height: auto;
+}
+
+.top-content {
+    display: flex;
+    gap: 20px;
+}
+
+.line-header {
+    color: rgb(185, 185, 185);
+    margin-top: -6px;
+    margin-bottom: 0;
+}
+
+.left-side .first-title{
+    width: 100%;
+    text-align: left;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.left-side .second-title{
+    width: 100%;
+    text-align: right;
+    color: rgb(108, 176, 253);
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.left-side .header-card {
+    padding: 20px;
+    display: flex;
+    width: 100%;
+}
+
+.left-side .body-card {
+    gap: 20px;
+    text-align: left;
+    color: rgb(82, 82, 82);
+    font-weight: 500;
+    font-size: 15px;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+}
+
+.left-side .left-drop {
+    width: 100%;
+}
+
+.left-side .right-drop {
+    width: 100%;
+}
+
+.left-side {
+    border-radius: 5px;
+    background-color: white;
+    width: 70%;
+    height: auto;
+}
+
+.left-side .left-header {
+    font-weight: 600;
+    font-size: 14px;
+    color: rgb(158, 158, 158);
+}
+
+.right-side {
+    width: 30%;
+    height: auto;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.right-side .header-card {
+    padding: 20px;
+    width: 100%;
+}
+
+.right-side .first-title{
+    width: 100%;
+    text-align: left;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.right-side .body-card {
+    padding: 20px;
+}
+
+.right-side .card-button {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    text-align: right;
+}
+
+.preview-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.depan-preview {
+    margin-top: 10px;
+    background-image: url('../../image/certificate-bg.png');
+    background-size: contain;
+    border-radius: 10px;
+    width: 484.56px;
+    height: 344.56px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.belakang-preview {
+    margin-top: 10px;
+    background-image: url('../../image/certificate-bg.png');
+    background-size: contain;
+    width: 484.56px;
+    height: 344.56px;
+    border-radius: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.modal-line {
+    color: rgb(185, 185, 185);
+}
+
+.preview-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.preview-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.preview-container span {
+    font-weight: 600;
+    font-size: 15px;
+    color: #6d6d6d;
+}
+
+.upload-area span {
+    width: 60%;
+    font-weight: 600;
+    font-size: 16px;
+    color: #495057;
+    text-align: center;
+    font-style: normal;
+}
+
+.upload-area {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 403.80px;
+    height: 287.13px;
+    border: 2px dashed lightgray;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.upload-area:hover {
+    cursor: pointer;
+}
+
+.upload-area h1 {
+    text-align: center;
+    font-weight: normal;
+    font-family: sans-serif;
+    line-height: 50px;
+    color: darkslategray;
+}
+
+#file {
+    display: none;
+}
+
+#uploadfile {
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.thumbnail {
+    width: 80px;
+    height: 80px;
+    padding: 2px;
+    border: 2px solid lightgray;
+    border-radius: 3px;
+    float: left;
+}
+
+.size {
+    font-size: 12px;
+}
+
+/* Right */
+.upload-area2 span {
+    width: 60%;
+    font-weight: 600;
+    font-size: 16px;
+    color: #495057;
+    text-align: center;
+    font-style: normal;
+}
+
+.upload-area2 {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 403.80px;
+    height: 287.13px;
+    border: 2px dashed lightgray;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.upload-area2:hover {
+    cursor: pointer;
+}
+
+.upload-area2 h1 {
+    text-align: center;
+    font-weight: normal;
+    font-family: sans-serif;
+    line-height: 50px;
+    color: darkslategray;
+}
+
+#file2 {
+    display: none;
+}
+
+#uploadfile2 {
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.thumbnail2 {
+    width: 80px;
+    height: 80px;
+    padding: 2px;
+    border: 2px solid lightgray;
+    border-radius: 3px;
+    float: left;
+}
+
+.size {
+    font-size: 12px;
+}
+

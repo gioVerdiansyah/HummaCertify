@@ -38,6 +38,7 @@ Route::middleware('AdminUp')->group(function () {
         Route::get('/datatable', function () {
             return view('admin.ListSertifikat');
         });
+        Route::get('/upload/background', [detailCertificateController::class, 'uploadBackground']);
         Route::get('/list', function (){
             return view('admin.certificate.listSertifikat');
         });
