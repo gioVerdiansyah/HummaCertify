@@ -248,12 +248,18 @@
                   </tr>
                 </thead>
                 <tbody>
+                  @php
+                    $totalJP = 0;
+                  @endphp
                   @foreach ($certificate->detailCertificates as $i => $detailCertificate)
                     <tr>
                       <th>{{ ++$i }}.</th>
                       <td style="text-align: start; padding: 2px 5px;">{{ $detailCertificate->materi }}</td>
                       <td style="text-align: center">{{ $detailCertificate->jp }} JP</td>
                     </tr>
+                    @php
+                    $totalJP += $detailCertificate->jp;
+                   @endphp
                   @endforeach
                   @if (count($certificate->detailCertificates) > 1)
                     <tr>

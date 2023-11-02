@@ -14,6 +14,9 @@ class CertificateCategori extends Model implements HasCertificates
 
     protected $fillable = [
         'name',
+        'backgroundDepan',
+        'backgroundBelakang',
+        'tataLetak'
     ];
 
      /**

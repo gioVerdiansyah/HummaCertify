@@ -44,8 +44,36 @@ class detailCertificateController extends Controller
         $category = CertificateCategori::all();
         $certificateCategoryCount = CertificateCategori::count();
         $notification = ContactMe::orderBy('created_at', 'desc')->get();
-        $notificationCount = ContactMe::where('read', 0)->count();
+        $notificationCount = ContactMe::count();
 
         return view('uploadTemplate', compact('notificationCount', 'notification'));
     }
+
+    use Illuminate\Support\Facades\Storage;
+
+    public function storeCategories(Request $request)
+    {
+
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'backgroundDepan' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'backgroundBelakang' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'tataletak' => 'required|string|max:255',
+        ]);
+
+
+        $backgroundDepanPath = $request->file('backgroundDepan')->move('public/images/certificates');
+        $backgroundBelakangPath = $request->file('backgroundBelakang')->move('public/images/certificates');
+
+
+        $categoryCertificate = new CertificateCategori();
+        $categoryCertificate->name = $request->name;
+        $categoryCertificate->backgroundDepan = $backgroundDepanPath;
+        $categoryCertificate->backgroundBelakang = $backgroundBelakangPath;
+        $categoryCertificate->tataLetak = $request->tataletak;
+        $categoryCertificate->save();
+
+        return redirect()->back()->with('success', 'Category created successfully!');
+    }
+
 }
