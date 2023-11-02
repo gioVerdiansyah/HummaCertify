@@ -1,40 +1,42 @@
 @extends('layouts.nav-admin')
 
 @section('content')
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous"
+    referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="{{ asset('css/admin/template.css') }}">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <div class="container-css">
-    <div class="top-content">
-      <div class="left-side">
-        <div class="header-card">
-          <span class="first-title text-start">Upload Latar Belakang</span>
-          <span class="second-title text-end">Standar ukuran A4 (3508px X 2480px)</span>
-        </div>
-        <hr class="line-header">
-        <div class="body-card">
-          <div class="left-drop">
-            <span class="drop-header">Template (Depan)</span>
-            <input type="file" name="file" id="file" />
-            <div class="upload-area" id="uploadfile">
-              <span>Jatuhkan file disini atau klik untuk menggungah</span>
+    <form action="" method="POST" enctype="multipart/form-data">
+        @csrf
+      <div class="top-content">
+        <div class="left-side">
+          <div class="header-card">
+            <span class="second-title text-end"><span class="first-title text-start">Upload Latar Belakang</span>Standar ukuran A4 (3508px X 2480px)</span>
+          </div>
+          <hr class="line-header">
+          <div class="body-card">
+            <div class="left-drop">
+              <span class="drop-header">Template (Depan)</span>
+              <input type="file" name="file" id="file" />
+              <div class="upload-area" id="uploadfile">
+                <span>Jatuhkan file disini atau klik untuk menggungah</span>
+              </div>
+            </div>
+            <div class="right-drop">
+              <span class="drop-header">Template (Belakang)</span>
+              <input type="file" name="file2" id="file2" />
+              <div class="upload-area2" id="uploadfile2">
+                <span>Jatuhkan file disini atau klik untuk menggungah</span>
+              </div>
             </div>
           </div>
-          <div class="right-drop">
-            <span class="drop-header">Template (Belakang)</span>
-            <input type="file" name="file2" id="file2" />
-            <div class="upload-area2" id="uploadfile2">
-              <span>Jatuhkan file disini atau klik untuk menggungah</span>
-            </div>
+        </div>
+        <div class="right-side">
+          <div class="header-card">
+            <span class="first-title text-start">Kategori</span>
           </div>
-        </div>
-      </div>
-      <div class="right-side">
-        <div class="header-card">
-          <span class="first-title text-start">Kategori</span>
-        </div>
-        <hr class="line-header">
-        <div class="body-card">
-          <form action="#">
+          <hr class="line-header">
+          <div class="body-card">
             <div class="mb-3">
               <label for="namaKategori">Nama Kategori</label>
               <input type="text" name="namaKategori" class="form-control" placeholder="Nama kategori">
@@ -50,10 +52,10 @@
               <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#preview">Preview</button>
               <button type="submit" class="btn btn-primary">Simpan</button>
             </div>
-          </form>
+          </div>
         </div>
       </div>
-    </div>
+    </form>
     <div class="modal fade" id="preview" tabindex="-1" aria-labelledby="previewModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-xl">
         <div class="modal-content">
