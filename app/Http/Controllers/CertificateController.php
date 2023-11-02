@@ -26,7 +26,7 @@ class CertificateController extends Controller
         $certificates = Certificate::latest()->where('status', 'nonPrint')->paginate($this->perPage);
         $categories = CertificateCategori::select('id', 'name')->get();
         $notification = ContactMe::all();
-        $notificationCount = ContactMe::where('read', 0)->count();
+        $notificationCount = ContactMe::all()->count();
 
         if ($request->all()) {
             $certificates = $this->searchCertificates($request->all());
@@ -79,7 +79,7 @@ class CertificateController extends Controller
     {
         $categories = CertificateCategori::select('id', 'name')->get();
         $notification = ContactMe::all();
-        $notificationCount = ContactMe::where('read', 0)->count();
+        $notificationCount = ContactMe::all()->count();
 
         return view('admin.certificate.create', compact('categories', 'notification', 'notificationCount'));
     }
@@ -162,7 +162,7 @@ class CertificateController extends Controller
         $categories = CertificateCategori::select('id', 'name')->get();
         $peserta = User::whereNotIn('name', ['HummaCertify', 'User'])->select('id', 'name')->get();
         $notification = ContactMe::all();
-        $notificationCount = ContactMe::where('read', 0)->count();
+        $notificationCount = ContactMe::all()->count();
 
         return view('admin.certificate.createExist', compact('categories', 'peserta', 'notification', 'notificationCount'));
 
@@ -205,7 +205,7 @@ class CertificateController extends Controller
         $categories = CertificateCategori::select('id', 'name')->get();
         $details = DetailCertificate::where('certificate_id', $id)->get();
         $notification = ContactMe::all();
-        $notificationCount = ContactMe::where('read', 0)->count();
+        $notificationCount = ContactMe::all()->count();
 
         return view('admin.certificate.edit', compact('categories', 'certificate','details', 'notificationCount', 'notification'));
     }

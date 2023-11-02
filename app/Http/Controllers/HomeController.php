@@ -37,7 +37,7 @@ class HomeController extends Controller
         $category = CertificateCategori::all();
         $certificateCategoryCount = CertificateCategori::count();
         $notification = ContactMe::orderBy('created_at', 'desc')->get();
-        $notificationCount = ContactMe::where('read', 0)->count();
+        $notificationCount = ContactMe::all()->count();
 
         $kelulusanCount = Certificate::where('certificate_categori_id', 1)->count();
 

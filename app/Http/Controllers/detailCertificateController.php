@@ -31,7 +31,7 @@ class detailCertificateController extends Controller
 
     public function tambahKategori() {
         $notification = ContactMe::all();
-        $notificationCount = ContactMe::where('read', 0)->count();
+        $notificationCount = ContactMe::all()->count();
         return view('admin.certificate.tambahKategori',compact('notification' , 'notificationCount'));
     }
 }

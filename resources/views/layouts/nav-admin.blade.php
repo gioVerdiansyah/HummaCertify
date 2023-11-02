@@ -161,8 +161,8 @@
                            </p>
                          </div>
                          <div class="px-2 fs-15">
-                           <div class="form-check notification-check">
-                                <button class="btn btn-sm" onclick="deleteNotif({{ $i }}, {{ $data->id }});" style="font-size: 25px; position: absolute; top: 1px; right: 1px;"><i class="fi fi-sr-cross-small"></i></button>
+                           <div class="form-check notification-check d-flex justify-content-center align-items-center" style="">
+                                <button class="btn btn-sm" onclick="deleteNotif({{ $i }}, {{ $data->id }});" style="font-size: 25px; position: absolute; top: -10px; right: -20px; color: #878A99"><i class="fi fi-sr-cross-small"></i></button>
                            </div>
                          </div>
                        </div>
