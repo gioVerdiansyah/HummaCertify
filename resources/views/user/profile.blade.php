@@ -24,7 +24,7 @@
                 </div>
               </div>
               <div class="mb-3">
-                <label for="nik" class="form-label">NIK</label>
+                <label for="nik" class="form-label">Nisn/Nik/Nip</label>
                 <input type="number" class="input-height form-control" id="nik" placeholder="{{ $user->password }}" readonly>
               </div>
               <div class="mb-3">
