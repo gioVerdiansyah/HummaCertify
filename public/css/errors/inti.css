@@ -1,0 +1,136 @@
+body {
+    background: #DAEAF7;
+    font-family: 'Poppins', sans-serif !important;
+    overflow: hidden;
+}
+
+.bg-image {
+    background: url('../../errorimage/blob.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.konten {
+    height: 100vh;
+    align-items: center;
+}
+
+.costum {
+    padding: 5rem;
+}
+
+.btn-biru {
+    background: #204370;
+    color: #fff;
+    padding: 0.6rem 1.5rem;
+    border-radius: 15px;
+}
+
+.btn-biru:hover {
+    background: #daeaf7;
+    color: #2c475d;
+}
+
+.jangka {
+    padding-right: 10px;
+}
+
+.title {
+    color: #2C475D;
+    margin-bottom: 3rem;
+    font-size: calc(1.7rem + 1.125vw);
+    font-weight: 600;
+}
+
+.arah {
+    justify-content: right;
+    display: flex;
+}
+
+@media only screen and (max-width: 320px) {
+    #gambar {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        background: #DAEAF7;
+        overflow: hidden;
+    }
+
+    .bg-image {
+        background: none;
+    }
+
+    .konten {
+        flex-flow: column-reverse;
+        height: 70vh !important;
+    }
+
+    .illst {
+        width: 100% !important;
+    }
+
+    .col-6 {
+        width: 100%;
+    }
+
+    .costum {
+        text-align: center;
+        padding: 1rem 5rem;
+    }
+
+    .title {
+        font-size: calc(0.9rem + 1.125vw) !important;
+    }
+
+    .btn-biru:hover {
+        background: #edf7ff;
+    }
+
+    .arah {
+        justify-content: center;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    body {
+        background: #DAEAF7;
+        overflow: hidden;
+    }
+
+    .bg-image {
+        background: none;
+    }
+
+    .konten {
+        flex-flow: column-reverse;
+        height: 76vh;
+    }
+
+    .illst {
+        width: 70% !important;
+    }
+
+    .col-6 {
+        width: 100%;
+    }
+
+    .costum {
+        text-align: center;
+        padding: 1rem 5rem;
+    }
+
+    .title {
+        font-size: calc(1.9rem + 1.125vw);
+    }
+
+    .btn-biru:hover {
+        background: #edf7ff;
+    }
+
+    .arah {
+        justify-content: center;
+    }
+}
