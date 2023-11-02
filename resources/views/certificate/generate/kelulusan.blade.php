@@ -53,7 +53,7 @@
 
           .bg .content .no-sertifikat .no {
             position: absolute;
-            top: 180px;
+            top: 179px;
             left: 365px;
             font-size: 19px;
             letter-spacing: 2px;

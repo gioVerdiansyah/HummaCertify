@@ -73,7 +73,7 @@
 
       .depan .content .nomer {
         position: absolute;
-        top: 213px;
+        top: 212px;
         left: 440px;
         font-family: "Poppins", sans-serif;
         font-weight: 400;
@@ -89,20 +89,9 @@
         top: 40px;
       }
 
-      .certificate-guru .peserta {
-        position: absolute;
-        top: 307px;
-        left: 385px;
-        line-height: 9px;
-        font-family: "Montserrat", sans-serif;
-        font-weight: 500;
-        font-size: 14px;
-        letter-spacing: 1px;
-      }
-
       .depan .content .nama {
         position: absolute;
-        top: 341px;
+        top: 336.5px;
         left: 385px;
         font-weight: 700;
         font-family: "Montserrat", sans-serif;
@@ -110,7 +99,7 @@
 
       .depan .content .nik {
         position: absolute;
-        top: 365px;
+        top: 359px;
         left: 385px;
         font-weight: 500;
         font-family: "Montserrat", sans-serif;
@@ -118,7 +107,7 @@
 
       .depan .content .ttl {
         position: absolute;
-        top: 386.4px;
+        top: 381px;
         left: 385px;
         letter-spacing: 0px;
         font-weight: 500;
@@ -127,9 +116,9 @@
 
       .depan .content .kompeten {
         position: absolute;
-        top: 478px;
+        top: 480px;
         left: 385px;
-        line-height: 11.5px;
+        line-height: 9px;
         font-family: "Montserrat", sans-serif;
         font-weight: 700;
         font-size: 15px;
@@ -252,14 +241,15 @@
         top: 5.6%;
         left: 10.2%;
         font-family: "Montserrat", sans-serif;
-        font-size: 24px;
         font-weight: 700;
-        line-height: 10px;
+        font-size: 24px;
         margin-bottom: 30px;
+        line-height: 10px;
         width: 80%;
       }
     </style>
-    <div class="depan" style='background-image: url("https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/certificate-guru-depan.png");'>
+    <div class="depan"
+      style='background-image: url("https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/certificate-guru-depan.png");'>
       <section id="depan">
         <div class="content">
           <div class="no">
@@ -289,7 +279,7 @@
           </div>
           {{-- Nilai Medal --}}
           @if ($certificate->predikat === 'Sangat Baik')
-            <div class="text-penilaian" style="top: 608px">
+            <div class="text-penilaian" style="top: 610px; line-height: 15px">
               <p>{{ $certificate->predikat }}</p>
             </div>
           @else
@@ -319,10 +309,11 @@
     </div>
 
     @if (isset($certificate->detailCertificates[0]->materi) && isset($certificate->detailCertificates[0]->jp))
-      <div class="belakang" style='background-image: url("https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/certificate-guru-belakang.png");'>
+      <div class="belakang"
+        style='background-image: url("https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/certificate-guru-belakang.png");'>
         <section id="belakang">
           <div class="certificate-guru-belakang">
-            <div class="text-penilaian text-center" style="text-align: center">
+            <div class="text-penilaian" style="text-align: center">
               <p>PENILAIAN UJI KOMPETENSI</p>
               <p>UPSKILLING & RESKILLING {{ strtoupper($certificate->bidang) }}</p>
             </div>
@@ -342,7 +333,7 @@
                   @foreach ($certificate->detailCertificates as $i => $cert)
                     <tr>
                       <th style="text-align: center;">{{ ++$i }}.</th>
-                      <td>{{ $cert->materi }}</td>
+                      <td style="text-align: start;">{{ $cert->materi }}</td>
                       <td style="text-align: center;">{{ $cert->jp }} JP</td>
                     </tr>
                     @php

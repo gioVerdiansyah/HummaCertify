@@ -11,15 +11,18 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
   {{-- font import --}}
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather:wght@400;700&family=Montserrat:wght@400;500;700&family=Open+Sans:wght@700&family=Playfair+Display:wght@400;700&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather:wght@400;700&family=Montserrat:wght@400;500;700&family=Open+Sans:wght@700&family=Playfair+Display:wght@400;700&family=Poppins:wght@400;500;700&display=swap"
+    rel="stylesheet">
 
   {{-- css certificate --}}
-  <link rel="stylesheet" href="{{ asset('css/certificate/pelatihan.css')}} ">
+  <link rel="stylesheet" href="{{ asset('css/certificate/pelatihan.css') }} ">
 </head>
 
 <body>
   <main>
-    <div class="depan" style='background-image: url("https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/certificate-guru-depan.png");'>
+    <div class="depan"
+      style='background-image: url("https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/certificate-guru-depan.png");'>
       <section id="depan">
         <div class="content">
           <div class="no">
@@ -46,15 +49,21 @@
             <p class="sub-bidang">{{ $certificate->sub_bidang ?? '-' }}</p>
           </div>
           {{-- Nilai Medal --}}
-          <div class="text-penilaian">
-            <p>Sangat Baik</p>
-          </div>
+          @if ($certificate->predikat === 'Sangat Baik')
+            <div class="text-penilaian" style="top: 618px; line-height: 20px">
+              <p>{{ $certificate->predikat }}</p>
+            </div>
+          @else
+            <div class="text-penilaian">
+              <p>{{ $certificate->predikat }}</p>
+            </div>
+          @endif
           {{-- QR CODE --}}
           <div class="qr-code">
             <center>
-                <img
-                    src="data:image/png;base64,{{ base64_encode(QrCode::format('png')->merge('https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/logo-bg-blue.png', 0.3, true)->size(100)->generate(route('search') . '?q=' . $certificate->nomor)) }}"
-                    alt="QR Code">
+              <img
+                src="data:image/png;base64,{{ base64_encode(QrCode::format('png')->merge('https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/logo-bg-blue.png', 0.3, true)->size(100)->generate(route('search') . '?q=' . $certificate->nomor)) }}"
+                alt="QR Code">
             </center>
             <figcaption style="font-size: 10px">QR authenticity certificate</figcaption>
           </div>
@@ -70,7 +79,8 @@
       </section>
     </div>
 
-    <div class="belakang" style='background-image: url("https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/certificate-guru-belakang.png");'>
+    <div class="belakang"
+      style='background-image: url("https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/certificate-guru-belakang.png");'>
       <section id="belakang">
         <div class="certificate-guru-belakang">
           <div class="text-penilaian text-center" style="text-align: center">
@@ -87,7 +97,7 @@
                 </tr>
               </thead>
               @php
-                  $totalJP = 0;
+                $totalJP = 0;
               @endphp
               <tbody>
                 @foreach ($certificate->detailCertificates as $i => $cert)
@@ -101,11 +111,11 @@
                   @endphp
                 @endforeach
                 @if (count($certificate->detailCertificates) > 1)
-                    <tr>
-                        <td></td>
-                        <th>Total</th>
-                        <th>{{ $totalJP }} JP</th>
-                    </tr>
+                  <tr>
+                    <td></td>
+                    <th>Total</th>
+                    <th>{{ $totalJP }} JP</th>
+                  </tr>
                 @endif
               </tbody>
             </table>

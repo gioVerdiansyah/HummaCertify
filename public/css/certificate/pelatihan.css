@@ -81,7 +81,7 @@
 
   .depan .content .nama {
     position: absolute;
-    top: 341px;
+    top: 341.5px;
     left: 385px;
     font-weight: 700;
     font-family: "Montserrat", sans-serif;
@@ -89,7 +89,7 @@
 
   .depan .content .nik {
     position: absolute;
-    top: 365px;
+    top: 364px;
     left: 385px;
     font-weight: 500;
     font-family: "Montserrat", sans-serif;
@@ -230,7 +230,7 @@
     left: 10.2%;
     font-family: "Montserrat", sans-serif;
     font-size: 24px;
-    font-weight: 700;
+    font-weight: 700; 
     line-height: 10px;
     margin-bottom: 30px;
     width: 80%;
