@@ -1,9 +1,8 @@
 @extends('layouts.nav-admin')
 @section('content')
     <link rel="stylesheet" href="{{ asset('css/admin/admincategory.css') }}">
-    <div class="col-12 mb-4">
-        <button class="btn btn-primary m-0 d-flex gap-1">Tambah Kategori <i
-                class="ri-add-line d-flex align-items-center"></i></button>
+    <div class="col-2 mb-4">
+        <a href="/admin/upload/background" class="btn btn-primary m-0 d-flex gap-1">Tambah Kategori <i class="ri-add-line d-flex align-items-center"></i></a href="/upload/background">
     </div>
     <div class="row">
         <div class="col-md-4">
