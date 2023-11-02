@@ -49,7 +49,7 @@ class detailCertificateController extends Controller
         return view('uploadTemplate', compact('notificationCount', 'notification'));
     }
 
-    use Illuminate\Support\Facades\Storage;
+
 
     public function storeCategories(Request $request)
     {

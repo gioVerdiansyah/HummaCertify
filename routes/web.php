@@ -39,6 +39,7 @@ Route::middleware('AdminUp')->group(function () {
             return view('admin.ListSertifikat');
         });
         Route::get('/upload/background', [detailCertificateController::class, 'uploadBackground']);
+        Route::post('/uploadStore', [detailCertificateController::class, 'storeCategories'])->name('storeCategories');
         Route::get('/list', function (){
             return view('admin.certificate.listSertifikat');
         });
