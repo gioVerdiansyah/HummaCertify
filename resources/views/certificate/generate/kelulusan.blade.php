@@ -195,7 +195,6 @@
 
           .belakang .content .table-materi table tbody tr {
             border: 1px solid;
-            text-align: center;
           }
 
           .belakang .content .table-materi table tbody td {
@@ -253,7 +252,7 @@
                     <tr>
                       <th>{{ ++$i }}.</th>
                       <td style="text-align: start; padding: 2px 5px;">{{ $detailCertificate->materi }}</td>
-                      <td>{{ $detailCertificate->jp }} JP</td>
+                      <td style="text-align: center">{{ $detailCertificate->jp }} JP</td>
                     </tr>
                   @endforeach
                   @if (count($certificate->detailCertificates) > 1)

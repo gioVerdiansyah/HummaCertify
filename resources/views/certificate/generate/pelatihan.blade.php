@@ -203,12 +203,10 @@
 
       .belakang .certificate-guru-belakang .table-penilayan td {
         border: 1px solid black;
-        text-align: center;
         padding: 8px 0px;
       }
 
       .belakang .certificate-guru-belakang .table-penilayan td.ts {
-        text-align: start;
         padding: 0px 5px;
       }
 
@@ -333,7 +331,7 @@
                   @foreach ($certificate->detailCertificates as $i => $cert)
                     <tr>
                       <th style="text-align: center;">{{ ++$i }}.</th>
-                      <td style="text-align: start;">{{ $cert->materi }}</td>
+                      <td style="text-align: start; padding: 2px 5px;">{{ $cert->materi }}</td>
                       <td style="text-align: center;">{{ $cert->jp }} JP</td>
                     </tr>
                     @php
@@ -344,7 +342,7 @@
                     <tr>
                       <td></td>
                       <th>Total</th>
-                      <th>{{ $totalJP }} JP</th>
+                      <th style="text-align: center">{{ $totalJP }} JP</th>
                     </tr>
                   @endif
                 </tbody>
