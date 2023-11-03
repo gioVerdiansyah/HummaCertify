@@ -6,7 +6,7 @@
 }
 
 .warn-icon {
-    transform: translate(-28px , -1.2px);
+    transform: translate(-28px, -1.2px);
     position: absolute;
 }
 
@@ -21,14 +21,14 @@
     margin-bottom: 0;
 }
 
-.left-side .first-title{
+.left-side .first-title {
     width: 100%;
     text-align: left;
     font-weight: 600;
     font-size: 15px;
 }
 
-.left-side .second-title{
+.left-side .second-title {
     width: 100%;
     text-align: right;
     font-weight: 600;
@@ -85,7 +85,7 @@
     width: 100%;
 }
 
-.right-side .first-title{
+.right-side .first-title {
     width: 100%;
     text-align: left;
     font-weight: 600;
@@ -95,7 +95,6 @@
 .right-side .body-card {
     padding: 20px;
 }
-
 
 .right-side .card-button {
     width: 100%;
@@ -167,8 +166,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 403.80px;
-    height: 287.13px;
+    width: 368.56px;
+    height: 266.67px;
     border: 2px dashed lightgray;
     border-radius: 3px;
     text-align: center;
@@ -224,8 +223,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 403.80px;
-    height: 287.13px;
+    width: 368.56px;
+    height: 266.67px;
     border: 2px dashed lightgray;
     border-radius: 3px;
     text-align: center;
@@ -266,3 +265,74 @@
     font-size: 12px;
 }
 
+@media only screen and (max-width: 992px) {
+    .left-side .body-card {
+        gap: 20px;
+        text-align: left;
+        color: rgb(82, 82, 82);
+        font-weight: 500;
+        font-size: 15px;
+        padding: 20px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .upload-area {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 403.80px;
+        height: 287.13px;
+        border: 2px dashed lightgray;
+        border-radius: 3px;
+        text-align: center;
+    }
+
+    .upload-area2 {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 403.80px;
+        height: 287.13px;
+        border: 2px dashed lightgray;
+        border-radius: 3px;
+        text-align: center;
+    }
+
+    .left-side .second-title {
+        width: 100%;
+        text-align: right;
+        font-weight: 600;
+        font-size: 12px;
+    }
+
+    .preview-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+        height: 100%;
+        margin-bottom: 100px;
+    }
+
+    .left-side .left-drop {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .left-side .right-drop {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}

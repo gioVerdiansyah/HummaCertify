@@ -1,9 +1,10 @@
 /* FONT GLOBAL */
 
 * {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
+/* Landing Page Certificate Carousel */
 .gallery {
     display: flex;
     width: 100%;
@@ -30,7 +31,7 @@
 }
 
 .gallery-item-1 {
-    box-shadow: -2px 5px 33px 6px rgba(0,0,0,0.35);
+    box-shadow: -2px 5px 33px 6px rgba(0, 0, 0, 0.35);
     height: 300px;
     opacity: 1;
     left: 30%;
@@ -42,13 +43,13 @@
 .gallery-item-2 {
     left: 50%;
     transform: translateX(20%);
-    opacity: .4;
+    opacity: 0.4;
 }
 
 .gallery-item-3 {
     left: 70%;
     transform: translateX(-120%);
-    opacity: .4;
+    opacity: 0.4;
 }
 
 .gallery-controls {
@@ -58,7 +59,7 @@
     margin: 25px 0;
     justify-content: space-between;
     height: 100px;
-    color: #EEEEEE;
+    color: #eeeeee;
     width: 100%;
     top: 32%;
 }
@@ -78,15 +79,15 @@
     outline: none;
 }
 
-.gallery-controls-p{
+.gallery-controls-p {
     position: relative;
 }
 
 .gallery-controls-p::before {
-    border: solid #EEEEEE;
+    border: solid #eeeeee;
     border-radius: 5px;
     border-width: 0 5px 5px 0;
-    content: '';
+    content: "";
     display: inline-block;
     height: 5px;
     left: -30px;
@@ -106,10 +107,10 @@
 }
 
 .gallery-controls-n::before {
-    border: solid #EEEEEE;
+    border: solid #eeeeee;
     border-radius: 5px;
     border-width: 0 5px 5px 0;
-    content: '';
+    content: "";
     display: inline-block;
     height: 5px;
     padding: 10px;
@@ -143,8 +144,101 @@
     width: 10px;
 }
 
-.gallery-nav li.gallery-item-selected{
+.gallery-nav li.gallery-item-selected {
     background: #555;
+}
+
+/* Carousel Lulus */
+
+.container-lulus .tag-list .card-lulus {
+    width: 200px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Background */
+    background: rgb(0, 94, 147);
+    background: linear-gradient(
+        245deg,
+        rgba(0, 94, 147, 1) 0%,
+        rgba(0, 94, 147, 0.3) 100%
+    );
+    border: none;
+    border-radius: 30px 5px 50px 5px;
+
+    /* Font */
+    font-family: "Poppins", sans-serif;
+}
+
+.container-lulus .tag-list .card-lulus p {
+    margin-bottom: 0;
+}
+
+.container-lulus .tag-list .card-lulus .nama {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    line-height: 20px;
+}
+
+.container-lulus .tag-list .card-lulus .sekolah {
+    font-size: 10px;
+    font-weight: 300;
+    color: white;
+    margin-top: 5px;
+    padding: 0px 10px;
+
+    /* Background */
+    background: rgba(255, 255, 255, 0.19);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(1.9px);
+    -webkit-backdrop-filter: blur(1.9px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.container-lulus .scroller {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.container-lulus .scroller[data-animated="true"] {
+    overflow: hidden;
+    outline: 10px solid lime;
+    -webkit-mask: linear-gradient(
+        90deg,
+        transparent,
+        white 20%,
+        white 80%,
+        transparent
+    );
+    mask: linear-gradient(
+        90deg,
+        transparent,
+        white 20%,
+        white 80%,
+        transparent
+    );
+}
+
+.container-lulus .scroller[data-animated="true"] .scroller__inner {
+    width: max-content;
+    animation: scroll 10s linear infinite;
+}
+
+.container-lulus .scroller__inner {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    padding: 0;
+    padding-block: 1rem;
+}
+
+@keyframes scroll {
+    to {
+        transform: translate(calc(-40% - 0.5rem));
+    }
 }
 
 @media only screen and (max-width: 600px) {
@@ -152,7 +246,7 @@
         display: flex;
         width: 100%;
     }
-    
+
     .gallery-container {
         align-items: center;
         display: flex;
@@ -161,7 +255,7 @@
         max-width: 100%;
         position: relative;
     }
-    
+
     .gallery-item {
         height: 100px;
         opacity: 0;
@@ -172,9 +266,9 @@
         border-radius: 27px;
         background-size: contain;
     }
-    
+
     .gallery-item-1 {
-        box-shadow: -2px 5px 33px 6px rgba(0,0,0,0.35);
+        box-shadow: -2px 5px 33px 6px rgba(0, 0, 0, 0.35);
         height: 150px;
         opacity: 1;
         left: 30%;
@@ -182,19 +276,19 @@
         width: 200px;
         z-index: 2;
     }
-    
+
     .gallery-item-2 {
         left: 50%;
         transform: translateX(10%);
-        opacity: .4;
+        opacity: 0.4;
     }
-    
+
     .gallery-item-3 {
         left: 70%;
         transform: translateX(-110%);
-        opacity: .4;
+        opacity: 0.4;
     }
-    
+
     .gallery-controls {
         display: flex;
         justify-content: center;
@@ -202,12 +296,12 @@
         margin: 25px 0;
         justify-content: space-between;
         height: 100px;
-        color: #EEEEEE;
+        color: #eeeeee;
         width: 100%;
         top: 32%;
         left: 0;
     }
-    
+
     .gallery-controls button {
         background-color: transparent;
         border: 0;
@@ -218,20 +312,20 @@
         padding: 0 12px;
         text-transform: capitalize;
     }
-    
+
     .gallery-controls-button:focus {
         outline: none;
     }
-    
-    .gallery-controls-p{
+
+    .gallery-controls-p {
         position: relative;
     }
-    
+
     .gallery-controls-p::before {
-        border: solid #EEEEEE;
+        border: solid #eeeeee;
         border-radius: 5px;
         border-width: 0 5px 5px 0;
-        content: '';
+        content: "";
         display: inline-block;
         height: 5px;
         left: -30px;
@@ -241,20 +335,20 @@
         transition: left 0.15s ease-in-out;
         width: 5px;
     }
-    
+
     .gallery-controls-p:hover::before {
         left: -40px;
     }
-    
+
     .gallery-controls-n {
         position: relative;
     }
-    
+
     .gallery-controls-n::before {
-        border: solid #EEEEEE;
+        border: solid #eeeeee;
         border-radius: 5px;
         border-width: 0 5px 5px 0;
-        content: '';
+        content: "";
         display: inline-block;
         height: 5px;
         padding: 10px;
@@ -265,11 +359,11 @@
         transition: right 0.15s ease-in-out;
         width: 5px;
     }
-    
+
     .gallery-controls-n:hover::before {
         left: 60px;
     }
-    
+
     .gallery-nav {
         bottom: -15px;
         display: flex;
@@ -279,7 +373,7 @@
         position: absolute;
         width: 100%;
     }
-    
+
     .gallery nav li {
         background: #ccc;
         border-radius: 50%;
@@ -287,8 +381,8 @@
         margin: 0 16px;
         width: 10px;
     }
-    
-    .gallery-nav li.gallery-item-selected{
+
+    .gallery-nav li.gallery-item-selected {
         background: #555;
     }
 }

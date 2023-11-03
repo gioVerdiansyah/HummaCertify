@@ -27,7 +27,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        $user = User::whereNot('institusi', 'Perusahaan Hummatech')->latest()->get();
+        
+        return view('welcome', compact('user'));
     }
 
     public function adminIndex()

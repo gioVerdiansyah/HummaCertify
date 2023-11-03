@@ -14,7 +14,8 @@
           {{-- <a href="#" class="btn btn-primary me-2">Get Started <i class="icon-sm ms-1" data-feather="arrow-right"></i></a> --}}
           <form action="{{ route('search') }}" method="GET" id="searching">
             <div class="searchBox">
-              <input class="searchInput"type="search" name="q" placeholder="Contoh: Ser/0001/02/3112/2023" autocomplete="off" required>
+              <input class="searchInput"type="search" name="q" placeholder="Contoh: Ser/0001/02/3112/2023"
+                autocomplete="off" required>
               <button class="searchButton" href="#">
                 <i class="fas fa-search"></i>
               </button>
@@ -476,78 +477,36 @@
             atas dedikasi dan prestasi luar biasa mereka</p>
         </div>
       </div>
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="card mt-4 border-0 shadow">
-            <div class="card-body text-center p-4">
-              <span class="badge badge-soft-primary">Lulusan Magang Terbaru</span>
-              <div class="my-4">
-                <h4 class="font-size-22"><a href="javascript: void(0);">Shofie Cahyani</a></h4>
-                <div class="text-muted d-flex justify-content-evenly">
-                  <p>Universitas blabla</p>
-                  <p>Website Designer</p>
+      <div class="container container-lulus">
+        <div class="scroller">
+          <ul class="tag-list scroller__inner">
+            @foreach ($user as $data)
+              <li>
+                <div class="card card-lulus text-center">
+                  <p class="nama text-truncate" style="max-width: 150px">{{ $data->name }}</p>
+                  <p class="sekolah">{{ $data->institusi }}</p>
                 </div>
-              </div>
-              <img src="{{ asset('landingpage/images/features-1.jpg') }}" class="gb" alt="">
-              <div class="d-flex align-items-center mt-4 pt-2" style="display: none !important;">
-                {{-- <img src="images/user/img-2.jpg" class="rounded-circle avatar-sm me-3" alt="..." /> --}}
-                <div class="flex-body">
-                  <h5 class="font-size-17 mb-0">John Yeager</h5>
-                  <p class="text-muted mb-0 font-size-14">Designer, New York</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <div class="card mt-4 border-0 shadow">
-            <div class="card-body text-center p-4">
-              <span class="badge badge-soft-primary">Lulusan Magang Terbaru</span>
-              <div class="my-4">
-                <h4 class="font-size-22"><a href="javascript: void(0);">Shofie Cahyani</a></h4>
-                <div class="text-muted d-flex justify-content-evenly">
-                  <p>Universitas blabla</p>
-                  <p>Website Designer</p>
-                </div>
-              </div>
-              <img src="{{ asset('landingpage/images/features-1.jpg') }}" class="gb" alt="">
-              <div class="d-flex align-items-center mt-4 pt-2" style="display: none !important;">
-                {{-- <img src="images/user/img-3.jpg" class="rounded-circle avatar-sm me-3" alt="..." /> --}}
-                <div class="flex-body">
-                  <h5 class="font-size-17 mb-0">Berneice Harris</h5>
-                  <p class="text-muted mb-0 font-size-14">Designer, New York</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <div class="card mt-4 border-0 shadow">
-            <div class="card-body text-center p-4">
-              <span class="badge badge-soft-primary">Lulusan Magang Terbaru</span>
-              <div class="my-4">
-                <h4 class="font-size-22"><a href="javascript: void(0);">Shofie Cahyani</a></h4>
-                <div class="text-muted d-flex justify-content-evenly">
-                  <p>Universitas blabla</p>
-                  <p>Website Designer</p>
-                </div>
-              </div>
-              <img src="{{ asset('landingpage/images/features-1.jpg') }}" class="gb" alt="">
-              <div class="d-flex align-items-center mt-4 pt-2" style="display: none !important;">
-                {{-- <img src="images/user/img-1.jpg" class="rounded-circle avatar-sm me-3" alt="..." /> --}}
-                <div class="flex-body">
-                  <h5 class="font-size-17 mb-0">Sarah Pettway</h5>
-                  <p class="text-muted mb-0 font-size-14">Designer, New York</p>
-                </div>
-              </div>
-            </div>
-          </div>
+              </li>
+            @endforeach
+          </ul>
         </div>
       </div>
     </div>
   </section>
+
+  <script>
+    const scrollers = document.querySelectorAll(".scroller");
+
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      addAnimation();
+    }
+
+    function addAnimation() {
+      scrollers.forEach((scroller) => {
+        scroller.setAttribute('data-animated', true);
+      });
+    }
+  </script>
 
   <section class="section bg-center w-100 bg-light" style="background-image: url(images/cta-bg.png); display: none;">
     <div class="container">
@@ -594,7 +553,7 @@
                     <label for="name" class="text-muted form-label">Nama</label>
                     <input name="name" id="name" type="text" class="form-control"
                       placeholder="Masukkan nama" @auth value="{{ Auth::user()->name }}" @endauth required>
-                      <p id="error-nama" class="text-danger"></p>
+                    <p id="error-nama" class="text-danger"></p>
                   </div>
                 </div>
                 <div class="col-lg-6">
@@ -602,7 +561,7 @@
                     <label for="email" class="text-muted form-label">Email</label>
                     <input name="email" id="email" type="email" class="form-control"
                       placeholder="Masukkan email" @auth value="{{ Auth::user()->email }}" @endauth required>
-                      <p id="error-email" class="text-danger"></p>
+                    <p id="error-email" class="text-danger"></p>
                   </div>
                 </div>
                 <div class="col-md-12">
@@ -610,7 +569,7 @@
                     <label for="comments" class="text-muted form-label">Pesan</label>
                     <textarea name="message" id="comments" rows="10" class="form-control" placeholder="Masukkan pesan..."
                       required></textarea>
-                      <p id="error-pesan" class="text-danger"></p>
+                    <p id="error-pesan" class="text-danger"></p>
                   </div>
 
                   <button type="submit" id="submit-button" name="send" class="btn btn-biru">
@@ -786,8 +745,8 @@
         } else if (name === "hummacertify") {
           nameContainer.text('Jangan menggunakan nama kami!');
           error = true;
-        }else{
-            nameContainer.text('');
+        } else {
+          nameContainer.text('');
         }
 
         if (email === "") {
@@ -796,8 +755,8 @@
         } else if (email === "hummacertify@gmail.com") {
           emailContainer.text('Jangan menggunakan nama email kami!');
           error = true;
-        }else{
-            emailContainer.text('');
+        } else {
+          emailContainer.text('');
         }
 
         if (message === "") {
@@ -806,8 +765,8 @@
         } else if (message.length > 5000) {
           messageContainer.text('Pesan tidak boleh lebih dari 5000 karakter.');
           error = true;
-        }else{
-            messageContainer.text('');
+        } else {
+          messageContainer.text('');
         }
 
         if (error) {
