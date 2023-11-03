@@ -8,7 +8,7 @@ use App\Base\Interfaces\HasCertificates;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class CertificateCategori extends Model implements HasCertificates
+class CertificateCategori extends Model
 {
     use HasFactory;
 

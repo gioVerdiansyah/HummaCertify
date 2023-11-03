@@ -99,8 +99,9 @@ class CertificateController extends Controller
         );
 
         // Generate nomor sertifikat
-        $userUniq = User::count();
-        $nomorSertifikat = $this->generateCertificateNumber($userUniq, $data['certificate_categori_id'], $data['tanggal']);
+        $userUniq = Certificate::count() + 1;
+        $nomorKategori = Certificate::where('certificate_categori_id', $data['certificate_categori_id'])->count() + 1;
+        $nomorSertifikat = $this->generateCertificateNumber($userUniq, $data['certificate_categori_id'], $nomorKategori, $data['tanggal']);
 
         // Create Sertifikat
         $certificate = Certificate::create(
@@ -172,8 +173,9 @@ class CertificateController extends Controller
         $dataRequest = $request->all();
         $user = User::findOrFail($dataRequest['user_id']);
 
-        $uniq = User::count() + 1;
-        $nomorSertifikat = $this->generateCertificateNumber($uniq, $dataRequest['certificate_categori_id'], $dataRequest['tanggal']);
+        $uniq = Certificate::count() + 1;
+        $nomorKategori = Certificate::where('certificate_categori_id',$dataRequest['certificate_categori_id'])->count();
+        $nomorSertifikat = $this->generateCertificateNumber($uniq, $dataRequest['certificate_categori_id'], $nomorKategori, $dataRequest['tanggal']);
 
         $certificate = Certificate::create([
             'user_id' => $user->id,
@@ -261,15 +263,16 @@ class CertificateController extends Controller
     }
 
     // FUNCTIONAL
-    public function generateCertificateNumber($userUniq, $certificateCategoryId, $tanggal)
+    public function generateCertificateNumber($userUniq, $certificateCategoryId, $categorycount, $tanggal)
     {
         $nomorUnik = str_pad($userUniq, 4, '0', STR_PAD_LEFT);
         $nomorKategori = str_pad($certificateCategoryId, 2, '0', STR_PAD_LEFT);
+        $nomorKategoriSTR = str_pad($categorycount, 4, '0', STR_PAD_LEFT);
         $bulan = date('m', strtotime($tanggal));
         $hari = date('d', strtotime($tanggal));
         $tahun = date('Y', strtotime($tanggal));
 
-        $nomorSertifikat = 'Ser' . '/' . $nomorUnik . '/' . $nomorKategori . '/' . $hari . $bulan . '/' . $tahun;
+        $nomorSertifikat = 'Ser' . '/' . $nomorUnik . '/'.$nomorKategoriSTR. '/' . $nomorKategori . '/' . $hari . $bulan . '/' . $tahun;
         return $nomorSertifikat;
     }
     public function generateCertificate(string $id)
