@@ -102,7 +102,10 @@
               </span>
             </button>
           </div>
-
+            @php
+                $notification = \App\Models\ContactMe::where('created_at', 'desc')->get();
+                $notificationCount = \App\Models\ContactMe::all()->count();
+            @endphp
           <div class="d-flex align-items-center">
 
             <div class="dropdown topbar-head-dropdown ms-1 header-item" id="notificationDropdown">
@@ -261,8 +264,8 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link menu-link {{ request()->routeIs('certificate.tambahKategori') ? 'active' : '' }}"
-                href="{{ route('tambahKategori') }}">
+              <a class="nav-link menu-link {{ request()->routeIs('category.index') ? 'active' : '' }}"
+                href="{{ route('category.index') }}">
                 <img width="22" class="me-3" src="{{ asset('image/tambah-icon.png') }}" alt="">
                 <span data-key="t-tambah_certificate">Tambah Kategori Sertifikat</span>
               </a>

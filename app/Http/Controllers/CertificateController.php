@@ -260,13 +260,6 @@ class CertificateController extends Controller
         ]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-    }
-
     // FUNCTIONAL
     public function generateCertificateNumber($userUniq, $certificateCategoryId, $tanggal)
     {

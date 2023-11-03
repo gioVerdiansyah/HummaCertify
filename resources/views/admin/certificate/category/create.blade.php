@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="{{ asset('css/admin/template.css') }}">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <div class="container-css">
-    <form action="{{ route('storeCategories') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('category.store') }}" method="POST" enctype="multipart/form-data">
       @csrf
       <div class="top-content">
         <div class="left-side">

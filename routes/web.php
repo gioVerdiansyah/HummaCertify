@@ -9,7 +9,7 @@ use App\Http\Controllers\PesertaController;
 use App\Http\Controllers\DemoTestController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CertificateController;
-use App\Http\Controllers\detailCertificateController;
+use App\Http\Controllers\CategoryController ;
 
 // Auth::routes();
 
@@ -35,16 +35,10 @@ Route::middleware('AdminUp')->group(function () {
     Route::prefix('admin')->group(function () {
         Route::get('/', [HomeController::class, 'adminIndex'])->name('admin.home');
         Route::post('/logoutAdmin', [LoginController::class, 'logout'])->name('admin.logout');
-        Route::get('/datatable', function () {
-            return view('admin.ListSertifikat');
-        });
-        Route::get('/upload/background', [detailCertificateController::class, 'uploadBackground']);
-        Route::post('/uploadStore', [detailCertificateController::class, 'storeCategories'])->name('storeCategories');
-        Route::get('/list', function (){
-            return view('admin.certificate.listSertifikat');
-        });
-        Route::resource('/certificate', CertificateController::class);
-        Route::get('/tambahKategori', [detailCertificateController::class, 'tambahKategori'])->name('tambahKategori');
+
+        Route::resource('/certificate', CertificateController::class)->except(['destroy', 'show']);
+        Route::resource('/category', CategoryController::class);
+
         Route::get('/certificate/create/exist', [CertificateController::class, 'createExist'])->name('certificate.create_exist');
         Route::post('/certificate/store/exist',[CertificateController::class, 'storeExists'])->name('certificate.store_exist');
 

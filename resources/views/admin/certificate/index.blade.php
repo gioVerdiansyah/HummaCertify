@@ -151,7 +151,7 @@
                     cancelButtonText: 'Batal'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = link.href;
+                        window.open(link.href, '_blank');
                     }
                 });
             });
@@ -193,7 +193,7 @@
                 cancelButtonText: 'batal',
             }).then((result) => {
                 if(result.isConfirmed) {
-                    window.location.href = link.href;
+                    window.open(link.href, '_blank');
                 }
             });
         });

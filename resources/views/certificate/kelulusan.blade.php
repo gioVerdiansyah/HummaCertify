@@ -57,7 +57,7 @@
         </div>
       </div>
     </div>
-    <div class="belakang" style='background-image: url("/image/certificate-bg.png");'>
+    <div class="belakang" style="{{ isset($bgDepan) ? $bgDepan : 'background-image: url("/image/certificate-bg.png");' }}">
       <div class="content">
         <div class="table-materi">
           <table>

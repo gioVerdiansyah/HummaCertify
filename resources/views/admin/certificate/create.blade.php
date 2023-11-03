@@ -239,7 +239,6 @@
       </div>
     </div>
   </div>
-  {{-- @include('layouts.jsIndex') --}}
   <script>
     document.getElementById('myform').addEventListener('submit', function() {
         document.getElementById('loading').style.display = 'flex';
