@@ -76,9 +76,11 @@
                                             <i class="fi fi-rr-print"></i>
                                         </a>
                                         </a>
+                                        @if ($certificate->status === 'nonPrint')
                                         <a href="{{ route('certificate.edit', $certificate->id) }}" class="btn btn-warning" title="Edit">
                                             <i class="fi fi-rr-edit"></i>
                                         </a>
+                                        @endif
 
                                     </td>
                                 </tr>
