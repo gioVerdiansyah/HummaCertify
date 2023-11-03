@@ -1,30 +1,30 @@
 @extends('layouts.nav-admin')
 
 @section('content')
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
   <link rel="stylesheet" href="{{ asset('css/admin/template.css') }}">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <div class="container-css">
-    <form action="" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('storeCategories') }}" method="POST" enctype="multipart/form-data">
       @csrf
       <div class="top-content">
         <div class="left-side">
           <div class="header-card">
             <span class="first-title text-start">Upload Latar Belakang</span>
-            <span class="second-title text-end"><i class="fa-regular fa-circle-exclamation" style="color: #2d559a;"></i>Standar ukuran A4 (3508px X 2480px)</span>
+            <span class="second-title text-end text-info"><box-icon name='error-circle' color='#29BADB' class="warn-icon"></box-icon>Standar ukuran A4 (3508px X 2480px)</span>
           </div>
           <hr class="line-header">
           <div class="body-card">
             <div class="left-drop">
-              <span class="drop-header">Template (Depan)</span>
-              <input type="file" name="file" id="file" />
+              <span class="drop-header">Latar belakang (Depan)</span>
+              <input type="file" name="depan" id="file" />
               <div class="upload-area" id="uploadfile">
                 <span>Jatuhkan file disini atau klik untuk menggungah</span>
               </div>
             </div>
             <div class="right-drop">
-              <span class="drop-header">Template (Belakang)</span>
-              <input type="file" name="file2" id="file2" />
+              <span class="drop-header">Latar belakang (Belakang)</span>
+              <input type="file" name="belakang" id="file2" />
               <div class="upload-area2" id="uploadfile2">
                 <span>Jatuhkan file disini atau klik untuk menggungah</span>
               </div>
@@ -39,13 +39,15 @@
           <div class="body-card">
             <div class="mb-3">
               <label for="namaKategori">Nama Kategori</label>
-              <input type="text" name="namaKategori" class="form-control" placeholder="Nama kategori">
+              <input type="text" name="namaKategori" class="form-control" placeholder="Nama kategori" required>
             </div>
             <div class="mb-3">
               <label for="namaKategori">Tata Letak</label>
-              <select name="letakDepan" id="letakDepan" class="form-select">
+              <select name="tataletak" id="tataLetak" class="form-select" required>
                 <option disabled selected>Pilih tata letak depan</option>
-                <option value="1">Tata letak 1</option>
+                <option value="Kelulusan">Kelulusan</option>
+                <option value="Pelatihan">Pelatihan</option>
+                <option value="Kompetensi">Kompetensi</option>
               </select>
             </div>
             <div class="card-button">
@@ -69,13 +71,13 @@
               <div class="preview-left">
                 <div class="preview-image">
                   <span>Gambar Latar Belakang Sertifikat (Depan)</span>
-                  <div class="depan-preview"></div>
+                  <div class="depan-preview" id="previewDepan"></div>
                 </div>
               </div>
               <div class="preview-right">
                 <div class="preview-image">
                   <span>Gambar Latar Belakang Sertifikat (Belakang)</span>
-                  <div class="belakang-preview"></div>
+                  <div class="belakang-preview" id="previewBelakang"></div>
                 </div>
               </div>
             </div>
@@ -91,7 +93,7 @@
         e.stopPropagation();
         e.preventDefault();
         $(".upload-area").css({
-          border: "2px dotted black"
+          border: "2px solid lightgray"
         });
       });
 
@@ -99,7 +101,7 @@
         e.stopPropagation();
         e.preventDefault();
         $(".upload-area").css({
-          border: "2px dotted black"
+          border: "2px solid lightgray"
         });
       });
 
@@ -107,7 +109,7 @@
         e.stopPropagation();
         e.preventDefault();
         $(".upload-area").css({
-          border: "2px solid"
+          border: "2px dashed lightgray"
         });
       });
 
@@ -166,6 +168,7 @@
       reader.onload = function(e) {
         var src = e.target.result;
         $("#uploadfile").css("background-image", "url(" + src + ")");
+        $("#depan-preview").css("background-image", "url(" + src + ")");
 
         // $("#uploadfile").append('<p class="size">' + size + "</p>");
       };
@@ -187,17 +190,17 @@
 
       uploadArea2.on("dragenter dragover", function(e) {
         e.preventDefault();
-        uploadArea2.css("border", "2px dotted black");
+        uploadArea2.css("border", "2px solid lightgray");
       });
 
       uploadArea2.on("dragleave", function(e) {
         e.preventDefault();
-        uploadArea2.css("border", "2px solid");
+        uploadArea2.css("border", "2px dashed lightgray");
       });
 
       uploadArea2.on("drop", function(e) {
         e.preventDefault();
-        uploadArea2.css("border", "2px solid");
+        uploadArea2.css("border", "2px solid lightgray");
 
         var file = e.originalEvent.dataTransfer.files[0];
 
@@ -245,6 +248,7 @@
         reader.onload = function(e) {
           var src = e.target.result;
           uploadArea2.css("background-image", "url(" + src + ")");
+          depan-preview.css("background-image", "url(" + src + ")");
         };
 
         reader.readAsDataURL(file);

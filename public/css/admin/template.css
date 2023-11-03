@@ -5,6 +5,11 @@
     height: auto;
 }
 
+.warn-icon {
+    transform: translate(-28px , -1.2px);
+    position: absolute;
+}
+
 .top-content {
     display: flex;
     gap: 20px;
@@ -26,7 +31,6 @@
 .left-side .second-title{
     width: 100%;
     text-align: right;
-    color: rgb(108, 176, 253);
     font-weight: 600;
     font-size: 15px;
 }
@@ -92,10 +96,11 @@
     padding: 20px;
 }
 
+
 .right-side .card-button {
-    position: relative;
-    bottom: 0;
     width: 100%;
+    height: auto;
+    margin-top: 41%;
     text-align: right;
 }
 
@@ -103,11 +108,11 @@
     display: flex;
     width: 100%;
     height: 100%;
+    margin-bottom: 100px;
 }
 
 .depan-preview {
     margin-top: 10px;
-    background-image: url('../../image/certificate-bg.png');
     background-size: contain;
     border-radius: 10px;
     width: 484.56px;
@@ -117,7 +122,6 @@
 
 .belakang-preview {
     margin-top: 10px;
-    background-image: url('../../image/certificate-bg.png');
     background-size: contain;
     width: 484.56px;
     height: 344.56px;

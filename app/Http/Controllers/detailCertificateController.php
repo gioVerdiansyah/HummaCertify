@@ -32,10 +32,11 @@ class detailCertificateController extends Controller
         return redirect()->back();
     }
 
-    public function tambahKategori() {
+    public function tambahKategori()
+    {
         $notification = ContactMe::all();
         $notificationCount = ContactMe::all()->count();
-        return view('admin.certificate.tambahKategori',compact('notification' , 'notificationCount'));
+        return view('admin.certificate.tambahKategori', compact('notification', 'notificationCount'));
     }
 
     public function uploadBackground()
@@ -53,27 +54,32 @@ class detailCertificateController extends Controller
 
     public function storeCategories(Request $request)
     {
-
         $request->validate([
-            'name' => 'required|string|max:255',
-            'backgroundDepan' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'backgroundBelakang' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'namaKategori' => 'required|string|max:255',
+            'depan' => 'required|image|mimes:jpeg,png,jpg,gif',
+            'belakang' => 'required|image|mimes:jpeg,png,jpg,gif',
             'tataletak' => 'required|string|max:255',
         ]);
 
+        $depan = $request->file('depan');
+        $belakang = $request->file('belakang');
 
-        $backgroundDepanPath = $request->file('backgroundDepan')->move('public/images/certificates');
-        $backgroundBelakangPath = $request->file('backgroundBelakang')->move('public/images/certificates');
+        $pass = CertificateCategori::create([
+            'name' => $request->namaKategori,
+            'backgroundDepan' => $depan->hashName(),
+            'backgroundBelakang' => $belakang->hashName(),
+            'tataLetak' => $request->tataletak,
+        ]);
 
+        $depan->move('public/depanBg/');
+        $belakang->move('public/belakangBg/');
 
-        $categoryCertificate = new CertificateCategori();
-        $categoryCertificate->name = $request->name;
-        $categoryCertificate->backgroundDepan = $backgroundDepanPath;
-        $categoryCertificate->backgroundBelakang = $backgroundBelakangPath;
-        $categoryCertificate->tataLetak = $request->tataletak;
-        $categoryCertificate->save();
+        return $pass;
 
-        return redirect()->back()->with('success', 'Category created successfully!');
+        return redirect()->back()->with('message', [
+            'icon' => 'success',
+            'title' => 'Berhasil!',
+            'text' => 'Berhasil menambahkan kategori'
+        ]);
     }
-
 }
