@@ -174,7 +174,7 @@ class CertificateController extends Controller
         $user = User::findOrFail($dataRequest['user_id']);
 
         $uniq = Certificate::count() + 1;
-        $nomorKategori = Certificate::where('certificate_categori_id',$dataRequest['certificate_categori_id'])->count();
+        $nomorKategori = Certificate::where('certificate_categori_id',$dataRequest['certificate_categori_id'])->count() + 1;
         $nomorSertifikat = $this->generateCertificateNumber($uniq, $dataRequest['certificate_categori_id'], $nomorKategori, $dataRequest['tanggal']);
 
         $certificate = Certificate::create([
@@ -193,7 +193,7 @@ class CertificateController extends Controller
         }
 
         $this->generateCertificate($certificate->id);
-        return redirect()->back()->with('message', [
+        return redirect()->route('certificate.index')->with('message', [
             'icon' => 'success',
             'title' => 'Berhasil!',
             'text' => "Berhasil menambah sertifikat {$user->name}"
@@ -233,12 +233,16 @@ class CertificateController extends Controller
         ];
         $user->update($dataUser);
 
+        $userUniq = Certificate::count();
+        $nomorKategori = Certificate::where('certificate_categori_id', $request->certificate_categori_id)->count() + 1;
+        $nomorSertifikat = $this->generateCertificateNumber($userUniq, $request->certificate_categori_id , $nomorKategori, $request->tanggal);
         $dataCertificate = [
             'certificate_categori_id' => $request->certificate_categori_id,
             'tanggal' => $request->tanggal,
             'bidang' => $request->bidang,
             'predikat' => $request->predikat,
             'sub_bidang' => $request->sub_bidang,
+            'nomor' => $nomorSertifikat,
         ];
         $certificate->update($dataCertificate);
 
@@ -275,6 +279,8 @@ class CertificateController extends Controller
         $nomorSertifikat = 'Ser' . '/' . $nomorUnik . '/'.$nomorKategoriSTR. '/' . $nomorKategori . '/' . $hari . $bulan . '/' . $tahun;
         return $nomorSertifikat;
     }
+
+
     public function generateCertificate(string $id)
     {
             $certificate = Certificate::with(['user', 'category', 'detailCertificates'])->where('id', $id)->first();
