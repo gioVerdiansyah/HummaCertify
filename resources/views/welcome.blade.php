@@ -110,7 +110,6 @@
         </div>
       </div>
     </div>
-
   </section>
 
   <section class="section bg-light" id="tentang">
@@ -690,15 +689,7 @@
           <p><small>All rights reserved © 2023</small></p>
           <p><small>Dibuat Oleh Siswa HummaTech</small></p>
         </div>
-        <div class="col-lg-12" style="display: none;">
-          <div class="text-center mt-5">
-            <p class="text-white-50 f-15 mb-0">
-              <script>
-                document.write(new Date().getFullYear())
-              </script> © Qexal. Design By Themesbrand
-            </p>
-          </div>
-        </div>
+        
       </div>
     </div>
   </footer>

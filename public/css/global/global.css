@@ -205,7 +205,6 @@
 
 .container-lulus .scroller[data-animated="true"] {
     overflow: hidden;
-    outline: 10px solid lime;
     -webkit-mask: linear-gradient(
         90deg,
         transparent,
@@ -298,7 +297,7 @@
         height: 100px;
         color: #eeeeee;
         width: 100%;
-        top: 32%;
+        top: 26%;
         left: 0;
     }
 

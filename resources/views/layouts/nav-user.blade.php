@@ -125,6 +125,4 @@
   {{-- <script src="js/app.js"></script> --}}
 </body>
 
-<!-- Mirrored from themesbrand.com/qexal/layout/index-6.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Oct 2023 07:16:52 GMT -->
-
 </html>

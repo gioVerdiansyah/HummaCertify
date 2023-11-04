@@ -68,17 +68,17 @@
                                         <form data-email="{{ $certificate->user->email }}" action="{{ route('sendCertificate', $certificate->id) }}" method="POST" class="emailForm m-0">
                                             @csrf
                                             <button type="submit" class="btn btn-primary send-email" title="Kirim Email">
-                                                <i class="fi fi-rs-paper-plane"></i>
+                                                <i class="fi fi-rs-paper-plane" style="display: flex; margin: 3px"></i>
                                             </button>
                                         </form>
                                         @endisset
                                         <a href="{{ route('getCertificate', $certificate->id) }}" target="_blank" class="btn btn-info print-certificate" title="Print">
-                                            <i class="fi fi-rr-print"></i>
+                                            <i class="fi fi-rr-print" style="display: flex; margin: 3px"></i>
                                         </a>
                                         </a>
                                         @if ($certificate->status === 'nonPrint')
                                         <a href="{{ route('certificate.edit', $certificate->id) }}" class="btn btn-warning" title="Edit">
-                                            <i class="fi fi-rr-edit"></i>
+                                            <i class="fi fi-rr-edit" style="display: flex; margin: 3px"></i>
                                         </a>
                                         @endif
 
