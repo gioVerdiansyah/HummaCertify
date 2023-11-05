@@ -54,7 +54,7 @@
           .bg .content .no-sertifikat .no {
             position: absolute;
             top: 179px;
-            left: 365px;
+            left: 330px;
             font-size: 19px;
             letter-spacing: 2px;
             font-family: "Merriweather", serif;
@@ -63,7 +63,7 @@
           .bg .content .no-sertifikat .nomer {
             position: absolute;
             top: 156.5px;
-            left: 415px;
+            left: 375px;
             font-family: "Poppins", sans-serif;
             font-weight: 400;
             font-size: 18px;

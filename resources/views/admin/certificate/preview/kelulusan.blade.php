@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{asset('css/certificate/kelulusan.css')}}">
+<link rel="stylesheet" href="{{asset('css/preview/kelulusan.css')}}">
   <main id="certificate-1" class="d-flex flex-column align-items-center">
     <div id="bgDepan" class="bg">
       <div class="content">
@@ -40,9 +40,9 @@
           <table>
             <thead>
               <tr>
-                <th width="10%">No</th>
-                <th width="70%">Materi</th>
-                <th width="20%">Waktu</th>
+                <th style="text-align: center" width="10%">No</th>
+                <th style="text-align: center" width="70%">Materi</th>
+                <th style="text-align: center" width="20%">Waktu</th>
               </tr>
             </thead>
             <tbody>

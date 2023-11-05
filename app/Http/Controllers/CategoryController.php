@@ -69,7 +69,9 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $categories = CertificateCategori::all();
+        $category = CertificateCategori::where('id', $id)->firstOrFail();
+        return view('admin.certificate.category.edit', compact('categories', 'category'));
     }
 
     /**
@@ -77,7 +79,44 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $category = CertificateCategori::where('id', $id)->firstOrFail();
+
+        $data = [
+            'name' => $request->namaKategori,
+            'tata_letak' => $request->tataletak,
+        ];
+
+        if ($request->hasFile('depan')) {
+            $depan = $request->file('depan');
+            $existingDepan = public_path($category->background_depan);
+            if (file_exists($existingDepan)) {
+                unlink($existingDepan);
+            }
+            $depanPath = 'image/bgdepan/' . $depan->hashName();
+            $depan->move('image/bgdepan/', $depan->hashName());
+            $data['background_depan'] = $depanPath;
+        }
+
+        if ($request->hasFile('belakang')) {
+            $belakang = $request->file('belakang');
+            $existingBelakang = public_path($category->background_belakang);
+            if (file_exists($existingBelakang)) {
+                unlink($existingBelakang);
+            }
+
+            $belakangPath = 'image/bgbelakang/' . $belakang->hashName();
+            $belakang->move('image/bgbelakang/', $belakang->hashName());
+            $data['background_belakang'] = $belakangPath;
+        }
+
+        // proses update
+        $category->update($data);
+
+        return redirect()->route('category.index')->with('message', [
+            'icon' => 'success',
+            'title' => 'Berhasil!',
+            'text' => 'Berhasil mengubah kategori'
+        ]);
     }
 
     /**

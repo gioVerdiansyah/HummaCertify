@@ -66,7 +66,7 @@
       .depan .content .no {
         position: absolute;
         top: 217px;
-        left: 390px;
+        left: 365px;
         font-family: "Merriweather", serif;
         font-size: 18px;
       }
@@ -74,7 +74,7 @@
       .depan .content .nomer {
         position: absolute;
         top: 212px;
-        left: 440px;
+        left: 410px;
         font-family: "Poppins", sans-serif;
         font-weight: 400;
         font-size: 18px;
