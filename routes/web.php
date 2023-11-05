@@ -52,7 +52,7 @@ Route::middleware('AdminUp')->group(function () {
         Route::delete('/delete_notif', [ContactMeController::class, 'delete'])->name('delete_notif');
 
         // Preview
-        Route::get('/preview/{ct}', [CategoryController::class, 'preiew'])->name('get_preview');
+        Route::get('/preview/{ct}', [CategoryController::class, 'preview'])->name('get_preview');
     });
 });
 

@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="{{asset('css/certificate/kelulusan.css')}}">
-  <main id="certificate-1">
-    <div class="bg" style="background-image: url({{ $bgDepan }})">
+  <main id="certificate-1" class="d-flex flex-column align-items-center">
+    <div id="bgDepan" class="bg">
       <div class="content">
         {{-- Nomer Sertifikat --}}
         <div class="no-sertifikat">
@@ -34,7 +34,7 @@
         </div>
       </div>
     </div>
-    <div class="belakang" style="background-image: url({{ $bgBelakang }})">
+    <div id="bgBelakang" class="belakang">
       <div class="content">
         <div class="table-materi">
           <table>
