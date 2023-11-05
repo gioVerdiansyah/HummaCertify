@@ -50,9 +50,15 @@
               <p class="sub-bidang">{{ $certificate->sub_bidang }}</p>
             </div>
             {{-- Nilai Medal --}}
-            <div class="text-penilaian">
-              <p>Sangat Baik</p>
-            </div>
+            @if ($certificate->predikat === 'Sangat Baik')
+              <div class="text-penilaian" style="top: 618px; line-height: 20px">
+                <p>{{ $certificate->predikat }}</p>
+              </div>
+            @else
+              <div class="text-penilaian">
+                <p>{{ $certificate->predikat }}</p>
+              </div>
+            @endif
             {{-- QR CODE --}}
             <div class="qr-code">
               <center>

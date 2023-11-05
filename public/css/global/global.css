@@ -223,7 +223,7 @@
 
 .container-lulus .scroller[data-animated="true"] .scroller__inner {
     width: max-content;
-    animation: scroll 10s linear infinite;
+    animation: scroll 20s linear infinite;
 }
 
 .container-lulus .scroller__inner {
@@ -236,7 +236,7 @@
 
 @keyframes scroll {
     to {
-        transform: translate(calc(-40% - 0.5rem));
+        transform: translate(calc(-20% - 0.5rem));
     }
 }
 

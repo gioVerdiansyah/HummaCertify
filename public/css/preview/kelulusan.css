@@ -36,7 +36,7 @@ body {
 
 .bg .content .no-sertifikat .nomer {
     position: absolute;
-    top: 161.5px;
+    top: 182px;
     left: 375px;
     font-family: "Poppins", sans-serif;
     font-weight: 400;
@@ -46,7 +46,7 @@ body {
 
 .bg .content .nama-peserta {
     position: absolute;
-    top: 230px;
+    top: 290px;
     left: 12%;
     width: 75%;
 }
@@ -87,7 +87,7 @@ body {
 
 .bg .content .apresiasi {
     position: absolute;
-    top: 490px;
+    top: 508px;
     left: 210px;
     width: 700px;
     text-align: center;
@@ -100,7 +100,7 @@ body {
 .bg .content .qr-code {
     position: absolute;
     top: 650px;
-    left: 511px;
+    left: 500px;
 }
 
 /* Belakang */
@@ -153,4 +153,6 @@ body {
 .belakang .content .table-materi table tbody td {
     border: 1px solid;
     padding: 4px 0px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
 }
