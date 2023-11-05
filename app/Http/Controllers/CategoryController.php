@@ -3,13 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\ContactMe;
-use App\Models\Certificate;
 use Illuminate\Http\Request;
 use App\Models\CertificateCategori;
 use App\Http\Controllers\Controller;
-use App\Services\DetailCertificateService;
-use App\Http\Requests\DetailCertificateStoreRequest;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
@@ -90,21 +87,21 @@ class CategoryController extends Controller
     {
         $category = CertificateCategori::findOrFail($id);
 
+
         if ($category->background_depan) {
-            if (Storage::exists($category->background_depan)) {
-                $depan
-                Storage::disk('public')->delete($category->background_depan);
+            if (File::exists($category->background_depan)) {
+                File::delete($category->background_depan);
             }
         }
 
         if ($category->background_belakang) {
-            if (Storage::exists($category->background_belakang)) {
-                Storage::disk('public')->delete();
+            if (File::exists($category->background_belakang)) {
+                File::delete($category->background_belakang);
             }
         }
 
         $name = $category->name;
-        // $category->delete();
+        $category->delete();
 
         return back()->with('message', [
             'icon' => 'success',
@@ -112,7 +109,6 @@ class CategoryController extends Controller
             'text' => 'Berhasil menghapus category ' . $name
         ]);
     }
-
 
     // Bukan CRUD
     public function preview(Request $request, string $ct)

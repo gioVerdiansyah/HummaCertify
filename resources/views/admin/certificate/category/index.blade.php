@@ -31,10 +31,10 @@
               @if(!in_array($category->name, ["Kelulusan", "Pelatihan", "Kompetensi"]))
               <div class="d-flex">
                 <a href="{{ route('category.edit', $category->id) }}"><i class="bx bx-edit d-flex align-items-center fs-5 text-info"></i></a>
-                <form action="{{ route('category.destroy', $category->id) }}" method="POST">
+                <form action="{{ route('category.destroy', $category->id) }}" onsubmit="event.preventDefault()" id="form-delete" method="POST">
                     @csrf
                     @method('DELETE')
-                  <button type="submit"><i class="las la-trash-alt d-flex align-items-center fs-4 text-danger"></i></button>
+                  <button type="submit" id="delete-kategori"><i class="las la-trash-alt d-flex align-items-center fs-4 text-danger"></i></button>
                 </form>
               </div>
               @endif
@@ -44,4 +44,21 @@
       </div>
     @endforeach
   </div>
+  <script>
+    $("#delete-kategori").on('click', function() {
+        Swal.fire({
+          title: 'apakah anda yakin?',
+          text: "tindakan ini tidak dapat di batalkan",
+          icon: "question",
+          showCancelButton: true,
+          confirmButtonText: "lanjutkan",
+          cancelButtonText: "batal",
+          background: 'var(--bs-body-bg)',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            $("#form-delete").submit();
+          }
+        });
+    });
+  </script>
 @endsection
