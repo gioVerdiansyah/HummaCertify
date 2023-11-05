@@ -50,6 +50,9 @@ Route::middleware('AdminUp')->group(function () {
         // notifikasi
         // Route::put('/read', [ContactMeController::class, 'read'])->name('read_notif');
         Route::delete('/delete_notif', [ContactMeController::class, 'delete'])->name('delete_notif');
+
+        // Preview
+        Route::get('/preview/{ct}', [CategoryController::class, 'preiew'])->name('get_preview');
     });
 });
 

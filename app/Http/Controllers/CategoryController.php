@@ -91,4 +91,13 @@ class CategoryController extends Controller
     {
         //
     }
+
+
+    // Bukan CRUD
+    public function preview(Request $request, string $ct){
+        $categoryTataLetak = strtolower($ct);
+        $bgDepan = $request->bgDepan;
+        $bgBelakang = $request->bgBelakang;
+        return view('admin.certificate.preview.' . $categoryTataLetak, compact('bgDepan', 'bgBelakang'));
+    }
 }

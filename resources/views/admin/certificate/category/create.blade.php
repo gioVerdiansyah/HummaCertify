@@ -51,7 +51,7 @@
               </select>
             </div>
             <div class="card-button">
-              <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#preview">Preview</button>
+              <button type="button" id="preview" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#preview">Preview</button>
               <button type="submit" class="btn btn-primary">Simpan</button>
             </div>
           </div>
@@ -66,27 +66,14 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <hr class="modal-line">
-          <div class="modal-body">
-            <div class="preview-container">
-              <div class="preview-left">
-                <div class="preview-image">
-                  <span>Gambar Latar Belakang Sertifikat (Depan)</span>
-                  <div class="depan-preview" id="previewDepan"></div>
-                </div>
-              </div>
-              <div class="preview-right">
-                <div class="preview-image">
-                  <span>Gambar Latar Belakang Sertifikat (Belakang)</span>
-                  <div class="belakang-preview" id="previewBelakang"></div>
-                </div>
-              </div>
-            </div>
+          <div id="modal-body" class="modal-body">
           </div>
         </div>
       </div>
     </div>
   </div>
   <script>
+    let bgDepan;
     $(function() {
       var maxFileSize = 2 * 1024 * 1024;
       $(".upload-area").on("dragenter", function(e) {
@@ -118,7 +105,7 @@
         e.preventDefault();
 
         var file = e.originalEvent.dataTransfer.files;
-        console.log(file);
+        bgDepan = file;
 
         if (!file[0].type.startsWith("image/")) {
           $(".upload-area span").text("Error: Only images are allowed");
@@ -139,6 +126,7 @@
 
       $("#file").change(function() {
         var files = $("#file")[0].files[0];
+        bgDepan = files;
 
         if (!files.type.startsWith("image/")) {
           $(".upload-area span").text("Error: Only images are allowed");
@@ -184,6 +172,7 @@
     }
   </script>
   <script>
+    let bgBelakang;
     $(function() {
       var maxFileSize = 2 * 1024 * 1024;
       var uploadArea2 = $(".upload-area2");
@@ -203,6 +192,7 @@
         uploadArea2.css("border", "2px solid lightgray");
 
         var file = e.originalEvent.dataTransfer.files[0];
+        bgBelakang = file;
 
         if (!file.type.startsWith("image/")) {
           uploadArea2.find("span").text("Error: Only images are allowed");
@@ -223,6 +213,7 @@
 
       $("#file2").change(function() {
         var files = $("#file2")[0].files[0];
+        bgBelakang = files;
 
         if (!files.type.startsWith("image/")) {
           uploadArea2.find("span").text("Error: Only images are allowed");
@@ -248,7 +239,7 @@
         reader.onload = function(e) {
           var src = e.target.result;
           uploadArea2.css("background-image", "url(" + src + ")");
-          depan-preview.css("background-image", "url(" + src + ")");
+          $('#depan-preview').css("background-image", "url(" + src + ")");
         };
 
         reader.readAsDataURL(file);
@@ -261,6 +252,23 @@
         return Math.round(size / Math.pow(1024, i), 2) + " " + sizes[i];
       }
     });
+  </script>
+
+  <script>
+    $('#preview').on('click', function(){
+        $.ajax({
+            type: "GET",
+            url: "{{ route('get_preview', '') }}/" + $('#tataLetak').val(),
+            data: {
+                bgDepan: bgDepan,
+                bgBelakang: bgBelakang
+            },
+            dataType: "html",
+            success: function (response) {
+                $('#modal-body').html(response);
+            }
+        });
+    })
   </script>
 
   {{-- <script>
