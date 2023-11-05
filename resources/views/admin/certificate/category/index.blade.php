@@ -11,30 +11,35 @@
           <div class="card-body">
             <a href="javascript: void(0);" class="image-container">
               <img src="{{ asset($category->background_depan) }}" class="ukuran gmr" alt="Background {{ $category->name }}">
-              <div class="image-hover fs-1" data-bs-toggle="modal" data-bs-target="#penuh">
+              <div class="image-hover fs-1" data-bs-toggle="modal" data-bs-target="#penuh{{ $category->id }}">
                 <h5 class="hover-animate"><i class="ri-zoom-in-line"></i></h5>
               </div>
             </a>
+            <div class="modal fade" id="penuh{{ $category->id }}" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                  <button type="button" class="btn-close btn-close-white custom" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <div class="modal-body">
+                    <img src="{{ asset($category->background_depan) }}" class="ukuran" alt="">
+                    <img src="{{ asset($category->background_belakang) }}" class="ukuran" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="d-flex mt-3">
               <span class="ukuran">{{ $category->name }}</span>
               <div class="d-flex">
                 <button><i class="bx bx-edit d-flex align-items-center fs-5 text-info"></i></button>
-                <button><i class="las la-trash-alt d-flex align-items-center fs-4 text-danger"></i></button>
+                <form action="{{ route('category.destroy', $category->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                  <button type="submit"><i class="las la-trash-alt d-flex align-items-center fs-4 text-danger"></i></button>
+                </form>
               </div>
             </div>
           </div>
         </div>
       </div>
     @endforeach
-  </div>
-  <div class="modal fade" id="penuh" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl">
-      <div class="modal-content">
-        <button type="button" class="btn-close btn-close-white custom" data-bs-dismiss="modal" aria-label="Close"></button>
-        <div class="modal-body">
-          <img src="{{ asset('image/certificate-bg.png') }}" class="ukuran" alt="">
-        </div>
-      </div>
-    </div>
   </div>
 @endsection
