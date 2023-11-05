@@ -28,14 +28,16 @@
             </div>
             <div class="d-flex mt-3">
               <span class="ukuran">{{ $category->name }}</span>
+              @if(!in_array($category->name, ["Kelulusan", "Pelatihan", "Kompetensi"]))
               <div class="d-flex">
-                <button><i class="bx bx-edit d-flex align-items-center fs-5 text-info"></i></button>
+                <a href="{{ route('category.edit', $category->id) }}"><i class="bx bx-edit d-flex align-items-center fs-5 text-info"></i></a>
                 <form action="{{ route('category.destroy', $category->id) }}" method="POST">
                     @csrf
                     @method('DELETE')
                   <button type="submit"><i class="las la-trash-alt d-flex align-items-center fs-4 text-danger"></i></button>
                 </form>
               </div>
+              @endif
             </div>
           </div>
         </div>
