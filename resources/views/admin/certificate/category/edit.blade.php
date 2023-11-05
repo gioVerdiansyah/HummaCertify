@@ -8,8 +8,9 @@
     <div class="not-available">
       <h3 class="not-title">Ukuran layar ini tidak di dukung</h2>
     </div>
-    <form action="{{ route('category.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('category.update', $category->id) }}" method="POST" enctype="multipart/form-data">
       @csrf
+      @method('PUT')
       <div class="top-content">
         <div class="left-side">
           <div class="header-card">
@@ -46,9 +47,9 @@
               <label for="namaKategori">Tata Letak</label>
               <select name="tataletak" id="tataLetak" class="form-select" required>
                 <option disabled selected>Pilih tata letak</option>
-                <option value="Kelulusan" {{ $category->name == "Kelulusan" ? 'selected' : '' }}>Kelulusan</option>
-                <option value="Pelatihan" {{ $category->name == "Pelatihan" ? 'selected' : '' }}>Pelatihan</option>
-                <option value="Kompetensi" {{ $category->name == "Kompetensi" ? 'selected' : '' }}>Kompetensi</option>
+                <option value="Kelulusan" {{ $category->tata_letak == "Kelulusan" ? 'selected' : '' }}>Kelulusan</option>
+                <option value="Pelatihan" {{ $category->tata_letak == "Pelatihan" ? 'selected' : '' }}>Pelatihan</option>
+                <option value="Kompetensi" {{ $category->tata_letak == "Kompetensi" ? 'selected' : '' }}>Kompetensi</option>
               </select>
             </div>
             <div class="card-button">
