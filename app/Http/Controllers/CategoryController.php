@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CategoryStoreRequest;
+use App\Http\Requests\CategoryUpdateRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\CertificateCategori;
@@ -35,14 +37,8 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CategoryStoreRequest $request)
     {
-        $request->validate([
-            'namaKategori' => 'required|string|max:255',
-            'depan' => 'required|image|mimes:jpeg,png,jpg,gif',
-            'belakang' => 'required|image|mimes:jpeg,png,jpg,gif',
-            'tataletak' => 'required|string|max:255',
-        ]);
 
         $depan = $request->file('depan');
         $belakang = $request->file('belakang');
@@ -77,7 +73,7 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(CategoryUpdateRequest $request, string $id)
     {
         $category = CertificateCategori::where('id', $id)->firstOrFail();
 
