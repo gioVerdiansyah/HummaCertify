@@ -69,7 +69,11 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <hr class="modal-line">
-                    <div id="modal-body" class="modal-body p-0">
+                    <div id="modal-body" class="modal-body p-0 d-flex justify-content-center align-items-center">
+                      <link rel="stylesheet" href="{{ asset('css/user/load-image.css') }}">
+                      <div class="image-item">
+                        <img id="loadpreview" src="{{ asset('image/Loading-logo.png') }}" alt="Loading Logo">
+                      </div>
                     </div>
                 </div>
             </div>
@@ -168,7 +172,6 @@
             };
 
             reader.readAsDataURL(file);
-            return src;
         }
 
         function convertSize(size) {
@@ -267,6 +270,9 @@
                     'X-CSRF-TOKEN': "{{ csrf_token() }}"
                 },
                 dataType: "html",
+                beforeSend: function(){
+                  $("#loadpreview").show();
+                },
                 success: function(response) {
                     var parsedHTML = $.parseHTML(response);
                     var bgDepanElement = $(parsedHTML).find('#bgDepan');
@@ -275,9 +281,11 @@
                     bgDepanElement.css('background-image', 'url(' + backgroundDepan + ')');
                     bgBelakangElement.css('background-image', 'url(' + backgroundBelakang + ')');
 
+                    $("#loadpreview").hide();
                     $('#modal-body').html(parsedHTML);
                 },
                 error: function(xhr, status, error) {
+                    $('#modal-body').html(`<p class="text-center">${error}</p>`);
                     console.log("Error: " + error);
                 }
             });

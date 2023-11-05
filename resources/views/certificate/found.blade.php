@@ -11,7 +11,7 @@
     <div class="content-top">
       <div class="left-side">
         <a href="javascript: void(0);" class="image-container" id="certificate-container">
-          <div id="load-detail" class="image-item"></div>
+          <div id="loaddetail" class="image-item"></div>
           <canvas id="pdfCanvas" class="image-item"></canvas>
           <div class="image-hover" data-bs-toggle="modal" data-bs-target="#detail">
             <h1 class="hover-animate">Klik untuk melihat ukuran penuh</h1>

@@ -13,7 +13,9 @@
     font-size: 20px;
 }
 
-#load-detail {
+#loaddetail,
+[id^="load-"],
+#loadpreview {
     position: absolute;
     width: 100px;
     height: 100px;
@@ -25,14 +27,11 @@
 }
 
 [id^="load-"] {
-    position: absolute;
-    width: 100px;
-    height: 100px;
     top: 30%;
-    background-image: url('/image/Loading-logo.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    animation: loading 2s infinite ease-in-out, flipAndGrayScale 2s infinite;
+}
+
+#loadpreview {
+    position: relative;
 }
 
 @media screen and (max-width: 900px) {
@@ -47,11 +46,9 @@
     0% {
         transform: perspective(120px) rotateX(0deg) rotateY(0deg);
     }
-
     50% {
         transform: perspective(120px) rotateX(180deg) rotateY(0deg);
     }
-
     100% {
         transform: perspective(120px) rotateX(180deg) rotateY(-180deg);
     }
@@ -62,22 +59,18 @@
         transform: scaleX(1) translateY(0);
         filter: grayscale(0%);
     }
-
     50% {
         transform: scaleX(-1) translateY(-5px);
         filter: grayscale(100%);
     }
-
     100% {
         transform: scaleX(1) translateY(0);
         filter: grayscale(0%);
     }
 }
 
-#ifram{
+#ifram {
     margin-top: -15px;
     width: 100%;
     height: 90vh;
 }
-
-
