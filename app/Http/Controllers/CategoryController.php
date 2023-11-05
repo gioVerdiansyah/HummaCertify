@@ -8,8 +8,7 @@ use App\Models\Certificate;
 use Illuminate\Http\Request;
 use App\Models\CertificateCategori;
 use App\Http\Controllers\Controller;
-use App\Services\DetailCertificateService;
-use App\Http\Requests\DetailCertificateStoreRequest;
+use App\Http\Requests\CategoryStoreRequest;
 
 class CategoryController extends Controller
 {
@@ -27,25 +26,16 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $users = User::all();
-        $category = CertificateCategori::all();
-        $certificateCategoryCount = CertificateCategori::count();
+        $categories = CertificateCategori::all();
 
-        return view('admin.certificate.category.create');
+        return view('admin.certificate.category.create', compact('categories'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CategoryStoreRequest $request)
     {
-        $request->validate([
-            'namaKategori' => 'required|string|max:255',
-            'depan' => 'required|image|mimes:jpeg,png,jpg,gif',
-            'belakang' => 'required|image|mimes:jpeg,png,jpg,gif',
-            'tataletak' => 'required|string|max:255',
-        ]);
-
         $depan = $request->file('depan');
         $belakang = $request->file('belakang');
 
@@ -71,7 +61,9 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $categories = CertificateCategori::all();
+        $category = CertificateCategori::where('id', $id)->firstOrFail();
+        return view('admin.certificate.category.edit', compact('categories','category'));
     }
 
     /**

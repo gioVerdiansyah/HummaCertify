@@ -21,23 +21,13 @@
             <div class="left-drop">
               <span class="drop-header">Latar belakang (Depan)</span>
               <input type="file" name="depan" id="file" />
-              <div class="upload-area @error('depan') is-invalid @enderror" id="uploadfile">
-                @error('depan')
-                  <span>Error: Only images are allowed</span>
-                @else
-                  <span>Jatuhkan file disini atau klik untuk menggungah</span>
-                @enderror
+              <div class="upload-area" id="uploadfile" style="background-image: url('{{ asset($category->background_depan) }}')">
               </div>
             </div>
             <div class="right-drop">
               <span class="drop-header">Latar belakang (Belakang)</span>
               <input type="file" name="belakang" id="file2" />
-              <div class="upload-area2 @error('belakang') is-invalid @enderror" id="uploadfile2">
-                @error('belakang')
-                  <span>Error: Only images are allowed</span>
-                @else
-                  <span>Jatuhkan file disini atau klik untuk menggungah</span>
-                @enderror
+              <div class="upload-area2" id="uploadfile2" style="background-image: url('{{ asset($category->background_belakang) }}')">
               </div>
             </div>
           </div>
@@ -50,26 +40,16 @@
           <div class="body-card">
             <div class="mb-3">
               <label for="namaKategori">Nama Kategori</label>
-              <input type="text" name="namaKategori" class="form-control @error('namaKategori') is-invalid @enderror" placeholder="Nama kategori" value="{{ old('namaKategori') }}" required>
-              @error('namaKategori')
-                <div class="invalid-feedback">
-                  <p>{{ $message }}</p>
-                </div>
-              @enderror
+              <input type="text" name="namaKategori" class="form-control" placeholder="Nama kategori" value="{{ old('namaKategori',$category->name) }}" required>
             </div>
             <div class="mb-3">
               <label for="namaKategori">Tata Letak</label>
-              <select name="tataletak" id="tataLetak" class="form-select @error('tataletak') is-invalid @enderror" required>
-                <option disabled selected>Pilih tata letak depan</option>
-                <option value="Kelulusan" {{ old('tataletak') == "Kelulusan" ? 'selected' : '' }}>Kelulusan</option>
-                <option value="Pelatihan" {{ old('tataletak') == "Pelatihan" ? 'selected' : '' }}>Pelatihan</option>
-                <option value="Kompetensi" {{ old('tataletak') == "Kompetensi" ? 'selected' : '' }}>Kompetensi</option>
+              <select name="tataletak" id="tataLetak" class="form-select" required>
+                <option disabled selected>Pilih tata letak</option>
+                <option value="Kelulusan" {{ $category->name == "Kelulusan" ? 'selected' : '' }}>Kelulusan</option>
+                <option value="Pelatihan" {{ $category->name == "Pelatihan" ? 'selected' : '' }}>Pelatihan</option>
+                <option value="Kompetensi" {{ $category->name == "Kompetensi" ? 'selected' : '' }}>Kompetensi</option>
               </select>
-              @error('tataletak')
-                <div class="invalid-feedback">
-                  <p>{{ $message }}</p>
-                </div>
-              @enderror
             </div>
             <div class="card-button">
               <button type="button" id="preview-button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#preview">Preview</button>
