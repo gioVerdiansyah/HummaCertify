@@ -39,30 +39,27 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'namaKategori' => 'required|string|max:255',
-        //     'depan' => 'required|image|mimes:jpeg,png,jpg,gif',
-        //     'belakang' => 'required|image|mimes:jpeg,png,jpg,gif',
-        //     'tataletak' => 'required|string|max:255',
-        // ]);
+        $request->validate([
+            'namaKategori' => 'required|string|max:255',
+            'depan' => 'required|image|mimes:jpeg,png,jpg,gif',
+            'belakang' => 'required|image|mimes:jpeg,png,jpg,gif',
+            'tataletak' => 'required|string|max:255',
+        ]);
 
         $depan = $request->file('depan');
         $belakang = $request->file('belakang');
 
-        $nameBgDepan = $depan->hashName();
-        $nameBgBelakang = $belakang->hashName();
-
-        $pass = CertificateCategori::create([
+        CertificateCategori::create([
             'name' => $request->namaKategori,
-            'background_depan' => $nameBgDepan,
-            'background_belakang' => $nameBgBelakang,
+            'background_depan' => 'image/bgdepan/' . $depan->hashName(),
+            'background_belakang' => 'image/bgbelakang/' . $belakang->hashName(),
             'tata_letak' => $request->tataletak,
         ]);
 
-        $depan->move('image/depanBg/', $nameBgDepan);
-        $belakang->move('image/belakangBg/', $nameBgBelakang);
+        $depan->move('image/bgdepan/', $depan->hashName());
+        $belakang->move('image/bgbelakang', $belakang->hashName());
 
-        return redirect()->back()->with('message', [
+        return redirect()->route('category.index')->with('message', [
             'icon' => 'success',
             'title' => 'Berhasil!',
             'text' => 'Berhasil menambahkan kategori'

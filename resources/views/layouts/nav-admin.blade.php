@@ -229,10 +229,7 @@
             <img src="{{ asset('image/Hummatech logo.png') }}" alt="" height="30">
           </span>
         </a>
-        <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
-          id="vertical-hover">
-          <i class="ri-record-circle-line"></i>
-        </button>
+        <button type="button" style="display: none" id="vertical-hover"></button>
       </div>
 
       <div id="scrollbar">
@@ -267,7 +264,7 @@
               <a class="nav-link menu-link {{ request()->routeIs('category.index') ? 'active' : '' }}"
                 href="{{ route('category.index') }}">
                 <img width="22" class="me-3" src="{{ asset('image/tambah-icon.png') }}" alt="">
-                <span data-key="t-tambah_certificate">Tambah Kategori Sertifikat</span>
+                <span data-key="t-tambah_certificate">Kategori Sertifikat</span>
               </a>
             </li>
           </ul>

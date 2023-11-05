@@ -34,18 +34,18 @@ class DatabaseSeeder extends Seeder
 
         CertificateCategori::create([
             'name' => "Kelulusan",
-            'background_depan' => 'certificate-kelulusan.png',
-            'background_belakang' => 'certificate-kelulusan.png'
+            'background_depan' => 'image/bgdepan/certificate-kelulusan.png',
+            'background_belakang' => 'image/bgbelakang/certificate-kelulusan.png'
         ]);
         CertificateCategori::create([
             'name' => "Pelatihan",
-            'background_depan' => 'certificate-guru.png',
-            'background_belakang' => 'certificate-guru.png'
+            'background_depan' => 'image/bgdepan/certificate-guru.png',
+            'background_belakang' => 'image/bgbelakang/certificate-guru.png'
         ]);
         CertificateCategori::create([
             'name' => "Kompetensi",
-            'background_depan' => 'certificate-guru-tamu.png',
-            'background_belakang' => 'certificate-guru-tamu.png'
+            'background_depan' => 'image/bgdepan/certificate-guru-tamu.png',
+            'background_belakang' => 'image/bgbelakang/certificate-guru-tamu.png'
         ]);
     }
 }

@@ -1,4 +1,5 @@
 .eye {
+    cursor: pointer;
     border-radius: 15px;
     background-color: #fbfbfb;
     display: flex;

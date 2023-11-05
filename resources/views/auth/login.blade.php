@@ -36,7 +36,7 @@
                   <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-dark" height="35" />
                   <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-light" height="35" />
                 </a>
-                <p class="text-muted mt-2">Masuk untuk meng-akses ke akun anda</p>
+                <p class="text-muted mt-2">Masuk untuk meng-akses akun anda</p>
               </div>
               <div class="p-3">
                 <form action="/login" method="POST" class="av-invalid">
@@ -52,7 +52,7 @@
                   </div>
                   <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input name="password" required placeholder="Password  (Nisn/Nik/Nip)" id="userpassword" type="password" class="form-control backG @error('password') is-invalid @enderror" />
+                    <input name="password" required placeholder="Password Nisn / Nik / Nip " id="userpassword" type="password" class="form-control backG @error('password') is-invalid @enderror" />
                     <div style="display: none" id="eyeShow" class="eye">
                       <div class="icon">
                         <i class="fa-regular fa-eye" id="show" style="display: block"></i>

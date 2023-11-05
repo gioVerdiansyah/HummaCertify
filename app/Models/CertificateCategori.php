@@ -12,11 +12,8 @@ class CertificateCategori extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'name',
-        'backgroundDepan',
-        'backgroundBelakang',
-        'tataLetak'
+    protected $guarded = [
+        'id'
     ];
 
      /**
