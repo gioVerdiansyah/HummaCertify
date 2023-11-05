@@ -153,7 +153,7 @@
       };
 
       return page.render(renderContext).promise.then(function() {
-        var loadingElement = document.getElementById('load-detail');
+        var loadingElement = document.getElementById('loaddetail');
         if (loadingElement) {
           loadingElement.remove();
         }

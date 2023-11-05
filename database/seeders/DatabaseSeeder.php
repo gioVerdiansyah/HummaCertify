@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('HummaCertify'),
             'institusi' => "Perusahaan Hummatech"
         ]);
-        
+
         User::create([
             'id' => Str::uuid(),
             'name' => "HummaCertify",
@@ -33,16 +33,19 @@ class DatabaseSeeder extends Seeder
         ]);
 
         CertificateCategori::create([
-            // 'id' => Str::uuid(),
             'name' => "Kelulusan",
+            'background_depan' => 'certificate-kelulusan.png',
+            'background_belakang' => 'certificate-kelulusan.png'
         ]);
         CertificateCategori::create([
-            // 'id' => Str::uuid(),
             'name' => "Pelatihan",
+            'background_depan' => 'certificate-guru.png',
+            'background_belakang' => 'certificate-guru.png'
         ]);
         CertificateCategori::create([
-            // 'id' => Str::uuid(),
             'name' => "Kompetensi",
+            'background_depan' => 'certificate-guru-tamu.png',
+            'background_belakang' => 'certificate-guru-tamu.png'
         ]);
     }
 }

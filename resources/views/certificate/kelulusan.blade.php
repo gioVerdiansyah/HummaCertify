@@ -23,7 +23,7 @@
 
 <body>
   <main id="certificate-1">
-    <div class="bg" style='background-image: url("https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/certificate-bg.png");'>
+    <div class="bg" style='background-image: url("{{ asset('image/bgdepan/certificate-kelulusan.png') }}");'>
       <div class="content">
         {{-- Nomer Sertifikat --}}
         <div class="no-sertifikat">
@@ -57,7 +57,7 @@
         </div>
       </div>
     </div>
-    <div class="belakang" style="{{ isset($bgDepan) ? $bgDepan : 'background-image: url("/image/certificate-bg.png");' }}">
+    <div class="belakang" style='background-image: url("{{ asset('image/bgbelakang/certificate-kelulusan.png') }}");'>
       <div class="content">
         <div class="table-materi">
           <table>

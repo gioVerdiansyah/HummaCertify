@@ -18,7 +18,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('admin.certificate.category.index');
+        $categories = CertificateCategori::all();
+        return view('admin.certificate.category.index', compact("categories"));
     }
 
     /**
@@ -53,13 +54,13 @@ class CategoryController extends Controller
 
         $pass = CertificateCategori::create([
             'name' => $request->namaKategori,
-            'backgroundDepan' => $nameBgDepan,
-            'backgroundBelakang' => $nameBgBelakang,
-            'tataLetak' => $request->tataletak,
+            'background_depan' => $nameBgDepan,
+            'background_belakang' => $nameBgBelakang,
+            'tata_letak' => $request->tataletak,
         ]);
 
-        $depan->move('public/depanBg/', $nameBgDepan);
-        $belakang->move('public/belakangBg/', $nameBgBelakang);
+        $depan->move('image/depanBg/', $nameBgDepan);
+        $belakang->move('image/belakangBg/', $nameBgBelakang);
 
         return redirect()->back()->with('message', [
             'icon' => 'success',
