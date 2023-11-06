@@ -29,14 +29,14 @@
             <div class="d-flex mt-3">
               <span class="ukuran">{{ $category->name }}</span>
               @if(!in_array($category->name, ["Kelulusan", "Pelatihan", "Kompetensi"]))
-              <div class="d-flex">
+              <div class="d-flex action">
                 <a href="{{ route('category.edit', $category->id) }}"><i class="bx bx-edit d-flex align-items-center fs-5 text-info"></i></a>
-                <form action="{{ route('category.destroy', $category->id) }}" onsubmit="event.preventDefault()" id="form-delete" method="POST">
+                <form action="{{ route('category.destroy', $category->id) }}" method="POST" class="delete-form">
                     @csrf
                     @method('DELETE')
-                  <button type="submit" id="delete-kategori"><i class="las la-trash-alt d-flex align-items-center fs-4 text-danger"></i></button>
+                    <button type="submit" class="delete-button"><i class="las la-trash-alt d-flex align-items-center fs-4 text-danger"></i></button>
                 </form>
-              </div>
+            	</div>
               @endif
             </div>
           </div>
@@ -45,20 +45,24 @@
     @endforeach
   </div>
   <script>
-    $("#delete-kategori").on('click', function() {
+    document.querySelectorAll('.delete-form').forEach(function(form) {
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
         Swal.fire({
-          title: 'apakah anda yakin?',
-          text: "tindakan ini tidak dapat di batalkan",
-          icon: "question",
-          showCancelButton: true,
-          confirmButtonText: "lanjutkan",
-          cancelButtonText: "batal",
-          background: 'var(--bs-body-bg)',
+            title: 'Apakah Anda yakin?',
+            text: "Tindakan ini tidak dapat dibatalkan",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonText: "Lanjutkan",
+            cancelButtonText: "Batal",
+            background: 'var(--bs-body-bg)',
         }).then((result) => {
-          if (result.isConfirmed) {
-            $("#form-delete").submit();
-          }
+            if (result.isConfirmed) {
+                form.submit();
+            }
         });
     });
+  });
   </script>
 @endsection

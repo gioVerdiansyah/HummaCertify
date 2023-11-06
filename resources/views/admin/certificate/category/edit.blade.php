@@ -109,8 +109,8 @@
         </div>
     </div>
     <script>
-        let backgroundDepan;
-        let backgroundBelakang;
+        let backgroundDepan = "{{ $category->background_depan }}";
+        let backgroundBelakang = "{{ $category->background_belakang }}";
 
         $(function() {
             var maxFileSize = 2 * 1024 * 1024;
@@ -340,6 +340,9 @@
                 error: function(xhr, status, error) {
                     $('#modal-body').html(`<p class="text-center">${error}</p>`);
                     console.log("Error: " + error);
+                    console.log(xhr);
+                    console.log(status);
+                    console.log(error);
                 }
             });
         })

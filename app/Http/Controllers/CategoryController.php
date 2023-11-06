@@ -39,7 +39,6 @@ class CategoryController extends Controller
      */
     public function store(CategoryStoreRequest $request)
     {
-
         $depan = $request->file('depan');
         $belakang = $request->file('belakang');
 
@@ -56,7 +55,7 @@ class CategoryController extends Controller
         return redirect()->route('category.index')->with('message', [
             'icon' => 'success',
             'title' => 'Berhasil!',
-            'text' => 'Berhasil menambahkan kategori'
+            'text' => 'Berhasil menambahkan kategori ' . $request->namaKategori
         ]);
     }
 
