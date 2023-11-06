@@ -36,7 +36,7 @@
                                 onsubmit="document.getElementById('loading').style.display = 'flex';event.preventDefault();var currentUrl = window.location.href;if (currentUrl.includes('ct=')) {window.location.href = currentUrl + '&q=' + document.getElementsByName('q')[0].value;}else{this.submit();}">
                                 <div class="input-group">
                                     <input type="text" style="border-right: 0px;" name="q" class="form-control rounded-start py-2" placeholder="Cari Sertifikat..." value="{{ request('q') }}" />
-                                    <button type="submit" style="border-top: 1px solid #ced4da; border-right: 1px solid #ced4da; border-bottom: 1px solid #ced4da; " class="btn btn-lg">
+                                    <button type="submit" style="border-top: 1px solid #ced4da; border-right: 1px solid #ced4da; border-bottom: 1px solid #ced4da; " class="btn btn-lg py-2">
                                         <i class="bi bi-search"></i>
                                     </button>
                                 </div>

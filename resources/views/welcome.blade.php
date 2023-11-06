@@ -14,7 +14,7 @@
           {{-- <a href="#" class="btn btn-primary me-2">Get Started <i class="icon-sm ms-1" data-feather="arrow-right"></i></a> --}}
           <form action="{{ route('search') }}" method="GET" id="searching">
             <div class="searchBox">
-              <input class="searchInput"type="search" name="q" placeholder="Contoh: Ser/0001/02/3112/2023"
+              <input class="searchInput"type="search" name="q" placeholder="Contoh: Ser/0001/0002/02/3112/2023"
                 autocomplete="off" required>
               <button class="searchButton" href="#">
                 <i class="fas fa-search"></i>
@@ -27,7 +27,7 @@
         </div>
         <div class="col-lg-6 col-sm-10 mx-auto ms-lg-auto me-lg-0">
           <div class="mt-lg-0 mt-5">
-            <img src="{{ asset('landingpage/images/image1.png') }}" alt="" class="img-xl-responsive" />
+            <img src="{{ asset('landingpage/images/image1.png') }}" alt="Asset Pelayanan kami" class="img-xl-responsive" />
           </div>
         </div>
       </div>
@@ -137,10 +137,10 @@
         <div class="col-md-6 ms-md-auto order-1 order-md-2">
           <div class="position-relative">
             <div class="ms-5 features-img">
-              <img src="{{ asset('landingpage/images/image2.png') }}" alt=""
+              <img src="{{ asset('landingpage/images/image2.png') }}" alt="Asset About Me"
                 class="img-fluid d-block mx-auto rounded" />
             </div>
-            <img src="{{ asset('landingpage/images/dot-img.png') }}" alt="" class="dot-img-left" />
+            <img src="{{ asset('landingpage/images/dot-img.png') }}" alt="Titik-titik About Me" class="dot-img-left" />
           </div>
         </div>
       </div>
@@ -148,10 +148,10 @@
         <div class="col-md-6">
           <div class="position-relative mb-md-0 mb-5">
             <div class="me-5 features-img">
-              <img src="{{ asset('landingpage/images/image3.png') }}" alt=""
+              <img src="{{ asset('landingpage/images/image3.png') }}" alt="Asset About Me kedua"
                 class="img-fluid d-block mx-auto rounded" />
             </div>
-            <img src="{{ asset('landingpage/images/dot-img.png') }}" alt="" class="dot-img-right" />
+            <img src="{{ asset('landingpage/images/dot-img.png') }}" alt="Titik-titik About Me kedua" class="dot-img-right" />
           </div>
         </div>
         <!-- end col -->
@@ -184,11 +184,11 @@
         <div class="gallery">
           <div class="gallery-container">
             <img class="gallery-item gallery-item-1" src="{{ asset('image/gallery-1.png') }}" data-index="1"
-              alt="">
+              alt="gallery1">
             <img class="gallery-item gallery-item-2" src="{{ asset('image/gallery-2.png') }}" data-index="2"
-              alt="">
+              alt="gallery2">
             <img class="gallery-item gallery-item-3" src="{{ asset('image/gallery-3.png') }}" data-index="3"
-              alt="">
+              alt="gallery3">
           </div>
           <div class="gallery-controls">
           </div>
@@ -590,7 +590,7 @@
 
         <div class="col-lg-5 ms-lg-auto">
           <div class="mt-5 mt-lg-0">
-            <img src="{{ asset('landingpage/images/kontak.png') }}" alt="" class="img-fluid d-block" />
+            <img src="{{ asset('landingpage/images/kontak.png') }}" alt="Contact Me" class="img-fluid d-block" />
             <p class="text-muted mt-5 mb-3"><i class="me-2 far fa-envelope text-muted icon icon-xs"></i>
               hummacertify@gmail.com</p>
             <p class="text-muted mb-3"><i class="me-2 text-muted icon icon-xs" data-feather="phone"></i>+91 123 4556
@@ -621,7 +621,7 @@
     <div class="container">
       <div class="row">
         <div class="text-center text-light">
-          <img src="{{ asset('landingpage/images/logo-footer.png') }}" alt="">
+          <img src="{{ asset('landingpage/images/logo-footer.png') }}" alt="Logo Footer">
           <h3>HummaCertify</h3>
           <p>HummaCertify bukti pengalaman anda</p>
         </div>
@@ -689,7 +689,7 @@
           <p><small>All rights reserved © 2023</small></p>
           <p><small>Dibuat Oleh Siswa HummaTech</small></p>
         </div>
-        
+
       </div>
     </div>
   </footer>
