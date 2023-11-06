@@ -16,10 +16,11 @@ class ProfileController extends Controller
 
     public function updateEmail(Request $request){
         $request->validate([
-            'email' => 'required|email'
+            'email' => 'required|email|unique:users,email'
         ],[
             'email.required' => 'Email tidak boleh kosong',
             'email.email' => 'Masukkan email anda',
+            'email.unique' => 'Email ini telah di genakan',
         ]);
 
         if ($request->email === auth()->user()->email) {

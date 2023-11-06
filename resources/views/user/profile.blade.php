@@ -22,6 +22,9 @@
                   <input type="email" name="email" id="email" style="position: absolute;" class="input-height form-control rounded-start py-2" placeholder="{{ $user->email }}" value="{{ $user->email }}">
                   <button type="submit" class="btn btn-primary btn-sm"><i class="fi fi-rr-pencil"></i></button>
                 </div>
+                @error('email')
+                    <p class="invalid">{{ $message }}</p>
+                @enderror
               </div>
               <div class="mb-3">
                 <label for="nik" class="form-label">Nisn/Nik/Nip</label>
