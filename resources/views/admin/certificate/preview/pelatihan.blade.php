@@ -1,7 +1,6 @@
 <link rel="stylesheet" href="{{ asset('css/certificate/pelatihan.css') }} ">
   <main>
-    <div class="depan"
-      style='background-image: url("https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/certificate-guru-depan.png");'>
+    <div id="bgDepan" class="depan">
       <section id="depan">
         <div class="content">
           <div class="no">
@@ -52,8 +51,7 @@
       </section>
     </div>
 
-    <div class="belakang"
-      style='background-image: url("https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/certificate-guru-belakang.png");'>
+    <div id="bgBelakang" class="belakang">
       <section id="belakang">
         <div class="certificate-guru-belakang">
           <div class="text-penilaian text-center" style="text-align: center">

@@ -1,8 +1,7 @@
 <link rel="stylesheet" href="{{ asset('css/certificate/kompetensi.css') }}">
 <main>
     {{-- Depan --}}
-    <div class="depan"
-        style='background-image: url("https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/guru-tamu.png");'>
+    <div id="bgDepan" class="depan">
         <div class="content">
             <div class="qr-code">
                 <center>
@@ -33,8 +32,7 @@
         </div>
     </div>
     {{-- Belakang --}}
-    <div class="belakang"
-        style='background-image: url("https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/guru-tamu-belakang.png");'>
+    <div id="bgBelakang" class="belakang">
         <div class="content">
             <div>
                 <p class="pelatihan">"Sertifikasi Flutter Beginner"</p>

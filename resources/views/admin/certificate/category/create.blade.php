@@ -303,6 +303,10 @@
       return Math.round(size / Math.pow(1024, i), 2) + " " + sizes[i];
     }
 
+    $("select[name='tataletak']").on('change', function(){
+        $("#modal-body").html(`<link rel="stylesheet" href="{{ asset('css/user/load-image.css') }}"><div class="image-item"><img id="loadpreview" src="{{ asset('image/Loading-logo.png') }}" alt="Loading Logo"></div>`);
+    });
+
     $('#preview-button').on('click', function() {
       let tataLetak = $('#tataLetak').val().toLowerCase();
       $.ajax({

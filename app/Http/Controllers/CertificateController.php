@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Storage;
 
 class CertificateController extends Controller
 {
-    protected $perPage = 3, $exceptCategory = ["Kelulusan", "Pelatihan", "Kompetensi"];
+    protected $perPage = 5, $exceptCategory = ["Kelulusan", "Pelatihan", "Kompetensi"];
     public function index(Request $request)
     {
         $certificates = Certificate::latest()->where('status', 'nonPrint')->paginate($this->perPage);

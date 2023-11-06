@@ -43,7 +43,7 @@ class CategoryController extends Controller
         $belakang = $request->file('belakang');
 
         CertificateCategori::create([
-            'name' => $request->namaKategori,
+            'name' => ucfirst($request->namaKategori),
             'background_depan' => 'image/bgdepan/' . $depan->hashName(),
             'background_belakang' => 'image/bgbelakang/' . $belakang->hashName(),
             'tata_letak' => $request->tataletak,
@@ -55,7 +55,7 @@ class CategoryController extends Controller
         return redirect()->route('category.index')->with('message', [
             'icon' => 'success',
             'title' => 'Berhasil!',
-            'text' => 'Berhasil menambahkan kategori ' . $request->namaKategori
+            'text' => 'Berhasil menambahkan kategori ' . ucfirst($request->namaKategori)
         ]);
     }
 
@@ -77,7 +77,7 @@ class CategoryController extends Controller
         $category = CertificateCategori::where('id', $id)->firstOrFail();
 
         $data = [
-            'name' => $request->namaKategori,
+            'name' => ucfirst($request->namaKategori),
             'tata_letak' => $request->tataletak,
         ];
 
