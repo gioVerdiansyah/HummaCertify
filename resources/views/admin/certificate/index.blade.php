@@ -1,5 +1,6 @@
 @extends('layouts.nav-admin')
 @section('content')
+  <title>{{ config('app.name', 'Laravel') }} - List Sertifikat</title>
   <link rel="stylesheet" href="{{ asset('css/admin/AdminDataTable.css') }}">
   <link rel="stylesheet" href="{{ asset('css/admin/loading.css') }}">
   <div class="tambah-container">
@@ -28,8 +29,7 @@
             {{-- Button Print All --}}
             @if (request('ct') && !request('print') && isset($certificates[0]))
               <div class="col-md-12 col-12 mb-2 col-lg-4">
-                <a href="{{ route('printAllCertificate') }}?ct={{ request('ct') }}&page={{ $certificates->currentPage() }}"
-                  target="_blank" class="btn btn-primary print-all-certificate w-100"><i class="bi bi-printer "></i> Print
+                <a href="{{ route('printAllCertificate') }}?ct={{ request('ct') }}&page={{ $certificates->currentPage() }}" target="_blank" class="btn btn-primary print-all-certificate w-100"><i class="bi bi-printer "></i> Print
                   Semua</a>
               </div>
             @endif
@@ -40,11 +40,8 @@
               <form action="" method="GET" class="d-flex align-items-center gap-3"
                 onsubmit="document.getElementById('loading').style.display = 'flex';event.preventDefault();var currentUrl = window.location.href;if (currentUrl.includes('ct=')) {window.location.href = currentUrl + '&q=' + document.getElementsByName('q')[0].value;}else{this.submit();}">
                 <div class="input-group">
-                  <input type="text" style="border-right: 0px;" name="q" class="form-control rounded-start py-2"
-                    placeholder="Cari Sertifikat..." value="{{ request('q') }}" />
-                  <button type="submit"
-                    style="border-top: 1px solid #ced4da; border-right: 1px solid #ced4da; border-bottom: 1px solid #ced4da; "
-                    class="btn btn-lg py-1">
+                  <input type="text" style="border-right: 0px;" name="q" class="form-control rounded-start py-2" placeholder="Cari Sertifikat..." value="{{ request('q') }}" />
+                  <button type="submit" style="border-top: 1px solid #ced4da; border-right: 1px solid #ced4da; border-bottom: 1px solid #ced4da; " class="btn btn-lg py-1">
                     <i class="bi bi-search"></i>
                   </button>
                 </div>
@@ -75,16 +72,14 @@
                   <td class="d-flex gap-2 justify-content-center align-items-center">
                     <input type="hidden" name="email" value="{{ $certificate->user->email }}">
                     @isset($certificate->user->email)
-                      <form data-email="{{ $certificate->user->email }}"
-                        action="{{ route('sendCertificate', $certificate->id) }}" method="POST" class="emailForm m-0">
+                      <form data-email="{{ $certificate->user->email }}" action="{{ route('sendCertificate', $certificate->id) }}" method="POST" class="emailForm m-0">
                         @csrf
                         <button type="submit" class="btn btn-primary send-email" title="Kirim Email">
                           <i class="fi fi-rs-paper-plane" style="display: flex; margin: 3px"></i>
                         </button>
                       </form>
                     @endisset
-                    <a href="{{ route('getCertificate', $certificate->id) }}" target="_blank"
-                      class="btn btn-info print-certificate" title="Print">
+                    <a href="{{ route('getCertificate', $certificate->id) }}" target="_blank" class="btn btn-info print-certificate" title="Print">
                       <i class="fi fi-rr-print" style="display: flex; margin: 3px"></i>
                     </a>
                     </a>
@@ -155,7 +150,7 @@
         link.addEventListener('click', function(event) {
           event.preventDefault();
           var namaSertifikat = link.closest('tr').querySelector('td[data-nama-sertifikat]').dataset
-          .namaSertifikat;
+            .namaSertifikat;
           Swal.fire({
             title: `Anda yakin ingin mencetak sertifikat untuk ${namaSertifikat}?`,
             text: 'Tindakan ini tidak dapat dibatalkan .',

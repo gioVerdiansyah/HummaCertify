@@ -11,8 +11,8 @@
 function windowScroll() {
     const navbar = document.getElementById("navbar");
     if (
-        document.body.scrollTop >= 50 ||
-        document.documentElement.scrollTop >= 50
+        document.body.scrollTop >= 10 ||
+        document.documentElement.scrollTop >= 10
     ) {
         navbar.classList.add("nav-sticky");
     } else {

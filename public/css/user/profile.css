@@ -1,3 +1,7 @@
+*::-webkit-scrollbar {
+    display: none;
+}
+
 .pembungkus-profile {
     position: absolute;
     top: 75px;
@@ -5,6 +9,13 @@
     width: 100%;
     margin: 0px;
     padding: 0px;
+    background-color: var(--bs-bg-light);
+}
+
+.line-breaker {
+    display: none;
+    height: 2.1px;
+    width: 100%;
     background-color: var(--bs-bg-light);
 }
 
@@ -19,7 +30,7 @@
 .pembungkus-profile .bababoi .card-profile {
     background-color: var(--bs-body-bg);
     border-style: none;
-    padding: 30px 20px 10px 9.5%;
+    padding: 30px 60px 10px 9.5%;
 }
 
 .pembungkus-profile .bababoi .profile-title {
@@ -47,7 +58,7 @@
 }
 
 .input-button .button-width {
-    width: 90%;
+    width: 100%;
 }
 
 .input-button .button-edit button {
@@ -207,15 +218,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        position: absolute;
-        right: 20px;
-        top: 201px;
         border-radius: 5px;
     }
 
-    .input-button .button-width {
-        width: 90%;
-    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -234,10 +239,6 @@
         padding: 0px 0px;
     }
 
-    .input-button .button-width {
-        width: 80%;
-    }
-
     .input-button .button-edit button {
         width: 50px;
         height: 50px;
@@ -249,22 +250,9 @@
         top: 199px;
         border-radius: 5px;
     }
-
-    .input-button .button-width {
-        width: 90%;
-    }
-}
-
-@media only screen and (max-width: 500px) {
-    .input-button .button-width {
-        width: 82%;
-    }
 }
 
 @media only screen and (max-width: 361px) {
-    .input-button .button-width {
-        width: 79%;
-    }
 
     .input-button .button-edit button {
         width: 50px;
@@ -276,5 +264,23 @@
         right: 20px;
         top: 198px;
         border-radius: 5px;
+    }
+
+    .line-breaker {
+        margin-top: 25px;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .total-sertificate {
+        margin-top: 2px;
+    }
+
+    .pembungkus-profile .bababoi .card-profile {
+        padding: 20px !important;
+    }
+
+    .line-breaker {
+        display: block;
     }
 }

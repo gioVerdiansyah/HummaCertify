@@ -1,6 +1,7 @@
  @extends('layouts.nav-admin')
  @section('content')
    {{-- Card --}}
+   <title>{{ config('app.name', 'Laravel') }} - Dashboard</title>
    <div class="row">
      <div class="col-md-4">
        <div class="card card-dashboard card-animate">

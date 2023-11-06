@@ -1,6 +1,7 @@
 @extends('layouts.nav-user')
 
 @section('content')
+<title>{{ config('app.name', 'Laravel') }} - Home</title>
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <section class="hero-6 bg-center position-relative overflow-hidden"
     style="background-image: url({{ asset('landingpage/images/hero-6-bg.png') }});" id="home">

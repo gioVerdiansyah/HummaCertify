@@ -1,6 +1,7 @@
 @extends('layouts.nav-admin')
 
 @section('content')
+  <title>{{ config('app.name', 'Laravel') }} - Tambah Sertifikat</title>
   <link rel="stylesheet" href="{{ asset('css/admin/AdminAdd.css') }}">
   <link rel="stylesheet" href="{{ asset('css/admin/loading.css') }}">
   <div class="tambah-container">

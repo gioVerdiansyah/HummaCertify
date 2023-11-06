@@ -1909,7 +1909,7 @@ h6 {
     .me-5 {
         margin-right: 0 !important;
     }
-    
+
     .t {
         text-align: center;
     }
@@ -2422,7 +2422,7 @@ h6 {
     border-radius: 40px;
     padding: 7px;
     height: 3.5rem;
-    border: 1.5px solid #b8b8b8;
+    border: 2px solid #b8b8b8;
 }
 
 .searchBox > .searchInput {
@@ -2458,7 +2458,10 @@ h6 {
     transition: 0.4s;
     line-height: 40px;
     width: 0px;
-    color: #434d60;
+}
+
+[data-bs-theme="dark"] .searchInput {
+    color: white;
 }
 
 @media screen and (max-width: 620px) {

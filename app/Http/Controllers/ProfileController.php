@@ -15,12 +15,12 @@ class ProfileController extends Controller
     }
 
     public function updateEmail(Request $request){
-        
+
         if ($request->email === auth()->user()->email) {
             return back()->with('message', [
                 'icon' => 'error',
                 'title' => 'Gagal!',
-                'text' => 'Email yang anda masukkan tidak ada perubahan!']);
+                'text' => 'Email tidak mengalami perubahan!']);
         }
 
         $request->validate([

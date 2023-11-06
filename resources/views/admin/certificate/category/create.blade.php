@@ -1,6 +1,7 @@
 @extends('layouts.nav-admin')
 
 @section('content')
+  <title>{{ config('app.name', 'Laravel') }} - Tambah Background Sertifikat</title>
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
   <link rel="stylesheet" href="{{ asset('css/admin/template.css') }}">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -61,9 +62,9 @@
               <label for="namaKategori">Tata Letak</label>
               <select name="tataletak" id="tataLetak" class="form-select @error('tataletak') is-invalid @enderror" required>
                 <option disabled value="tataletak" selected>Pilih tata letak depan</option>
-                <option value="Kelulusan" {{ old('tataletak') == "Kelulusan" ? 'selected' : '' }}>Kelulusan</option>
-                <option value="Pelatihan" {{ old('tataletak') == "Pelatihan" ? 'selected' : '' }}>Pelatihan</option>
-                <option value="Kompetensi" {{ old('tataletak') == "Kompetensi" ? 'selected' : '' }}>Kompetensi</option>
+                <option value="Kelulusan" {{ old('tataletak') == 'Kelulusan' ? 'selected' : '' }}>Kelulusan</option>
+                <option value="Pelatihan" {{ old('tataletak') == 'Pelatihan' ? 'selected' : '' }}>Pelatihan</option>
+                <option value="Kompetensi" {{ old('tataletak') == 'Kompetensi' ? 'selected' : '' }}>Kompetensi</option>
               </select>
               @error('tataletak')
                 <div class="invalid-feedback">
@@ -72,7 +73,7 @@
               @enderror
             </div>
             <div class="card-button">
-                <button type="button" id="preview-button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#preview" disabled>Preview</button>
+              <button type="button" id="preview-button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#preview" disabled>Preview</button>
               <button type="submit" id="simpan" class="btn btn-primary" disabled>Simpan</button>
             </div>
           </div>
@@ -303,8 +304,8 @@
       return Math.round(size / Math.pow(1024, i), 2) + " " + sizes[i];
     }
 
-    $("select[name='tataletak']").on('change', function(){
-        $("#modal-body").html(`<link rel="stylesheet" href="{{ asset('css/user/load-image.css') }}"><div class="image-item"><img id="loadpreview" src="{{ asset('image/Loading-logo.png') }}" alt="Loading Logo"></div>`);
+    $("select[name='tataletak']").on('change', function() {
+      $("#modal-body").html(`<link rel="stylesheet" href="{{ asset('css/user/load-image.css') }}"><div class="image-item"><img id="loadpreview" src="{{ asset('image/Loading-logo.png') }}" alt="Loading Logo"></div>`);
     });
 
     $('#preview-button').on('click', function() {
@@ -338,7 +339,7 @@
     })
   </script>
 
-<script>
+  <script>
     document.addEventListener('DOMContentLoaded', function() {
       const namaKategoriInput = document.querySelector('input[name="namaKategori"]');
       const tataletakSelect = document.querySelector('select[name="tataletak"]');
@@ -367,8 +368,6 @@
       belakangInput.addEventListener('change', togglePreviewButton);
     });
   </script>
-
-
 
   {{-- <script>
     document.addEventListener('DOMContentLoaded', function() {

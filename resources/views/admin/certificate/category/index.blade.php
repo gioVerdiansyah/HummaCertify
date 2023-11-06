@@ -1,8 +1,9 @@
 @extends('layouts.nav-admin')
 @section('content')
+  <title>{{ config('app.name', 'Laravel') }} - Background Sertifikat</title>
   <link rel="stylesheet" href="{{ asset('css/admin/admincategory.css') }}">
-  <div class="col-2 mb-4">
-    <a href="{{ route('category.create') }}" class="btn btn-primary m-0 d-flex gap-1 w">Tambah Kategori <i class="ri-add-line d-flex align-items-center"></i></a>
+  <div class="mb-3">
+    <a href="{{ route('category.create') }}" class="btn btn-primary ">Tambah Kategori <i class="ri-add-line align-items-center"></i></a>
   </div>
   <div class="row">
     @foreach ($categories as $category)
@@ -28,15 +29,15 @@
             </div>
             <div class="d-flex mt-3">
               <span class="ukuran">{{ $category->name }}</span>
-              @if(!in_array($category->name, ["Kelulusan", "Pelatihan", "Kompetensi"]))
-              <div class="d-flex action">
-                <a href="{{ route('category.edit', $category->id) }}"><i class="bx bx-edit d-flex align-items-center fs-5 text-info p-1"></i></a>
-                <form action="{{ route('category.destroy', $category->id) }}" method="POST" class="delete-form">
+              @if (!in_array($category->name, ['Kelulusan', 'Pelatihan', 'Kompetensi']))
+                <div class="d-flex action">
+                  <a href="{{ route('category.edit', $category->id) }}"><i class="bx bx-edit d-flex align-items-center fs-5 text-info p-1"></i></a>
+                  <form action="{{ route('category.destroy', $category->id) }}" method="POST" class="delete-form">
                     @csrf
                     @method('DELETE')
-                  <button type="submit" id="delete-kategori"><i class="delete-icon las la-trash-alt d-flex align-items-center fs-4 text-danger"></i></button>
-                </form>
-            	</div>
+                    <button type="submit" id="delete-kategori"><i class="delete-icon las la-trash-alt d-flex align-items-center fs-4 text-danger"></i></button>
+                  </form>
+                </div>
               @endif
             </div>
           </div>
@@ -44,26 +45,29 @@
       </div>
     @endforeach
   </div>
+  <div>
+    {{ $categories->links('layouts.pagination') }}
+  </div>
   <script>
     document.querySelectorAll('.delete-alert').forEach(function(form) {
-      form.addEventListener('submit', function(event) {
-        event.preventDefault();
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
 
-        Swal.fire({
-          title: 'apakah anda yakin?',
-          text: "inging menghapus category ini",
-          icon: "question",
-          showCancelButton: true,
-          confirmButtonText: "ya, hapus!",
-          cancelButtonText: "batal",
-          background: 'var(--bs-body-bg)',
-        }).then((result) => {
-          if (result.isConfirmed) {
-            form.submit();
-          }
-        });
+      Swal.fire({
+        title: 'apakah anda yakin?',
+        text: "inging menghapus category ini",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonText: "ya, hapus!",
+        cancelButtonText: "batal",
+        background: 'var(--bs-body-bg)',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          form.submit();
+        }
       });
     });
-  });
+    });
+    });
   </script>
 @endsection

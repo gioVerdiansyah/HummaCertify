@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\CertificateCategori;
 use App\Http\Controllers\Controller;
+use App\Models\Certificate;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
@@ -18,7 +19,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = CertificateCategori::all();
+        $categories = CertificateCategori::paginate(9);
         return view('admin.certificate.category.index', compact("categories"));
     }
 
