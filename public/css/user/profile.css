@@ -23,19 +23,18 @@
 }
 
 .pembungkus-profile .bababoi .profile-title {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 600;
 }
 
 .pembungkus-profile .bababoi .form-detail label {
     font-weight: 600;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 .pembungkus-profile .bababoi .form-detail input {
     background: transparent;
 }
-
 
 .input-button {
     display: flex;
@@ -113,7 +112,7 @@
 .pembungkus-profile .card-sertifikat-show .certificate .dark p {
     font-size: 25px;
     width: 80%;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 600;
     text-align: center;
     letter-spacing: 1px;
@@ -143,17 +142,17 @@
 .card-sertifikat-user .card-body .text .text-atas {
     font-size: 20px;
     font-weight: 500;
-    color: #878A99;
+    color: #878a99;
     text-transform: uppercase;
     margin-bottom: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 .card-sertifikat-user .card-body .text .angka {
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 .card-sertifikat-user .card-body .text .text-bawah {
@@ -161,13 +160,13 @@
     font-weight: 300;
     letter-spacing: 1px;
     text-transform: uppercase;
-    color: #878A99;
+    color: #878a99;
     margin-bottom: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 .card .title-chart {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 20px;
     font-weight: 600;
     padding: 10px 20px;
@@ -176,6 +175,14 @@
 
 .input-height {
     height: 50px;
+}
+
+.modal .modal-body .close-btn-custome {
+    position: absolute;
+    top: 40px;
+    font-size: 20px;
+    font-weight: 600;
+    color: black !important;
 }
 
 @media only screen and (max-width: 900px) {
@@ -193,7 +200,7 @@
     .pembungkus-profile .bababoi .papope {
         padding: 0px 0px;
     }
-    
+
     .input-button .button-edit button {
         width: 50px;
         height: 50px;
@@ -230,7 +237,7 @@
     .input-button .button-width {
         width: 80%;
     }
-    
+
     .input-button .button-edit button {
         width: 50px;
         height: 50px;
@@ -242,7 +249,7 @@
         top: 199px;
         border-radius: 5px;
     }
-    
+
     .input-button .button-width {
         width: 90%;
     }

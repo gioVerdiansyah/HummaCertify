@@ -85,11 +85,10 @@
     aria-hidden="true">
     <div class="modal-dialog modal-fullscreen">
       <div class="modal-content">
-        <div class="modal-body">
-          <iframe id="ifram" style="width: 98%;" src="{{ route('downloadCertificate', $certificate->id) }}"
+        <div class="modal-body p-5">
+          <iframe id="ifram" style="width: 100%;" src="{{ route('downloadCertificate', $certificate->id) }}"
             frameborder="0"></iframe>
-          <button type="button" class="btn-close" style="background-color: white" data-bs-dismiss="modal"
-            aria-label="Close"></button>
+          <button type="button" class="btn-close close-btn-custome" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
       </div>
     </div>
