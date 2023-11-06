@@ -77,7 +77,7 @@
      <div class="col-md-4">
        <div class="card" style="height: 94.8%">
          <p class="title-chart">Data Sertifikat</p>
-         <canvas id="chartDoughnut"></canvas>
+         <canvas id="chartDoughnut" class="mb-3"></canvas>
        </div>
      </div>
    </div>

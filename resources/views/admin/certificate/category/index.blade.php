@@ -1,7 +1,7 @@
 @extends('layouts.nav-admin')
 @section('content')
   <link rel="stylesheet" href="{{ asset('css/admin/admincategory.css') }}">
-  <div class="col-2 mb-4">
+  <div class="mb-4" style="width: 175px">
     <a href="{{ route('category.create') }}" class="btn btn-primary m-0 d-flex gap-1">Tambah Kategori <i class="ri-add-line d-flex align-items-center"></i></a>
   </div>
   <div class="row">
