@@ -1,7 +1,6 @@
 .ukuran {
     width: 100%;
     border-radius: 10px;
-    margin-bottom: 30px;
 }
 
 .gmr {
@@ -56,4 +55,8 @@ button {
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+.w {
+    width: 172px;
 }

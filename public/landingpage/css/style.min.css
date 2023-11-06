@@ -381,11 +381,11 @@ h6 {
     .navbar.navbar-light .navbar-nav li .nav-link.active,
     .navbar.navbar-light .navbar-nav li .nav-link:hover,
     .navbar.navbar-light .navbar-nav li .nav-link:focus {
-        color: #e2e7f1 !important
+        color: #1689D3 !important
     }
 
     .navbar .nav-btn {
-        background-color: #2753ff;
+        background-color: #1689D3;
         color: #fff
     }
 
@@ -426,7 +426,7 @@ h6 {
 
 @media (min-width: 200px) and (max-width: 991px) {
     [data-bs-theme="dark"] .navbar {
-        background-color: #0c1014 !important
+        background-color: #141b23 !important
     }
 
     [data-bs-theme="dark"] .navbar .navbar-brand .logo-dark {
@@ -1870,12 +1870,62 @@ h6 {
     .hero-7 {
         padding: 140px 0 80px
     }
+
+    .hero-6 {
+        padding: 140px 0 120px;
+    }
+
+    #gambar {
+        display: none;
+    }
 }
 
 @media (max-width: 991px) {
     .img-md-responsive {
         max-width: 100%;
         height: auto
+    }
+
+    .hero-6 {
+        padding: 140px 0 120px;
+    }
+
+    #gambar {
+        display: none;
+    }
+
+    .mwc {
+        text-align: center;
+    }
+
+    #ktkgmr {
+        display: none !important;
+    }
+
+    .ms-5 {
+        margin-left: 0 !important;
+    }
+
+    .me-5 {
+        margin-right: 0 !important;
+    }
+    
+    .t {
+        text-align: center;
+    }
+
+    .mb-costum {
+        margin-bottom: 2rem;
+    }
+}
+
+@media (width: 991px) {
+    #gambar {
+        display: none;
+    }
+
+    #ktkgmr {
+        display: none !important;
     }
 }
 
@@ -2243,6 +2293,15 @@ h6 {
         margin-left: 70px;
         position:absolute;
     }
+
+    .atas-none {
+        padding-top: 0 !important;
+    }
+
+    .img-fluid {
+        max-width: 80%;
+        height: auto;
+    }
 }
 
 #style-switcher .bottom a.mode-btn {
@@ -2359,7 +2418,7 @@ h6 {
 
 
 .searchBox {
-    background: #fff;
+    background: var(--bs-body-bg);
     border-radius: 40px;
     padding: 7px;
     height: 3.5rem;
@@ -2425,5 +2484,19 @@ textarea.form-control {
     .searchBox > .searchInput {
         width: 88%;
         padding: 0 6px;
+    }
+}
+
+.gmr-footer {
+    height: 50%;
+}
+
+@media (max-width: 500px) {
+    .footer {
+        font-size: 75%;
+    }
+
+    .gmr-footer {
+        height: 40%;
     }
 }

@@ -4489,8 +4489,8 @@ code {
     --vz-vertical-menu-border: #fff;
     --vz-vertical-menu-item-color: #6d7080;
     --vz-vertical-menu-item-bg: rgba(61, 120, 227, 0.15);
-    --vz-vertical-menu-item-hover-color: #3d78e3;
-    --vz-vertical-menu-item-active-color: #3d78e3;
+    --vz-vertical-menu-item-hover-color: #00b1f0;
+    --vz-vertical-menu-item-active-color: #00b1f0;
     --vz-vertical-menu-item-active-bg: rgba(61, 120, 227, 0.15);
     --vz-vertical-menu-sub-item-color: #7c7f90;
     --vz-vertical-menu-sub-item-hover-color: #3d78e3;

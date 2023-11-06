@@ -1,14 +1,18 @@
 @extends('layouts.nav-user')
 
 @section('content')
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <section class="hero-6 bg-center position-relative overflow-hidden"
     style="background-image: url({{ asset('landingpage/images/hero-6-bg.png') }});" id="home">
     <div class="container">
-      <div class="row align-items-center">
+      <div class="row align-items-center mwc">
         <div class="col-lg-5" id="pencarian">
           <i class="mb-4 icon-lg sw-1_5 text-primary" style="display: none;" data-feather="sunrise"></i>
-          <h1 class="font-weight-semibold mb-4 hero-6-title">Selamat Datang di <b class="text-gradient">HummaCertify</b>
-          </h1>
+          <div class="mb-4 hero-6-title">
+            <h1 class="fw-light mb-0 hero-6-title">Selamat Datang di
+            </h1>
+            <b class="text-gradient">HummaCertify</b>
+          </div>
           <p class="mb-5 text-muted">Verifikasi keaslian sertifikat Anda dengan memasukkan kode sertifikat
             yang Anda terima</p>
           {{-- <a href="#" class="btn btn-primary me-2">Get Started <i class="icon-sm ms-1" data-feather="arrow-right"></i></a> --}}
@@ -25,7 +29,7 @@
             <p class="text-danger">{{ $message }}</p>
           @enderror
         </div>
-        <div class="col-lg-6 col-sm-10 mx-auto ms-lg-auto me-lg-0">
+        <div class="col-lg-6 col-sm-10 mx-auto ms-lg-auto me-lg-0" id="gambar">
           <div class="mt-lg-0 mt-5">
             <img src="{{ asset('landingpage/images/image1.png') }}" alt="" class="img-xl-responsive" />
           </div>
@@ -48,12 +52,7 @@
           <div class="service-box text-center px-4 py-5 position-relative mb-4">
             <div class="service-box-content p-4">
               <div class="icon-mono service-icon avatar-md mx-auto mb-4">
-                <svg width="72" height="73" viewBox="0 0 72 73" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect y="0.390137" width="72" height="72" rx="36" fill="#FBFBFB" />
-                  <path
-                    d="M47.1427 30.5984V26.8333C47.1427 26.3471 46.9471 25.8808 46.5988 25.537C46.2505 25.1931 45.7781 25 45.2856 25H24.8571C24.3646 25 23.8922 25.1931 23.5439 25.537C23.1957 25.8808 23 26.3471 23 26.8333V41.4995C23 41.9857 23.1957 42.452 23.5439 42.7958C23.8922 43.1396 24.3646 43.3328 24.8571 43.3328H37.8571V46.0827C37.8569 46.239 37.8973 46.3928 37.9744 46.5294C38.0514 46.6659 38.1626 46.7808 38.2973 46.863C38.432 46.9452 38.5857 46.9921 38.7439 46.9991C38.9021 47.0061 39.0595 46.9731 39.2012 46.9031L42.4999 45.2738L45.7986 46.9031C45.9402 46.9731 46.0976 47.0061 46.2558 46.9991C46.414 46.9921 46.5678 46.9452 46.7025 46.863C46.8372 46.7808 46.9483 46.6659 47.0254 46.5294C47.1024 46.3928 47.1428 46.239 47.1427 46.0827V39.5677C48.3331 38.3707 49 36.7604 49 35.083C49 33.4057 48.3331 31.7953 47.1427 30.5984ZM35.0714 36.9163H28.5714C28.3251 36.9163 28.0889 36.8197 27.9148 36.6478C27.7407 36.4759 27.6428 36.2428 27.6428 35.9997C27.6428 35.7566 27.7407 35.5234 27.9148 35.3515C28.0889 35.1796 28.3251 35.083 28.5714 35.083H35.0714C35.3176 35.083 35.5538 35.1796 35.728 35.3515C35.9021 35.5234 35.9999 35.7566 35.9999 35.9997C35.9999 36.2428 35.9021 36.4759 35.728 36.6478C35.5538 36.8197 35.3176 36.9163 35.0714 36.9163ZM35.0714 33.2498H28.5714C28.3251 33.2498 28.0889 33.1532 27.9148 32.9813C27.7407 32.8094 27.6428 32.5762 27.6428 32.3331C27.6428 32.09 27.7407 31.8569 27.9148 31.685C28.0889 31.513 28.3251 31.4165 28.5714 31.4165H35.0714C35.3176 31.4165 35.5538 31.513 35.728 31.685C35.9021 31.8569 35.9999 32.09 35.9999 32.3331C35.9999 32.5762 35.9021 32.8094 35.728 32.9813C35.5538 33.1532 35.3176 33.2498 35.0714 33.2498ZM45.2856 44.6L42.9154 43.429C42.7864 43.3653 42.6441 43.3321 42.4999 43.3321C42.3556 43.3321 42.2134 43.3653 42.0844 43.429L39.7142 44.6V40.8796C40.5847 41.2878 41.5362 41.4995 42.4999 41.4995C43.4635 41.4995 44.4151 41.2878 45.2856 40.8796V44.6ZM42.4999 39.6662C41.5816 39.6662 40.684 39.3974 39.9205 38.8938C39.157 38.3902 38.5619 37.6744 38.2105 36.8369C37.8591 35.9995 37.7671 35.0779 37.9463 34.1889C38.1254 33.2998 38.5676 32.4832 39.2169 31.8422C39.8662 31.2013 40.6935 30.7647 41.5941 30.5879C42.4947 30.4111 43.4283 30.5018 44.2766 30.8487C45.125 31.1956 45.8501 31.783 46.3603 32.5367C46.8704 33.2904 47.1427 34.1766 47.1427 35.083C47.1427 36.2986 46.6536 37.4643 45.7829 38.3238C44.9122 39.1834 43.7312 39.6662 42.4999 39.6662Z"
-                    fill="#29344A" />
-                </svg>
+                <i class="bx bx-cog fs-3"></i>
               </div>
               <h4 class="mb-3 font-size-22">Fungsi</h4>
               <p class="text-muted mb-0">Pencarian sertifikat adalah langkah kunci dalam memastikan keabsahan dokumen
@@ -66,27 +65,11 @@
           <div class="service-box text-center px-4 py-5 position-relative mb-4 active">
             <div class="service-box-content p-4">
               <div class="icon-mono service-icon avatar-md mx-auto mb-4">
-                <svg width="72" height="73" viewBox="0 0 72 73" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect y="0.390137" width="72" height="72" rx="36" fill="#FBFBFB" />
-                  <g clip-path="url(#clip0_649_356)">
-                    <path opacity="0.5"
-                      d="M42.8461 25.3188L26.3969 28.8715C25.4621 29.0734 24.6457 29.6384 24.1274 30.4422C23.6092 31.246 23.4315 32.2228 23.6334 33.1576L24.3236 36.3535L32.9353 37.2974L40.368 35.692L47.8225 31.2782L47.1322 28.0823C46.9303 27.1475 46.3653 26.3311 45.5615 25.8129C44.7577 25.2946 43.781 25.1169 42.8461 25.3188Z"
-                      fill="#29344A" />
-                    <path
-                      d="M32.2722 27.6026L32.0184 26.4277L36.7182 25.4126L36.972 26.5875L39.3218 26.08L39.0681 24.9051C38.9329 24.2822 38.5561 23.7383 38.0204 23.3929C37.4847 23.0475 36.8338 22.9288 36.2107 23.0627L31.5109 24.0778C30.888 24.213 30.3441 24.5898 29.9987 25.1255C29.6533 25.6612 29.5346 26.312 29.6685 26.9352L29.9223 28.1101L32.2722 27.6026ZM32.9359 37.2973L24.3242 36.3534L25.9178 43.7321C26.1206 44.6664 26.6858 45.4822 27.4894 46.0003C28.2929 46.5184 29.2692 46.6965 30.204 46.4956L46.6532 42.9429C47.5875 42.7401 48.4033 42.1749 48.9214 41.3713C49.4395 40.5678 49.6176 39.5915 49.4167 38.6567L47.8231 31.2781L40.3686 35.692L32.9359 37.2973Z"
-                      fill="#29344A" />
-                  </g>
-                  <defs>
-                    <clipPath id="clip0_649_356">
-                      <rect width="28.8489" height="28.8489" fill="white"
-                        transform="translate(19 23.0908) rotate(-12.1877)" />
-                    </clipPath>
-                  </defs>
-                </svg>
+                <i class="bx bx-book-reader fs-3"></i>
               </div>
               <h4 class="mb-3 font-size-22">Manfaat</h4>
               <p class="text-muted mb-0">Sertifikat adalah bukti konkrit pencapaian dan digunakan dalam berbagai
-                konteks, mulai dari peerjaan hingga pendidikan</p>
+                konteks, mulai dari pekerjaan hingga pendidikan</p>
             </div>
           </div>
         </div>
@@ -95,12 +78,7 @@
           <div class="service-box text-center px-4 py-5 position-relative mb-4">
             <div class="service-box-content p-4">
               <div class="icon-mono service-icon avatar-md mx-auto mb-4">
-                <svg width="72" height="73" viewBox="0 0 72 73" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect y="0.390137" width="72" height="72" rx="36" fill="#FBFBFB" />
-                  <path
-                    d="M36 34.5C39.1562 34.5 41.7143 31.926 41.7143 28.75C41.7143 25.574 39.1562 23 36 23C32.8438 23 30.2857 25.574 30.2857 28.75C30.2857 31.926 32.8438 34.5 36 34.5ZM40.2768 35.9645L38.1429 44.5625L36.7143 38.4531L38.1429 35.9375H33.8571L35.2857 38.4531L33.8571 44.5625L31.7232 35.9645C28.5402 36.1172 26 38.7361 26 41.975V43.8438C26 45.0342 26.9598 46 28.1429 46H43.8571C45.0402 46 46 45.0342 46 43.8438V41.975C46 38.7361 43.4598 36.1172 40.2768 35.9645Z"
-                    fill="#29344A" />
-                </svg>
+                <i class="bx bx-bulb fs-3"></i>
               </div>
               <h4 class="mb-3 font-size-22">Bukti</h4>
               <p class="text-muted mb-0">Sertifikat mewakili pengetahuan, keterampilan, atau status tertentu yang anda
@@ -134,7 +112,7 @@
             melalui platform kami.
           </p>
         </div>
-        <div class="col-md-6 ms-md-auto order-1 order-md-2">
+        <div class="col-md-6 ms-md-auto order-1 order-md-2 mb-costum">
           <div class="position-relative">
             <div class="ms-5 features-img">
               <img src="{{ asset('landingpage/images/image2.png') }}" alt=""
@@ -144,8 +122,8 @@
           </div>
         </div>
       </div>
-      <div class="row align-items-center section pb-0">
-        <div class="col-md-6">
+      <div class="row align-items-center atas-none section pb-0">
+        <div class="col-md-6 mb-costum">
           <div class="position-relative mb-md-0 mb-5">
             <div class="me-5 features-img">
               <img src="{{ asset('landingpage/images/image3.png') }}" alt=""
@@ -537,8 +515,8 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6">
-          <h2 class="fw-bold text-gradient mb-4">Hubungi Kami</h2>
-          <p class="text-muted mb-3">Anda bisa hubungi kami, dengan mengirimkan pesan pada form dibawah ini. Terima
+          <h2 class="fw-bold text-gradient mb-4 t">Hubungi Kami</h2>
+          <p class="text-muted mb-3 t">Anda bisa hubungi kami, dengan mengirimkan pesan pada form dibawah ini. Terima
             Kasih!</p>
 
           <div>
@@ -590,14 +568,14 @@
 
         <div class="col-lg-5 ms-lg-auto">
           <div class="mt-5 mt-lg-0">
-            <img src="{{ asset('landingpage/images/kontak.png') }}" alt="" class="img-fluid d-block" />
+            <img src="{{ asset('landingpage/images/kontak.png') }}" alt="" class="img-fluid d-block" id="ktkgmr" />
             <p class="text-muted mt-5 mb-3"><i class="me-2 far fa-envelope text-muted icon icon-xs"></i>
               hummacertify@gmail.com</p>
             <p class="text-muted mb-3"><i class="me-2 text-muted icon icon-xs" data-feather="phone"></i>+91 123 4556
               789</p>
             <p class="text-muted mb-3"><i class="me-2 text-muted icon icon-xs" data-feather="map-pin"></i> Malang,
               Karangploso, Perum Permata</p>
-            <ul class="list-inline pt-4">
+            <ul class="list-inline pt-4 t">
               <li class="list-inline-item me-3">
                 <a href="http://www.facebook.com/hummatech" class="social-icon icon-mono avatar-xs rounded-circle"><i
                     class="icon-xs" data-feather="facebook"></i></a>
@@ -621,7 +599,7 @@
     <div class="container">
       <div class="row">
         <div class="text-center text-light">
-          <img src="{{ asset('landingpage/images/logo-footer.png') }}" alt="">
+          <img src="{{ asset('landingpage/images/logo-footer.png') }}" class="gmr-footer" alt="">
           <h3>HummaCertify</h3>
           <p>HummaCertify bukti pengalaman anda</p>
         </div>
