@@ -109,8 +109,8 @@
         </div>
     </div>
     <script>
-        let backgroundDepan = "{{ $category->background_depan }}";
-        let backgroundBelakang = "{{ $category->background_belakang }}";
+        let backgroundDepan = "/{{ $category->background_depan }}";
+        let backgroundBelakang = "/{{ $category->background_belakang }}";
 
         $(function() {
             var maxFileSize = 2 * 1024 * 1024;
