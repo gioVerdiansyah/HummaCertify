@@ -18,7 +18,7 @@
           {{-- <a href="#" class="btn btn-primary me-2">Get Started <i class="icon-sm ms-1" data-feather="arrow-right"></i></a> --}}
           <form action="{{ route('search') }}" method="GET" id="searching">
             <div class="searchBox">
-              <input class="searchInput"type="search" name="q" placeholder="Contoh: Ser/0001/0002/02/3112/2023"
+              <input class="searchInput" type="search" name="q" id="search" placeholder="Contoh: Ser/0001/0002/02/3112/2023"
                 autocomplete="off" required>
               <button class="searchButton" href="#">
                 <i class="fas fa-search"></i>
@@ -667,11 +667,19 @@
           <p><small>All rights reserved © 2023</small></p>
           <p><small>Dibuat Oleh Siswa HummaTech</small></p>
         </div>
-
       </div>
     </div>
   </footer>
+  {{-- <script>
+    $("#search").on('keyup', function () {
+        var search = $("#search").val();
+        localStorage.setItem("search", search);
+        console.log(search);
+    });
 
+    var restore = localStorage.getItem("search");
+    $("#search").val(restore);
+  </script> --}}
   <script>
     $(document).ready(function() {
       $("#searching").submit(function(event) {

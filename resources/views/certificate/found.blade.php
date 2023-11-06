@@ -110,7 +110,7 @@
         <button type="button" class="btn-close x-button" data-bs-dismiss="modal" aria-label="Close">
           <box-icon name='x' class="x-button-icon" color='#ffffff' size="lg"></box-icon>
         </button>
-        <div class="modal-body">
+        <div class="modal-body mt-5">
           <iframe id="ifram" src="{{ route('downloadCertificate', $certificate->id) }}" frameborder="0"></iframe>
         </div>
       </div>

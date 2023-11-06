@@ -9,12 +9,12 @@
       <div class="col-md-4">
         <div class="card">
           <div class="card-body">
-            <a href="javascript: void(0);" class="image-container">
+            <div class="image-container">
               <img src="{{ asset($category->background_depan) }}" class="ukuran gmr" alt="Background {{ $category->name }}">
               <div class="image-hover fs-1" data-bs-toggle="modal" data-bs-target="#penuh{{ $category->id }}">
                 <h5 class="hover-animate"><i class="ri-zoom-in-line"></i></h5>
               </div>
-            </a>
+            </div>
             <div class="modal fade" id="penuh{{ $category->id }}" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-xl">
                 <div class="modal-content">
@@ -34,7 +34,7 @@
                 <form action="{{ route('category.destroy', $category->id) }}" method="POST" class="delete-form">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="delete-button"><i class="las la-trash-alt d-flex align-items-center fs-4 text-danger"></i></button>
+                  <button type="submit" id="delete-kategori"><i class="delete-icon las la-trash-alt d-flex align-items-center fs-4 text-danger"></i></button>
                 </form>
             	</div>
               @endif
@@ -45,23 +45,24 @@
     @endforeach
   </div>
   <script>
-    document.querySelectorAll('.delete-form').forEach(function(form) {
-    form.addEventListener('submit', function(event) {
+    document.querySelectorAll('.delete-alert').forEach(function(form) {
+      form.addEventListener('submit', function(event) {
         event.preventDefault();
 
         Swal.fire({
-            title: 'Apakah Anda yakin?',
-            text: "Tindakan ini tidak dapat dibatalkan",
-            icon: "question",
-            showCancelButton: true,
-            confirmButtonText: "Lanjutkan",
-            cancelButtonText: "Batal",
-            background: 'var(--bs-body-bg)',
+          title: 'apakah anda yakin?',
+          text: "inging menghapus category ini",
+          icon: "question",
+          showCancelButton: true,
+          confirmButtonText: "ya, hapus!",
+          cancelButtonText: "batal",
+          background: 'var(--bs-body-bg)',
         }).then((result) => {
-            if (result.isConfirmed) {
-                form.submit();
-            }
+          if (result.isConfirmed) {
+            form.submit();
+          }
         });
+      });
     });
   });
   </script>

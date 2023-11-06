@@ -15,6 +15,14 @@ class ProfileController extends Controller
     }
 
     public function updateEmail(Request $request){
+        
+        if ($request->email === auth()->user()->email) {
+            return back()->with('message', [
+                'icon' => 'error',
+                'title' => 'Gagal!',
+                'text' => 'Email yang anda masukkan tidak ada perubahan!']);
+        }
+
         $request->validate([
             'email' => 'required|email|unique:users,email'
         ],[
@@ -23,12 +31,6 @@ class ProfileController extends Controller
             'email.unique' => 'Email ini telah di genakan',
         ]);
 
-        if ($request->email === auth()->user()->email) {
-            return back()->with('message', [
-                'icon' => 'error',
-                'title' => 'Gagal!',
-                'text' => 'Email yang anda masukkan tidak ada perubahan!']);
-        }
 
         User::findOrFail(auth()->user()->id)->update([
             'email' => $request->email,

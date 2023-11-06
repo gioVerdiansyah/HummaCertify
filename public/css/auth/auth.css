@@ -1,7 +1,7 @@
 .eye {
     cursor: pointer;
     border-radius: 15px;
-    background-color: #fbfbfb;
+    background-color: var(--bs-bg-light);
     display: flex;
     justify-content: center;
     align-items: center;
