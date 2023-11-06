@@ -23,7 +23,7 @@
   <main>
     @foreach ($certificates as $certificate)
       <div class="depan"
-        style='background-image: url("https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/certificate-guru-depan.png");'>
+        style='background-image: url("{{ asset($background->depan) }}");'>
         <section id="depan">
           <div class="content">
             <div class="no">
@@ -81,7 +81,7 @@
       </div>
 
       <div class="belakang"
-        style='background-image: url("https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/certificate-guru-belakang.png");'>
+        style='background-image: url("{{ asset($background->belakang) }}");'>
         <section id="belakang">
           <div class="certificate-guru-belakang">
             <div class="text-penilaian text-center" style="text-align: center">

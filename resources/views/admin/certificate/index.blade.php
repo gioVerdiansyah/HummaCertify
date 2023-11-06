@@ -44,7 +44,7 @@
                     placeholder="Cari Sertifikat..." value="{{ request('q') }}" />
                   <button type="submit"
                     style="border-top: 1px solid #ced4da; border-right: 1px solid #ced4da; border-bottom: 1px solid #ced4da; "
-                    class="btn btn-lg">
+                    class="btn btn-lg py-1">
                     <i class="bi bi-search"></i>
                   </button>
                 </div>

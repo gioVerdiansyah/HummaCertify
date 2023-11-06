@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Storage;
 
 class CertificateController extends Controller
 {
-    protected $perPage = 3;
+    protected $perPage = 3, $exceptCategory = ["Kelulusan", "Pelatihan", "Kompetensi"];
     public function index(Request $request)
     {
         $certificates = Certificate::latest()->where('status', 'nonPrint')->paginate($this->perPage);
@@ -174,7 +174,7 @@ class CertificateController extends Controller
         $user = User::findOrFail($dataRequest['user_id']);
 
         $uniq = Certificate::count() + 1;
-        $nomorKategori = Certificate::where('certificate_categori_id',$dataRequest['certificate_categori_id'])->count() + 1;
+        $nomorKategori = Certificate::where('certificate_categori_id', $dataRequest['certificate_categori_id'])->count() + 1;
         $nomorSertifikat = $this->generateCertificateNumber($uniq, $dataRequest['certificate_categori_id'], $nomorKategori, $dataRequest['tanggal']);
 
         $certificate = Certificate::create([
@@ -209,7 +209,7 @@ class CertificateController extends Controller
         $notification = ContactMe::all();
         $notificationCount = ContactMe::all()->count();
 
-        return view('admin.certificate.edit', compact('categories', 'certificate','details', 'notificationCount', 'notification'));
+        return view('admin.certificate.edit', compact('categories', 'certificate', 'details', 'notificationCount', 'notification'));
     }
 
     /**
@@ -222,7 +222,7 @@ class CertificateController extends Controller
         $name = $certificate->user->name;
 
         // Delete sertifikat
-        Storage::delete('public/sertifikat/'. $certificate->id . '.pdf');
+        Storage::delete('public/sertifikat/' . $certificate->id . '.pdf');
 
         $dataUser = [
             'name' => $request->name,
@@ -235,7 +235,7 @@ class CertificateController extends Controller
 
         $userUniq = Certificate::count();
         $nomorKategori = Certificate::where('certificate_categori_id', $request->certificate_categori_id)->count() + 1;
-        $nomorSertifikat = $this->generateCertificateNumber($userUniq, $request->certificate_categori_id , $nomorKategori, $request->tanggal);
+        $nomorSertifikat = $this->generateCertificateNumber($userUniq, $request->certificate_categori_id, $nomorKategori, $request->tanggal);
         $dataCertificate = [
             'certificate_categori_id' => $request->certificate_categori_id,
             'tanggal' => $request->tanggal,
@@ -276,19 +276,19 @@ class CertificateController extends Controller
         $hari = date('d', strtotime($tanggal));
         $tahun = date('Y', strtotime($tanggal));
 
-        $nomorSertifikat = 'Ser' . '/' . $nomorUnik . '/'.$nomorKategoriSTR. '/' . $nomorKategori . '/' . $hari . $bulan . '/' . $tahun;
+        $nomorSertifikat = 'Ser' . '/' . $nomorUnik . '/' . $nomorKategoriSTR . '/' . $nomorKategori . '/' . $hari . $bulan . '/' . $tahun;
         return $nomorSertifikat;
     }
 
 
     public function generateCertificate(string $id)
     {
-            $certificate = Certificate::with(['user', 'category', 'detailCertificates'])->where('id', $id)->first();
-            $category = $certificate->category->id;
-            $type = $this->getTypeCertificate($category);
-            $certificateFileName = $certificate->id . '.pdf';
-            $pdf = PDF::setPaper('A4', 'landscape')->loadView('certificate.generate.' . $type, ['certificate' => $certificate]);
-            $pdf->save(storage_path('app/public/sertifikat/' . $certificateFileName));
+        $certificate = Certificate::with(['user', 'category', 'detailCertificates'])->where('id', $id)->first();
+        $category = $certificate->category->id;
+        $type = $this->getTypeCertificate($category);
+        $certificateFileName = $certificate->id . '.pdf';
+        $pdf = PDF::setPaper('A4', 'landscape')->loadView('certificate.generate.' . $type, ['certificate' => $certificate]);
+        $pdf->save(storage_path('app/public/sertifikat/' . $certificateFileName));
     }
     public function getCertificate(string $id)
     {
@@ -298,12 +298,28 @@ class CertificateController extends Controller
         $certificate->status = 'hasPrint';
         $certificate->save();
         $type = $this->getTypeCertificate($category);
-        return view('certificate.' . $type, compact('certificate', 'category', 'type'));
+        $background = $this->getBackground($category);
+        return view('certificate.' . $type, compact('certificate', 'category', 'type', 'background'));
+    }
+
+    public function getBackground(int $category)
+    {
+        $category = $this->getCategoryCertificate($category);
+        $background = (object)[
+            'depan' => $category->background_depan,
+            'belakang' => $category->background_belakang,
+        ];
+        return $background;
     }
 
     public function getTypeCertificate(int $category)
     {
-        $categoryName = $this->getCategoryCertificate($category)->name;
+        $category = $this->getCategoryCertificate($category);
+        if (!in_array($category->name, $this->exceptCategory)) {
+            $categoryName = $category->tata_letak;
+        } else {
+            $categoryName = $category->name;
+        }
         return strtolower($categoryName);
     }
 
@@ -331,11 +347,12 @@ class CertificateController extends Controller
         }
         $certificates = $query->get();
         $type = $this->getTypeCertificate($dataRequest['ct']);
+        $background = $this->getBackground($dataRequest['ct']);
         foreach ($certificates as $certificate) {
             $certificate->status = 'hasPrint';
             $certificate->save();
         }
-        return view('admin.certificate.print-all.' . $type, compact('certificates'));
+        return view('admin.certificate.print-all.' . $type, compact('certificates', 'background'));
     }
 
     public function sendCertificate(string $id)
@@ -351,7 +368,8 @@ class CertificateController extends Controller
         ]);
     }
 
-    public function downloadCertificate(string $id){
+    public function downloadCertificate(string $id)
+    {
         $certificate = Certificate::find($id);
 
         if (!$certificate) {
