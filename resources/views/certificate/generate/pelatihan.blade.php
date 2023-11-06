@@ -247,7 +247,7 @@
       }
     </style>
     <div class="depan"
-      style='background-image: url("https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/certificate-guru-depan.png");'>
+      style='background-image: url("{{ $background->depan }}");'>
       <section id="depan">
         <div class="content">
           <div class="no">
@@ -308,7 +308,7 @@
 
     @if (isset($certificate->detailCertificates[0]->materi) && isset($certificate->detailCertificates[0]->jp))
       <div class="belakang"
-        style='background-image: url("https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/certificate-guru-belakang.png");'>
+        style='background-image: url("{{ $background->belakang }}");'>
         <section id="belakang">
           <div class="certificate-guru-belakang">
             <div class="text-penilaian" style="text-align: center">

@@ -21,17 +21,17 @@
 .card-dashboard .card-body .text .text-atas {
     font-size: 20px;
     font-weight: 500;
-    color: #878A99;
+    color: #878a99;
     text-transform: uppercase;
     margin-bottom: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 .card-dashboard .card-body .text .angka {
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 .card-dashboard .card-body .text .text-bawah {
@@ -39,15 +39,64 @@
     font-weight: 300;
     letter-spacing: 1px;
     text-transform: uppercase;
-    color: #878A99;
+    color: #878a99;
     margin-bottom: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 .card .title-chart {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 20px;
     font-weight: 600;
     padding: 10px 20px;
     color: #495057;
+}
+
+@media (max-width: 900px) {
+    .card-dashboard .card-body .content {
+        width: 80px;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .card-dashboard .card-body .text .text-atas {
+        font-size: 10px;
+        font-weight: 500;
+        color: #878a99;
+        text-transform: uppercase;
+        margin-bottom: 0;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .card-dashboard .card-body .text .angka {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 0;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .card-dashboard .card-body .text .text-bawah {
+        max-width: 80px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-size: 10px;
+        font-weight: 300;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #878a99;
+        margin-bottom: 0;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .card .title-chart {
+        font-family: "Poppins", sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 10px 20px;
+        color: #495057;
+    }
 }

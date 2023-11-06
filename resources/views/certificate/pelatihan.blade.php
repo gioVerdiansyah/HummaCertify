@@ -22,7 +22,7 @@
 <body>
   <main>
     <div class="depan"
-      style='background-image: url("{{ asset('image/bgdepan/certificate-guru.png') }}");'>
+      style='background-image: url("{{ asset($background->depan) }}");'>
       <section id="depan">
         <div class="content">
           <div class="no">
@@ -80,7 +80,7 @@
     </div>
 
     <div class="belakang"
-      style='background-image: url("{{ asset('image/bgbelakang/certificate-guru.png') }}");'>
+      style='background-image: url("{{ asset($background->belakang) }}");'>
       <section id="belakang">
         <div class="certificate-guru-belakang">
           <div class="text-penilaian text-center" style="text-align: center">

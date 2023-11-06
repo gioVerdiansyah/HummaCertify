@@ -23,7 +23,7 @@
 <body>
   <main>
     {{-- Depan --}}
-    <div class="depan" style='background-image: url("{{ asset('image/bgdepan/certificate-guru-tamu.png') }}");'>
+    <div class="depan" style='background-image: url("{{ asset($background->depan) }}");'>
         <div class="content">
           <div class="qr-code">
             <center>
@@ -55,7 +55,7 @@
         </div>
       </div>
       {{-- Belakang --}}
-      <div class="belakang" style='background-image: url("{{ asset('image/bgbelakang/certificate-guru-tamu.png') }}");'>
+      <div class="belakang" style='background-image: url("{{ asset($background->belakang) }}");'>
         <div class="content">
           <div>
             <p class="pelatihan">"{{ $certificate->bidang }}"</p>

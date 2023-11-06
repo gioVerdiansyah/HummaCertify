@@ -39,7 +39,6 @@
           .bg {
             width: 100%;
             height: 100%;
-            background-image: url("https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/certificate-bg.png");
             background-repeat: no-repeat;
             background-size: cover;
             position: relative;
@@ -202,7 +201,7 @@
             padding: 4px 0px;
           }
         </style>
-        <div class="bg">
+        <div class="bg" style='background-image: url("{{ $background->depan }}");'>
           <div class="content">
             {{-- Nomer Sertifikat --}}
             <div class="no-sertifikat">
@@ -236,7 +235,7 @@
             </div>
           </div>
         </div>
-        <div class="belakang" style='background-image: url("https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/certificate-bg-test.png");'>
+        <div class="belakang" style='background-image: url("{{ $background->belakang }}");'>
           <div class="content">
             <div class="table-materi">
               <table>

@@ -60,7 +60,7 @@
             <div class="mb-3">
               <label for="namaKategori">Tata Letak</label>
               <select name="tataletak" id="tataLetak" class="form-select @error('tataletak') is-invalid @enderror" required>
-                <option disabled selected>Pilih tata letak depan</option>
+                <option disabled value="tataletak" selected>Pilih tata letak depan</option>
                 <option value="Kelulusan" {{ old('tataletak') == "Kelulusan" ? 'selected' : '' }}>Kelulusan</option>
                 <option value="Pelatihan" {{ old('tataletak') == "Pelatihan" ? 'selected' : '' }}>Pelatihan</option>
                 <option value="Kompetensi" {{ old('tataletak') == "Kompetensi" ? 'selected' : '' }}>Kompetensi</option>
@@ -72,8 +72,8 @@
               @enderror
             </div>
             <div class="card-button">
-              <button type="button" id="preview-button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#preview">Preview</button>
-              <button type="submit" class="btn btn-primary">Simpan</button>
+                <button type="button" id="preview-button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#preview" disabled>Preview</button>
+              <button type="submit" id="simpan" class="btn btn-primary" disabled>Simpan</button>
             </div>
           </div>
         </div>
@@ -333,6 +333,38 @@
       });
     })
   </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const namaKategoriInput = document.querySelector('input[name="namaKategori"]');
+      const tataletakSelect = document.querySelector('select[name="tataletak"]');
+      const depanInput = document.querySelector('input[name="depan"]');
+      const belakangInput = document.querySelector('input[name="belakang"]');
+      const previewButton = document.getElementById('preview-button');
+      const simpanButton = document.getElementById('simpan');
+
+      function togglePreviewButton() {
+        if (namaKategoriInput.value.trim() !== '' && tataletakSelect.value !== 'tataletak' && depanInput.files.length > 0 && belakangInput.files.length > 0) {
+          previewButton.disabled = false;
+          simpanButton.disabled = false;
+          previewButton.classList.remove('btn-secondary');
+          previewButton.classList.add('btn-info');
+        } else {
+          previewButton.disabled = true;
+          simpanButton.disabled = true;
+          previewButton.classList.remove('btn-info');
+          previewButton.classList.add('btn-secondary');
+        }
+      }
+
+      namaKategoriInput.addEventListener('input', togglePreviewButton);
+      tataletakSelect.addEventListener('change', togglePreviewButton);
+      depanInput.addEventListener('change', togglePreviewButton);
+      belakangInput.addEventListener('change', togglePreviewButton);
+    });
+  </script>
+
+
 
   {{-- <script>
     document.addEventListener('DOMContentLoaded', function() {

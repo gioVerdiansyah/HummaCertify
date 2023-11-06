@@ -23,7 +23,7 @@
 
 <body>
   <main id="certificate-1">
-    <div class="bg" style='background-image: url("{{ asset('image/bgdepan/certificate-kelulusan.png') }}");'>
+    <div class="bg" style='background-image: url("{{ asset($background->depan) }}");'>
       <div class="content">
         {{-- Nomer Sertifikat --}}
         <div class="no-sertifikat">
@@ -57,7 +57,7 @@
         </div>
       </div>
     </div>
-    <div class="belakang" style='background-image: url("{{ asset('image/bgbelakang/certificate-kelulusan.png') }}");'>
+    <div class="belakang" style='background-image: url("{{ asset($background->belakang) }}");'>
       <div class="content">
         <div class="table-materi">
           <table>
@@ -68,6 +68,9 @@
                 <th width="20%">Waktu</th>
               </tr>
             </thead>
+            @php
+                $totalJP = 0;
+            @endphp
             <tbody>
               @foreach ($certificate->detailCertificates as $i => $detailCertificate)
                 <tr>
@@ -75,6 +78,9 @@
                   <td style="text-align: start; padding: 2px 5px;">{{ $detailCertificate->materi }}</td>
                   <td>{{ $detailCertificate->jp }} JP</td>
                 </tr>
+                @php
+                    $totalJP += $detailCertificate->jp;
+                @endphp
               @endforeach
               @if (count($certificate->detailCertificates) > 1)
                 <tr>

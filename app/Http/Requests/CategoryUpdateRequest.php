@@ -22,13 +22,10 @@ class CategoryUpdateRequest extends FormRequest
      */
     public function rules(): array
     {
+        $id = $this->route('category');
+
         return [
-            'namaKategori' => [
-                'required',
-                'string',
-                'max:25',
-                Rule::unique('certificate_categoris', 'name')->ignore($this->certificate_categoris),
-            ],
+            'namaKategori' => 'required|unique:certificate_categoris,name,'. $id .',id',
             'depan' => 'nullable|image|mimes:jpeg,png,jpg,jpeg',
             'belakang' => 'nullable|image|mimes:jpeg,png,jpg,jpeg',
             'tataletak' => 'required|in:Kelulusan,Pelatihan,Kompetensi',
