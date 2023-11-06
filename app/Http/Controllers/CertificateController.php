@@ -286,8 +286,9 @@ class CertificateController extends Controller
         $certificate = Certificate::with(['user', 'category', 'detailCertificates'])->where('id', $id)->first();
         $category = $certificate->category->id;
         $type = $this->getTypeCertificate($category);
+        $background = $this->getBackground($category);
         $certificateFileName = $certificate->id . '.pdf';
-        $pdf = PDF::setPaper('A4', 'landscape')->loadView('certificate.generate.' . $type, ['certificate' => $certificate]);
+        $pdf = PDF::setPaper('A4', 'landscape')->loadView('certificate.generate.' . $type, ['certificate' => $certificate, 'background' => $background]);
         $pdf->save(storage_path('app/public/sertifikat/' . $certificateFileName));
     }
     public function getCertificate(string $id)

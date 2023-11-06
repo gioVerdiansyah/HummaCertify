@@ -236,7 +236,7 @@
     </style>
     {{-- Depan --}}
     <div class="depan"
-      style='background-image: url("https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/guru-tamu.png");'2>
+      style='background-image: url("{{ $background->depan }}");'2>
       <div class="content">
         <div class="qr-code">
           <center>
@@ -278,7 +278,7 @@
     </div>
     {{-- Belakang --}}
     <div class="belakang"
-      style='background-image: url("https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/guru-tamu-belakang.png");'>
+      style='background-image: url("{{ $background->belakang }}");'>
       <div class="content">
         <div>
           <p class="pelatihan">"{{ $certificate->bidang }}"</p>
