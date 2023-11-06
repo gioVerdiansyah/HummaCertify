@@ -19,6 +19,7 @@
 .pembungkus-profile .bababoi .card-profile {
     background-color: var(--bs-body-bg);
     border-style: none;
+    padding: 30px 20px 10px 9.5%;
 }
 
 .pembungkus-profile .bababoi .profile-title {
@@ -35,19 +36,31 @@
     background: transparent;
 }
 
-.pembungkus-profile .bababoi .form-detail button {
-    position: absolute;
-    top: 36px;
-    right: 10px;
-    width: 10px;
-    height: 30px;
+
+.input-button {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
 }
 
-.pembungkus-profile .bababoi .form-detail button i{
-    margin-top: 2px;
+.input-button .button-edit {
+    width: 10%;
+    height: 10%;
+}
+
+.input-button .button-width {
+    width: 90%;
+}
+
+.input-button .button-edit button {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 20px;
+    top: 214px;
+    border-radius: 5px;
 }
 
 .pembungkus-profile .card-sertifikat-user {
@@ -165,6 +178,39 @@
     height: 50px;
 }
 
+@media only screen and (max-width: 900px) {
+    .pembungkus-profile .card-sertifikat-user {
+        height: 30%;
+        border-radius: 0px;
+        margin: 0px 0px;
+    }
+
+    .pembungkus-profile .bababoi .card-profile {
+        border-radius: 0px;
+        padding: 20px;
+    }
+
+    .pembungkus-profile .bababoi .papope {
+        padding: 0px 0px;
+    }
+    
+    .input-button .button-edit button {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 20px;
+        top: 201px;
+        border-radius: 5px;
+    }
+
+    .input-button .button-width {
+        width: 90%;
+    }
+}
+
 @media only screen and (max-width: 768px) {
     .pembungkus-profile .card-sertifikat-user {
         height: 30%;
@@ -174,9 +220,54 @@
 
     .pembungkus-profile .bababoi .card-profile {
         border-radius: 0px;
+        padding: 20px;
     }
 
     .pembungkus-profile .bababoi .papope {
         padding: 0px 0px;
+    }
+
+    .input-button .button-width {
+        width: 80%;
+    }
+    
+    .input-button .button-edit button {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 20px;
+        top: 199px;
+        border-radius: 5px;
+    }
+    
+    .input-button .button-width {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .input-button .button-width {
+        width: 82%;
+    }
+}
+
+@media only screen and (max-width: 361px) {
+    .input-button .button-width {
+        width: 79%;
+    }
+
+    .input-button .button-edit button {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 20px;
+        top: 198px;
+        border-radius: 5px;
     }
 }
