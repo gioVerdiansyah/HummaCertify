@@ -151,7 +151,7 @@
                             <tr>
                               <td class="t242">
                                 <div style="font-size:0px;"><img class="t243" style="display:block;border:0;height:auto;width:100%;Margin:0;max-width:100%;" width="320" height="76.890625" alt=""
-                                    src="https://uploads.tabular.email/u/c329ae1d-c5e9-4029-9ed8-c59649b0e827/aaebc6bc-4c79-4f4b-9959-fc9849c19c66.png" />
+                                    src="https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/logocertify.PNG" />
                                 </div>
                               </td>
                             </tr>
