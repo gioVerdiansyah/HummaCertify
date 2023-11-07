@@ -43,15 +43,18 @@ class CategoryController extends Controller
         $depan = $request->file('depan');
         $belakang = $request->file('belakang');
 
+        $bgDepanName = $depan->hashName();
+        $bgBelakangName = $belakang->hashName();
+
         CertificateCategori::create([
             'name' => ucfirst($request->namaKategori),
-            'background_depan' => 'image/bgdepan/' . $depan->hashName(),
-            'background_belakang' => 'image/bgbelakang/' . $belakang->hashName(),
+            'background_depan' => 'storage/bgdepan/' . $bgDepanName,
+            'background_belakang' => 'storage/bgbelakang/' . $bgBelakangName,
             'tata_letak' => $request->tataletak,
         ]);
 
-        $depan->move('image/bgdepan/', $depan->hashName());
-        $belakang->move('image/bgbelakang', $belakang->hashName());
+        $depan->storeAs('bgdepan', $bgDepanName);
+        $belakang->storeAs('bgbelakang', $bgBelakangName);
 
         return redirect()->route('category.index')->with('message', [
             'icon' => 'success',
@@ -88,8 +91,9 @@ class CategoryController extends Controller
             if (file_exists($existingDepan)) {
                 unlink($existingDepan);
             }
-            $depanPath = 'image/bgdepan/' . $depan->hashName();
-            $depan->move('image/bgdepan/', $depan->hashName());
+            $bgDepanName = $depan->hashName();
+            $depanPath = 'storage/bgdepan/' . $bgDepanName;
+            $depan->storeAs('bgdepan/', $bgDepanName);
             $data['background_depan'] = $depanPath;
         }
 
@@ -99,9 +103,9 @@ class CategoryController extends Controller
             if (file_exists($existingBelakang)) {
                 unlink($existingBelakang);
             }
-
-            $belakangPath = 'image/bgbelakang/' . $belakang->hashName();
-            $belakang->move('image/bgbelakang/', $belakang->hashName());
+            $bgBelakangName = $belakang->hashName();
+            $belakangPath = 'storage/bgbelakang/' . $bgBelakangName;
+            $belakang->storeAs('bgbelakang/', $bgBelakangName);
             $data['background_belakang'] = $belakangPath;
         }
 

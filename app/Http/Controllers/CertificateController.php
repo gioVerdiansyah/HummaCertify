@@ -217,6 +217,7 @@ class CertificateController extends Controller
      */
     public function update(UserUpdateRequest $request, string $id)
     {
+        $dataRequest = $request->all();
         $certificate = Certificate::findOrFail($id);
         $user = User::findOrFail($certificate->user_id);
         $name = $certificate->user->name;
@@ -248,13 +249,8 @@ class CertificateController extends Controller
 
 
         DetailCertificate::where('certificate_id', $id)->delete();
-        foreach ($request['category-group'] as $category) {
-            $detailCertificate = [
-                'certificate_id' => $id,
-                'materi' => $category['materi'],
-                'jp' => $category['jam_pelajaran'],
-            ];
-            DetailCertificate::create($detailCertificate);
+        if (isset($dataRequest['category-group'][0]['materi']) && isset($dataRequest['category-group'][0]['jam_pelajaran'])) {
+            $this->storeDetail($dataRequest, $certificate->id);
         }
 
         // Generate sertifikat kembali
