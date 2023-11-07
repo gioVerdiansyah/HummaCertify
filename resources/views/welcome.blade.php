@@ -70,7 +70,7 @@
               </div>
               <h4 class="mb-3 font-size-22">Manfaat</h4>
               <p class="text-muted mb-0">Sertifikat adalah bukti konkrit pencapaian dan digunakan dalam berbagai
-                konteks, mulai dari pekerjaan hingga pendidikan</p>
+                konteks, seperti pekerjaan dll</p>
             </div>
           </div>
         </div>

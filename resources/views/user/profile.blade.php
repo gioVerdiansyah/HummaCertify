@@ -23,7 +23,7 @@
                     <label for="email" class="form-label">Email</label>
                     <div class="d-flex gap-3">
                       <input type="email" name="email" id="email" class="input-height form-control" placeholder="{{ $user->email }}" value="{{ $user->email }}">
-                      <button tyJpe="submit" class="btn btn-primary"><i class="fi fi-rr-pencil"></i></button>
+                      <button tyJpe="submit" class="btn btn-primary"><i class="fi fi-rr-pencil pencil-icon"></i></button>
                     </div>
                     @error('email')
                       <p class="invalid mt-2 text-danger">{{ $message }}</p>
