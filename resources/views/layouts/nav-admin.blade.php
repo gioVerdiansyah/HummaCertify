@@ -53,6 +53,47 @@
   {{-- Bootstrap Icon --}}
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  @php
+  $notification = \App\Models\ContactMe::orderBy('created_at', 'desc')->get();
+  $notificationCount = \App\Models\ContactMe::all()->count();
+  @endphp
+  <script>
+    @isset($notification[0])
+        function updateTimeAgo(time,elementId) {
+          const timeElement = $("#" + elementId);
+          const createdAt = new Date(Date.parse(time));
+          const currentTime = new Date();
+          const timeDifference = currentTime - createdAt;
+
+          const secondsAgo = Math.floor(timeDifference / 1000);
+          const minutesAgo = Math.floor(secondsAgo / 60);
+          const hoursAgo = Math.floor(minutesAgo / 60);
+          const daysAgo = Math.floor(hoursAgo / 24);
+          const weeksAgo = Math.floor(daysAgo / 7);
+          const monthsAgo = Math.floor(daysAgo / 30);
+          const yearsAgo = Math.floor(monthsAgo / 12);
+
+          let timeString = "";
+          if (yearsAgo > 0) {
+            timeString = yearsAgo + " tahun yang lalu";
+          } else if (monthsAgo > 0) {
+            timeString = monthsAgo + " bulan yang lalu";
+          } else if (weeksAgo > 0) {
+            timeString = weeksAgo + " minggu yang lalu";
+          } else if (daysAgo > 0) {
+            timeString = daysAgo + " hari yang lalu";
+          } else if (hoursAgo > 0) {
+            timeString = hoursAgo + " jam yang lalu";
+          } else if (minutesAgo > 0) {
+            timeString = minutesAgo + " menit yang lalu";
+          } else {
+            timeString = secondsAgo + " detik yang lalu";
+          }
+
+          timeElement.text(timeString);
+        }
+        @endisset
+  </script>
 </head>
 
 <body>
@@ -97,10 +138,6 @@
               </span>
             </button>
           </div>
-          @php
-            $notification = \App\Models\ContactMe::where('created_at', 'desc')->get();
-            $notificationCount = \App\Models\ContactMe::all()->count();
-          @endphp
           <div class="d-flex align-items-center">
 
             <div class="dropdown topbar-head-dropdown ms-1 header-item" id="notificationDropdown">
@@ -114,7 +151,7 @@
               </button>
               <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-notifications-dropdown">
 
-                <div class="dropdown-head bg-primary bg-pattern rounded-top">
+                <div class="dropdown-head bg-primary rounded-top">
                   <div class="p-3">
                     <div class="row align-items-center">
                       <div class="col">
@@ -150,7 +187,12 @@
                                 <p class="mb-1">{{ $data->message }}</p>
                               </div>
                               <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
-                                <span><i class="mdi mdi-clock-outline"></i>{{ $data->created_at->diffForHumans() }}</span>
+                                <span><i class="mdi mdi-clock-outline"></i><span id="timeAgo-{{ $data->id }}">{{ $data->created_at->diffForHumans() }}</span></span>
+                                <script>
+                                    setInterval(function() {
+                                      updateTimeAgo("{{ $data->created_at }}", "timeAgo-{{ $data->id }}");
+                                    }, 1000);
+                                </script>
                               </p>
                             </div>
                             <div class="px-2 fs-15">
@@ -328,7 +370,7 @@
             $('#unread').remove();
             $('#notificationItemsTabContent').html(
               `<div class="tab-pane fade show active p-4" id="all-noti-tab" role="tabpanel" aria-labelledby="alerts-tab">
-                 <div class="empty-notification-elem">							<div class="w-25 w-sm-50 pt-3 mx-auto">								<img src="assets/images/svg/bell.svg" class="img-fluid" alt="user-pic">							</div>							<div class="text-center pb-5 mt-2">								<h6 class="fs-18 fw-semibold lh-base">Hey! You have no any notifications </h6>							</div>						</div></div>`
+                 <div class="empty-notification-elem">							<div class="w-25 w-sm-50 pt-3 mx-auto">								<img src="/assets/images/svg/bell.svg" class="img-fluid" alt="user-pic">							</div>							<div class="text-center pb-5 mt-2">								<h6 class="fs-18 fw-semibold lh-base">Hey! You have no any notifications </h6>							</div>						</div></div>`
             );
           }
         }

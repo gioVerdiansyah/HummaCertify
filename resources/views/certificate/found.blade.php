@@ -34,7 +34,7 @@
                 <h4 class="label-item">{{ $certificate->user->institusi }}</h4>
               </div>
               <div class="mt-3">
-                <h4 class="label-header">Nomor Srtifikat :</h4>
+                <h4 class="label-header">Nomor Sertifikat :</h4>
                 <h4 class="label-item">{{ $certificate->nomor }}</h4>
               </div>
             </div>
