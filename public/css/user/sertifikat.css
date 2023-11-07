@@ -3,6 +3,10 @@
     height: auto;
 }
 
+.x-button {
+    margin-top: -8px !important;
+}
+
 .empty {
     font: 20px;
     font-weight: 600;

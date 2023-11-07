@@ -62,9 +62,9 @@
             <div class="mb-3">
               <h3 class="profile-title">Terbaru</h3>
             </div>
-            <div class="certificate" data-bs-toggle="modal" data-bs-target="#fullscreenModal">
-              <div class="dark">
-                <p>Klik untuk melihat ukuran penuh</p>
+            <div class="certificate">
+              <div class="dark" id="hover" data-bs-toggle="modal" data-bs-target="#detailModal">
+                <h1>Klik untuk melihat ukuran penuh</h1>
               </div>
               <div style="left: 35%; top: 30%;" id="load-detail" class="image-item"></div>
               <canvas id="pdfCanvas" class="image-item"></canvas>
@@ -75,12 +75,14 @@
     </div>
   </div>
 
-  <div class="modal fade" id="fullscreenModal" tabindex="-1" aria-labelledby="fullscreeexampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-fullscreen">
+  <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
       <div class="modal-content">
-        <div class="modal-body p-5">
-          <iframe id="ifram" style="width: 100%;" src="{{ route('downloadCertificate', $certificate->id) }}" frameborder="0"></iframe>
-          <button type="button" class="btn-close close-btn-custome" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close x-button" data-bs-dismiss="modal" aria-label="Close">
+          <box-icon name='x' class="x-button-icon" size="lg"></box-icon>
+        </button>
+        <div class="modal-body">
+          <iframe id="ifram" src="{{ route('downloadCertificate', $certificate->id) }}" frameborder="0"></iframe>
         </div>
       </div>
     </div>
@@ -98,6 +100,7 @@
   <script>
     var canvas = document.getElementById('pdfCanvas');
     var context = canvas.getContext('2d');
+    var hover = document.getElementById('hover');
     var imageHover = document.querySelector('.image-hover');
 
     var pdfUrl = "/storage/sertifikat/{{ $certificate->id . '.pdf' }}";
@@ -126,9 +129,10 @@
         var loadingElement = document.getElementById('load-detail');
         if (loadingElement) {
           loadingElement.remove();
+
         }
 
-        imageHover.style.visibility = 'visible';
+        hover.style.display = 'flex';
       });
     }).catch(function(error) {
       console.error('Gagal memproses PDF: ' + error);

@@ -13,7 +13,7 @@
         <a href="javascript: void(0);" class="image-container" id="certificate-container">
           <div id="loaddetail" class="image-item"></div>
           <canvas id="pdfCanvas" class="image-item"></canvas>
-          <div class="image-hover" data-bs-toggle="modal" data-bs-target="#detail">
+          <div class="image-hover" data-bs-toggle="modal" data-bs-target="#detailModal">
             <h1 class="hover-animate">Klik untuk melihat ukuran penuh</h1>
           </div>
         </a>
@@ -104,13 +104,13 @@
   </div>
 
   {{-- Modal --}}
-  <div class="modal fade" id="detail" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
+  <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
         <button type="button" class="btn-close x-button" data-bs-dismiss="modal" aria-label="Close">
-          <box-icon name='x' class="x-button-icon" color='#ffffff' size="lg"></box-icon>
+          <box-icon name='x' class="x-button-icon" size="lg"></box-icon>
         </button>
-        <div class="modal-body mt-5">
+        <div class="modal-body">
           <iframe id="ifram" src="{{ route('downloadCertificate', $certificate->id) }}" frameborder="0"></iframe>
         </div>
       </div>

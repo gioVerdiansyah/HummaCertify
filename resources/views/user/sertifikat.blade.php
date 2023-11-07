@@ -208,10 +208,10 @@
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
         <button type="button" class="btn-close x-button" data-bs-dismiss="modal" aria-label="Close">
-          <box-icon name='x' class="x-button-icon" color='#ffffff' size="lg"></box-icon>
+          <box-icon name='x' class="x-button-icon" size="lg"></box-icon>
         </button>
         <div class="modal-body">
-          <iframe id="ifram" src="" frameborder="0"></iframe>
+          <iframe id="ifram" src="{{ route('downloadCertificate', $certificate->id) }}" frameborder="0"></iframe>
         </div>
       </div>
     </div>
