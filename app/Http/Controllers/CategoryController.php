@@ -105,7 +105,7 @@ class CategoryController extends Controller
             }
             $bgBelakangName = $belakang->hashName();
             $belakangPath = 'storage/bgbelakang/' . $bgBelakangName;
-            $belakang->storeAs('image/bgbelakang/', $bgBelakangName);
+            $belakang->storeAs('bgbelakang/', $bgBelakangName);
             $data['background_belakang'] = $belakangPath;
         }
 
