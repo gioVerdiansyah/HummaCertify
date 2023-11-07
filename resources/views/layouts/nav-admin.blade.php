@@ -176,7 +176,7 @@
                 <span class="d-flex align-items-center">
                   <img class="rounded-circle header-profile-user" src="{{ asset('image/Hummatech logok.png') }}" alt="Header Avatar">
                   <span class="text-start ms-xl-2">
-                    <span class="d-none d-xl-inline-block ms-1 fw-semibold user-name-text">{{ Auth::user()->name }}</span>
+                    <span class="d-none d-xl-inline-block ms-1 fw-semibold user-name-text">Hummatech</span>
                     <span class="d-none d-xl-block ms-1 fs-12 user-name-sub-text">Certificate App</span>
                   </span>
                 </span>
