@@ -458,33 +458,41 @@
       <div class="container container-lulus">
         <div class="scroller">
           <ul class="tag-list scroller__inner">
-            @foreach ($user as $data)
               <li>
                 <div class="card card-lulus text-center">
-                  <p class="nama text-truncate" style="max-width: 150px">{{ $data->name }}</p>
-                  <p class="sekolah">{{ $data->institusi }}</p>
+                  <p class="nama text-truncate" style="max-width: 150px">Marshall West</p>
+                  <p class="sekolah">Universitas Brawijaya</p>
                 </div>
               </li>
-            @endforeach
+              <li>
+                <div class="card card-lulus text-center">
+                  <p class="nama text-truncate" style="max-width: 150px">Winsonnnnn</p>
+                  <p class="sekolah">UNPAS</p>
+                </div>
+              </li>
+              <li>
+                <div class="card card-lulus text-center">
+                  <p class="nama text-truncate" style="max-width: 150px">Bills Comeback</p>
+                  <p class="sekolah">UNPAD</p>
+                </div>
+              </li>
+              <li>
+                <div class="card card-lulus text-center">
+                  <p class="nama text-truncate" style="max-width: 150px">Miguel Carls</p>
+                  <p class="sekolah">BINUS</p>
+                </div>
+              </li>
+              <li>
+                <div class="card card-lulus text-center">
+                  <p class="nama text-truncate" style="max-width: 150px">Caesar O'Connor</p>
+                  <p class="sekolah">Politeknik Malang</p>
+                </div>
+              </li>
           </ul>
         </div>
       </div>
     </div>
   </section>
-
-  <script>
-    const scrollers = document.querySelectorAll(".scroller");
-
-    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      addAnimation();
-    }
-
-    function addAnimation() {
-      scrollers.forEach((scroller) => {
-        scroller.setAttribute('data-animated', true);
-      });
-    }
-  </script>
 
   <section class="section bg-center w-100 bg-light" style="background-image: url(images/cta-bg.png); display: none;">
     <div class="container">
@@ -671,6 +679,30 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    const scrollers = document.querySelectorAll(".scroller");
+
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      addAnimation();
+    }
+
+    function addAnimation() {
+      scrollers.forEach((scroller) => {
+        scroller.setAttribute('data-animated', true);
+
+        const scrollerInner = scroller.querySelector('.scroller__inner');
+        const scrollerContent = Array.from(scrollerInner.children);
+
+        scrollerContent.forEach(item => {
+          const duplicateItem = item.cloneNode(true);
+          duplicateItem.setAttribute("aria-hidden", true);
+          scrollerInner.appendChild(duplicateItem);
+        })
+      });
+    }
+  </script>
+  
   {{-- <script>
     $("#search").on('keyup', function () {
         var search = $("#search").val();
@@ -857,9 +889,8 @@
 
       setControls() {
         this.carouselControls.forEach((control) => {
-          galleryControlsContainer.appendChild(document.createElement("button")).className =
-            `gallery-controls-${control}`;
-          document.querySelector(`.gallery-controls-${control}`).innerText = control;
+          galleryControlsContainer.appendChild(document.createElement("button")).className = `gallery-controls-${control}`;
+          document.querySelector(`.gallery-controls-${control}`).innerText = '';
         });
       }
 

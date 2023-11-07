@@ -1,46 +1,45 @@
 @page {
     size: A4 landscape;
     margin: 0;
-}
+  }
 
-body {
+  body {
     margin: 0;
     padding: 0;
-    overflow: hidden;
-}
+  }
 
-.bg {
+  /* DEPAN */
+  .depan {
     width: 297mm;
     height: 210mm;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
     z-index: 1;
-}
+  }
 
-.bg .content {
+  .depan .content {
     width: 100%;
     height: 100%;
     position: absolute;
     z-index: 2;
     background-size: cover;
-}
-
-/* Belakang */
-.belakang {
+  }
+  
+  /* BELAKANG */
+  .belakang {
     width: 297mm;
     height: 210mm;
     background-repeat: no-repeat;
     background-size: cover;
-    overflow: hidden;
     position: relative;
     z-index: 1;
-}
+  }
 
-.belakang .content {
+  .belakang .content {
     width: 100%;
     height: 100%;
     position: absolute;
     z-index: 2;
     background-size: cover;
-}
+  }
