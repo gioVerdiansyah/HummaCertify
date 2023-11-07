@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use App\Models\CertificateCategori;
 use App\Http\Controllers\Controller;
 use App\Models\Certificate;
+use Exception;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
@@ -20,7 +22,14 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = CertificateCategori::paginate(9);
-        return view('admin.certificate.category.index', compact("categories"));
+        $certificate = Certificate::all();
+        $exist = [];
+
+        foreach ($certificate as $c) {
+            $exist[] = $c->certificate_categori_id;
+        }
+
+        return view('admin.certificate.category.index', compact("categories", "exist"));
     }
 
     /**
@@ -112,7 +121,7 @@ class CategoryController extends Controller
         // proses update
         $category->update($data);
 
-        if($category){
+        if ($category) {
             return redirect()->route('category.index')->with('message', [
                 'icon' => "success",
                 'title' => 'Berhasil!',
@@ -130,21 +139,31 @@ class CategoryController extends Controller
     {
         $category = CertificateCategori::findOrFail($id);
 
+        try {
+            DB::beginTransaction();
+            $name = $category->name;
+            $category->delete();
 
-        if ($category->background_depan) {
-            if (File::exists($category->background_depan)) {
-                File::delete($category->background_depan);
+            if ($category->background_depan) {
+                if (File::exists($category->background_depan)) {
+                    File::delete($category->background_depan);
+                }
             }
-        }
 
-        if ($category->background_belakang) {
-            if (File::exists($category->background_belakang)) {
-                File::delete($category->background_belakang);
+            if ($category->background_belakang) {
+                if (File::exists($category->background_belakang)) {
+                    File::delete($category->background_belakang);
+                }
             }
+            DB::commit();
+        } catch (Exception $c) {
+            DB::rollBack();
+            return back()->with('message', [
+                'icon' => 'error',
+                'title' => 'Gagal!',
+                'text' => 'Kategori ' . $name . ' sedang di gunakan'
+            ]);
         }
-
-        $name = $category->name;
-        $category->delete();
 
         return back()->with('message', [
             'icon' => 'success',

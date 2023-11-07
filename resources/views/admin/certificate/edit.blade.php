@@ -74,7 +74,7 @@
                 <label for="certificate_categori_id" class="form-label">Kategori Sertifikat</label>
                 <select name="certificate_categori_id" class="form-select @error('certificate_categori_id') is-invalid
                                 @enderror" required>
-                  <option disabled selected>--Pilih Kategori--</option>
+                  <option value="" disabled selected>--Pilih Kategori--</option>
                   @foreach ($categories as $category)
                     <option value="{{ $category->id }}" {{ old('certificate_categori_id', $certificate->certificate_categori_id) == $category->id ? 'selected' : '' }}>
                       {{ $category->name }}</option>
@@ -120,7 +120,7 @@
                       <p>{{ $message }}</p>
                     </div>
                   @enderror
-                  <option disabled selected>--Pilih Predikat--</option>
+                  <option value="" disabled selected>--Pilih Predikat--</option>
                   <option value="Sangat Baik" {{ old('predikat', $certificate->predikat) == 'Sangat Baik' ? 'selected' : '' }}>
                     Sangat Baik</option>
                   <option value="Baik" {{ old('predikat', $certificate->predikat) == 'Baik' ? 'selected' : '' }}>
@@ -142,7 +142,7 @@
               <div class="col-12 mb-4">
                 <label for="instruktur">Instruktur Pemateri</label>
                 <input type="text" class="form-control @error('instruktur') is-invalid
-                                @enderror" name="instruktur" id="instruktur" value="{{ old('instruktur', $certificate->instruktur) }}" required>
+                                @enderror" name="instruktur" id="instruktur" value="{{ old('instruktur', $certificate->instruktur) }}" placeholder="Nama Instruktur" required>
                 @error('instruktur', $certificate->instruktur)
                   <div class="invalid-feedback">
                     <p>{{ $message }}</p>
@@ -182,7 +182,7 @@
                                     <p>{{ $message }}</p>
                                   </div>
                                 @enderror
-                                <input class="btn btn-danger ms-2" data-repeater-delete type="button" value="Hapus" />
+                                <input class="btn btn-outline-danger ms-2" data-repeater-delete type="button" value="Hapus" />
                               </div>
                             </div>
                           </div>
@@ -191,7 +191,7 @@
                     @endforeach
                   </div>
                   <div class="hstack gap-2 justify-content-end">
-                    <input class="btn btn-success" data-repeater-create type="button" value="+ Tambah" />
+                    <input class="btn btn-outline-success" data-repeater-create type="button" value="+ Tambah" />
                   </div>
                 </div>
               </div>

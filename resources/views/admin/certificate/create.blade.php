@@ -85,7 +85,7 @@
                 <label for="certificate_categori_id" class="form-label">Kategori Sertifikat</label>
                 <select name="certificate_categori_id" id="certificate_categori_id"
                   class="form-select @error('certificate_categori_id') is-invalid @enderror" required>
-                  <option disabled selected>--Pilih Kategori--</option>
+                  <option value="" disabled selected>--Pilih Kategori--</option>
                   @foreach ($categories as $category)
                     <option value="{{ $category->id }}"
                       {{ old('certificate_categori_id') == $category->id ? 'selected' : '' }}>{{ $category->name }}
@@ -143,7 +143,7 @@
                   class="form-select @error('predikat') is-invalid
                                 @enderror"
                   id="predikat" required>
-                  <option disabled selected>--Pilih Predikat--</option>
+                  <option value="" disabled selected>--Pilih Predikat--</option>
                   <option value="Sangat Baik" {{ old('predikat') == 'Sangat Baik' ? 'selected' : '' }}>
                     Sangat Baik</option>
                   <option value="Baik" {{ old('predikat') == 'Baik' ? 'selected' : '' }}>
@@ -171,7 +171,7 @@
                 <input required type="text"
                   class="form-control @error('instruktur') is-invalid
                                 @enderror"
-                  name="instruktur" id="instruktur" required>
+                  name="instruktur" placeholder="Nama instruktur" id="instruktur" required>
                 @error('instruktur')
                   <div class="invalid-feedback">
                     <p>{{ $message }}</p>

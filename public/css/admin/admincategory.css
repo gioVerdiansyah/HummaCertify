@@ -13,7 +13,7 @@
 }
 
 .delete-icon {
-    line-height: 1px;
+    transform: translateZ(22px);
 }
 
 button {

@@ -93,6 +93,7 @@
         icon: "{{ session('message')['icon'] ?? 'success' }}",
         title: "{{ session('message')['title'] ?? 'Oops' }}",
         text: "{{ session('message')['text'] ?? 'Success' }}",
+        background: 'var(--bs-body-bg)',
       })
     </script>
   @endif
@@ -145,8 +146,8 @@
         event.preventDefault();
 
         Swal.fire({
-          title: 'Anda yakin mau mengubah email anda?',
-          text: "Tindakan ini tidak dapat di batalkan",
+          title: 'Apakah anda yakin?',
+          text: "Ingin mengubah email anda? pastikan email baru milik anda dan juga adalah email asli",
           icon: "question",
           showCancelButton: true,
           confirmButtonText: "lanjutkan",

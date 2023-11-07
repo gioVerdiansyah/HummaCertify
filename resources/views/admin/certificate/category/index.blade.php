@@ -28,16 +28,18 @@
               </div>
             </div>
             <div class="d-flex mt-3">
-                <span id="nameKategori{{ $category->id }}" class="ukuran">{{ $category->name }}</span>
+              <span id="nameKategori{{ $category->id }}" class="ukuran">{{ $category->name }}</span>
               @if (!in_array($category->name, ['Kelulusan', 'Pelatihan', 'Kompetensi']))
-                <div class="d-flex action">
-                  <a href="{{ route('category.edit', $category->id) }}"><i class="bx bx-edit d-flex align-items-center fs-5 text-info p-1"></i></a>
-                  <form nameKategori = "{{ $category->name }}" action="{{ route('category.destroy', $category->id) }}" method="POST" class="delete-form">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" id="delete-kategori"><i class="delete-icon las la-trash-alt d-flex align-items-center fs-4 text-danger"></i></button>
-                  </form>
-                </div>
+                @if (!in_array($category->id, $exist))
+                  <div class="d-flex action">
+                    <a href="{{ route('category.edit', $category->id) }}"><i class="bx bx-edit d-flex align-items-center fs-5 text-info p-1"></i></a>
+                    <form nameKategori = "{{ $category->name }}" action="{{ route('category.destroy', $category->id) }}" method="POST" class="delete-form">
+                      @csrf
+                      @method('DELETE')
+                      <button type="submit" id="delete-kategori"><i class="delete-icon las la-trash-alt d-flex align-items-center fs-4 text-danger"></i></button>
+                    </form>
+                  </div>
+                @endif
               @endif
             </div>
           </div>
@@ -49,25 +51,24 @@
     {{ $categories->links('layouts.pagination') }}
   </div>
   <script>
-
     document.querySelectorAll('.delete-form').forEach(function(form) {
-    form.addEventListener('submit', function(event) {
-      event.preventDefault();
-      var namekategori = form.getAttribute('nameKategori');
-      Swal.fire({
-        title: 'apakah anda yakin?',
-        text: "Ingin menghapus kategori '" + namekategori + "'?",
-        icon: "question",
-        showCancelButton: true,
-        confirmButtonText: "ya, hapus!",
-        cancelButtonText: "batal",
-        background: 'var(--bs-body-bg)',
-      }).then((result) => {
-        if (result.isConfirmed) {
-          form.submit();
-        }
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        var namekategori = form.getAttribute('nameKategori');
+        Swal.fire({
+          title: 'apakah anda yakin?',
+          text: "Ingin menghapus kategori '" + namekategori + "'?",
+          icon: "question",
+          showCancelButton: true,
+          confirmButtonText: "ya, hapus!",
+          cancelButtonText: "batal",
+          background: 'var(--bs-body-bg)',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            form.submit();
+          }
+        });
       });
-    });
     });
   </script>
 @endsection

@@ -34,7 +34,7 @@
               <div class="col-12 mb-4">
                 <label for="certificate_categori_id" class="form-label">Kategori Sertifikat</label>
                 <select name="certificate_categori_id" id="certificate_categori_id" class="form-select" required>
-                  <option disabled selected>--Pilih Kategori--</option>
+                  <option value="" disabled selected>--Pilih Kategori--</option>
                   @foreach ($categories as $category)
                     <option value="{{ $category->id }}" {{ old('certificate_categori_id') == $category->id ? 'selected' : '' }}>
                       {{ $category->name }}</option>
@@ -58,7 +58,7 @@
               <div class="col-12 mb-4">
                 <label for="predikat" class="form-label">Predikat</label>
                 <select name="predikat" class="form-select" id="predikat">
-                  <option disabled selected>--Pilih Predikat--</option>
+                  <option value="" disabled selected>--Pilih Predikat--</option>
                   <option value="Sangat Baik" {{ old('predikat') == 'Sangat Baik' ? 'selected' : '' }}>
                     Sangat Baik</option>
                   <option value="Baik" {{ old('predikat') == 'Baik' ? 'selected' : '' }}>
@@ -78,7 +78,7 @@
             <div class="d-flex flex-row">
               <div class="col-12 mb-4">
                 <label for="instruktur">Instruktur Pemateri</label>
-                <input required type="text" class="form-control" name="instruktur" id="instruktur" value="{{ old('instruktur') }}">
+                <input required type="text" class="form-control" name="instruktur" placeholder="Nama instruktur" id="instruktur" value="{{ old('instruktur') }}">
               </div>
             </div>
             <div>

@@ -6,6 +6,18 @@
     margin-top: -8px !important;
 }
 
+.swal2-success-circular-line-right {
+    background-color: transparent !important;
+}
+
+.swal2-success-circular-line-left {
+    background-color: transparent !important;
+}
+
+.swal2-success-fix {
+    background-color: transparent !important;
+}
+
 .pembungkus-profile {
     position: absolute;
     top: 75px;
