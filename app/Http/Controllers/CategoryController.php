@@ -115,7 +115,7 @@ class CategoryController extends Controller
         return redirect()->route('category.index')->with('message', [
             'icon' => 'success',
             'title' => 'Berhasil!',
-            'text' => 'Berhasil mengubah kategori'
+            'text' => 'Berhasil mengubah kategori ' . ucfirst($request->namaKategori)
         ]);
     }
 
