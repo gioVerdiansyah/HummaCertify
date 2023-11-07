@@ -112,11 +112,15 @@ class CategoryController extends Controller
         // proses update
         $category->update($data);
 
-        return redirect()->route('category.index')->with('message', [
-            'icon' => 'success',
-            'title' => 'Berhasil!',
-            'text' => 'Berhasil mengubah kategori ' . ucfirst($request->namaKategori)
-        ]);
+        if($category){
+            return redirect()->route('category.index')->with('message', [
+                'icon' => "success",
+                'title' => 'Berhasil!',
+                'text' => "Berhasil mengubah kategori {$category->name}"
+            ]);
+        } else {
+            return redirect()->route('category.index');
+        }
     }
 
     /**
