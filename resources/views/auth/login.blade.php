@@ -9,7 +9,7 @@
   <meta name="keywords" content="bootstrap 5, premium, marketing, multipurpose" />
   <meta content="Themesbrand" name="author" />
   <!-- favicon -->
-  <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+  <link rel="shortcut icon" href="{{ asset('image/Hummatech logo.png') }}" type="image/x-icon">
 
   <!-- icon -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous"
