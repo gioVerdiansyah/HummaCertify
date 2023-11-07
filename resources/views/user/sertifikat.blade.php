@@ -123,9 +123,12 @@
               </section>
               <section>
                 <h2 class="mb-5">Kelulusan</h2>
+                @php
+                  $tidakMemiliki = true;
+                @endphp
                 <div class="row">
                   @foreach ($certificates as $certificate)
-                    @if ($certificate->certificate_categori_id === 1)
+                    @if ($certificate->certificate_categori_id === 1 || $certificate->category->tata_letak === "Kelulusan")
                       <div class="col-md-4 mb-4">
                         <a href="javascript: void(0);" class="image-container" id="certificate-container">
                           <div id="load-kelulusan-{{ $certificate->id }}" class="image-item"></div>
@@ -138,19 +141,25 @@
                       <script>
                         generateCertificate("{{ $certificate->id }}", "kelulusan-{{ $certificate->id }}");
                       </script>
+                      @php
+                      	$tidakMemiliki = false;
+                      @endphp
                     @endif
                   @endforeach
 
-                  @if ($certificates->where('certificate_categori_id', 1)->isEmpty())
+                  @if ($tidakMemiliki)
                     <h6 class="text-center empty">Anda tidak memiliki sertifikat kelulusan...</h6>
                   @endif
                 </div>
               </section>
               <section>
                 <h2 class="mb-5">Kompetensi</h2>
+                @php
+                    $tidakMemiliki = true;
+                @endphp
                 <div class="row">
                   @foreach ($certificates as $certificate)
-                    @if ($certificate->certificate_categori_id === 2)
+                    @if ($certificate->certificate_categori_id === 2 || $certificate->category->tata_letak === "Kompetensi")
                       <div class="col-md-4 mb-4">
                         <a href="javascript: void(0);" class="image-container" id="certificate-container">
                           <div id="load-kompetensi-{{ $certificate->id }}" class="image-item"></div>
@@ -163,19 +172,25 @@
                       <script>
                         generateCertificate("{{ $certificate->id }}", "kompetensi-{{ $certificate->id }}");
                       </script>
+                      @php
+                          $tidakMemiliki = false;
+                      @endphp
                     @endif
                   @endforeach
 
-                  @if ($certificates->where('certificate_categori_id', 2)->isEmpty())
+                  @if ($tidakMemiliki)
                     <h6 class="text-center empty">Anda tidak memiliki sertifikat Kompetensi...</h6>
                   @endif
                 </div>
               </section>
               <section>
                 <h2 class="mb-5">Pelatihan</h2>
+                @php
+                  $tidakMemiliki = true;
+                @endphp
                 <div class="row">
                   @foreach ($certificates as $certificate)
-                    @if ($certificate->certificate_categori_id === 3)
+                    @if ($certificate->certificate_categori_id === 3 || $certificate->category->tata_letak === "Pelatihan")
                       <div class="col-md-4 mb-4">
                         <a href="javascript: void(0);" class="image-container" id="certificate-container">
                           <div id="load-pelatihan-{{ $certificate->id }}" class="image-item load"></div>
@@ -188,10 +203,13 @@
                       <script>
                         generateCertificate("{{ $certificate->id }}", "pelatihan-{{ $certificate->id }}");
                       </script>
+                      @php
+                          $tidakMemiliki = false;
+                      @endphp
                     @endif
                   @endforeach
 
-                  @if ($certificates->where('certificate_categori_id', 3)->isEmpty())
+                  @if ($tidakMemiliki)
                     <h6 class="text-center empty">Anda tidak memiliki sertifikat Pelatihan...</h6>
                   @endif
                 </div>
