@@ -36,6 +36,7 @@ class CertificateStoreRequest extends FormRequest
             'predikat' => 'required|in:Sangat Baik,Baik,Cukup,Kurang',
             'instruktur' => 'required|max:50',
             // detail
+            'category-group' => 'required',
             'category-group.*.materi' => 'required|string|max:85',
             'category-group.*.jam_pelajaran' => 'required|numeric|gt:1|max:4000|regex:/^[0-9]+$/',
 
@@ -67,11 +68,12 @@ class CertificateStoreRequest extends FormRequest
             'predikat.in' => 'data predikat tidak cocok',
             'instruktur.required' => 'instruktur harus di isi',
             //detail
-            'categori-group.*materi.max' => 'materi maximal :max',
-            'categori-group.*materi.required_with' => 'data harus di isi',
-            'categori-group.*jam_pelajaran.numeric' => 'jam pelajaran harus :numeric',
-            'categori-group.*jam_pelajaran.max' => 'jam pelajaran maximal :max',
-            'categori-group.*jam_pelajaran.regex' => 'formar jam pelajaran harus benar (regex)',
+            'category-group.required' => 'Detail pemateri di perlukan!',
+            'category-group.*materi.max' => 'materi maximal :max',
+            'category-group.*materi.required_with' => 'data harus di isi',
+            'category-group.*jam_pelajaran.numeric' => 'jam pelajaran harus :numeric',
+            'category-group.*jam_pelajaran.max' => 'jam pelajaran maximal :max',
+            'category-group.*jam_pelajaran.regex' => 'formar jam pelajaran harus benar (regex)',
         ];
     }
 }

@@ -25,14 +25,11 @@ class CertificateController extends Controller
     {
         $certificates = Certificate::latest()->where('status', 'nonPrint')->paginate($this->perPage);
         $categories = CertificateCategori::select('id', 'name')->get();
-        $notification = ContactMe::all();
-        $notificationCount = ContactMe::all()->count();
 
         if ($request->all()) {
             $certificates = $this->searchCertificates($request->all());
         }
-
-        return view('admin.certificate.index', compact('certificates', 'categories', 'notification', 'notificationCount'));
+        return view('admin.certificate.index', compact('certificates', 'categories'));
     }
     // Filter search
     public function searchCertificates(array $dataRequest)
@@ -78,10 +75,8 @@ class CertificateController extends Controller
     public function create()
     {
         $categories = CertificateCategori::select('id', 'name')->get();
-        $notification = ContactMe::all();
-        $notificationCount = ContactMe::all()->count();
 
-        return view('admin.certificate.create', compact('categories', 'notification', 'notificationCount'));
+        return view('admin.certificate.create', compact('categories'));
     }
     public function store(CertificateStoreRequest $request)
     {
@@ -162,10 +157,8 @@ class CertificateController extends Controller
     {
         $categories = CertificateCategori::select('id', 'name')->get();
         $peserta = User::whereNotIn('name', ['HummaCertify', 'User'])->select('id', 'name')->get();
-        $notification = ContactMe::all();
-        $notificationCount = ContactMe::all()->count();
 
-        return view('admin.certificate.createExist', compact('categories', 'peserta', 'notification', 'notificationCount'));
+        return view('admin.certificate.createExist', compact('categories', 'peserta'));
 
     }
     public function storeExists(CertificateExistStoreRequest $request)
@@ -206,10 +199,8 @@ class CertificateController extends Controller
         $certificate = Certificate::with('user', 'category', 'detailCertificates')->where('id', $id)->firstOrFail();
         $categories = CertificateCategori::select('id', 'name')->get();
         $details = DetailCertificate::where('certificate_id', $id)->get();
-        $notification = ContactMe::all();
-        $notificationCount = ContactMe::all()->count();
 
-        return view('admin.certificate.edit', compact('categories', 'certificate', 'details', 'notificationCount', 'notification'));
+        return view('admin.certificate.edit', compact('categories', 'certificate', 'details'));
     }
 
     /**

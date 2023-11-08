@@ -263,8 +263,13 @@
         document.getElementById('loading').style.display = 'flex';
       }
     })
-  </script>
-   <script>
+    @error('category-group')
+        Swal.fire({
+            icon: 'error',
+            title: 'Gagal!',
+            text: "Detail Sertifikat di perlukan!"
+        });
+    @enderror
     const jamPelajaranInput = document.querySelector('input[name="jam_pelajaran"]');
     jamPelajaranInput.addEventListener('input', function() {
     const jamPelajaranValue = parseInt(this.value, 10);
