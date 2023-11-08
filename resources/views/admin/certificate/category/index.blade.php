@@ -38,21 +38,42 @@
                 </div>
               </div>
             </div>
+            @php
+                $inArray = ['Kelulusan', 'Pelatihan', 'Kompetensi'];
+            @endphp
             <div class="d-flex mt-3">
               <span id="nameKategori{{ $category->id }}" class="ukuran">{{ $category->name }}</span>
-              @if (!in_array($category->name, ['Kelulusan', 'Pelatihan', 'Kompetensi']))
+              @if (!in_array($category->name, $inArray))
                 <div class="d-flex action">
-                  @if (!in_array($category->id, $exist))
+                  @if (!in_array($category->id, $inArray) && !isset($category->deleted_at))
                     <a href="{{ route('category.edit', $category->id) }}"><i
                         class="bx bx-edit d-flex align-items-center fs-5 text-info p-1"></i></a>
                   @endif
+                  @if (!isset($category->deleted_at))
                   <form nameKategori = "{{ $category->name }}" action="{{ route('category.destroy', $category->id) }}"
                     method="POST" class="delete-form">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" id="delete-kategori"><i
+                    <button type="submit"><i
                         class="delete-icon las la-trash-alt d-flex align-items-center fs-4 text-danger"></i></button>
                   </form>
+                  @else
+                    <form nameKategori = "{{ $category->name }}" action="{{ route('category.restore', $category->id) }}"
+                    method="POST" class="restore">
+                      @csrf
+                      @method('PATCH')
+                      <button type="submit"><i class="fi fi-ss-time-past d-flex align-items-center fs-5 text-success"></i></button>
+                    </form>
+
+                    @if (!$category->certificates->isNotEmpty())
+                    <form nameKategori = "{{ $category->name }}" action="{{ route('category.force_delete', $category->id) }}"
+                    method="POST" class="force-delete-form">
+                      @csrf
+                      @method('DELETE')
+                      <button type="submit"><i class="delete-icon las la-trash-alt d-flex align-items-center fs-4 text-danger"></i></button>
+                    </form>
+                    @endif
+                  @endif
                 </div>
               @endif
             </div>
@@ -88,6 +109,48 @@
     window.location.href = newUrl;
 });
 
+  if(document.querySelectorAll('.restore').length > 0){
+    document.querySelectorAll('.restore').forEach(function(form) {
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        var namekategori = form.getAttribute('nameKategori');
+        Swal.fire({
+          title: 'apakah anda yakin?',
+          text: "Ingin mengembalikan kategori '" + namekategori + "'?",
+          icon: "question",
+          showCancelButton: true,
+          confirmButtonText: "ya, kembalikan!",
+          cancelButtonText: "batal",
+          background: 'var(--bs-body-bg)',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            form.submit();
+          }
+        });
+      });
+    });
+  }
+  if(document.querySelectorAll('.force-delete-form').length > 0){
+    document.querySelectorAll('.force-delete-form').forEach(function(form) {
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        var namekategori = form.getAttribute('nameKategori');
+        Swal.fire({
+          title: 'apakah anda yakin?',
+          text: "Ingin menghapus kategori '" + namekategori + "' secara permanen?",
+          icon: "question",
+          showCancelButton: true,
+          confirmButtonText: "ya, hapus!",
+          cancelButtonText: "batal",
+          background: 'var(--bs-body-bg)',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            form.submit();
+          }
+        });
+      });
+    });
+  }
     document.querySelectorAll('.delete-form').forEach(function(form) {
       form.addEventListener('submit', function(event) {
         event.preventDefault();

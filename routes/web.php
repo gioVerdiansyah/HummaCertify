@@ -38,6 +38,8 @@ Route::middleware('AdminUp')->group(function () {
 
         Route::resource('/certificate', CertificateController::class)->except(['destroy', 'show']);
         Route::resource('/category', CategoryController::class);
+        Route::patch('/category/restore/{category}', [CategoryController::class,'restore'])->name('category.restore');
+        Route::delete('/category/force_delete/{category}', [CategoryController::class, 'forceDelete'])->name('category.force_delete');
 
         Route::get('/certificate/create/exist', [CertificateController::class, 'createExist'])->name('certificate.create_exist');
         Route::post('/certificate/store/exist',[CertificateController::class, 'storeExists'])->name('certificate.store_exist');
