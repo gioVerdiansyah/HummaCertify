@@ -205,4 +205,19 @@
       }
     })
   </script>
+   <script>
+    const jamPelajaranInput = document.querySelector('input[name="jam_pelajaran"]');
+    jamPelajaranInput.addEventListener('input', function() {
+    const jamPelajaranValue = parseInt(this.value, 10);
+    const maxJamPelajaran = 4000;
+    if (jamPelajaranValue > maxJamPelajaran) {
+    Swal.fire({
+        title: 'peringatan',
+        text: `jam pelajaran maksimal 4000`,
+        icon: 'info',
+    });
+    this.value = maxJamPelajaran;
+     }
+});
+  </script>
 @endsection
