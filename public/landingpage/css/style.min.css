@@ -2020,7 +2020,7 @@ h6 {
 }
 
 [data-bs-theme="dark"] .service-box:after {
-    background: rgba(52, 58, 64, 0.35)
+    background: rgb(26 36 50);
 }
 
 [data-bs-theme="dark"] .service-box .service-icon {

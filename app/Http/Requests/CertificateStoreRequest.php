@@ -25,16 +25,16 @@ class CertificateStoreRequest extends FormRequest
             // user
             'name' => 'required|string|unique:users,name',
             'email' => 'nullable|email|unique:users,email',
-            'nomor_induk' => 'required|string|min:8|regex:/^[0-9]+$/',
+            'nomor_induk' => 'required|string|min:8|unique:users,password|regex:/^[0-9]+$/',
             'ttl' => 'required',
-            'institusi' => 'required|string',
+            'institusi' => 'required|string|max:60',
             // certificate
-            'bidang' => 'required|string',
+            'bidang' => 'required|string|max:80',
             'tanggal' => 'required|date',
-            'sub_bidang' => 'nullable',
+            'sub_bidang' => 'nullable|string|max:80',
             'certificate_categori_id' => 'required|exists:certificate_categoris,id',
             'predikat' => 'required|in:Sangat Baik,Baik,Cukup,Kurang',
-            'instruktur' => 'required',
+            'instruktur' => 'required|max:50',
             // detail
             'category-group.*.materi' => 'required|string|max:85',
             'category-group.*.jam_pelajaran' => 'required|numeric|gt:1|max:4000|regex:/^[0-9]+$/',

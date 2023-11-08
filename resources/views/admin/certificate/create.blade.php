@@ -171,7 +171,7 @@
                 <input required type="text"
                   class="form-control @error('instruktur') is-invalid
                                 @enderror"
-                  name="instruktur" placeholder="Nama instruktur" id="instruktur" required>
+                  name="instruktur" placeholder="Nama instruktur" id="instruktur" value="{{ old('instruktur') }}" required>
                 @error('instruktur')
                   <div class="invalid-feedback">
                     <p>{{ $message }}</p>
@@ -201,7 +201,7 @@
                               Pelajaran</label>
                             <div class="d-flex flex-row">
                               <input required type="number" name="jam_pelajaran"
-                                class="form-control @error('jam_pelajaran') is-invalid
+                                class="form-control @error('category-group.*.jam_pelajaran') is-invalid
                                                             @enderror"
                                 id="jamPelajaran" placeholder="Jam Pelajaran" required>
                               @error('category-group.*.jam_pelajaran')
@@ -241,9 +241,8 @@
     </div>
   </div>
   <script>
-    document.getElementById('myform').addEventListener('submit', function() {
-        document.getElementById('loading').style.display = 'flex';
-      if (document.getElementById('certificate_categori_id').value == "--Pilih Kategori--") {
+    document.getElementById('myform').addEventListener('submit', function(event) {
+      if (document.getElementById('certificate_categori_id').value == "") {
         Swal.fire({
           icon: "warning",
           title: "Ada yang kosong!",
@@ -251,7 +250,7 @@
         })
         event.preventDefault();
       }
-      if (document.getElementById('predikat').value == "--Pilih Predikat--") {
+      if (document.getElementById('predikat').value == "") {
         Swal.fire({
           icon: "warning",
           title: "Ada yang kosong!",
@@ -259,6 +258,25 @@
         })
         event.preventDefault();
       }
+
+      if(document.getElementById('certificate_categori_id').value != "" && document.getElementById('certificate_categori_id').value != ""){
+        document.getElementById('loading').style.display = 'flex';
+      }
     })
+  </script>
+   <script>
+    const jamPelajaranInput = document.querySelector('input[name="jam_pelajaran"]');
+    jamPelajaranInput.addEventListener('input', function() {
+    const jamPelajaranValue = parseInt(this.value, 10);
+    const maxJamPelajaran = 4000;
+    if (jamPelajaranValue > maxJamPelajaran) {
+    Swal.fire({
+        title: 'peringatan',
+        text: `jam pelajaran maksimal 4000`,
+        icon: 'info',
+    });
+    this.value = maxJamPelajaran;
+     }
+});
   </script>
 @endsection

@@ -73,14 +73,14 @@
               @enderror
             </div>
             <div class="card-button">
-              <button type="button" id="preview-button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#preview" disabled>Preview</button>
+              {{-- <button type="button" id="preview-button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#preview" disabled>Preview</button> --}}
               <button type="submit" id="simpan" class="btn btn-primary" disabled>Simpan</button>
             </div>
           </div>
         </div>
       </div>
     </form>
-    <div class="modal fade" id="preview" tabindex="-1" aria-labelledby="previewModalLabel" aria-hidden="true">
+    {{-- <div class="modal fade" id="preview" tabindex="-1" aria-labelledby="previewModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-xl">
         <div class="modal-content">
           <div class="modal-header">
@@ -96,7 +96,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
   </div>
   <script>
     let backgroundDepan;

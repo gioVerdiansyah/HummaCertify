@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CertificateExistStoreRequest;
 use App\Http\Requests\CertificateStoreRequest;
-use App\Http\Requests\UserExistStoreRequest;
-use App\Http\Requests\UserUpdateRequest;
+use App\Http\Requests\CertificateUpdateRequest;
 use App\Models\User;
 use App\Models\Certificate;
 use Illuminate\Contracts\Database\Eloquent\Builder;
@@ -168,7 +168,7 @@ class CertificateController extends Controller
         return view('admin.certificate.createExist', compact('categories', 'peserta', 'notification', 'notificationCount'));
 
     }
-    public function storeExists(UserExistStoreRequest $request)
+    public function storeExists(CertificateExistStoreRequest $request)
     {
         $dataRequest = $request->all();
         $user = User::findOrFail($dataRequest['user_id']);
@@ -215,7 +215,7 @@ class CertificateController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UserUpdateRequest $request, string $id)
+    public function update(CertificateUpdateRequest $request, string $id)
     {
         $dataRequest = $request->all();
         $certificate = Certificate::findOrFail($id);
