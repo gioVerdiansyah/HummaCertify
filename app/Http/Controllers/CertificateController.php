@@ -258,7 +258,7 @@ class CertificateController extends Controller
         return to_route('certificate.index')->with('message', [
             'icon' => "success",
             'title' => "Berhasil!",
-            'text' => "Berhasil meupdate sertifikat {$name}"
+            'text' => "Berhasil meng-update sertifikat {$name}"
         ]);
     }
 
