@@ -29,16 +29,16 @@ class CategoryController extends Controller
             $exist[] = $c->certificate_categori_id;
         }
 
-        $query = CertificateCategori::query(); // Start a query builder instance
+        $query = CertificateCategori::query();
 
         if (!isset($request['restore'])) {
-            $query->whereNull('deleted_at'); // Filter categories where deleted_at is null
+            $query->whereNull('deleted_at');
         } elseif (isset($request['restore'])) {
             $restore = $request['restore'];
-            $query->whereNotNull('deleted_at'); // Filter categories where deleted_at is not null (restored categories)
+            $query->whereNotNull('deleted_at');
         }
 
-        $categories = $query->paginate(9); // Execute the query and paginate the results
+        $categories = $query->paginate(9);
 
         return view('admin.certificate.category.index', compact("categories", "exist"));
     }

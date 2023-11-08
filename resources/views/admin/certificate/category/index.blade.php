@@ -71,12 +71,10 @@
     var newUrl;
 
     if (restoreValue === "allCategory") {
-        // Remove the "restore" parameter from the URL
         newUrl = currentUrl.replace(/[\?&]restore=[^&]*/, '');
     } else {
         var restoreParam = 'restore=' + restoreValue;
         if (currentUrl.includes('restore=')) {
-            // Update the existing "restore" parameter
             newUrl = currentUrl.replace(/(restore=[^&]*)/, restoreParam);
         } else {
             if (currentUrl.includes('?')) {
