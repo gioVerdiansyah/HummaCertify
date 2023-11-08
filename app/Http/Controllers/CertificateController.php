@@ -13,7 +13,6 @@ use App\Mail\SendCertificate;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\DetailCertificate;
 use App\Models\CertificateCategori;
-use App\Models\ContactMe;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
@@ -21,7 +20,12 @@ use Illuminate\Support\Facades\Storage;
 
 class CertificateController extends Controller
 {
-    protected $perPage = 5, $exceptCategory = ["Kelulusan", "Pelatihan", "Kompetensi"];
+    protected $perPage = 5, $exceptCategory;
+
+    public function __construct()
+    {
+        $this->exceptCategory = config('hummacertify.tata_letak');
+    }
     public function index(Request $request)
     {
         $certificates = Certificate::latest()->where('status', 'nonPrint')->paginate($this->perPage);

@@ -38,14 +38,11 @@
                 </div>
               </div>
             </div>
-            @php
-                $inArray = ['Kelulusan', 'Pelatihan', 'Kompetensi'];
-            @endphp
             <div class="d-flex mt-3">
               <span id="nameKategori{{ $category->id }}" class="ukuran">{{ $category->name }}</span>
-              @if (!in_array($category->name, $inArray))
+              @if (!in_array($category->name, $exceptCategory))
                 <div class="d-flex action">
-                  @if (!in_array($category->id, $inArray) && !isset($category->deleted_at))
+                  @if (!in_array($category->id, $exceptCategory) && !isset($category->deleted_at))
                     <a href="{{ route('category.edit', $category->id) }}"><i
                         class="bx bx-edit d-flex align-items-center fs-5 text-info p-1"></i></a>
                   @endif

@@ -16,19 +16,25 @@ use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
-    private $perPage = 9;
+    private $perPage = 9, $exceptCategory;
+
+    public function __construct()
+    {
+        $this->exceptCategory = config('hummacertify.tata_letak');
+    }
     /**
      * Display a listing of the resource.
      */
     public function index(Request $request)
     {
+        $exceptCategory = $this->exceptCategory;
         $categories = CertificateCategori::paginate($this->perPage);
 
         if($request->restore){
             $categories = $this->search($request->all());
         }
 
-        return view('admin.certificate.category.index', compact("categories"));
+        return view('admin.certificate.category.index', compact("categories", "exceptCategory"));
     }
 
     /**
