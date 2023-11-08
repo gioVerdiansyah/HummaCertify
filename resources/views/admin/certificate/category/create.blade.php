@@ -345,20 +345,20 @@
       const tataletakSelect = document.querySelector('select[name="tataletak"]');
       const depanInput = document.querySelector('input[name="depan"]');
       const belakangInput = document.querySelector('input[name="belakang"]');
-    //   const previewButton = document.getElementById('preview-button');
+      const previewButton = document.getElementById('preview-button');
       const simpanButton = document.getElementById('simpan');
 
       function togglePreviewButton() {
         if (namaKategoriInput.value.trim() !== '' && tataletakSelect.value !== 'tataletak' && depanInput.files.length > 0 && belakangInput.files.length > 0) {
-        //   previewButton.disabled = false;
+          previewButton.disabled = false;
           simpanButton.disabled = false;
-        //   previewButton.classList.remove('btn-secondary');
-        //   previewButton.classList.add('btn-info');
+          previewButton.classList.remove('btn-secondary');
+          previewButton.classList.add('btn-info');
         } else {
-        //   previewButton.disabled = true;
+          previewButton.disabled = true;
           simpanButton.disabled = true;
-        //   previewButton.classList.remove('btn-info');
-        //   previewButton.classList.add('btn-secondary');
+          previewButton.classList.remove('btn-info');
+          previewButton.classList.add('btn-secondary');
         }
       }
 

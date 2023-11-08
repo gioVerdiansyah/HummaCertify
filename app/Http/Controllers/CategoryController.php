@@ -19,7 +19,7 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $categories = CertificateCategori::paginate(9);
         $certificate = Certificate::all();
@@ -28,6 +28,17 @@ class CategoryController extends Controller
         foreach ($certificate as $c) {
             $exist[] = $c->certificate_categori_id;
         }
+
+        $query = CertificateCategori::query(); // Start a query builder instance
+
+        if (!isset($request['restore'])) {
+            $query->whereNull('deleted_at'); // Filter categories where deleted_at is null
+        } elseif (isset($request['restore'])) {
+            $restore = $request['restore'];
+            $query->whereNotNull('deleted_at'); // Filter categories where deleted_at is not null (restored categories)
+        }
+
+        $categories = $query->paginate(9); // Execute the query and paginate the results
 
         return view('admin.certificate.category.index', compact("categories", "exist"));
     }

@@ -92,8 +92,8 @@
       .depan .content .sekolah {
         position: absolute;
         top: 340px;
-        left: 412px;
-        width: 300px;
+        left: 312px;
+        width: 500px;
         text-align: center;
         font-family: 'Open Sans', sans-serif;
         font-weight: 700;
@@ -235,8 +235,7 @@
       }
     </style>
     {{-- Depan --}}
-    <div class="depan"
-      style='background-image: url("{{ $background->depan }}");'2>
+    <div class="depan" style='background-image: url("{{ $background->depan }}");'2>
       <div class="content">
         <div class="qr-code">
           <center>
@@ -277,8 +276,7 @@
       </div>
     </div>
     {{-- Belakang --}}
-    <div class="belakang"
-      style='background-image: url("{{ $background->belakang }}");'>
+    <div class="belakang" style='background-image: url("{{ $background->belakang }}");'>
       <div class="content">
         <div>
           <p class="pelatihan">"{{ $certificate->bidang }}"</p>
@@ -293,7 +291,7 @@
               </tr>
             </thead>
             @php
-                $totalJP = 0;
+              $totalJP = 0;
             @endphp
             <tbody>
               @foreach ($certificate->detailCertificates as $i => $detailCertificate)
@@ -303,7 +301,7 @@
                   <td style="text-align: center">{{ $detailCertificate->jp }} JP</td>
                 </tr>
                 @php
-                    $totalJP += $detailCertificate->jp;
+                  $totalJP += $detailCertificate->jp;
                 @endphp
               @endforeach
               @if (count($certificate->detailCertificates) > 1)
