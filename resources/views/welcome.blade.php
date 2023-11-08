@@ -702,7 +702,7 @@
       });
     }
   </script>
-  
+
   {{-- <script>
     $("#search").on('keyup', function () {
         var search = $("#search").val();
@@ -832,6 +832,9 @@
             },
             error: function(xhr, status, error) {
               $("#simple-msg").empty();
+              if(error == "unknown status"){
+                error = "Cobalah refresh halaman"
+              }
               $("#error-msg").html(
                 "<div class='alert alert-danger alert-dismissible fade show' role='alert'>" +
                 "Terjadi  kesalahan: " + error +
