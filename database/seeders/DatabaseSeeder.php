@@ -18,34 +18,27 @@ class DatabaseSeeder extends Seeder
     {
         User::create([
             'id' => Str::uuid(),
-            'name' => 'User',
-            'email' => 'user@gmail.com',
-            'password' => Hash::make('HummaCertify'),
-            'institusi' => "Perusahaan Hummatech"
-        ]);
-
-        User::create([
-            'id' => Str::uuid(),
             'name' => "HummaCertify",
             'email' => "hummacertify@gmail.com",
             "password" => Hash::make('admin-hummacertify'),
+            'nomor_induk' => "Admin nih boss",
             'institusi' => "Perusahaan Hummatech"
         ]);
 
         CertificateCategori::create([
             'name' => "Kelulusan",
-            'background_depan' => 'storage/bgdepan/certificate-kelulusan.png',
-            'background_belakang' => 'storage/bgbelakang/certificate-kelulusan.png'
+            'background_depan' => '/image/certificate/bgdepan/certificate-kelulusan.png',
+            'background_belakang' => '/image/certificate/bgbelakang/certificate-kelulusan.png'
         ]);
         CertificateCategori::create([
             'name' => "Pelatihan",
-            'background_depan' => 'storage/bgdepan/certificate-guru.png',
-            'background_belakang' => 'storage/bgbelakang/certificate-guru.png'
+            'background_depan' => '/image/certificate/bgdepan/certificate-guru.png',
+            'background_belakang' => '/image/certificate/bgbelakang/certificate-guru.png'
         ]);
         CertificateCategori::create([
             'name' => "Kompetensi",
-            'background_depan' => 'storage/bgdepan/certificate-guru-tamu.png',
-            'background_belakang' => 'storage/bgbelakang/certificate-guru-tamu.png'
+            'background_depan' => '/image/certificate/bgdepan/certificate-guru-tamu.png',
+            'background_belakang' => '/image/certificate/bgbelakang/certificate-guru-tamu.png'
         ]);
     }
 }

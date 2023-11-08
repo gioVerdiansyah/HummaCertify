@@ -39,14 +39,19 @@ class User extends Authenticatable implements HasCertificates
      *
      * @var array<int, string>
      */
-
+    protected $hidden = [
+        'password',
+        'remember_token'
+    ];
 
     /**
      * The attributes that should be cast.
      *
      * @var array<string, string>
      */
-
+    protected $casts = [
+        'password' => 'hashed'
+    ];
 
     /**
      * Definisikan relasi Many-to-Many dengan model CertificateCategori.

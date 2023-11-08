@@ -86,29 +86,21 @@ class LoginController extends Controller
     {
         $credentials = $this->credentials($request);
 
-        // Cek apakah email adalah "hummacertify@gmail.com"
-        if ($credentials['email'] === 'hummacertify@gmail.com') {
-            return $this->guard()->attempt(
-                $credentials,
-                $request->boolean('remember')
-            );
-        } else {
-            $user = $this->guard()->getProvider()->retrieveByCredentials(['email' => $credentials['email']]);
+        // Cek apakah pengguna bisa login berdasarkan alamat email
+        $user = $this->guard()->getProvider()->retrieveByCredentials([
+            'email' => $credentials['email'],
+        ]);
 
-            // Cek apakah pengguna ditemukan berdasarkan email
-            if ($user) {
-                if ($credentials['password'] === $user->getAuthPassword()) {
-                    $this->guard()->login($user, $request->boolean('remember'));
-                    return true;
-                }
-            } else {
-                // Cek apakah pengguna ditemukan berdasarkan nama pengguna
-                $user = $this->guard()->getProvider()->retrieveByCredentials(['name' => $credentials['email']]);
-                if ($user && $credentials['password'] === $user->getAuthPassword()) {
-                    $this->guard()->login($user, $request->boolean('remember'));
-                    return true;
-                }
-            }
+        // Jika pengguna tidak ditemukan berdasarkan email, coba mencari berdasarkan nama pengguna
+        if (!$user) {
+            $user = $this->guard()->getProvider()->retrieveByCredentials([
+                'name' => $credentials['email'],
+            ]);
+        }
+
+        if ($user && Hash::check($credentials['password'], $user->getAuthPassword())) {
+            $this->guard()->login($user, $request->boolean('remember'));
+            return true;
         }
 
         return false;

@@ -298,7 +298,7 @@
                               <tr>
                                 <td class="t156"
                                   style="background-color:#103783;overflow:hidden;width:294px;text-align:center;line-height:24px;mso-line-height-rule:exactly;mso-text-raise:2px;padding:10px 10px 10px 10px;border-radius:20px 20px 20px 20px;">
-                                  <a class="t162" href="http://localhost:8000?q={{ $certificate->nomor }}"
+                                  <a class="t162" href="{{ route('search') }}?q={{ urlencode($certificate->nomor) }}"
                                     style="display:block;margin:0;Margin:0;font-family:BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif,'Lato';line-height:24px;font-weight:700;font-style:normal;font-size:16px;text-decoration:none;direction:ltr;color:#EBFBFF;text-align:center;mso-line-height-rule:exactly;mso-text-raise:2px;"
                                     target="_blank">Link Sertifikat Ku</a>
                                 </td>

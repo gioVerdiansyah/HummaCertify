@@ -33,7 +33,7 @@
               </div>
               <div class="mb-3">
                 <label for="nik" class="form-label">Nisn/Nik/Nip</label>
-                <input type="number" class="input-height form-control" id="nik" placeholder="{{ $user->password }}" readonly>
+                <input type="number" class="input-height form-control" id="nik" placeholder="{{ $user->nomor_induk }}" readonly>
               </div>
               <div class="mb-3">
                 <label for="institusi" class="form-label">Institusi</label>
