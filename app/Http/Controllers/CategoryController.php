@@ -142,17 +142,19 @@ class CategoryController extends Controller
         try {
             DB::beginTransaction();
             $name = $category->name;
+            $bgDepan = $category->background_depan;
+            $bgBelakang = $category->background_belakang;
             $category->delete();
 
-            if ($category->background_depan) {
-                if (File::exists($category->background_depan)) {
-                    File::delete($category->background_depan);
+            if ($bgDepan) {
+                if (File::exists($bgDepan)) {
+                    File::delete($bgDepan);
                 }
             }
 
-            if ($category->background_belakang) {
-                if (File::exists($category->background_belakang)) {
-                    File::delete($category->background_belakang);
+            if ($bgBelakang) {
+                if (File::exists($bgBelakang)) {
+                    File::delete($bgBelakang);
                 }
             }
             DB::commit();

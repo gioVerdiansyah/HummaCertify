@@ -30,16 +30,16 @@
             <div class="d-flex mt-3">
               <span id="nameKategori{{ $category->id }}" class="ukuran">{{ $category->name }}</span>
               @if (!in_array($category->name, ['Kelulusan', 'Pelatihan', 'Kompetensi']))
-                @if (!in_array($category->id, $exist))
-                  <div class="d-flex action">
+                <div class="d-flex action">
+                  @if (!in_array($category->id, $exist))
                     <a href="{{ route('category.edit', $category->id) }}"><i class="bx bx-edit d-flex align-items-center fs-5 text-info p-1"></i></a>
-                    <form nameKategori = "{{ $category->name }}" action="{{ route('category.destroy', $category->id) }}" method="POST" class="delete-form">
-                      @csrf
-                      @method('DELETE')
-                      <button type="submit" id="delete-kategori"><i class="delete-icon las la-trash-alt d-flex align-items-center fs-4 text-danger"></i></button>
-                    </form>
-                  </div>
-                @endif
+                  @endif
+                  <form nameKategori = "{{ $category->name }}" action="{{ route('category.destroy', $category->id) }}" method="POST" class="delete-form">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" id="delete-kategori"><i class="delete-icon las la-trash-alt d-flex align-items-center fs-4 text-danger"></i></button>
+                  </form>
+                </div>
               @endif
             </div>
           </div>

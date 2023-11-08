@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('background_belakang')->nullable();
             $table->string('tata_letak')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
