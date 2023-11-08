@@ -1,9 +1,6 @@
 @extends('layouts.nav-admin')
 
 @section('content')
-  @foreach ($errors->all() as $error)
-    <p>{{ $error }}</p>
-  @endforeach
   <title>{{ config('app.name', 'Laravel') }} - Tambah Sertifikat</title>
   <link rel="stylesheet" href="{{ asset('css/admin/AdminExist.css') }}">
   <link rel="stylesheet" href="{{ asset('css/admin/loading.css') }}">
@@ -204,8 +201,13 @@
         document.getElementById('loading').style.display = 'flex';
       }
     })
-  </script>
-   <script>
+      @error('category-group')
+        Swal.fire({
+            icon: 'error',
+            title: 'Gagal!',
+            text: "Detail Sertifikat di perlukan!"
+        });
+    @enderror
     const jamPelajaranInput = document.querySelector('input[name="jam_pelajaran"]');
     jamPelajaranInput.addEventListener('input', function() {
     const jamPelajaranValue = parseInt(this.value, 10);

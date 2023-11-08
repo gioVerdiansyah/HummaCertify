@@ -31,6 +31,7 @@ class CertificateExistStoreRequest extends FormRequest
             'certificate_categori_id' => 'required|exists:certificate_categoris,id',
             'predikat' => 'required|in:Sangat Baik,Baik,Cukup,Kurang',
             // detail
+            'category-group' => 'required',
             'category-group.*.materi' => 'nullable|string|max:85|required_with:category-group.*.jam_pelajaran',
             'category-group.*.jam_pelajaran' => 'nullable|numeric|gt:1|max:4000|required_with:category-group.*.materi|regex:/^[0-9]+$/',
             'instruktur' => 'nullable|string|max:50|required_with:category-group.*.materi,category-group.*.jam_pelajaran',
