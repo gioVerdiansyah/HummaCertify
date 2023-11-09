@@ -66,6 +66,16 @@
                       </span>
                     @enderror
                   </div>
+                  <div class="mb-3">
+                    <script src="https://www.google.com/recaptcha/api.js"
+                            async defer></script>
+                    <div class="g-recaptcha d-flex justify-content-center" id="feedback-recaptcha"
+                         data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}">
+                    </div>
+                    @error('g-recaptcha-response')
+                      <strong class="text-danger">reCAPTCHA wajib diisi!</strong>
+                    @enderror
+                  </div>
                   <div class="form-check">
                     <div class="forgot-start">
                       <input class="form-check-input" type="checkbox" id="remember-Check" name="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -79,11 +89,11 @@
                   <div class="mt-5"></div>
                 </form>
                 <!-- end form -->
+                <div class="text-center mt-4 bottom-text">
+                  <p>Berubah Pikiran? <a href="/" class="font-weight-semibold text-biru"> Kembali ke beranda </a> </p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="text-center mt-4 bottom-text">
-            <p>Berubah Pikiran? <a href="/" class="font-weight-semibold text-biru"> Kembali ke beranda </a> </p>
           </div>
         </div>
         <!-- end col -->

@@ -44,6 +44,16 @@
                       </span>
                     @enderror
                   </div>
+                  <div class="mb-3">
+                    <script src="https://www.google.com/recaptcha/api.js"
+                            async defer></script>
+                    <div class="g-recaptcha d-flex justify-content-center" id="feedback-recaptcha"
+                         data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}">
+                    </div>
+                    @error('g-recaptcha-response')
+                      <strong class="text-danger">reCAPTCHA wajib diisi!</strong>
+                    @enderror
+                  </div>
                   <div class="d-grid mt-3">
                     @if(!session('status'))
                       <button type="submit" class="btn btn-biru btn-none">Kirim email lupa password</button>
