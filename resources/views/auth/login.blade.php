@@ -72,7 +72,7 @@
                       <label class="form-check-label" for="remember-Check">Ingat saya</label>
                     </div>
                     <div class="forgot-end">
-                      <a href="{{ route('toEmail') }}">Lupa password?</a>
+                      <a href="{{ route('password.request') }}">Lupa password?</a>
                     </div>
                   </div>
                   <div class="d-grid mt-3"><button type="submit" class="btn btn-biru btn-none">Masuk</button></div>

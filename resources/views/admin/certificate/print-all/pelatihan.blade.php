@@ -41,7 +41,7 @@
             {{-- Detail Peserta --}}
             <div class="peserta">
               <p class="nama">{{ $certificate->user->name }}</p>
-              <p class="nik">{{ $certificate->user->password }}</p>
+              <p class="nik">{{ $certificate->user->nomor_induk }}</p>
               <p class="ttl">{{ $certificate->user->ttl }}</p>
             </div>
             {{-- Kompeten --}}
