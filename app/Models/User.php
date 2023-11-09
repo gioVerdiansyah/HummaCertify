@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Certificate;
+use App\Notifications\ResetPasswordNotification;
 use Illuminate\Support\Str;
 use Laravel\Sanctum\HasApiTokens;
 use App\Base\Interfaces\HasCertificates;
@@ -39,14 +40,19 @@ class User extends Authenticatable implements HasCertificates
      *
      * @var array<int, string>
      */
-
+    protected $hidden = [
+        'password',
+        'remember_token'
+    ];
 
     /**
      * The attributes that should be cast.
      *
      * @var array<string, string>
      */
-
+    protected $casts = [
+        'password' => 'hashed'
+    ];
 
     /**
      * Definisikan relasi Many-to-Many dengan model CertificateCategori.
@@ -57,4 +63,10 @@ class User extends Authenticatable implements HasCertificates
     {
         return $this->hasMany(Certificate::class);
     }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
+    }
+
 }

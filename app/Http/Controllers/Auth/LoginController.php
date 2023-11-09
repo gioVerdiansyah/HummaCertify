@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 // use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Rules\Recaptcha;
 use Illuminate\Foundation\Auth\RedirectsUsers;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Http\JsonResponse;
@@ -77,6 +78,7 @@ class LoginController extends Controller
     protected function validateLogin(Request $request)
     {
         $request->validate([
+            'g-recaptcha-response' => ['required', new Recaptcha()],
             $this->username() => 'required|string',
             'password' => 'required|string',
         ]);
@@ -86,29 +88,21 @@ class LoginController extends Controller
     {
         $credentials = $this->credentials($request);
 
-        // Cek apakah email adalah "hummacertify@gmail.com"
-        if ($credentials['email'] === 'hummacertify@gmail.com') {
-            return $this->guard()->attempt(
-                $credentials,
-                $request->boolean('remember')
-            );
-        } else {
-            $user = $this->guard()->getProvider()->retrieveByCredentials(['email' => $credentials['email']]);
+        // Cek apakah pengguna bisa login berdasarkan alamat email
+        $user = $this->guard()->getProvider()->retrieveByCredentials([
+            'email' => $credentials['email'],
+        ]);
 
-            // Cek apakah pengguna ditemukan berdasarkan email
-            if ($user) {
-                if ($credentials['password'] === $user->getAuthPassword()) {
-                    $this->guard()->login($user, $request->boolean('remember'));
-                    return true;
-                }
-            } else {
-                // Cek apakah pengguna ditemukan berdasarkan nama pengguna
-                $user = $this->guard()->getProvider()->retrieveByCredentials(['name' => $credentials['email']]);
-                if ($user && $credentials['password'] === $user->getAuthPassword()) {
-                    $this->guard()->login($user, $request->boolean('remember'));
-                    return true;
-                }
-            }
+        // Jika pengguna tidak ditemukan berdasarkan email, coba mencari berdasarkan nama pengguna
+        if (!$user) {
+            $user = $this->guard()->getProvider()->retrieveByCredentials([
+                'name' => $credentials['email'],
+            ]);
+        }
+
+        if ($user && Hash::check($credentials['password'], $user->getAuthPassword())) {
+            $this->guard()->login($user, $request->boolean('remember'));
+            return true;
         }
 
         return false;
@@ -153,6 +147,11 @@ class LoginController extends Controller
         return 'email';
     }
 
+    public function toEmail()
+    {
+        return view('auth.passwords.email');
+    }
+
     public function logout(Request $request)
     {
         $this->guard()->logout();
@@ -173,6 +172,7 @@ class LoginController extends Controller
     {
         //
     }
+
     protected function guard()
     {
         return Auth::guard();

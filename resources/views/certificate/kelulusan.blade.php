@@ -39,7 +39,7 @@
           <p>{{ $certificate->user->name }}</p>
         </div>
         <div class="nik">
-          {{ $certificate->user->password }}
+          {{ $certificate->user->nomor_induk}}
         </div>
         <div class="sekolah">
           {{ $certificate->user->institusi }}

@@ -1,43 +1,90 @@
 @extends('layouts.nav-user')
 
 @section('content')
-<title>{{ config('app.name', 'Laravel') }} - Profile</title>
+  <title>{{ config('app.name', 'Laravel') }} - Profile</title>
   <link rel="stylesheet" href="{{ asset('css/user/load-image.css') }}">
   <link rel="stylesheet" href="{{ asset('css/user/profile.css') }}">
   <div class="pembungkus-profile">
     <div class="bababoi">
-      <div class="row papope" style="width: 100%; height: 92vh; margin: 0">
+      <div class="row papope">
         <div class="col-md-12 col-lg-8 p-0">
-          <div class="card card-profile" style="height: 100%; border-top-left-radius: 0px; border-bottom-left-radius: 0px;">
+          <div class="card card-profile">
             <h3 class="profile-title mb-4">Profile</h3>
-            <form action="{{ route('update.email') }}" method="POST" class="form-detail  emailForm">
-              @csrf
-              @method('PATCH')
+            <div class="form-detail">
               <div class="mb-3">
                 <label for="nama" class="form-label">Nama</label>
-                <input type="text" class="input-height form-control" id="nama" placeholder="{{ $user->name }}" readonly>
+                <input type="text" class="input-height form-control" id="nama" value="{{ $user->name }}" placeholder="{{ $user->name }}" readonly>
               </div>
-              <div class="input-button">
-                <div class="mb-3 button-width">
-                  <div class="input-email">
-                    <label for="email" class="form-label">Email</label>
-                    <div class="d-flex gap-3">
-                      <input type="email" name="email" id="email" class="input-height form-control" placeholder="{{ $user->email }}" value="{{ $user->email }}">
-                      <button tyJpe="submit" class="btn btn-primary"><i class="fi fi-rr-pencil pencil-icon"></i></button>
+              <form action="{{ route('update.email') }}" method="POST" class="form-detail  emailForm">
+                @csrf
+                @method('PATCH')
+                <div class="input-button">
+                  <div class="mb-3 button-width">
+                    <div class="input-email">
+                      <label for="email" class="form-label">Email</label>
+                      <div class="d-flex gap-3">
+                        <input type="email" name="email" id="email" class="input-height form-control" placeholder="{{ $user->email }}" value="{{ $user->email }}">
+                        <button tyJpe="submit" class="btn btn-primary"><img src="{{ asset('image/pencil-regular-24.png') }}"></i></button>
+                      </div>
+                      @error('email')
+                        <p class="invalid mt-2 text-danger">{{ $message }}</p>
+                      @enderror
                     </div>
-                    @error('email')
-                      <p class="invalid mt-2 text-danger">{{ $message }}</p>
-                    @enderror
                   </div>
                 </div>
-              </div>
+              </form>
               <div class="mb-3">
                 <label for="nik" class="form-label">Nisn/Nik/Nip</label>
-                <input type="number" class="input-height form-control" id="nik" placeholder="{{ $user->password }}" readonly>
+                <input type="number" class="input-height form-control" id="nik" placeholder="{{ $user->nomor_induk }}" value="{{ $user->nomor_induk }}" readonly>
               </div>
               <div class="mb-3">
                 <label for="institusi" class="form-label">Institusi</label>
-                <input type="text" class="input-height form-control" id="institusi" placeholder="{{ $user->institusi }}" readonly>
+                <input type="text" class="input-height form-control" id="institusi" placeholder="{{ $user->institusi }}" value="{{ $user->institusi }}" readonly>
+              </div>
+            </div>
+            <div class="mb-3">
+              <hr class="line-spacer">
+            </div>
+            <h3 class="profile-title mb-4">Ganti password</h3>
+            <form action="{{ route('update.password') }}" method="POST" class="form-detail">
+              @csrf
+              @method('PATCH')
+              <div class="mb-3">
+                <label for="oldPassword" class="form-label">Password Lama (default Nisn/Nik/Nip)</label>
+                <input type="text" class="input-height form-control" name="oldPassword" placeholder="Password lama" required>
+                @error('oldPassword')
+                  <p class="invalid mt-2 text-danger">{{ $message }}</p>
+                @enderror
+              </div>
+              <div class="mb-3">
+                <label for="newPassword" class="form-label">Password Baru</label>
+                <input type="text" class="input-height form-control" name="newPassword" placeholder="Password baru" required>
+                @error('newPassword')
+                  <p class="invalid mt-2 text-danger">{{ $message }}</p>
+                @enderror
+              </div>
+              <div class="mb-3">
+                <label for="confirmPassword" class="form-label">Konfirmasi password</label>
+                <input type="text" class="input-height form-control" name="confirmPassword" placeholder="Konfirmasi password" required>
+                @error('confirmPassword')
+                  <p class="invalid mt-2 text-danger">{{ $message }}</p>
+                @enderror
+              </div>
+              <div class="mb-3">
+                <script src="https://www.google.com/recaptcha/api.js"
+                                async defer></script>
+                <div class="g-recaptcha" id="feedback-recaptcha"
+                            data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}">
+                </div>
+                @error('g-recaptcha-response')
+                    <p class="text-danger">reCAPTCHA wajib diisi!</p>
+                @enderror
+              </div>
+              <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Ganti Password</button>
+                <div class="lupa-password">
+                  <a href="{{ route('password.request') }}">Lupa password?</a>
+                </div>
               </div>
             </form>
           </div>
@@ -87,6 +134,7 @@
       </div>
     </div>
   </div>
+
   @if (session('message'))
     <script>
       Swal.fire({

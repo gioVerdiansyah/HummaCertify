@@ -1185,6 +1185,12 @@ h6 {
     color: #fff
 }
 
+.form-check {
+    justify-content: center;
+    display: flex;
+    width: 100%;
+}
+
 .form-check-input {
     cursor: pointer
 }
@@ -1196,6 +1202,17 @@ h6 {
 
 .form-check-label {
     cursor: pointer
+}
+
+.forgot-start {
+    width: 50%;
+    justify-content: left;
+}
+
+.forgot-end {
+    display: flex;
+    width: 50%;
+    justify-content: right;
 }
 
 .text-primary {

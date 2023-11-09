@@ -5,19 +5,16 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PesertaController;
 use App\Http\Controllers\DemoTestController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CertificateController;
 use App\Http\Controllers\CategoryController ;
 
-// Auth::routes();
+Auth::routes();
 
 Route::middleware('AdminDown')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
-    Route::get('/login', [LoginController::class, 'showLoginForm']);
-    Route::post('/login', [LoginController::class, 'login'])->name('login');
-    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('/toEmail', [LoginController::class, 'toEmail'])->name('toEmail');
 
     Route::post('/send_notif', [ContactMeController::class, 'sending'])->name('send_notif');
     Route::get('/search', [HomeController::class, 'search'])->name('search');
@@ -28,6 +25,7 @@ Route::middleware('User')->group(function () {
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
     Route::get('/sertifikatku', [HomeController::class, 'sertifikatKu'])->name('sertifikat.user');
     Route::patch('/updateEmail', [ProfileController::class, 'updateEmail'])->name('update.email');
+    Route::patch('/updatePassword', [ProfileController::class, 'changePassword'])->name('update.password');
 });
 
 // Admin Sudah Login
@@ -38,6 +36,8 @@ Route::middleware('AdminUp')->group(function () {
 
         Route::resource('/certificate', CertificateController::class)->except(['destroy', 'show']);
         Route::resource('/category', CategoryController::class);
+        Route::patch('/category/restore/{category}', [CategoryController::class,'restore'])->name('category.restore');
+        Route::delete('/category/force_delete/{category}', [CategoryController::class, 'forceDelete'])->name('category.force_delete');
 
         Route::get('/certificate/create/exist', [CertificateController::class, 'createExist'])->name('certificate.create_exist');
         Route::post('/certificate/store/exist',[CertificateController::class, 'storeExists'])->name('certificate.store_exist');
@@ -70,3 +70,8 @@ Route::get('/tes', function () {
 
     );
 });
+
+Route::get('/toReset', function (){
+    return view('auth.passwords.reset');
+});
+Route::get('/recaptcha', [DemoTestController::class, 'recaptcha']);

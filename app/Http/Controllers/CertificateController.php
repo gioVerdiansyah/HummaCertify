@@ -13,14 +13,19 @@ use App\Mail\SendCertificate;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\DetailCertificate;
 use App\Models\CertificateCategori;
-use App\Models\ContactMe;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 
 class CertificateController extends Controller
 {
-    protected $perPage = 5, $exceptCategory = ["Kelulusan", "Pelatihan", "Kompetensi"];
+    protected $perPage = 5, $exceptCategory;
+
+    public function __construct()
+    {
+        $this->exceptCategory = config('hummacertify.tata_letak');
+    }
     public function index(Request $request)
     {
         $certificates = Certificate::latest()->where('status', 'nonPrint')->paginate($this->perPage);
@@ -87,7 +92,8 @@ class CertificateController extends Controller
             [
                 'name' => $data['name'],
                 'email' => $data['email'],
-                'password' => $data['nomor_induk'],
+                'password' => Hash::make($data['nomor_induk']),
+                'nomor_induk' => $data['nomor_induk'],
                 'ttl' => $data['ttl'],
                 'institusi' => $data['institusi']
             ]
@@ -219,7 +225,8 @@ class CertificateController extends Controller
         $dataUser = [
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->nomor_induk,
+            'password' => Hash::make($request->nomor_induk),
+            'nomor_induk' => $request->nomor_induk,
             'ttl' => $request->ttl,
             'institusi' => $request->institusi,
         ];
@@ -249,7 +256,7 @@ class CertificateController extends Controller
         return to_route('certificate.index')->with('message', [
             'icon' => "success",
             'title' => "Berhasil!",
-            'text' => "Berhasil meupdate sertifikat {$name}"
+            'text' => "Berhasil meng-update sertifikat {$name}"
         ]);
     }
 

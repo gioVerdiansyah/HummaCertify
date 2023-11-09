@@ -61,4 +61,8 @@ class DemoTestController extends Controller
         $certificate = Certificate::latest()->first();
         return view('certificate.kelulusan_copy', compact('certificate'));
     }
+
+    public function recaptcha(){
+        return view('recaptcha');
+    }
 }

@@ -66,21 +66,34 @@
                       </span>
                     @enderror
                   </div>
+                  <div class="mb-3">
+                    <script src="https://www.google.com/recaptcha/api.js"
+                            async defer></script>
+                    <div class="g-recaptcha d-flex justify-content-center" id="feedback-recaptcha"
+                         data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}">
+                    </div>
+                    @error('g-recaptcha-response')
+                      <p class="text-danger">reCAPTCHA wajib diisi!</p>
+                    @enderror
+                  </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="remember-Check" name="remember" {{ old('remember') ? 'checked' : '' }}>
-                    <label class="form-check-label" for="remember-Check">
-                      Ingat saya
-                    </label>
+                    <div class="forgot-start">
+                      <input class="form-check-input" type="checkbox" id="remember-Check" name="remember" {{ old('remember') ? 'checked' : '' }}>
+                      <label class="form-check-label" for="remember-Check">Ingat saya</label>
+                    </div>
+                    <div class="forgot-end">
+                      <a href="{{ route('password.request') }}">Lupa password?</a>
+                    </div>
                   </div>
                   <div class="d-grid mt-3"><button type="submit" class="btn btn-biru btn-none">Masuk</button></div>
                   <div class="mt-5"></div>
                 </form>
                 <!-- end form -->
+                <div class="text-center mt-4 bottom-text">
+                  <p>Berubah Pikiran? <a href="/" class="font-weight-semibold text-biru"> Kembali ke beranda </a> </p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="text-center mt-4 bottom-text">
-            <p>Berubah Pikiran? <a href="/" class="font-weight-semibold text-biru"> Kembali ke beranda </a> </p>
           </div>
         </div>
         <!-- end col -->
@@ -134,11 +147,11 @@
     let bgLoader = localStorage.getItem("theme");
 
     if (bgLoader == 'dark') {
-        var eyeBackground = document.getElementById('eyeShow');
-        var bgImage = document.getElementById('background-login');
-        var icon = document.getElementById('icon');
-        bgImage.style = 'background-image: none !important';
-        icon.style = 'color: white';
+      var eyeBackground = document.getElementById('eyeShow');
+      var bgImage = document.getElementById('background-login');
+      var icon = document.getElementById('icon');
+      bgImage.style = 'background-image: none !important';
+      icon.style = 'color: white';
     }
   </script>
 

@@ -16,20 +16,25 @@ use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
+    private $perPage = 9, $exceptCategory;
+
+    public function __construct()
+    {
+        $this->exceptCategory = config('hummacertify.tata_letak');
+    }
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $categories = CertificateCategori::paginate(9);
-        $certificate = Certificate::all();
-        $exist = [];
+        $exceptCategory = $this->exceptCategory;
+        $categories = CertificateCategori::paginate($this->perPage);
 
-        foreach ($certificate as $c) {
-            $exist[] = $c->certificate_categori_id;
+        if($request->restore){
+            $categories = $this->search($request->all());
         }
 
-        return view('admin.certificate.category.index', compact("categories", "exist"));
+        return view('admin.certificate.category.index', compact("categories", "exceptCategory"));
     }
 
     /**
@@ -37,10 +42,6 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $users = User::all();
-        $category = CertificateCategori::all();
-        $certificateCategoryCount = CertificateCategori::count();
-
         return view('admin.certificate.category.create');
     }
 
@@ -135,16 +136,61 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(int $id)
     {
         $category = CertificateCategori::findOrFail($id);
 
         try {
             DB::beginTransaction();
             $name = $category->name;
+            $category->delete();
+
+            DB::commit();
+        } catch (Exception $c) {
+            DB::rollBack();
+            return back()->with('message', [
+                'icon' => 'error',
+                'title' => 'Gagal!',
+                'text' => "Kategori {$name} sedang digunakan!"
+            ]);
+        }
+        return back()->with('message', [
+            'icon' => 'success',
+            'title' => 'Berhasil!',
+            'text' => 'Berhasil menghapus category ' . $name
+        ]);
+    }
+
+    // Bukan CRUD
+
+    public function restore(int $id){
+        $category = CertificateCategori::withTrashed()->find($id);
+
+        if ($category) {
+            $category->restore();
+        }else {
+            return back()->with('message', [
+                'icon'=> 'error',
+                'title' => 'Gagal!',
+                'text'=> 'Id yang dituju tidak ditemukan!'
+            ]);
+        }
+        return to_route('category.index')->with('message', [
+            'icon' => 'success',
+            'title' => 'Berhasil!',
+            'text' => "Mengembalikan kategori {$category->name}!"
+        ]);
+    }
+    public function forceDelete(int $id)
+    {
+        $category = CertificateCategori::withTrashed()->findOrFail($id);
+
+        try {
+            DB::beginTransaction();
+            $name = $category->name;
             $bgDepan = $category->background_depan;
             $bgBelakang = $category->background_belakang;
-            $category->delete();
+            $category->forceDelete();
 
             if ($bgDepan) {
                 if (File::exists($bgDepan)) {
@@ -163,18 +209,20 @@ class CategoryController extends Controller
             return back()->with('message', [
                 'icon' => 'error',
                 'title' => 'Gagal!',
-                'text' => 'Kategori ' . $name . ' sedang di gunakan'
+                'text' => "Kategori {$name} sedang digunakan!"
             ]);
         }
-
         return back()->with('message', [
             'icon' => 'success',
             'title' => 'Berhasil!',
-            'text' => 'Berhasil menghapus category ' . $name
+            'text' => 'Berhasil menghapus category ' . $name . ' secara permanen!'
         ]);
     }
-
-    // Bukan CRUD
+    public function search(array $dataRequest)
+    {
+        $query = CertificateCategori::onlyTrashed()->paginate($this->perPage);
+        return $query;
+    }
     public function preview(Request $request, string $ct)
     {
         $categoryTataLetak = strtolower($ct);
