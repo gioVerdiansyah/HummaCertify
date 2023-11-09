@@ -45,6 +45,8 @@ class ProfileController extends Controller
     }
 
     protected function changePassword(Request $change) {
-        $change->validate();
+        $change->validate([
+            'oldPassword' => 'required|same:password',
+        ]);
     }
 }

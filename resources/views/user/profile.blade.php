@@ -67,6 +67,9 @@
                   <p class="invalid mt-2 text-danger">{{ $message }}</p>
                 @enderror
               </div>
+              <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Ganti Password</button>
+              </div>
             </form>
           </div>
         </div>
