@@ -70,7 +70,7 @@
               </div>
               <div class="col-12 mb-4">
                 <label for="division" class="form-label">Sub Bidang</label>
-                <input required type="text" name="sub_bidang" class="form-control @error('sub_bidang') is-invalid @enderror" placeholder="Sub bidang peserta" value="{{ old('sub_bidang') }}">
+                <input type="text" name="sub_bidang" class="form-control @error('sub_bidang') is-invalid @enderror" placeholder="Sub bidang peserta" value="{{ old('sub_bidang') }}">
                 @error('dub_bidang')
                   <div class="invalid-feedback">
                     <p>{{ $message }}</p>
