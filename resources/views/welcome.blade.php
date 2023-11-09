@@ -551,13 +551,20 @@
                   </div>
                 </div>
                 <div class="col-md-12">
-                  <div class="mb-4 pb-2" id="comments-container">
+                  <div class="mb-2" id="comments-container">
                     <label for="comments" class="text-muted form-label">Pesan</label>
                     <textarea name="message" id="comments" rows="10" class="form-control" placeholder="Masukkan pesan..."
                       required></textarea>
                     <p id="error-pesan" class="text-danger"></p>
                   </div>
-
+                  <div class="col-lg-6 mb-3">
+                    <script src="https://www.google.com/recaptcha/api.js"
+                            async defer></script>
+                    <div class="g-recaptcha" id="feedback-recaptcha"
+                         data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}">
+                    </div>
+                      <p id="error-captcha" class="text-danger"></p>
+                  </div>
                   <button type="submit" id="submit-button" name="send" class="btn btn-biru">
                     <span class="d-flex align-items-center">
                       <span class="flex-grow-1 me-2">
@@ -734,7 +741,19 @@
         }
       });
 
-      var sendCount = localStorage.getItem('sendCount') || 0;
+      var sendCount = parseInt(localStorage.getItem('sendCount')) || 0;
+      var lastResetTime = parseInt(localStorage.getItem('lastResetTime')) || new Date().getTime();
+      var currentTime = new Date().getTime();
+      var timeDifference = currentTime - lastResetTime;
+      var oneDayInMillis = 24 * 60 * 60 * 1000;
+
+      if (timeDifference >= oneDayInMillis) {
+        sendCount = 0;
+        lastResetTime = currentTime;
+
+        localStorage.setItem('sendCount', sendCount);
+        localStorage.setItem('lastResetTime', lastResetTime);
+      }
 
       $("#send-notif-form").on("submit", function(event) {
         event.preventDefault();
@@ -792,28 +811,28 @@
             type: "POST",
             data: $(this).serialize(),
             success: function(response) {
-              console.log(response);
               if (response.error) {
                 $("#simple-msg").empty();
-                let errorList = '<ul>';
-                $.each(response.error, function(field, messages) {
-                  $.each(messages, function(key, message) {
-                    errorList += '<li>' + message + '</li>';
-                  });
-                });
-                errorList += '</ul>';
-
-                $("#error-msg").html(
-                  "<div class='alert alert-danger alert-dismissible fade show' role='alert'>" +
-                  "Terjadi  kesalahan:" + errorList +
-                  '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
-                );
+                if(response.error['g-recaptcha-response']){
+                    $('#error-captcha').text("reCAPTCHA wajib diisi!");
+                }
+                if(response.error['name']){
+                    nameContainer.text('Nama harus diisi.');
+                }
+                if(response.error['email']){
+                    emailContainer.text('Jangan menggunakan nama email kami!');
+                }
+                if(response.error['message']){
+                    messageContainer.text('Pesan harus diisi.');
+                }
 
                 $("#submit-button .flex-grow-1").text("Kirim Pesan");
                 $("#submit-button .spinner-border").addClass("d-none");
               } else {
-                $("#error-msg").empty();
-
+                if(!localStorage.getItem('lastResetTime')){
+                    localStorage.setItem('lastResetTime',new Date().getTime());
+                }
+                $('#error-captcha').empty();
                 $("#simple-msg").html(
                   "<div class='alert alert-success alert-dismissible fade show' role='alert'>" + response
                   .success +
