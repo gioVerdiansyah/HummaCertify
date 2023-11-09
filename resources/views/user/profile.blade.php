@@ -80,7 +80,7 @@
                     <p class="text-danger">reCAPTCHA wajib diisi!</p>
                 @enderror
               </div>
-              <div class="mb-3">
+              <div class="mb-3 d-flex flex-row">
                 <button type="submit" class="btn btn-primary">Ganti Password</button>
                 <div class="lupa-password">
                   <a href="{{ route('password.request') }}">Lupa password?</a>
