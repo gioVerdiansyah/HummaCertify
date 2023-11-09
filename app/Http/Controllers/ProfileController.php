@@ -43,4 +43,8 @@ class ProfileController extends Controller
             );
         }
     }
+
+    protected function changePassword(Request $change) {
+        $change->validate();
+    }
 }

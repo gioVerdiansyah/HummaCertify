@@ -142,67 +142,10 @@ class CategoryController extends Controller
 
         try {
             DB::beginTransaction();
+
             $name = $category->name;
             $category->delete();
 
-            DB::commit();
-        } catch (Exception $c) {
-            DB::rollBack();
-            return back()->with('message', [
-                'icon' => 'error',
-                'title' => 'Gagal!',
-                'text' => "Kategori {$name} sedang digunakan!"
-            ]);
-        }
-        return back()->with('message', [
-            'icon' => 'success',
-            'title' => 'Berhasil!',
-            'text' => 'Berhasil menghapus category ' . $name
-        ]);
-    }
-
-    // Bukan CRUD
-
-    public function restore(int $id){
-        $category = CertificateCategori::withTrashed()->find($id);
-
-        if ($category) {
-            $category->restore();
-        }else {
-            return back()->with('message', [
-                'icon'=> 'error',
-                'title' => 'Gagal!',
-                'text'=> 'Id yang dituju tidak ditemukan!'
-            ]);
-        }
-        return to_route('category.index')->with('message', [
-            'icon' => 'success',
-            'title' => 'Berhasil!',
-            'text' => "Mengembalikan kategori {$category->name}!"
-        ]);
-    }
-    public function forceDelete(int $id)
-    {
-        $category = CertificateCategori::withTrashed()->findOrFail($id);
-
-        try {
-            DB::beginTransaction();
-            $name = $category->name;
-            $bgDepan = $category->background_depan;
-            $bgBelakang = $category->background_belakang;
-            $category->forceDelete();
-
-            if ($bgDepan) {
-                if (File::exists($bgDepan)) {
-                    File::delete($bgDepan);
-                }
-            }
-
-            if ($bgBelakang) {
-                if (File::exists($bgBelakang)) {
-                    File::delete($bgBelakang);
-                }
-            }
             DB::commit();
         } catch (Exception $c) {
             DB::rollBack();

@@ -1,7 +1,7 @@
 @extends('layouts.nav-user')
 
 @section('content')
-<title>{{ config('app.name', 'Laravel') }} - Profile</title>
+  <title>{{ config('app.name', 'Laravel') }} - Profile</title>
   <link rel="stylesheet" href="{{ asset('css/user/load-image.css') }}">
   <link rel="stylesheet" href="{{ asset('css/user/profile.css') }}">
   <div class="pembungkus-profile">
@@ -38,6 +38,34 @@
               <div class="mb-3">
                 <label for="institusi" class="form-label">Institusi</label>
                 <input type="text" class="input-height form-control" id="institusi" placeholder="{{ $user->institusi }}" readonly>
+              </div>
+            </form>
+            <form action="#" method="POST" class="form-detail">
+              @csrf
+              @method('PATCH')
+              <div>
+                <hr>
+              </div>
+              <div class="mb-3">
+                <label for="oldPassword" class="form-label">Password Lama</label>
+                <input type="text" class="input-height form-control" name="oldPassword" placeholder="Password lama" required>
+                @error('oldPassword')
+                  <p class="invalid mt-2 text-danger">{{ $message }}</p>
+                @enderror
+              </div>
+              <div class="mb-3">
+                <label for="newPassword" class="form-label">Password Baru</label>
+                <input type="text" class="input-height form-control" name="newPassword" placeholder="Password baru" required>
+                @error('newPassword')
+                  <p class="invalid mt-2 text-danger">{{ $message }}</p>
+                @enderror
+              </div>
+              <div class="mb-3">
+                <label for="confirmPassword" class="form-label">Konfirmasi password</label>
+                <input type="text" class="input-height form-control" name="confirmPassword" placeholder="Konfirmasi password" required>
+                @error('confirmPassword')
+                  <p class="invalid mt-2 text-danger">{{ $message }}</p>
+                @enderror
               </div>
             </form>
           </div>
