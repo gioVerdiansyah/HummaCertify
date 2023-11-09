@@ -31,7 +31,7 @@
 .pembungkus-profile {
     position: absolute;
     top: 75px;
-    height: 92vh;
+    height: 946px;
     width: 100%;
     margin: 0px;
     padding: 0px;
@@ -116,7 +116,7 @@
 }
 
 .pembungkus-profile .card-sertifikat-show {
-    height: 70%;
+    height: 84%;
     background-color: var(--bs-body-bg);
     border-style: none;
 }
