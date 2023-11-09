@@ -1,0 +1,90 @@
+.notifmodal .modal-content {
+    background-color: #fff !important;
+}
+
+.notifmodal .modal-body .detail {
+    height: 50px;
+    width: 100%;
+}
+
+.notifmodal .modal-body .detail .nama {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.notifmodal .modal-body .detail .email {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+.notifmodal .modal-body .container-text {
+    max-height: 360px;
+    overflow: auto;
+}
+
+.notifmodal .modal-body .text-pesan {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.notifmodal .modal-body .container-text .text {
+    width: 100%;
+    height: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: "Playfair Display", serif;
+}
+
+.notifmodal .modal-body .container-text::-webkit-scrollbar {
+    width: 8px;
+}
+
+.notifmodal .modal-body .container-text::-webkit-scrollbar-track {
+    background-color: #f4f4f4;
+    border-radius: 100px;
+}
+
+.notifmodal .modal-body .container-text::-webkit-scrollbar-thumb {
+    background-color: #e4e4e4;
+    border-radius: 100px;
+}
+
+.notificationContainer::-webkit-scrollbar {
+    width: 8px;
+}
+
+.notificationContainer::-webkit-scrollbar-track {
+    background-color: #f4f4f4;
+    border-radius: 100px;
+}
+
+.notificationContainer::-webkit-scrollbar-thumb {
+    background-color: #e4e4e4;
+    border-radius: 100px;
+}
+
+.custom-ellipsis {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+}
