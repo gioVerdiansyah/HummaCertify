@@ -6,46 +6,49 @@
   <link rel="stylesheet" href="{{ asset('css/user/profile.css') }}">
   <div class="pembungkus-profile">
     <div class="bababoi">
-      <div class="row papope" style="width: 100%; height: 92vh; margin: 0">
+      <div class="row papope">
         <div class="col-md-12 col-lg-8 p-0">
-          <div class="card card-profile" style="height: 100%; border-top-left-radius: 0px; border-bottom-left-radius: 0px;">
+          <div class="card card-profile">
             <h3 class="profile-title mb-4">Profile</h3>
-            <form action="{{ route('update.email') }}" method="POST" class="form-detail  emailForm">
-              @csrf
-              @method('PATCH')
+            <div class="form-detail">
               <div class="mb-3">
                 <label for="nama" class="form-label">Nama</label>
-                <input type="text" class="input-height form-control" id="nama" placeholder="{{ $user->name }}" readonly>
+                <input type="text" class="input-height form-control" id="nama" value="{{ $user->name }}" placeholder="{{ $user->name }}" readonly>
               </div>
-              <div class="input-button">
-                <div class="mb-3 button-width">
-                  <div class="input-email">
-                    <label for="email" class="form-label">Email</label>
-                    <div class="d-flex gap-3">
-                      <input type="email" name="email" id="email" class="input-height form-control" placeholder="{{ $user->email }}" value="{{ $user->email }}">
-                      <button tyJpe="submit" class="btn btn-primary"><i class="fi fi-rr-pencil pencil-icon"></i></button>
+              <form action="{{ route('update.email') }}" method="POST" class="form-detail  emailForm">
+                @csrf
+                @method('PATCH')
+                <div class="input-button">
+                  <div class="mb-3 button-width">
+                    <div class="input-email">
+                      <label for="email" class="form-label">Email</label>
+                      <div class="d-flex gap-3">
+                        <input type="email" name="email" id="email" class="input-height form-control" placeholder="{{ $user->email }}" value="{{ $user->email }}">
+                        <button tyJpe="submit" class="btn btn-primary"><img src="{{ asset('image/pencil-regular-24.png') }}"></i></button>
+                      </div>
+                      @error('email')
+                        <p class="invalid mt-2 text-danger">{{ $message }}</p>
+                      @enderror
                     </div>
-                    @error('email')
-                      <p class="invalid mt-2 text-danger">{{ $message }}</p>
-                    @enderror
                   </div>
                 </div>
-              </div>
+              </form>
               <div class="mb-3">
                 <label for="nik" class="form-label">Nisn/Nik/Nip</label>
-                <input type="number" class="input-height form-control" id="nik" placeholder="{{ $user->nomor_induk }}" readonly>
+                <input type="number" class="input-height form-control" id="nik" placeholder="{{ $user->nomor_induk }}" value="{{ $user->nomor_induk }}" readonly>
               </div>
               <div class="mb-3">
                 <label for="institusi" class="form-label">Institusi</label>
-                <input type="text" class="input-height form-control" id="institusi" placeholder="{{ $user->institusi }}" readonly>
+                <input type="text" class="input-height form-control" id="institusi" placeholder="{{ $user->institusi }}" value="{{ $user->institusi }}" readonly>
               </div>
-            </form>
+            </div>
+            <div class="mb-3">
+              <hr class="line-spacer">
+            </div>
+            <h3 class="profile-title mb-4">Ganti password</h3>
             <form action="{{ route('update.password') }}" method="POST" class="form-detail">
               @csrf
               @method('PATCH')
-              <div>
-                <hr>
-              </div>
               <div class="mb-3">
                 <label for="oldPassword" class="form-label">Password Lama (default Nisn/Nik/Nip)</label>
                 <input type="text" class="input-height form-control" name="oldPassword" placeholder="Password lama" required>
@@ -67,8 +70,11 @@
                   <p class="invalid mt-2 text-danger">{{ $message }}</p>
                 @enderror
               </div>
-              <div class="mb-3">
+              <div class="button-bottom-password mb-3 d-flex">
                 <button type="submit" class="btn btn-primary">Ganti Password</button>
+                <div class="lupa-password">
+                  <a href="#">Lupa password?</a>
+                </div>
               </div>
             </form>
           </div>
@@ -118,6 +124,7 @@
       </div>
     </div>
   </div>
+
   @if (session('message'))
     <script>
       Swal.fire({

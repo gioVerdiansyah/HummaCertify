@@ -6,6 +6,16 @@
     margin-top: -8px !important;
 }
 
+.button-bottom-password {
+    height: auto;
+}
+
+.lupa-password {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
 .swal2-success-circular-line-right {
     background-color: transparent !important;
 }
@@ -35,15 +45,25 @@
     background-color: var(--bs-bg-light);
 }
 
+.line-spacer {
+    color: #8d8d8d;
+}
+
 .pembungkus-profile .bababoi {
     width: 100%;
 }
 
 .pembungkus-profile .bababoi .papope {
+    width: 100%;
+    height: 92vh;
+    margin: 0;
     padding: 2px 0px;
 }
 
 .pembungkus-profile .bababoi .card-profile {
+    height: 100%;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
     background-color: var(--bs-body-bg);
     border-style: none;
     padding: 30px 60px 10px 9.5%;
@@ -90,7 +110,6 @@
 }
 
 .pembungkus-profile .card-sertifikat-user {
-    height: 30%;
     background-color: var(--bs-body-bg);
     border-style: none;
     margin: 0px 2px;
