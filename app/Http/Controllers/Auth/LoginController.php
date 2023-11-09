@@ -145,6 +145,11 @@ class LoginController extends Controller
         return 'email';
     }
 
+    public function toEmail()
+    {
+        return view('auth.passwords.email');
+    }
+
     public function logout(Request $request)
     {
         $this->guard()->logout();
@@ -165,6 +170,7 @@ class LoginController extends Controller
     {
         //
     }
+
     protected function guard()
     {
         return Auth::guard();

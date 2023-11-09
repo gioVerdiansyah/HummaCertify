@@ -18,6 +18,7 @@ Route::middleware('AdminDown')->group(function () {
     Route::get('/login', [LoginController::class, 'showLoginForm']);
     Route::post('/login', [LoginController::class, 'login'])->name('login');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('/toEmail', [LoginController::class, 'toEmail'])->name('toEmail');
 
     Route::post('/send_notif', [ContactMeController::class, 'sending'])->name('send_notif');
     Route::get('/search', [HomeController::class, 'search'])->name('search');
@@ -71,4 +72,8 @@ Route::get('/tes', function () {
     return view('errors.certificatenotfound')->name(
 
     );
+});
+
+Route::get('/toReset', function (){
+    return view('auth.passwords.reset');
 });

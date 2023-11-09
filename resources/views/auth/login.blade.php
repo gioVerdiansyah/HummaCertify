@@ -67,10 +67,13 @@
                     @enderror
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="remember-Check" name="remember" {{ old('remember') ? 'checked' : '' }}>
-                    <label class="form-check-label" for="remember-Check">
-                      Ingat saya
-                    </label>
+                    <div class="forgot-start">
+                      <input class="form-check-input" type="checkbox" id="remember-Check" name="remember" {{ old('remember') ? 'checked' : '' }}>
+                      <label class="form-check-label" for="remember-Check">Ingat saya</label>
+                    </div>
+                    <div class="forgot-end">
+                      <a href="{{ route('toEmail') }}">Lupa password?</a>
+                    </div>
                   </div>
                   <div class="d-grid mt-3"><button type="submit" class="btn btn-biru btn-none">Masuk</button></div>
                   <div class="mt-5"></div>
@@ -134,11 +137,11 @@
     let bgLoader = localStorage.getItem("theme");
 
     if (bgLoader == 'dark') {
-        var eyeBackground = document.getElementById('eyeShow');
-        var bgImage = document.getElementById('background-login');
-        var icon = document.getElementById('icon');
-        bgImage.style = 'background-image: none !important';
-        icon.style = 'color: white';
+      var eyeBackground = document.getElementById('eyeShow');
+      var bgImage = document.getElementById('background-login');
+      var icon = document.getElementById('icon');
+      bgImage.style = 'background-image: none !important';
+      icon.style = 'color: white';
     }
   </script>
 
