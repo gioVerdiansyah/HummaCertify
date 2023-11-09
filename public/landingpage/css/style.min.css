@@ -1563,6 +1563,11 @@ h6 {
     .w-lg-75 {
         width: 100%
     }
+
+    .img-fluid {
+        max-width: 80%;
+        height: auto;
+    }
 }
 
 [data-bs-theme="dark"] .bg-light {
@@ -1878,6 +1883,10 @@ h6 {
     #gambar {
         display: none;
     }
+
+    .mb-costum {
+        margin-bottom: 2rem;
+    }
 }
 
 @media (max-width: 991px) {
@@ -1914,8 +1923,9 @@ h6 {
         text-align: center;
     }
 
-    .mb-costum {
-        margin-bottom: 2rem;
+    .py-5 {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
     }
 }
 
@@ -2291,16 +2301,11 @@ h6 {
     #style-switcher .bottom {
         margin-top: -49px;
         margin-left: 70px;
-        position:absolute;
+        position: absolute;
     }
 
     .atas-none {
         padding-top: 0 !important;
-    }
-
-    .img-fluid {
-        max-width: 80%;
-        height: auto;
     }
 }
 
@@ -2425,15 +2430,15 @@ h6 {
     border: 2px solid #b8b8b8;
 }
 
-.searchBox > .searchInput {
+.searchBox>.searchInput {
     width: 90%;
     padding: 0 6px;
 }
 
-.searchBox > .searchButton {
-  background: #138FD8;
-  color : white;
-  border: none;
+.searchBox>.searchButton {
+    background: #138FD8;
+    color: white;
+    border: none;
 }
 
 .searchButton {
@@ -2449,10 +2454,10 @@ h6 {
 }
 
 .searchInput {
-    border:none;
+    border: none;
     background: none;
-    outline:none;
-    float:left;
+    outline: none;
+    float: left;
     padding: 0;
     font-size: 16px;
     transition: 0.4s;
@@ -2465,10 +2470,10 @@ h6 {
 }
 
 @media screen and (max-width: 620px) {
-.searchBox > .searchInput {
-    width: 85%;
-    padding: 0 6px;
-}
+    .searchBox>.searchInput {
+        width: 85%;
+        padding: 0 6px;
+    }
 }
 
 .bi-brightness-high-fill {
@@ -2483,8 +2488,8 @@ textarea.form-control {
     width: 200px;
 }
 
-@media only screen and (max-width: 1200px) and (min-width: 992px)  {
-    .searchBox > .searchInput {
+@media only screen and (max-width: 1200px) and (min-width: 992px) {
+    .searchBox>.searchInput {
         width: 88%;
         padding: 0 6px;
     }
@@ -2501,5 +2506,11 @@ textarea.form-control {
 
     .gmr-footer {
         height: 40%;
+    }
+}
+
+@media (max-width: 360px) {
+    .gmr-footer {
+        height: 30%;
     }
 }
