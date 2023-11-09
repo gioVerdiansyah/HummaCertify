@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\EmailUpdateRequest;
 use App\Models\User;
-use DragonCode\Contracts\Cashier\Auth\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\EmailUpdateRequest;
 
 class ProfileController extends Controller
 {
@@ -44,9 +45,56 @@ class ProfileController extends Controller
         }
     }
 
+
     protected function changePassword(Request $change) {
         $change->validate([
-            'oldPassword' => 'required|same:password',
+            'confirmPassword' => 'required|same:newPassword',
+            'newPassword' => 'required|min:8|regex:/^[0-9,a-z]+$/',
+        ],[
+            'confirmPassword.required' => 'confirme password harus di isi',
+            'newPassword.required' => 'new password harus di isi',
+            'newPassword.min' => 'password baru minimal :min',
+            'newPassword.regex' => 'password baru harus valid ',
         ]);
+        $id = Auth::user()->id;
+        $user = User::findOrFail($id);
+        if (Hash::check($change->oldPassword,  $user->password))
+        {
+            try {
+                $user = User::findOrFail($id);
+
+                $hashedPassword = Hash::make($change->newPassword);
+                $user->password = $hashedPassword;
+
+                $user->save();
+                return back()->with(
+                    'message',
+                    [
+                        'icon' => 'success',
+                        'title' => "berhasil mengubah password ",
+                        'text' => "Anda bisa memakai password baru"
+                    ]
+                );
+            } catch (\Exception $e) {
+                return back()->with(
+                    'message',
+                    [
+                        'icon' => 'warning',
+                        'title' => "ada kesalahan",
+                        'text' => "Tidak bisa mengubah password karena ada kesalahan data"
+                    ]
+                );
+            }
+        }else{
+            return back()->with(
+                'message',
+                [
+                    'icon' => 'warning',
+                    'title' => "ada kesalahan",
+                    'text' => "password lama tidak sama dengan password lama"
+                ]
+            );
+        }
+
     }
 }
