@@ -79,6 +79,10 @@
       </div>
     @endforeach
   </div>
+  {{-- <div class="d-flex nr-tengah">
+    <img src="{{ asset('image/norestore.png') }}" alt="">
+    <h2 class="uk">Tidak Ada Data Untuk di Restore</h2>
+  </div> --}}
   <div>
     {{ $categories->links('layouts.pagination') }}
   </div>
