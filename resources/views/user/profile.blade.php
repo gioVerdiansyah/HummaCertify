@@ -40,14 +40,14 @@
                 <input type="text" class="input-height form-control" id="institusi" placeholder="{{ $user->institusi }}" readonly>
               </div>
             </form>
-            <form action="#" method="POST" class="form-detail">
+            <form action="{{ route('update.password') }}" method="POST" class="form-detail">
               @csrf
               @method('PATCH')
               <div>
                 <hr>
               </div>
               <div class="mb-3">
-                <label for="oldPassword" class="form-label">Password Lama</label>
+                <label for="oldPassword" class="form-label">Password Lama (default Nisn/Nik/Nip)</label>
                 <input type="text" class="input-height form-control" name="oldPassword" placeholder="Password lama" required>
                 @error('oldPassword')
                   <p class="invalid mt-2 text-danger">{{ $message }}</p>
