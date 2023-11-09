@@ -4,119 +4,122 @@
   <title>{{ config('app.name', 'Laravel') }} - Profile</title>
   <link rel="stylesheet" href="{{ asset('css/user/load-image.css') }}">
   <link rel="stylesheet" href="{{ asset('css/user/profile.css') }}">
-  <div class="pembungkus-profile">
-    <div class="bababoi">
-      <div class="row papope">
-        <div class="col-md-12 col-lg-8 p-0">
-          <div class="card card-profile">
-            <h3 class="profile-title mb-4">Profile</h3>
-            <div class="form-detail">
-              <div class="mb-3">
-                <label for="nama" class="form-label">Nama</label>
-                <input type="text" class="input-height form-control" id="nama" value="{{ $user->name }}" placeholder="{{ $user->name }}" readonly>
-              </div>
-              <form action="{{ route('update.email') }}" method="POST" class="form-detail  emailForm">
-                @csrf
-                @method('PATCH')
-                <div class="input-button">
-                  <div class="mb-3 button-width">
-                    <div class="input-email">
-                      <label for="email" class="form-label">Email</label>
-                      <div class="d-flex gap-3">
-                        <input type="email" name="email" id="email" class="input-height form-control" placeholder="{{ $user->email }}" value="{{ $user->email }}">
-                        <button tyJpe="submit" class="btn btn-primary"><img src="{{ asset('image/pencil-regular-24.png') }}"></i></button>
-                      </div>
-                      @error('email')
-                        <p class="invalid mt-2 text-danger">{{ $message }}</p>
-                      @enderror
-                    </div>
+  <div class="container-profile">
+    {{-- Kiri --}}
+    <div class="kiri">
+      <div class="card">
+        <h3 class="profile-title mb-4">Profile</h3>
+        <div class="form-detail">
+          <div class="mb-3">
+            <label for="nama" class="form-label">Nama</label>
+            <input type="text" class="input-height form-control" id="nama" value="{{ $user->name }}"
+              placeholder="{{ $user->name }}" readonly>
+          </div>
+          <form action="{{ route('update.email') }}" method="POST" class="form-detail  emailForm">
+            @csrf
+            @method('PATCH')
+            <div class="input-button">
+              <div class="mb-3 button-width">
+                <div class="input-email">
+                  <label for="email" class="form-label">Email</label>
+                  <div class="d-flex gap-3">
+                    <input type="email" name="email" id="email" class="input-height form-control" placeholder="Anda belum mendaftarkan email." value="{{ $user->email }}">
+                    <button tyJpe="submit" class="btn btn-sm btn-primary"><img src="{{ asset('image/pencil-regular-24.png') }}"></i></button>
                   </div>
+                  @error('email')
+                    <p class="invalid mt-2 text-danger">{{ $message }}</p>
+                  @enderror
                 </div>
-              </form>
-              <div class="mb-3">
-                <label for="nik" class="form-label">Nisn/Nik/Nip</label>
-                <input type="number" class="input-height form-control" id="nik" placeholder="{{ $user->nomor_induk }}" value="{{ $user->nomor_induk }}" readonly>
-              </div>
-              <div class="mb-3">
-                <label for="institusi" class="form-label">Institusi</label>
-                <input type="text" class="input-height form-control" id="institusi" placeholder="{{ $user->institusi }}" value="{{ $user->institusi }}" readonly>
               </div>
             </div>
-            <div class="mb-3">
-              <hr class="line-spacer">
-            </div>
-            <h3 class="profile-title mb-4">Ganti password</h3>
-            <form action="{{ route('update.password') }}" method="POST" class="form-detail">
-              @csrf
-              @method('PATCH')
-              <div class="mb-3">
-                <label for="oldPassword" class="form-label">Password Lama (default Nisn/Nik/Nip)</label>
-                <input type="text" class="input-height form-control" name="oldPassword" placeholder="Password lama" required>
-                @error('oldPassword')
-                  <p class="invalid mt-2 text-danger">{{ $message }}</p>
-                @enderror
-              </div>
-              <div class="mb-3">
-                <label for="newPassword" class="form-label">Password Baru</label>
-                <input type="text" class="input-height form-control" name="newPassword" placeholder="Password baru" required>
-                @error('newPassword')
-                  <p class="invalid mt-2 text-danger">{{ $message }}</p>
-                @enderror
-              </div>
-              <div class="mb-3">
-                <label for="confirmPassword" class="form-label">Konfirmasi password</label>
-                <input type="text" class="input-height form-control" name="confirmPassword" placeholder="Konfirmasi password" required>
-                @error('confirmPassword')
-                  <p class="invalid mt-2 text-danger">{{ $message }}</p>
-                @enderror
-              </div>
-              <div class="mb-3">
-                <script src="https://www.google.com/recaptcha/api.js"
-                                async defer></script>
-                <div class="g-recaptcha" id="feedback-recaptcha"
-                            data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}">
-                </div>
-                @error('g-recaptcha-response')
-                    <p class="text-danger">reCAPTCHA wajib diisi!</p>
-                @enderror
-              </div>
-              <div class="mb-3">
-                <button type="submit" class="btn btn-primary">Ganti Password</button>
-                <div class="lupa-password">
-                  <a href="{{ route('password.request') }}">Lupa password?</a>
-                </div>
-              </div>
-            </form>
+          </form>
+          <div class="mb-3">
+            <label for="nik" class="form-label">Nisn/Nik/Nip</label>
+            <input type="number" class="input-height form-control" id="nik" placeholder="{{ $user->nomor_induk }}"
+              value="{{ $user->nomor_induk }}" readonly>
+          </div>
+          <div class="mb-3">
+            <label for="institusi" class="form-label">Institusi</label>
+            <input type="text" class="input-height form-control" id="institusi" placeholder="{{ $user->institusi }}"
+              value="{{ $user->institusi }}" readonly>
           </div>
         </div>
-        <div class="col-md-12 col-lg-4 p-0 total-sertificate">
-          <div class="card card-sertifikat-user" style="border-top-right-radius: 0px; border-bottom-right-radius: 0px;">
-            <div class="card-body d-flex align-items-center">
-              <div class="d-flex position-relative align-items-center">
-                <div class="content flex-shrink-0 me-3 avatar-xl rounded d-flex justify-content-center align-items-center" style="background-color: rgba(41, 186, 219, 23%);">
-                  <img src="{{ asset('image/certificate-vector.png') }}" style="width: 60px; height: auto" alt="">
-                </div>
-                <div class="text">
-                  <h5 class="text-atas" style="pointer-events: none">Sertifikat</h5>
-                  <p class="angka" style="pointer-events: none">{{ count($user->certificates) }}</p>
-                  <p class="text-bawah" style="pointer-events: none">Total Sertifikat</p>
-                </div>
-              </div>
+        <div class="mb-3">
+          <hr class="line-spacer">
+        </div>
+        <h3 class="profile-title mb-4">Ganti password</h3>
+        <form action="{{ route('update.password') }}" method="POST" class="form-detail">
+          @csrf
+          @method('PATCH')
+          <div class="mb-3">
+            <label for="oldPassword" class="form-label">Password Lama (default Nisn/Nik/Nip)</label>
+            <input type="text" class="input-height form-control" name="oldPassword" placeholder="Password lama"
+              required>
+            @error('oldPassword')
+              <p class="invalid mt-2 text-danger">{{ $message }}</p>
+            @enderror
+          </div>
+          <div class="mb-3">
+            <label for="newPassword" class="form-label">Password Baru</label>
+            <input type="text" class="input-height form-control" name="newPassword" placeholder="Password baru"
+              required>
+            @error('newPassword')
+              <p class="invalid mt-2 text-danger">{{ $message }}</p>
+            @enderror
+          </div>
+          <div class="mb-3">
+            <label for="confirmPassword" class="form-label">Konfirmasi password</label>
+            <input type="text" class="input-height form-control" name="confirmPassword"
+              placeholder="Konfirmasi password" required>
+            @error('confirmPassword')
+              <p class="invalid mt-2 text-danger">{{ $message }}</p>
+            @enderror
+          </div>
+          <div class="mb-3">
+            <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+            <div class="g-recaptcha" id="feedback-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}">
+            </div>
+            @error('g-recaptcha-response')
+              <p class="text-danger">reCAPTCHA wajib diisi!</p>
+            @enderror
+          </div>
+          <div class="mb-3 d-flex flex-row align-items-center gap-3">
+            <button type="submit" class="btn btn-primary">Ganti Password</button>
+            <div class="lupa-password">
+              <a href="{{ route('password.request') }}">Lupa password?</a>
             </div>
           </div>
-          <div class="line-breaker"></div>
-          <div class="card card-sertifikat-show p-4" style="border-top-right-radius: 0px; border-bottom-right-radius: 0px; margin: 2px 2px">
-            <div class="mb-3">
-              <h3 class="profile-title">Terbaru</h3>
+        </form>
+      </div>
+    </div>
+    {{-- Kanan --}}
+    <div class="kanan">
+      <div class="card card-sertifikat-user" style="border-top-right-radius: 0px; border-bottom-right-radius: 0px;">
+        <div class="card-body d-flex align-items-center">
+          <div class="d-flex position-relative align-items-center">
+            <div class="content flex-shrink-0 me-3 avatar-xl rounded d-flex justify-content-center align-items-center"
+              style="background-color: rgba(41, 186, 219, 23%);">
+              <img src="{{ asset('image/certificate-vector.png') }}" style="width: 60px; height: auto" alt="">
             </div>
-            <div class="certificate">
-              <div class="dark" id="hover" data-bs-toggle="modal" data-bs-target="#detailModal">
-                <h1>Klik untuk melihat ukuran penuh</h1>
-              </div>
-              <div style="left: 35%; top: 30%;" id="load-detail" class="image-item"></div>
-              <canvas id="pdfCanvas" class="image-item"></canvas>
+            <div class="text">
+              <h5 class="text-atas" style="pointer-events: none">Sertifikat</h5>
+              <p class="angka" style="pointer-events: none">{{ count($user->certificates) }}</p>
+              <p class="text-bawah" style="pointer-events: none">Total Sertifikat</p>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="line-breaker"></div>
+      <div class="card card-sertifikat-show p-4">
+        <div class="mb-3">
+          <h3 class="profile-title">Terbaru</h3>
+        </div>
+        <div class="certificate">
+          <div class="dark" id="hover" data-bs-toggle="modal" data-bs-target="#detailModal">
+            <h1>Klik untuk melihat ukuran penuh</h1>
+          </div>
+          <div style="left: 35%; top: 30%;" id="load-detail" class="image-item"></div>
+          <canvas id="pdfCanvas" class="image-item"></canvas>
         </div>
       </div>
     </div>
@@ -145,7 +148,9 @@
       })
     </script>
   @endif
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js" integrity="sha512-Z8CqofpIcnJN80feS2uccz+pXWgZzeKxDsDNMD/dJ6997/LSRY+W4NmEt9acwR+Gt9OHN0kkI1CTianCwoqcjQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js"
+    integrity="sha512-Z8CqofpIcnJN80feS2uccz+pXWgZzeKxDsDNMD/dJ6997/LSRY+W4NmEt9acwR+Gt9OHN0kkI1CTianCwoqcjQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
     var canvas = document.getElementById('pdfCanvas');
     var context = canvas.getContext('2d');

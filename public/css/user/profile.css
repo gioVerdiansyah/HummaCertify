@@ -1,19 +1,10 @@
+/* Sweetalert */
 *::-webkit-scrollbar {
     display: none;
 }
 
 .x-button {
     margin-top: -8px !important;
-}
-
-.button-bottom-password {
-    height: auto;
-}
-
-.lupa-password {
-    margin-left: 10px;
-    display: flex;
-    align-items: center;
 }
 
 .swal2-success-circular-line-right {
@@ -28,7 +19,106 @@
     background-color: transparent !important;
 }
 
-.pembungkus-profile {
+/* Container Profile Start */
+.container-profile {
+    margin-top: 75px !important;
+    height: 142vh;
+    display: flex;
+    background-color: var(--bs-bg-light);
+}
+
+.container-profile .kiri {
+    width: 65%;
+}
+
+.container-profile .kiri .card {
+    padding: 30px 60px 0px 78px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-style: none;
+    background-color: var(--bs-body-bg);
+    margin: 2px 0px;
+    height: 100%;
+}
+
+.container-profile .kanan {
+    width: 35%;
+    height: 100%;
+}
+
+.container-profile .kanan .card-sertifikat-user {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    margin: 2px 0px 0px 2px;
+    border-style: none;
+    background-color: var(--bs-body-bg);
+}
+
+.container-profile .kanan .card-sertifikat-show {
+    height: 84%;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    margin: 2px 0px 0px 2px;
+    border-style: none;
+    background-color: var(--bs-body-bg);
+}
+
+.container-profile .kanan .card-sertifikat-show .certificate {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(0, 1fr);
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.container-profile .kanan .card-sertifikat-show .certificate canvas {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.container-profile .kanan .card-sertifikat-show .certificate .dark {
+    background-color: black;
+    color: white;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s, letter-spacing 1s;
+    cursor: pointer;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 0;
+}
+
+.container-profile .kanan .card-sertifikat-show .certificate .dark p {
+    font-size: 25px;
+    width: 80%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    text-align: center;
+}
+
+.container-profile .kanan .card-sertifikat-show .certificate .dark:hover {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0.6;
+    color: white;
+    letter-spacing: 2px;
+}
+
+
+/* CSS Lama */
+/* .pembungkus-profile {
     position: absolute;
     top: 75px;
     height: 92vh;
@@ -321,6 +411,6 @@
     }
 
     .line-breaker {
-        display: block;
-    }
-}
+        display: block;
+    }
+} */
