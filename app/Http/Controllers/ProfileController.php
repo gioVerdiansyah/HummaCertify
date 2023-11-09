@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Rules\Recaptcha;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -50,6 +51,7 @@ class ProfileController extends Controller
         $change->validate([
             'confirmPassword' => 'required|same:newPassword',
             'newPassword' => 'required|min:8|regex:/^[0-9,a-z]+$/',
+            'g-recaptcha-response' => ['required', new Recaptcha()],
         ],[
             'confirmPassword.required' => 'confirme password harus di isi',
             'newPassword.required' => 'new password harus di isi',
@@ -89,7 +91,7 @@ class ProfileController extends Controller
             return back()->with(
                 'message',
                 [
-                    'icon' => 'warning',
+                    'icon' => 'error',
                     'title' => "ada kesalahan",
                     'text' => "password lama tidak sama dengan password lama"
                 ]

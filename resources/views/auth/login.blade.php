@@ -73,7 +73,7 @@
                          data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}">
                     </div>
                     @error('g-recaptcha-response')
-                      <strong class="text-danger">reCAPTCHA wajib diisi!</strong>
+                      <p class="text-danger">reCAPTCHA wajib diisi!</p>
                     @enderror
                   </div>
                   <div class="form-check">
