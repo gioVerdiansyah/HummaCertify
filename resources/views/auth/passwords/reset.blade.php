@@ -33,24 +33,36 @@
           <div class="form-bg shadow bg-white">
             <div class="p-4">
               <div class="p-3">
-                <form action="#" method="POST" class="av-invalid">
+                <form action="{{ route('password.update') }}" method="POST" class="av-invalid">
                   @csrf
+                  <input type="hidden" name="email" value="{{ $email }}" readonly>
+                  <input type="hidden" name="token" value="{{ $token }}" readonly>
                   <div class="mb-3">
-                    <label for="newPassword" class="form-label">Password baru</label>
-                    <input name="newPassword" required placeholder="Password baru" type="text" class="form-control @error('newPassword') is-invalid @enderror" value="{{ old('newPassword') }}" />
-                    @error('newPassword')
+                    <label for="password" class="form-label">Password baru</label>
+                    <input name="password" required placeholder="Password baru" type="text" class="form-control @error('password') is-invalid @enderror" value="{{ old('password') }}" />
+                    @error('password')
                       <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                       </span>
                     @enderror
                   </div>
                   <div class="mb-3">
-                    <label for="confirmPassword" class="form-label">Konfirmasi Password</label>
-                    <input name="confirmPassword" required placeholder="Konfirmasi Password" type="text" class="form-control @error('confirmPassword') is-invalid @enderror" value="{{ old('confirmPassword') }}" />
-                    @error('confirmPassword')
+                    <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
+                    <input name="password_confirmation" required placeholder="Konfirmasi Password" type="text" class="form-control @error('password_confirmation') is-invalid @enderror" value="{{ old('password_confirmation') }}" />
+                    @error('password_confirmation')
                       <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                       </span>
+                    @enderror
+                  </div>
+                  <div class="mb-3">
+                    <script src="https://www.google.com/recaptcha/api.js"
+                            async defer></script>
+                    <div class="g-recaptcha d-flex justify-content-center" id="feedback-recaptcha"
+                         data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}">
+                    </div>
+                    @error('g-recaptcha-response')
+                      <strong class="text-danger">reCAPTCHA wajib diisi!</strong>
                     @enderror
                   </div>
                   <div class="d-grid mt-3"><button type="submit" class="btn btn-biru btn-none">Reset Password</button></div>

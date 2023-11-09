@@ -5,19 +5,15 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PesertaController;
 use App\Http\Controllers\DemoTestController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CertificateController;
 use App\Http\Controllers\CategoryController ;
 
-// Auth::routes();
+Auth::routes();
 
 Route::middleware('AdminDown')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
-    Route::get('/login', [LoginController::class, 'showLoginForm']);
-    Route::post('/login', [LoginController::class, 'login'])->name('login');
-    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('/toEmail', [LoginController::class, 'toEmail'])->name('toEmail');
 
     Route::post('/send_notif', [ContactMeController::class, 'sending'])->name('send_notif');
@@ -78,3 +74,4 @@ Route::get('/tes', function () {
 Route::get('/toReset', function (){
     return view('auth.passwords.reset');
 });
+Route::get('/recaptcha', [DemoTestController::class, 'recaptcha']);

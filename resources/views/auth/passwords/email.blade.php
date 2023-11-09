@@ -33,7 +33,7 @@
           <div class="form-bg shadow bg-white">
             <div class="p-4">
               <div class="p-3">
-                <form action="#" method="POST" class="av-invalid">
+                <form action="{{ route('password.email') }}" method="POST" class="av-invalid">
                   @csrf
                   <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
@@ -44,7 +44,23 @@
                       </span>
                     @enderror
                   </div>
-                  <div class="d-grid mt-3"><button type="submit" class="btn btn-biru btn-none">Kirim email lupa password</button></div>
+                  <div class="mb-3">
+                    <script src="https://www.google.com/recaptcha/api.js"
+                            async defer></script>
+                    <div class="g-recaptcha d-flex justify-content-center" id="feedback-recaptcha"
+                         data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}">
+                    </div>
+                    @error('g-recaptcha-response')
+                      <strong class="text-danger">reCAPTCHA wajib diisi!</strong>
+                    @enderror
+                  </div>
+                  <div class="d-grid mt-3">
+                    @if(!session('status'))
+                      <button type="submit" class="btn btn-biru btn-none">Kirim email lupa password</button>
+                    @else
+					  <button type="button" class="btn btn-success btn-none">Email berhasil terkirim</button>
+                    @endif
+                  </div>
                 </form>
                 <!-- end form -->
               </div>
