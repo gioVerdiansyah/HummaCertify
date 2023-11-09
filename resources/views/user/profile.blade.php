@@ -70,10 +70,20 @@
                   <p class="invalid mt-2 text-danger">{{ $message }}</p>
                 @enderror
               </div>
-              <div class="button-bottom-password mb-3 d-flex">
+              <div class="mb-3">
+                <script src="https://www.google.com/recaptcha/api.js"
+                                async defer></script>
+                <div class="g-recaptcha" id="feedback-recaptcha"
+                            data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}">
+                </div>
+                @error('g-recaptcha-response')
+                    <p class="text-danger">reCAPTCHA wajib diisi!</p>
+                @enderror
+              </div>
+              <div class="mb-3">
                 <button type="submit" class="btn btn-primary">Ganti Password</button>
                 <div class="lupa-password">
-                  <a href="#">Lupa password?</a>
+                  <a href="{{ route('password.request') }}">Lupa password?</a>
                 </div>
               </div>
             </form>
