@@ -15,7 +15,8 @@
         <div class="left-side">
           <div class="header-card">
             <span class="first-title text-start">Upload Latar Belakang</span>
-            <span class="second-title text-end text-info"><box-icon name='error-circle' color='#29BADB' class="warn-icon"></box-icon>Ukuran A4 3508px X 2480px</span>
+            <span class="second-title text-end text-info"><box-icon name='error-circle' color='#29BADB'
+                class="warn-icon"></box-icon>Ukuran A4 3508px X 2480px</span>
           </div>
           <hr class="line-header">
           <div class="body-card">
@@ -51,7 +52,8 @@
           <div class="body-card">
             <div class="mb-3">
               <label for="namaKategori">Nama Kategori</label>
-              <input type="text" name="namaKategori" class="form-control @error('namaKategori') is-invalid @enderror" placeholder="Nama kategori" value="{{ old('namaKategori') }}" required>
+              <input type="text" name="namaKategori" class="form-control @error('namaKategori') is-invalid @enderror"
+                placeholder="Nama kategori" value="{{ old('namaKategori') }}" required>
               @error('namaKategori')
                 <div class="invalid-feedback">
                   <p>{{ $message }}</p>
@@ -60,7 +62,8 @@
             </div>
             <div class="mb-3">
               <label for="namaKategori">Tata Letak</label>
-              <select name="tataletak" id="tataLetak" class="form-select @error('tataletak') is-invalid @enderror" required>
+              <select name="tataletak" id="tataLetak" class="form-select @error('tataletak') is-invalid @enderror"
+                required>
                 <option disabled value="tataletak" selected>Pilih tata letak depan</option>
                 <option value="Kelulusan" {{ old('tataletak') == 'Kelulusan' ? 'selected' : '' }}>Kelulusan</option>
                 <option value="Pelatihan" {{ old('tataletak') == 'Pelatihan' ? 'selected' : '' }}>Pelatihan</option>
@@ -73,7 +76,7 @@
               @enderror
             </div>
             <div class="card-button">
-              <button type="button" id="preview-button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#preview" disabled>Preview</button>
+              <button type="button" id="preview-button" class="btn btn-secondary" data-bs-toggle="modal" style="display: none;" data-bs-target="#preview" disabled>Preview</button>
               <button type="submit" id="simpan" class="btn btn-primary" disabled>Simpan</button>
             </div>
           </div>
@@ -305,7 +308,9 @@
     }
 
     $("select[name='tataletak']").on('change', function() {
-      $("#modal-body").html(`<link rel="stylesheet" href="{{ asset('css/user/load-image.css') }}"><div class="image-item"><img id="loadpreview" src="{{ asset('image/Loading-logo.png') }}" alt="Loading Logo"></div>`);
+      $("#modal-body").html(
+        `<link rel="stylesheet" href="{{ asset('css/user/load-image.css') }}"><div class="image-item"><img id="loadpreview" src="{{ asset('image/Loading-logo.png') }}" alt="Loading Logo"></div>`
+      );
     });
 
     $('#preview-button').on('click', function() {
@@ -349,7 +354,8 @@
       const simpanButton = document.getElementById('simpan');
 
       function togglePreviewButton() {
-        if (namaKategoriInput.value.trim() !== '' && tataletakSelect.value !== 'tataletak' && depanInput.files.length > 0 && belakangInput.files.length > 0) {
+        if (namaKategoriInput.value.trim() !== '' && tataletakSelect.value !== 'tataletak' && depanInput.files
+          .length > 0 && belakangInput.files.length > 0) {
           previewButton.disabled = false;
           simpanButton.disabled = false;
           previewButton.classList.remove('btn-secondary');
