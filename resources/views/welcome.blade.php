@@ -932,4 +932,8 @@
     exampleCarousel.setControls();
     exampleCarousel.useControls();
   </script>
+
+  <div class="instant-up">
+    <i class="fas fa-arrow-up"></i>
+  </div>
 @endsection

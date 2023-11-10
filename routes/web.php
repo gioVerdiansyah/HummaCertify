@@ -66,9 +66,7 @@ Route::get('/p', function () {
 });
 
 Route::get('/tes', function () {
-    return view('errors.certificatenotfound')->name(
-
-    );
+    return view('auth.passwords.resend');
 });
 
 Route::get('/toReset', function (){
