@@ -2514,3 +2514,20 @@ textarea.form-control {
         height: 30%;
     }
 }
+
+
+.instant-up {
+    position: fixed;
+    bottom: 33px;
+    right: 20px;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #2c5fb5;
+    font-size: large;
+    background: var(--bs-bg-light);
+    box-shadow: 0 0 10px;
+}
