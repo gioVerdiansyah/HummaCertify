@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Rules\Recaptcha;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class ForgotPasswordController extends Controller
@@ -28,5 +29,12 @@ class ForgotPasswordController extends Controller
             'email' => ['required', 'email'],
             'g-recaptcha-response' => ['required', new Recaptcha()],
         ]);
+    }
+
+    protected function sendResetLinkResponse(Request $request, $response)
+    {
+        return $request->wantsJson()
+            ? new JsonResponse(['message' => trans($response)], 200)
+            : view('')->with('status', trans($response));
     }
 }

@@ -37,7 +37,7 @@ class Certificate extends Model implements HasCategories, HasUsers, HasDetailCer
      */
     public function category(): BelongsTo
     {
-        return $this->belongsTo(CertificateCategori::class, 'certificate_categori_id');
+        return $this->belongsTo(CertificateCategori::class, 'certificate_categori_id')->withTrashed();
     }
     public function user(): BelongsTo
     {

@@ -378,36 +378,38 @@
   </button>
   <!--end back-to-top-->
   @forelse ($notification as $data)
-    <div id="notifmodal-{{ $data->id }}" class="modal fade notifmodal" tabindex="-1"
-      aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
-          </div>
-          <div class="modal-body">
-            <div class="detail">
-              <div class="nama">{{ $data->name }}</div>
-              <div class="email">{{ $data->email }}</div>
+    @if (strlen($data->message) > 194)
+        <div id="notifmodal-{{ $data->id }}" class="modal fade notifmodal" tabindex="-1"
+            aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" onclick="$('#notifmodal-{{ $data->id }}').modal('hide');" aria-label="Close"> </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="detail">
+                            <div class="nama">{{ $data->name }}</div>
+                            <div class="email">{{ $data->email }}</div>
+                        </div>
+                        <hr>
+                        <div class="text-pesan">
+                            <div>Pesan</div>
+                        </div>
+                        <div class="container-text">
+                            <div class="text">
+                                <p>
+                                    {{ $data->message }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" onclick="$('#notifmodal-{{ $data->id }}').modal('hide');">Close</button>
+                    </div>
+                </div>
             </div>
-            <hr>
-            <div class="text-pesan">
-              <div>Pesan</div>
-            </div>
-            <div class="container-text">
-              <div class="text">
-                <p>
-                  {{ $data->message }}
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-          </div>
         </div>
-      </div>
-    </div>
+    @endif
   @empty
   @endforelse
 

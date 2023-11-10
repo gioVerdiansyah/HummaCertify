@@ -28,8 +28,8 @@ class CertificateController extends Controller
     }
     public function index(Request $request)
     {
-        $certificates = Certificate::latest()->where('status', 'nonPrint')->paginate($this->perPage);
-        $categories = CertificateCategori::select('id', 'name')->get();
+        $certificates = Certificate::latest()->with('category')->where('status', 'nonPrint')->paginate($this->perPage);
+        $categories = CertificateCategori::withTrashed()->select('id', 'name')->get();
 
         if ($request->all()) {
             $certificates = $this->searchCertificates($request->all());
@@ -320,7 +320,7 @@ class CertificateController extends Controller
 
     public function getCategoryCertificate(int $id)
     {
-        $categoryname = CertificateCategori::where('id', $id)->first();
+        $categoryname = CertificateCategori::where('id', $id)->withTrashed()->first();
         return $categoryname;
     }
 
@@ -329,6 +329,8 @@ class CertificateController extends Controller
         $dataRequest = $request->all();
 
         $query = Certificate::with('user')->where('status', 'nonPrint');
+        // if($query->get()){}
+
         if (isset($dataRequest['ct'])) {
             $kategori = $dataRequest['ct'];
             $query->where('certificate_categori_id', $kategori);
@@ -340,6 +342,15 @@ class CertificateController extends Controller
             $offset = ($page - 1) * $perPage;
             $query->skip($offset)->take($perPage);
         }
+
+        if($query->get()->isEmpty()){
+            return back()->with('message', [
+                'icon' => 'error',
+                'title' => "Gagal!",
+                'text' => "Gagal print all karena sertifikat sudah di print!"
+            ]);
+        }
+
         $certificates = $query->get();
         $type = $this->getTypeCertificate($dataRequest['ct']);
         $background = $this->getBackground($dataRequest['ct']);
