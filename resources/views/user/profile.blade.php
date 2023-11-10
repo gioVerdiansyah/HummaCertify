@@ -12,8 +12,7 @@
         <div class="form-detail">
           <div class="mb-3">
             <label for="nama" class="form-label">Nama</label>
-            <input type="text" class="input-height form-control" id="nama" value="{{ $user->name }}"
-              placeholder="{{ $user->name }}" readonly>
+            <input type="text" class="input-height form-control" id="nama" value="{{ $user->name }}" placeholder="{{ $user->name }}" readonly>
           </div>
           <form action="{{ route('update.email') }}" method="POST" class="form-detail  emailForm">
             @csrf
@@ -35,13 +34,11 @@
           </form>
           <div class="mb-3">
             <label for="nik" class="form-label">Nisn/Nik/Nip</label>
-            <input type="number" class="input-height form-control" id="nik" placeholder="{{ $user->nomor_induk }}"
-              value="{{ $user->nomor_induk }}" readonly>
+            <input type="number" class="input-height form-control" id="nik" placeholder="{{ $user->nomor_induk }}" value="{{ $user->nomor_induk }}" readonly>
           </div>
           <div class="mb-3">
             <label for="institusi" class="form-label">Institusi</label>
-            <input type="text" class="input-height form-control" id="institusi" placeholder="{{ $user->institusi }}"
-              value="{{ $user->institusi }}" readonly>
+            <input type="text" class="input-height form-control" id="institusi" placeholder="{{ $user->institusi }}" value="{{ $user->institusi }}" readonly>
           </div>
         </div>
         <div class="mb-3">
@@ -52,25 +49,42 @@
           @csrf
           @method('PATCH')
           <div class="mb-3">
-            <label for="oldPassword" class="form-label">Password Lama (default Nisn/Nik/Nip)</label>
-            <input type="text" class="input-height form-control" name="oldPassword" placeholder="Password lama"
-              required>
+            <label for="oldPassword" class="form-label flex-label">
+              <p>Password Lama</p><p> default Nis, Nisn, Nik</p>
+            </label>
+            <input type="password" class="input-height form-control" id="passwordOne" name="oldPassword" placeholder="Password lama" required>
+            <div style="display: none" id="eyeShow" class="eye">
+              <div class="icon" id="icon">
+                <i class="fa-regular fa-eye" id="show" style="display: block"></i>
+                <i class="fa-regular fa-eye-slash" id="hide" style="display: none"></i>
+              </div>
+            </div>
             @error('oldPassword')
               <p class="invalid mt-2 text-danger">{{ $message }}</p>
             @enderror
           </div>
           <div class="mb-3">
             <label for="newPassword" class="form-label">Password Baru</label>
-            <input type="text" class="input-height form-control" name="newPassword" placeholder="Password baru"
-              required>
+            <input type="password" class="input-height form-control" id="passwordTwo" name="newPassword" placeholder="Password baru" required>
+            <div style="display: none" id="eyeShow2" class="eye2">
+              <div class="icon2" id="icon2">
+                <i class="fa-regular fa-eye" id="show2" style="display: block"></i>
+                <i class="fa-regular fa-eye-slash" id="hide2" style="display: none"></i>
+              </div>
+            </div>
             @error('newPassword')
               <p class="invalid mt-2 text-danger">{{ $message }}</p>
             @enderror
           </div>
           <div class="mb-3">
             <label for="confirmPassword" class="form-label">Konfirmasi password</label>
-            <input type="text" class="input-height form-control" name="confirmPassword"
-              placeholder="Konfirmasi password" required>
+            <input type="password" class="input-height form-control" id="passwordThree" name="confirmPassword" placeholder="Konfirmasi password" required>
+            <div style="display: none" id="eyeShow3" class="eye3">
+              <div class="icon3" id="icon3">
+                <i class="fa-regular fa-eye" id="show3" style="display: block"></i>
+                <i class="fa-regular fa-eye-slash" id="hide3" style="display: none"></i>
+              </div>
+            </div>
             @error('confirmPassword')
               <p class="invalid mt-2 text-danger">{{ $message }}</p>
             @enderror
@@ -80,10 +94,10 @@
             <div class="g-recaptcha" id="feedback-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}">
             </div>
             @error('g-recaptcha-response')
-              <p class="text-danger">reCAPTCHA wajib diisi!</p>
+              <p class="text-danger mt-2">reCAPTCHA wajib diisi!</p>
             @enderror
           </div>
-          <div class="mb-3 d-flex flex-row align-items-center gap-3">
+          <div class="mb-3 d-flex flex-row align-items-center gap-3 bottom-button">
             <button type="submit" class="btn btn-primary">Ganti Password</button>
             <div class="lupa-password">
               <a href="{{ route('password.request') }}">Lupa password?</a>
@@ -97,8 +111,7 @@
       <div class="card card-sertifikat-user" style="border-top-right-radius: 0px; border-bottom-right-radius: 0px;">
         <div class="card-body d-flex align-items-center">
           <div class="d-flex position-relative align-items-center">
-            <div class="content flex-shrink-0 me-3 avatar-xl rounded d-flex justify-content-center align-items-center"
-              style="background-color: rgba(41, 186, 219, 23%);">
+            <div class="content flex-shrink-0 me-3 avatar-xl rounded d-flex justify-content-center align-items-center" style="background-color: rgba(41, 186, 219, 23%);">
               <img src="{{ asset('image/certificate-vector.png') }}" style="width: 60px; height: auto" alt="">
             </div>
             <div class="text">
@@ -110,7 +123,7 @@
         </div>
       </div>
       <div class="line-breaker"></div>
-      <div class="card card-sertifikat-show p-4">
+      <div class="card card-sertifikat-show">
         <div class="mb-3">
           <h3 class="profile-title">Terbaru</h3>
         </div>
@@ -148,9 +161,8 @@
       })
     </script>
   @endif
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js"
-    integrity="sha512-Z8CqofpIcnJN80feS2uccz+pXWgZzeKxDsDNMD/dJ6997/LSRY+W4NmEt9acwR+Gt9OHN0kkI1CTianCwoqcjQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js" integrity="sha512-Z8CqofpIcnJN80feS2uccz+pXWgZzeKxDsDNMD/dJ6997/LSRY+W4NmEt9acwR+Gt9OHN0kkI1CTianCwoqcjQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="{{ asset('js/profile.js') }}"></script>
   <script>
     var canvas = document.getElementById('pdfCanvas');
     var context = canvas.getContext('2d');
@@ -192,7 +204,6 @@
       console.error('Gagal memproses PDF: ' + error);
     });
   </script>
-
   <script>
     document.querySelectorAll('.emailForm').forEach(function(form) {
       form.addEventListener('submit', function(event) {

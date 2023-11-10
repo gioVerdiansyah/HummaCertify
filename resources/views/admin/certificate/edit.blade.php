@@ -26,7 +26,7 @@
               </div>
               <div class="col-12 mb-4">
                 <label for="nomorInduk" class="form-label">NIS/NIM/NIP Peserta</label>
-                <input type="text" class="form-control @error('nomor_induk') is-invalid  @enderror" placeholder="Masukkan NIS/NIM/NIP" name="nomor_induk" id="nomorInduk" value="{{ old('nomor_induk', $certificate->user->password) }}" required>
+                <input type="text" class="form-control @error('nomor_induk') is-invalid  @enderror" placeholder="Masukkan NIS/NIM/NIP" name="nomor_induk" id="nomorInduk" value="{{ old('nomor_induk', $certificate->user->nomor_induk) }}" required>
                 @error('nomor_induk')
                   <div class="invalid-feedback">
                     <p>{{ $message }}</p>

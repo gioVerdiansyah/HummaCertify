@@ -1,6 +1,14 @@
-/* Sweetalert */
-*::-webkit-scrollbar {
+
+
+.line-breaker {
     display: none;
+    height: 2px;
+    background-color: var(--bs-bg-light);
+}
+
+.flex-label {
+    gap: 6px;
+    display: flex;
 }
 
 .x-button {
@@ -22,8 +30,9 @@
 /* Container Profile Start */
 .container-profile {
     margin-top: 75px !important;
-    height: 142vh;
+    height: auto;
     display: flex;
+    overflow: hidden;
     background-color: var(--bs-bg-light);
 }
 
@@ -43,7 +52,6 @@
 
 .container-profile .kanan {
     width: 35%;
-    height: 100%;
 }
 
 .container-profile .kanan .card-sertifikat-user {
@@ -55,7 +63,8 @@
 }
 
 .container-profile .kanan .card-sertifikat-show {
-    height: 84%;
+    height: 100%;
+    padding: 18px;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
     margin: 2px 0px 0px 2px;
@@ -84,18 +93,18 @@
 }
 
 .container-profile .kanan .card-sertifikat-show .certificate .dark {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
     background-color: black;
     color: white;
     width: 100%;
     height: 100%;
     position: absolute;
     opacity: 0;
-    transition: opacity 1s, letter-spacing 1s;
-    cursor: pointer;
-    display: none;
-    justify-content: center;
-    align-items: center;
     letter-spacing: 0;
+    transition: opacity 1s, letter-spacing 1s;
 }
 
 .container-profile .kanan .card-sertifikat-show .certificate .dark p {
@@ -116,301 +125,106 @@
     letter-spacing: 2px;
 }
 
-
-/* CSS Lama */
-/* .pembungkus-profile {
-    position: absolute;
-    top: 75px;
-    height: 92vh;
-    width: 100%;
-    margin: 0px;
-    padding: 0px;
-    background-color: var(--bs-bg-light);
-}
-
-.line-breaker {
-    display: none;
-    height: 2.1px;
-    width: 100%;
-    background-color: var(--bs-bg-light);
-}
-
-.line-spacer {
-    color: #8d8d8d;
-}
-
-.pembungkus-profile .bababoi {
-    width: 100%;
-}
-
-.pembungkus-profile .bababoi .papope {
-    width: 100%;
-    height: 92vh;
-    margin: 0;
-    padding: 2px 0px;
-}
-
-.pembungkus-profile .bababoi .card-profile {
-    height: 100%;
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
-    background-color: var(--bs-body-bg);
-    border-style: none;
-    padding: 30px 60px 10px 9.5%;
-}
-
-.pembungkus-profile .bababoi .profile-title {
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
-}
-
-.pembungkus-profile .bababoi .form-detail label {
-    font-weight: 600;
-    font-family: "Poppins", sans-serif;
-}
-
-.pembungkus-profile .bababoi .form-detail input {
+.input-height {
+    height: 50px;
     background: transparent;
 }
 
-.input-button {
-    display: flex;
-    width: 100%;
-}
-
-.input-button .button-edit {
-    width: 10%;
-    height: 10%;
-}
-
-.input-button .button-width {
-    width: 100%;
-}
-
-.input-button .button-edit button {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    right: 20px;
-    top: 214px;
-    border-radius: 5px;
-}
-
-.pembungkus-profile .card-sertifikat-user {
-    background-color: var(--bs-body-bg);
-    border-style: none;
-    margin: 0px 2px;
-}
-
-.pembungkus-profile .card-sertifikat-show {
-    height: 70%;
-    background-color: var(--bs-body-bg);
-    border-style: none;
-}
-
-.pembungkus-profile .card-sertifikat-show .certificate {
-    width: 100%;
-    height: auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: minmax(0, 1fr);
-    margin: 0px;
-    padding: 0px;
-    position: relative;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-}
-
-.pembungkus-profile .card-sertifikat-show .certificate canvas {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-}
-
-.pembungkus-profile .card-sertifikat-show .certificate .dark {
-    background-color: black;
-    color: white;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    opacity: 0;
-    transition: opacity 1s, letter-spacing 1s;
-    cursor: pointer;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    letter-spacing: 0;
-}
-
-.pembungkus-profile .card-sertifikat-show .certificate .dark p {
-    font-size: 25px;
-    width: 80%;
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
-    text-align: center;
-}
-
-.pembungkus-profile .card-sertifikat-show .certificate .dark:hover {
-    background-color: black;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    opacity: 0.6;
-    color: white;
-    letter-spacing: 2px;
-}
-
-.card-sertifikat-user .card-body img {
-    width: 50px;
-    height: auto;
-}
-
-.card-sertifikat-user .card-body .text {
-    height: 100px;
-    justify-content: space-evenly;
-    display: flex;
-    flex-direction: column;
-}
-
-.dark h1 {
-    text-align: center;
-}
-
-.card-sertifikat-user .card-body .text .text-atas {
-    font-size: 20px;
-    font-weight: 500;
-    color: #878a99;
-    text-transform: uppercase;
-    margin-bottom: 0;
-    font-family: "Poppins", sans-serif;
-}
-
-.card-sertifikat-user .card-body .text .angka {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 0;
-    font-family: "Poppins", sans-serif;
-}
-
-.card-sertifikat-user .card-body .text .text-bawah {
-    font-size: 12px;
-    font-weight: 300;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: #878a99;
-    margin-bottom: 0;
-    font-family: "Poppins", sans-serif;
-}
-
-.card .title-chart {
-    font-family: "Poppins", sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-    padding: 10px 20px;
-    color: #495057;
-}
-
-.input-height {
-    height: 50px;
-}
-
-.modal .modal-body .close-btn-custome {
-    position: absolute;
-    top: 40px;
-    font-size: 20px;
-    font-weight: 600;
-    color: black !important;
-}
-
 @media only screen and (max-width: 900px) {
-    .pembungkus-profile .card-sertifikat-user {
-        height: 30%;
-        border-radius: 0px;
-        margin: 0px 0px;
+    .container-profile {
+        display: block;
     }
 
-    .pembungkus-profile .bababoi .card-profile {
-        border-radius: 0px;
-        padding: 20px;
+    .container-profile .kanan .card-sertifikat-show {
+        margin: 0 !important;
     }
 
-    .pembungkus-profile .bababoi .papope {
-        padding: 0px 0px;
+    .container-profile .kanan .card-sertifikat-user {
+        margin: 0;
     }
 
-    .input-button .button-edit button {
-        width: 50px;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 5px;
+    .container-profile .kiri {
+        width: 100%;
+        height: auto;
     }
 
-}
-
-@media only screen and (max-width: 768px) {
-    .pembungkus-profile .card-sertifikat-user {
-        height: 30%;
-        border-radius: 0px;
-        margin: 0px 0px;
+    .container-profile .kanan {
+        width: 100%;
     }
 
-    .pembungkus-profile .bababoi .card-profile {
-        border-radius: 0px;
-        padding: 20px;
-    }
-
-    .pembungkus-profile .bababoi .papope {
-        padding: 0px 0px;
-    }
-
-    .input-button .button-edit button {
-        width: 50px;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        right: 20px;
-        top: 199px;
-        border-radius: 5px;
-    }
-}
-
-@media only screen and (max-width: 361px) {
-
-    .input-button .button-edit button {
-        width: 50px;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        right: 20px;
-        top: 198px;
-        border-radius: 5px;
+    .container-profile .kiri .card {
+        padding: 18px;
     }
 
     .line-breaker {
-        margin-top: 25px;
+        display: block;
     }
 }
 
-@media only screen and (max-width: 991px) {
-    .total-sertificate {
-        margin-top: 2px;
+@media only screen and (max-width: 356px) {
+    .bottom-button {
+        display: block !important;
     }
 
-    .pembungkus-profile .bababoi .card-profile {
-        padding: 20px !important;
+    .lupa-password {
+        margin-top: 20px;
     }
+}
 
-    .line-breaker {
-        display: block;
-    }
-} */
+@media only screen and (max-width: 315px) {
+    .flex-label {
+        display: block;
+    }
+}
+
+/* Hide and show password */
+.eye {
+    cursor: pointer;
+    border-radius: 15px;
+    background-color: var(--bs-body-bg);
+    display: flex;
+    position: absolute;
+    right: 70px;
+    margin-top: -40px;
+    width: 30px;
+    height: 30px;
+}
+
+.icon {
+    margin-top: 9.2px;
+    margin-left: 6px;
+}
+
+.eye2 {
+    cursor: pointer;
+    border-radius: 15px;
+    background-color: var(--bs-body-bg);
+    display: flex;
+    position: absolute;
+    right: 70px;
+    margin-top: -40px;
+    width: 30px;
+    height: 30px;
+}
+
+.icon2 {
+    margin-top: 9.2px;
+    margin-left: 6px;
+}
+
+.eye3 {
+    cursor: pointer;
+    border-radius: 15px;
+    background-color: var(--bs-body-bg);
+    display: flex;
+    position: absolute;
+    right: 70px;
+    margin-top: -40px;
+    width: 30px;
+    height: 30px;
+}
+
+.icon3 {
+    margin-top: 9.2px;
+    margin-left: 6px;
+}

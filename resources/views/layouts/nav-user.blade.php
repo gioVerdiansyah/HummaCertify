@@ -37,6 +37,7 @@
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="20">
+  <script src="{{ asset('js/themeLoader.js') }}"></script>
 
   <!--Navbar Start-->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top navdar-custom" id="navbar">
@@ -117,8 +118,6 @@
   <script src="{{ asset('landingpage/js/app.js') }}"></script>
 
   <script src="https://unpkg.com/feather-icons"></script>
-  <script src="{{ asset('js/themeLoader.js') }}"></script>
-
 
   <!-- App Js -->
   {{-- <script src="js/app.js"></script> --}}
