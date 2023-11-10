@@ -7,6 +7,7 @@ use App\Rules\Recaptcha;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ForgotPasswordController extends Controller
 {
@@ -35,6 +36,6 @@ class ForgotPasswordController extends Controller
     {
         return $request->wantsJson()
             ? new JsonResponse(['message' => trans($response)], 200)
-            : view('')->with('status', trans($response));
+            : view('auth.passwords.resend')->with('email', $request->email);
     }
 }
