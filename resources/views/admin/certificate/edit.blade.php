@@ -7,7 +7,7 @@
   <div class="tambah-container">
     <div class="tambah-container-body">
       <div class="card-body">
-        <form action="{{ route('certificate.update', $certificate->id) }}" method="POST" onsubmit="document.getElementById('loading').style.display = 'flex'">
+    <form action="{{ route('certificate.update', $certificate->id) }}" id="myform" method="POST">
           @method('PUT')
           @csrf
           <div class="row">
@@ -26,7 +26,7 @@
               </div>
               <div class="col-12 mb-4">
                 <label for="nomorInduk" class="form-label">NIS/NIM/NIP Peserta</label>
-                <input type="text" class="form-control @error('nomor_induk') is-invalid  @enderror" placeholder="Masukkan NIS/NIM/NIP" name="nomor_induk" id="nomorInduk" value="{{ old('nomor_induk', $certificate->user->password) }}" required>
+                <input type="text" class="form-control @error('nomor_induk') is-invalid  @enderror" placeholder="Masukkan NIS/NIM/NIP" name="nomor_induk" id="nomorInduk" value="{{ old('nomor_induk', $certificate->user->nomor_induk) }}" required>
                 @error('nomor_induk')
                   <div class="invalid-feedback">
                     <p>{{ $message }}</p>
@@ -73,7 +73,7 @@
               <div class="col-12 mb-4 mt-3">
                 <label for="certificate_categori_id" class="form-label">Kategori Sertifikat</label>
                 <select name="certificate_categori_id" class="form-select @error('certificate_categori_id') is-invalid
-                                @enderror" required>
+                                @enderror" id="certificate_categori_id" required>
                   <option value="" disabled selected>--Pilih Kategori--</option>
                   @foreach ($categories as $category)
                     <option value="{{ $category->id }}" {{ old('certificate_categori_id', $certificate->certificate_categori_id) == $category->id ? 'selected' : '' }}>
@@ -204,4 +204,48 @@
       </div>
     </div>
   </div>
+  <script>
+    document.getElementById('myform').addEventListener('submit', function(event) {
+      if (document.getElementById('certificate_categori_id').value == "") {
+        Swal.fire({
+          icon: "warning",
+          title: "Ada yang kosong!",
+          text: "kategori Sertifikat belum di isi"
+        })
+        event.preventDefault();
+      }
+      if (document.getElementById('predikat').value == "") {
+        Swal.fire({
+          icon: "warning",
+          title: "Ada yang kosong!",
+          text: "Predikat belum di isi"
+        })
+        event.preventDefault();
+      }
+
+      if(document.getElementById('certificate_categori_id').value != "" && document.getElementById('certificate_categori_id').value != ""){
+        document.getElementById('loading').style.display = 'flex';
+      }
+    })
+    @error('category-group')
+        Swal.fire({
+            icon: 'error',
+            title: 'Gagal!',
+            text: "Detail Sertifikat di perlukan!"
+        });
+    @enderror
+    const jamPelajaranInput = document.querySelector('input[name="jam_pelajaran"]');
+    jamPelajaranInput.addEventListener('input', function() {
+    const jamPelajaranValue = parseInt(this.value, 10);
+    const maxJamPelajaran = 4000;
+    if (jamPelajaranValue > maxJamPelajaran) {
+    Swal.fire({
+        title: 'peringatan',
+        text: `jam pelajaran maksimal 4000`,
+        icon: 'info',
+    });
+    this.value = maxJamPelajaran;
+     }
+});
+  </script>
 @endsection

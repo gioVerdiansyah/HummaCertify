@@ -56,6 +56,7 @@ class CertificateUpdateRequest extends FormRequest
             'predikat' => 'required|in:Sangat Baik,Baik,Cukup,Kurang',
             'instruktur' => 'required|max:50',
             // detail
+            'category-group' => 'required',
             'category-group.*.materi' => 'required|string|max:85',
             'category-group.*.jam_pelajaran' => 'required|numeric|gt:1|max:4000|regex:/^[0-9]+$/',
         ];
