@@ -63,23 +63,3 @@ input2.addEventListener('keyup', function () {
         eye2.style.display = 'block';
     }
 });
-
-let bgLoader = localStorage.getItem("theme");
-
-if (bgLoader == 'dark') {
-    var bgImage = document.getElementById('background-login');
-
-    var eyeBackground = document.getElementById('eyeShow');
-    var eyeBackground2 = document.getElementById('eyeShow2');
-    var eyeBackground3 = document.getElementById('eyeShow3');
-
-    var icon = document.getElementById('icon');
-    var icon2 = document.getElementById('icon2');
-    var icon3 = document.getElementById('icon3');
-
-    bgImage.style = 'background-image: none !important';
-
-    icon.style = 'color: white';
-    icon2.style = 'color: white';
-    icon3.style = 'color: white';
-}
