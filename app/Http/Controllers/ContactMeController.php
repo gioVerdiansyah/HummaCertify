@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ContactMe;
+use App\Rules\Recaptcha;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -12,7 +13,8 @@ class ContactMeController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:30',
             'email' => 'required|email:rfc,dns',
-            'message' => 'required|max:2000'
+            'message' => 'required|max:2000',
+            'g-recaptcha-response' => ['required', new Recaptcha()],
         ]);
 
 

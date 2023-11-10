@@ -14,7 +14,7 @@
     </div>
   </div>
   <div class="row">
-    @foreach ($categories as $category)
+    @forelse ($categories as $category)
       <div class="col-md-4">
         <div class="card">
           <div class="card-body">
@@ -77,7 +77,12 @@
           </div>
         </div>
       </div>
-    @endforeach
+    @empty
+      <div class="d-flex nr-tengah">
+          <img src="{{ asset('image/norestore.png') }}" alt="">
+          <h2 class="uk">Tidak Ada Data Untuk di Restore</h2>
+      </div>
+    @endforelse
   </div>
   <div>
     {{ $categories->links('layouts.pagination') }}
