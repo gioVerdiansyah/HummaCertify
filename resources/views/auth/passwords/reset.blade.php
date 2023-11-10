@@ -27,7 +27,8 @@
 
 <body>
   <script src="{{ asset('js/themeLoader.js') }}"></script>
-  <section id="background-login" class="bg-account-pages vh-100 d-flex align-items-center bg-center position-relative" style="background-image: url('logintemplate/images/auth-bg.png');">
+  <section id="background-login" class="bg-account-pages vh-100 d-flex align-items-center bg-center position-relative" style="background-image: url('{{ asset('logintemplate/images/auth-bg.png') }}');">
+    <script src="{{ asset('js/loginLoader.js') }}"></script>
 
     <div class="container">
       <div class="row justify-content-center">
@@ -84,7 +85,7 @@
             </div>
           </div>
           <div class="text-center mt-4 bottom-text">
-            <p>Berubah Pikiran? <a href="/" class="font-weight-semibold text-biru"> Kembali ke beranda </a> </p>
+            <p>Berubah Pikiran? <a href="/login" class="font-weight-semibold text-biru"> Kembali ke login </a> </p>
           </div>
         </div>
         <!-- end col -->
@@ -106,9 +107,11 @@
     let bgLoader = localStorage.getItem("theme");
 
     if (bgLoader == 'dark') {
-      var eyeBackground = document.getElementById('eyeShow');
-      var bgImage = document.getElementById('background-login');
       var icon = document.getElementById('icon');
+      var icon = document.getElementById('icon2');
+      var eyeBackground = document.getElementById('eyeShow');
+      var eyeBackground = document.getElementById('eyeShow2');
+      var bgImage = document.getElementById('background-login');
       bgImage.style = 'background-image: none !important';
       icon.style = 'color: white';
     }

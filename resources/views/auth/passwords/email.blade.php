@@ -25,8 +25,8 @@
 </head>
 
 <body>
-  <section id="background-login" class="bg-account-pages vh-100 d-flex align-items-center bg-center position-relative" style="background-image: url('logintemplate/images/auth-bg.png');">
-
+  <script src="{{ asset('js/themeLoader.js') }}"></script>
+  <section id="background-login" class="bg-account-pages vh-100 d-flex align-items-center bg-center position-relative" style="background-image: url('{{ asset('logintemplate/images/auth-bg.png') }}');">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-8 col-lg-6 col-xl-5">
@@ -45,20 +45,18 @@
                     @enderror
                   </div>
                   <div class="mb-3">
-                    <script src="https://www.google.com/recaptcha/api.js"
-                            async defer></script>
-                    <div class="g-recaptcha d-flex justify-content-center" id="feedback-recaptcha"
-                         data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}">
+                    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                    <div class="g-recaptcha d-flex justify-content-center" id="feedback-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}">
                     </div>
                     @error('g-recaptcha-response')
                       <p class="text-danger">reCAPTCHA wajib diisi!</p>
                     @enderror
                   </div>
                   <div class="d-grid mt-3">
-                    @if(!session('status'))
+                    @if (!session('status'))
                       <button type="submit" class="btn btn-biru btn-none">Kirim email lupa password</button>
                     @else
-					  <button type="button" class="btn btn-success btn-none">Email berhasil terkirim</button>
+                      <button type="button" class="btn btn-success btn-none">Email berhasil terkirim</button>
                     @endif
                   </div>
                 </form>
@@ -67,7 +65,7 @@
             </div>
           </div>
           <div class="text-center mt-4 bottom-text">
-            <p>Berubah Pikiran? <a href="/" class="font-weight-semibold text-biru"> Kembali ke beranda </a> </p>
+            <p>Berubah Pikiran? <a href="/login" class="font-weight-semibold text-biru"> Kembali ke login </a> </p>
           </div>
         </div>
         <!-- end col -->
@@ -84,20 +82,17 @@
   <script src="{{ asset('logintemplate/js/app.js') }}"></script>
 
   <script src="https://unpkg.com/feather-icons"></script>
+
+  <!-- App Js -->
   <script>
     let bgLoader = localStorage.getItem("theme");
 
     if (bgLoader == 'dark') {
-        var eyeBackground = document.getElementById('eyeShow');
-        var bgImage = document.getElementById('background-login');
-        var icon = document.getElementById('icon');
-        bgImage.style = 'background-image: none !important';
-        icon.style = 'color: white';
+      var bgImage = document.getElementById('background-login');
+      bgImage.style = 'background-image: none !important';
+      icon.style = 'color: white';
     }
   </script>
-
-  <!-- App Js -->
-  <script src="{{ asset('js/themeLoader.js') }}"></script>
   <script src="{{ asset('logintemplate/js/app.js') }}"></script>
 </body>
 
