@@ -23,19 +23,11 @@ class ForgotPasswordController extends Controller
     */
 
     use SendsPasswordResetEmails;
-
-    protected function validateEmail(Request $request)
-    {
-        $request->validate([
-            'email' => ['required', 'email'],
-            'g-recaptcha-response' => ['required', new Recaptcha()],
-        ]);
-    }
-
     protected function sendResetLinkResponse(Request $request, $response)
     {
+        session()->flash("email", $request->email);
         return $request->wantsJson()
             ? new JsonResponse(['message' => trans($response)], 200)
-            : view('auth.passwords.resend')->with('email', $request->email);
+            : back()->with('status', trans($response));
     }
 }

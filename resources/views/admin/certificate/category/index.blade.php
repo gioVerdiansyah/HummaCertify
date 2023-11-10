@@ -9,7 +9,7 @@
     <div class="w-20">
       <select name="restore" class="form-select" id="restoreSelect">
         <option value="allCategory" {{ request('restore') == 'allCategory' ? 'selected' : '' }}>Semua</option>
-        <option value="restoreCategory" {{ request('restore') == 'restoreCategory' ? 'selected' : '' }}>Restore</option>
+        <option value="restoreCategory" {{ request('restore') == 'restoreCategory' ? 'selected' : '' }}>Arsip</option>
       </select>
     </div>
   </div>

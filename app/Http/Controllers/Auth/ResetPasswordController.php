@@ -29,15 +29,4 @@ class ResetPasswordController extends Controller
      * @var string
      */
     protected $redirectTo = RouteServiceProvider::HOME;
-
-    // Override
-    protected function rules()
-    {
-        return [
-            'token' => 'required',
-            'email' => 'required|email',
-            'password' => 'required|confirmed|min:8',
-            'g-recaptcha-response' => ['required', new Recaptcha()],
-        ];
-    }
 }
