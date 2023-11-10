@@ -1,4 +1,7 @@
-
+/* Sweetalert */
+*::-webkit-scrollbar {
+    display: none;
+}
 
 .line-breaker {
     display: none;
@@ -85,28 +88,25 @@
     overflow: hidden;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
-
 .container-profile .kanan .card-sertifikat-show .certificate canvas {
     width: 100%;
     height: auto;
     object-fit: cover;
 }
-
 .container-profile .kanan .card-sertifikat-show .certificate .dark {
-    display: none;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
     background-color: black;
     color: white;
     width: 100%;
     height: 100%;
     position: absolute;
     opacity: 0;
-    letter-spacing: 0;
     transition: opacity 1s, letter-spacing 1s;
+    cursor: pointer;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 0;
 }
-
 .container-profile .kanan .card-sertifikat-show .certificate .dark p {
     font-size: 25px;
     width: 80%;
@@ -114,7 +114,6 @@
     font-weight: 600;
     text-align: center;
 }
-
 .container-profile .kanan .card-sertifikat-show .certificate .dark:hover {
     background-color: black;
     width: 100%;

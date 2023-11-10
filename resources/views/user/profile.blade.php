@@ -129,7 +129,7 @@
         </div>
         <div class="certificate">
           <div class="dark" id="hover" data-bs-toggle="modal" data-bs-target="#detailModal">
-            <h1>Klik untuk melihat ukuran penuh</h1>
+            <h1 style="text-align: center">Klik untuk melihat ukuran penuh</h1>
           </div>
           <div style="left: 35%; top: 30%;" id="load-detail" class="image-item"></div>
           <canvas id="pdfCanvas" class="image-item"></canvas>
