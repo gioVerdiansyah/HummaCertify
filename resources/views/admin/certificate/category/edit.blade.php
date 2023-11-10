@@ -16,14 +16,16 @@
         <div class="left-side">
           <div class="header-card">
             <span class="first-title text-start">Upload Latar Belakang</span>
-            <span class="second-title text-end text-info"><box-icon name='error-circle' color='#29BADB' class="warn-icon"></box-icon>Ukuran A4 3508px X 2480px</span>
+            <span class="second-title text-end text-info"><box-icon name='error-circle' color='#29BADB'
+                class="warn-icon"></box-icon>Ukuran A4 3508px X 2480px</span>
           </div>
           <hr class="line-header">
           <div class="body-card">
             <div class="left-drop">
               <span class="drop-header">Latar belakang (Depan)</span>
               <input type="file" name="depan" id="file" />
-              <div class="upload-area" id="uploadfile" style="background-image: url('{{ asset($category->background_depan) }}')">
+              <div class="upload-area" id="uploadfile"
+                style="background-image: url('{{ asset($category->background_depan) }}')">
               </div>
               @error('depan')
                 <div class="text-danger">
@@ -34,7 +36,8 @@
             <div class="right-drop">
               <span class="drop-header">Latar belakang (Belakang)</span>
               <input type="file" name="belakang" id="file2" />
-              <div class="upload-area2" id="uploadfile2" style="background-image: url('{{ asset($category->background_belakang) }}')">
+              <div class="upload-area2" id="uploadfile2"
+                style="background-image: url('{{ asset($category->background_belakang) }}')">
               </div>
               @error('belakang')
                 <div class="text-danger">
@@ -52,7 +55,8 @@
           <div class="body-card">
             <div class="mb-3">
               <label for="namaKategori">Nama Kategori</label>
-              <input type="text" name="namaKategori" class="form-control @error('namaKategori') is-invalid @enderror" placeholder="Nama kategori" value="{{ old('namaKategori', $category->name) }}" required>
+              <input type="text" name="namaKategori" class="form-control @error('namaKategori') is-invalid @enderror"
+                placeholder="Nama kategori" value="{{ old('namaKategori', $category->name) }}" required>
               @error('namaKategori')
                 <div class="invalid-feedback">
                   <p>{{ $message }}</p>
@@ -61,7 +65,8 @@
             </div>
             <div class="mb-3">
               <label for="namaKategori">Tata Letak</label>
-              <select name="tataletak" id="tataLetak" class="form-select @error('tataletak') is-invalid @enderror" required>
+              <select name="tataletak" id="tataLetak" class="form-select @error('tataletak') is-invalid @enderror"
+                required>
                 <option disabled selected>Pilih tata letak</option>
                 <option value="Kelulusan" {{ $category->tata_letak == 'Kelulusan' ? 'selected' : '' }}>
                   Kelulusan</option>
@@ -77,7 +82,7 @@
               @enderror
             </div>
             <div class="card-button">
-              <button type="button" id="preview-button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#preview">Preview</button>
+              <button type="button" id="preview-button" class="btn btn-info" data-bs-toggle="modal" style="display: none" data-bs-target="#preview">Preview</button>
               <button type="submit" class="btn btn-primary">Simpan</button>
             </div>
           </div>
