@@ -25,6 +25,7 @@
 </head>
 
 <body>
+  <script src="{{ asset('js/themeLoader.js') }}"></script>
   <section id="background-login" class="bg-account-pages vh-100 d-flex align-items-center bg-center position-relative" style="background-image: url('logintemplate/images/auth-bg.png');">
 
     <div class="container">
@@ -67,10 +68,8 @@
                     @enderror
                   </div>
                   <div class="mb-3">
-                    <script src="https://www.google.com/recaptcha/api.js"
-                            async defer></script>
-                    <div class="g-recaptcha d-flex justify-content-center" id="feedback-recaptcha"
-                         data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}">
+                    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                    <div class="g-recaptcha d-flex justify-content-center" id="feedback-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}">
                     </div>
                     @error('g-recaptcha-response')
                       <p class="text-danger">reCAPTCHA wajib diisi!</p>
@@ -86,14 +85,13 @@
                     </div>
                   </div>
                   <div class="d-grid mt-3"><button type="submit" class="btn btn-biru btn-none">Masuk</button></div>
-                  <div class="mt-5"></div>
                 </form>
                 <!-- end form -->
-                <div class="text-center mt-4 bottom-text">
-                  <p>Berubah Pikiran? <a href="/" class="font-weight-semibold text-biru"> Kembali ke beranda </a> </p>
-                </div>
               </div>
             </div>
+          </div>
+          <div class="text-center mt-4 bottom-text">
+            <p>Berubah Pikiran? <a href="/" class="font-weight-semibold text-biru"> Kembali ke beranda </a> </p>
           </div>
         </div>
         <!-- end col -->
@@ -105,6 +103,7 @@
   <!-- end section -->
 
   <!-- javascript -->
+  <script src="{{ asset('js/loginLoader.js') }}"></script>
   <script src="{{ asset('logintemplate/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('logintemplate/js/smooth-scroll.polyfills.min.js') }}"></script>
   <script src="{{ asset('logintemplate/js/app.js') }}"></script>
@@ -143,20 +142,9 @@
         eye.style.display = 'block';
       }
     });
-
-    let bgLoader = localStorage.getItem("theme");
-
-    if (bgLoader == 'dark') {
-      var eyeBackground = document.getElementById('eyeShow');
-      var bgImage = document.getElementById('background-login');
-      var icon = document.getElementById('icon');
-      bgImage.style = 'background-image: none !important';
-      icon.style = 'color: white';
-    }
   </script>
 
   <!-- App Js -->
-  <script src="{{ asset('js/themeLoader.js') }}"></script>
   <script src="{{ asset('logintemplate/js/app.js') }}"></script>
 </body>
 
