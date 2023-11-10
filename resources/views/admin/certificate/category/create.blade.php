@@ -73,7 +73,7 @@
               @enderror
             </div>
             <div class="card-button">
-              <button type="button" id="preview-button" class="btn btn-secondary" data-bs-toggle="modal" style="display: none" data-bs-target="#preview" disabled>Preview</button>
+              <button type="button" id="preview-button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#preview" disabled>Preview</button>
               <button type="submit" id="simpan" class="btn btn-primary" disabled>Simpan</button>
             </div>
           </div>

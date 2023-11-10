@@ -2,10 +2,10 @@
 <main>
     {{-- Depan --}}
     <div id="bgDepan" class="depan">
-        <div class="content" style="background-image: url('{{ asset('image/bgText/depan/kompetensi-guru-depan.png') }}"></div>
+        <div class="content" style="background-image: url('{{ asset('image/certificate/bgText/depan/kompetensi-guru-depan.png') }}"></div>
     </div>
     {{-- Belakang --}}
     <div id="bgBelakang" class="belakang">
-        <div class="content" style="background-image: url('{{ asset('image/bgText/belakang/kompetensi-guru-belakang.png') }}"></div>
+        <div class="content" style="background-image: url('{{ asset('image/certificate/bgText/belakang/kompetensi-guru-belakang.png') }}"></div>
     </div>
 </main>
