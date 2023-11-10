@@ -22,9 +22,11 @@
   <link href="{{ asset('logintemplate/css/materialdesignicons.min.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ asset('logintemplate/css/style.min.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ asset('css/auth/auth.css') }}" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="{{ asset('css/auth/resetPassword.css') }}">
 </head>
 
 <body>
+  <script src="{{ asset('js/themeLoader.js') }}"></script>
   <section id="background-login" class="bg-account-pages vh-100 d-flex align-items-center bg-center position-relative" style="background-image: url('logintemplate/images/auth-bg.png');">
 
     <div class="container">
@@ -39,7 +41,13 @@
                   <input type="hidden" name="token" value="{{ $token }}" readonly>
                   <div class="mb-3">
                     <label for="password" class="form-label">Password baru</label>
-                    <input name="password" required placeholder="Password baru" type="text" class="form-control @error('password') is-invalid @enderror" value="{{ old('password') }}" />
+                    <input name="password" required placeholder="Password baru" id="passwordOne" type="password" class="form-control @error('password') is-invalid @enderror" value="{{ old('password') }}" />
+                    <div style="display: none" id="eyeShow" class="eye">
+                      <div class="icon" id="icon">
+                        <i class="fa-regular fa-eye" id="show" style="display: block"></i>
+                        <i class="fa-regular fa-eye-slash" id="hide" style="display: none"></i>
+                      </div>
+                    </div>
                     @error('password')
                       <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -48,7 +56,13 @@
                   </div>
                   <div class="mb-3">
                     <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
-                    <input name="password_confirmation" required placeholder="Konfirmasi Password" type="text" class="form-control @error('password_confirmation') is-invalid @enderror" value="{{ old('password_confirmation') }}" />
+                    <input name="password_confirmation" required placeholder="Konfirmasi Password" id="passwordTwo" type="password" class="form-control @error('password_confirmation') is-invalid @enderror" value="{{ old('password_confirmation') }}" />
+                    <div style="display: none" id="eyeShow2" class="eye2">
+                      <div class="icon2" id="icon2">
+                        <i class="fa-regular fa-eye" id="show2" style="display: block"></i>
+                        <i class="fa-regular fa-eye-slash" id="hide2" style="display: none"></i>
+                      </div>
+                    </div>
                     @error('password_confirmation')
                       <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -56,10 +70,8 @@
                     @enderror
                   </div>
                   <div class="mb-3">
-                    <script src="https://www.google.com/recaptcha/api.js"
-                            async defer></script>
-                    <div class="g-recaptcha d-flex justify-content-center" id="feedback-recaptcha"
-                         data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}">
+                    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                    <div class="g-recaptcha d-flex justify-content-center" id="feedback-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}">
                     </div>
                     @error('g-recaptcha-response')
                       <p class="text-danger">reCAPTCHA wajib diisi!</p>
@@ -84,6 +96,7 @@
   <!-- end section -->
 
   <!-- javascript -->
+  <script src="{{ asset('js/resetPassword.js') }}"></script>
   <script src="{{ asset('logintemplate/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('logintemplate/js/smooth-scroll.polyfills.min.js') }}"></script>
   <script src="{{ asset('logintemplate/js/app.js') }}"></script>
@@ -93,16 +106,15 @@
     let bgLoader = localStorage.getItem("theme");
 
     if (bgLoader == 'dark') {
-        var eyeBackground = document.getElementById('eyeShow');
-        var bgImage = document.getElementById('background-login');
-        var icon = document.getElementById('icon');
-        bgImage.style = 'background-image: none !important';
-        icon.style = 'color: white';
+      var eyeBackground = document.getElementById('eyeShow');
+      var bgImage = document.getElementById('background-login');
+      var icon = document.getElementById('icon');
+      bgImage.style = 'background-image: none !important';
+      icon.style = 'color: white';
     }
   </script>
 
   <!-- App Js -->
-  <script src="{{ asset('js/themeLoader.js') }}"></script>
   <script src="{{ asset('logintemplate/js/app.js') }}"></script>
 </body>
 

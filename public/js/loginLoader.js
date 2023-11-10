@@ -7,3 +7,5 @@ if (bgLoader == 'dark') {
     bgImage.style = 'background-image: none !important';
     icon.style = 'color: white';
 }
+
+

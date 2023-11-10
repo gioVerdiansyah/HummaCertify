@@ -78,13 +78,14 @@
                   @foreach ($categories as $category)
                     <option value="{{ $category->id }}" {{ old('certificate_categori_id', $certificate->certificate_categori_id) == $category->id ? 'selected' : '' }}>
                       {{ $category->name }}</option>
-                    @error('certificate_categori_id')
-                      <div class="invalid-feedback">
-                        <p>{{ $message }}</p>
-                      </div>
-                    @enderror
+
                   @endforeach
                 </select>
+                @error('certificate_categori_id')
+                <div class="invalid-feedback">
+                  <p>{{ $message }}</p>
+                </div>
+              @enderror
               </div>
               <div class="col-12 mb-4">
                 <label for="bidang" class="form-label">Bidang/Division</label>
@@ -115,11 +116,6 @@
                 <label for="predikat" class="form-label">Predikat</label>
                 <select name="predikat" class="form-select @error('predikat') is-invalid
                                 @enderror" id="predikat" required>
-                  @error('predikat')
-                    <div class="invalid-feedback">
-                      <p>{{ $message }}</p>
-                    </div>
-                  @enderror
                   <option value="" disabled selected>--Pilih Predikat--</option>
                   <option value="Sangat Baik" {{ old('predikat', $certificate->predikat) == 'Sangat Baik' ? 'selected' : '' }}>
                     Sangat Baik</option>
@@ -133,6 +129,12 @@
                     Kurang
                   </option>
                 </select>
+                @error('predikat')
+                <div class="invalid-feedback">
+                  <p>{{ $message }}</p>
+                </div>
+              @enderror
+
               </div>
             </div>
             <div class="col-12 header-label">
