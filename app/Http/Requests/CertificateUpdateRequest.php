@@ -42,7 +42,7 @@ class CertificateUpdateRequest extends FormRequest
             'nomor_induk' => [
                 'required',
                 'string',
-                Rule::unique('users', 'password')->ignore($userId),
+                Rule::unique('users', 'nomor_induk')->ignore($userId),
                 'min:8',
                 'regex:/^[0-9]+$/',
             ],

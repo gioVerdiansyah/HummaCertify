@@ -216,7 +216,7 @@
                                 <td class="t45" style="width:480px;">
                                   <p class="t51"
                                     style="margin:0;Margin:0;font-family:BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif,'Albert Sans';line-height:24px;font-weight:400;font-style:normal;font-size:14px;text-decoration:none;text-transform:none;direction:ltr;color:#09234F;text-align:left;mso-line-height-rule:exactly;mso-text-raise:3px;">
-                                    <span class="t131" style="margin:0;Margin:0;font-weight:700;mso-line-height-rule:exactly;">Selamat Telah Menyelesaik -magang, pelatihan, dll- Anda!</span> Dengan ini kami berikan kepada anda Sertifikat <strong>{{ $type }}</strong> Bidang <strong>-designer, web developer, dll-</strong> untuk menghargai
+                                    <span class="t131" style="margin:0;Margin:0;mso-line-height-rule:exactly;">Selamat Telah Menyelesaikan program <strong>{{ $bidang }}</strong></span> Dengan ini kami berikan kepada anda Sertifikat <strong>{{ $type }}</strong>@isset($sub_bidang) dalam tema {{ $sub_bidang }}@endisset. Untuk menghargai
                                       dedikasi, kerja keras, dan semangat luar biasa anda selama di perusahaan kami. <br> Semoga sertifikat ini menjadi sumber inspirasi untuk terus mengejar impian dan meraih prestasi lebih tinggi lagi di masa depan. Kami yakin bahwa ketekunan dan
                                       keterampilan yang Anda tunjukkan akan membawa Anda menuju kesuksesan. Teruslah mengejar impian dan berjuang
                                       untuk menjadi versi terbaik dari diri Anda.

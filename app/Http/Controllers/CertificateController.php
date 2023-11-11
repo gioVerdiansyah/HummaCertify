@@ -7,6 +7,7 @@ use App\Http\Requests\CertificateStoreRequest;
 use App\Http\Requests\CertificateUpdateRequest;
 use App\Models\User;
 use App\Models\Certificate;
+use Carbon\Carbon;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use App\Mail\SendCertificate;
@@ -170,7 +171,11 @@ class CertificateController extends Controller
     public function storeExists(CertificateExistStoreRequest $request)
     {
         $dataRequest = $request->all();
-        $user = User::findOrFail($dataRequest['user_id']);
+        $user = User::with('certificates')->findOrFail($dataRequest['user_id']);
+
+        if($user->certificates[0]->certificate_categori_id == $dataRequest['certificate_categori_id']){
+            return back()->withErrors(['certificate_categori_id' => "Kategori ini sudah digunakan!"])->withInput();
+        }
 
         $uniq = Certificate::count() + 1;
         $nomorKategori = Certificate::where('certificate_categori_id', $dataRequest['certificate_categori_id'])->count() + 1;
@@ -232,9 +237,20 @@ class CertificateController extends Controller
         ];
         $user->update($dataUser);
 
-        $userUniq = Certificate::count();
-        $nomorKategori = Certificate::where('certificate_categori_id', $request->certificate_categori_id)->count() + 1;
-        $nomorSertifikat = $this->generateCertificateNumber($userUniq, $request->certificate_categori_id, $nomorKategori, $request->tanggal);
+        $nomorSertifikat = $certificate->nomor;
+        $parts = explode('/', $nomorSertifikat);
+
+        if ($request->filled('certificate_categori_id')) {
+            $parts[3] = str_pad($request->certificate_categori_id, 2, '0', STR_PAD_LEFT);
+        }
+
+        if ($request->filled('tanggal')) {
+            $tanggal = Carbon::parse($request->tanggal)->format('dm');
+            $parts[4] = $tanggal;
+        }
+
+        $nomorSertifikat = implode('/', $parts);
+
         $dataCertificate = [
             'certificate_categori_id' => $request->certificate_categori_id,
             'tanggal' => $request->tanggal,
@@ -300,7 +316,7 @@ class CertificateController extends Controller
     public function getBackground(int $category)
     {
         $category = $this->getCategoryCertificate($category);
-        $background = (object)[
+        $background = (object) [
             'depan' => $category->background_depan,
             'belakang' => $category->background_belakang,
         ];
@@ -343,7 +359,7 @@ class CertificateController extends Controller
             $query->skip($offset)->take($perPage);
         }
 
-        if($query->get()->isEmpty()){
+        if ($query->get()->isEmpty()) {
             return back()->with('message', [
                 'icon' => 'error',
                 'title' => "Gagal!",
