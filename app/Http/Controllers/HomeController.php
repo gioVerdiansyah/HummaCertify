@@ -27,9 +27,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user = User::whereNot('institusi', 'Perusahaan Hummatech')->latest()->get();
-        
-        return view('welcome', compact('user'));
+        $userCertificate = User::whereHas('certificates', function ($query) {
+            $query->where('certificate_categori_id', 1);
+        })->latest()->get();
+
+        return view('welcome', compact('userCertificate'));
     }
 
     public function adminIndex()
@@ -80,7 +82,7 @@ class HomeController extends Controller
         $query = $request->input('q');
         $certificate = Certificate::with(['user', 'category', 'detailCertificates'])->where('nomor', $query)->first();
 
-        if($certificate === null){
+        if ($certificate === null) {
             return view('certificate.notFound');
         }
 

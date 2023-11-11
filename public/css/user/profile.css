@@ -129,6 +129,37 @@
     background: transparent;
 }
 
+.card-sertifikat-user .card-body .text {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-sertifikat-user .card-body .text .text-atas {
+    font-size: 20px;
+    font-weight: 500;
+    color: #878a99;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    font-family: "Poppins", sans-serif;
+}
+.card-sertifikat-user .card-body .text .angka {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 0;
+    font-family: "Poppins", sans-serif;
+}
+.card-sertifikat-user .card-body .text .text-bawah {
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #878a99;
+    margin-bottom: 0;
+    font-family: "Poppins", sans-serif;
+}
+
 @media only screen and (max-width: 900px) {
     .container-profile {
         display: block;

@@ -1,7 +1,7 @@
 @extends('layouts.nav-user')
 
 @section('content')
-<title>{{ config('app.name', 'Laravel') }} - Home</title>
+  <title>{{ config('app.name', 'Laravel') }} - Home</title>
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <section class="hero-6 bg-center position-relative overflow-hidden"
     style="background-image: url({{ asset('landingpage/images/hero-6-bg.png') }});" id="home">
@@ -19,8 +19,8 @@
           {{-- <a href="#" class="btn btn-primary me-2">Get Started <i class="icon-sm ms-1" data-feather="arrow-right"></i></a> --}}
           <form action="{{ route('search') }}" method="GET" id="searching">
             <div class="searchBox">
-              <input class="searchInput" type="search" name="q" id="search" placeholder="Contoh: Ser/0001/0002/02/3112/2023"
-                autocomplete="off" required>
+              <input class="searchInput" type="search" name="q" id="search"
+                placeholder="Contoh: Ser/0001/0002/02/3112/2023" autocomplete="off" required>
               <button class="searchButton" href="#">
                 <i class="fas fa-search"></i>
               </button>
@@ -32,7 +32,8 @@
         </div>
         <div class="col-lg-6 col-sm-10 mx-auto ms-lg-auto me-lg-0" id="gambar">
           <div class="mt-lg-0 mt-5">
-            <img src="{{ asset('landingpage/images/image1.png') }}" alt="Asset Pelayanan kami" class="img-xl-responsive" />
+            <img src="{{ asset('landingpage/images/image1.png') }}" alt="Asset Pelayanan kami"
+              class="img-xl-responsive" />
           </div>
         </div>
       </div>
@@ -130,7 +131,8 @@
               <img src="{{ asset('landingpage/images/image3.png') }}" alt="Asset About Me kedua"
                 class="img-fluid d-block mx-auto rounded" />
             </div>
-            <img src="{{ asset('landingpage/images/dot-img.png') }}" alt="Titik-titik About Me kedua" class="dot-img-right" />
+            <img src="{{ asset('landingpage/images/dot-img.png') }}" alt="Titik-titik About Me kedua"
+              class="dot-img-right" />
           </div>
         </div>
         <!-- end col -->
@@ -458,6 +460,16 @@
       <div class="container container-lulus">
         <div class="scroller">
           <ul class="tag-list scroller__inner">
+            @if (count($userCertificate) > 4)
+              @foreach ($userCertificate as $data)
+                <li>
+                  <div class="card card-lulus text-center">
+                    <p class="nama text-truncate" style="max-width: 150px">{{ $data->name }}</p>
+                    <p class="sekolah">{{ $data->institusi }}</p>
+                  </div>
+                </li>
+              @endforeach
+            @else
               <li>
                 <div class="card card-lulus text-center">
                   <p class="nama text-truncate" style="max-width: 150px">Marshall West</p>
@@ -488,6 +500,7 @@
                   <p class="sekolah">Politeknik Malang</p>
                 </div>
               </li>
+            @endif
           </ul>
         </div>
       </div>
@@ -558,12 +571,10 @@
                     <p id="error-pesan" class="text-danger"></p>
                   </div>
                   <div class="col-lg-6 mb-3">
-                    <script src="https://www.google.com/recaptcha/api.js"
-                            async defer></script>
-                    <div class="g-recaptcha" id="feedback-recaptcha"
-                         data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}">
+                    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                    <div class="g-recaptcha" id="feedback-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}">
                     </div>
-                      <p id="error-captcha" class="text-danger"></p>
+                    <p id="error-captcha" class="text-danger"></p>
                   </div>
                   <button type="submit" id="submit-button" name="send" class="btn btn-biru">
                     <span class="d-flex align-items-center">
@@ -584,7 +595,8 @@
 
         <div class="col-lg-5 ms-lg-auto">
           <div class="mt-5 mt-lg-0">
-            <img src="{{ asset('landingpage/images/kontak.png') }}" alt="Contact Me" class="img-fluid d-block" id="ktkgmr" />
+            <img src="{{ asset('landingpage/images/kontak.png') }}" alt="Contact Me" class="img-fluid d-block"
+              id="ktkgmr" />
             <p class="text-muted mt-5 mb-3"><i class="me-2 far fa-envelope text-muted icon icon-xs"></i>
               hummacertify@gmail.com</p>
             <p class="text-muted mb-3"><i class="me-2 text-muted icon icon-xs" data-feather="phone"></i>+91 123 4556
@@ -813,24 +825,24 @@
             success: function(response) {
               if (response.error) {
                 $("#simple-msg").empty();
-                if(response.error['g-recaptcha-response']){
-                    $('#error-captcha').text("reCAPTCHA wajib diisi!");
+                if (response.error['g-recaptcha-response']) {
+                  $('#error-captcha').text("reCAPTCHA wajib diisi!");
                 }
-                if(response.error['name']){
-                    nameContainer.text('Nama harus diisi.');
+                if (response.error['name']) {
+                  nameContainer.text('Nama harus diisi.');
                 }
-                if(response.error['email']){
-                    emailContainer.text('Jangan menggunakan nama email kami!');
+                if (response.error['email']) {
+                  emailContainer.text('Jangan menggunakan nama email kami!');
                 }
-                if(response.error['message']){
-                    messageContainer.text('Pesan harus diisi.');
+                if (response.error['message']) {
+                  messageContainer.text('Pesan harus diisi.');
                 }
 
                 $("#submit-button .flex-grow-1").text("Kirim Pesan");
                 $("#submit-button .spinner-border").addClass("d-none");
               } else {
-                if(!localStorage.getItem('lastResetTime')){
-                    localStorage.setItem('lastResetTime',new Date().getTime());
+                if (!localStorage.getItem('lastResetTime')) {
+                  localStorage.setItem('lastResetTime', new Date().getTime());
                 }
                 $('#error-captcha').empty();
                 $("#simple-msg").html(
@@ -851,7 +863,7 @@
             },
             error: function(xhr, status, error) {
               $("#simple-msg").empty();
-              if(error == "unknown status"){
+              if (error == "unknown status") {
                 error = "Cobalah refresh halaman"
               }
               $("#error-msg").html(
@@ -911,7 +923,8 @@
 
       setControls() {
         this.carouselControls.forEach((control) => {
-          galleryControlsContainer.appendChild(document.createElement("button")).className = `gallery-controls-${control}`;
+          galleryControlsContainer.appendChild(document.createElement("button")).className =
+            `gallery-controls-${control}`;
           document.querySelector(`.gallery-controls-${control}`).innerText = '';
         });
       }

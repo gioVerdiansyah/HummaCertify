@@ -225,7 +225,7 @@
 .container-lulus .scroller[data-animated="true"] .scroller__inner {
     width: max-content;
     flex-wrap: nowrap;
-    animation: scroll 40s linear infinite;
+    animation: scroll 55s linear infinite;
 }
 
 .container-lulus .scroller__inner {
