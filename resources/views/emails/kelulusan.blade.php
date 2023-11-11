@@ -176,7 +176,7 @@
                                 <td class="t35" style="width:480px;">
                                   <p class="t41"
                                     style="margin:0;Margin:0;font-family:BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif,'Albert Sans';line-height:24px;font-weight:700;font-style:normal;font-size:20px;text-decoration:none;text-transform:none;direction:ltr;color:#09234F;text-align:center;mso-line-height-rule:exactly;mso-text-raise:-2px;">
-                                    CONGRATULATION!</p>
+                                    SELAMAT!</p>
                                 </td>
                               </tr>
                             </table>
@@ -216,9 +216,9 @@
                                 <td class="t45" style="width:480px;">
                                   <p class="t51"
                                     style="margin:0;Margin:0;font-family:BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif,'Albert Sans';line-height:24px;font-weight:400;font-style:normal;font-size:14px;text-decoration:none;text-transform:none;direction:ltr;color:#09234F;text-align:left;mso-line-height-rule:exactly;mso-text-raise:3px;">
-                                    <span class="t131" style="margin:0;Margin:0;font-weight:700;mso-line-height-rule:exactly;">Selamat!</span> dengan ini kami berikan kepada anda sertifikat <strong>{{ $type }}</strong> untuk menghargai
-                                      dedikasi, kerja keras, dan semangat luar biasa anda selama di perusahaan kami. <br><br> Sertifikat ini bukanlah akhir dari pencapaian Anda, melainkan awal dari bab baru untuk masa depan Anda. Kami yakin bahwa bakat dan
-                                      keterampilan yang Anda tunjukkan selama magang akan membawa Anda menuju kesuksesan. Teruslah mengejar impian dan berjuang
+                                    <span class="t131" style="margin:0;Margin:0;font-weight:700;mso-line-height-rule:exactly;">Selamat Telah Menyelesaik -magang, pelatihan, dll- Anda!</span> Dengan ini kami berikan kepada anda Sertifikat <strong>{{ $type }}</strong> Bidang <strong>-designer, web developer, dll-</strong> untuk menghargai
+                                      dedikasi, kerja keras, dan semangat luar biasa anda selama di perusahaan kami. <br> Semoga sertifikat ini menjadi sumber inspirasi untuk terus mengejar impian dan meraih prestasi lebih tinggi lagi di masa depan. Kami yakin bahwa ketekunan dan
+                                      keterampilan yang Anda tunjukkan akan membawa Anda menuju kesuksesan. Teruslah mengejar impian dan berjuang
                                       untuk menjadi versi terbaik dari diri Anda.
                                   </p>
                                 </td>
@@ -239,9 +239,9 @@
                                 <td class="t55" style="width:480px;padding:0 0 1px 0;">
                                   <p class="t61"
                                     style="margin:0;Margin:0;font-family:BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif,'Albert Sans';line-height:24px;font-weight:400;font-style:normal;font-size:14px;text-decoration:none;text-transform:none;direction:ltr;color:#09234F;text-align:left;mso-line-height-rule:exactly;mso-text-raise:3px;">
-                                    Anda bisa menemukan lampiran sertifikat Anda pada bagian bawah email ini. Kami berharap bahwa sertifikat ini tidak hanya menjadi
+                                    Anda bisa menemukan lampiran sertifikat Anda pada bagian bawah email ini. Kami berharap Sertifikat ini tidak hanya menjadi
                                     penghargaan atas upaya Anda, tetapi juga menjadi dorongan untuk terus berkembang dan meraih kesuksesan di masa mendatang. Semoga
-                                    sertifikat ini menjadi tonggak awal menuju perjalanan yang penuh prestasi dan keberhasilan. Selamat dan sukses selalu!</p>
+                                    sertifikat ini menjadi tonggak awal menuju perjalanan yang penuh prestasi dan keberhasilan. Sekali lagi, Selamat!</p>
                                 </td>
                               </tr>
                             </table>
