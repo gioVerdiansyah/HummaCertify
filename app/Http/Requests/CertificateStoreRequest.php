@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\AllowedEmailExtension;
 
 class CertificateStoreRequest extends FormRequest
 {
@@ -24,7 +25,7 @@ class CertificateStoreRequest extends FormRequest
         return [
             // user
             'name' => 'required|string|unique:users,name',
-            'email' => 'nullable|email|unique:users,email',
+            'email' => ['nullable', 'email', 'unique:users,email', new AllowedEmailExtension],
             'nomor_induk' => 'required|string|min:8|unique:users,nomor_induk|regex:/^[0-9]+$/',
             'ttl' => 'required',
             'institusi' => 'required|string|max:60',

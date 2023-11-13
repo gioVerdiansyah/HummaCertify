@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use App\Models\Certificate;
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\AllowedEmailExtension;
 
 class CertificateUpdateRequest extends FormRequest
 {
@@ -38,6 +39,7 @@ class CertificateUpdateRequest extends FormRequest
                 'nullable',
                 'email',
                 Rule::unique('users', 'email')->ignore($userId),
+                new AllowedEmailExtension,
             ],
             'nomor_induk' => [
                 'required',

@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+
 use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\AllowedEmailExtension;
 
 class EmailUpdateRequest extends FormRequest
 {
@@ -22,7 +24,13 @@ class EmailUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => 'required|email|unique:users,email,' . auth()->id() . ',id'
+            'email' => [
+                'required',
+                'email',
+                'unique:users,email,' . auth()->id() . ',id',
+                new AllowedEmailExtension,
+            ],
         ];
     }
+
 }
