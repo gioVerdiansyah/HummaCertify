@@ -26,7 +26,6 @@
 </head>
 
 <body>
-    @dump(session()->all())
   <script src="{{ asset('js/themeLoader.js') }}"></script>
   <section id="background-login" class="bg-account-pages vh-100 d-flex align-items-center bg-center position-relative" style="background-image: url('{{ asset('logintemplate/images/auth-bg.png') }}');">
     <script src="{{ asset('js/loginLoader.js') }}"></script>
@@ -36,6 +35,17 @@
         <div class="col-md-8 col-lg-6 col-xl-5">
           <div class="form-bg shadow bg-white">
             <div class="p-4">
+              <div class="text-center mt-3 mb-1 brand-logo j">
+                <a href="#">
+                  <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-dark"
+                    height="35" />
+                  <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-light"
+                    height="35" />
+                </a>
+                <div class="d-flex justify-content-center">
+                  <p class="mt-4 mb-1" style="width: 350px">Konfirmasi password baru anda dibawah ini.</p>
+                </div>
+              </div>
               <div class="p-3">
                 <form action="{{ route('password.update') }}" method="POST" class="av-invalid">
                   @csrf
