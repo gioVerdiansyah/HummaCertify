@@ -26,6 +26,7 @@
 </head>
 
 <body>
+    @dump(session()->all())
   <script src="{{ asset('js/themeLoader.js') }}"></script>
   <section id="background-login" class="bg-account-pages vh-100 d-flex align-items-center bg-center position-relative" style="background-image: url('{{ asset('logintemplate/images/auth-bg.png') }}');">
     <script src="{{ asset('js/loginLoader.js') }}"></script>
@@ -70,7 +71,12 @@
                       </span>
                     @enderror
                   </div>
-                  <div class="d-grid mt-3"><button type="submit" class="btn btn-biru btn-none">Reset Password</button></div>
+                  <div class="d-grid mt-3">
+                    <button type="submit" class="btn btn-biru btn-none">Reset Password</button>
+                    @error('email')
+                        <p class="text-danger text-center">{{ $message }}</p>
+                    @enderror
+                </div>
                 </form>
                 <!-- end form -->
               </div>
