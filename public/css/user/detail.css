@@ -77,6 +77,7 @@
 }
 
 .header {
+    text-align: center;
     font-size: 30px;
     font-weight: bold;
 }
@@ -88,7 +89,6 @@
 h4 {
     margin-left: 0;
     transition: margin-left 1s;
-    cursor: pointer;
 }
 
 h4:hover {
@@ -96,6 +96,9 @@ h4:hover {
 }
 
 .hover-animate {
+    width: 80%;
+    font-weight: 700;
+    font-size: 4.3vw;
     color: white;
     text-align: center;
 }
@@ -151,19 +154,17 @@ h4:hover {
         width: 100%;
     }
 
+    .hover-animate {
+        font-size: 6.3vw;
+    }
+
     .header {
         text-align: center;
     }
 }
 
-@media screen and (max-width: 499px) {
+@media screen and (max-width: 512px) {
     .main-detail {
         display: block;
-    }
-}
-
-@media screen and (max-width: 650px) {
-    .hover-animate {
-        font-size: 20px;
     }
 }

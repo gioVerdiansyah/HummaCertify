@@ -1942,6 +1942,10 @@ h6 {
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
+    .hero-6 .container {
+        margin-top: 60px;
+    }
+
     .hero-4 {
         padding: 120px 0 60px;
         background-position: center center;
@@ -2553,7 +2557,7 @@ textarea.form-control {
         transform: scale(0) rotate(-50deg);
         transition: all 0.5s;
     }
-    
+
 }
 
 @media (max-width: 360px) {

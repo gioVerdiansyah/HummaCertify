@@ -82,7 +82,7 @@
             <button type="submit" class="btn btn-sm rounded-pill nav-btn ms-lg-3">Logout</button>
           </form>
         @endauth
-        <div class="switcher-hover" id="style-switcher">
+        <div class="switcher-hover nav" id="style-switcher">
           <div class="bottom">
             <a href="javascript: void(0);" id="mode" class="mode-btn text-white">
               <i class="bi bi-brightness-high mode-light" style="color: black"></i>

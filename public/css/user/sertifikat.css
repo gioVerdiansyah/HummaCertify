@@ -62,7 +62,6 @@
     color: white;
     letter-spacing: 0;
     box-shadow: 0 0 10px rgb(0,0,0,0.1);
-    border-radius: 18px;
 }
 
 a.image-container:hover {
@@ -79,13 +78,20 @@ canvas {
 }
 
 .hover-animate {
+    width: 80%;
+    font-size: 2.6vw;
     font-weight: 800;
     color: white;
     text-align: center;
 }
 
+@media screen and (max-width: 767px) {
+    .hover-animate {
+        font-size: 6.3vw;
+    }
+}
+
 [class^="image-hover-"]:hover {
-    font-size: 100%;
     letter-spacing: 2px;
     opacity: 0.6;
 }
@@ -97,24 +103,6 @@ canvas {
 
 .label-item {
     font-size: 18px;
-}
-
-@media screen and (max-width: 1180px) {
-    .hover-animate {
-        font-size: 30px;
-    }
-}
-
-@media screen and (max-width: 950px) {
-    .hover-animate {
-        font-size: 30px;
-    }
-}
-
-@media screen and (max-width: 650px) {
-    .hover-animate {
-        font-size: 20px;
-    }
 }
 
 body h1 {
@@ -398,6 +386,9 @@ body h1 {
 }
 @media (max-width: 600px) {
   .tabs ul li label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 5px;
     border-radius: 5px;
   }
@@ -412,5 +403,8 @@ body h1 {
   }
   .tabs .content section h2 {
     display: block;
+  }
+  .tabs ul li label svg {
+    margin-right: 0 !important;
   }
 }

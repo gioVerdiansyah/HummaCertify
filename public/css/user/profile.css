@@ -107,8 +107,9 @@
     align-items: center;
     letter-spacing: 0;
 }
+
 .container-profile .kanan .card-sertifikat-show .certificate .dark p {
-    font-size: 25px;
+    font-size: 2.2vw;
     width: 80%;
     font-family: "Poppins", sans-serif;
     font-weight: 600;
@@ -138,10 +139,10 @@
 
 .card-sertifikat-user .card-body .text .text-atas {
     font-size: 20px;
+    margin-bottom: 0;
     font-weight: 500;
     color: #878a99;
     text-transform: uppercase;
-    margin-bottom: 0;
     font-family: "Poppins", sans-serif;
 }
 .card-sertifikat-user .card-body .text .angka {
@@ -167,6 +168,10 @@
 
     .container-profile .kanan .card-sertifikat-show {
         margin: 0 !important;
+    }
+
+    .container-profile .kanan .card-sertifikat-show .certificate .dark p {
+        font-size: 6vw;
     }
 
     .container-profile .kanan .card-sertifikat-user {
