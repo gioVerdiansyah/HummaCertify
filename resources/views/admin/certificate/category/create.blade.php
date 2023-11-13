@@ -6,7 +6,7 @@
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
   <link rel="stylesheet" href="{{ asset('css/admin/template.css') }}">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <div class="container-css" style="padding: 42px 20px 0px 20px">
+  <div class="container-css" style="padding: 42px 20px 42px 20px">
     <div class="not-available">
       <h3 class="not-title">Ukuran layar ini tidak di dukung</h2>
     </div>
