@@ -247,6 +247,7 @@ class CertificateController extends Controller
         if ($request->filled('tanggal')) {
             $tanggal = Carbon::parse($request->tanggal)->format('dm');
             $parts[4] = $tanggal;
+            $parts[5] = Carbon::parse($request->tanggal)->format('Y');
         }
 
         $nomorSertifikat = implode('/', $parts);
