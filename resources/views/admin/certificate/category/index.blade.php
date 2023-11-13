@@ -80,7 +80,7 @@
     @empty
       <div class="d-flex nr-tengah">
           <img src="{{ asset('image/norestore.png') }}" alt="">
-          <h2 class="uk">Tidak Ada Data Untuk di Restore</h2>
+          <h2 class="uk">Tidak Ada Data Di Arsipkan</h2>
       </div>
     @endforelse
   </div>
