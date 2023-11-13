@@ -4,22 +4,11 @@ namespace App\Providers;
 
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
-use App\Contracts\Interfaces\CertificateInterface;
-use App\Contracts\Interfaces\DaftarPesertaInterface;
-use App\Contracts\Repositories\CertificateRepository;
-use App\Contracts\Repositories\DaftarPesertaRepository;
-use App\Contracts\Interfaces\DetailCertificateInterface;
-use App\Contracts\Interfaces\CertificateCategoriInterface;
-use App\Contracts\Repositories\CertificateCategoriRepositori;
+
 
 class AppServiceProvider extends ServiceProvider
 {
-    private array $register = [
-        DaftarPesertaInterface::class => DaftarPesertaRepository::class,
-        CertificateCategoriInterface::class => CertificateCategoriRepositori::class,
-        CertificateInterface::class => CertificateRepository::class,
-        DetailCertificateInterface::class => DetailCertificateRepository::class,
-    ];
+    private array $register = [];
     /**
      * Register any application services.
      */
