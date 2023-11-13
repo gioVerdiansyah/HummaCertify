@@ -448,12 +448,12 @@
     </div>
   </section>
 
-  <section class="section" id="blog">
+  <section class="section" style="padding-bottom: 50px;" id="blog">
     <div class="container">
       <div class="row justify-content-center mb-4">
         <div class="col-lg-7 text-center">
-          <h2 class="fw-bold text-gradient">Lulusan Magang Hummatech</h2>
-          <p class="text-muted">Berikut contoh lulusan siswa magang kami yang telah meraih sertifikat sebagai pengakuan
+          <h2 class="fw-bold text-gradient mb-3">Lulusan Magang Hummatech</h2>
+          <p class="text-muted text-panjang">Berikut contoh lulusan siswa magang kami yang telah meraih sertifikat sebagai pengakuan
             atas dedikasi dan prestasi luar biasa mereka</p>
         </div>
       </div>
@@ -464,40 +464,40 @@
               @foreach ($userCertificate as $data)
                 <li>
                   <div class="card card-lulus text-center">
-                    <p class="nama text-truncate" style="max-width: 150px">{{ $data->name }}</p>
-                    <p class="sekolah">{{ $data->institusi }}</p>
+                    <p class="nama text-truncate">{{ $data->name }}</p>
+                    <p class="sekolah text-truncate">{{ $data->institusi }}</p>
                   </div>
                 </li>
               @endforeach
             @else
               <li>
                 <div class="card card-lulus text-center">
-                  <p class="nama text-truncate" style="max-width: 150px">Marshall West</p>
-                  <p class="sekolah">Universitas Brawijaya</p>
+                  <p class="nama text-truncate">Marshall West</p>
+                  <p class="sekolah text-truncate">Universitas Brawijaya</p>
                 </div>
               </li>
               <li>
                 <div class="card card-lulus text-center">
-                  <p class="nama text-truncate" style="max-width: 150px">Winsonnnnn</p>
-                  <p class="sekolah">UNPAS</p>
+                  <p class="nama text-truncate">Winsonnnnn</p>
+                  <p class="sekolah text-truncate">UNPAS</p>
                 </div>
               </li>
               <li>
                 <div class="card card-lulus text-center">
-                  <p class="nama text-truncate" style="max-width: 150px">Bills Comeback</p>
-                  <p class="sekolah">UNPAD</p>
+                  <p class="nama text-truncate">Bills Comeback</p>
+                  <p class="sekolah text-truncate">UNPAD</p>
                 </div>
               </li>
               <li>
                 <div class="card card-lulus text-center">
-                  <p class="nama text-truncate" style="max-width: 150px">Miguel Carls</p>
-                  <p class="sekolah">BINUS</p>
+                  <p class="nama text-truncate">Miguel Carls</p>
+                  <p class="sekolah text-truncate">BINUS</p>
                 </div>
               </li>
               <li>
                 <div class="card card-lulus text-center">
-                  <p class="nama text-truncate" style="max-width: 150px">Caesar O'Connor</p>
-                  <p class="sekolah">Politeknik Malang</p>
+                  <p class="nama text-truncate">Caesar O'Connor</p>
+                  <p class="sekolah text-truncate">Politeknik Malang</p>
                 </div>
               </li>
             @endif
