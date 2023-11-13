@@ -2347,7 +2347,13 @@ h6 {
     background-color: #1689D3;
     color: white;
 }
+
 .btn-biru:hover {
+    background-color: #52bafb;
+    color: white;
+}
+
+.btn-biru:focus-within {
     background-color: #52bafb;
     color: white;
 }

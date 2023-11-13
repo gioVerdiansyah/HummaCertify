@@ -599,12 +599,9 @@
           <div class="mt-5 mt-lg-0">
             <img src="{{ asset('landingpage/images/kontak.png') }}" alt="Contact Me" class="img-fluid d-block"
               id="ktkgmr" />
-            <p class="text-muted mt-5 mb-3"><i class="me-2 far fa-envelope text-muted icon icon-xs"></i>
-              hummacertify@gmail.com</p>
-            <p class="text-muted mb-3"><i class="me-2 text-muted icon icon-xs" data-feather="phone"></i>+91 123 4556
-              789</p>
-            <p class="text-muted mb-3"><i class="me-2 text-muted icon icon-xs" data-feather="map-pin"></i> Malang,
-              Karangploso, Perum Permata</p>
+              <p class="text-muted mt-5 mb-3"><i class="me-2 mb-0 far fa-envelope text-muted icon-xs"></i>hummacertify@gmail.com</p>
+              <p class="text-muted mb-3"><i class="me-2 mb-0 text-muted icon icon-xs" data-feather="phone"></i>+91 123 4556 789</p>
+              <p class="text-muted mb-3"><i class="me-2 mb-0 text-muted icon icon-xs" data-feather="map-pin"></i>Malang, Karangploso, Perum Permata</p>
             <ul class="list-inline pt-4 t">
               <li class="list-inline-item me-3">
                 <a href="http://www.facebook.com/hummatech" class="social-icon icon-mono avatar-xs rounded-circle"><i

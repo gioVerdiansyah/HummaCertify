@@ -2411,6 +2411,10 @@ h6 {
     color: #fff;
 }
 
+.btn-biru:focus-within {
+    color: #fff;
+}
+
 .bg-gradient-costum {
     background: linear-gradient(to right, #3dccff 0%, #2c5eb4 100%);
 }
@@ -2550,11 +2554,6 @@ textarea.form-control {
         transition: all 0.5s;
     }
     
-    #blog .text-panjang {
-        font-size: 13px;
-        padding: 0px 10px;
-        line-height: 22px;
-    }
 }
 
 @media (max-width: 360px) {
