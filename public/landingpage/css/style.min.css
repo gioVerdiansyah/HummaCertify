@@ -1927,6 +1927,10 @@ h6 {
         padding-top: 0 !important;
         padding-bottom: 0 !important;
     }
+
+    #social {
+        text-align: center;
+    }
 }
 
 @media (width: 991px) {
@@ -2507,6 +2511,11 @@ textarea.form-control {
     .gmr-footer {
         height: 40%;
     }
+
+    .ctr {
+        font-size: 14px;
+        padding: 0 26px;
+    }
 }
 
 @media (max-width: 360px) {
@@ -2531,4 +2540,10 @@ textarea.form-control {
     font-size: large;
     background: var(--bs-bg-light);
     box-shadow: 0 0 10px;
+}
+
+@media (max-width: 576px){
+    .frm {
+        padding: 0 15px;
+    }
 }
