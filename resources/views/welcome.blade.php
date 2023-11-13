@@ -27,7 +27,7 @@
             </div>
           </form>
           @error('q')
-            <p class="text-danger">{{ $message }}</p>
+            <p class="text-danger ms-4">{{ $message }}</p>
           @enderror
         </div>
         <div class="col-lg-6 col-sm-10 mx-auto ms-lg-auto me-lg-0" id="gambar">
@@ -747,6 +747,7 @@
             errorMessage = $("<p></p>");
             errorMessage.text("Input tidak boleh kosong!");
             errorMessage.addClass("text-danger");
+            errorMessage.addClass("ms-4");
 
             $("#pencarian").append(errorMessage);
           }
