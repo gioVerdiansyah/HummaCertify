@@ -468,19 +468,22 @@
             success: function(response) {
               if (response.error) {
                 $("#simple-msg").empty();
-                if (response.error['g-recaptcha-response']) {
-                  $('#error-captcha').text("reCAPTCHA wajib diisi!");
-                }
-                if (response.error['name']) {
-                  nameContainer.text('Nama harus diisi.');
-                }
-                if (response.error['email']) {
-                  emailContainer.text('Jangan menggunakan nama email kami!');
-                }
-                if (response.error['message']) {
-                  messageContainer.text('Pesan harus diisi.');
-                }
-
+                Object.entries(response.error).forEach(([key, value]) => {
+                  switch (key) {
+                      case 'g-recaptcha-response':
+                          $('#error-captcha').text("reCAPTCHA tidak valid!");
+                          break;
+                      case 'name':
+                          nameContainer.text(value);
+                          break;
+                      case 'email':
+                          emailContainer.text(value);
+                          break;
+                      case 'message':
+                          messageContainer.text(value);
+                          break;
+                    }
+                });
                 $("#submit-button .flex-grow-1").text("Kirim Pesan");
                 $("#submit-button .spinner-border").addClass("d-none");
               } else {

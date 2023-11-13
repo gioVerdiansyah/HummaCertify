@@ -26,7 +26,7 @@ class CertificateStoreRequest extends FormRequest
             // user
             'name' => 'required|string|unique:users,name',
             'email' => ['nullable', 'email:rfc,dns', 'unique:users,email'],
-            'nomor_induk' => 'required|string|min:8|unique:users,nomor_induk|regex:/^[0-9]+$/',
+            'nomor_induk' => 'required|string|min:8|unique:users,nomor_induk|regex:/^[0-9\/.\-]+$/',
             'ttl' => 'required',
             'institusi' => 'required|string|max:60',
             // certificate
@@ -39,7 +39,7 @@ class CertificateStoreRequest extends FormRequest
             // detail
             'category-group' => 'required',
             'category-group.*.materi' => 'required|string|max:85',
-            'category-group.*.jam_pelajaran' => 'required|numeric|gt:1|max:4000|regex:/^[0-9]+$/',
+            'category-group.*.jam_pelajaran' => 'required|numeric|gt:1|max:10000',
 
         ];
     }
