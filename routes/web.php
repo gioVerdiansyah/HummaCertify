@@ -5,7 +5,6 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\DemoTestController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CertificateController;
 use App\Http\Controllers\CategoryController ;
@@ -55,21 +54,3 @@ Route::middleware('AdminUp')->group(function () {
         Route::get('/preview/{ct}', [CategoryController::class, 'preview'])->name('get_preview');
     });
 });
-
-// Testing
-Route::get('/send-mail', [DemoTestController::class, 'sendMail']);
-Route::get('/show-certificate', [DemoTestController::class, 'showCertificate']);
-Route::get('/form-repeater', [DemoTestController::class, 'repeater']);
-Route::get('/copy', [DemoTestController::class, 'copy']);
-Route::get('/p', function () {
-    return view('user.profile');
-});
-
-Route::get('/tes', function () {
-    return view('auth.passwords.resend');
-});
-
-Route::get('/toReset', function (){
-    return view('auth.passwords.reset');
-});
-Route::get('/recaptcha', [DemoTestController::class, 'recaptcha']);
