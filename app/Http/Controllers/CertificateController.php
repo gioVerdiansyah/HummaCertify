@@ -173,10 +173,6 @@ class CertificateController extends Controller
         $dataRequest = $request->all();
         $user = User::with('certificates')->findOrFail($dataRequest['user_id']);
 
-        if($user->certificates[0]->certificate_categori_id == $dataRequest['certificate_categori_id']){
-            return back()->withErrors(['certificate_categori_id' => "Kategori ini sudah digunakan!"])->withInput();
-        }
-
         $uniq = Certificate::count() + 1;
         $nomorKategori = Certificate::where('certificate_categori_id', $dataRequest['certificate_categori_id'])->count() + 1;
         $nomorSertifikat = $this->generateCertificateNumber($uniq, $dataRequest['certificate_categori_id'], $nomorKategori, $dataRequest['tanggal']);

@@ -24,12 +24,7 @@ class EmailUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => [
-                'required',
-                'email',
-                'unique:users,email,' . auth()->id() . ',id',
-                new AllowedEmailExtension,
-            ],
+            'email' => 'required|email:rfc,dns|unique:users,email,' . auth()->id() . ',id'
         ];
     }
 

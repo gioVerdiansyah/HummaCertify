@@ -2,6 +2,7 @@
 
 @section('content')
   <title>{{ config('app.name', 'Laravel') }} - Tambah Background Sertifikat</title>
+  <link rel="stylesheet" href="{{ asset('css/admin/loading.css') }}">
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
   <link rel="stylesheet" href="{{ asset('css/admin/template.css') }}">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -9,7 +10,7 @@
     <div class="not-available">
       <h3 class="not-title">Ukuran layar ini tidak di dukung</h2>
     </div>
-    <form action="{{ route('category.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('category.store') }}" method="POST" enctype="multipart/form-data" onsubmit="document.getElementById('loading').style.display = 'flex';">
       @csrf
       <div class="top-content">
         <div class="left-side">
@@ -25,7 +26,7 @@
               <input type="file" name="depan" id="file" />
               <div class="upload-area @error('depan') is-invalid @enderror" id="uploadfile">
                 @error('depan')
-                  <span>Error: Only images are allowed</span>
+                  <span>Gambar yang di masukkan tidak valid!</span>
                 @else
                   <span>Jatuhkan file disini atau klik untuk menggungah</span>
                 @enderror
@@ -36,7 +37,7 @@
               <input type="file" name="belakang" id="file2" />
               <div class="upload-area2 @error('belakang') is-invalid @enderror" id="uploadfile2">
                 @error('belakang')
-                  <span>Error: Only images are allowed</span>
+                  <span>Gambar yang di masukkan tidak valid!</span>
                 @else
                   <span>Jatuhkan file disini atau klik untuk menggungah</span>
                 @enderror

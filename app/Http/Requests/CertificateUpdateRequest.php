@@ -37,9 +37,8 @@ class CertificateUpdateRequest extends FormRequest
             ],
             'email' => [
                 'nullable',
-                'email',
+                'email:rfc,dns',
                 Rule::unique('users', 'email')->ignore($userId),
-                new AllowedEmailExtension,
             ],
             'nomor_induk' => [
                 'required',
