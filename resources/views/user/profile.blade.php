@@ -195,12 +195,17 @@
         var loadingElement = document.getElementById('load-detail');
         if (loadingElement) {
           loadingElement.remove();
-
         }
 
         hover.style.display = 'flex';
       });
     }).catch(function(error) {
+      var pElement = document.createElement('p');
+      pElement.textContent = 'File PDF tidak ditemukan.';
+
+      document.getElementById('load-detail').remove();
+
+      canvas.parentNode.replaceChild(pElement, canvas);
       console.error('Gagal memproses PDF: ' + error);
     });
   </script>
