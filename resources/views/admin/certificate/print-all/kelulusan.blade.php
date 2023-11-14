@@ -36,10 +36,22 @@
               <p>{{ $certificate->nomor }}</p>
             </div>
           </div>
+       <div class="nama-peserta">
+                <p>
+                    @php
+                        $nameWords = explode(' ', $certificate->user->name);
+                    @endphp
+                    @if (count($nameWords) > 2)
+                        {{ implode(' ', array_slice($nameWords, 0, 2)) . ' ' . implode(' ', array_map(function($word) { return ($word[0]).'.'; }, array_slice($nameWords, 2))) }}
+                    @else
+                        {{ $certificate->user->name }}
+                    @endif
+                </p>
+            </div>
           {{-- Nama Peserta --}}
-          <div class="nama-peserta">
+          {{-- <div class="nama-peserta">
             <p>{{ $certificate->user->name }}</p>
-          </div>
+          </div> --}}
           <div class="nik">
             {{ $certificate->user->nomor_induk }}
           </div>

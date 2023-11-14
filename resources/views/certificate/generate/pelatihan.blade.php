@@ -266,7 +266,17 @@
           </div>
           {{-- Detail Peserta --}}
           <div class="peserta">
-            <p class="nama">{{ $certificate->user->name }}</p>
+                <p class="nama">
+                    @php
+                        $nameWords = explode(' ', $certificate->user->name);
+                    @endphp
+                    @if (count($nameWords) > 2)
+                        {{ implode(' ', array_slice($nameWords, 0, 2)) . ' ' . implode(' ', array_map(function($word) { return ($word[0]).'.'; }, array_slice($nameWords, 2))) }}
+                    @else
+                        {{ $certificate->user->name }}
+                    @endif
+                </p>
+            {{-- <p class="nama">{{ $certificate->user->name }}</p> --}}
             <p class="nik">{{ $certificate->user->nomor_induk }}</p>
             <p class="ttl">{{ $certificate->user->ttl }}</p>
           </div>
