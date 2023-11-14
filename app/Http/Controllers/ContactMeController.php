@@ -13,7 +13,7 @@ class ContactMeController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:30|regex:/^[A-Za-z. \-]+$/',
             'email' => 'required|email:rfc,dns',
-            'message' => ['required', 'regex:/\s/','min:1', 'max:2000'],
+            'message' => ['required','min:1', 'max:2000'],
             'g-recaptcha-response' => ['required', new Recaptcha()],
         ]);
 

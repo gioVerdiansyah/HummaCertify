@@ -76,7 +76,7 @@
 
       .depan .content .nama {
         position: absolute;
-        top: 180px;
+        top: 173px;
         left: 110px;
         width: 900px;
       }
@@ -91,8 +91,8 @@
 
       .depan .content .sekolah {
         position: absolute;
-        top: 340px;
-        left: 312px;
+        top: 332.4px;
+        left: 312.8px;
         width: 500px;
         text-align: center;
         font-family: 'Open Sans', sans-serif;
@@ -102,7 +102,7 @@
 
       .depan .content .text .telah {
         position: absolute;
-        top: 370px;
+        top: 366px;
         left: 423px;
         font-family: 'Poppins', sans-serif;
         font-weight: 400;
@@ -112,7 +112,7 @@
 
       .depan .content .text .pelatihan {
         position: absolute;
-        top: 400px;
+        top: 395px;
         left: 214px;
         font-family: 'Poppins', sans-serif;
         font-weight: 700;
@@ -124,7 +124,7 @@
 
       .depan .content .text .tanggal {
         position: absolute;
-        top: 430px;
+        top: 424px;
         left: 160px;
         font-family: 'Poppins', sans-serif;
         font-weight: 400;
@@ -136,7 +136,7 @@
 
       .depan .content .text .pt {
         position: absolute;
-        top: 462px;
+        top: 455px;
         left: 400px;
         font-family: 'Poppins', sans-serif;
         font-weight: 400;
