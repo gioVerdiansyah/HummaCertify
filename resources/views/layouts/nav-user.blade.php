@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
+  <meta name="description" content="web untuk mengecek certificate dan penambahan certificate">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.1/feather.min.js" integrity="sha512-4lykFR6C2W55I60sYddEGjieC2fU79R7GUtaqr3DzmNbo0vSaO1MfUjMoTFYYuedjfEix6uV9jVTtRCSBU/Xiw==" crossorigin="anonymous" referrerpolicy="no-referrer">
   </script>
@@ -44,8 +45,8 @@
     <div class="container">
       <!-- LOGO -->
       <a class="navbar-brand logo" href="{{ route('home') }}">
-        <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-dark" height="35" />
-        <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-light" height="35" />
+        <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="logo certifiy" class="logo-dark" height="35" />
+        <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="text logo certify" class="logo-light" height="35" />
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -79,7 +80,7 @@
         @auth
           <form action="{{ route('logout') }}" method="POST">
             @csrf
-            <button type="submit" class="btn btn-sm rounded-pill nav-btn ms-lg-3">Logout</button>
+            <button type="submit" class="btn btn-sm rounded-pill nav-btn ms-lg-3" aria-label="logout">Logout</button>
           </form>
         @endauth
         <div class="switcher-hover nav" id="style-switcher">

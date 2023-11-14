@@ -17,7 +17,7 @@
             <div class="searchBox">
               <input class="searchInput" type="search" name="q" id="search"
                 placeholder="Contoh: Ser/0001/0002/02/3112/2023" autocomplete="off" required>
-              <button class="searchButton" href="#">
+              <button class="searchButton" href="#" aria-label="search">
                 <i class="fas fa-search"></i>
               </button>
             </div>
@@ -278,7 +278,7 @@
                     </div>
                     <p id="error-captcha" class="text-danger"></p>
                   </div>
-                  <button type="submit" id="submit-button" name="send" class="btn btn-biru">
+                  <button type="submit" id="submit-button" name="send" class="btn btn-biru" aria-label="buttonsend">
                     <span class="d-flex align-items-center">
                       <span class="flex-grow-1 me-2">
                         Kirim Pesan
