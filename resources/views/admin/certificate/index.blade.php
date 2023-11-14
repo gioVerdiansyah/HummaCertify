@@ -22,8 +22,8 @@
             {{-- Print Status (nonPrint/hasPrint) --}}
             <div class="col-md-6 col-12 mb-2 col-lg-4">
               <select name="print" class="form-select" id="printSelect">
-                <option value="nonPrint" {{ request('print') == 'nonPrint' ? 'selected' : '' }}>non print</option>
-                <option value="hasPrint" {{ request('print') == 'hasPrint' ? 'selected' : '' }}>has print</option>
+                <option value="nonPrint" {{ request('print') == 'nonPrint' ? 'selected' : '' }}>belum di print</option>
+                <option value="hasPrint" {{ request('print') == 'hasPrint' ? 'selected' : '' }}>sudah di print</option>
               </select>
             </div>
             {{-- Button Print All --}}
