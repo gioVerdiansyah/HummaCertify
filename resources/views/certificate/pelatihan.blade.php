@@ -39,17 +39,7 @@
           </div>
           {{-- Detail Peserta --}}
           <div class="peserta">
-                <p class="nama">
-                    @php
-                        $nameWords = explode(' ', $certificate->user->name);
-                    @endphp
-                    @if (count($nameWords) > 3)
-                        {{ implode(' ', array_slice($nameWords, 0, 3)) . ' ' . implode(' ', array_map(function($word) { return ($word[0]).'.'; }, array_slice($nameWords, 3))) }}
-                    @else
-                        {{ $certificate->user->name }}
-                    @endif
-                </p>
-            {{-- <p class="nama">{{ $certificate->user->name }}</p> --}}
+            <p class="nama">{{ $certificate->user->name }}</p>
             <p class="nik">{{ $certificate->user->nomor_induk }}</p>
             <p class="ttl">{{ $certificate->user->ttl }}</p>
           </div>
