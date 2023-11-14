@@ -5,7 +5,7 @@
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
   <link rel="stylesheet" href="{{ asset('css/admin/template.css') }}">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <div class="container-css">
+  <div class="container-css" style="padding: 22px 0 0">
     <div class="not-available">
       <h3 class="not-title">Ukuran layar ini tidak di dukung</h2>
     </div>
@@ -17,7 +17,7 @@
           <div class="header-card">
             <span class="first-title text-start">Upload Latar Belakang</span>
             <span class="second-title text-end text-info"><box-icon name='error-circle' color='#29BADB'
-                class="warn-icon"></box-icon>Ukuran A4 3508px X 2480px</span>
+                class="warn-icon"></box-icon>Ukuran Harus A4 (29.7 x 21 cm)</span>
           </div>
           <hr class="line-header">
           <div class="body-card">

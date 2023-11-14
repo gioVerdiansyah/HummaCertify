@@ -198,8 +198,9 @@
                 </div>
               </div>
               <script src="{{ asset('assets/js/formRepeater.js') }}"></script>
-              <div class="col-4">
+              <div class="d-flex gap-2">
                 <button type="submit" class="btn btn-primary">Edit Sertifikat</button>
+                <a href="{{ route('certificate.index') }}" class="btn btn-danger">Batal</a>
               </div>
             </div>
         </form>

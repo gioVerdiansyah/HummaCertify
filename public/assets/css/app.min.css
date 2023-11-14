@@ -541,7 +541,7 @@
 }
 
 .page-content {
-    padding: calc(70px + 1.5rem) calc(1.5rem * .5) 60px calc(1.5rem * .5)
+    padding: calc(50px + 1.5rem) calc(1.5rem * .5) 60px calc(1.5rem * .5)
 }
 
 .navbar-menu {
