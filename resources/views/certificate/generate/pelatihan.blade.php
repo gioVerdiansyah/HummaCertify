@@ -65,16 +65,16 @@
 
       .depan .content .no {
         position: absolute;
-        top: 217px;
-        left: 365px;
+        top: 210.5px;
+        left: 365.5px;
         font-family: "Merriweather", serif;
         font-size: 18px;
       }
 
       .depan .content .nomer {
         position: absolute;
-        top: 212px;
-        left: 410px;
+        top: 206.2px;
+        left: 410.5px;
         font-family: "Poppins", sans-serif;
         font-weight: 400;
         font-size: 18px;
@@ -288,11 +288,10 @@
           {{-- QR CODE --}}
           <div class="qr-code">
             <center>
-              <img
-                src="data:image/png;base64,{{ base64_encode(QrCode::format('png')->merge('https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/logo-bg-blue.png', 0.3, true)->size(100)->generate(route('search') . '?q=' . $certificate->nomor)) }}"
+              <img src="data:image/png;base64,{{ base64_encode(QrCode::format('png')->merge('https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/logo-bg-blue.png', 0.3, true)->size(100)->generate(route('search') . '?q=' . $certificate->nomor)) }}"
                 alt="QR Code">
             </center>
-            <figcaption style="font-size: 10px">QR authenticity certificate</figcaption>
+            <figcaption style="font-size: 10px; margin-top: 4px">QR authenticity certificate</figcaption>
           </div>
           {{-- Keterangan --}}
           <div class="keterangan">
