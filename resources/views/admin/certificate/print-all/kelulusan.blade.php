@@ -41,8 +41,8 @@
                     @php
                         $nameWords = explode(' ', $certificate->user->name);
                     @endphp
-                    @if (count($nameWords) > 3)
-                        {{ implode(' ', array_slice($nameWords, 0, 3)) . ' ' . implode(' ', array_map(function($word) { return ($word[0]).'.'; }, array_slice($nameWords, 3))) }}
+                    @if (count($nameWords) > config('hummacertify.per_kata'))
+                        {{ implode(' ', array_slice($nameWords, 0, config('hummacertify.per_kata'))) . ' ' . implode(' ', array_map(function($word) { return ($word[0]).'.'; }, array_slice($nameWords, config('hummacertify.per_kata')))) }}
                     @else
                         {{ $certificate->user->name }}
                     @endif
