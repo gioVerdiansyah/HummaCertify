@@ -270,8 +270,8 @@
                     @php
                         $nameWords = explode(' ', $certificate->user->name);
                     @endphp
-                    @if (count($nameWords) > 2)
-                        {{ implode(' ', array_slice($nameWords, 0, 2)) . ' ' . implode(' ', array_map(function($word) { return ($word[0]).'.'; }, array_slice($nameWords, 2))) }}
+                    @if (count($nameWords) > 3)
+                        {{ implode(' ', array_slice($nameWords, 0, 3)) . ' ' . implode(' ', array_map(function($word) { return ($word[0]).'.'; }, array_slice($nameWords, 3))) }}
                     @else
                         {{ $certificate->user->name }}
                     @endif
