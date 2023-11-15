@@ -7,7 +7,7 @@
     position: relative;
 }
 .pagination li a.page-link {
-    color: #174fb8;
+    color: #1689D3;
     background: #eee;
     font-size: 17px;
     font-weight: 700;
@@ -39,7 +39,7 @@
 .pagination li a.page-link:before,
 .pagination li a.page-link:after {
     content: "";
-    background-color: #174fb8;
+    background-color: #1689D3;
     height: 60%;
     width: 100%;
     opacity: 0;
