@@ -191,7 +191,7 @@
       <div class="container container-lulus">
         <div class="scroller">
           <ul class="tag-list scroller__inner">
-            @if (count($userCertificate) > 4)
+            @if (count($userCertificate) > 3)
               @foreach ($userCertificate as $data)
                 <li>
                   <div class="card card-lulus text-center">
