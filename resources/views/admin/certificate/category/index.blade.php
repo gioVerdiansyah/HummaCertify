@@ -4,7 +4,7 @@
   <link rel="stylesheet" href="{{ asset('css/admin/admincategory.css') }}">
   <div class="mb-3 d-flex justify-content-between w-100">
     <div>
-      <a href="{{ route('category.create') }}" class="btn btn-primary">Tambah Kategori <i class="ri-add-line"></i></a>
+      <a href="{{ route('category.create') }}" class="btn btn-primary d-flex align-items-center gap-2">Tambah Kategori <i class="ri-add-line"></i></a>
     </div>
     <div class="w-20">
       <select name="restore" class="form-select" id="restoreSelect">

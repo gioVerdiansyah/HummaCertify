@@ -187,17 +187,20 @@
 
                 </div>
 
-                <div class="tab-content position-relative notificationContainer" style="max-height: 300px; overflow: auto" id="notificationItemsTabContent">
+                <div class="tab-content position-relative notificationContainer"
+                  style="max-height: 300px; overflow: auto" id="notificationItemsTabContent">
                   @forelse ($notification as $i => $data)
                     {{-- Foreach notif mulai dari sini --}}
-                    <div class="tab-pane fade show active py-2 ps-2" id="row-notif-{{ ++$i }}" role="tabpanel">
+                    <div class="tab-pane fade show active py-2 ps-2" id="row-notif-{{ ++$i }}"
+                      role="tabpanel">
                       <div data-simplebar style="max-height: 300px;" class="pe-2">
                         <div class="text-reset notification-item d-block dropdown-item position-relative">
                           <div class="d-flex">
                             <div class="flex-grow-1">
                               <h6 class="mt-0 mb-1 fs-13 fw-semibold">{{ $data->name }} | {{ $data->email }}</h6>
                               @if (strlen($data->message) > 194)
-                                <div class="fs-13 text-muted" style="cursor: pointer; width: 230px;" data-bs-toggle="modal" data-bs-target="#notifmodal-{{ $data->id }}">
+                                <div class="fs-13 text-muted" style="cursor: pointer; width: 230px;"
+                                  data-bs-toggle="modal" data-bs-target="#notifmodal-{{ $data->id }}">
                                   <p class="mb-1 custom-ellipsis" style="max-height: 120px; overflow: hidden;">
                                     {{ $data->message }}</p>
                                 </div>
@@ -218,8 +221,13 @@
                               </p>
                             </div>
                             <div class="px-2 fs-15">
-                              <div class="form-check notification-check d-flex justify-content-center align-items-center" style="">
-                                <button class="btn btn-sm" onclick="deleteNotif({{ $i }}, {{ $data->id }});" style="font-size: 25px; position: absolute; top: -10px; right: -20px; color: #878A99"><i class="fi fi-sr-cross-small"></i></button>
+                              <div
+                                class="form-check notification-check d-flex justify-content-center align-items-center"
+                                style="">
+                                <button class="btn btn-sm"
+                                  onclick="deleteNotif({{ $i }}, {{ $data->id }});"
+                                  style="font-size: 25px; position: absolute; top: -10px; right: -20px; color: #878A99"><i
+                                    class="fi fi-sr-cross-small"></i></button>
                               </div>
                             </div>
                           </div>
@@ -311,7 +319,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link menu-link {{ request()->routeIs('certificate.create') ? 'active' : '' }}"
+              <a class="nav-link menu-link {{ request()->routeIs('certificate.create') || request()->routeIs('certificate.create_exist') ? 'active' : '' }}"
                 href="{{ route('certificate.create') }}">
                 <img width="26px" alt="icon_admin" src="{{ asset('image/message-square-add-solid-36.png') }}"
                   style="transform: translateX(-1px); margin-right: 5px">
@@ -319,7 +327,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link menu-link {{ request()->routeIs('category.index') ? 'active' : '' }}"
+              <a class="nav-link menu-link {{ request()->routeIs('category.index') || request()->routeIs('category.create') ? 'active' : '' }}"
                 href="{{ route('category.index') }}">
                 <img width="26px" alt="icon_admin" src="{{ asset('image/category-alt-solid-36.png') }}"
                   style="transform: translateX(-1px); margin-right: 5px">
@@ -354,9 +362,7 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-sm-6">
-              <script>
-                document.write(new Date().getFullYear())
-              </script> © HummaCertify.
+              2023 © HummaCertify.
             </div>
             <div class="col-sm-6">
               <div class="text-sm-end d-none d-sm-block">
@@ -379,36 +385,38 @@
   <!--end back-to-top-->
   @forelse ($notification as $data)
     @if (strlen($data->message) > 194)
-        <div id="notifmodal-{{ $data->id }}" class="modal fade notifmodal" tabindex="-1"
-            aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="btn-close" onclick="$('#notifmodal-{{ $data->id }}').modal('hide');" aria-label="Close"> </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="detail">
-                            <div class="nama">{{ $data->name }}</div>
-                            <div class="email">{{ $data->email }}</div>
-                        </div>
-                        <hr>
-                        <div class="text-pesan">
-                            <div>Pesan</div>
-                        </div>
-                        <div class="container-text">
-                            <div class="text">
-                                <p>
-                                    {{ $data->message }}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-light" onclick="$('#notifmodal-{{ $data->id }}').modal('hide');">Close</button>
-                    </div>
-                </div>
+      <div id="notifmodal-{{ $data->id }}" class="modal fade notifmodal" tabindex="-1"
+        aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="btn-close" onclick="$('#notifmodal-{{ $data->id }}').modal('hide');"
+                aria-label="Close"> </button>
             </div>
+            <div class="modal-body">
+              <div class="detail">
+                <div class="nama">{{ $data->name }}</div>
+                <div class="email">{{ $data->email }}</div>
+              </div>
+              <hr>
+              <div class="text-pesan">
+                <div>Pesan</div>
+              </div>
+              <div class="container-text">
+                <div class="text">
+                  <p>
+                    {{ $data->message }}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-light"
+                onclick="$('#notifmodal-{{ $data->id }}').modal('hide');">Close</button>
+            </div>
+          </div>
         </div>
+      </div>
     @endif
   @empty
   @endforelse
@@ -450,11 +458,6 @@
   <script src="{{ asset('assets/libs/node-waves/waves.min.js') }}"></script>
   <script src="{{ asset('assets/libs/feather-icons/feather.min.js') }}"></script>
   <script src="{{ asset('assets/js/pages/plugins/lord-icon-2.1.0.js') }}"></script>
-  <script src="{{ asset('assets/js/plugins.js') }}"></script>
-  {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> --}}
-
-  <!-- apexcharts -->
-  <script src="{{ asset('assets/libs/apexcharts/apexcharts.min.js') }}"></script>
 
   <!-- Vector map-->
   <script src="{{ asset('assets/libs/jsvectormap/js/jsvectormap.min.js') }}"></script>
