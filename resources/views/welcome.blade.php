@@ -377,17 +377,6 @@
       });
     }
   </script>
-
-  {{-- <script>
-    $("#search").on('keyup', function () {
-        var search = $("#search").val();
-        localStorage.setItem("search", search);
-        console.log(search);
-    });
-
-    var restore = localStorage.getItem("search");
-    $("#search").val(restore);
-  </script> --}}
   <script>
     $(document).ready(function() {
       $("#searching").submit(function(event) {
@@ -614,7 +603,7 @@
     exampleCarousel.useControls();
   </script>
 
-  <div class="instant-up">
-    <i class="fas fa-arrow-up"></i>
+  <div class="instant-up" id="goUp">
+    <i class="fa-solid fa-arrow-up fa-fade"></i>
   </div>
 @endsection
