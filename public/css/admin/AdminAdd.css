@@ -18,3 +18,8 @@
     font-weight: 600;
     font-size: large;
 }
+
+#button-hapus-detail {
+    width: max-content;
+    height: max-content;
+}

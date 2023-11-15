@@ -9,7 +9,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CertificateController;
 use App\Http\Controllers\CategoryController ;
 
-Auth::routes(['register' => false]);
+Auth::routes(['register' => false, 'confirm' => false]);
 
 Route::middleware('AdminDown')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
