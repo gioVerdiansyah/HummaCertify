@@ -12,8 +12,9 @@
   <link rel="shortcut icon" href="{{ asset('image/Hummatech logo.png') }}" type="image/x-icon">
 
   <!-- icon -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous"
-    referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
   <!-- css -->
@@ -26,7 +27,8 @@
 
 <body>
   <script src="{{ asset('js/themeLoader.js') }}"></script>
-  <section id="background-login" class="bg-account-pages vh-100 d-flex align-items-center bg-center position-relative" style="background-image: url('logintemplate/images/auth-bg.png');">
+  <section id="background-login" class="bg-account-pages vh-100 d-flex align-items-center bg-center position-relative"
+    style="background-image: url('logintemplate/images/auth-bg.png');">
 
     <div class="container">
       <div class="row justify-content-center">
@@ -34,18 +36,22 @@
           <div class="form-bg shadow bg-white">
             <div class="p-4">
               <div class="text-center mt-3 brand-logo">
-                <a href="#">
-                  <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-dark" height="35" />
-                  <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-light" height="35" />
+                <a href="#" aria-label="Certify Homepage">
+                  <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="Certify Logo Dark" class="logo-dark"
+                    height="35" />
+                  <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="Certify Logo Light"
+                    class="logo-light" height="35" />
                 </a>
-                <p class="text-muted mt-2">Masuk untuk meng-akses akun anda</p>
+                <p class="text-muted mt-2">Masuk untuk mengakses akun anda</p>
               </div>
+
               <div class="p-3">
                 <form action="/login" method="POST" class="av-invalid">
                   @csrf
                   <div class="mb-3">
                     <label for="email" class="form-label">Email / Nama</label>
-                    <input name="email" required placeholder="Email atau nama" id="username" type="text" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" />
+                    <input name="email" required placeholder="Email atau nama" id="username" type="text"
+                      class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" />
                     @error('email')
                       <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -54,7 +60,8 @@
                   </div>
                   <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input name="password" required placeholder="Password Nisn / Nik / Nip " id="userpassword" type="password" class="form-control backG @error('password') is-invalid @enderror" />
+                    <input name="password" required placeholder="Password Nisn / Nik / Nip " id="userpassword"
+                      type="password" class="form-control backG @error('password') is-invalid @enderror" />
                     <div style="display: none" id="eyeShow" class="eye">
                       <div class="icon" id="icon">
                         <i class="fa-regular fa-eye" id="show" style="display: block"></i>
@@ -69,7 +76,8 @@
                   </div>
                   <div class="mb-3">
                     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-                    <div class="g-recaptcha d-flex justify-content-center" id="feedback-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}">
+                    <div class="g-recaptcha d-flex justify-content-center" id="feedback-recaptcha"
+                      data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}">
                     </div>
                     @error('g-recaptcha-response')
                       <p class="text-danger">reCAPTCHA wajib diisi!</p>
@@ -77,7 +85,8 @@
                   </div>
                   <div class="form-check">
                     <div class="forgot-start">
-                      <input class="form-check-input" type="checkbox" id="remember-Check" name="remember" {{ old('remember') ? 'checked' : '' }}>
+                      <input class="form-check-input" type="checkbox" id="remember-Check" name="remember"
+                        {{ old('remember') ? 'checked' : '' }}>
                       <label class="form-check-label" for="remember-Check">Ingat saya</label>
                     </div>
                     <div class="forgot-end">
