@@ -101,7 +101,7 @@
                 @enderror
               </div>
               <div class="col-12 mb-4">
-                <label for="bidang" class="form-label">Bidang/Division</label>
+                <label for="bidang" class="form-label">Bidang/Divisi</label>
                 <input required type="text"
                   class="form-control @error('bidang') is-invalid
                                 @enderror"
@@ -126,7 +126,7 @@
                 @enderror
               </div>
               <div class="col-12 mb-4">
-                <label for="tanggal" class="form-label">Tanggal Acara</label>
+                <label for="tanggal" class="form-label">Tanggal</label>
                 <input required type="date"
                   class="form-control @error('tanggal') is-invalid
                                 @enderror"
