@@ -52,12 +52,14 @@
               <div class="icon-mono service-icon avatar-md mx-auto mb-4">
                 <i class="bx bx-cog fs-3"></i>
               </div>
-              <h4 class="mb-3 font-size-22">Fungsi</h4>
+              <h3 class="mb-3 font-size-22">Fungsi</h3>
               <p class="text-muted mb-0">Pencarian sertifikat adalah langkah kunci dalam memastikan keabsahan dokumen
                 penting yang anda miliki</p>
             </div>
           </div>
         </div>
+      </div>
+
 
         <div class="col-lg-4">
           <div class="service-box text-center px-4 py-5 position-relative mb-4 active">
@@ -296,28 +298,27 @@
         </div>
 
         <div class="col-lg-5 ms-lg-auto" id="social">
-          <div class="mt-5 mt-lg-0">
-            <img src="{{ asset('landingpage/images/kontak.png') }}" alt="Contact Me" class="img-fluid d-block"
-              id="ktkgmr" />
+            <div class="mt-5 mt-lg-0">
+              <img src="{{ asset('landingpage/images/kontak.png') }}" alt="Contact Me" class="img-fluid d-block" id="ktkgmr" />
               <p class="text-muted mt-5 mb-3"><i class="me-2 mb-0 far fa-envelope text-muted icon-xs"></i>hummacertify@gmail.com</p>
               <p class="text-muted mb-3"><i class="me-2 mb-0 text-muted icon icon-xs" data-feather="phone"></i>+91 123 4556 789</p>
               <p class="text-muted mb-3"><i class="me-2 mb-0 text-muted icon icon-xs" data-feather="map-pin"></i>Malang, Karangploso, Perum Permata</p>
-            <ul class="list-inline pt-4 t">
-              <li class="list-inline-item me-3">
-                <a href="http://www.facebook.com/hummatech" class="social-icon icon-mono avatar-xs rounded-circle"><i
-                    class="icon-xs" data-feather="facebook"></i></a>
-              </li>
-              <li class="list-inline-item me-3">
-                <a href="http://www.youtube.com/@hummatech" class="social-icon icon-mono avatar-xs rounded-circle"><i
-                    class="icon-xs" data-feather="youtube"></i></a>
-              </li>
-              <li class="list-inline-item">
-                <a href="http://www.instagram.com/hummatech" class="social-icon icon-mono avatar-xs rounded-circle"><i
-                    class="icon-xs" data-feather="instagram"></i></a>
-              </li>
-            </ul>
+              <ul class="list-inline pt-4 t">
+                <li class="list-inline-item me-3">
+                  <a href="http://www.facebook.com/hummatech" class="social-icon icon-mono avatar-xs rounded-circle" aria-label="Facebook"><i
+                      class="icon-xs" data-feather="facebook"></i></a>
+                </li>
+                <li class="list-inline-item me-3">
+                  <a href="http://www.youtube.com/@hummatech" class="social-icon icon-mono avatar-xs rounded-circle" aria-label="YouTube"><i
+                      class="icon-xs" data-feather="youtube"></i></a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="http://www.instagram.com/hummatech" class="social-icon icon-mono avatar-xs rounded-circle" aria-label="Instagram"><i
+                      class="icon-xs" data-feather="instagram"></i></a>
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
       </div>
     </div>
   </section>
