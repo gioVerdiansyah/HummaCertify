@@ -413,10 +413,8 @@
       var sendCount = parseInt(localStorage.getItem('sendCount')) || 0;
       var lastResetTime = parseInt(localStorage.getItem('lastResetTime')) || new Date().getTime();
       var currentTime = new Date().getTime();
-      var timeDifference = currentTime - lastResetTime;
-      var oneDayInMillis = 24 * 60 * 60 * 1000;
 
-      if (timeDifference >= oneDayInMillis) {
+      if (lastResetTime <= currentTime) {
         sendCount = 0;
         lastResetTime = currentTime;
 
