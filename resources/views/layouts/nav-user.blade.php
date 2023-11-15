@@ -53,7 +53,7 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="collapse navbar-collapse" id="navbarCollapse" style="margin-right: 20px">
         <ul class="navbar-nav ms-auto navbar-center" id="navbar-navlist">
           <li class="nav-item">
             <a href="{{ route('home') }}#home" id="beranda" class="nav-link">Beranda</a>

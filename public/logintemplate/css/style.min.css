@@ -2364,3 +2364,13 @@ h6 {
 .text-biru:hover {
     color: #0b5c8f;
 }
+
+@media screen and (max-width: 428px) {
+    .mobile-background {
+        background-color: var(--bs-body-bg);
+    }
+
+    input {
+        background-color: transparent !important;
+    }
+}
