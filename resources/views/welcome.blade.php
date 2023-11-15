@@ -53,9 +53,10 @@
               <div class="icon-mono service-icon avatar-md mx-auto mb-4">
                 <i class="bx bx-cog fs-3"></i>
               </div>
-              <h4 class="mb-3 font-size-22">Fungsi</h4>
+              <h2 class="mb-3 font-size-22">Fungsi</h2>
               <p class="text-muted mb-0">Pencarian sertifikat adalah langkah kunci dalam memastikan keabsahan dokumen
                 penting yang anda miliki</p>
+
             </div>
           </div>
         </div>
@@ -66,7 +67,7 @@
               <div class="icon-mono service-icon avatar-md mx-auto mb-4">
                 <i class="bx bx-book-reader fs-3"></i>
               </div>
-              <h4 class="mb-3 font-size-22">Manfaat</h4>
+              <h3 class="mb-3 font-size-22">Manfaat</h3>
               <p class="text-muted mb-0">Sertifikat adalah bukti konkrit pencapaian dan digunakan dalam berbagai
                 konteks, seperti pekerjaan dll</p>
             </div>
@@ -281,7 +282,7 @@
                     <p id="error-captcha" class="text-danger"></p>
                   </div>
                   <button type="submit" id="submit-button" name="send" class="btn btn-biru"
-                    aria-label="buttonsend">
+                    aria-label="Kirim Pesan">
                     <span class="d-flex align-items-center">
                       <span class="flex-grow-1 me-2">
                         Kirim Pesan
@@ -291,6 +292,7 @@
                       </span>
                     </span>
                   </button>
+
                 </div>
               </div>
             </form>
@@ -581,11 +583,21 @@
 
       setControls() {
         this.carouselControls.forEach((control) => {
-          galleryControlsContainer.appendChild(document.createElement("button")).className =
-            `gallery-controls-${control}`;
-          document.querySelector(`.gallery-controls-${control}`).innerText = '';
+          const button = document.createElement("button");
+          button.className = `gallery-controls-${control}`;
+
+          // Tambahkan atribut aria-label atau teks langsung ke dalam tombol
+          if (control === 'p') {
+            button.setAttribute('aria-label', 'Previous');
+          } else if (control === 'n') {
+            button.setAttribute('aria-label', 'Next');
+          }
+
+          galleryControlsContainer.appendChild(button);
+          button.innerText = '';
         });
       }
+
 
       useControls() {
         const triggers = [...galleryControlsContainer.childNodes];
