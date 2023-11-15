@@ -96,8 +96,6 @@
         <div class="row justify-content-center">
           <div class="col-md-8 col-lg-6 col-xl-5">
             <div class="form-bg shadow bg-white">
-              <form method="POST" action="{{ route('password.email') }}" class="av-invalid" onsubmit="loadingKirim(document.getElementById('submit-button'), 'Mengirim Ulang Email')">
-                @csrf
                 <div class="p-4 mobile-background">
                   <div class="text-center mt-3 brand-logo j">
                     <a href="#">
@@ -114,32 +112,16 @@
                     </p>
                   </div>
                   <div class="p-3">
-                    <div class="mb-3">
-                      <input name="email" required placeholder="Email" id="username" type="hidden"
-                        class="form-control" value="{{ session('email') }}" />
-                    </div>
                     @error('email')
                       <p class="text-danger text-center">{{ $message }}</p>
                     @enderror
                     <div class="d-grid mt-3">
-                      <button type="submit" id="submit-button" name="send" class="btn btn-biru px-2">
-                      <span class="d-flex align-items-center justify-content-center">
-                        <span class="loading-text me-2">
-                          Kirim Ulang
-                        </span>
-                        <span class="spinner-border flex-shrink-0 d-none" role="status">
-                          <span class="visually-hidden">Mengirim Ulang Email...</span>
-                        </span>
-                      </span>
+                      <button type="button" id="submit-button" name="send" class="btn btn-biru px-2" onclick="location.reload();">
+                      Kembali
                     </button>
                     </div>
                   </div>
                 </div>
-              </form>
-            </div>
-            <div class="text-center mt-4 bottom-text">
-              <p>Email Salah? <a href="{{ route('password.request') }}" class="font-weight-semibold text-biru">
-                  Kembali </a> </p>
             </div>
           </div>
           <!-- end col -->
@@ -191,19 +173,16 @@
         errorMessage.innerHTML = '<p>Email tidak boleh kosong!</p>';
         emailContainer.appendChild(errorMessage);
       } else {
-        loadingKirim(submitButton);
-      }
-    });
-    function loadingKirim(selector, text = "Mengirim Email"){
-        selector.setAttribute('type', 'button');
-        selector.querySelector('.loading-text').textContent = text + '...';
-        selector.querySelector('.spinner-border').classList.remove('d-none');
+        submitButton.setAttribute('type', 'button');
+        submitButton.querySelector('.loading-text').textContent = 'Mengirim Email...';
+        submitButton.querySelector('.spinner-border').classList.remove('d-none');
 
         setTimeout(function() {
-          selector.querySelector('.flex-grow-1').textContent = 'Submit';
-          selector.querySelector('.spinner-border').classList.add('d-none');
+          submitButton.querySelector('.flex-grow-1').textContent = 'Submit';
+          submitButton.querySelector('.spinner-border').classList.add('d-none');
         }, 3000);
-    }
+      }
+    });
   </script>
 
   <script src="{{ asset('logintemplate/js/bootstrap.bundle.min.js') }}"></script>
