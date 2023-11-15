@@ -54,10 +54,10 @@ class ProfileController extends Controller
             'g-recaptcha-response' => ['required', new Recaptcha()],
         ],[
             'confirmPassword.required' => 'Konfimasi password harus di isi',
-            'confirmPassword.same' => 'Konfirmasi Password harus sama dengan Password Baru',
+            'confirmPassword.same' => 'Konfirmasi Password tidak sama',
             'newPassword.required' => 'Password baru harus di isi',
             'newPassword.min' => 'Password baru minimal harus berisi :min huruf',
-            'newPassword.regex' => 'Password baru harus valid ',
+            'newPassword.regex' => 'Password baru tidak valid ',
         ]);
         $id = Auth::user()->id;
         $user = User::findOrFail($id);
