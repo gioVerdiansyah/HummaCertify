@@ -86,13 +86,13 @@
           </form>
         @endauth
         <div class="switcher-hover nav" id="style-switcher">
-          <div class="bottom">
-            <a href="javascript: void(0);" id="mode" class="mode-btn text-white">
-              <i class="bi bi-brightness-high mode-light" style="color: black"></i>
-              <i class="bi bi-moon mode-dark"></i>
-            </a>
-            <a href="javascript: void(0);" class="settings" onclick="toggleSwitcher()"></a>
-          </div>
+            <div class="bottom">
+              <a href="#" id="mode" class="mode-btn text-white" aria-label="Toggle Dark/Light Mode">
+                <i class="bi bi-brightness-high mode-light" style="color: black"></i>
+                <i class="bi bi-moon mode-dark"></i>
+              </a>
+              <a href="#" class="settings" onclick="toggleSwitcher()" aria-label="Toggle Settings"></a>
+            </div>
         </div>
       </div>
     </div>
