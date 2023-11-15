@@ -7,7 +7,7 @@
                     <p class="small text-muted">
                         {!! __('Showing') !!}
                         <span class="fw-semibold">{{ $paginator->firstItem() }}</span>
-                        {!! __('sampai') !!}
+                        {!! __('to') !!}
                         <span class="fw-semibold">{{ $paginator->lastItem() }}</span>
                         {!! __('of') !!}
                         <span class="fw-semibold">{{ $paginator->total() }}</span>
@@ -23,7 +23,7 @@
                     </li>
                 @else
                     <li class="page-item">
-                        <a class="page-link" href="{{ $paginator->previousPageUrl() }}" rel="prev">&lsaquo;</a>
+                        <a class="page-link" href="{{ $paginator->appends(request()->query())->previousPageUrl() }}" rel="prev">&lsaquo;</a>
                     </li>
                 @endif
 
@@ -46,7 +46,7 @@
                                 </li>
                             @else
                                 <li class="page-item">
-                                    <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                                    <a class="page-link" href="{{ $paginator->appends(request()->query())->url($page) }}">{{ $page }}</a>
                                 </li>
                             @endif
                         @endforeach
@@ -56,7 +56,7 @@
                 {{-- Next Page Link --}}
                 @if ($paginator->hasMorePages())
                     <li class="page-item">
-                        <a class="page-link" href="{{ $paginator->nextPageUrl() }}" rel="next">&rsaquo; </a>
+                        <a class="page-link" href="{{ $paginator->appends(request()->query())->nextPageUrl() }}" rel="next">&rsaquo; </a>
                     </li>
                 @else
                     <li class="page-item disabled" aria-disabled="true">
