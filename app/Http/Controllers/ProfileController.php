@@ -53,10 +53,11 @@ class ProfileController extends Controller
             'newPassword' => 'required|min:8|regex:/^[0-9,a-z]+$/',
             'g-recaptcha-response' => ['required', new Recaptcha()],
         ],[
-            'confirmPassword.required' => 'confirme password harus di isi',
-            'newPassword.required' => 'new password harus di isi',
-            'newPassword.min' => 'password baru minimal :min',
-            'newPassword.regex' => 'password baru harus valid ',
+            'confirmPassword.required' => 'Konfimasi password harus di isi',
+            'confirmPassword.same' => 'Konfirmasi Password harus sama dengan Password Baru',
+            'newPassword.required' => 'Password baru harus di isi',
+            'newPassword.min' => 'Password baru minimal harus berisi :min huruf',
+            'newPassword.regex' => 'Password baru harus valid ',
         ]);
         $id = Auth::user()->id;
         $user = User::findOrFail($id);
@@ -73,7 +74,7 @@ class ProfileController extends Controller
                     'message',
                     [
                         'icon' => 'success',
-                        'title' => "berhasil mengubah password ",
+                        'title' => "Berhasil mengubah password ",
                         'text' => "Anda bisa memakai password baru"
                     ]
                 );
@@ -82,7 +83,7 @@ class ProfileController extends Controller
                     'message',
                     [
                         'icon' => 'warning',
-                        'title' => "ada kesalahan",
+                        'title' => "Ada kesalahan",
                         'text' => "Tidak bisa mengubah password karena ada kesalahan data"
                     ]
                 );
@@ -92,8 +93,8 @@ class ProfileController extends Controller
                 'message',
                 [
                     'icon' => 'error',
-                    'title' => "ada kesalahan",
-                    'text' => "password lama tidak sama dengan password lama"
+                    'title' => "Ada kesalahan",
+                    'text' => "Password lama tidak cocok"
                 ]
             );
         }
