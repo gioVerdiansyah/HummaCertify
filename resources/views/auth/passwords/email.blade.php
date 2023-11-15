@@ -38,7 +38,7 @@
         <div class="row justify-content-center">
           <div class="col-md-8 col-lg-6 col-xl-5">
             <div class="form-bg shadow bg-white">
-              <div class="p-4">
+              <div class="p-4 mobile-background">
                 <div class="text-center mt-3 brand-logo j">
                   <a href="#">
                     <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-dark"
@@ -67,7 +67,7 @@
                 </div>
                 <div class="d-grid mt-3">
                   @if (!session('status'))
-                    <button type="submit" id="submit-button" name="send" class="btn btn-biru">
+                    <button type="submit" id="submit-button" name="send" class="btn btn-biru px-2">
                       <span class="d-flex align-items-center justify-content-center">
                         <span class="loading-text me-2">
                           Kirim Email Lupa Password
@@ -96,9 +96,7 @@
         <div class="row justify-content-center">
           <div class="col-md-8 col-lg-6 col-xl-5">
             <div class="form-bg shadow bg-white">
-              <form method="POST" action="{{ route('password.email') }}" class="av-invalid">
-                @csrf
-                <div class="p-4">
+                <div class="p-4 mobile-background">
                   <div class="text-center mt-3 brand-logo j">
                     <a href="#">
                       <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-dark"
@@ -114,23 +112,16 @@
                     </p>
                   </div>
                   <div class="p-3">
-                    <div class="mb-3">
-                      <input name="email" required placeholder="Email" id="username" type="hidden"
-                        class="form-control" value="{{ session('email') }}" />
-                    </div>
                     @error('email')
                       <p class="text-danger text-center">{{ $message }}</p>
                     @enderror
                     <div class="d-grid mt-3">
-                      <button type="submit" class="btn btn-biru btn-none">Kirim Ulang</button>
+                      <button type="button" id="submit-button" name="send" class="btn btn-biru px-2" onclick="location.reload();">
+                      Kembali
+                    </button>
                     </div>
                   </div>
                 </div>
-              </form>
-            </div>
-            <div class="text-center mt-4 bottom-text">
-              <p>Email Salah? <a href="{{ route('password.request') }}" class="font-weight-semibold text-biru">
-                  Kembali </a> </p>
             </div>
           </div>
           <!-- end col -->
@@ -153,6 +144,7 @@
         showConfirmButton: false,
         timer: 3000,
         timerProgressBar: true,
+        background: 'var(--bs-bg-light)',
         didOpen: (toast) => {
           toast.onmouseenter = Swal.stopTimer;
           toast.onmouseleave = Swal.resumeTimer;

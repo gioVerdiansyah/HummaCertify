@@ -23,7 +23,7 @@ function windowScroll() {
 window.addEventListener('scroll', (ev) => {
     ev.preventDefault();
     windowScroll();
-})
+});
 
 
 // Smooth scroll
@@ -117,8 +117,6 @@ function setColor(theme) {
     document.getElementById('color-opt').href = './css/colors/' + theme + '.css';
     toggleSwitcher(false);
 };
-
-
 
 //
 /********************* light-dark js ************************/

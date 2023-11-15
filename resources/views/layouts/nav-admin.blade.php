@@ -297,7 +297,7 @@
             <li class="nav-item">
               <a class="nav-link menu-link {{ request()->routeIs('admin.home') ? 'active' : '' }}"
                 href="{{ route('admin.home') }}">
-                <img width="26px" src="{{ asset('image/bar-chart-square-solid-36.png') }}"
+                <img width="26px" alt="icon_admin" src="{{ asset('image/bar-chart-square-solid-36.png') }}"
                   style="transform: translateX(-1px); margin-right: 5px">
                 <span data-key="t-dashboard">Dashboard</span>
               </a>
@@ -305,7 +305,7 @@
             <li class="nav-item">
               <a class="nav-link menu-link {{ request()->routeIs('certificate.index') ? 'active' : '' }}"
                 href="{{ route('certificate.index') }}">
-                <img width="26px" src="{{ asset('image/table-regular-36.png') }}"
+                <img width="26px" alt="icon_admin" src="{{ asset('image/table-regular-36.png') }}"
                   style="transform: translateX(-1px); margin-right: 5px">
                 <span data-key="t-list_sertificate">List Sertifikat</span>
               </a>
@@ -313,7 +313,7 @@
             <li class="nav-item">
               <a class="nav-link menu-link {{ request()->routeIs('certificate.create') ? 'active' : '' }}"
                 href="{{ route('certificate.create') }}">
-                <img width="26px" src="{{ asset('image/message-square-add-solid-36.png') }}"
+                <img width="26px" alt="icon_admin" src="{{ asset('image/message-square-add-solid-36.png') }}"
                   style="transform: translateX(-1px); margin-right: 5px">
                 <span data-key="t-tambah_certificate">Tambah Sertifikat</span>
               </a>
@@ -321,7 +321,7 @@
             <li class="nav-item">
               <a class="nav-link menu-link {{ request()->routeIs('category.index') ? 'active' : '' }}"
                 href="{{ route('category.index') }}">
-                <img width="26px" src="{{ asset('image/category-alt-solid-36.png') }}"
+                <img width="26px" alt="icon_admin" src="{{ asset('image/category-alt-solid-36.png') }}"
                   style="transform: translateX(-1px); margin-right: 5px">
                 <span data-key="t-tambah_certificate">Kategori Sertifikat</span>
               </a>
