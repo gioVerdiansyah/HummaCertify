@@ -50,7 +50,7 @@
           @method('PATCH')
           <div class="mb-3">
             <label for="oldPassword" class="form-label flex-label">
-              <p>Password Lama</p><p> default Nis, Nisn, Nik</p>
+              <p>Password Lama</p><p> (Default Nis, Nisn, Nik)</p>
             </label>
             <input type="password" class="input-height form-control" id="passwordOne" name="oldPassword" placeholder="Password lama" required>
             <div style="display: none" id="eyeShow" class="eye">

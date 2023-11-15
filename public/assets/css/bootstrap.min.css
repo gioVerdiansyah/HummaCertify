@@ -5878,8 +5878,8 @@ fieldset:disabled .btn {
     --vz-pagination-focus-bg: var(--vz-tertiary-bg);
     --vz-pagination-focus-box-shadow: 0 0 1 0.25rem rgba(var(--vz-primary-rgb), 0.25);
     --vz-pagination-active-color: #fff;
-    --vz-pagination-active-bg: #3d78e3;
-    --vz-pagination-active-border-color: #3d78e3;
+    --vz-pagination-active-bg: #1689D3;
+    --vz-pagination-active-border-color: #1689D3;
     --vz-pagination-disabled-color: var(--vz-secondary-color);
     --vz-pagination-disabled-bg: var(--vz-secondary-bg);
     --vz-pagination-disabled-border-color: var(--vz-border-color);
