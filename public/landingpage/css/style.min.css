@@ -2322,6 +2322,7 @@ h6 {
 }
 
 #style-switcher .bottom a.mode-btn {
+    cursor: pointer;
     position: absolute;
     right: 45px;
     z-index: 1021;

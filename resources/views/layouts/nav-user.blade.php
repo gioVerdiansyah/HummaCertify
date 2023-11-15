@@ -88,7 +88,7 @@
         @endauth
         <div class="switcher-hover nav" id="style-switcher">
             <div class="bottom">
-              <a href="#" id="mode" class="mode-btn text-white" aria-label="Toggle Dark/Light Mode">
+              <a id="mode" class="mode-btn text-white" aria-label="Toggle Dark/Light Mode">
                 <i class="bi bi-brightness-high mode-light" style="color: black"></i>
                 <i class="bi bi-moon mode-dark"></i>
               </a>
