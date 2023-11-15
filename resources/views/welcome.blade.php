@@ -12,8 +12,7 @@
             <h1 class="fw-light mb-0 hero-6-title">Selamat Datang di</h1>
             <b class="text-gradient">HummaCertify</b>
           </div>
-          <p class="mb-5 text-muted">Verifikasi keaslian sertifikat Anda dengan memasukkan kode sertifikat yang Anda
-            terima</p>
+          <p class="mb-5 text-muted">Verifikasi keaslian sertifikat Anda dengan memasukkan kode sertifikat yang Anda terima</p>
           <form action="{{ route('search') }}" method="GET" id="searching">
             <div class="searchBox">
               <input class="searchInput" type="search" name="q" id="search"
@@ -53,41 +52,39 @@
               <div class="icon-mono service-icon avatar-md mx-auto mb-4">
                 <i class="bx bx-cog fs-3"></i>
               </div>
-              <h3 class="mb-3 font-size-22">Fungsi</h3>
+              <h4 class="mb-3 font-size-22">Fungsi</h4>
               <p class="text-muted mb-0">Pencarian sertifikat adalah langkah kunci dalam memastikan keabsahan dokumen
                 penting yang anda miliki</p>
             </div>
           </div>
         </div>
-      </div>
 
-
-      <div class="col-lg-4">
-        <div class="service-box text-center px-4 py-5 position-relative mb-4 active">
-          <div class="service-box-content p-4">
-            <div class="icon-mono service-icon avatar-md mx-auto mb-4">
-              <i class="bx bx-book-reader fs-3"></i>
+        <div class="col-lg-4">
+          <div class="service-box text-center px-4 py-5 position-relative mb-4 active">
+            <div class="service-box-content p-4">
+              <div class="icon-mono service-icon avatar-md mx-auto mb-4">
+                <i class="bx bx-book-reader fs-3"></i>
+              </div>
+              <h4 class="mb-3 font-size-22">Manfaat</h4>
+              <p class="text-muted mb-0">Sertifikat adalah bukti konkrit pencapaian dan digunakan dalam berbagai
+                konteks, seperti pekerjaan dll</p>
             </div>
-            <h4 class="mb-3 font-size-22">Manfaat</h4>
-            <p class="text-muted mb-0">Sertifikat adalah bukti konkrit pencapaian dan digunakan dalam berbagai
-              konteks, seperti pekerjaan dll</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="service-box text-center px-4 py-5 position-relative mb-4">
+            <div class="service-box-content p-4">
+              <div class="icon-mono service-icon avatar-md mx-auto mb-4">
+                <i class="bx bx-bulb fs-3"></i>
+              </div>
+              <h4 class="mb-3 font-size-22">Bukti</h4>
+              <p class="text-muted mb-0">Sertifikat mewakili pengetahuan, keterampilan, atau status tertentu yang anda
+                peroleh selama perjalanan hidup anda</p>
+            </div>
           </div>
         </div>
       </div>
-
-      <div class="col-lg-4">
-        <div class="service-box text-center px-4 py-5 position-relative mb-4">
-          <div class="service-box-content p-4">
-            <div class="icon-mono service-icon avatar-md mx-auto mb-4">
-              <i class="bx bx-bulb fs-3"></i>
-            </div>
-            <h4 class="mb-3 font-size-22">Bukti</h4>
-            <p class="text-muted mb-0">Sertifikat mewakili pengetahuan, keterampilan, atau status tertentu yang anda
-              peroleh selama perjalanan hidup anda</p>
-          </div>
-        </div>
-      </div>
-    </div>
     </div>
   </section>
 
@@ -184,8 +181,7 @@
       <div class="row justify-content-center mb-4">
         <div class="col-lg-7 text-center">
           <h2 class="fw-bold text-gradient mb-3">Lulusan Magang Hummatech</h2>
-          <p class="text-muted text-panjang">Berikut contoh lulusan siswa magang kami yang telah meraih sertifikat
-            sebagai pengakuan
+          <p class="text-muted text-panjang">Berikut contoh lulusan siswa magang kami yang telah meraih sertifikat sebagai pengakuan
             atas dedikasi dan prestasi luar biasa mereka</p>
         </div>
       </div>
@@ -282,8 +278,7 @@
                     </div>
                     <p id="error-captcha" class="text-danger"></p>
                   </div>
-                  <button type="submit" id="submit-button" name="send" class="btn btn-biru"
-                    aria-label="Kirim Pesan">
+                  <button type="submit" id="submit-button" name="send" class="btn btn-biru" aria-label="buttonsend">
                     <span class="d-flex align-items-center">
                       <span class="flex-grow-1 me-2">
                         Kirim Pesan
@@ -293,7 +288,6 @@
                       </span>
                     </span>
                   </button>
-
                 </div>
               </div>
             </form>
@@ -305,24 +299,21 @@
           <div class="mt-5 mt-lg-0">
             <img src="{{ asset('landingpage/images/kontak.png') }}" alt="Contact Me" class="img-fluid d-block"
               id="ktkgmr" />
-            <p class="text-muted mt-5 mb-3"><i
-                class="me-2 mb-0 far fa-envelope text-muted icon-xs"></i>hummacertify@gmail.com</p>
-            <p class="text-muted mb-3"><i class="me-2 mb-0 text-muted icon icon-xs" data-feather="phone"></i>+91 123
-              4556 789</p>
-            <p class="text-muted mb-3"><i class="me-2 mb-0 text-muted icon icon-xs" data-feather="map-pin"></i>Malang,
-              Karangploso, Perum Permata</p>
+              <p class="text-muted mt-5 mb-3"><i class="me-2 mb-0 far fa-envelope text-muted icon-xs"></i>hummacertify@gmail.com</p>
+              <p class="text-muted mb-3"><i class="me-2 mb-0 text-muted icon icon-xs" data-feather="phone"></i>+91 123 4556 789</p>
+              <p class="text-muted mb-3"><i class="me-2 mb-0 text-muted icon icon-xs" data-feather="map-pin"></i>Malang, Karangploso, Perum Permata</p>
             <ul class="list-inline pt-4 t">
               <li class="list-inline-item me-3">
-                <a href="http://www.facebook.com/hummatech" class="social-icon icon-mono avatar-xs rounded-circle"
-                  aria-label="Facebook"><i class="icon-xs" data-feather="facebook"></i></a>
+                <a href="http://www.facebook.com/hummatech" class="social-icon icon-mono avatar-xs rounded-circle"><i
+                    class="icon-xs" data-feather="facebook"></i></a>
               </li>
               <li class="list-inline-item me-3">
-                <a href="http://www.youtube.com/@hummatech" class="social-icon icon-mono avatar-xs rounded-circle"
-                  aria-label="YouTube"><i class="icon-xs" data-feather="youtube"></i></a>
+                <a href="http://www.youtube.com/@hummatech" class="social-icon icon-mono avatar-xs rounded-circle"><i
+                    class="icon-xs" data-feather="youtube"></i></a>
               </li>
               <li class="list-inline-item">
-                <a href="http://www.instagram.com/hummatech" class="social-icon icon-mono avatar-xs rounded-circle"
-                  aria-label="Instagram"><i class="icon-xs" data-feather="instagram"></i></a>
+                <a href="http://www.instagram.com/hummatech" class="social-icon icon-mono avatar-xs rounded-circle"><i
+                    class="icon-xs" data-feather="instagram"></i></a>
               </li>
             </ul>
           </div>
@@ -479,19 +470,19 @@
                 $("#simple-msg").empty();
                 Object.entries(response.error).forEach(([key, value]) => {
                   switch (key) {
-                    case 'g-recaptcha-response':
-                      $('#error-captcha').text("reCAPTCHA tidak valid!");
-                      break;
-                    case 'name':
-                      nameContainer.text(value);
-                      break;
-                    case 'email':
-                      emailContainer.text(value);
-                      break;
-                    case 'message':
-                      messageContainer.text(value);
-                      break;
-                  }
+                      case 'g-recaptcha-response':
+                          $('#error-captcha').text("reCAPTCHA tidak valid!");
+                          break;
+                      case 'name':
+                          nameContainer.text(value);
+                          break;
+                      case 'email':
+                          emailContainer.text(value);
+                          break;
+                      case 'message':
+                          messageContainer.text(value);
+                          break;
+                    }
                 });
                 $("#submit-button .flex-grow-1").text("Kirim Pesan");
                 $("#submit-button .spinner-border").addClass("d-none");
@@ -578,18 +569,9 @@
 
       setControls() {
         this.carouselControls.forEach((control) => {
-          const button = document.createElement("button");
-          button.className = `gallery-controls-${control}`;
-
-          // Tambahkan atribut aria-label atau teks langsung ke dalam tombol
-          if (control === 'p') {
-            button.setAttribute('aria-label', 'Previous');
-          } else if (control === 'n') {
-            button.setAttribute('aria-label', 'Next');
-          }
-
-          galleryControlsContainer.appendChild(button);
-          button.innerText = '';
+          galleryControlsContainer.appendChild(document.createElement("button")).className =
+            `gallery-controls-${control}`;
+          document.querySelector(`.gallery-controls-${control}`).innerText = '';
         });
       }
 

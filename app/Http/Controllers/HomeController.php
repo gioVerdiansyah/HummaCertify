@@ -30,6 +30,7 @@ class HomeController extends Controller
         $userCertificate = User::whereHas('certificates', function ($query) {
             $query->where('certificate_categori_id', 1);
         })->latest()->get();
+        // dd($userCertificate);
 
         return view('welcome', compact('userCertificate'));
     }
