@@ -5937,10 +5937,17 @@ fieldset:disabled .btn {
 
 .disabled>.page-link,
 .page-link.disabled {
-    color: var(--vz-pagination-disabled-color);
+    color: #d6d6f0;
     pointer-events: none;
     background-color: var(--vz-pagination-disabled-bg);
-    border-color: var(--vz-pagination-disabled-border-color)
+    border-color: var(--vz-pagination-disabled-border-color);
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    font-size: 23px;
+    padding: 0;
+    line-height: 30px;
 }
 
 .page-item:not(:first-child) .page-link {
@@ -16191,3 +16198,7 @@ fieldset:disabled .btn {
 }
 
 /*# sourceMappingURL=bootstrap.min.css.map */
+
+.bru {
+    background-color: #1689D3;
+}

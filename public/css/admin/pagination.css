@@ -8,16 +8,15 @@
 }
 .pagination li a.page-link {
     color: #1689D3;
-    background: #eee;
+    background: #fff;
     font-size: 17px;
-    font-weight: 700;
+    font-weight: 600;
     text-align: center;
     line-height: 33px;
     height: 35px;
     width: 35px;
     padding: 0;
-    margin: 0 7px;
-    border: none;
+    /* margin: 0 7px; */
     border-radius: 0;
     display: block;
     position: relative;

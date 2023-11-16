@@ -162,7 +162,7 @@
               <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
                 aria-labelledby="page-header-notifications-dropdown">
 
-                <div class="dropdown-head bg-primary rounded-top">
+                <div class="dropdown-head bru rounded-top">
                   <div class="p-3">
                     <div class="row align-items-center">
                       <div class="col">
