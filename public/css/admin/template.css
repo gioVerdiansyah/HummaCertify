@@ -1,6 +1,7 @@
 .container-css {
     margin-top: -20px;
-    padding: 5px;
+    margin-bottom: 20px;
+    padding: 42px 0 0;
     width: 100%;
     height: auto;
 }
@@ -72,13 +73,13 @@
     align-items: center;
 }
 
-.left-side .left-drop {
+/* .left-side .left-drop {
     width: 100%;
 }
 
 .left-side .right-drop {
     width: 100%;
-}
+} */
 
 .left-side {
     border-radius: 5px;
@@ -286,6 +287,10 @@
 }
 
 @media screen and (max-width: 1265px) {
+    .right-side {
+        height: fit-content;
+    }
+
     .left-side .body-card {
         gap: 20px;
         text-align: left;
@@ -371,6 +376,11 @@
     .right-side {
         width: 100%;
         margin-top: 20px;
+        height: fit-content;
+    }
+
+    .right-side .card-button {
+        margin-top: 0;
     }
 }
 
