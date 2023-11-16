@@ -277,7 +277,7 @@
               <script src="{{ asset('assets/js/formRepeater.js') }}"></script>
               <div class="d-flex gap-2">
                 <button type="submit" class="btn btn-primary">Edit Sertifikat</button>
-                <a href="{{ route('certificate.index') }}" class="btn btn-danger">Batal</a>
+                <a href="{{ route('certificate.index') }}" class="btn btn-danger" id="batalButton">Batal</a>
               </div>
             </div>
         </form>
@@ -327,6 +327,26 @@
         });
         this.value = maxJamPelajaran;
       }
+    });
+  </script>
+  <script>
+    document.getElementById('batalButton').addEventListener('click', function (e) {
+        e.preventDefault();
+        Swal.fire({
+            title: 'Konfirmasi',
+            text: 'Apakah Anda yakin ingin membatalkan?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, batalkan!',
+            cancelButtonText: 'Tidak'
+        }).then((result) => {
+
+            if (result.isConfirmed) {
+                window.location.href = '{{ route('certificate.index') }}';
+            }
+        });
     });
   </script>
 @endsection
