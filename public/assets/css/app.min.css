@@ -38,7 +38,7 @@
 }
 
 #page-topbar {
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 0;
     left: 0;
@@ -996,10 +996,6 @@
 }
 
 @media (min-width:768px) {
-    :is([data-layout=vertical], [data-layout=semibox])[data-sidebar-size=sm] {
-        /* min-height: 1400px */
-    }
-
     :is([data-layout=vertical], [data-layout=semibox])[data-sidebar-size=sm] .main-content {
         margin-left: var(--vz-vertical-menu-width-sm)
     }
@@ -1010,7 +1006,6 @@
 }
 
 :is([data-layout=vertical], [data-layout=semibox])[data-sidebar-size=sm] .navbar-brand-box {
-    position: fixed;
     padding: 0;
     width: var(--vz-vertical-menu-width-sm);
     z-index: 1;
@@ -1029,7 +1024,6 @@
 :is([data-layout=vertical], [data-layout=semibox])[data-sidebar-size=sm] .navbar-menu {
     position: absolute;
     width: var(--vz-vertical-menu-width-sm) !important;
-    padding-top: 70px
 }
 
 :is([data-layout=vertical], [data-layout=semibox])[data-sidebar-size=sm] .navbar-menu .simplebar-content-wrapper,
@@ -18258,4 +18252,4 @@ span.flatpickr-weekday {
     right: -35px
 }
 
-/*# sourceMappingURL=app.min.css.map */
+/* # sourceMappingURL=app.min.css.map */
