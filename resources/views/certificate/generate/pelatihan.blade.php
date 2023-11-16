@@ -216,21 +216,21 @@
 
       .belakang .certificate-guru-belakang .tanda-tangan .nama-instruktur {
         position: absolute;
-        top: 84%;
-        right: 4.4%;
+        top: 702px;
+        right: 20px;
         font-family: "Montserrat", sans-serif;
-        font-size: 18.9px;
+        font-size: 17px;
         font-weight: 700;
-        width: 350px;
+        max-width: 310px;
         text-align: center;
       }
 
       .belakang .certificate-guru-belakang .tanda-tangan .skill {
         position: absolute;
-        top: 88.3%;
-        right: 8%;
+        top: 733px;
+        right: 33.4px;
         font-family: "Montserrat", sans-serif;
-        font-size: 17.5px;
+        font-size: 16px;
         font-weight: 400;
       }
 
@@ -246,8 +246,7 @@
         width: 80%;
       }
     </style>
-    <div class="depan"
-      style='background-image: url("{{ $background->depan }}");'>
+    <div class="depan" style='background-image: url("{{ $background->depan }}");'>
       <section id="depan">
         <div class="content">
           <div class="no">
@@ -288,7 +287,8 @@
           {{-- QR CODE --}}
           <div class="qr-code">
             <center>
-              <img src="data:image/png;base64,{{ base64_encode(QrCode::format('png')->merge('https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/logo-bg-blue.png', 0.3, true)->size(100)->generate(route('search') . '?q=' . $certificate->nomor)) }}"
+              <img
+                src="data:image/png;base64,{{ base64_encode(QrCode::format('png')->merge('https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/logo-bg-blue.png', 0.3, true)->size(100)->generate(route('search') . '?q=' . $certificate->nomor)) }}"
                 alt="QR Code">
             </center>
             <figcaption style="font-size: 10px; margin-top: 4px">QR authenticity certificate</figcaption>
@@ -306,8 +306,7 @@
     </div>
 
     @if (isset($certificate->detailCertificates[0]->materi) && isset($certificate->detailCertificates[0]->jp))
-      <div class="belakang"
-        style='background-image: url("{{ $background->belakang }}");'>
+      <div class="belakang" style='background-image: url("{{ $background->belakang }}");'>
         <section id="belakang">
           <div class="certificate-guru-belakang">
             <div class="text-penilaian" style="text-align: center">
