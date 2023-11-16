@@ -42,8 +42,6 @@ class HomeController extends Controller
         $users = User::all();
         $category = CertificateCategori::all();
         $certificateCategoryCount = CertificateCategori::count();
-        $notification = ContactMe::orderBy('created_at', 'desc')->get();
-        $notificationCount = ContactMe::all()->count();
 
         $kelulusanCount = Certificate::where('certificate_categori_id', 1)->count();
 
@@ -70,7 +68,7 @@ class HomeController extends Controller
             ->groupBy('year', 'month')
             ->get();
 
-        return view('admin.dashboard', compact('users', 'category', 'certificateCategoryCount', 'certificateCount', 'certificateData', 'kelulusanCount', 'categoryData', 'notificationCount', 'notification'));
+        return view('admin.dashboard', compact('users', 'category', 'certificateCategoryCount', 'certificateCount', 'certificateData', 'kelulusanCount', 'categoryData'));
     }
 
     public function search(Request $request)
