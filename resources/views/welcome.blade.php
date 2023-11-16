@@ -275,12 +275,6 @@
                       required></textarea>
                     <p id="error-pesan" class="text-danger"></p>
                   </div>
-                  <div class="col-lg-6 mb-3">
-                    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-                    <div class="g-recaptcha" id="feedback-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}">
-                    </div>
-                    <p id="error-captcha" class="text-danger"></p>
-                  </div>
                   <button type="submit" id="submit-button" name="send" class="btn btn-biru"
                     aria-label="Kirim Pesan">
                     <span class="d-flex align-items-center">
@@ -357,27 +351,27 @@
 
   <script>
     const scrollers = document.querySelectorAll(".scroller");
-  
+
     if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       tambahkanAnimasi();
     }
-  
+
     function tambahkanAnimasi() {
       scrollers.forEach((scroller) => {
         scroller.setAttribute("data-animated", true);
-  
+
         const scrollerInner = scroller.querySelector(".scroller__inner");
         const scrollerContent = Array.from(scrollerInner.children);
-  
+
         const totalWidth = scrollerContent.reduce(
           (acc, item) => acc + item.offsetWidth,
           0
         );
-  
+
         const durasiAnimasi = totalWidth / 40;
-  
+
         scrollerInner.style.animationDuration = `${durasiAnimasi}s`;
-  
+
         scrollerContent.forEach((item) => {
           const duplicateItem = item.cloneNode(true);
           duplicateItem.setAttribute("aria-hidden", true);
@@ -411,14 +405,6 @@
       var sendCount = parseInt(localStorage.getItem('sendCount')) || 0;
       var lastResetTime = parseInt(localStorage.getItem('lastResetTime')) || new Date().getTime();
       var currentTime = new Date().getTime();
-
-      if (lastResetTime <= currentTime) {
-        sendCount = 0;
-        lastResetTime = currentTime;
-
-        localStorage.setItem('sendCount', sendCount);
-        localStorage.setItem('lastResetTime', lastResetTime);
-      }
 
       $("#send-notif-form").on("submit", function(event) {
         event.preventDefault();
@@ -480,9 +466,6 @@
                 $("#simple-msg").empty();
                 Object.entries(response.error).forEach(([key, value]) => {
                   switch (key) {
-                    case 'g-recaptcha-response':
-                      $('#error-captcha').text("reCAPTCHA tidak valid!");
-                      break;
                     case 'name':
                       nameContainer.text(value);
                       break;
@@ -500,7 +483,6 @@
                 if (!localStorage.getItem('lastResetTime')) {
                   localStorage.setItem('lastResetTime', new Date().getTime());
                 }
-                $('#error-captcha').empty();
                 $("#simple-msg").html(
                   "<div class='alert alert-success alert-dismissible fade show' role='alert'>" + response
                   .success +
@@ -518,7 +500,13 @@
               $("#submit-button").attr('type', 'submit');
             },
             error: function(xhr, status, error) {
+              console.log(xhr.status);
               $("#simple-msg").empty();
+
+			  if(xhr.status == 429){
+                error = "Harap tunggu 1 menit untuk mengirim lagi"
+              }
+
               if (error == "unknown status") {
                 error = "Cobalah refresh halaman"
               }
@@ -530,14 +518,27 @@
 
               $("#submit-button .flex-grow-1").text("Kirim Pesan");
               $("#submit-button .spinner-border").addClass("d-none");
+              $("#submit-button").attr('type', 'submit');
             }
           });
         } else {
-          $("#simple-msg").empty();
-          $("#error-msg").html("<div class='alert alert-danger alert-dismissible fade show' role='alert'>" +
-            "Anda telah mencapai batas pengiriman pesan (5 kali)." +
-            '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
-          );
+            $("#simple-msg").empty();
+            $("#error-msg").html("<div class='alert alert-danger alert-dismissible fade show' role='alert'>" +
+              "Anda telah mencapai batas pengiriman pesan (5 kali)." +
+              '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+              );
+              var today = new Date();
+              var lastResetDate = new Date(lastResetTime);
+
+            if (today.getDate() !== lastResetDate.getDate() || today.getMonth() !== lastResetDate.getMonth() || today.getFullYear() !== lastResetDate.getFullYear()) {
+              console.log('Batasan harian telah tercapai. Menyetel ulang waktu terakhir.');
+
+              lastResetTime = currentTime;
+              sendCount = 0;
+
+              localStorage.setItem('sendCount', sendCount);
+              localStorage.setItem('lastResetTime', lastResetTime);
+          }
         }
       });
     });
