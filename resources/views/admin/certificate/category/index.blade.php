@@ -100,11 +100,7 @@
         if (currentUrl.includes('restore=')) {
             newUrl = currentUrl.replace(/(restore=[^&]*)/, restoreParam);
         } else {
-            if (currentUrl.includes('?')) {
-                newUrl = currentUrl + '&' + restoreParam;
-            } else {
-                newUrl = currentUrl + '?' + restoreParam;
-            }
+            newUrl = currentUrl + (currentUrl.includes('?') ? '&' : '?') + restoreParam;
         }
     }
 

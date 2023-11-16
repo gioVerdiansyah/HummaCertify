@@ -118,34 +118,70 @@
               <div class="card-body">
                 <div class="repeater">
                   <div data-repeater-list="category-group" class="row g-3">
-                    <div data-repeater-item>
-                      <div class="row">
-                        <div class="d-flex flex-row">
-                          <div class="col-6 mb-4 pe-3">
-                            <label for="unknown" class="form-label">Materi</label>
-                            <input type="text" class="form-control @error('category-group.*.materi') is-invalid @enderror" placeholder="materi" name="materi" value="" required>
-                            @error('category-group.*.materi')
-															<div class="invalid-feedback">
-																	<p>{{ $message }}</p>
-															</div>
-                            @enderror
-                          </div>
-                          <div class="col-6 mb-4 ps-2">
-                            <label for="unknown" class="form-label">Jam
-                              Pelajaran</label>
-                            <div class="d-flex flex-row">
-                              <input type="number" class="form-control @error('category-group.*.jam_pelajaran') is-invalid @enderror" name="jam_pelajaran" id="jamPelajaran" placeholder="Jam Pelajaran" required>
-                              @error('category-group.*.jam_pelajaran')
+                    @forelse (old('category-group', []) as $i => $category)
+                      <div data-repeater-item>
+                        <div class="row">
+                          <div class="d-flex flex-row">
+                            <div class="col-6 mb-4 pe-3">
+                              <label for="unknown" class="form-label">Materi</label>
+                              <input required type="text"
+                                class="form-control @error('category-group.' . $i . '.materi') is-invalid @enderror"
+                                placeholder="materi" name="materi" value="{{ $category['materi'] }}" required>
+                              @error('category-group.' . $i . '.materi')
                                 <div class="invalid-feedback">
-                                    <p>{{ $message }}</p>
+                                  <p>{{ $message }}</p>
                                 </div>
-                            	@enderror
-                              <input class="btn btn-outline-danger waves-effect waves-light ms-3 d-flex justify-content-center align-items-center" data-repeater-delete type="button" value="Hapus" />
+                              @enderror
+                            </div>
+                            <div class="col-6 mb-4 ps-2">
+                              <label for="unknown" class="form-label">Jam
+                                Pelajaran</label>
+                              <div class="d-flex justify-content-between">
+                                <div style="width: 100%">
+                                    <input required type="number" name="jam_pelajaran"
+                                      class="form-control @error('category-group.' . $i . '.jam_pelajaran') is-invalid @enderror"
+                                      id="jamPelajaran" placeholder="Jam Pelajaran"
+                                      value="{{ $category['jam_pelajaran'] }}" required>
+                                  @error('category-group.' . $i++ . '.jam_pelajaran')
+                                    <div class="invalid-feedback">
+                                      <p>{{ $message }}</p>
+                                    </div>
+                                  @enderror
+                                </div>
+                                <div>
+                                  <input required id="button-hapus-detail"
+                                    class="btn btn-outline-danger waves-effect waves-light ms-3 d-flex justify-content-center align-items-center"
+                                    data-repeater-delete type="button" value="Hapus" />
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
+                    @empty
+                      <div data-repeater-item>
+                        <div class="row">
+                          <div class="d-flex flex-row">
+                            <div class="col-6 mb-4 pe-3">
+                              <label for="unknown" class="form-label">Materi</label>
+                              <input required type="text" class="form-control" placeholder="materi" name="materi"
+                                value="" required>
+                            </div>
+                            <div class="col-6 mb-4 ps-2">
+                              <label for="unknown" class="form-label">Jam
+                                Pelajaran</label>
+                              <div class="d-flex">
+                                <input required type="number" name="jam_pelajaran" class="form-control"
+                                  id="jamPelajaran" placeholder="Jam Pelajaran" required>
+                                <input required id="button-hapus-detail"
+                                  class="btn btn-outline-danger waves-effect waves-light ms-3 d-flex justify-content-center align-items-center"
+                                  data-repeater-delete type="button" value="Hapus" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    @endforelse
                   </div>
                   <div class="hstack gap-2 justify-content-end">
                     <input class="btn btn-outline-success waves-effect waves-light" data-repeater-create type="button" value="+ Tambah" />

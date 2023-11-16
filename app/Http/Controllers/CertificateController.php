@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Storage;
 
 class CertificateController extends Controller
 {
-    protected $perPage = 5, $exceptCategory;
+    protected $perPage = 10, $exceptCategory;
 
     public function __construct()
     {
@@ -296,6 +296,10 @@ class CertificateController extends Controller
         $background = $this->getBackground($category);
         $certificateFileName = $certificate->id . '.pdf';
         $pdf = PDF::setPaper('A4', 'landscape')->loadView('certificate.generate.' . $type, ['certificate' => $certificate, 'background' => $background]);
+        $sertifikatPath = storage_path('app/public/sertifikat');
+        if (!file_exists($sertifikatPath)) {
+            mkdir($sertifikatPath, 0755, true);
+        }
         $pdf->save(storage_path('app/public/sertifikat/' . $certificateFileName));
     }
     public function getCertificate(string $id)

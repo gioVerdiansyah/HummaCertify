@@ -20,9 +20,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <!-- Scripts -->
-  {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
-  <link rel="stylesheet" href="{{ asset('build/assets/app-041e359a.css') }}">
-  <script src="{{ asset('build/assets/app-d0646295.js') }}"></script>
+  @vite(['resources/sass/app.scss', 'resources/js/app.js'])
   {{-- IMPORT FONT --}}
   <link
     href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather:wght@400;700&family=Montserrat:wght@400;500;700&family=Open+Sans:wght@700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap"
