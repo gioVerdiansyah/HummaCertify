@@ -56,10 +56,10 @@
                   </form>
                   @else
                     <form nameKategori = "{{ $category->name }}" action="{{ route('category.restore', $category->id) }}"
-                    method="POST" class="restore">
+                    method="POST" class="restore d-flex">
                       @csrf
                       @method('PATCH')
-                      <button type="submit"><i class="fi fi-ss-time-past d-flex align-items-center fs-5 text-success"></i></button>
+                      <button type="submit"><i class="fi fi-ss-time-past d-flex align-items-center text-success" style="font-size: 0.95rem"></i></button>
                     </form>
 
                     @if (!$category->certificates->isNotEmpty())
@@ -113,12 +113,12 @@
         event.preventDefault();
         var namekategori = form.getAttribute('nameKategori');
         Swal.fire({
-          title: 'apakah anda yakin?',
+          title: 'Apakah anda yakin?',
           text: "Ingin mengembalikan kategori '" + namekategori + "'?",
           icon: "question",
           showCancelButton: true,
-          confirmButtonText: "ya, kembalikan!",
-          cancelButtonText: "batal",
+          confirmButtonText: "Ya, kembalikan!",
+          cancelButtonText: "Batal",
           background: 'var(--bs-body-bg)',
         }).then((result) => {
           if (result.isConfirmed) {
@@ -134,12 +134,12 @@
         event.preventDefault();
         var namekategori = form.getAttribute('nameKategori');
         Swal.fire({
-          title: 'apakah anda yakin?',
+          title: 'Apakah anda yakin?',
           text: "Ingin menghapus kategori '" + namekategori + "' secara permanen?",
           icon: "question",
           showCancelButton: true,
-          confirmButtonText: "ya, hapus!",
-          cancelButtonText: "batal",
+          confirmButtonText: "Ya, hapus!",
+          cancelButtonText: "Batal",
           background: 'var(--bs-body-bg)',
         }).then((result) => {
           if (result.isConfirmed) {
@@ -154,12 +154,12 @@
         event.preventDefault();
         var namekategori = form.getAttribute('nameKategori');
         Swal.fire({
-          title: 'apakah anda yakin?',
+          title: 'Apakah anda yakin?',
           text: "Ingin menghapus kategori '" + namekategori + "'?",
           icon: "question",
           showCancelButton: true,
-          confirmButtonText: "ya, hapus!",
-          cancelButtonText: "batal",
+          confirmButtonText: "Ya, hapus!",
+          cancelButtonText: "Batal",
           background: 'var(--bs-body-bg)',
         }).then((result) => {
           if (result.isConfirmed) {
