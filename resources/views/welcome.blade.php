@@ -357,23 +357,32 @@
 
   <script>
     const scrollers = document.querySelectorAll(".scroller");
-
+  
     if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      addAnimation();
+      tambahkanAnimasi();
     }
-
-    function addAnimation() {
+  
+    function tambahkanAnimasi() {
       scrollers.forEach((scroller) => {
-        scroller.setAttribute('data-animated', true);
-
-        const scrollerInner = scroller.querySelector('.scroller__inner');
+        scroller.setAttribute("data-animated", true);
+  
+        const scrollerInner = scroller.querySelector(".scroller__inner");
         const scrollerContent = Array.from(scrollerInner.children);
-
-        scrollerContent.forEach(item => {
+  
+        const totalWidth = scrollerContent.reduce(
+          (acc, item) => acc + item.offsetWidth,
+          0
+        );
+  
+        const durasiAnimasi = totalWidth / 70;
+  
+        scrollerInner.style.animationDuration = `${durasiAnimasi}s`;
+  
+        scrollerContent.forEach((item) => {
           const duplicateItem = item.cloneNode(true);
           duplicateItem.setAttribute("aria-hidden", true);
           scrollerInner.appendChild(duplicateItem);
-        })
+        });
       });
     }
   </script>
