@@ -75,28 +75,29 @@
 
             <ul>
               <li title="Semua Sertifikat">
-                <label for="tab1" role="button" class="d-flex justify-content-center">
-                  <i class="bx bx-category fs-4"></i>
+                <label for="tab1" role="button">
+                  <i class="bx bx-category fs-4 global-icon icon-style-1"></i>
                   <br>
                   <span>Semua</span>
                 </label>
               </li>
               <li title="Sertifikat Kelulusan Magang">
                 <label for="tab2" role="button">
-                  <i class="fas fa-graduation-cap"></i>
+                  <i class="fas fa-graduation-cap global-icon icon-style-2"></i>
+                  <br>
                   <span>Kelulusan</span>
                 </label>
               </li>
               <li title="Sertifikat Kompetensi">
                 <label for="tab3" role="button">
-                  <i class="fa-solid fa-book-bookmark"></i>
+                  <i class="fa-solid fa-book-bookmark global-icon icon-style-3"></i>
                   <br>
                   <span>Kompetensi</span>
                 </label>
               </li>
               <li title="Sertifikat Pelatihan">
                 <label for="tab4" role="button">
-                  <i class="fa-solid fa-chalkboard-user"></i>
+                  <i class="fa-solid fa-chalkboard-user global-icon icon-style-4"></i>
                   <br>
                   <span>Pelatihan</span>
                 </label>
