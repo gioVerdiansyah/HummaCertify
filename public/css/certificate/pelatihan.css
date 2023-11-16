@@ -207,11 +207,11 @@
   .belakang .certificate-guru-belakang .tanda-tangan .nama-instruktur {
     position: absolute;
     top: 705px;
-    right: 20px;
+    right: 15px;
     font-family: "Montserrat", sans-serif;
     font-size: 17px;
     font-weight: 700;
-    max-width: 310px;
+    width: 290px;
     text-align: center;
   }
 
