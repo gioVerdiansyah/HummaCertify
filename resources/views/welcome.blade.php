@@ -374,7 +374,7 @@
           0
         );
   
-        const durasiAnimasi = totalWidth / 70;
+        const durasiAnimasi = totalWidth / 40;
   
         scrollerInner.style.animationDuration = `${durasiAnimasi}s`;
   
