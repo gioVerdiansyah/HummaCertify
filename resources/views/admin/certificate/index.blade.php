@@ -29,7 +29,8 @@
             {{-- Button Print All --}}
             @if (request('ct') && !request('print') && isset($certificates[0]))
               <div class="col-md-12 col-12 mb-2 col-lg-4">
-                <a href="{{ route('printAllCertificate') }}?ct={{ request('ct') }}&page={{ $certificates->currentPage() }}" target="_blank" class="btn btn-primary print-all-certificate w-100"><i class="bi bi-printer "></i> Print
+                <a href="{{ route('printAllCertificate') }}?ct={{ request('ct') }}&page={{ $certificates->currentPage() }}"
+                  target="_blank" class="btn btn-primary print-all-certificate w-100"><i class="bi bi-printer "></i> Print
                   Semua</a>
               </div>
             @endif
@@ -40,8 +41,11 @@
               <form action="" method="GET" class="d-flex align-items-center gap-3"
                 onsubmit="document.getElementById('loading').style.display = 'flex';event.preventDefault();var currentUrl = window.location.href;if (currentUrl.includes('ct=')) {window.location.href = currentUrl + '&q=' + document.getElementsByName('q')[0].value;}else{this.submit();}">
                 <div class="input-group">
-                  <input type="text" style="border-right: 0px;" name="q" class="form-control rounded-start py-2" placeholder="Cari Sertifikat..." value="{{ request('q') }}" />
-                  <button type="submit" style="border-top: 1px solid #ced4da; border-right: 1px solid #ced4da; border-bottom: 1px solid #ced4da; " class="btn btn-lg py-1">
+                  <input type="text" style="border-right: 0px;" name="q" class="form-control rounded-start py-2"
+                    placeholder="Cari Sertifikat..." value="{{ request('q') }}" />
+                  <button type="submit"
+                    style="border-top: 1px solid #ced4da; border-right: 1px solid #ced4da; border-bottom: 1px solid #ced4da; "
+                    class="btn btn-lg py-1">
                     <i class="bi bi-search"></i>
                   </button>
                 </div>
@@ -72,23 +76,22 @@
                   <td class="d-flex gap-2 justify-content-center align-items-center">
                     <input type="hidden" name="email" value="{{ $certificate->user->email }}">
                     @isset($certificate->user->email)
-                      <form data-email="{{ $certificate->user->email }}" action="{{ route('sendCertificate', $certificate->id) }}" method="POST" class="emailForm m-0">
+                      <form data-email="{{ $certificate->user->email }}"
+                        action="{{ route('sendCertificate', $certificate->id) }}" method="POST" class="emailForm m-0">
                         @csrf
                         <button type="submit" class="btn btn-primary send-email" title="Kirim Email">
                           <i class="fi fi-rs-paper-plane" style="display: flex; margin: 3px"></i>
                         </button>
                       </form>
                     @endisset
-                    <a href="{{ route('getCertificate', $certificate->id) }}" target="_blank" class="btn btn-info print-certificate" title="Print">
+                    <a href="{{ route('getCertificate', $certificate->id) }}" target="_blank"
+                      class="btn btn-info print-certificate" title="Print">
                       <i class="fi fi-rr-print" style="display: flex; margin: 3px"></i>
                     </a>
                     </a>
-                    @if ($certificate->status === 'nonPrint')
-                      <a href="{{ route('certificate.edit', $certificate->id) }}" class="btn btn-warning" title="Edit">
-                        <i class="fi fi-rr-edit" style="display: flex; margin: 3px"></i>
-                      </a>
-                    @endif
-
+                    <a href="{{ route('certificate.edit', $certificate->id) }}" class="btn btn-warning" title="Edit">
+                      <i class="fi fi-rr-edit" style="display: flex; margin: 3px"></i>
+                    </a>
                   </td>
                 </tr>
               @empty
