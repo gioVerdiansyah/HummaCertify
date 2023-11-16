@@ -997,7 +997,7 @@
 
 @media (min-width:768px) {
     :is([data-layout=vertical], [data-layout=semibox])[data-sidebar-size=sm] {
-        min-height: 1400px
+        /* min-height: 1400px */
     }
 
     :is([data-layout=vertical], [data-layout=semibox])[data-sidebar-size=sm] .main-content {
