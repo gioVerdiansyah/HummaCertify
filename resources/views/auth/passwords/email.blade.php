@@ -108,7 +108,7 @@
                     <p class="mt-4">Kami telah mengirim email konfirmasi ke email :</p>
                     <p class="mt-4 mb-4 fw-bold">{{ session('email') }}</p>
 
-                    <p>Jika anda belum menerima email dari kami, Silahkan klik tombol dibawah ini
+                    <p>Jika ada salah ketik email silahkan klik kembali dan ketik ulang email Anda.
                     </p>
                   </div>
                   <div class="p-3">

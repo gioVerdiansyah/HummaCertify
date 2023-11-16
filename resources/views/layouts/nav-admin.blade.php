@@ -198,7 +198,7 @@
                           <div class="d-flex">
                             <div class="flex-grow-1">
                               <h6 class="mt-0 mb-1 fs-13 fw-semibold">{{ $data->name }} | {{ $data->email }}</h6>
-                              @if (strlen($data->message) > 194)
+                              @if (strlen($data->message) > 50)
                                 <div class="fs-13 text-muted" style="cursor: pointer; width: 230px;"
                                   data-bs-toggle="modal" data-bs-target="#notifmodal-{{ $data->id }}">
                                   <p class="mb-1 custom-ellipsis" style="max-height: 120px; overflow: hidden;">
@@ -384,7 +384,7 @@
   </button>
   <!--end back-to-top-->
   @forelse ($notification as $data)
-    @if (strlen($data->message) > 194)
+    @if (strlen($data->message) > 50)
       <div id="notifmodal-{{ $data->id }}" class="modal fade notifmodal" tabindex="-1"
         aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
         <div class="modal-dialog modal-dialog-centered">
