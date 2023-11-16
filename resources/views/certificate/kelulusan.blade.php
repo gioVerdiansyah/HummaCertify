@@ -71,6 +71,9 @@
     </div>
     <div class="belakang" style='background-image: url("{{ asset($background->belakang) }}");'>
       <div class="content">
+        <div class="text-pengantar">
+          <p>Telah Lulus magang sebagai <span>Website Developer</span> beserta bukti kegiatan atau projek di bawah</p>
+        </div>
         <div class="table-materi">
           <table>
             <thead>

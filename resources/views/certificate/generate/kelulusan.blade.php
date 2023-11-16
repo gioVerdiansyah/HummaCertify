@@ -71,7 +71,7 @@
 
           .bg .content .nama-peserta {
             position: absolute;
-            top: 200px;
+            top: 196px;
             left: 12%;
             width: 75%;
           }
@@ -136,6 +136,19 @@
             background-size: cover;
             overflow: hidden;
             position: relative;
+          }
+
+          .belakang .content .text-pengantar {
+            position: relative;
+            top: 90px;
+            left: 214px;
+            width: 700px;
+            text-align: center;
+            font-family: "Open Sans", sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            letter-spacing: 1px;
+            line-height: 17px;
           }
 
           .belakang .content .pelatihan {
@@ -214,16 +227,16 @@
             </div>
             {{-- Nama Peserta --}}
             <div class="nama-peserta">
-                <p>
-                    @php
-                        $nameWords = explode(' ', $certificate->user->name);
-                    @endphp
-                    @if (count($nameWords) > config('hummacertify.per_kata'))
-                        {{ implode(' ', array_slice($nameWords, 0, config('hummacertify.per_kata'))) . ' ' . implode(' ', array_map(function($word) { return ($word[0]).'.'; }, array_slice($nameWords, config('hummacertify.per_kata')))) }}
-                    @else
-                        {{ $certificate->user->name }}
-                    @endif
-                </p>
+              <p>
+                @php
+                  $nameWords = explode(' ', $certificate->user->name);
+                @endphp
+                @if (count($nameWords) > config('hummacertify.per_kata'))
+                  {{ implode(' ', array_slice($nameWords, 0, config('hummacertify.per_kata'))) .' ' .implode(' ',array_map(function ($word) {return $word[0] . '.';}, array_slice($nameWords, config('hummacertify.per_kata')))) }}
+                @else
+                  {{ $certificate->user->name }}
+                @endif
+              </p>
             </div>
             {{-- <div class="nama-peserta">
                 <p>{{ $certificate->user->name }}</p>
@@ -249,6 +262,10 @@
         </div>
         <div class="belakang" style='background-image: url("{{ $background->belakang }}");'>
           <div class="content">
+            <div class="text-pengantar">
+              <p>Telah Lulus magang sebagai <span>Website Developer</span> beserta bukti kegiatan atau projek di bawah
+              </p>
+            </div>
             <div class="table-materi">
               <table>
                 <thead>
@@ -269,8 +286,8 @@
                       <td style="text-align: center">{{ $detailCertificate->jp }} JP</td>
                     </tr>
                     @php
-                    $totalJP += $detailCertificate->jp;
-                   @endphp
+                      $totalJP += $detailCertificate->jp;
+                    @endphp
                   @endforeach
                   @if (count($certificate->detailCertificates) > 1)
                     <tr>

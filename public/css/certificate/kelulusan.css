@@ -113,9 +113,21 @@ body {
     position: relative;
 }
 
+.belakang .content .text-pengantar {
+    position: relative;
+    top: 90px;
+    left: 214px;
+    width: 700px;
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
 .belakang .content .table-materi {
     position: relative;
-    top: 106px;
+    top: 100px;
     left: 200px;
     width: 100%;
 }
