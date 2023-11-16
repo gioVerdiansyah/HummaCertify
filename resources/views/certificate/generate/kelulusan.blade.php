@@ -243,7 +243,7 @@
                   src="data:image/png;base64,{{ base64_encode(QrCode::format('png')->merge('https://raw.githubusercontent.com/gioVerdiansyah/Upload-Image/main/logo-bg-blue.png', 0.3, true)->size(100)->generate(route('search') . '?q=' . $certificate->nomor)) }}"
                   alt="QR Code">
               </center>
-              <figcaption style="font-size: 10px">QR authenticity certificate</figcaption>
+              <figcaption style="font-size: 10px; margin-top: 4px">QR authenticity certificate</figcaption>
             </div>
           </div>
         </div>
