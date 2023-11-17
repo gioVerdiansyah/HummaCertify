@@ -300,8 +300,7 @@
               id="ktkgmr" />
             <p class="text-muted mt-5 mb-3"><i
                 class="me-2 mb-0 far fa-envelope text-muted icon-xs"></i>hummacertify@gmail.com</p>
-            <p class="text-muted mb-3"><i class="me-2 mb-0 text-muted icon icon-xs" data-feather="phone"></i>+91 123
-              4556 789</p>
+            <p class="text-muted mb-3"><i class="me-2 mb-0 text-muted icon icon-xs" data-feather="phone"></i>+62 851 7677 7785</p>
             <p class="text-muted mb-3"><i class="me-2 mb-0 text-muted icon icon-xs" data-feather="map-pin"></i>Malang,
               Karangploso, Perum Permata</p>
             <ul class="list-inline pt-4 t">

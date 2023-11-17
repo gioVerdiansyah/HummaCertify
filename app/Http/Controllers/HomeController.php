@@ -93,9 +93,10 @@ class HomeController extends Controller
     {
         $user = User::with(['certificates', 'certificates.category', 'certificates.detailCertificates'])
             ->where('id', auth()->user()->id)
-            ->get();
+            ->first();
 
-        $certificates = $user[0]->certificates->keyBy('certificate_categori_id');
+        $certificates = $user->certificates;
+        // dd($certificates);
         return view('user.sertifikat', compact('certificates'));
     }
 }
