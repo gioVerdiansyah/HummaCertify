@@ -70,7 +70,7 @@ class CertificateController extends Controller
 
         if (isset($dataRequest['page'])) {
             $page = $dataRequest['page'];
-            $perPage = 15;
+            $perPage = $this->perPage;
             $offset = ($page - 1) * $perPage;
             $query->skip($offset)->take($perPage);
         }
