@@ -78,7 +78,7 @@
           @endauth
         </ul>
         @guest
-        <a href="{{ route('login') }}" class="btn btn-sm rounded-pill nav-btn ms-lg-3" style="background-color: #007BFF; color: #FFFFFF;">Masuk</a>
+        <a href="{{ route('login') }}" class="btn btn-sm rounded-pill nav-btn ms-lg-3" {{-- style="background-color: #1689d3; color: #FFFFFF;" --}}>Masuk</a>
 
         @endguest
         @auth
