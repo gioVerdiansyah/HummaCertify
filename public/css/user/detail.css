@@ -91,10 +91,6 @@ h4 {
     transition: margin-left 1s;
 }
 
-h4:hover {
-    margin-left: 5px;
-}
-
 .hover-animate {
     width: 80%;
     font-weight: 700;
@@ -141,12 +137,13 @@ h4:hover {
 
     .main-detail {
         display: flex;
-        gap: 40px;
+        gap: 50px;
     }
 
     .left-side {
         width: 100%;
         margin-bottom: 3px;
+        padding-top: 20px;
         padding-bottom: 20px;
     }
 
@@ -166,5 +163,6 @@ h4:hover {
 @media screen and (max-width: 512px) {
     .main-detail {
         display: block;
+        text-align: center;
     }
 }
