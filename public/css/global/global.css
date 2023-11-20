@@ -159,16 +159,18 @@
     align-items: center;
     /* Background */
     background: rgb(0, 94, 147);
-    background: linear-gradient(
-        245deg,
-        rgba(0, 94, 147, 5) 25%,
-        rgba(0, 94, 147, 0.3) 100%
-    );
+    background: linear-gradient(245deg, rgba(0, 94, 147, 5) 25%, rgb(0 180 222) 100%);
     border: none;
     border-radius: 30px 5px 50px 5px;
 
     /* Font */
     font-family: "Poppins", sans-serif;
+}
+
+[data-bs-theme="dark"] .container-lulus .tag-list .card-lulus {
+    background: rgb(0, 94, 147);
+    background: linear-gradient(245deg, rgba(0, 94, 147, 5) 25%, rgba(0, 94, 147, 0.3) 100%);
+
 }
 
 .container-lulus .tag-list .card-lulus p {
@@ -208,20 +210,16 @@
 
 .container-lulus .scroller[data-animated="true"] {
     overflow: hidden;
-    -webkit-mask: linear-gradient(
-        90deg,
-        transparent,
-        white 20%,
-        white 80%,
-        transparent
-    );
-    mask: linear-gradient(
-        90deg,
-        transparent,
-        white 20%,
-        white 80%,
-        transparent
-    );
+    -webkit-mask: linear-gradient(90deg,
+            transparent,
+            white 20%,
+            white 80%,
+            transparent);
+    mask: linear-gradient(90deg,
+            transparent,
+            white 20%,
+            white 80%,
+            transparent);
 }
 
 .container-lulus .scroller[data-animated="true"] .scroller__inner {
@@ -389,6 +387,7 @@
 }
 
 @media only screen and (max-width: 600px) {
+
     /* Certificate Show */
     .gallery {
         display: flex;
@@ -545,11 +544,9 @@
         align-items: center;
         /* Background */
         background: rgb(0, 94, 147);
-        background: linear-gradient(
-            245deg,
-            rgba(0, 94, 147, 1) 0%,
-            rgba(0, 94, 147, 0.3) 100%
-        );
+        background: linear-gradient(245deg,
+                rgba(0, 94, 147, 1) 0%,
+                rgba(0, 94, 147, 0.3) 100%);
         border: none;
         border-radius: 30px 5px 35px 5px;
 
@@ -594,20 +591,16 @@
 
     .container-lulus .scroller[data-animated="true"] {
         overflow: hidden;
-        -webkit-mask: linear-gradient(
-            90deg,
-            transparent,
-            white 20%,
-            white 80%,
-            transparent
-        );
-        mask: linear-gradient(
-            90deg,
-            transparent,
-            white 20%,
-            white 80%,
-            transparent
-        );
+        -webkit-mask: linear-gradient(90deg,
+                transparent,
+                white 20%,
+                white 80%,
+                transparent);
+        mask: linear-gradient(90deg,
+                transparent,
+                white 20%,
+                white 80%,
+                transparent);
     }
 
     .container-lulus .scroller[data-animated="true"] .scroller__inner {
@@ -632,6 +625,7 @@
 }
 
 @media only screen and (max-width: 340px) {
+
     /* Certificate Show */
     .gallery {
         display: flex;
@@ -776,5 +770,6 @@
 
     .gallery-nav li.gallery-item-selected {
         background: #555;
+
     }
 }

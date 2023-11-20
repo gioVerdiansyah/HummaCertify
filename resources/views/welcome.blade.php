@@ -93,14 +93,14 @@
   <section class="section bg-light" id="tentang">
     <div class="container">
       <div class="row justify-content-center mb-5">
-        <div class="col-lg-7 text-center">
+        <div class="col-lg-8 text-center">
           <h2 class="fw-bold text-gradient mb-4">Tentang Website Kami</h2>
           <p class="text-muted">Apabila Anda menerima sertifikat magang dari Hummatech, Anda dapat memeriksa keaslian
             sertifikat tersebut dengan mengunjungi situs web resmi kami, yaitu HummaCertify</p>
         </div>
       </div>
       <div class="row align-items-center mb-5">
-        <div class="col-md-5 order-2 order-md-1 mt-md-0 mt-5 ctr">
+        <div class="col-md-5 order-2 order-md-1 mt-md-0 mt-5 ctr long-text">
           <p class="text-muted mb-4">Sertifikat kelulusan magang adalah wujud pengakuan atas upaya dan dedikasi siswa
             magang yang telah menyelesaikan program mereka. Sertifikat khusus acara, di sisi lain, adalah bukti
             kehadiran atau kontribusi dalam
@@ -135,7 +135,7 @@
           </div>
         </div>
         <!-- end col -->
-        <div class="col-md-5 ms-md-auto ctr">
+        <div class="col-md-5 ms-md-auto ctr long-text">
           <p class="text-muted mb-4">Dengan penggunaan platform kami, Anda dapat dengan mudah memastikan bahwa
             sertifikat kelulusan magang dan sertifikat khusus acara yang Anda miliki adalah resmi dan sah sesuai dengan
             ketentuan perusahaan kami.

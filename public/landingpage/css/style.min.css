@@ -2596,6 +2596,11 @@ textarea.form-control {
     box-shadow: 0 0 10px;
 }
 
+.long-text {
+    transform: translateY(41px);
+    text-align: center;
+}
+
 @media (max-width: 576px) {
     .frm {
         padding: 0 15px;
