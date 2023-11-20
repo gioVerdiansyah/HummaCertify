@@ -129,6 +129,4 @@
   <script src="{{ asset('logintemplate/js/app.js') }}"></script>
 </body>
 
-<!-- Mirrored from themesbrand.com/qexal/layout/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Oct 2023 03:12:52 GMT -->
-
 </html>

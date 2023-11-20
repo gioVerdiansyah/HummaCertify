@@ -134,7 +134,6 @@
      gradientStroke1.addColorStop(0.2, 'rgba(9, 196, 255, 0.2)');
      gradientStroke1.addColorStop(0, 'rgba(9, 196, 255, 0.1)');
 
-     // mengambil data dari variable yang sudah di buat di controller
      const certificateData = {!! json_encode($certificateData) !!};
 
      const previousButton = document.getElementById("previus");
@@ -142,7 +141,6 @@
      const nextButton = document.getElementById("next");
      const tahun = document.getElementById("tahunini");
 
-     // Filter data untuk tahun saat ini
      var year = new Date().getFullYear();
      const cekYear = new Date().getFullYear();
      var currentYear = year;
@@ -178,28 +176,20 @@
        nextButton.classList.add("d-none");
      })
 
-
-
-     // Buat array yang berisi nama-nama bulan
      const monthNames = [
        "Jan", "Feb", "Mar", "Apr", "Mei", "Jun",
        "Jul", "Agu", "Sep", "Okt", "Nov", "Des"
      ];
 
-     // Inisialisasi array yang akan berisi jumlah sertifikat untuk setiap bulan
      const certificateCounts = new Array(12).fill(0);
 
-     // Mengisi array certificateCounts dengan data yang sesuai dari table
      certificateData.forEach(data => {
        if (data.year === currentYear) {
-         certificateCounts[data.month - 1] = data.count; // -1 karena bulan dimulai dari 0
+         certificateCounts[data.month - 1] = data.count;
        }
      });
      const labels = monthNames;
      const datasetData = certificateCounts;
-
-
-     // Memperbarui grafik saat halaman dimuat dengan tahun 2022
 
 
      const chartLine = new Chart(ctxLine, {
@@ -270,7 +260,6 @@
      function updateChart(year) {
        certificateCounts.fill(0);
 
-       // Mengisi kembali array certificateCounts dengan data yang sesuai dari tabel
        certificateData.forEach(data => {
          if (data.year === year) {
            certificateCounts[data.month - 1] = data.count;
