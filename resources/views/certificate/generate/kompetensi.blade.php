@@ -112,7 +112,7 @@
 
       .depan .content .text .pelatihan {
         position: absolute;
-        top: 395px;
+        top: 406px;
         left: 214px;
         font-family: 'Poppins', sans-serif;
         font-weight: 700;
