@@ -55,6 +55,9 @@
     }
 
     function openModal(certificateId) {
+        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            window.location.href = "/storage/sertifikat/" + certificateId + '.pdf';
+        }
       var iframe = document.getElementById('ifram');
       iframe.src = "/certificate/" + certificateId + "/view";
 
@@ -136,7 +139,7 @@
                 @endphp
                 <div class="row">
                   @foreach ($certificates as $certificate)
-                    @if ($certificate->certificate_categori_id === 1 || $certificate->category->tata_letak === "Kelulusan")
+                    @if ($certificate->certificate_categori_id == 1 || $certificate->category->tata_letak === "Kelulusan")
                       <div class="col-md-4 mb-4">
                         <a href="javascript: void(0);" class="image-container" id="certificate-container">
                           <div id="load-kelulusan-{{ $certificate->id }}" class="image-item"></div>
@@ -167,7 +170,7 @@
                 @endphp
                 <div class="row">
                   @foreach ($certificates as $certificate)
-                    @if ($certificate->certificate_categori_id === 2 || $certificate->category->tata_letak === "Kompetensi")
+                    @if ($certificate->certificate_categori_id == 3 || $certificate->category->tata_letak === "Kompetensi")
                       <div class="col-md-4 mb-4">
                         <a href="javascript: void(0);" class="image-container" id="certificate-container">
                           <div id="load-kompetensi-{{ $certificate->id }}" class="image-item"></div>
@@ -198,7 +201,7 @@
                 @endphp
                 <div class="row">
                   @foreach ($certificates as $certificate)
-                    @if ($certificate->certificate_categori_id === 3 || $certificate->category->tata_letak === "Pelatihan")
+                    @if ($certificate->certificate_categori_id == 2 || $certificate->category->tata_letak === "Pelatihan")
                       <div class="col-md-4 mb-4">
                         <a href="javascript: void(0);" class="image-container" id="certificate-container">
                           <div id="load-pelatihan-{{ $certificate->id }}" class="image-item load"></div>

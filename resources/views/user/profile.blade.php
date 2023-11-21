@@ -128,7 +128,7 @@
           <h3 class="profile-title">Terbaru</h3>
         </div>
         <div class="certificate d-flex justify-content-center">
-          <div class="dark" id="hover" data-bs-toggle="modal" data-bs-target="#detailModal">
+          <div class="dark" id="hover" onclick="openModal()">
             <p>Klik untuk melihat ukuran penuh</p>
           </div>
           <div id="load-detail" style="top: 35%" class="image-item"></div>
@@ -170,6 +170,15 @@
     var imageHover = document.querySelector('.image-hover');
 
     var pdfUrl = "/storage/sertifikat/{{ $certificate->id . '.pdf' }}";
+
+    function openModal(){
+      if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+              window.location.href = pdfUrl;
+      }
+
+      var modalCert = new bootstrap.Modal(document.getElementById('detailModal'));
+      modalCert.show();
+    }
 
     pdfjsLib.getDocument(pdfUrl).promise.then(function(pdfDoc) {
       return pdfDoc.getPage(1);

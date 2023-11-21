@@ -13,7 +13,7 @@
         <a href="javascript: void(0);" class="image-container" id="certificate-container">
           <div id="loaddetail" class="image-item"></div>
           <canvas id="pdfCanvas" class="image-item"></canvas>
-          <div class="image-hover" data-bs-toggle="modal" data-bs-target="#detailModal">
+          <div class="image-hover" onclick="openModal()">
             <h1 class="hover-animate">Klik untuk melihat ukuran penuh</h1>
           </div>
         </a>
@@ -135,6 +135,15 @@
     var imageHover = document.querySelector('.image-hover');
 
     var pdfUrl = "/storage/sertifikat/{{ $certificate->id . '.pdf' }}";
+
+    function openModal(){
+        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            window.location.href = pdfUrl;
+        }
+
+      var modalCert = new bootstrap.Modal(document.getElementById('detailModal'));
+      modalCert.show();
+    }
 
     pdfjsLib.getDocument(pdfUrl).promise.then(function(pdfDoc) {
       return pdfDoc.getPage(1);

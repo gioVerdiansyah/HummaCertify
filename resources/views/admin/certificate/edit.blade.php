@@ -117,7 +117,7 @@
                   class="form-control @error('sub_bidang') is-invalid
                                 @enderror"
                   placeholder="Sub bidang peserta" id="subBidang" name="sub_bidang"
-                  value="{{ old('sub_bidang', $certificate->sub_bidang) }}" required>
+                  value="{{ old('sub_bidang', $certificate->sub_bidang) }}">
                 @error('sub_bidang')
                   <div class="invalid-feedback">
                     <p>{{ $message }}</p>
