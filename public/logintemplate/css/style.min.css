@@ -33,7 +33,7 @@ a {
 }
 
 a:hover {
-    color: #2753ff
+    color: #008bbd;
 }
 
 body {
@@ -1197,7 +1197,7 @@ h6 {
 
 .form-check-input:checked {
     background-color: #2753ff;
-    border-color: #2753ff
+    border-color: #01b1f0
 }
 
 .form-check-label {

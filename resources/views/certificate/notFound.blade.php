@@ -25,8 +25,8 @@
     }
 
     .btn-biru:hover {
-      background: #daeaf7;
-      color: #2c475d;
+      background: #eeeeee;    
+      color: #0A7DB4;
     }
 
     .jangka {
