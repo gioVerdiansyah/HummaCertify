@@ -5,7 +5,6 @@ namespace App\Http\Requests;
 use App\Models\Certificate;
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
-use App\Http\Requests\AllowedEmailExtension;
 
 class CertificateUpdateRequest extends FormRequest
 {

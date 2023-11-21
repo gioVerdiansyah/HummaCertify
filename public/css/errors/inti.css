@@ -13,6 +13,7 @@ body {
 .konten {
     height: 100vh;
     align-items: center;
+    justify-content: center;
 }
 
 .costum {
@@ -63,11 +64,6 @@ body {
         background: none;
     }
 
-    .konten {
-        flex-flow: column-reverse;
-        height: 70vh !important;
-    }
-
     .illst {
         width: 100% !important;
     }
@@ -106,11 +102,10 @@ body {
 
     .konten {
         flex-flow: column-reverse;
-        height: 76vh;
     }
 
     .illst {
-        width: 70% !important;
+        width: 55% !important;
     }
 
     .col-6 {

@@ -35,17 +35,30 @@
 
     .img {
       width: 35%;
+      margin-bottom: 1rem;
     }
 
     .p {
       padding: 3rem;
+      height: 100vh;
+      justify-content: center;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    @media (max-width: 500px) {
+      .img {
+        width: 60%;
+      }
     }
   </style>
 </head>
 
 <body>
   <div class="text-center p">
-    <img src="{{ asset('landingpage/images/nocertificatefound.png') }}" class="img pb-5" alt="">
+    <img src="{{ asset('landingpage/images/nocertificatefound.png') }}" class="img" alt="">
     <h1 class="pb-3">Sertifikat tidak ditemukan</h1>
     <button type="button" class="btn btn-biru" onclick="window.location.href = '{{ route('home') }}'"><i class="fas fa-arrow-left jangka"></i>Kembali</button>
   </div>
