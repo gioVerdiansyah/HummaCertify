@@ -82,7 +82,7 @@
 
         @endguest
         @auth
-          <form action="{{ route('logout') }}" method="POST">
+          <form action="{{ route('logout') }}" method="POST" class="logout-button">
             @csrf
             <button type="submit" class="btn btn-sm rounded-pill nav-btn ms-lg-3" aria-label="logout">Logout</button>
           </form>
