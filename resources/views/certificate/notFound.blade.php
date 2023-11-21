@@ -52,6 +52,10 @@
       .img {
         width: 60%;
       }
+
+      .t {
+        font-size: 1.4rem;
+      }
     }
   </style>
 </head>
@@ -59,7 +63,7 @@
 <body>
   <div class="text-center p">
     <img src="{{ asset('landingpage/images/nocertificatefound.png') }}" class="img" alt="">
-    <h1 class="pb-3">Sertifikat tidak ditemukan</h1>
+    <h1 class="pb-3 t">Sertifikat tidak ditemukan</h1>
     <button type="button" class="btn btn-biru" onclick="window.location.href = '{{ route('home') }}'"><i class="fas fa-arrow-left jangka"></i>Kembali</button>
   </div>
   <script src="{{ asset('js/themeLoader.js') }}"></script>
