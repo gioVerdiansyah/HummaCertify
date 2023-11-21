@@ -129,6 +129,38 @@ h4 {
     width: 100px;
 }
 
+.swal2-success-circular-line-right {
+    background-color: transparent !important;
+}
+
+.swal2-success-circular-line-left {
+    background-color: transparent !important;
+}
+
+.swal2-success-fix {
+    background-color: transparent !important;
+}
+
+.load-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+#loaddetailfound,
+[id^="load-"],
+#loadpreview {
+    width: 10vw;
+    height: 10vw;
+    background-image: url('/image/Loading-logo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: loading 2s infinite ease-in-out, flipAndGrayScale 2s infinite;
+}
+
 @media screen and (max-width: 924px) {
     .content-top {
         display: block;
@@ -158,11 +190,17 @@ h4 {
     .header {
         text-align: center;
     }
+
+    #loaddetailfound,
+    [id^="load-"],
+    #loadpreview {
+        width: 18vw !important;
+        height: 18vw !important;
+    }
 }
 
 @media screen and (max-width: 512px) {
     .main-detail {
         display: block;
-        text-align: center;
     }
 }

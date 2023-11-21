@@ -13,33 +13,8 @@
     font-size: 20px;
 }
 
-#loaddetail,
-[id^="load-"],
-#loadpreview {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 40%;
-    background-image: url('/image/Loading-logo.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    animation: loading 2s infinite ease-in-out, flipAndGrayScale 2s infinite;
-}
-
-[id^="load-"] {
-    top: 30%;
-}
-
 #loadpreview {
     position: relative;
-}
-
-@media screen and (max-width: 900px) {
-    [id^="load-"] {
-        width: 75px;
-        height: 75px;
-        top: 30%;
-    }
 }
 
 @keyframes loading {

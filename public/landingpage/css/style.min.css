@@ -2597,7 +2597,7 @@ textarea.form-control {
 }
 
 .long-text {
-    transform: translateY(41px);
+    transform: translateY(15px);
     text-align: center;
 }
 

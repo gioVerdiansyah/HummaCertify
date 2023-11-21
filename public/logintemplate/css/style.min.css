@@ -2342,7 +2342,6 @@ h6 {
 }
 
 /*# sourceMappingURL=style.min.css.map */
-
 .btn-biru {
     background-color: #1689D3;
     color: white;
@@ -2365,7 +2364,7 @@ h6 {
     color: #0b5c8f;
 }
 
-@media screen and (max-width: 428px) {
+/* @media screen and (max-width: 428px) {
     .mobile-background {
         background-color: var(--bs-body-bg);
     }
@@ -2373,4 +2372,4 @@ h6 {
     input {
         background-color: transparent !important;
     }
-}
+} */

@@ -50,7 +50,8 @@
           @method('PATCH')
           <div class="mb-3">
             <label for="oldPassword" class="form-label flex-label">
-              <p>Password Lama</p><p> (Default Nis, Nisn, Nik)</p>
+              <p>Password Lama</p>
+              <p> (Default Nis, Nisn, Nik)</p>
             </label>
             <input type="password" class="input-height form-control" id="passwordOne" name="oldPassword" placeholder="Password lama" required>
             <div style="display: none" id="eyeShow" class="eye">
@@ -131,7 +132,9 @@
           <div class="dark" id="hover" onclick="openModal()">
             <p>Klik untuk melihat ukuran penuh</p>
           </div>
-          <div id="load-detail" style="top: 35%" class="image-item"></div>
+          <div class="load-container" id="loading-animation">
+            <div id="load-detail" class="image-item"></div>
+          </div>
           <canvas id="pdfCanvas" class="image-item"></canvas>
         </div>
       </div>
@@ -168,6 +171,7 @@
     var context = canvas.getContext('2d');
     var hover = document.getElementById('hover');
     var imageHover = document.querySelector('.image-hover');
+    var loadContainer = document.getElementById('loading-animation')
 
     var pdfUrl = "/storage/sertifikat/{{ $certificate->id . '.pdf' }}";
 
@@ -203,7 +207,7 @@
       return page.render(renderContext).promise.then(function() {
         var loadingElement = document.getElementById('load-detail');
         if (loadingElement) {
-          loadingElement.remove();
+          loadContainer.remove();
         }
 
         hover.style.display = 'flex';
@@ -212,7 +216,7 @@
       var pElement = document.createElement('p');
       pElement.textContent = 'File PDF tidak ditemukan.';
 
-      document.getElementById('load-detail').remove();
+      document.getElementById('loading-animation').remove();
 
       canvas.parentNode.replaceChild(pElement, canvas);
       console.error('Gagal memproses PDF: ' + error);

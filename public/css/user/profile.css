@@ -88,11 +88,13 @@
     overflow: hidden;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
+
 .container-profile .kanan .card-sertifikat-show .certificate canvas {
     width: 100%;
     height: auto;
     object-fit: cover;
 }
+
 .container-profile .kanan .card-sertifikat-show .certificate .dark {
     background-color: black;
     color: white;
@@ -115,6 +117,7 @@
     font-weight: 600;
     text-align: center;
 }
+
 .container-profile .kanan .card-sertifikat-show .certificate .dark:hover {
     background-color: black;
     width: 100%;
@@ -145,12 +148,14 @@
     text-transform: uppercase;
     font-family: "Poppins", sans-serif;
 }
+
 .card-sertifikat-user .card-body .text .angka {
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 0;
     font-family: "Poppins", sans-serif;
 }
+
 .card-sertifikat-user .card-body .text .text-bawah {
     font-size: 12px;
     font-weight: 300;
@@ -159,6 +164,26 @@
     color: #878a99;
     margin-bottom: 0;
     font-family: "Poppins", sans-serif;
+}
+
+.load-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+#loaddetail,
+[id^="load-"],
+#loadpreview {
+    width: 10vw !important;
+    height: 10vw !important;
+    background-image: url('/image/Loading-logo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: loading 2s infinite ease-in-out, flipAndGrayScale 2s infinite;
 }
 
 @media only screen and (max-width: 900px) {
@@ -193,6 +218,13 @@
 
     .line-breaker {
         display: block;
+    }
+
+    #loaddetail,
+    [id^="load-"],
+    #loadpreview {
+        width: 21vw !important;
+        height: 21vw !important;
     }
 }
 

@@ -117,7 +117,9 @@
                   @forelse ($certificates as $certificate)
                     <div class="col-md-4 mb-4">
                       <a href="javascript: void(0);" class="image-container" id="certificate-container">
-                        <div id="load-{{ $certificate->id }}" class="image-load"></div>
+                        <div class="load-container">
+                          <div id="load-{{ $certificate->id }}" class="image-load"></div>
+                        </div>
                         <canvas id="{{ $certificate->id }}" class="image-item"></canvas>
                         <div class="image-hover-{{ $certificate->id }}" onclick="openModal('{{ $certificate->id }}')">
                           <h1 class="hover-animate">Klik untuk melihat ukuran penuh</h1>
@@ -142,7 +144,9 @@
                     @if ($certificate->certificate_categori_id == 1 || $certificate->category->tata_letak === "Kelulusan")
                       <div class="col-md-4 mb-4">
                         <a href="javascript: void(0);" class="image-container" id="certificate-container">
-                          <div id="load-kelulusan-{{ $certificate->id }}" class="image-item"></div>
+                          <div class="load-container">
+                            <div id="load-kelulusan-{{ $certificate->id }}" class="image-item"></div>
+                          </div>
                           <canvas id="kelulusan-{{ $certificate->id }}" class="image-item"></canvas>
                           <div class="image-hover-kelulusan-{{ $certificate->id }}" onclick="openModal('{{ $certificate->id }}')">
                             <h1 class="hover-animate">Klik untuk melihat ukuran penuh</h1>
@@ -153,7 +157,7 @@
                         generateCertificate("{{ $certificate->id }}", "kelulusan-{{ $certificate->id }}");
                       </script>
                       @php
-                      	$tidakMemiliki = false;
+                        $tidakMemiliki = false;
                       @endphp
                     @endif
                   @endforeach
@@ -166,14 +170,16 @@
               <section>
                 <h2 class="mb-5">Kompetensi</h2>
                 @php
-                    $tidakMemiliki = true;
+                  $tidakMemiliki = true;
                 @endphp
                 <div class="row">
                   @foreach ($certificates as $certificate)
                     @if ($certificate->certificate_categori_id == 3 || $certificate->category->tata_letak === "Kompetensi")
                       <div class="col-md-4 mb-4">
                         <a href="javascript: void(0);" class="image-container" id="certificate-container">
-                          <div id="load-kompetensi-{{ $certificate->id }}" class="image-item"></div>
+                          <div class="load-container">
+                            <div id="load-kompetensi-{{ $certificate->id }}" class="image-item"></div>
+                          </div>
                           <canvas id="kompetensi-{{ $certificate->id }}" class="image-item"></canvas>
                           <div class="image-hover-kompetensi-{{ $certificate->id }}" onclick="openModal('{{ $certificate->id }}')">
                             <h1 class="hover-animate">Klik untuk melihat ukuran penuh</h1>
@@ -184,7 +190,7 @@
                         generateCertificate("{{ $certificate->id }}", "kompetensi-{{ $certificate->id }}");
                       </script>
                       @php
-                          $tidakMemiliki = false;
+                        $tidakMemiliki = false;
                       @endphp
                     @endif
                   @endforeach
@@ -204,7 +210,9 @@
                     @if ($certificate->certificate_categori_id == 2 || $certificate->category->tata_letak === "Pelatihan")
                       <div class="col-md-4 mb-4">
                         <a href="javascript: void(0);" class="image-container" id="certificate-container">
-                          <div id="load-pelatihan-{{ $certificate->id }}" class="image-item load"></div>
+                          <div class="load-container">
+                            <div id="load-pelatihan-{{ $certificate->id }}" class="image-item load"></div>
+                          </div>
                           <canvas id="pelatihan-{{ $certificate->id }}" class="image-item"></canvas>
                           <div class="image-hover-pelatihan-{{ $certificate->id }}" onclick="openModal('{{ $certificate->id }}')">
                             <h1 class="hover-animate">Klik untuk melihat ukuran penuh</h1>
@@ -215,7 +223,7 @@
                         generateCertificate("{{ $certificate->id }}", "pelatihan-{{ $certificate->id }}");
                       </script>
                       @php
-                          $tidakMemiliki = false;
+                        $tidakMemiliki = false;
                       @endphp
                     @endif
                   @endforeach

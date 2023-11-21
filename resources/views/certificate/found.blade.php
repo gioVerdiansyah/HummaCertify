@@ -11,7 +11,9 @@
     <div class="content-top">
       <div class="left-side">
         <a href="javascript: void(0);" class="image-container" id="certificate-container">
-          <div id="loaddetail" class="image-item"></div>
+          <div class="load-container">
+            <div id="loaddetailfound" class="image-item"></div>
+          </div>
           <canvas id="pdfCanvas" class="image-item"></canvas>
           <div class="image-hover" onclick="openModal()">
             <h1 class="hover-animate">Klik untuk melihat ukuran penuh</h1>
@@ -162,18 +164,20 @@
       };
 
       return page.render(renderContext).promise.then(function() {
-        var loadingElement = document.getElementById('loaddetail');
+        var loadingElement = document.getElementById('loaddetailfound');
         if (loadingElement) {
           loadingElement.remove();
         }
 
         imageHover.style.visibility = 'visible';
+        imageHover.style.cursor = 'pointer';
       });
     }).catch(function(error) {
       Swal.fire({
         icon: 'error',
         title: 'Tidak ditemukan!',
-        text: 'File Sertifikat tidak ditemukan, hubungi developer untuk informasi lebih lanjut.'
+        text: 'File Sertifikat tidak ditemukan, hubungi developer untuk informasi lebih lanjut.',
+        background: 'var(--bs-body-bg)',
       });
       var certificateContainer = document.getElementById('certificate-container');
 

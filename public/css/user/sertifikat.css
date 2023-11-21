@@ -96,6 +96,26 @@ canvas {
     text-align: center;
 }
 
+.load-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+#loaddetailsertifikat,
+[id^="load-"],
+#loadpreview {
+    width: 8vw;
+    height: 8vw;
+    background-image: url('/image/Loading-logo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: loading 2s infinite ease-in-out, flipAndGrayScale 2s infinite;
+}
+
 @media screen and (max-width: 1065px) {
     .hover-animate {
         font-size: 2vw;
@@ -105,6 +125,17 @@ canvas {
 @media screen and (max-width: 767px) {
     .hover-animate {
         font-size: 6.3vw;
+    }
+
+    #loaddetail,
+    [id^="load-"],
+    #loadpreview {
+        width: 17vw !important;
+        height: 17vw !important;
+        background-image: url('/image/Loading-logo.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        animation: loading 2s infinite ease-in-out, flipAndGrayScale 2s infinite;
     }
 }
 

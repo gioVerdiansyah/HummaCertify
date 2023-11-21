@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>HummaCertify - Sign In</title>
+  <title>HummaCertify - Lupa Password</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Premium Bootstrap 5 Landing Page Template" />
   <meta name="keywords" content="bootstrap 5, premium, marketing, multipurpose" />
@@ -12,12 +12,9 @@
   <link rel="shortcut icon" href="{{ asset('image/Hummatech logo.png') }}" type="image/x-icon">
 
   <!-- icon -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"
-    integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous"
+    referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js" integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
@@ -31,8 +28,7 @@
 
 <body>
   <script src="{{ asset('js/themeLoader.js') }}"></script>
-  <section id="background-login" class="bg-account-pages vh-100 d-flex align-items-center bg-center position-relative"
-    style="background-image: url('{{ asset('logintemplate/images/auth-bg.png') }}');">
+  <section id="background-login" class="bg-account-pages vh-100 d-flex align-items-center bg-center position-relative" style="background-image: url('{{ asset('logintemplate/images/auth-bg.png') }}');">
     <div class="container">
       @if (!session('status'))
         <div class="row justify-content-center">
@@ -41,13 +37,11 @@
               <div class="p-4 mobile-background">
                 <div class="text-center mt-3 brand-logo j">
                   <a href="#">
-                    <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-dark"
-                      height="35" />
-                    <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-light"
-                      height="35" />
+                    <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-dark" height="35" />
+                    <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-light" height="35" />
                   </a>
                   <div class="d-flex justify-content-center">
-                    <p class="mt-4 mb-1" style="width: 350px">Konfirmasi email anda untuk melanjutkan proses
+                    <p class="mt-4 mb-1 px-1" style="width: 350px">Konfirmasi email anda untuk melanjutkan proses
                       Lupa Password</p>
                   </div>
                 </div>
@@ -56,8 +50,7 @@
                     @csrf
                     <div class="mb-3" id="email-container">
                       <label for="email" class="form-label">Email</label>
-                      <input name="email" required placeholder="Email" id="username" type="text"
-                        class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" />
+                      <input name="email" required placeholder="Email" id="username" type="text" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" />
                       @error('email')
                         <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
@@ -65,7 +58,7 @@
                       @enderror
                     </div>
                 </div>
-                <div class="d-grid mt-3">
+                <div class="d-grid mt-3 px-3">
                   @if (!session('status'))
                     <button type="submit" id="submit-button" name="send" class="btn btn-biru px-2">
                       <span class="d-flex align-items-center justify-content-center">
@@ -78,11 +71,10 @@
                       </span>
                     </button>
                   @else
-                    <button type="button" class="btn btn-success btn-none">Email berhasil
-                      terkirim</button>
+                    <button type="button" class="btn btn-success btn-none">Email berhasil terkirim</button>
                   @endif
+                  </form>
                 </div>
-                </form>
                 <!-- end form -->
               </div>
             </div>
@@ -96,32 +88,30 @@
         <div class="row justify-content-center">
           <div class="col-md-8 col-lg-6 col-xl-5">
             <div class="form-bg shadow bg-white">
-                <div class="p-4 mobile-background">
-                  <div class="text-center mt-3 brand-logo j">
-                    <a href="#">
-                      <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-dark"
-                        height="35" />
-                      <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-light"
-                        height="35" />
-                    </a>
+              <div class="p-4 mobile-background">
+                <div class="text-center mt-3 brand-logo j">
+                  <a href="#">
+                    <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-dark" height="35" />
+                    <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-light" height="35" />
+                  </a>
 
-                    <p class="mt-4">Kami telah mengirim email konfirmasi ke email :</p>
-                    <p class="mt-4 mb-4 fw-bold">{{ session('email') }}</p>
+                  <p class="mt-4">Kami telah mengirim email konfirmasi ke email :</p>
+                  <p class="mt-4 mb-4 fw-bold">{{ session('email') }}</p>
 
-                    <p>Jika ada salah ketik email silahkan klik kembali dan ketik ulang email Anda.
-                    </p>
-                  </div>
-                  <div class="p-3">
-                    @error('email')
-                      <p class="text-danger text-center">{{ $message }}</p>
-                    @enderror
-                    <div class="d-grid mt-3">
-                      <button type="button" id="submit-button" name="send" class="btn btn-biru px-2" onclick="location.reload();">
+                  <p>Jika ada salah ketik email silahkan klik kembali dan ketik ulang email Anda.
+                  </p>
+                </div>
+                <div class="p-3">
+                  @error('email')
+                    <p class="text-danger text-center">{{ $message }}</p>
+                  @enderror
+                  <div class="d-grid mt-3">
+                    <button type="button" id="submit-button" name="send" class="btn btn-biru px-2" onclick="location.reload();">
                       Kembali
                     </button>
-                    </div>
                   </div>
                 </div>
+              </div>
             </div>
           </div>
           <!-- end col -->
