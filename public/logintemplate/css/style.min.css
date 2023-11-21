@@ -2018,7 +2018,7 @@ h6 {
 }
 
 [data-bs-theme=dark] .bg-account-pages {
-    background-image: url(../images/auth-bg-dark.png) !important
+    background-image: none !important;
 }
 
 [data-bs-theme=dark] .bg-account-pages .bottom-text {
