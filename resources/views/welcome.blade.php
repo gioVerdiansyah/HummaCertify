@@ -100,7 +100,7 @@
         </div>
       </div>
       <div class="row align-items-center mb-5">
-        <div class="col-md-5 order-2 order-md-1 mt-md-0 mt-5 ctr long-text">
+        <div class="col-md-5 order-2 order-md-1 mt-md-0 mt-5 ctr long-text1">
           <p class="text-muted mb-4">Sertifikat kelulusan magang adalah wujud pengakuan atas upaya dan dedikasi siswa
             magang yang telah menyelesaikan program mereka. Sertifikat khusus acara, di sisi lain, adalah bukti
             kehadiran atau kontribusi dalam
@@ -135,7 +135,7 @@
           </div>
         </div>
         <!-- end col -->
-        <div class="col-md-5 ms-md-auto ctr long-text">
+        <div class="col-md-5 ms-md-auto ctr long-text2">
           <p class="text-muted mb-4">Dengan penggunaan platform kami, Anda dapat dengan mudah memastikan bahwa
             sertifikat kelulusan magang dan sertifikat khusus acara yang Anda miliki adalah resmi dan sah sesuai dengan
             ketentuan perusahaan kami.

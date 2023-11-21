@@ -2596,9 +2596,24 @@ textarea.form-control {
     box-shadow: 0 0 10px;
 }
 
-.long-text {
+.long-text1 {
+    transform: translate(48px, 13px);
+}
+
+.long-text2 {
     transform: translateY(15px);
-    text-align: center;
+}
+
+@media (max-width: 767px) {
+    .long-text1 {
+        transform: translate(0, 0);
+        text-align: center;
+    }
+
+    .long-text2 {
+        transform: translateY(15px);
+        text-align: center;
+    }
 }
 
 @media (max-width: 576px) {
