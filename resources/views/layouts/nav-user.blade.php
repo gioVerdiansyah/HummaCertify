@@ -16,11 +16,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather:wght@400;700&family=Montserrat:wght@400;500;700&family=Open+Sans:wght@700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
 
-    <link rel="canonical" href="{{ url()->current() }}" />
+  <link rel="canonical" href="{{ url()->current() }}" />
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous"
     referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css" integrity="sha512-cn16Qw8mzTBKpu08X0fwhTSv02kK/FojjNLz0bwp2xJ4H+yalwzXKFw/5cLzuBZCxGWIA+95X4skzvo8STNtSg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css" integrity="sha512-cn16Qw8mzTBKpu08X0fwhTSv02kK/FojjNLz0bwp2xJ4H+yalwzXKFw/5cLzuBZCxGWIA+95X4skzvo8STNtSg==" crossorigin="anonymous"
+    referrerpolicy="no-referrer" />
   <!-- css -->
   <link rel="stylesheet" href="{{ asset('css/page/LandingPage.css') }}">
   <link href="{{ asset('landingpage/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
@@ -78,23 +79,24 @@
           @endauth
         </ul>
         @guest
-        <a href="{{ route('login') }}" class="btn btn-sm rounded-pill nav-btn ms-lg-3" {{-- style="background-color: #1689d3; color: #FFFFFF;" --}}>Masuk</a>
-
+          <div class="logout-button">
+            <a href="{{ route('login') }}" class="btn btn-sm rounded-pill nav-btn ms-lg-3" {{-- style="background-color: #1689d3; color: #FFFFFF;" --}}>Masuk</a>
+          </div>
         @endguest
         @auth
-          <form action="{{ route('logout') }}" method="POST">
+          <form action="{{ route('logout') }}" method="POST" class="logout-button">
             @csrf
             <button type="submit" class="btn btn-sm rounded-pill nav-btn ms-lg-3" aria-label="logout">Logout</button>
           </form>
         @endauth
         <div class="switcher-hover nav" id="style-switcher">
-            <div class="bottom">
-              <a id="mode" class="mode-btn text-white" aria-label="Toggle Dark/Light Mode">
-                <i class="bi bi-brightness-high mode-light" style="color: black"></i>
-                <i class="bi bi-moon mode-dark"></i>
-              </a>
-              <a href="#" class="settings" onclick="toggleSwitcher()" aria-label="Toggle Settings"></a>
-            </div>
+          <div class="bottom">
+            <a id="mode" class="mode-btn text-white" aria-label="Toggle Dark/Light Mode">
+              <i class="bi bi-brightness-high mode-light" style="color: black"></i>
+              <i class="bi bi-moon mode-dark"></i>
+            </a>
+            <a href="#" class="settings" onclick="toggleSwitcher()" aria-label="Toggle Settings"></a>
+          </div>
         </div>
       </div>
     </div>

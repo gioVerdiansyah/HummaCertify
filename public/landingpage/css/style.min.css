@@ -346,6 +346,14 @@ h6 {
 
     .navbar .navbar-nav {
         margin-top: 0px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: space-between;
+        align-items: center;
+        gap: 5%;
+        margin-top: 20px;
+        justify-content: center;
     }
 
     .navbar .navbar-nav li .nav-link {
@@ -385,12 +393,26 @@ h6 {
     }
 
     .navbar .nav-btn {
+        margin-right: 49px;
         background-color: #1689d3;
         color: #fff;
     }
 
     .navbar-collapse {
         padding: 0;
+        margin-right: 0 !important;
+    }
+
+    .logout-button {
+        margin-top: 10px;
+        text-align: center;
+        margin-right: 2px;
+    }
+
+    #style-switcher {
+    position: relative!important;
+    left: 50%;
+    transform: translate(330%, 0);
     }
 }
 
