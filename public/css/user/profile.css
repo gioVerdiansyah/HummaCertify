@@ -175,75 +175,6 @@
     height: 100%;
 }
 
-#loaddetail,
-[id^="load-"],
-#loadpreview {
-    width: 10vw !important;
-    height: 10vw !important;
-    background-image: url('/image/Loading-logo.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    animation: loading 2s infinite ease-in-out, flipAndGrayScale 2s infinite;
-}
-
-@media only screen and (max-width: 900px) {
-    .container-profile {
-        display: block;
-    }
-
-    .container-profile .kanan .card-sertifikat-show {
-        margin: 0 !important;
-    }
-
-    .container-profile .kanan .card-sertifikat-show .certificate .dark p {
-        font-size: 6vw;
-    }
-
-    .container-profile .kanan .card-sertifikat-user {
-        margin: 0;
-    }
-
-    .container-profile .kiri {
-        width: 100%;
-        height: auto;
-    }
-
-    .container-profile .kanan {
-        width: 100%;
-    }
-
-    .container-profile .kiri .card {
-        padding: 18px;
-    }
-
-    .line-breaker {
-        display: block;
-    }
-
-    #loaddetail,
-    [id^="load-"],
-    #loadpreview {
-        width: 21vw !important;
-        height: 21vw !important;
-    }
-}
-
-@media only screen and (max-width: 356px) {
-    .bottom-button {
-        display: block !important;
-    }
-
-    .lupa-password {
-        margin-top: 20px;
-    }
-}
-
-@media only screen and (max-width: 315px) {
-    .flex-label {
-        display: block;
-    }
-}
-
 /* Hide and show password */
 .eye {
     cursor: pointer;
@@ -294,4 +225,86 @@
 .icon3 {
     margin-top: 9.2px;
     margin-left: 6px;
+}
+
+
+#loaddetail,
+[id^="load-"],
+#loadpreview {
+    width: 10vw !important;
+    height: 10vw !important;
+    background-image: url('/image/Loading-logo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: loading 2s infinite ease-in-out, flipAndGrayScale 2s infinite;
+}
+
+@media only screen and (max-width: 900px) {
+    .container-profile {
+        display: block;
+    }
+
+    .container-profile .kanan .card-sertifikat-show {
+        margin: 0 !important;
+    }
+
+    .container-profile .kanan .card-sertifikat-show .certificate .dark p {
+        font-size: 6vw;
+    }
+
+    .container-profile .kanan .card-sertifikat-user {
+        margin: 0;
+    }
+
+    .container-profile .kiri {
+        width: 100%;
+        height: auto;
+    }
+
+    .container-profile .kanan {
+        width: 100%;
+    }
+
+    .container-profile .kiri .card {
+        padding: 18px;
+    }
+
+    .line-breaker {
+        display: block;
+    }
+
+    .eye {
+        right: 25px;
+    }
+
+    .eye2 {
+        right: 25px;
+    }
+
+    .eye3 {
+        right: 25px;
+    }
+
+    #loaddetail,
+    [id^="load-"],
+    #loadpreview {
+        width: 21vw !important;
+        height: 21vw !important;
+    }
+}
+
+@media only screen and (max-width: 356px) {
+    .bottom-button {
+        display: block !important;
+    }
+
+    .lupa-password {
+        margin-top: 20px;
+    }
+}
+
+@media only screen and (max-width: 315px) {
+    .flex-label {
+        display: block;
+    }
 }
