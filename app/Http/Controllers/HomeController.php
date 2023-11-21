@@ -66,7 +66,13 @@ class HomeController extends Controller
 
         $certificateData = Certificate::selectRaw('YEAR(created_at) as year, MONTH(created_at) as month, COUNT(*) as count')
             ->groupBy('year', 'month')
-            ->get();
+            ->get()->toArray();
+
+        foreach ($certificateData as $i => $data) {
+            $certificateData[$i]['year'] = (int)$data['year'];
+            $certificateData[$i]['month'] = (int)$data['month'];
+            $certificateData[$i]['count'] = (int)$data['count'];
+        }
 
         return view('admin.dashboard', compact('users', 'category', 'certificateCategoryCount', 'certificateCount', 'certificateData', 'kelulusanCount', 'categoryData'));
     }
