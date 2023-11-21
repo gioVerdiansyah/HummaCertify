@@ -1836,7 +1836,7 @@ h6 {
     }
 
     .hero-6 .hero-6-title {
-        font-size: 35px;
+        font-size: 11vw;
     }
 }
 
@@ -1877,7 +1877,7 @@ h6 {
     }
 
     .hero-6 {
-        padding: 140px 0 120px;
+        padding: 225px 0 120px !important;
     }
 
     #gambar {
