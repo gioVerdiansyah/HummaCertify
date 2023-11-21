@@ -104,7 +104,7 @@
         position: absolute;
         top: 366px;
         left: 423px;
-        font-family: 'Poppins', sans-serif;
+        font-family: "Poppins", sans-serif;
         font-weight: 400;
         font-size: 18px;
         letter-spacing: 2px;
@@ -112,9 +112,9 @@
 
       .depan .content .text .pelatihan {
         position: absolute;
-        top: 406px;
+        top: 395px;
         left: 214px;
-        font-family: 'Poppins', sans-serif;
+        font-family: "Poppins", sans-serif;
         font-weight: 700;
         font-size: 18px;
         text-align: center;
