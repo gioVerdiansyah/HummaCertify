@@ -59,7 +59,7 @@
     justify-content: space-between;
     height: 100px;
     color: #eeeeee;
-    width: 100%;
+    width: 98%;
     top: 32%;
 }
 
@@ -105,6 +105,7 @@
 
 .gallery-controls-n {
     position: relative;
+    top: 1.2px;
 }
 
 .gallery-controls-n::before {
