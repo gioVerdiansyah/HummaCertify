@@ -462,7 +462,7 @@
                                                   <td class="t217" style="width:100%;">
                                                     <p class="t223"
                                                       style="margin:0; Margin:0; font-family:BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif,'Albert Sans'; line-height:18px; font-weight:400; font-style:normal; font-size:12px; text-decoration:none; text-transform:none; direction:ltr; color:#FFFFFF; text-align:right; mso-line-height-rule:exactly; mso-text-raise:2px;">
-                                                      +621233456789
+                                                      +62 851 7677 7785
                                                     </p>
                                                   </td>
                                                 </tr>
