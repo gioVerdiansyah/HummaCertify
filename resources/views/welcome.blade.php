@@ -275,7 +275,7 @@
                       required></textarea>
                     <p id="error-pesan" class="text-danger"></p>
                   </div>
-                  <button type="submit" id="submit-button" name="send" class="btn btn-biru"
+                  <button type="submit" id="submit-button" name="send" class="btn btn-biru-gradient"
                     aria-label="Kirim Pesan">
                     <span class="d-flex align-items-center">
                       <span class="flex-grow-1 me-2">

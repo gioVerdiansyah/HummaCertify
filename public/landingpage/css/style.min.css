@@ -2440,18 +2440,23 @@ h6 {
 
 /*# sourceMappingURL=style.min.css.map */
 
-.btn-biru {
+.btn-biru-gradient {
     background: linear-gradient(to right, #2c5eb4 0%, #3dccff 100%);
-    color: #fff;
+    color: #fff !important;
     border: none;
 }
 
-.btn-biru:hover {
+.btn-biru-gradient:active {
+    color: #fff;
+    background: #3dccff !important;
+}
+
+.btn-biru-gradient:hover {
     background-color: #1689d3;
     color: #fff;
 }
 
-.btn-biru:focus-within {
+.btn-biru-gradient:focus-within {
     color: #fff;
 }
 

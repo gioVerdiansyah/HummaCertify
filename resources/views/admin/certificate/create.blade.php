@@ -262,10 +262,11 @@
                 <div class="mt-2 d-flex href-link-gap">
                   <p>Peserta sudah ada?<a href="{{ route('certificate.create_exist') }}"> Tambah
                       sertifikat dengan
-                      peserta yang sudah terdaftar</a></p>
+                      peserta yang sudah terdaftar</a>
+                  </p>
                 </div>
               </div>
-              <div class="col-4">
+              <div class="col-md-4">
                 <button type="submit" class="btn btn-primary waves-effect waves-light">Buat
                   Sertifikat</button>
               </div>
