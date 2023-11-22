@@ -204,7 +204,7 @@ class CertificateController extends Controller
     {
 
         $certificate = Certificate::with('user', 'category', 'detailCertificates')->where('id', $id)->firstOrFail();
-        $categories = CertificateCategori::select('id', 'name')->get();
+        $categories = CertificateCategori::withTrashed()->select('id', 'name')->get();
         $details = DetailCertificate::where('certificate_id', $id)->get();
 
         return view('admin.certificate.edit', compact('categories', 'certificate', 'details'));
