@@ -22,8 +22,7 @@
 <body>
   <main>
     @foreach ($certificates as $certificate)
-      <div class="depan"
-        style='background-image: url("{{ asset($background->depan) }}");'>
+      <div class="depan" style='background-image: url("{{ asset($background->depan) }}");'>
         <section id="depan">
           <div class="content">
             <div class="no">
@@ -80,8 +79,7 @@
         </section>
       </div>
 
-      <div class="belakang"
-        style='background-image: url("{{ asset($background->belakang) }}");'>
+      <div class="belakang" style='background-image: url("{{ asset($background->belakang) }}");'>
         <section id="belakang">
           <div class="certificate-guru-belakang">
             <div class="text-penilaian text-center" style="text-align: center">
@@ -92,9 +90,9 @@
               <table>
                 <thead>
                   <tr style="text-align: center;">
-                    <th width="10%">No</th>
-                    <th width="70%">Materi</th>
-                    <th width="20%">Waktu</th>
+                    <th scope="col" width="10%">No</th>
+                    <th scope="col" width="70%">Materi</th>
+                    <th scope="col" width="20%">Waktu</th>
                   </tr>
                 </thead>
                 @php
@@ -104,7 +102,7 @@
                   @foreach ($certificate->detailCertificates as $i => $detailCertificate)
                     <tr>
                       <th>{{ ++$i }}.</th>
-                      <td style="padding: 0px 5px;">{{ $detailCertificate->materi }}</td>
+                      <td style="padding: 0px;">{{ $detailCertificate->materi }}</td>
                       <td>{{ $detailCertificate->jp }} JP</td>
                     </tr>
                     @php
@@ -112,11 +110,10 @@
                     @endphp
                   @endforeach
                   @if (count($certificate->detailCertificates) > 1)
-                  <tr>
-                    <td></td>
-                    <td>Total</td>
-                    <td>{{ $totalJP }} JP</td>
-                  </tr>
+                    <tr>
+                      <td colspan="2" style="text-align:center; font-weight:600;">Total</td>
+                      <td style="text-align:center; font-weight:600;">{{ $totalJP }} JP</td>
+                    </tr>
                   @endif
                 </tbody>
               </table>

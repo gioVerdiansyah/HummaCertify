@@ -317,9 +317,9 @@
               <table>
                 <thead>
                   <tr style="text-align: center;">
-                    <th width="10%" style="white-space: nowrap;text-align: center;">No</th>
-                    <th width="70%">Materi</th>
-                    <th width="20%" style="white-space: nowrap;text-align: center;">Waktu</th>
+                    <th scope="col" width="10%" style="white-space: nowrap;text-align: center;">No</th>
+                    <th scope="col" width="70%">Materi</th>
+                    <th scope="col" width="20%" style="white-space: nowrap;text-align: center;">Waktu</th>
                   </tr>
                 </thead>
                 @php
@@ -338,9 +338,8 @@
                   @endforeach
                   @if (count($certificate->detailCertificates) > 1)
                     <tr>
-                      <td></td>
-                      <th>Total</th>
-                      <th style="text-align: center">{{ $totalJP }} JP</th>
+                      <td colspan="2" style="text-align: center; font-weight: 600">Total</td>
+                      <td style="text-align: center; font-weight: 600">{{ $totalJP }} JP</td>
                     </tr>
                   @endif
                 </tbody>
