@@ -15,10 +15,12 @@
   <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
   {{-- FONT SIZE --}}
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather:wght@400;700&family=Open+Sans:wght@700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather:wght@400;700&family=Open+Sans:wght@700&family=Poppins:wght@400;500&display=swap"
+    rel="stylesheet">
 
   {{-- css certificate --}}
-  <link rel="stylesheet" href="{{asset('css/certificate/kelulusan.css')}}">
+  <link rel="stylesheet" href="{{ asset('css/certificate/kelulusan.css') }}">
 </head>
 
 <body>
@@ -34,24 +36,24 @@
             <p>{{ $certificate->nomor }}</p>
           </div>
         </div>
-                <div class="nama-peserta">
-                <p>
-                    @php
-                        $nameWords = explode(' ', $certificate->user->name);
-                    @endphp
-                    @if (count($nameWords) > config('hummacertify.per_kata'))
-                        {{ implode(' ', array_slice($nameWords, 0, config('hummacertify.per_kata'))) . ' ' . implode(' ', array_map(function($word) { return ($word[0]).'.'; }, array_slice($nameWords, config('hummacertify.per_kata')))) }}
-                    @else
-                        {{ $certificate->user->name }}
-                    @endif
-                </p>
-            </div>
+        <div class="nama-peserta">
+          <p>
+            @php
+              $nameWords = explode(' ', $certificate->user->name);
+            @endphp
+            @if (count($nameWords) > config('hummacertify.per_kata'))
+              {{ implode(' ', array_slice($nameWords, 0, config('hummacertify.per_kata'))) .' ' .implode(' ',array_map(function ($word) {return $word[0] . '.';}, array_slice($nameWords, config('hummacertify.per_kata')))) }}
+            @else
+              {{ $certificate->user->name }}
+            @endif
+          </p>
+        </div>
         {{-- Nama Peserta --}}
         {{-- <div class="nama-peserta">
           <p>{{ $certificate->user->name }}</p>
         </div> --}}
         <div class="nik">
-          {{ $certificate->user->nomor_induk}}
+          {{ $certificate->user->nomor_induk }}
         </div>
         <div class="sekolah">
           {{ $certificate->user->institusi }}
@@ -72,19 +74,20 @@
     <div class="belakang" style='background-image: url("{{ asset($background->belakang) }}");'>
       <div class="content">
         <div class="text-pengantar">
-          <p>Telah Lulus magang sebagai <span>{{ $certificate->bidang }}</span> beserta bukti kegiatan atau projek di bawah</p>
+          <p>Telah Lulus magang sebagai <span>{{ $certificate->bidang }}</span> beserta bukti kegiatan atau
+            projek di bawah</p>
         </div>
         <div class="table-materi">
           <table>
             <thead>
               <tr>
-                <th width="10%">No</th>
-                <th width="70%">Materi</th>
-                <th width="20%">Waktu</th>
+                <th scope="col" width="10%">No</th>
+                <th scope="col" width="70%">Materi</th>
+                <th scope="col" width="20%">Waktu</th>
               </tr>
             </thead>
             @php
-                $totalJP = 0;
+              $totalJP = 0;
             @endphp
             <tbody>
               @foreach ($certificate->detailCertificates as $i => $detailCertificate)
@@ -94,14 +97,13 @@
                   <td>{{ $detailCertificate->jp }} JP</td>
                 </tr>
                 @php
-                    $totalJP += $detailCertificate->jp;
+                  $totalJP += $detailCertificate->jp;
                 @endphp
               @endforeach
               @if (count($certificate->detailCertificates) > 1)
                 <tr>
-                  <td></td>
-                  <th>Total</th>
-                  <th>{{ $totalJP }} JP</th>
+                  <td style="font-weight: 600; text-align:center;" colspan="2">Total</td>
+                  <td style="font-weight: 600; text-align:center;">{{ $totalJP }} JP</td>
                 </tr>
               @endif
             </tbody>

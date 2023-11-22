@@ -21,8 +21,7 @@
 
 <body>
   <main>
-    <div class="depan"
-      style='background-image: url("{{ asset($background->depan) }}");'>
+    <div class="depan" style='background-image: url("{{ asset($background->depan) }}");'>
       <section id="depan">
         <div class="content">
           <div class="no">
@@ -79,8 +78,7 @@
       </section>
     </div>
 
-    <div class="belakang"
-      style='background-image: url("{{ asset($background->belakang) }}");'>
+    <div class="belakang" style='background-image: url("{{ asset($background->belakang) }}");'>
       <section id="belakang">
         <div class="certificate-guru-belakang">
           <div class="text-penilaian text-center" style="text-align: center">
@@ -91,9 +89,9 @@
             <table>
               <thead>
                 <tr style="text-align: center;">
-                  <th width="10%">No</th>
-                  <th width="70%">Materi</th>
-                  <th width="20%">Waktu</th>
+                  <th scope="col" width="10%">No</th>
+                  <th scope="col" width="70%">Materi</th>
+                  <th scope="col" width="20%">Waktu</th>
                 </tr>
               </thead>
               @php
@@ -112,9 +110,8 @@
                 @endforeach
                 @if (count($certificate->detailCertificates) > 1)
                   <tr>
-                    <td></td>
-                    <th>Total</th>
-                    <th>{{ $totalJP }} JP</th>
+                    <td colspan="2" style="text-align: center; font-weight: 600">Total</td>
+                    <td style="text-align: center; font-weight: 600">{{ $totalJP }} JP</td>
                   </tr>
                 @endif
               </tbody>

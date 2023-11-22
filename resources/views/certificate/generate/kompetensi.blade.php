@@ -222,7 +222,7 @@
 
       .belakang .content .table-materi table thead th {
         border: 1px solid black;
-        padding: 8px 0px;
+        padding: 0px 0px 4px 0px;
       }
 
       .belakang .content .table-materi table tbody tr {
@@ -231,7 +231,7 @@
 
       .belakang .content .table-materi table tbody td {
         border: 1px solid;
-        padding: 4px 0px;
+        padding: 0px 0px 2px 0px;
       }
     </style>
     {{-- Depan --}}
@@ -249,18 +249,18 @@
           <p class="no">No.</p>
           <p class="nomer">{{ $certificate->nomor }}</p>
         </div>
-       <div class="nama">
-                <p>
-                    @php
-                        $nameWords = explode(' ', $certificate->user->name);
-                    @endphp
-                    @if (count($nameWords) > config('hummacertify.per_kata'))
-                        {{ implode(' ', array_slice($nameWords, 0, config('hummacertify.per_kata'))) . ' ' . implode(' ', array_map(function($word) { return ($word[0]).'.'; }, array_slice($nameWords, config('hummacertify.per_kata')))) }}
-                    @else
-                        {{ $certificate->user->name }}
-                    @endif
-                </p>
-         </div>
+        <div class="nama">
+          <p>
+            @php
+              $nameWords = explode(' ', $certificate->user->name);
+            @endphp
+            @if (count($nameWords) > config('hummacertify.per_kata'))
+              {{ implode(' ', array_slice($nameWords, 0, config('hummacertify.per_kata'))) .' ' .implode(' ',array_map(function ($word) {return $word[0] . '.';}, array_slice($nameWords, config('hummacertify.per_kata')))) }}
+            @else
+              {{ $certificate->user->name }}
+            @endif
+          </p>
+        </div>
         {{-- <div class="nama">
           <p>{{ $certificate->user->name }}</p>
         </div> --}}
@@ -297,9 +297,9 @@
           <table>
             <thead>
               <tr>
-                <th width="10%">No</th>
-                <th width="70%">Materi</th>
-                <th width="20%">Waktu</th>
+                <th scope="col" width="10%">No</th>
+                <th scope="col" width="70%">Materi</th>
+                <th scope="col" width="20%">Waktu</th>
               </tr>
             </thead>
             @php
@@ -309,7 +309,7 @@
               @foreach ($certificate->detailCertificates as $i => $detailCertificate)
                 <tr>
                   <th>{{ ++$i }}.</th>
-                  <td style="text-align: start; padding: 2px 5px;">{{ $detailCertificate->materi }}</td>
+                  <td style="text-align: start; padding: 0px 5px 2px 5px;">{{ $detailCertificate->materi }}</td>
                   <td style="text-align: center">{{ $detailCertificate->jp }} JP</td>
                 </tr>
                 @php
@@ -318,9 +318,8 @@
               @endforeach
               @if (count($certificate->detailCertificates) > 1)
                 <tr>
-                  <td></td>
-                  <th>Total</th>
-                  <th style="text-align: center">{{ $totalJP }} JP</th>
+                  <td colspan="2" style="text-align: center; font-weight: 600;">Total</td>
+                  <td style="text-align: center; font-weight: 600;">{{ $totalJP }} JP</td>
                 </tr>
               @endif
             </tbody>
