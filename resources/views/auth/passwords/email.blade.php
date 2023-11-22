@@ -32,12 +32,12 @@
   <section id="background-login" class="bg-account-pages vh-100 d-flex align-items-center bg-center position-relative" style="background-image: url('{{ asset('logintemplate/images/auth-bg.png') }}');">
     <div class="container">
       @if (!session('status'))
-        <div class="row justify-content-center">
+        <div class="row justify-content-center second-container">
           <div class="col-md-8 col-lg-6 col-xl-5">
             <div class="form-bg shadow bg-white">
               <div class="p-4 mobile-background">
                 <div class="text-center mt-3 brand-logo j">
-                  <a href="#">
+                  <a href="{{ route('home') }}">
                     <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-dark" height="35" />
                     <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-light" height="35" />
                   </a>
@@ -86,12 +86,12 @@
           </div>
         </div>
       @else
-        <div class="row justify-content-center">
-          <div class="col-md-8 col-lg-6 col-xl-5">
+        <div class="row justify-content-center second-container">
+          <div class="col-md-8 col-lg-6 col-xl-5 pb-4">
             <div class="form-bg shadow bg-white">
               <div class="p-4 mobile-background">
                 <div class="text-center mt-3 brand-logo j">
-                  <a href="#">
+                  <a href="{{ route('home') }}">
                     <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-dark" height="35" />
                     <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-light" height="35" />
                   </a>

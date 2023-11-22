@@ -1406,7 +1406,8 @@ h6 {
 .bg-center {
     background-position: center center;
     background-size: cover;
-    background-repeat: no-repeat
+    background-repeat: no-repeat;
+    overflow: auto;
 }
 
 .play-icon-circle {
@@ -2360,8 +2361,20 @@ h6 {
 .text-biru {
     color: #1689D3;
 }
+
 .text-biru:hover {
     color: #0b5c8f;
+}
+
+.container {
+    height: 100vh;
+    padding-top: 20px;
+}
+
+.second-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 

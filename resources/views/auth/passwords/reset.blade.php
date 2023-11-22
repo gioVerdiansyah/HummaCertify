@@ -31,12 +31,12 @@
     <script src="{{ asset('js/loginLoader.js') }}"></script>
 
     <div class="container">
-      <div class="row justify-content-center">
+      <div class="row justify-content-center second-container">
         <div class="col-md-8 col-lg-6 col-xl-5">
           <div class="form-bg shadow bg-white">
             <div class="p-4 mobile-background">
               <div class="text-center mt-3 mb-1 brand-logo j">
-                <a href="#">
+                <a href="{{ route('home') }}">
                   <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-dark"
                     height="35" />
                   <img src="{{ asset('landingpage/images/logocertify.PNG') }}" alt="" class="logo-light"
