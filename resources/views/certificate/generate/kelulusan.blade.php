@@ -306,8 +306,8 @@
                   @endforeach
                   @if (count($certificate->detailCertificates) > 1)
                     <tr>
-                      <th colspan="2" style="text-align: center">Total</th>
-                      <th colspan="1" style="text-align: center">{{ $totalJP }} JP</th>
+                      <td colspan="2" style="text-align: center">Total</td>
+                      <td style="text-align: center">{{ $totalJP }} JP</td>
                     </tr>
                   @endif
                 </tbody>
