@@ -305,19 +305,19 @@
               Karangploso, Perum Permata</p>
             <ul class="list-inline pt-4 t">
               <li class="list-inline-item me-3">
-                <a href="http://www.facebook.com/hummatech" target="_blank" class="social-icon icon-mono avatar-xs rounded-circle"
+                <a href="http://www.facebook.com/hummatech" class="social-icon icon-mono avatar-xs rounded-circle"
                   aria-label="Visit our Facebook page">
                   <i class="icon-xs" data-feather="facebook"></i>
                 </a>
               </li>
               <li class="list-inline-item me-3">
-                <a href="http://www.youtube.com/@hummatech" target="_blank" class="social-icon icon-mono avatar-xs rounded-circle"
+                <a href="http://www.youtube.com/@hummatech" class="social-icon icon-mono avatar-xs rounded-circle"
                   aria-label="Visit our YouTube channel">
                   <i class="icon-xs" data-feather="youtube"></i>
                 </a>
               </li>
               <li class="list-inline-item">
-                <a href="http://www.instagram.com/hummatech" target="_blank" class="social-icon icon-mono avatar-xs rounded-circle"
+                <a href="http://www.instagram.com/hummatech" class="social-icon icon-mono avatar-xs rounded-circle"
                   aria-label="Visit our Instagram profile">
                   <i class="icon-xs" data-feather="instagram"></i>
                 </a>

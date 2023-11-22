@@ -15,9 +15,7 @@
   <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
   {{-- FONT SIZE --}}
-  <link
-    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather:wght@400;700&family=Open+Sans:wght@700&family=Poppins:wght@400;500&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather:wght@400;700&family=Open+Sans:wght@700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
 
   {{-- css certificate --}}
   <link rel="stylesheet" href="{{ asset('css/certificate/kompetensi.css') }}">
@@ -41,18 +39,18 @@
             <p class="no">No.</p>
             <p class="nomer">{{ $certificate->nomor }}</p>
           </div>
-          <div class="nama">
-            <p>
-              @php
-                $nameWords = explode(' ', $certificate->user->name);
-              @endphp
-              @if (count($nameWords) > config('hummacertify.per_kata'))
-                {{ implode(' ', array_slice($nameWords, 0, config('hummacertify.per_kata'))) .' ' .implode(' ',array_map(function ($word) {return $word[0] . '.';}, array_slice($nameWords, config('hummacertify.per_kata')))) }}
-              @else
-                {{ $certificate->user->name }}
-              @endif
-            </p>
-          </div>
+           <div class="nama">
+                <p>
+                    @php
+                        $nameWords = explode(' ', $certificate->user->name);
+                    @endphp
+                    @if (count($nameWords) > config('hummacertify.per_kata'))
+                        {{ implode(' ', array_slice($nameWords, 0, config('hummacertify.per_kata'))) . ' ' . implode(' ', array_map(function($word) { return ($word[0]).'.'; }, array_slice($nameWords, config('hummacertify.per_kata')))) }}
+                    @else
+                        {{ $certificate->user->name }}
+                    @endif
+                </p>
+            </div>
           {{-- <div class="nama">
             <p>{{ $certificate->user->name }}</p>
           </div> --}}
@@ -83,9 +81,9 @@
             <table>
               <thead>
                 <tr>
-                  <th scope="col" width="10%">No</th>
-                  <th scope="col" width="70%">Materi</th>
-                  <th scope="col" width="20%">Waktu</th>
+                  <th width="10%">No</th>
+                  <th width="70%">Materi</th>
+                  <th width="20%">Waktu</th>
                 </tr>
               </thead>
               @php
@@ -103,10 +101,11 @@
                   @endphp
                 @endforeach
                 @if (count($certificate->detailCertificates) > 1)
-                  <tr>
-                    <td colspan="2" style="font-weight:600; text-align: center">Total</td>
-                    <td style="font-weight:600; text-align: center">{{ $totalJP }} JP</td>
-                  </tr>
+                <tr>
+                  <td></td>
+                  <td>Total</td>
+                  <td>{{ $totalJP }} JP</td>
+                </tr>
                 @endif
               </tbody>
             </table>

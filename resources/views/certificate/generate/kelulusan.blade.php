@@ -202,28 +202,16 @@
 
           .belakang .content .table-materi table thead th {
             border: 1px solid black;
-            padding: 0px 0px 4px 0;
+            padding: 8px 0px;
           }
 
           .belakang .content .table-materi table tbody tr {
             border: 1px solid;
           }
 
-          .belakang .content .table-materi table tbody tr th {
-            font-family: "Montserrat", sans-serif;
-            font-weight: 700;
-          }
-
-          .belakang .content .table-materi table tbody tr td {
-            font-family: "Montserrat", sans-serif;
-            font-weight: 700;
-          }
-
           .belakang .content .table-materi table tbody td {
             border: 1px solid;
-            padding: 0px 0px 2px 0px;
-            font-family: "Montserrat", sans-serif;
-            font-weight: 700;
+            padding: 4px 0px;
           }
         </style>
         <div class="bg" style='background-image: url("{{ $background->depan }}");'>
@@ -275,17 +263,16 @@
         <div class="belakang" style='background-image: url("{{ $background->belakang }}");'>
           <div class="content">
             <div class="text-pengantar">
-              <p>Telah Lulus magang sebagai <span>{{ $certificate->bidang }}</span> beserta bukti kegiatan atau
-                projek di bawah
+              <p>Telah Lulus magang sebagai <span>{{ $certificate->bidang }}</span> beserta bukti kegiatan atau projek di bawah
               </p>
             </div>
             <div class="table-materi">
               <table>
                 <thead>
                   <tr>
-                    <th scope="col" width="10%">No</th>
-                    <th scope="col" width="70%">Materi</th>
-                    <th scope="col" width="20%">Waktu</th>
+                    <th width="10%">No</th>
+                    <th width="70%">Materi</th>
+                    <th width="20%">Waktu</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -295,10 +282,8 @@
                   @foreach ($certificate->detailCertificates as $i => $detailCertificate)
                     <tr>
                       <th>{{ ++$i }}.</th>
-                      <td style="text-align: start; padding: 0px 5px 2px 5px; font-weight: 500;">
-                        {{ $detailCertificate->materi }}</td>
-                      <td style="text-align: center; font-weight: 500;">{{ $detailCertificate->jp }} JP
-                      </td>
+                      <td style="text-align: start; padding: 2px 5px;">{{ $detailCertificate->materi }}</td>
+                      <td style="text-align: center">{{ $detailCertificate->jp }} JP</td>
                     </tr>
                     @php
                       $totalJP += $detailCertificate->jp;
@@ -306,8 +291,9 @@
                   @endforeach
                   @if (count($certificate->detailCertificates) > 1)
                     <tr>
-                      <td colspan="2" style="text-align: center">Total</td>
-                      <td style="text-align: center">{{ $totalJP }} JP</td>
+                      <td></td>
+                      <th>Total</th>
+                      <th>{{ $totalJP }} JP</th>
                     </tr>
                   @endif
                 </tbody>
