@@ -23,7 +23,6 @@
   <link href="{{ asset('logintemplate/css/materialdesignicons.min.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ asset('logintemplate/css/style.min.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ asset('css/auth/auth.css') }}" rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" href="{{ asset('css/auth/login.css') }}">
 </head>
 
 <body>
