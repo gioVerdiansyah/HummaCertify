@@ -166,3 +166,19 @@ body {
     border: 1px solid;
     padding: 4px 0px;
 }
+
+.belakang .content .table-materi table tbody tr th {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+}
+
+.belakang .content .table-materi table tbody tr td {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+}
+
+.belakang .content .table-materi table tbody td {
+    border: 1px solid;
+    /* padding: 0px 0px 2px 0px; */
+    font-family: "Montserrat", sans-serif;
+}

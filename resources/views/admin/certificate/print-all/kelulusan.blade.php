@@ -15,9 +15,8 @@
   <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
   {{-- FONT SIZE --}}
-  <link
-    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather:wght@400;700&family=Open+Sans:wght@700&family=Poppins:wght@400;500&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather:wght@400;700&family=Open+Sans:wght@700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="{{ asset('css/certificate/kelulusan.css') }}">
 </head>
@@ -94,7 +93,7 @@
                 @foreach ($certificate->detailCertificates as $i => $detailCertificate)
                   <tr>
                     <th>{{ ++$i }}.</th>
-                    <td style="text-align: start; padding: 2px 5px;">{{ $detailCertificate->materi }}</td>
+                    <td style="text-align: start; padding: 5.2px 5px;">{{ $detailCertificate->materi }}</td>
                     <td>{{ $detailCertificate->jp }} JP</td>
                   </tr>
                   @php
@@ -103,8 +102,8 @@
                 @endforeach
                 @if (count($certificate->detailCertificates) > 1)
                   <tr>
-                    <td colspan="2" style="font-weight: 600; text-align: center;">Total</td>
-                    <td style="font-weight: 600; text-align: center;">{{ $totalJP }} JP</td>
+                    <td style="font-weight: 700; text-align: center;" colspan="2">Total</td>
+                    <td style="font-weight: 700; text-align: center;">{{ $totalJP }} JP</td>
                   </tr>
                 @endif
               </tbody>

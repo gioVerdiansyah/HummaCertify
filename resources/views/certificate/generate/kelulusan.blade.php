@@ -15,10 +15,8 @@
       <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
       {{-- FONT SIZE --}}
-      <link
-        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather:wght@400;700&family=Open+Sans:wght@700&family=Poppins:wght@400;500&display=swap"
-        rel="stylesheet">
-
+      <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather:wght@400;700&family=Open+Sans:wght@700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
       {{-- Import CSS --}}
       {{-- <link rel="stylesheet" href="{{ asset('css/certificate/certificate.css') }}"> --}}
     </head>
@@ -100,7 +98,7 @@
           .bg .content .sekolah {
             position: absolute;
             top: 426px;
-            left: 262px;
+            left: 263px;
             width: 600px;
             text-align: center;
             font-family: 'Open Sans', sans-serif;
@@ -112,7 +110,7 @@
 
           .bg .content .apresiasi {
             position: absolute;
-            top: 482px;
+            top: 484px;
             left: 210px;
             width: 700px;
             text-align: center;
@@ -186,6 +184,7 @@
             width: 65%;
             font-family: "Montserrat", sans-serif;
             font-weight: 400;
+
           }
 
           .belakang .content .table-materi table thead {
@@ -202,7 +201,7 @@
 
           .belakang .content .table-materi table thead th {
             border: 1px solid black;
-            padding: 0px 0px 4px 0;
+            padding: 0px 0px 4px 0px;
           }
 
           .belakang .content .table-materi table tbody tr {
@@ -212,16 +211,18 @@
           .belakang .content .table-materi table tbody tr th {
             font-family: "Montserrat", sans-serif;
             font-weight: 700;
+            padding: 0px 0px 4px 0px;
           }
 
           .belakang .content .table-materi table tbody tr td {
             font-family: "Montserrat", sans-serif;
             font-weight: 700;
+            margin: 0px;
+            padding: 0px 5px 4px 5px;
           }
 
           .belakang .content .table-materi table tbody td {
             border: 1px solid;
-            padding: 0px 0px 2px 0px;
             font-family: "Montserrat", sans-serif;
             font-weight: 700;
           }
@@ -295,8 +296,7 @@
                   @foreach ($certificate->detailCertificates as $i => $detailCertificate)
                     <tr>
                       <th>{{ ++$i }}.</th>
-                      <td style="text-align: start; padding: 0px 5px 2px 5px; font-weight: 500;">
-                        {{ $detailCertificate->materi }}</td>
+                      <td style="text-align: start; font-weight: 500; ">{{ $detailCertificate->materi }}</td>
                       <td style="text-align: center; font-weight: 500;">{{ $detailCertificate->jp }} JP
                       </td>
                     </tr>
