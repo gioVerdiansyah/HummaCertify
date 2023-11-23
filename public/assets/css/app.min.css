@@ -558,7 +558,7 @@
     box-shadow: var(--vz-vertical-menu-box-shadow);
     padding: 0 0 calc(70px + 25px) 0;
     -webkit-transition: all .1s ease-out;
-    transition: all 0.3s ease-out
+    transition: all 0.1s ease-out
 }
 
 .navbar-menu .navbar-nav .nav-link {
@@ -862,6 +862,7 @@
 }
 
 :is([data-layout=vertical], [data-layout=semibox])[data-sidebar-size=sm-hover] .navbar-menu {
+    position: fixed;
     width: var(--vz-vertical-menu-width-sm)
 }
 
@@ -1022,7 +1023,7 @@
 }
 
 :is([data-layout=vertical], [data-layout=semibox])[data-sidebar-size=sm] .navbar-menu {
-    position: absolute;
+    position: fixed;
     width: var(--vz-vertical-menu-width-sm) !important;
 }
 
