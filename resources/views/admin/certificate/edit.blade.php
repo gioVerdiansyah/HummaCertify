@@ -37,7 +37,7 @@
                 @enderror
               </div>
               <div class="col-12 mb-4">
-                <label for="email" class="form-label">Email peserta</label>
+                <label for="email" class="form-label">Email peserta (opsional)</label>
                 <input type="text"
                   class="form-control @error('email') is-invalid
                                 @enderror"
@@ -126,8 +126,15 @@
               </div>
               <div class="col-12 mb-4">
                 <label for="tanggal" class="form-label">Tanggal Acara</label>
-                <input type="date" class="form-control" placeholder="dd/mm/yy" name="tanggal" id="tanggal"
+                <input type="date" class="form-control @error('tanggal') is-invalid
+                @enderror"
+                  placeholder="dd/mm/yy" name="tanggal" id="tanggal"
                   value="{{ old('tanggal', $certificate->tanggal) }}" required>
+                @error('tanggal')
+                  <div class="invalid-feedback">
+                    <p>{{ $message }}</p>
+                  </div>
+                @enderror
               </div>
               <div class="col-12 mb-4">
                 <label for="predikat" class="form-label">Predikat</label>
@@ -330,23 +337,23 @@
     });
   </script>
   <script>
-    document.getElementById('batalButton').addEventListener('click', function (e) {
-        e.preventDefault();
-        Swal.fire({
-            title: 'Konfirmasi',
-            text: 'Apakah Anda yakin ingin membatalkan?',
-            icon: 'question',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Ya, batalkan!',
-            cancelButtonText: 'Tidak'
-        }).then((result) => {
+    document.getElementById('batalButton').addEventListener('click', function(e) {
+      e.preventDefault();
+      Swal.fire({
+        title: 'Konfirmasi',
+        text: 'Apakah Anda yakin ingin membatalkan?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, batalkan!',
+        cancelButtonText: 'Tidak'
+      }).then((result) => {
 
-            if (result.isConfirmed) {
-                window.location.href = '{{ route('certificate.index') }}';
-            }
-        });
+        if (result.isConfirmed) {
+          window.location.href = '{{ route('certificate.index') }}';
+        }
+      });
     });
   </script>
 @endsection

@@ -26,7 +26,7 @@ class CertificateStoreRequest extends FormRequest
             'name' => 'required|string|unique:users,name',
             'email' => ['nullable', 'email:rfc,dns', 'unique:users,email'],
             'nomor_induk' => 'required|string|min:8|unique:users,nomor_induk|regex:/^[0-9\/.\-]+$/',
-            'ttl' => 'required',
+            'ttl' => 'required|max:40',
             'institusi' => 'required|string|max:60',
             // certificate
             'bidang' => 'required|string|max:80',
@@ -54,6 +54,7 @@ class CertificateStoreRequest extends FormRequest
             'email.email' => 'email harus berformat email',
             'email.unique' => 'email sudah di gunakan',
             'ttl.required' => 'ttl harus di isi',
+            'ttl.max' => 'tempat tanggal lahir maksimal max:',
             'institusi.required' => 'institusi harus di isi',
             'nomor_induk.required' => 'nomor induk harus di isi',
             'nomor_induk.min' => 'nomor induk minimal :min',
