@@ -16202,3 +16202,15 @@ fieldset:disabled .btn {
 .bru {
     background-color: #1689D3;
 }
+
+@media (max-width: 575px) {
+    .justify-kcl-center {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 767px) {
+    .pk-0 {
+        padding-right: 0;
+    }
+}

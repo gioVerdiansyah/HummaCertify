@@ -7,9 +7,9 @@
     <div class="tambah-container-body">
       <div class="card-body">
         <div class="action-atas row justify-content-between">
-          <div class="row col-12 col-md-7">
+          <div class="row col-12 col-md-7 pk-0">
             {{-- Category Select --}}
-            <div class="col-md-6 col-12 mb-2 col-lg-4">
+            <div class="col-md-6 col-12 mb-2 col-lg-4 pk-0">
               <select name="category" class="form-select" id="categorySelect">
                 <option selected>Semua</option>
                 @foreach ($categories as $category)
@@ -20,7 +20,7 @@
               </select>
             </div>
             {{-- Print Status (nonPrint/hasPrint) --}}
-            <div class="col-md-6 col-12 mb-2 col-lg-4">
+            <div class="col-md-6 col-12 mb-2 col-lg-4 pk-0">
               <select name="print" class="form-select" id="printSelect">
                 <option value="nonPrint" {{ request('print') == 'nonPrint' ? 'selected' : '' }}>belum di print</option>
                 <option value="hasPrint" {{ request('print') == 'hasPrint' ? 'selected' : '' }}>sudah di print</option>
@@ -35,9 +35,9 @@
               </div>
             @endif
           </div>
-          <div class="row col-12 col-md-5">
+          <div class="row col-12 col-md-5 pk-0">
             {{-- Form Search --}}
-            <div class="col-12 mb-3">
+            <div class="col-12 mb-3 pk-0">
               <form action="" method="GET" class="d-flex align-items-center gap-3"
                 onsubmit="document.getElementById('loading').style.display = 'flex';event.preventDefault();var currentUrl = window.location.href;if (currentUrl.includes('ct=')) {window.location.href = currentUrl + '&q=' + document.getElementsByName('q')[0].value;}else{this.submit();}">
                 <div class="input-group">
