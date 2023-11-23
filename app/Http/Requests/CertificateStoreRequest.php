@@ -26,7 +26,7 @@ class CertificateStoreRequest extends FormRequest
             'name' => 'required|string|unique:users,name',
             'email' => ['nullable', 'email:rfc,dns', 'unique:users,email'],
             'nomor_induk' => 'required|string|min:8|unique:users,nomor_induk|regex:/^[0-9\/.\-]+$/',
-            'ttl' => 'required|max:40',
+            'ttl' => 'required|max:100',
             'institusi' => 'required|string|max:60',
             // certificate
             'bidang' => 'required|string|max:80',

@@ -46,7 +46,7 @@ class CertificateUpdateRequest extends FormRequest
                 'min:8',
                 'regex:/^[0-9]+$/',
             ],
-            'ttl' => 'required|max:40',
+            'ttl' => 'required|max:100',
             'institusi' => 'required|string|max:60',
             // certificate
             'bidang' => 'required|string|max:80',
