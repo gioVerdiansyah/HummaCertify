@@ -1,6 +1,8 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-layout="vertical" data-sidebar="light" data-sidebar-size="sm-hover" data-sidebar-image="none" data-preloader="enable" data-bs-theme="light" data-layout-width="fluid" data-layout-position="scrollable"
-  data-layout-style="default" data-topbar="light" data-sidebar-visibility="show">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-layout="vertical" data-sidebar="light"
+  data-sidebar-size="sm-hover" data-sidebar-image="none" data-preloader="enable" data-bs-theme="light"
+  data-layout-width="fluid" data-layout-position="scrollable" data-layout-style="default" data-topbar="light"
+  data-sidebar-visibility="show">
 
 <head>
   <meta charset="utf-8">
@@ -13,12 +15,15 @@
   <link rel="dns-prefetch" href="//fonts.bunny.net">
   <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
   {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> --}}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js" integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"
+    integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <!-- Scripts -->
   @vite(['resources/sass/app.scss', 'resources/js/app.js'])
   {{-- IMPORT FONT --}}
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather:wght@400;700&family=Montserrat:wght@400;500;700&family=Open+Sans:wght@700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather:wght@400;700&family=Montserrat:wght@400;500;700&family=Open+Sans:wght@700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
 
   {{-- IMPORT CSS --}}
@@ -131,7 +136,8 @@
               </a>
             </div>
 
-            <button type="button" class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger" id="topnav-hamburger-icon">
+            <button type="button" class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger"
+              id="topnav-hamburger-icon">
               <span class="hamburger-icon">
                 <span></span>
                 <span></span>
@@ -142,15 +148,19 @@
           <div class="d-flex align-items-center">
 
             <div class="dropdown topbar-head-dropdown ms-1 header-item" id="notificationDropdown">
-              <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
+              <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle"
+                id="page-header-notifications-dropdown" data-bs-toggle="dropdown" data-bs-auto-close="outside"
+                aria-haspopup="true" aria-expanded="false">
                 <i class='bx bx-bell fs-22'></i>
                 @if ($notificationCount > 0)
-                  <span id="unread" class="position-absolute topbar-badge fs-10 translate-middle badge rounded-pill bg-danger">
+                  <span id="unread"
+                    class="position-absolute topbar-badge fs-10 translate-middle badge rounded-pill bg-danger">
                     {{ $notificationCount > 9 ? '9+' : $notificationCount }}
                   </span>
                 @endif
               </button>
-              <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-notifications-dropdown">
+              <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                aria-labelledby="page-header-notifications-dropdown">
 
                 <div class="dropdown-head bru rounded-top">
                   <div class="p-3">
@@ -164,9 +174,11 @@
                   </div>
 
                   <div class="px-2 pt-2">
-                    <ul class="nav nav-tabs dropdown-tabs nav-tabs-custom" data-dropdown-tabs="true" id="notificationItemsTab" role="tablist">
+                    <ul class="nav nav-tabs dropdown-tabs nav-tabs-custom" data-dropdown-tabs="true"
+                      id="notificationItemsTab" role="tablist">
                       <li class="nav-item waves-effect waves-light">
-                        <a class="nav-link active" data-bs-toggle="tab" href="#all-noti-tab" role="tab" aria-selected="true">
+                        <a class="nav-link active" data-bs-toggle="tab" href="#all-noti-tab" role="tab"
+                          aria-selected="true">
                           All
                         </a>
                       </li>
@@ -175,17 +187,20 @@
 
                 </div>
 
-                <div class="tab-content position-relative notificationContainer" style="max-height: 300px; overflow: auto" id="notificationItemsTabContent">
+                <div class="tab-content position-relative notificationContainer"
+                  style="max-height: 300px; overflow: auto" id="notificationItemsTabContent">
                   @forelse ($notification as $i => $data)
                     {{-- Foreach notif mulai dari sini --}}
-                    <div class="tab-pane fade show active py-2 ps-2" id="row-notif-{{ ++$i }}" role="tabpanel">
+                    <div class="tab-pane fade show active py-2 ps-2" id="row-notif-{{ ++$i }}"
+                      role="tabpanel">
                       <div data-simplebar style="max-height: 300px;" class="pe-2">
                         <div class="text-reset notification-item d-block dropdown-item position-relative">
                           <div class="d-flex">
                             <div class="flex-grow-1">
                               <h6 class="mt-0 mb-1 fs-13 fw-semibold">{{ $data->name }} | {{ $data->email }}</h6>
-                              @if (strlen($data->message) > 50)
-                                <div class="fs-13 text-muted" style="cursor: pointer; width: 230px;" data-bs-toggle="modal" data-bs-target="#notifmodal-{{ $data->id }}">
+                              @if (strlen($data->message) > 159)
+                                <div class="fs-13 text-muted" style="cursor: pointer; width: 230px;"
+                                  data-bs-toggle="modal" data-bs-target="#notifmodal-{{ $data->id }}">
                                   <p class="mb-1 custom-ellipsis" style="max-height: 120px; overflow: hidden;">
                                     {{ $data->message }}</p>
                                 </div>
@@ -196,7 +211,8 @@
                                 </div>
                               @endif
                               <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
-                                <span><i class="mdi mdi-clock-outline"></i><span id="timeAgo-{{ $data->id }}">{{ $data->created_at->diffForHumans() }}</span></span>
+                                <span><i class="mdi mdi-clock-outline"></i><span
+                                    id="timeAgo-{{ $data->id }}">{{ $data->created_at->diffForHumans() }}</span></span>
                                 <script>
                                   setInterval(function() {
                                     updateTimeAgo("{{ $data->created_at }}", "timeAgo-{{ $data->id }}");
@@ -205,8 +221,12 @@
                               </p>
                             </div>
                             <div class="px-2 fs-15">
-                              <div class="form-check notification-check d-flex justify-content-center align-items-center" style="">
-                                <button class="btn btn-sm" onclick="deleteNotif({{ $i }}, {{ $data->id }});" style="font-size: 25px; position: absolute; top: -10px; right: -20px; color: #878A99"><i
+                              <div
+                                class="form-check notification-check d-flex justify-content-center align-items-center"
+                                style="">
+                                <button class="btn btn-sm"
+                                  onclick="deleteNotif({{ $i }}, {{ $data->id }});"
+                                  style="font-size: 25px; position: absolute; top: -10px; right: -20px; color: #878A99"><i
                                     class="fi fi-sr-cross-small"></i></button>
                               </div>
                             </div>
@@ -215,17 +235,26 @@
                       </div>
                     </div>
                   @empty
-                    {{-- Ini jika tidak ada chatnya --}}
-                    <div class="tab-pane fade show active p-4" id="all-noti-tab" role="tabpanel" aria-labelledby="alerts-tab">
+                    <div class="p-4">
+                      <div class="empty-notification-elem">
+                        <div class="w-25 w-sm-50 pt-3 mx-auto">
+                          <img src="{{ asset('/assets/images/svg/bell.svg') }}" class="img-fluid" alt="user-pic">
+                        </div>
+                        <div class="text-center pb-5 mt-2">
+                          <h6 class="fs-18 fw-semibold lh-base">Hey! You have no any notifications </h6>
+                        </div>
+                      </div>
                     </div>
                   @endforelse
                 </div>
               </div>
             </div>
             <div class="dropdown ms-sm-3 header-item topbar-user">
-              <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
                 <span class="d-flex align-items-center">
-                  <img class="rounded-circle header-profile-user" src="{{ asset('image/Hummatech logok.png') }}" alt="Header Avatar">
+                  <img class="rounded-circle header-profile-user" src="{{ asset('image/Hummatech logok.png') }}"
+                    alt="Header Avatar">
                   <span class="text-start ms-xl-2">
                     <span class="d-none d-xl-inline-block ms-1 fw-semibold user-name-text">Hummatech</span>
                     <span class="d-none d-xl-block ms-1 fs-12 user-name-sub-text">Certificate App</span>
@@ -236,7 +265,8 @@
 
                 <form id="logout-form" class="m-0" action="{{ route('admin.logout') }}" method="POST">
                   @csrf
-                  <button type="submit" class="dropdown-item"><i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> Logout </button>
+                  <button type="submit" class="dropdown-item"><i
+                      class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> Logout </button>
                 </form>
               </div>
             </div>
@@ -252,7 +282,8 @@
         <!-- Dark Logo-->
         <a href="{{ route('admin.home') }}" class="logo logo-dark">
           <span class="logo-sm">
-            <img src="{{ asset('image/Hummatech logo.png') }}" alt="" height="40" style="margin-left: -6px">
+            <img src="{{ asset('image/Hummatech logo.png') }}" alt="" height="40"
+              style="margin-left: -6px">
           </span>
           <span class="logo-lg">
             <img src="{{ asset('image/Hummacertify text.png') }}" alt="" class="me-2" height="25">
@@ -273,17 +304,22 @@
       <div id="scrollbar">
         <div class="container-fluid">
           <ul class="navbar-nav" id="navbar-nav">
-            <li class="menu-title"><i class="ri-more-fill" aria-expanded="false"></i> <span data-key="t-pages">Admin</span></li>
-            <a class="nav-link menu-link {{ request()->routeIs('admin.home') ? 'active' : '' }}" href="{{ route('admin.home') }}">
+            <li class="menu-title"><i class="ri-more-fill" aria-expanded="false"></i> <span
+                data-key="t-pages">Admin</span></li>
+            <a class="nav-link menu-link {{ request()->routeIs('admin.home') ? 'active' : '' }}"
+              href="{{ route('admin.home') }}">
               <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Dashboard</span>
             </a>
-            <a class="nav-link menu-link {{ request()->routeIs('certificate.index') ? 'active' : '' }}" href="{{ route('certificate.index') }}">
+            <a class="nav-link menu-link {{ request()->routeIs('certificate.index') ? 'active' : '' }}"
+              href="{{ route('certificate.index') }}">
               <i class="ri-pages-line"></i> <span data-key="t-pages">List Sertifikat</span>
             </a>
-            <a class="nav-link menu-link {{ request()->routeIs('certificate.create') || request()->routeIs('certificate.create_exist') ? 'active' : '' }}" href="{{ route('certificate.create') }}">
+            <a class="nav-link menu-link {{ request()->routeIs('certificate.create') || request()->routeIs('certificate.create_exist') ? 'active' : '' }}"
+              href="{{ route('certificate.create') }}">
               <i class="ri-file-list-3-line"></i> <span data-key="t-forms">Tambah Sertifikatt</span>
             </a>
-            <a class="nav-link menu-link {{ request()->routeIs('category.index') || request()->routeIs('category.create') ? 'active' : '' }}" href="{{ route('category.index') }}">
+            <a class="nav-link menu-link {{ request()->routeIs('category.index') || request()->routeIs('category.create') ? 'active' : '' }}"
+              href="{{ route('category.index') }}">
               <i class="ri-apps-2-line"></i> <span data-key="t-apps">Kategori Sertifikat</span>
             </a>
           </ul>
@@ -336,12 +372,14 @@
   </button>
   <!--end back-to-top-->
   @forelse ($notification as $data)
-    @if (strlen($data->message) > 50)
-      <div id="notifmodal-{{ $data->id }}" class="modal fade notifmodal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    @if (strlen($data->message) > 159)
+      <div id="notifmodal-{{ $data->id }}" class="modal fade notifmodal" tabindex="-1"
+        aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
-              <button type="button" class="btn-close" onclick="$('#notifmodal-{{ $data->id }}').modal('hide');" aria-label="Close"> </button>
+              <button type="button" class="btn-close" onclick="$('#notifmodal-{{ $data->id }}').modal('hide');"
+                aria-label="Close"> </button>
             </div>
             <div class="modal-body">
               <div class="detail">
@@ -361,7 +399,8 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-light" onclick="$('#notifmodal-{{ $data->id }}').modal('hide');">Close</button>
+              <button type="button" class="btn btn-light"
+                onclick="$('#notifmodal-{{ $data->id }}').modal('hide');">Close</button>
             </div>
           </div>
         </div>
