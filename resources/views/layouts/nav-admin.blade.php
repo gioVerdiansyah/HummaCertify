@@ -272,6 +272,8 @@
 
       <div id="scrollbar">
         <div class="container-fluid">
+          <div id="two-column-menu">
+          </div>
           <ul class="navbar-nav" id="navbar-nav">
             <li class="menu-title"><i class="ri-more-fill" aria-expanded="false"></i> <span data-key="t-pages">Admin</span></li>
             <a class="nav-link menu-link {{ request()->routeIs('admin.home') ? 'active' : '' }}" href="{{ route('admin.home') }}">
