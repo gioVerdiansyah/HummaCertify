@@ -147,7 +147,7 @@
       .depan .content .nilai {
         position: absolute;
         top: 578px;
-        left: 510px;
+        left: 511px;
         width: 100px;
         height: 70px;
         display: flex;

@@ -15,8 +15,12 @@
   <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
   {{-- FONT SIZE --}}
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather:wght@400;700&family=Open+Sans:wght@700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather:wght@400;700&family=Open+Sans:wght@700&family=Poppins:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
 
   {{-- css certificate --}}
   <link rel="stylesheet" href="{{ asset('css/certificate/kompetensi.css') }}">
@@ -67,9 +71,15 @@
               Oleh</p>
             <p class="pt">PT Hummatech Digital Indonesia</p>
           </div>
-          <div class="nilai">
-            <p>{{ $certificate->predikat }}</p>
-          </div>
+          @if ($certificate->predikat === 'Sangat Baik')
+            <div class="nilai" style="top: 579px; line-height: 22px">
+              <p>{{ $certificate->predikat }}</p>
+            </div>
+          @else
+            <div class="nilai">
+              <p>{{ $certificate->predikat }}</p>
+            </div>
+          @endif
         </div>
       </div>
       {{-- Belakang --}}
