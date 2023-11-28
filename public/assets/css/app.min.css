@@ -576,10 +576,10 @@
 
 .navbar-menu .navbar-nav .nav-link.active {
     color: var(--vz-vertical-menu-item-active-color);
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
-    border-left: 3px solid transparent; /* Atur ketebalan dan warna dasar (dalam hal ini transparan) */
-    border-image: linear-gradient(45deg, rgba(0, 177, 240, 1), rgba(44, 94, 180, 1)); /* Isi dengan gradien Anda */
-    border-image-slice: 1; /* Potong gambar sesuai ukuran border */
+    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+    border-left: 3px solid transparent; */
+    border-image: linear-gradient(45deg, rgba(0, 177, 240, 1), rgba(44, 94, 180, 1));
+    /* border-image-slice: 1; */
 }
 
 .navbar-menu .navbar-nav .nav-link:hover {
@@ -898,7 +898,7 @@
 }
 
 :is([data-layout=vertical], [data-layout=semibox])[data-sidebar-size=sm-hover] .navbar-menu .navbar-nav .nav-link i {
-    font-size: 22px
+    font-size: 23px;
 }
 
 :is([data-layout=vertical], [data-layout=semibox])[data-sidebar-size=sm-hover] .navbar-menu .navbar-nav .nav-link i.lab,
@@ -1007,7 +1007,6 @@
 }
 
 :is([data-layout=vertical], [data-layout=semibox])[data-sidebar-size=sm] .navbar-brand-box {
-    padding: 0;
     width: var(--vz-vertical-menu-width-sm);
     z-index: 1;
     top: 0;

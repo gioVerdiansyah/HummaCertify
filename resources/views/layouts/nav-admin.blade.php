@@ -318,7 +318,7 @@
             </a>
             <a class="nav-link menu-link {{ request()->routeIs('certificate.create') || request()->routeIs('certificate.create_exist') ? 'active' : '' }}"
               href="{{ route('certificate.create') }}">
-              <i class="ri-file-list-3-line"></i> <span data-key="t-forms">Tambah Sertifikatt</span>
+              <i class="ri-file-list-3-line"></i> <span data-key="t-forms">Tambah Sertifikat</span>
             </a>
             <a class="nav-link menu-link {{ request()->routeIs('category.index') || request()->routeIs('category.create') ? 'active' : '' }}"
               href="{{ route('category.index') }}">
