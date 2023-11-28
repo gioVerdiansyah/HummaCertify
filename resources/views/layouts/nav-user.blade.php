@@ -8,8 +8,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta http-equiv="content-type" content="text/html;charset=utf-8">
   <meta name="description" content="HummaCertify, pecetakan sertifikat untuk perusahaan HummaTech">
-	<meta name="keywords" content="hummacertify">
+  <meta name="keywords" content="hummacertify">
   <meta name="author" content="Tim HummaCertify">
+  <meta name="google-site-verification" content="WdbpK_OrpxHeWkYEQ-HzTW3rWGTYj_uC3RpaOLrqGOM" />
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
