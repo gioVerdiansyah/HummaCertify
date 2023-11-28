@@ -102,7 +102,7 @@
                   @foreach ($certificate->detailCertificates as $i => $detailCertificate)
                     <tr>
                       <th>{{ ++$i }}.</th>
-                      <td style="padding: 0px;">{{ $detailCertificate->materi }}</td>
+                      <td style="padding: 0px 5px; text-align: start;">{{ $detailCertificate->materi }}</td>
                       <td>{{ $detailCertificate->jp }} JP</td>
                     </tr>
                     @php

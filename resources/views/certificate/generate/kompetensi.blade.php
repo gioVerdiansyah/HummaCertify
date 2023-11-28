@@ -195,7 +195,7 @@
 
       .belakang .content .table-materi {
         position: relative;
-        top: 106px;
+        top: 120px;
         left: 200px;
         width: 100%;
       }
