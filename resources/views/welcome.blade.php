@@ -164,12 +164,9 @@
         </div>
         <div class="gallery">
           <div class="gallery-container">
-            <img class="gallery-item gallery-item-1" src="{{ asset('image/gallery-1.png') }}" data-index="1"
-              alt="gallery1">
-            <img class="gallery-item gallery-item-2" src="{{ asset('image/gallery-2.png') }}" data-index="2"
-              alt="gallery2">
-            <img class="gallery-item gallery-item-3" src="{{ asset('image/gallery-3.png') }}" data-index="3"
-              alt="gallery3">
+            <img class="gallery-item gallery-item-1" src="{{ asset('image/gallery-1.png') }}" data-index="1" alt="gallery1">
+            <img class="gallery-item gallery-item-2" src="{{ asset('image/gallery-2.png') }}" data-index="2" alt="gallery2">
+            <img class="gallery-item gallery-item-3" src="{{ asset('image/gallery-3.png') }}" data-index="3" alt="gallery3">
           </div>
           <div class="gallery-controls">
           </div>
@@ -183,9 +180,7 @@
       <div class="row justify-content-center mb-4">
         <div class="col-lg-7 text-center">
           <h2 class="fw-bold text-gradient mb-3">Lulusan Magang Hummatech</h2>
-          <p class="text-muted text-panjang">Berikut contoh lulusan siswa magang kami yang telah meraih sertifikat
-            sebagai pengakuan
-            atas dedikasi dan prestasi luar biasa mereka</p>
+          <p class="text-muted text-panjang">Berikut contoh lulusan siswa magang kami yang telah meraih sertifikat sebagai pengakuan atas dedikasi dan prestasi luar biasa mereka</p>
         </div>
       </div>
       <div class="container container-lulus">
@@ -597,9 +592,22 @@
 
       useControls() {
         const triggers = [...galleryControlsContainer.childNodes];
+        let debounce = false;
+        
         triggers.forEach(control => {
           control.addEventListener('click', (e) => {
             e.preventDefault();
+
+            if (debounce) {
+              return;
+            }
+
+            debounce = true;
+
+            setTimeout(() => {
+              debounce = false;
+            }, 400);
+
             this.setCurrentState(control);
           });
         });

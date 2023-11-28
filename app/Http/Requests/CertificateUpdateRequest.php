@@ -61,4 +61,28 @@ class CertificateUpdateRequest extends FormRequest
             'category-group.*.jam_pelajaran' => 'required|numeric|gt:1|max:4000|regex:/^[0-9]+$/',
         ];
     }
+
+    public function message(): array
+    {
+        return [
+            'name.required' => 'nama harus di isi woi',
+            'name.string' => 'nama harus berupa huruf bukan angka',
+            'email.email' => 'format email harus benar',
+            'nomor_induk.required' => 'nomor induk harus di isi',
+            'nomor_induk.string' => 'nomor induk harus huruf bukan angka',
+            'nomor_induk.min' => 'nomor induk minimal 8',
+            'nomor_induk.regex' => 'nomor induk harus valid',
+            'ttl.required' => 'tempat tanggal lahir harus di isi',
+            'ttl.max' => 'tempat tanggal lahir maksimal max:',
+            'institusi.required' => 'institusi harus di isi',
+            'institusi.string' => 'institusi harus huruf bukan angka',
+            'institusi.max' => 'institusi maksimal max:',
+            'bidang.required' => 'bidang harus di isi',
+            'bidang.max' => 'bidang maksimal max:',
+            'tanggal.required' => 'tanggal harus di isi',
+            'tanggal.date' => 'tanggal harus valid',
+            'sub_bidang.max' => 'sub bidang maksimal max:',
+
+        ];
+    }
 }

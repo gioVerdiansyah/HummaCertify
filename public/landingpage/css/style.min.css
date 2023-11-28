@@ -410,9 +410,9 @@ h6 {
     }
 
     #style-switcher {
-    position: relative!important;
-    left: 50%;
-    transform: translate(330%, 0);
+        position: relative !important;
+        left: 50%;
+        transform: translate(330%, 0);
     }
 }
 
@@ -1800,7 +1800,10 @@ h6 {
 }
 
 .hero-6 {
-    padding: 75px 0 120px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .hero-6 .hero-6-title {

@@ -78,10 +78,10 @@
                 <!-- end form -->
               </div>
             </div>
-          </div>
-          <div class="text-center mt-4 bottom-text">
-            <p>Berubah Pikiran? <a href="/login" class="font-weight-semibold text-biru"> Kembali
-              </a> </p>
+            <div class="text-center mt-4 bottom-text">
+              <p>Berubah Pikiran? <a href="/login" class="font-weight-semibold text-biru"> Kembali
+                </a> </p>
+            </div>
           </div>
         </div>
       @else
