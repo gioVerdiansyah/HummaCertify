@@ -2489,6 +2489,12 @@ h6 {
     border: none;
 }
 
+.searchBox>.searchButton:hover {
+    background: #00b1ef;
+    color: white;
+    border: none;
+}
+
 .searchButton {
     color: white;
     float: right;

@@ -24,6 +24,12 @@
       border-radius: 15px;
     }
 
+    .btn-biru:active {
+      color: #0A7DB4 !important;
+      border-color: #0A7DB4 !important;
+      background: transparent !important;
+    }
+
     .btn-biru:hover {
       background: #eeeeee;    
       color: #0A7DB4;
