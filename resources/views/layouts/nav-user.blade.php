@@ -4,8 +4,12 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
   <meta name="description" content="HummaCertify, pecetakan sertifikat untuk perusahaan HummaTech">
+	<meta name="keywords" content="hummacertify">
+  <meta name="author" content="Tim HummaCertify">
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -30,6 +34,19 @@
   <link href="{{ asset('landingpage/css/style.min.css') }}" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
+  <!-- Open Graph Protocol for better sharing on social media -->
+  <meta property="og:title" content="HummaCertify" />
+  <meta property="og:description" content="HummaCertify, pecetakan sertifikat untuk perusahaan HummaTech" />
+  <meta property="og:image" content="{{ asset('landingpage/images/image1.png') }}" />
+  <meta property="og:url" content="https://sertifikat.hummatech.com/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card for Twitter sharing -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="HummaCertify">
+  <meta name="twitter:description" content="HummaCertify, pecetakan sertifikat untuk perusahaan HummaTech">
+  <meta name="twitter:image" content="{{ asset('landingpage/images/image1.png') }}">
+
   <!-- Favicon -->
   <link rel="shortcut icon" href="{{ asset('image/Hummatech logo.png') }}" type="image/x-icon">
 
@@ -44,6 +61,9 @@
   <!-- CDN ICON -->
   <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
   <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+
+  <!-- Your additional meta tags for SEO -->
+  <!-- Include the meta tags for SEO here -->
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="20">
