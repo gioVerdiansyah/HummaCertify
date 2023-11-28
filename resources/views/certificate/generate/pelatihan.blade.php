@@ -107,9 +107,10 @@
 
       .depan .content .ttl {
         position: absolute;
-        top: 381px;
+        top: 387px;
         left: 385px;
         letter-spacing: 0px;
+        line-height: 14px;
         font-weight: 500;
         font-family: "Montserrat", sans-serif;
       }
