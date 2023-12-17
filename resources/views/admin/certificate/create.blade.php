@@ -57,7 +57,7 @@
                   class="form-control @error('ttl') is-invalid
                                 @enderror"
                   placeholder="Tempat dan tanggal lahir peserta" name="ttl" id="ttl"
-                  value="{{ old('ttl') }}" required>
+                  value="{{ old('ttl') }}">
                 @error('ttl')
                   <div class="invalid-feedback">
                     <p>{{ $message }}</p>
@@ -194,7 +194,7 @@
                               <label for="unknown" class="form-label">Materi</label>
                               <input required type="text"
                                 class="form-control @error('category-group.' . $i . '.materi') is-invalid @enderror"
-                                placeholder="materi" name="materi" value="{{ $category['materi'] }}" required>
+                                placeholder="materi" name="materi" value="{{ $category['materi'] }}">
                               @error('category-group.' . $i . '.materi')
                                 <div class="invalid-feedback">
                                   <p>{{ $message }}</p>
@@ -209,7 +209,7 @@
                                     <input required type="number" name="jam_pelajaran"
                                       class="form-control @error('category-group.' . $i . '.jam_pelajaran') is-invalid @enderror"
                                       id="jamPelajaran" placeholder="Jam Pelajaran"
-                                      value="{{ $category['jam_pelajaran'] }}" required>
+                                      value="{{ $category['jam_pelajaran'] }}">
                                   @error('category-group.' . $i++ . '.jam_pelajaran')
                                     <div class="invalid-feedback">
                                       <p>{{ $message }}</p>

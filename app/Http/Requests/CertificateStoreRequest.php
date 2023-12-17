@@ -26,7 +26,7 @@ class CertificateStoreRequest extends FormRequest
             'name' => 'required|string|unique:users,name',
             'email' => ['nullable', 'email:rfc,dns', 'unique:users,email'],
             'nomor_induk' => 'required|string|min:8|unique:users,nomor_induk|regex:/^[0-9\/.\-]+$/',
-            'ttl' => 'required|max:100',
+            'ttl' => 'nullable|max:100',
             'institusi' => 'required|string|max:60',
             // certificate
             'bidang' => 'required|string|max:80',
@@ -36,9 +36,8 @@ class CertificateStoreRequest extends FormRequest
             'predikat' => 'required|in:Sangat Baik,Baik,Cukup,Kurang',
             'instruktur' => 'required|max:50',
             // detail
-            'category-group' => 'required',
-            'category-group.*.materi' => 'required|string|max:85',
-            'category-group.*.jam_pelajaran' => 'required|numeric|gt:1|max:4000',
+            'category-group.*.materi' => 'nullable|string|max:85',
+            'category-group.*.jam_pelajaran' => 'nullable|numeric|gt:1|max:4000',
 
         ];
     }
