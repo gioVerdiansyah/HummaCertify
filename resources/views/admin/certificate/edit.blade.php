@@ -59,7 +59,7 @@
                   class="form-control @error('ttl') is-invalid
                                 @enderror"
                   placeholder="Tempat dan tanggal lahir peserta" name="ttl" id="ttl"
-                  value="{{ old('ttl', $certificate->user->ttl) }}" required>
+                  value="{{ old('ttl', $certificate->user->ttl) }}">
                 @error('ttl')
                   <div class="invalid-feedback">
                     <p>{{ $message }}</p>
@@ -202,7 +202,7 @@
                                 <input type="text"
                                   class="form-control @error('materi') is-invalid
                                                         @enderror"
-                                  placeholder="materi" name="materi" value="{{ $detail->materi }}" required>
+                                  placeholder="materi" name="materi" value="{{ $detail->materi }}">
                                 @error('materi')
                                   <div class="invalid-feedback">
                                     <p>{{ $message }}</p>
@@ -218,7 +218,7 @@
                                       class="form-control @error('jam_pelajaran') is-invalid
                                                             @enderror"name="jam_pelajaran"
                                       id="jamPelajaran" placeholder="Jam Pelajaran" value="{{ $detail->jp }}"
-                                      required>
+                                    >
                                     @error('jam_pelajaran')
                                       <div class="invalid-feedback">
                                         <p>{{ $message }}</p>
@@ -242,9 +242,9 @@
                             <div class="d-flex flex-row">
                               <div class="col-6 mb-4 pe-3">
                                 <label for="unknown" class="form-label">Materi</label>
-                                <input required type="text"
+                                <input type="text"
                                   class="form-control @error('category-group.' . $i . '.materi') is-invalid @enderror"
-                                  placeholder="materi" name="materi" value="{{ $category['materi'] }}" required>
+                                  placeholder="materi" name="materi" value="{{ $category['materi'] }}">
                                 @error('category-group.' . $i . '.materi')
                                   <div class="invalid-feedback">
                                     <p>{{ $message }}</p>
@@ -256,11 +256,11 @@
                                   Pelajaran</label>
                                 <div class="d-flex justify-content-between">
                                   <div style="width: 100%">
-                                    <input required type="number" name="jam_pelajaran"
+                                    <input type="number" name="jam_pelajaran"
                                       class="form-control @error('category-group.' . $i . '.jam_pelajaran') is-invalid
                                                                                                       @enderror"
                                       id="jamPelajaran" placeholder="Jam Pelajaran"
-                                      value="{{ $category['jam_pelajaran'] }}" required>
+                                      value="{{ $category['jam_pelajaran'] }}">
                                     @error('category-group.' . $i++ . '.jam_pelajaran')
                                       <div class="invalid-feedback">
                                         <p>{{ $message }}</p>
@@ -268,7 +268,7 @@
                                     @enderror
                                   </div>
                                   <div>
-                                    <input required id="button-hapus-detail"
+                                    <input id="button-hapus-detail"
                                       class="btn btn-outline-danger waves-effect waves-light ms-3 d-flex justify-content-center align-items-center"
                                       data-repeater-delete type="button" value="Hapus" />
                                   </div>

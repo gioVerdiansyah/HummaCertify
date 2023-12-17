@@ -53,7 +53,7 @@
               </div>
               <div class="col-12 mb-4">
                 <label for="ttl" class="form-label">Tempat tanggal lahir</label>
-                <input required type="text"
+                <input type="text"
                   class="form-control @error('ttl') is-invalid
                                 @enderror"
                   placeholder="Tempat dan tanggal lahir peserta" name="ttl" id="ttl"
@@ -192,7 +192,7 @@
                           <div class="d-flex flex-row">
                             <div class="col-6 mb-4 pe-3">
                               <label for="unknown" class="form-label">Materi</label>
-                              <input required type="text"
+                              <input type="text"
                                 class="form-control @error('category-group.' . $i . '.materi') is-invalid @enderror"
                                 placeholder="materi" name="materi" value="{{ $category['materi'] }}">
                               @error('category-group.' . $i . '.materi')
@@ -206,7 +206,7 @@
                                 Pelajaran</label>
                               <div class="d-flex justify-content-between">
                                 <div style="width: 100%">
-                                    <input required type="number" name="jam_pelajaran"
+                                    <input type="number" name="jam_pelajaran"
                                       class="form-control @error('category-group.' . $i . '.jam_pelajaran') is-invalid @enderror"
                                       id="jamPelajaran" placeholder="Jam Pelajaran"
                                       value="{{ $category['jam_pelajaran'] }}">
@@ -217,7 +217,7 @@
                                   @enderror
                                 </div>
                                 <div>
-                                  <input required id="button-hapus-detail"
+                                  <input id="button-hapus-detail"
                                     class="btn btn-outline-danger waves-effect waves-light ms-3 d-flex justify-content-center align-items-center"
                                     data-repeater-delete type="button" value="Hapus" />
                                 </div>
@@ -232,16 +232,16 @@
                           <div class="d-flex flex-row">
                             <div class="col-6 mb-4 pe-3">
                               <label for="unknown" class="form-label">Materi</label>
-                              <input required type="text" class="form-control" placeholder="materi" name="materi"
-                                value="" required>
+                              <input type="text" class="form-control" placeholder="materi" name="materi"
+                                value="">
                             </div>
                             <div class="col-6 mb-4 ps-2">
                               <label for="unknown" class="form-label">Jam
                                 Pelajaran</label>
                               <div class="d-flex">
-                                <input required type="number" name="jam_pelajaran" class="form-control"
-                                  id="jamPelajaran" placeholder="Jam Pelajaran" required>
-                                <input required id="button-hapus-detail"
+                                <input type="number" name="jam_pelajaran" class="form-control"
+                                  id="jamPelajaran" placeholder="Jam Pelajaran">
+                                <input id="button-hapus-detail"
                                   class="btn btn-outline-danger waves-effect waves-light ms-3 d-flex justify-content-center align-items-center"
                                   data-repeater-delete type="button" value="Hapus" />
                               </div>
